@@ -2,7 +2,7 @@
 
 免安裝 挖工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://watoolio.web.app>（**v0.3**）
+- 網站：<https://watoolio.web.app>（**v0.4**）
 - Firebase 專案：`watoolio`
 
 ---
@@ -53,6 +53,18 @@ firebase hosting:disable --project watoolio
 
 > `firebase.json` 已設定 `public: "."`，`scripts/` 等建置用檔案不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`。
 
+### 讓手機載入最新 JS/CSS（快取刷新）
+
+全站靜態資源已加 **`?v=0.4`**（138 個 HTML）。手機一般重新整理即可，不必清快取。
+
+**之後每次改 JS/CSS，請依序：**
+
+1. 修改 `scripts/site-version.mjs` 與 `assets/js/main.js` 的 `WA_SITE_VERSION`（例如 `0.5`）
+2. 執行 `node scripts/stamp-asset-version.mjs`（自動更新所有 HTML 的 `?v=`）
+3. `firebase deploy --project watoolio`
+
+頁尾顯示 `v0.4` 代表版本已更新。`main.js` 動態載入的腳本也會自動帶相同版本號。
+
 ---
 
 ## SEO
@@ -64,6 +76,21 @@ firebase hosting:disable --project watoolio
 
 
 ## 版本更新
+
+### v0.4（2026-07-10）
+
+**全站**
+- JS/CSS 加 `?v=0.4` 快取刷新；HTML 不快取（`firebase.json`）
+- 全站嵌入 GA4 Analytics（`scripts/site-analytics.mjs`）
+- 工具／藏經卡片版面調整
+
+**世界旗幟**
+- 239 國旗幟、區域篩選、底部詳情、結構化國家說明
+- 首都 `中文(English)`、貨幣中文＋美金匯率、代碼併入中文名稱
+
+**建置腳本**
+- `stamp-asset-version.mjs`、`stamp-analytics.mjs`
+- `fetch-world-flags.mjs`、`enrich-world-flags-desc.mjs`
 
 ### v0.3（2026-07-10）
 

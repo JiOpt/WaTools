@@ -9,7 +9,12 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.3';
+  const WA_SITE_VERSION = '0.4';
+
+  function waAssetUrl(relativePath) {
+    const base = relativePath.split('?')[0];
+    return assetBase + base + '?v=' + WA_SITE_VERSION;
+  }
 
   function applySiteVersionFooter() {
     const footer = document.querySelector('#footer .copyright p');
@@ -18,6 +23,7 @@
   }
 
   window.WA_SITE_VERSION = WA_SITE_VERSION;
+  window.waAssetUrl = waAssetUrl;
   window.addEventListener('load', applySiteVersionFooter);
 
   function getAssetBase() {
@@ -33,7 +39,7 @@
    */
   if (document.querySelector('#header .branding')) {
     const fontSizeScript = document.createElement('script');
-    fontSizeScript.src = assetBase + 'assets/js/font-size-control.js';
+    fontSizeScript.src = waAssetUrl('assets/js/font-size-control.js');
     document.head.appendChild(fontSizeScript);
   }
 
@@ -42,8 +48,24 @@
    */
   if (document.querySelector('#header .branding')) {
     const navHistoryScript = document.createElement('script');
-    navHistoryScript.src = assetBase + 'assets/js/nav-history.js';
+    navHistoryScript.src = waAssetUrl('assets/js/nav-history.js');
     document.head.appendChild(navHistoryScript);
+  }
+
+  if (document.getElementById('tool-app')) {
+    const loadPager = () => {
+      const pagerScript = document.createElement('script');
+      pagerScript.src = waAssetUrl('assets/js/tool-category-pager.js');
+      document.body.appendChild(pagerScript);
+    };
+    if (window.WA_TOOLS_CATALOG) {
+      loadPager();
+    } else {
+      const catalogScript = document.createElement('script');
+      catalogScript.src = waAssetUrl('assets/js/tools-data.js');
+      catalogScript.onload = loadPager;
+      document.body.appendChild(catalogScript);
+    }
   }
 
   /**

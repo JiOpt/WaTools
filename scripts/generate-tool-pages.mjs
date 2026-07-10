@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { WA_SITE_VERSION, stampAssetUrl } from './site-version.mjs';
+import { renderAnalyticsSnippet } from './site-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -24,6 +26,7 @@ function escapeHtml(str) {
 }
 
 const FONT_SIZE_BOOT = `  <script>try{var s=localStorage.getItem('watools-font-size');document.documentElement.setAttribute('data-font-size',s==='sm'||s==='lg'?s:'md')}catch(e){document.documentElement.setAttribute('data-font-size','md')}</script>`;
+const A = (p) => stampAssetUrl(p, WA_SITE_VERSION);
 
 function renderPage({ title, subtitle, slug }) {
   return `<!DOCTYPE html>
@@ -31,17 +34,18 @@ function renderPage({ title, subtitle, slug }) {
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+${renderAnalyticsSnippet()}
 ${FONT_SIZE_BOOT}
   <title>${escapeHtml(title)} - WaTools</title>
   <meta name="description" content="${escapeHtml(subtitle)}">
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="${A('assets/img/favicon.png')}" rel="icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="${A('assets/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
+  <link href="${A('assets/vendor/bootstrap-icons/bootstrap-icons.css')}" rel="stylesheet">
+  <link href="${A('assets/vendor/aos/aos.css')}" rel="stylesheet">
+  <link href="${A('assets/css/main.css')}" rel="stylesheet">
 </head>
 <body class="tool-page">
   <header id="header" class="header sticky-top">
@@ -93,14 +97,14 @@ ${FONT_SIZE_BOOT}
   </footer>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/tool-ui.js"></script>
-  <script src="assets/js/tools-implementations-part1.js"></script>
-  <script src="assets/js/tools-implementations-part2.js"></script>
-  <script src="assets/js/tools-implementations-part3.js"></script>
-  <script src="assets/js/tool-runner.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="${A('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}"></script>
+  <script src="${A('assets/vendor/aos/aos.js')}"></script>
+  <script src="${A('assets/js/tool-ui.js')}"></script>
+  <script src="${A('assets/js/tools-implementations-part1.js')}"></script>
+  <script src="${A('assets/js/tools-implementations-part2.js')}"></script>
+  <script src="${A('assets/js/tools-implementations-part3.js')}"></script>
+  <script src="${A('assets/js/tool-runner.js')}"></script>
+  <script src="${A('assets/js/main.js')}"></script>
 </body>
 </html>`;
 }

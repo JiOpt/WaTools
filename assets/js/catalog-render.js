@@ -15,11 +15,13 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row gy-4">
             ${category.tools.map((tool) => `
-              <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <a href="${tool.slug}.html" class="tool-card tool-card-ready">
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
-                  <h3>${tool.title}</h3>
-                  <p>${tool.desc}</p>
+                  <div class="tool-card-body">
+                    <h3>${tool.title}</h3>
+                    <p>${tool.desc}</p>
+                  </div>
                   <span class="tool-badge">可用</span>
                 </a>
               </div>

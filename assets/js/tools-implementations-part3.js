@@ -769,9 +769,276 @@
 
   // ===== WORLD =====
   R['world-flags'] = function (app) {
-    mount(app, [UI.panel('世界旗幟', UI.tableFrom([{"country":"台灣","flag":"🇹🇼"},{"country":"日本","flag":"🇯🇵"},{"country":"美國","flag":"🇺🇸"},{"country":"英國","flag":"🇬🇧"},{"country":"法國","flag":"🇫🇷"},{"country":"德國","flag":"🇩🇪"},{"country":"中國","flag":"🇨🇳"},{"country":"韓國","flag":"🇰🇷"},{"country":"加拿大","flag":"🇨🇦"}], [
-      { key: 'flag', label: '旗幟' }, { key: 'country', label: '國家' },
-    ]))]);
+    const data = window.WA_WORLD_FLAGS;
+    if (!data || !data.regions || !data.regions.length) {
+      mount(app, [UI.panel('世界旗幟', UI.el('p', { className: 'text-muted' }, '旗幟資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    const total = data.regions.reduce((n, r) => n + r.countries.length, 0);
+    let selectedCard = null;
+
+    const detail = UI.el('div', { className: 'world-flags-dock', id: 'wf-detail', hidden: true }, [
+      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選國旗可查看說明。'),
+    ]);
+
+    function setDockOpen(open) {
+      detail.hidden = !open;
+      detail.classList.toggle('is-visible', open);
+      app.classList.toggle('world-flags-has-dock', open);
+    }
+
+    function renderTitle(country) {
+      const titleParts = [country.nameZh];
+      if (country.code) {
+        titleParts.push(UI.el('span', { className: 'world-flags-code-inline' }, country.code.toUpperCase()));
+      }
+      return UI.el('h4', { className: 'world-flags-dock-title' }, titleParts);
+    }
+
+    function renderNameLine(country) {
+      const parts = [];
+      if (country.nameEn && country.nameEn !== country.nameZh) {
+        parts.push(UI.el('span', { className: 'world-flags-dock-en' }, country.nameEn));
+      }
+      (country.natives || []).forEach((native) => {
+        if (parts.length) {
+          parts.push(UI.el('span', { className: 'world-flags-dock-sep', 'aria-hidden': 'true' }, '·'));
+        }
+        parts.push(UI.el('span', {
+          className: 'world-flags-dock-native',
+          lang: native.lang,
+          dir: native.rtl ? 'rtl' : undefined,
+          title: native.label || undefined,
+        }, native.name));
+      });
+      if (!parts.length) return null;
+      return UI.el('p', { className: 'world-flags-dock-names' }, parts);
+    }
+
+    function showDetail(country, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'world-flags-dock-inner' }, [
+          UI.el('div', { className: 'world-flags-dock-head' }, [
+            UI.el('img', {
+              className: 'world-flags-dock-img',
+              src: country.image,
+              alt: country.nameZh,
+              loading: 'lazy',
+            }),
+            UI.el('div', { className: 'world-flags-dock-head-text' }, [
+              renderTitle(country),
+              renderNameLine(country),
+            ]),
+            UI.el('button', {
+              type: 'button',
+              className: 'world-flags-dock-close',
+              title: '收合',
+              'aria-label': '收合詳情',
+              onClick: () => {
+                if (selectedCard) selectedCard.classList.remove('is-selected');
+                selectedCard = null;
+                setDockOpen(false);
+              },
+            }, '×'),
+          ]),
+          country.desc
+            ? UI.el('div', { className: 'world-flags-dock-body' }, [
+                UI.el('p', { className: 'world-flags-dock-desc' }, country.desc),
+              ])
+            : null,
+        ])
+      );
+      const body = detail.querySelector('.world-flags-dock-body');
+      if (body) body.scrollTop = 0;
+      setDockOpen(true);
+    }
+
+    function makeCard(country) {
+      return UI.el('button', {
+        type: 'button',
+        className: 'world-flags-card',
+        title: country.nameZh,
+        dataset: {
+          nameZh: country.nameZh,
+          nameEn: country.nameEn || '',
+          code: country.code || '',
+        },
+        onClick: (e) => showDetail(country, e.currentTarget),
+      }, [
+        UI.el('img', {
+          className: 'world-flags-img',
+          src: country.image,
+          alt: country.nameZh,
+          loading: 'lazy',
+          width: '81',
+          height: '53',
+        }),
+        UI.el('span', { className: 'world-flags-name' }, [
+          country.nameZh,
+          country.code
+            ? UI.el('span', { className: 'world-flags-code-inline' }, country.code.toUpperCase())
+            : null,
+        ]),
+        country.nameEn && country.nameEn !== country.nameZh
+          ? UI.el('span', { className: 'world-flags-name-en' }, country.nameEn)
+          : null,
+      ]);
+    }
+
+    function makeRegionSection(region) {
+      const grid = UI.el('div', {
+        className: 'world-flags-grid',
+        id: `wf-region-${region.id}`,
+        dataset: { region: region.id },
+      }, region.countries.map(makeCard));
+
+      return UI.el('section', { className: 'world-flags-region' }, [
+        UI.el('h3', { className: 'world-flags-region-title' }, [
+          region.label,
+          UI.el('span', { className: 'world-flags-region-count' }, `${region.countries.length}`),
+        ]),
+        grid,
+      ]);
+    }
+
+    const search = UI.el('input', {
+      type: 'search',
+      className: 'form-control tool-input world-flags-search',
+      id: 'wf-search',
+      placeholder: '搜尋國家名稱（中文或英文）…',
+      autocomplete: 'off',
+    });
+
+    const nav = UI.el('div', { className: 'world-flags-nav' }, data.regions.map((region) =>
+      UI.el('a', {
+        className: 'world-flags-nav-link',
+        href: `#wf-region-${region.id}`,
+      }, `${region.label} (${region.countries.length})`)
+    ));
+
+    const introMeta = UI.el('p', {
+      className: 'text-muted world-flags-intro-meta',
+      id: 'wf-intro-meta',
+    }, `共 ${total} 個國家與地區`);
+
+    const searchMeta = UI.el('p', {
+      className: 'text-muted world-flags-search-meta',
+      id: 'wf-meta',
+      hidden: true,
+    }, '');
+
+    const regionToggle = UI.el('button', {
+      type: 'button',
+      className: 'world-flags-region-toggle',
+      id: 'wf-region-toggle',
+      title: '選擇洲別',
+      'aria-expanded': 'false',
+      'aria-controls': 'wf-nav',
+    }, '洲');
+
+    const searchRow = UI.el('div', { className: 'world-flags-toolbar-row' }, [search, regionToggle]);
+
+    const navWrap = UI.el('div', { className: 'world-flags-nav-wrap', id: 'wf-nav' }, [nav]);
+
+    const toolbar = UI.el('div', { className: 'world-flags-toolbar', id: 'wf-toolbar' }, [
+      introMeta,
+      searchRow,
+      searchMeta,
+      navWrap,
+    ]);
+
+    regionToggle.addEventListener('click', () => {
+      const open = toolbar.classList.toggle('is-nav-open');
+      regionToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const scrollSentinel = UI.el('div', {
+      className: 'world-flags-scroll-sentinel',
+      'aria-hidden': 'true',
+    });
+
+    const regionsWrap = UI.el('div', { className: 'world-flags-regions', id: 'wf-regions' },
+      data.regions.map(makeRegionSection)
+    );
+
+    function filterFlags() {
+      const q = search.value.trim().toLowerCase();
+      let visible = 0;
+      regionsWrap.querySelectorAll('.world-flags-region').forEach((section) => {
+        let regionVisible = 0;
+        section.querySelectorAll('.world-flags-card').forEach((card) => {
+          const zh = (card.dataset.nameZh || '').toLowerCase();
+          const en = (card.dataset.nameEn || '').toLowerCase();
+          const code = (card.dataset.code || '').toLowerCase();
+          const match = !q || zh.includes(q) || en.includes(q) || code.includes(q);
+          card.hidden = !match;
+          if (match) regionVisible += 1;
+        });
+        section.hidden = regionVisible === 0;
+        const countEl = section.querySelector('.world-flags-region-count');
+        if (countEl) countEl.textContent = String(regionVisible);
+        visible += regionVisible;
+      });
+      navWrap.hidden = !!q;
+      regionToggle.hidden = !!q;
+      if (searchMeta) {
+        if (q) {
+          searchMeta.hidden = false;
+          searchMeta.textContent = `找到 ${visible} 個符合「${search.value.trim()}」的結果`;
+        } else {
+          searchMeta.hidden = true;
+        }
+      }
+    }
+
+    search.addEventListener('input', filterFlags);
+
+    mount(app, [
+      UI.panel('世界旗幟', [
+        scrollSentinel,
+        toolbar,
+        regionsWrap,
+      ]),
+      detail,
+    ]);
+    app.classList.add('world-flags-app');
+
+    const stickyTop = () => {
+      const top = getComputedStyle(app).getPropertyValue('--wf-sticky-top').trim() || '72px';
+      return top;
+    };
+
+    const scrollObserver = new IntersectionObserver(([entry]) => {
+      const compact = !entry.isIntersecting;
+      toolbar.classList.toggle('is-compact', compact);
+      if (!compact) {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      }
+    }, {
+      root: null,
+      threshold: 0,
+      rootMargin: `-${stickyTop()} 0px 0px 0px`,
+    });
+    scrollObserver.observe(scrollSentinel);
+
+    const firstCard = regionsWrap.querySelector('.world-flags-card');
+    if (firstCard) {
+      const firstRegion = data.regions[0];
+      if (firstRegion && firstRegion.countries[0]) showDetail(firstRegion.countries[0], firstCard);
+    }
   };
 
   R['population'] = function (app) {

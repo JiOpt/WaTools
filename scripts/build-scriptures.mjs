@@ -3,6 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { enrichScriptureContent } from './scripture-enrich.mjs';
 import { renderSeoMeta } from './seo-meta.mjs';
+import { WA_SITE_VERSION, stampAssetUrl } from './site-version.mjs';
+import { renderAnalyticsSnippet } from './site-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -25,6 +27,10 @@ function scripturePageHref(slug) {
 
 function rootPageHref(page) {
   return `${ROOT_PREFIX}${page}`;
+}
+
+function rootAssetHref(relativePath) {
+  return stampAssetUrl(rootPageHref(relativePath), WA_SITE_VERSION);
 }
 const INLINE_MERGE_MODES = {
   daode: 'h4-single',
@@ -1011,6 +1017,7 @@ function renderScripturePage(book, mainContent, supplementsHtml, relatedHtml) {
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+${renderAnalyticsSnippet()}
 ${FONT_SIZE_BOOT}
   <title>${escapeHtml(book.title)} - 藏經閣 - WaTools</title>
 ${renderSeoMeta({
@@ -1020,14 +1027,14 @@ ${renderSeoMeta({
     type: 'article',
     keywords: `${book.title},藏經閣,國學,佛經,WaTools`,
   })}
-  <link href="${rootPageHref('assets/img/favicon.png')}" rel="icon">
+  <link href="${rootAssetHref('assets/img/favicon.png')}" rel="icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="${rootPageHref('assets/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
-  <link href="${rootPageHref('assets/vendor/bootstrap-icons/bootstrap-icons.css')}" rel="stylesheet">
-  <link href="${rootPageHref('assets/vendor/aos/aos.css')}" rel="stylesheet">
-  <link href="${rootPageHref('assets/css/main.css')}" rel="stylesheet">
+  <link href="${rootAssetHref('assets/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
+  <link href="${rootAssetHref('assets/vendor/bootstrap-icons/bootstrap-icons.css')}" rel="stylesheet">
+  <link href="${rootAssetHref('assets/vendor/aos/aos.css')}" rel="stylesheet">
+  <link href="${rootAssetHref('assets/css/main.css')}" rel="stylesheet">
 </head>
 <body class="tool-page scripture-page">
   <header id="header" class="header sticky-top">
@@ -1084,16 +1091,16 @@ ${renderSeoMeta({
   </main>
   <footer id="footer" class="footer light-background">
     <div class="container copyright text-center py-4">
-      <p>© <strong class="sitename">WaTools</strong> — 實用的小工具，剛好夠用就好。 · v0.3</p>
+      <p>© <strong class="sitename">WaTools</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
     </div>
   </footer>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
-  <script src="${rootPageHref('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}"></script>
-  <script src="${rootPageHref('assets/vendor/aos/aos.js')}"></script>
-  <script src="${rootPageHref('assets/js/main.js')}"></script>
-  <script src="${rootPageHref('assets/js/tools-data.js')}"></script>
-  <script src="${rootPageHref('assets/js/scriptures-catalog.js')}"></script>
+  <script src="${rootAssetHref('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}"></script>
+  <script src="${rootAssetHref('assets/vendor/aos/aos.js')}"></script>
+  <script src="${rootAssetHref('assets/js/main.js')}"></script>
+  <script src="${rootAssetHref('assets/js/tools-data.js')}"></script>
+  <script src="${rootAssetHref('assets/js/scriptures-catalog.js')}"></script>
 </body>
 </html>`;
 }
