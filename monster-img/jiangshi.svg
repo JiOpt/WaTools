@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="­M">
+  <rect width="320" height="400" fill="#121812"/>
+  <rect x="115" y="60" width="90" height="14" rx="2" fill="#ffd54f" transform="rotate(-8 160 67)"/>
+  <ellipse cx="160" cy="130" rx="50" ry="55" fill="#8d6e63"/>
+  <ellipse cx="140" cy="120" rx="10" ry="4" fill="#fff"/>
+  <ellipse cx="180" cy="120" rx="10" ry="4" fill="#fff"/>
+  <rect x="125" y="185" width="70" height="100" rx="8" fill="#37474f"/>
+  <rect x="90" y="200" width="30" height="90" rx="6" fill="#455a64" transform="rotate(15 105 245)"/>
+  <rect x="200" y="200" width="30" height="90" rx="6" fill="#455a64" transform="rotate(-10 215 245)"/>
+  <rect x="130" y="280" width="28" height="70" rx="6" fill="#37474f"/>
+  <rect x="162" y="280" width="28" height="70" rx="6" fill="#37474f"/>
+  <path d="M145 155 L155 165 M165 165 L175 155" stroke="#263238" stroke-width="3"/>
+  <text x="160" y="385" text-anchor="middle" fill="#aed581" font-family="serif" font-size="22">­M</text>
+</svg>

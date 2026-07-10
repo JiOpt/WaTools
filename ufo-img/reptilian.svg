@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="Reptilian alien">
+  <rect width="320" height="400" fill="#0b1f0b"/>
+  <ellipse cx="160" cy="120" rx="70" ry="88" fill="#558b2f"/>
+  <ellipse cx="125" cy="108" rx="18" ry="8" fill="#f9a825"/>
+  <ellipse cx="195" cy="108" rx="18" ry="8" fill="#f9a825"/>
+  <path d="M138 150 L160 162 L182 150" fill="none" stroke="#33691e" stroke-width="3"/>
+  <path d="M160 32 L172 70 L148 70 Z" fill="#689f38"/>
+  <rect x="118" y="205" width="84" height="115" rx="22" fill="#558b2f"/>
+  <path d="M90 240 L118 250 L118 320 L95 310 Z" fill="#558b2f"/>
+  <path d="M230 240 L202 250 L202 320 L225 310 Z" fill="#558b2f"/>
+  <path d="M160 320 Q180 360 160 385 Q140 360 160 320" fill="#33691e"/>
+  <g fill="#33691e" opacity=".45">
+    <circle cx="130" cy="230" r="4"/><circle cx="150" cy="250" r="3"/><circle cx="175" cy="235" r="4"/>
+    <circle cx="190" cy="265" r="3"/><circle cx="140" cy="280" r="3"/>
+  </g>
+</svg>

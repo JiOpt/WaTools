@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="Pleiades">
+  <rect width="400" height="320" fill="#020617"/>
+  <g fill="#fff" opacity=".25">
+    <circle cx="30" cy="40" r="1"/><circle cx="370" cy="60" r="1.2"/><circle cx="60" cy="280" r="1"/>
+  </g>
+  <g fill="#bbdefb" opacity=".35">
+    <ellipse cx="200" cy="150" rx="120" ry="80"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="160" cy="130" r="5"/><circle cx="185" cy="115" r="4"/><circle cx="215" cy="120" r="5"/>
+    <circle cx="240" cy="140" r="4"/><circle cx="200" cy="155" r="6"/><circle cx="175" cy="165" r="4"/>
+    <circle cx="225" cy="170" r="4"/>
+  </g>
+  <text x="200" y="290" text-anchor="middle" fill="#78909c" font-family="sans-serif" font-size="14">Pleiades 4¿</text>
+</svg>

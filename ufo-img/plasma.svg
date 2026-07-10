@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Plasma sheath">
+  <rect width="400" height="280" fill="#020617"/>
+  <ellipse cx="200" cy="140" rx="70" ry="24" fill="#78909c"/>
+  <ellipse cx="200" cy="132" rx="48" ry="18" fill="#eceff1"/>
+  <ellipse cx="200" cy="140" rx="95" ry="55" fill="none" stroke="#7e57c2" stroke-width="3" opacity=".65"/>
+  <ellipse cx="200" cy="140" rx="115" ry="70" fill="none" stroke="#26c6da" stroke-width="2" opacity=".45"/>
+  <ellipse cx="200" cy="140" rx="135" ry="85" fill="none" stroke="#ff8a65" stroke-width="1.5" opacity=".35"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="Ô!">
+  <rect width="320" height="400" fill="#0c1018"/>
+  <rect x="60" y="80" width="200" height="240" fill="#263238"/>
+  <rect x="80" y="100" width="50" height="40" fill="#37474f"/>
+  <rect x="145" y="100" width="50" height="40" fill="#37474f"/>
+  <rect x="190" y="100" width="50" height="40" fill="#37474f"/>
+  <rect x="130" y="200" width="60" height="120" fill="#1a237e"/>
+  <ellipse cx="160" cy="260" rx="35" ry="45" fill="#b0bec5" opacity=".15"/>
+  <path d="M145 240 L160 280 L175 240" fill="#c62828" opacity=".7"/>
+  <text x="160" y="360" text-anchor="middle" fill="#7986cb" font-family="sans-serif" font-size="18">Ô! Detention</text>
+</svg>

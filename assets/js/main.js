@@ -9,7 +9,7 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.4';
+  const WA_SITE_VERSION = '0.6.1';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
@@ -35,12 +35,12 @@
   const assetBase = getAssetBase();
 
   /**
-   * Global font size — load early with nav history
+   * User preferences — theme, reading, accessibility
    */
   if (document.querySelector('#header .branding')) {
-    const fontSizeScript = document.createElement('script');
-    fontSizeScript.src = waAssetUrl('assets/js/font-size-control.js');
-    document.head.appendChild(fontSizeScript);
+    const prefsScript = document.createElement('script');
+    prefsScript.src = waAssetUrl('assets/js/user-preferences.js');
+    document.head.appendChild(prefsScript);
   }
 
   /**
@@ -50,6 +50,22 @@
     const navHistoryScript = document.createElement('script');
     navHistoryScript.src = waAssetUrl('assets/js/nav-history.js');
     document.head.appendChild(navHistoryScript);
+
+    const userMenuScript = document.createElement('script');
+    userMenuScript.src = waAssetUrl('assets/js/user-menu.js');
+    document.head.appendChild(userMenuScript);
+  }
+
+  if (document.querySelector('#header .branding')) {
+    const sitemapScript = document.createElement('script');
+    sitemapScript.src = waAssetUrl('assets/js/site-sitemap.js');
+    document.body.appendChild(sitemapScript);
+  }
+
+  if (document.querySelector('#header .branding')) {
+    const headerContextScript = document.createElement('script');
+    headerContextScript.src = waAssetUrl('assets/js/header-context.js');
+    document.head.appendChild(headerContextScript);
   }
 
   if (document.getElementById('tool-app')) {

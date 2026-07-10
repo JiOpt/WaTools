@@ -5,11 +5,12 @@ window.WA_TOOLS_CATALOG = [
     tagline: '日常救急，不用下載 App 也能假裝有準備。',
     tools: [
       { slug: 'scriptures', title: '藏經閣', icon: 'bi-yin-yang', desc: '諸子百家、國學啟蒙、佛經，線上誦讀。', ready: true },
+      { slug: 'settings', title: '個人化設定', icon: 'bi-sliders', desc: '深色模式、字體大小、行距、護眼色溫、縮放與無障礙偏好。', ready: true },
       { slug: 'calculatortool', title: '線上計算工具', icon: 'bi-calculator', desc: '算年齡、換溫度，比口算體面一點。' },
       { slug: 'id-generator', title: '身份證 & 信用卡', icon: 'bi-credit-card', desc: '測試用假資料，請勿拿去買房。' },
       { slug: 'phone', title: '電話 & 手機號碼', icon: 'bi-telephone', desc: '隨機號碼產生器，適合填表單時假裝有在認真填。' },
-      { slug: 'color-blindness', title: '色弱測試', icon: 'bi-palette', desc: '看看你是色弱，還是只是螢幕太髒。' },
-      { slug: 'screen-test', title: '螢幕測試', icon: 'bi-display', desc: '找亮點、找坏點，順便找藉口換螢幕。' },
+      { slug: 'color-blindness', title: '色弱測試', icon: 'bi-palette', desc: '看看你是色弱，還是隻是螢幕太髒。' },
+      { slug: 'screen-test', title: '螢幕測試', icon: 'bi-display', desc: '找亮點、找壞點，順便找藉口換螢幕。' },
       { slug: 'screen-detect', title: '瀏覽器 & 螢幕檢測', icon: 'bi-window', desc: '你的瀏覽器還活著嗎？讓數據說話。' },
       { slug: 'torch', title: '手電筒', icon: 'bi-lightbulb-fill', desc: '閃光燈或螢幕照明，黑掉的地方先救再說。', ready: true },
       { slug: 'ip', title: '地理位置查詢', icon: 'bi-geo-alt', desc: '查 IP 在哪，順便確認 VPN 有沒有在摸魚。' },
@@ -157,7 +158,7 @@ window.WA_TOOLS_CATALOG = [
     name: '線上編輯',
     tagline: '文字處理小工具，寫作人的懶人包。',
     tools: [
-      { slug: 'editor', title: '線上編輯器', icon: 'bi-file-richtext', desc: 'HTML 文字編輯，協作平台 lite 版。' },
+      { slug: 'editor', title: '線上編輯器', icon: 'bi-file-richtext', desc: 'HTML 文字編輯，協作平臺 lite 版。' },
       { slug: 'dedupe', title: '清除重複行', icon: 'bi-filter', desc: '去重複網址、姓名、文字，整理強迫症福音。' },
       { slug: 'case-converter', title: '英文大小寫轉換', icon: 'bi-type-bold', desc: 'UPPER lower Title Case，一鍵切換。' },
       { slug: 'rmb-upper', title: '數字轉中文大寫', icon: 'bi-cash-stack', desc: '壹貳參肆，支票金額寫法不出錯。' },
@@ -173,7 +174,7 @@ window.WA_TOOLS_CATALOG = [
     tagline: '密碼、加密、還原網址，隱私自己顧。',
     tools: [
       { slug: 'password', title: '密碼安全', icon: 'bi-shield-lock', desc: '生成強密碼或檢測強度，123456 請退場。' },
-      { slug: 'email-icon', title: '電子郵件圖示', icon: 'bi-envelope-at', desc: 'E-Mail 圖示產生器，防爬蟲小帮手。' },
+      { slug: 'email-icon', title: '電子郵件圖示', icon: 'bi-envelope-at', desc: 'E-Mail 圖示產生器，防爬蟲小幫手。' },
       { slug: 'textencrypt', title: '文字加密', icon: 'bi-lock', desc: '私密話題加密，八卦也要有保障。' },
       { slug: 'longurl', title: '短網址還原', icon: 'bi-link', desc: '縮網址還原，看看背後藏了什麼。' },
       { slug: 'url-crypto', title: '網址加密', icon: 'bi-key', desc: '連結加密解密，分享多一層保護。' }
@@ -184,13 +185,13 @@ window.WA_TOOLS_CATALOG = [
     name: '大千世界',
     tagline: '旗幟、人口、國歌，環遊世界不用買機票。',
     tools: [
-      { slug: 'world-flags', title: '世界旗幟', icon: 'bi-flag', desc: '各國國旗一覽，地理課補考用。' },
-      { slug: 'population', title: '世界人口統計', icon: 'bi-people-fill', desc: '全球人口與男女比例，地球還很擠。' },
-      { slug: 'coat-of-arms', title: '國家徽章', icon: 'bi-award', desc: '國徽紋章，比國旗更複雜的那個。' },
+      { slug: 'world-flags', title: '世界旗幟', icon: 'bi-flag', desc: '各國國旗一覽，附首都、地理、語言、貨幣與旗幟寓意；依洲別瀏覽，點旗即看詳情。' },
+      { slug: 'population', title: '世界人口統計', icon: 'bi-people-fill', desc: '各國人口排行與成長率、結構、城市化、壽命等指標。' },
+      { slug: 'coat-of-arms', title: '國家徽章', icon: 'bi-award', desc: '各國國徽紋章、象徵意義與歷史演變。' },
       { slug: 'ethnic-china', title: '中華民族', icon: 'bi-universal-access', desc: '56 個民族，多元文化大熔爐。' },
-      { slug: 'national-anthem', title: '各國國歌', icon: 'bi-music-player', desc: '線上聽國歌，國際禮儀預習。' },
-      { slug: 'ufo', title: '外星種族', icon: 'bi-rocket-takeoff', desc: 'UFO 宇宙空間，信者恆信。' },
-      { slug: 'monster', title: '妖魔鬼怪', icon: 'bi-bug', desc: '百鬼眾魅，中式恐怖圖鑑。' },
+      { slug: 'national-anthem', title: '各國國歌', icon: 'bi-music-player', desc: '原文歌詞、中文翻譯，標示國際場合標準段落。' },
+      { slug: 'ufo', title: '外星種族', icon: 'bi-rocket-takeoff', desc: 'UFO 圖鑑：種族、母星、文明等級與接觸傳說。' },
+      { slug: 'monster', title: '妖魔鬼怪', icon: 'bi-bug', desc: '中式恐怖圖鑑：分類、異獸、弱點、文化寓意與《返校》《咒》等連結。' },
       { slug: 'capitals', title: '各國首都', icon: 'bi-building', desc: '世界主要國家首都，地理小抄。' },
       { slug: 'national-symbol', title: '各國國寶', icon: 'bi-flower1', desc: '象徵性動植物，國家名片。' }
     ]

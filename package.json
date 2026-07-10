@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "convert:zh-tw": "node scripts/convert-simplified-to-traditional.mjs",
+    "cleanup:anthems": "node scripts/cleanup-national-anthem-data.mjs",
+    "merge:anthems": "node scripts/merge-anthem-enrich.mjs"
+  },
+  "devDependencies": {
+    "opencc-js": "^1.4.0"
+  }
+}

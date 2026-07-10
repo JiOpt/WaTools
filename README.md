@@ -2,7 +2,7 @@
 
 免安裝 挖工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://watoolio.web.app>（**v0.4**）
+- 網站：<https://watoolio.web.app>（**v0.6.1**）
 - Firebase 專案：`watoolio`
 
 ---
@@ -55,15 +55,24 @@ firebase hosting:disable --project watoolio
 
 ### 讓手機載入最新 JS/CSS（快取刷新）
 
-全站靜態資源已加 **`?v=0.4`**（138 個 HTML）。手機一般重新整理即可，不必清快取。
+全站靜態資源以 **`?v=版本號`** 標記（138 個 HTML）。手機一般重新整理即可。
 
-**之後每次改 JS/CSS，請依序：**
+**版本號規則**
 
-1. 修改 `scripts/site-version.mjs` 與 `assets/js/main.js` 的 `WA_SITE_VERSION`（例如 `0.5`）
-2. 執行 `node scripts/stamp-asset-version.mjs`（自動更新所有 HTML 的 `?v=`）
+| 階段 | 格式 | 範例 |
+|------|------|------|
+| 上市前 | `0.6.x`，只改**第三位** | 0.6.1 → 0.6.2 → 0.6.3 |
+| 正式上線 | `1.0` | — |
+
+**唯一來源：** `scripts/site-version.mjs` 的 `WA_SITE_VERSION`（請自行指定下一版，勿自動跳號）。
+
+**發佈前依序：**
+
+1. 修改 `scripts/site-version.mjs` 的版本（例如 `0.6.2`）
+2. 執行 `node scripts/stamp-asset-version.mjs`（同步 HTML 的 `?v=` 與 `main.js`）
 3. `firebase deploy --project watoolio`
 
-頁尾顯示 `v0.4` 代表版本已更新。`main.js` 動態載入的腳本也會自動帶相同版本號。
+頁尾顯示 `v0.6.x` 代表已更新。`main.js` 動態載入的腳本會帶相同版本號。
 
 ---
 
@@ -76,6 +85,12 @@ firebase hosting:disable --project watoolio
 
 
 ## 版本更新
+
+### v0.6.1（2026-07-10）
+
+**全站**
+- 左側網站地圖（電腦固定側欄；手機「目錄」抽屜）
+- 版本改為 `0.6.x` 第三位遞增；唯一來源 `scripts/site-version.mjs`
 
 ### v0.4（2026-07-10）
 
@@ -105,13 +120,13 @@ firebase hosting:disable --project watoolio
 
 **內聯註解（正文收折）**
 - 三字經、弟子規、千字文、孫子兵法、道德經、三十六計、金剛經、心經等：頁尾註解改為正文旁收折
-- 地藏經：**僅释文**內聯至段落；底部保留註解、譯文
+- 地藏經：**僅釋文**內聯至段落；底部保留註解、譯文
 - 金剛經：【解讀】【解說】內聯至章節
 
 **地藏經修正**
-- 建置腳本改為擷取整章內容（含偈頌 `scripture-verse`），释文對應更完整
+- 建置腳本改為擷取整章內容（含偈頌 `scripture-verse`），釋文對應更完整
 - 修正收折內容空白（移除 CSS 隱藏首段落的規則）
-- 收折標題統一為【释文】，避免重複經文首句
+- 收折標題統一為【釋文】，避免重複經文首句
 - 底部「解讀補充」去除與標題重複的 `<h2>`
 
 **佛咒語**

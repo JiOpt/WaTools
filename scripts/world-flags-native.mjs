@@ -36,7 +36,7 @@ const CAPTION_LANG_MAP = {
   芬蘭語: { lang: 'fi', label: 'Suomi' },
 };
 
-const CAPTION_LANG_KEYS = /^(?:[^\s：:]+語|[^\s：:]+语)$/;
+const CAPTION_LANG_KEYS = /^(?:[^\s：:]+語|[^\s：:]+語)$/;
 
 function normalizeName(value) {
   return String(value || '')
@@ -81,13 +81,13 @@ function parseCaptionNatives(html) {
     const key = m[1].trim();
     const val = m[2].trim();
     if (['英文', '中文', '縮寫', '國家代碼', '說明', '簡稱'].includes(key)) continue;
-    if (!CAPTION_LANG_KEYS.test(key) && !key.endsWith('语')) continue;
+    if (!CAPTION_LANG_KEYS.test(key) && !key.endsWith('語')) continue;
     if (!val || val.length > 48 || /^[\d./\s]+$/.test(val)) continue;
     const mapped = CAPTION_LANG_MAP[key];
     natives.push({
       name: val,
       lang: mapped?.lang || 'und',
-      label: mapped?.label || key.replace(/语$/, '語'),
+      label: mapped?.label || key.replace(/語$/, '語'),
     });
   }
   return natives;

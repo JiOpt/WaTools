@@ -380,15 +380,15 @@ function normalizeVerseKey(str) {
   return stripTags(str)
     .replace(/\s+/g, '')
     .replace(/[^\u4e00-\u9fff]/g, '')
-    .replace(/为/g, '為')
-    .replace(/爲/g, '為')
-    .replace(/云/g, '雲')
-    .replace(/并/g, '並')
-    .replace(/洁/g, '潔')
+    .replace(/為/g, '為')
+    .replace(/為/g, '為')
+    .replace(/雲/g, '雲')
+    .replace(/並/g, '並')
+    .replace(/潔/g, '潔')
     .replace(/絜/g, '潔')
     .replace(/昆/g, '崑')
-    .replace(/钜/g, '巨')
-    .replace(/岳/g, '嶽');
+    .replace(/鉅/g, '巨')
+    .replace(/嶽/g, '嶽');
 }
 
 function normalizeSanzijingVerse(str) {
@@ -782,7 +782,7 @@ function findBookBySource(sourceName) {
 function transformContent(content) {
   let out = content;
 
-  out = out.replace(/孙子/g, '孫子');
+  out = out.replace(/孫子/g, '孫子');
   out = out.replace(/<script[\s\S]*?<\/script>/gi, '');
   out = out.replace(/<a[^>]*class="io_togohome"[^>]*>[\s\S]*?<\/a>/gi, '');
   out = out.replace(/<img[^>]*>/gi, '');

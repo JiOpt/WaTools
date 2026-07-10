@@ -7,6 +7,7 @@ import { CURRENCY_ZH } from './world-flags-currencies-zh.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const OUT_DATA = path.join(ROOT, 'assets', 'js', 'world-flags-data.js');
+const CAPTION_CACHE = path.join(__dirname, '_world-source.html');
 
 const CODE_ALIASES = {
   uar: 'are',
@@ -119,12 +120,12 @@ const SUBREGION_CULTURE = {
   'Western Africa': { religion: '伊斯蘭、基督教、傳統信仰並存', food: '木薯、花生、燉飯' },
   'Northern America': { religion: '基督教比例高，多元世俗社會', food: '烤肉、快餐與移民菜系' },
   'Central America': { religion: '天主教為主', food: '玉米、豆類、塔可類料理' },
-  Caribbean: { religion: '天主教、基督教與多元信仰', food: '海鮮、香料、热带水果' },
+  Caribbean: { religion: '天主教、基督教與多元信仰', food: '海鮮、香料、熱帶水果' },
   'South America': { religion: '天主教為主', food: '玉米、豆類、烤肉與在地作物' },
   'Australia and New Zealand': { religion: '世俗多元社會', food: '肉類、海鮮、乳製品' },
   Melanesia: { religion: '基督教為主，傳統信仰並存', food: '芋類、海鮮' },
   Micronesia: { religion: '基督教為主', food: '海鮮、芋類、椰子' },
-  Polynesia: { religion: '基督教為主', food: '海鮮、热带水果、窯烤' },
+  Polynesia: { religion: '基督教為主', food: '海鮮、熱帶水果、窯烤' },
 };
 
 const DISPUTED_NOTES = {
@@ -155,6 +156,94 @@ const ENTITY_FALLBACK = {
   icrc: { note: '國際人道組織象徵，以中立、保護傷病者為使命；非國家實體。' },
 };
 
+function loadCaptionMap() {
+  if (!fs.existsSync(CAPTION_CACHE)) return new Map();
+  const html = fs.readFileSync(CAPTION_CACHE, 'utf8');
+  const map = new Map();
+  const re = /國家代碼[：:]\s*([A-Za-z0-9]+)[\s\S]*?說明[：:]\s*([\s\S]*?)<\/div>/gi;
+  let match;
+  while ((match = re.exec(html)) !== null) {
+    const code = match[1].toLowerCase();
+    const text = match[2]
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\n+/g, '')
+      .trim();
+    if (text) map.set(code, text);
+  }
+  return map;
+}
+
+function parseFlagDescription(raw) {
+  if (!raw) return null;
+  let text = raw.trim();
+  const ratioMatch = text.match(/比例\s*([\d:：/]+)/);
+  const ratio = ratioMatch ? ratioMatch[1] : '';
+  text = text.replace(/^比例\s*[\d:：/]+[。.]?\s*/, '');
+
+  const sentences = text.split(/[。！？]/).map((s) => s.trim()).filter(Boolean);
+  if (!sentences.length) return { ratio, composition: '', symbolism: '', history: '' };
+
+  const composition = sentences[0] || '';
+  const rest = sentences.slice(1).join('。');
+  const historyPattern = /(\d{3,4}\s*年|獨立|立國|採用|制定|改為|確立|成為|沿用|正式|建立|宣佈)/;
+  const restParts = rest ? rest.split(/。/).map((s) => s.trim()).filter(Boolean) : [];
+  const symbolismParts = [];
+  const historyParts = [];
+
+  for (const part of restParts) {
+    if (historyPattern.test(part)) historyParts.push(part);
+    else symbolismParts.push(part);
+  }
+
+  return {
+    ratio,
+    composition,
+    symbolism: symbolismParts.join('。'),
+    history: historyParts.join('。'),
+  };
+}
+
+function lookupCaptionCode(country) {
+  let code = (country.code || '').toLowerCase();
+  if (CODE_ALIASES[code]) code = CODE_ALIASES[code];
+  if (code) return code;
+  return lookupKey(country);
+}
+
+function buildFlagLines(country, culture, captionMap, oldDesc) {
+  const code = lookupCaptionCode(country);
+  const rawCaption = captionMap.get(code);
+  const parsed = parseFlagDescription(rawCaption);
+  const lines = [];
+
+  if (parsed && (parsed.ratio || parsed.composition || parsed.symbolism || parsed.history)) {
+    const layoutParts = [];
+    if (parsed.ratio) layoutParts.push(`比例 ${parsed.ratio}`);
+    if (parsed.composition) layoutParts.push(parsed.composition);
+    if (layoutParts.length) {
+      lines.push(`【旗幟・構圖】${layoutParts.join('；')}。`);
+    }
+    if (parsed.symbolism) {
+      lines.push(`【旗幟・色彩象徵】${parsed.symbolism}。`);
+    }
+    if (parsed.history) {
+      lines.push(`【旗幟・歷史】${parsed.history}。`);
+    }
+  }
+
+  if (!lines.length) {
+    const brief = culture.flagBrief
+      || extractFlagFromStructured(oldDesc)
+      || legacyFlagDesc(oldDesc);
+    if (brief) {
+      lines.push(`【旗幟・概說】${brief.replace(/。+$/, '')}。`);
+    }
+  }
+
+  return lines;
+}
+
 function legacyFlagDesc(oldDesc) {
   if (!oldDesc || oldDesc.includes('【概況】')) return '';
   return oldDesc;
@@ -165,7 +254,7 @@ function extractFlagFromStructured(oldDesc) {
   if (!m) return '';
   const text = m[1].trim().replace(/。+$/, '');
   if (!text || text.includes('【概況】')) return '';
-  return text.length > 120 ? `${text.slice(0, 117)}…` : text;
+  return text;
 }
 
 function resolveFlagBrief(culture, oldDesc) {
@@ -234,7 +323,7 @@ const CAPitals_CACHE = path.join(__dirname, 'world-flags-capitals-zh.json');
 
 const CAPITAL_MANUAL = {
   beijing: '北京',
-  taipei: '台北',
+  taipei: '臺北',
   'hong kong': '香港',
   macau: '澳門',
   seoul: '首爾',
@@ -248,8 +337,8 @@ const CAPITAL_MANUAL = {
   berlin: '柏林',
   moscow: '莫斯科',
   tokyo: '東京',
-  ulaanbaatar: '烏蘭巴托',
-  'ulan bator': '烏蘭巴托',
+  ulaanbaatar: '烏蘭巴託',
+  'ulan bator': '烏蘭巴託',
   mumbai: '孟買',
   'new delhi': '新德里',
   'new taipei': '新北',
@@ -327,7 +416,7 @@ function isSameCity(a, b) {
 
 function displayZhCity(zh) {
   if (!zh) return '';
-  return zh.replace(/(特别行政区|特別行政區)$/, '').replace(/(市|都)$/, '') || zh;
+  return zh.replace(/(特別行政區|特別行政區)$/, '').replace(/(市|都)$/, '') || zh;
 }
 
 function citiesEquivalent(a, b) {
@@ -403,7 +492,7 @@ function formatBorders(borders, index) {
   return names.length ? names.join('、') : '';
 }
 
-function buildLines(country, record, index, oldDesc, capitalMap, usdRates) {
+function buildLines(country, record, index, oldDesc, capitalMap, usdRates, captionMap) {
   const key = lookupKey(country);
   const culture = CULTURE[key] || CULTURE[country.code] || CULTURE[CODE_ALIASES[country.code]] || {};
   const entity = ENTITY_FALLBACK[key];
@@ -413,15 +502,13 @@ function buildLines(country, record, index, oldDesc, capitalMap, usdRates) {
 
   if (disputed) {
     lines.push(`【概況】${disputed}`);
-    const fb = resolveFlagBrief(culture, oldDesc);
-    if (fb) lines.push(`【旗幟】${fb}。`);
+    lines.push(...buildFlagLines(country, culture, captionMap, oldDesc));
     return lines.join('\n');
   }
 
   if (entity?.note) {
     lines.push(`【概況】${entity.note}`);
-    const fb = resolveFlagBrief(culture, oldDesc);
-    if (fb) lines.push(`【旗幟】${fb}`);
+    lines.push(...buildFlagLines(country, culture, captionMap, oldDesc));
     return lines.join('\n');
   }
 
@@ -459,13 +546,11 @@ function buildLines(country, record, index, oldDesc, capitalMap, usdRates) {
   if (culture.religion || subCulture.religion) cultureBits.push(`宗教文化：${culture.religion || subCulture.religion}`);
   if (cultureBits.length) lines.push(`【文化】${cultureBits.join('；')}。`);
 
-  const flagBrief = resolveFlagBrief(culture, oldDesc).replace(/。+$/, '');
-  if (flagBrief) lines.push(`【旗幟】${flagBrief}。`);
+  lines.push(...buildFlagLines(country, culture, captionMap, oldDesc));
 
   if (!lines.length) {
     lines.push(`【概況】${country.nameZh || country.nameEn}。`);
-    const fb = resolveFlagBrief({}, oldDesc);
-    if (fb) lines.push(`【旗幟】${fb}。`);
+    lines.push(...buildFlagLines(country, culture, captionMap, oldDesc));
   }
 
   return lines.join('\n');
@@ -498,6 +583,8 @@ async function main() {
   const data = JSON.parse(raw.replace(/^[\s\S]*?=\s*/, '').replace(/;\s*$/, ''));
   const [countriesJson, usdRates] = await Promise.all([loadCountries(), loadUsdRates()]);
   const capitalMap = loadCapitalZhMap();
+  const captionMap = loadCaptionMap();
+  console.log(`Caption map: ${captionMap.size} entries`);
 
   const index = new Map();
   const zhIndex = new Map();
@@ -514,7 +601,7 @@ async function main() {
       let code = (country.code || '').toLowerCase();
       if (CODE_ALIASES[code]) code = CODE_ALIASES[code];
       const record = index.get(code) || index.get(key) || index.get(String(key).slice(0, 3));
-      country.desc = buildLines(country, record, zhIndex, country.desc, capitalMap, usdRates);
+      country.desc = buildLines(country, record, zhIndex, country.desc, capitalMap, usdRates, captionMap);
       if (country.desc) updated += 1;
     }
   }

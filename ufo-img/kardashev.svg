@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Kardashev scale">
+  <rect width="400" height="280" fill="#0d1117"/>
+  <rect x="40" y="50" width="320" height="36" rx="8" fill="#1565c0" opacity=".85"/>
+  <rect x="40" y="100" width="240" height="36" rx="8" fill="#7b1fa2" opacity=".85"/>
+  <rect x="40" y="150" width="120" height="36" rx="8" fill="#ef6c00" opacity=".85"/>
+  <text x="52" y="74" fill="#fff" font-family="sans-serif" font-size="14" font-weight="700">III û‡</text>
+  <text x="52" y="124" fill="#fff" font-family="sans-serif" font-size="14" font-weight="700">II F‡</text>
+  <text x="52" y="174" fill="#fff" font-family="sans-serif" font-size="14" font-weight="700">I L‡</text>
+  <circle cx="330" cy="68" r="14" fill="#fff" opacity=".15"/>
+  <circle cx="290" cy="118" r="10" fill="#fff" opacity=".15"/>
+  <circle cx="170" cy="168" r="8" fill="#fff" opacity=".15"/>
+  <text x="200" y="240" text-anchor="middle" fill="#78909c" font-family="sans-serif" font-size="14">Kardashev Scale aTê+I</text>
+</svg>

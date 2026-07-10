@@ -246,6 +246,98 @@
     return copy;
   }
 
+  const imageLightbox = (function createImageLightbox() {
+    let overlay = null;
+    let prevFocus = null;
+
+    function onKey(e) {
+      if (e.key === 'Escape') close();
+    }
+
+    function close() {
+      if (!overlay) return;
+      overlay.hidden = true;
+      document.body.classList.remove('image-lightbox-open');
+      document.removeEventListener('keydown', onKey);
+      if (prevFocus && typeof prevFocus.focus === 'function') prevFocus.focus();
+      prevFocus = null;
+    }
+
+    function ensure() {
+      if (overlay) return overlay;
+      overlay = el('div', {
+        className: 'image-lightbox',
+        hidden: true,
+        role: 'dialog',
+        'aria-modal': 'true',
+        'aria-label': '放大圖片',
+        onClick: (e) => {
+          if (e.target === overlay) close();
+        },
+      }, [
+        el('div', { className: 'image-lightbox-panel', onClick: (e) => e.stopPropagation() }, [
+          el('button', {
+            type: 'button',
+            className: 'image-lightbox-close',
+            'aria-label': '關閉',
+            onClick: close,
+          }, '×'),
+          el('img', { className: 'image-lightbox-img', alt: '' }),
+          el('p', { className: 'image-lightbox-caption' }),
+        ]),
+      ]);
+      document.body.appendChild(overlay);
+      return overlay;
+    }
+
+    function open({ src, alt, caption }) {
+      if (!src) return;
+      prevFocus = document.activeElement;
+      const box = ensure();
+      const img = box.querySelector('.image-lightbox-img');
+      const cap = box.querySelector('.image-lightbox-caption');
+      img.src = src;
+      img.alt = alt || '';
+      if (caption) {
+        cap.textContent = caption;
+        cap.hidden = false;
+      } else {
+        cap.hidden = true;
+      }
+      box.hidden = false;
+      document.body.classList.add('image-lightbox-open');
+      document.addEventListener('keydown', onKey);
+      box.querySelector('.image-lightbox-close').focus();
+    }
+
+    return { open, close };
+  }());
+
+  function bindImageZoom(img, meta) {
+    if (!img || img.tagName !== 'IMG' || !img.getAttribute('src')) return img;
+    img.classList.add('image-zoomable');
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.title = (meta && meta.title) || '點擊放大';
+    const open = () => imageLightbox.open({
+      src: img.src,
+      alt: img.alt,
+      caption: (meta && meta.caption) || img.alt,
+    });
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      open();
+    });
+    img.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        open();
+      }
+    });
+    return img;
+  }
+
   window.WA_TOOL_UI = {
     el,
     panel,
@@ -264,5 +356,7 @@
     randomInt,
     randomChoice,
     shuffle,
+    bindImageZoom,
+    imageLightbox,
   };
 })();

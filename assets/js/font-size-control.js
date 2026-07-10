@@ -51,13 +51,10 @@
       </div>
     `;
 
-    const historyWrap = container.querySelector('.nav-history-cta-wrap');
     const cta = container.querySelector('.cta-btn');
     const nav = container.querySelector('#navmenu');
 
-    if (historyWrap) {
-      historyWrap.before(wrap);
-    } else if (cta) {
+    if (cta) {
       cta.before(wrap);
     } else if (nav) {
       nav.after(wrap);

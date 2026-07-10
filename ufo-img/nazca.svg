@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Nazca lines">
+  <rect width="400" height="280" fill="#d7ccc8"/>
+  <path d="M80 200 Q140 80 220 120 T360 160" fill="none" stroke="#8d6e63" stroke-width="3" opacity=".35"/>
+  <path d="M120 180 L180 90 L240 170 L300 110 L340 190" fill="none" stroke="#5d4037" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="210" cy="145" rx="55" ry="35" fill="none" stroke="#5d4037" stroke-width="3"/>
+  <path d="M170 145 L250 145 M210 110 L210 180" stroke="#5d4037" stroke-width="2"/>
+  <text x="200" y="260" text-anchor="middle" fill="#6d4c41" font-family="sans-serif" font-size="13">Nazca Lines ¯aÚ</text>
+</svg>

@@ -102,7 +102,7 @@
     '上善若水，水善利萬物而不爭。',
     '知人者智，自知者明。',
     '大巧若拙，大辯若訥。',
-    '合抱之木，生於毫末；九層之台，起於累土。',
+    '合抱之木，生於毫末；九層之臺，起於累土。',
     '天下莫柔弱於水，而攻堅強者莫之能勝。',
     '禍兮福之所倚，福兮禍之所伏。',
     '千里之行，始於足下。',
@@ -278,10 +278,10 @@
   };
 
   const TW_LANDLINE = [
-    { area: '02', name: '台北' },
+    { area: '02', name: '臺北' },
     { area: '03', name: '桃園/新竹' },
-    { area: '04', name: '台中' },
-    { area: '06', name: '台南' },
+    { area: '04', name: '臺中' },
+    { area: '06', name: '臺南' },
     { area: '07', name: '高雄' },
     { area: '08', name: '屏東' },
   ];
@@ -306,7 +306,7 @@
   R.phone = function (app) {
     const out = U.output('phone-out');
     app.appendChild(U.el('div', { className: 'tool-form' }, [
-      hint('隨機台灣電話——適合填表單，不適合真的打過去問「你記得我嗎」。'),
+      hint('隨機臺灣電話——適合填表單，不適合真的打過去問「你記得我嗎」。'),
       U.btnGroup([
         U.btn('手機號碼', 'btn btn-primary tool-btn', () => { out.textContent = genTwMobile(); }),
         U.btn('市話', 'btn btn-outline-primary tool-btn', () => { out.textContent = genTwLandline(); }),
@@ -414,7 +414,7 @@
     }
 
     app.appendChild(U.el('div', { className: 'tool-form' }, [
-      hint('全螢幕純色測試——找坏點、找藉口換新螢幕。點色塊進入全螢幕，再點一次退出。'),
+      hint('全螢幕純色測試——找壞點、找藉口換新螢幕。點色塊進入全螢幕，再點一次退出。'),
       U.btnGroup(colors.map((c) => U.btn(c.name, 'btn btn-outline-dark tool-btn', () => showColor(c.value)))),
       U.el('p', { className: 'text-muted small' }, '建議在暗室使用，鄰居會以為你在搞行為藝術。'),
     ]));
@@ -426,7 +426,7 @@
     function refresh() {
       const lines = [
         ['User Agent', navigator.userAgent],
-        ['平台', navigator.platform || '—'],
+        ['平臺', navigator.platform || '—'],
         ['語言', navigator.language],
         ['螢幕解析度', `${screen.width} × ${screen.height}`],
         ['可用區域', `${screen.availWidth} × ${screen.availHeight}`],

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="Nordic alien">
+  <rect width="320" height="400" fill="#0a1628"/>
+  <circle cx="160" cy="95" r="52" fill="#ffe0b2"/>
+  <path d="M108 88 C120 20 200 20 212 88 C200 130 120 130 108 88 Z" fill="#fff59d"/>
+  <ellipse cx="138" cy="92" rx="10" ry="14" fill="#1565c0"/>
+  <ellipse cx="182" cy="92" rx="10" ry="14" fill="#1565c0"/>
+  <path d="M145 118 Q160 128 175 118" fill="none" stroke="#e57373" stroke-width="2.5"/>
+  <path d="M118 150 L202 150 L190 320 L130 320 Z" fill="#81d4fa" opacity=".95"/>
+  <path d="M160 150 L160 320" stroke="#4fc3f7" stroke-width="2" opacity=".5"/>
+  <circle cx="160" cy="210" r="8" fill="#fff" opacity=".35"/>
+</svg>

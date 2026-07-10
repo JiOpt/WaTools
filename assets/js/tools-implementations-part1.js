@@ -299,7 +299,7 @@
     { big5: 'A440', unicode: 'U+4E00', char: '一' },
     { big5: 'A441', unicode: 'U+4E01', char: '丁' },
     { big5: 'A442', unicode: 'U+4E03', char: '七' },
-    { big5: 'A443', unicode: 'U+4E07', char: '万' },
+    { big5: 'A443', unicode: 'U+4E07', char: '萬' },
     { big5: 'A444', unicode: 'U+4E08', char: '丈' },
     { big5: 'B0A1', unicode: 'U+4E2D', char: '中' },
     { big5: 'B0A2', unicode: 'U+4E38', char: '丸' },
@@ -775,7 +775,7 @@
   R.punycode = function (app) {
     mount(app, [
       hint('中文網域與 Punycode（xn--）互轉，靠瀏覽器 URL API，信它一回。'),
-      UI.input('Unicode 域名', 'pn-uni', 'text', '例子.台灣'),
+      UI.input('Unicode 域名', 'pn-uni', 'text', '例子.臺灣'),
       UI.input('Punycode', 'pn-ace', 'text', 'xn--'),
       UI.btnGroup([
         UI.btn('→ Punycode', 'btn btn-primary tool-btn', () => {
@@ -892,7 +892,7 @@
 
   R.big5 = function (app) {
     mount(app, [
-      hint('Big5 大五碼：台灣繁體中文的復古編碼，完整表請查官方對照，這裡只有精選。'),
+      hint('Big5 大五碼：臺灣繁體中文的復古編碼，完整表請查官方對照，這裡只有精選。'),
       UI.alert('完整 Big5 對照表龐大，本工具僅示範常見字元。', 'info'),
       UI.panel('Big5 範例對照', UI.tableFrom(BIG5_SAMPLES, [
         { key: 'big5', label: 'Big5 碼' },
@@ -1234,7 +1234,7 @@
 
   R.longurl = function (app) {
     mount(app, [
-      hint('貼短網址試著還原，多數服務因 CORS 無法直接 HEAD，這裡教你怎么查。'),
+      hint('貼短網址試著還原，多數服務因 CORS 無法直接 HEAD，這裡教你怎麼查。'),
       UI.input('短網址', 'lu-in', 'url', 'https://bit.ly/example'),
       UI.btn('嘗試解析', 'btn btn-primary tool-btn', async () => {
         const url = getVal('lu-in').trim();

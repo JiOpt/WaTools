@@ -35,7 +35,7 @@
     { char: '子', code: 'nd' }, { char: '王', code: 'm' }, { char: '石', code: 'mr' }, { char: '金', code: 'c' },
   ];
 
-  const ZH_PAIRS = '臺台,愛爱,國国,學学,體体,會会,來来,對对,時时,間间,長长,開开,關关,電电,車车,東东,門门,問问,聽听,見见,說说,讀读,寫写,語语,話话,這这,還还,進进,過过,發发,經经,現现,實实,業业,產产,價价,買买,賣卖,點点,無无,為为,與与,從从,後后,裡里,當当,將将,應应,變变,動动,場场,報报,導导,環环,歷历,歲岁,難难,輕轻,歡欢,樂乐,愛爱,親亲,廣广,廠厂,藥药,醫医,護护,軍军,戰战,勝胜,負负,責责,權权,義义,議议,選选,舉举,黨党,團团,組组,織织,網网,線线,號号,碼码,錢钱,銀银,鐵铁,銅铜,飛飞,機机,廣广,視视,聯联,繫系,總总,類类,種种,質质,標标,準准,計计,認认,識识,記记,設设,計计,試试,驗验,證证,據据,擴扩,縮缩,壓压,溫温,濕湿,氣气,風风,雲云,電电,聲声,顏颜,圖图,畫画,書书,紙纸,筆笔,墨墨,畫画,藝艺,術术,創创,造造,建建,築筑,設设,計计,裝装,修修,護护,養养,護护,衛卫,員员,師师,長长,員员,隊队,組组,織织,網网,線线,號号,碼码,錢钱,銀银,鐵铁,銅铜,飛飞,機机,廣广,視视,聯联,繫系,總总,類类,種种,質质,標标,準准,計计,認认,識识,記记,設设,計计,試试,驗验,證证,據据,擴扩,縮缩,壓压,溫温,濕湿,氣气,風风,雲云,電电,聲声,顏颜,圖图,畫画,書书,紙纸,筆笔,墨墨,畫画,藝艺,術术,創创,造造,建建,築筑,設设,計计,裝装,修修,護护,養养,護护,衛卫,員员,師师,長长,員员,隊队,組组,織织,網网,線线,號号,碼码,錢钱,銀银,鐵铁,銅铜,飛飞,機机,廣广,視视,聯联,繫系,總总,類类,種种,質质,標标,準准,計计,認认,識识,記记,設设,計计,試试,驗验,證证,據据,擴扩,縮缩,壓压,溫温,濕湿,氣气,風风,雲云,電电,聲声,顏颜,圖图,畫画,書书,紙纸,筆笔,墨墨,畫画,藝艺,術术,創创,造造,建建,築筑,設设,計计,裝装,修修,護护,養养,護护,衛卫,員员,師师,長长,員员,隊队'.split(',').map((p) => [p[0], p[1]]);
+  const ZH_PAIRS = '臺臺,愛愛,國國,學學,體體,會會,來來,對對,時時,間間,長長,開開,關關,電電,車車,東東,門門,問問,聽聽,見見,說說,讀讀,寫寫,語語,話話,這這,還還,進進,過過,發發,經經,現現,實實,業業,產產,價價,買買,賣賣,點點,無無,為為,與與,從從,後後,裡裡,當當,將將,應應,變變,動動,場場,報報,導導,環環,歷歷,歲歲,難難,輕輕,歡歡,樂樂,愛愛,親親,廣廣,廠廠,藥藥,醫醫,護護,軍軍,戰戰,勝勝,負負,責責,權權,義義,議議,選選,舉舉,黨黨,團團,組組,織織,網網,線線,號號,碼碼,錢錢,銀銀,鐵鐵,銅銅,飛飛,機機,廣廣,視視,聯聯,繫系,總總,類類,種種,質質,標標,準準,計計,認認,識識,記記,設設,計計,試試,驗驗,證證,據據,擴擴,縮縮,壓壓,溫溫,濕溼,氣氣,風風,雲雲,電電,聲聲,顏顏,圖圖,畫畫,書書,紙紙,筆筆,墨墨,畫畫,藝藝,術術,創創,造造,建建,築築,設設,計計,裝裝,修修,護護,養養,護護,衛衛,員員,師師,長長,員員,隊隊,組組,織織,網網,線線,號號,碼碼,錢錢,銀銀,鐵鐵,銅銅,飛飛,機機,廣廣,視視,聯聯,繫系,總總,類類,種種,質質,標標,準準,計計,認認,識識,記記,設設,計計,試試,驗驗,證證,據據,擴擴,縮縮,壓壓,溫溫,濕溼,氣氣,風風,雲雲,電電,聲聲,顏顏,圖圖,畫畫,書書,紙紙,筆筆,墨墨,畫畫,藝藝,術術,創創,造造,建建,築築,設設,計計,裝裝,修修,護護,養養,護護,衛衛,員員,師師,長長,員員,隊隊,組組,織織,網網,線線,號號,碼碼,錢錢,銀銀,鐵鐵,銅銅,飛飛,機機,廣廣,視視,聯聯,繫系,總總,類類,種種,質質,標標,準準,計計,認認,識識,記記,設設,計計,試試,驗驗,證證,據據,擴擴,縮縮,壓壓,溫溫,濕溼,氣氣,風風,雲雲,電電,聲聲,顏顏,圖圖,畫畫,書書,紙紙,筆筆,墨墨,畫畫,藝藝,術術,創創,造造,建建,築築,設設,計計,裝裝,修修,護護,養養,護護,衛衛,員員,師師,長長,員員,隊隊'.split(',').map((p) => [p[0], p[1]]);
   const TRAD_TO_SIMP = Object.fromEntries(ZH_PAIRS);
   const SIMP_TO_TRAD = Object.fromEntries(ZH_PAIRS.map(([t, s]) => [s, t]));
 
@@ -57,7 +57,7 @@
     { key: 'J', name: '十', shape: '十' }, { key: 'K', name: '大', shape: '大' }, { key: 'L', name: '中', shape: '中' },
     { key: 'M', name: '一', shape: '一' }, { key: 'N', name: '弓', shape: '弓' }, { key: 'O', name: '人', shape: '人' },
     { key: 'P', name: '心', shape: '心' }, { key: 'Q', name: '手', shape: '手' }, { key: 'R', name: '口', shape: '口' },
-    { key: 'S', name: '尸', shape: '尸' }, { key: 'T', name: '廿', shape: '廿' }, { key: 'U', name: '山', shape: '山' },
+    { key: 'S', name: '屍', shape: '屍' }, { key: 'T', name: '廿', shape: '廿' }, { key: 'U', name: '山', shape: '山' },
     { key: 'V', name: '女', shape: '女' }, { key: 'W', name: '田', shape: '田' }, { key: 'Y', name: '卜', shape: '卜' },
   ];
 
@@ -113,7 +113,7 @@
   R['typing-teach'] = function (app) {
     const cards = [
       { t: '倉頡輸入法', d: '形碼輸入，依字形拆字。適合繁體中文。', link: '/cangjie-chart' },
-      { t: '注音輸入法', d: '以 37 個注音符號拼讀，台灣常用。', link: '/bopomofo-chart' },
+      { t: '注音輸入法', d: '以 37 個注音符號拼讀，臺灣常用。', link: '/bopomofo-chart' },
       { t: '漢語拼音', d: '以拉丁字母標音，大陸與國際常用。', link: '/pinyin-chart' },
       { t: '五筆字型', d: '依字根鍵位輸入，重碼率低。', link: '/wubi' },
       { t: '嘸蝦米', d: '繁體形碼輸入法，拆碼直覺。', link: '/boshiamy' },
@@ -430,7 +430,7 @@
   };
 
   R['strokes'] = function (app) {
-    mount(app, [UI.panel('筆畫偏旁', UI.tableFrom([{"stroke":"一","name":"橫"},{"stroke":"丨","name":"豎"},{"stroke":"丿","name":"撇"},{"stroke":"丶","name":"點"},{"stroke":"乙","name":"折"},{"stroke":"亻","name":"单人旁"},{"stroke":"氵","name":"三点水"},{"stroke":"口","name":"口字旁"},{"stroke":"木","name":"木字旁"},{"stroke":"心","name":"心字底"}], [
+    mount(app, [UI.panel('筆畫偏旁', UI.tableFrom([{"stroke":"一","name":"橫"},{"stroke":"丨","name":"豎"},{"stroke":"丿","name":"撇"},{"stroke":"丶","name":"點"},{"stroke":"乙","name":"折"},{"stroke":"亻","name":"單人旁"},{"stroke":"氵","name":"三點水"},{"stroke":"口","name":"口字旁"},{"stroke":"木","name":"木字旁"},{"stroke":"心","name":"心字底"}], [
       { key: 'stroke', label: '形' }, { key: 'name', label: '名稱' },
     ]))]);
   };
@@ -440,13 +440,13 @@
   R['time'] = function (app) {
     const box = UI.el('div', { id: 'time-box' });
     function tick() {
-      box.replaceChildren(...[{"city":"台北","tz":"Asia/Taipei"},{"city":"東京","tz":"Asia/Tokyo"},{"city":"紐約","tz":"America/New_York"},{"city":"倫敦","tz":"Europe/London"}].map((c) => {
+      box.replaceChildren(...[{"city":"臺北","tz":"Asia/Taipei"},{"city":"東京","tz":"Asia/Tokyo"},{"city":"紐約","tz":"America/New_York"},{"city":"倫敦","tz":"Europe/London"}].map((c) => {
         const t = new Date().toLocaleString('zh-TW', { timeZone: c.tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
         return UI.el('div', { className: 'tool-result mb-2' }, c.city + '：' + t);
       }));
     }
     tick(); setInterval(tick, 1000);
-    mount(app, [UI.panel('世界時間', [box, UI.el('p', { className: 'text-muted small' }, '台北、東京、紐約、倫敦即時時鐘。')])]);
+    mount(app, [UI.panel('世界時間', [box, UI.el('p', { className: 'text-muted small' }, '臺北、東京、紐約、倫敦即時時鐘。')])]);
   };
 
   R['calendar'] = function (app) {
@@ -475,25 +475,25 @@
   };
 
   R['currency'] = function (app) {
-    mount(app, [UI.panel('全球貨幣', UI.tableFrom([{"code":"TWD","name":"新台幣","sym":"NT$"},{"code":"USD","name":"美元","sym":"$"},{"code":"EUR","name":"歐元","sym":"€"},{"code":"JPY","name":"日圓","sym":"¥"},{"code":"CNY","name":"人民幣","sym":"¥"},{"code":"GBP","name":"英鎊","sym":"£"}], [
+    mount(app, [UI.panel('全球貨幣', UI.tableFrom([{"code":"TWD","name":"新臺幣","sym":"NT$"},{"code":"USD","name":"美元","sym":"$"},{"code":"EUR","name":"歐元","sym":"€"},{"code":"JPY","name":"日圓","sym":"¥"},{"code":"CNY","name":"人民幣","sym":"¥"},{"code":"GBP","name":"英鎊","sym":"£"}], [
       { key: 'code', label: '代碼' }, { key: 'name', label: '名稱' }, { key: 'sym', label: '符號' },
     ]))]);
   };
 
   R['postal'] = function (app) {
-    mount(app, [UI.panel('國家代碼與郵編', UI.tableFrom([{"country":"台灣","code":"TW","postal":"3+2 或 5 碼"},{"country":"日本","code":"JP","postal":"000-0000"},{"country":"美國","code":"US","postal":"ZIP 5/9"},{"country":"英國","code":"GB","postal":"字母+數字"}], [
+    mount(app, [UI.panel('國家代碼與郵編', UI.tableFrom([{"country":"臺灣","code":"TW","postal":"3+2 或 5 碼"},{"country":"日本","code":"JP","postal":"000-0000"},{"country":"美國","code":"US","postal":"ZIP 5/9"},{"country":"英國","code":"GB","postal":"字母+數字"}], [
       { key: 'country', label: '國家' }, { key: 'code', label: 'ISO' }, { key: 'postal', label: '郵編格式' },
     ]))]);
   };
 
   R['area-code'] = function (app) {
-    mount(app, [UI.panel('國際電話區碼', UI.tableFrom([{"country":"台灣","code":"+886"},{"country":"日本","code":"+81"},{"country":"美國","code":"+1"},{"country":"英國","code":"+44"},{"country":"中國","code":"+86"},{"country":"香港","code":"+852"}], [
+    mount(app, [UI.panel('國際電話區碼', UI.tableFrom([{"country":"臺灣","code":"+886"},{"country":"日本","code":"+81"},{"country":"美國","code":"+1"},{"country":"英國","code":"+44"},{"country":"中國","code":"+86"},{"country":"香港","code":"+852"}], [
       { key: 'country', label: '國家/地區' }, { key: 'code', label: '區碼' },
     ]))]);
   };
 
   R['voltage'] = function (app) {
-    mount(app, [UI.panel('電壓與插頭', UI.tableFrom([{"country":"台灣","v":"110V","plug":"A/C 型"},{"country":"日本","v":"100V","plug":"A/B 型"},{"country":"美國","v":"120V","plug":"A/B 型"},{"country":"英國","v":"230V","plug":"G 型"},{"country":"歐洲","v":"230V","plug":"C/F 型"}], [
+    mount(app, [UI.panel('電壓與插頭', UI.tableFrom([{"country":"臺灣","v":"110V","plug":"A/C 型"},{"country":"日本","v":"100V","plug":"A/B 型"},{"country":"美國","v":"120V","plug":"A/B 型"},{"country":"英國","v":"230V","plug":"G 型"},{"country":"歐洲","v":"230V","plug":"C/F 型"}], [
       { key: 'country', label: '國家' }, { key: 'v', label: '電壓' }, { key: 'plug', label: '插頭' },
     ]))]);
   };
@@ -534,7 +534,7 @@
   };
 
   R['car-brand'] = function (app) {
-    mount(app, [UI.panel('汽車品牌', UI.tableFrom([{"brand":"Toyota","country":"日本"},{"brand":"Honda","country":"日本"},{"brand":"BMW","country":"德國"},{"brand":"Mercedes-Benz","country":"德國"},{"brand":"Tesla","country":"美國"},{"brand":"Ford","country":"美國"},{"brand":"Luxgen","country":"台灣"},{"brand":"Volkswagen","country":"德國"}], [
+    mount(app, [UI.panel('汽車品牌', UI.tableFrom([{"brand":"Toyota","country":"日本"},{"brand":"Honda","country":"日本"},{"brand":"BMW","country":"德國"},{"brand":"Mercedes-Benz","country":"德國"},{"brand":"Tesla","country":"美國"},{"brand":"Ford","country":"美國"},{"brand":"Luxgen","country":"臺灣"},{"brand":"Volkswagen","country":"德國"}], [
       { key: 'brand', label: '品牌' }, { key: 'country', label: '產地' },
     ]))]);
   };
@@ -607,7 +607,7 @@
 
   R['ghost-story'] = function (app) {
     mount(app, [UI.panel('倩女幽魂', [
-      UI.el('p', { className: 'tool-result' }, "寧采臣夜宿蘭若寺，遇聶小倩。書生心正，終得善報。——《聊齋誌異》精簡版"),
+      UI.el('p', { className: 'tool-result' }, "寧採臣夜宿蘭若寺，遇聶小倩。書生心正，終得善報。——《聊齋誌異》精簡版"),
       UI.el('p', { className: 'text-muted' }, '經典志怪，膽小者請開燈閱讀。'),
     ])]);
   };
@@ -639,7 +639,7 @@
       UI.input('姓名', 'jy-name', 'text', '你的名字…'),
       UI.btn('占卜', 'btn btn-primary', () => {
         const n = document.getElementById('jy-name').value.trim() || '俠客';
-        out.textContent = '你是：' + UI.randomChoice(["郭靖","黃蓉","楊過","小龍女","張無忌","趙敏","令狐冲","任盈盈","段譽","虛竹"]) + '（' + n + ' 的江湖化身）';
+        out.textContent = '你是：' + UI.randomChoice(["郭靖","黃蓉","楊過","小龍女","張無忌","趙敏","令狐沖","任盈盈","段譽","虛竹"]) + '（' + n + ' 的江湖化身）';
       }), out,
     ])]);
   };
@@ -816,6 +816,30 @@
       return UI.el('p', { className: 'world-flags-dock-names' }, parts);
     }
 
+    function parseDescSections(desc) {
+      if (!desc) return [];
+      const sections = [];
+      const re = /【([^】]+)】([^【]*)/g;
+      let match;
+      while ((match = re.exec(desc)) !== null) {
+        const title = match[1].trim();
+        const text = match[2].trim();
+        if (text) sections.push({ title, text });
+      }
+      if (!sections.length && desc.trim()) {
+        sections.push({ title: '說明', text: desc.trim() });
+      }
+      return sections;
+    }
+
+    function sectionBlock(title, text) {
+      if (!text) return null;
+      return UI.el('div', { className: 'wf-dock-section' }, [
+        UI.el('h5', { className: 'wf-dock-section-title' }, title),
+        UI.el('p', { className: 'world-flags-dock-desc' }, text),
+      ]);
+    }
+
     function showDetail(country, cardEl) {
       if (selectedCard) selectedCard.classList.remove('is-selected');
       selectedCard = cardEl || null;
@@ -824,12 +848,12 @@
       detail.replaceChildren(
         UI.el('div', { className: 'world-flags-dock-inner' }, [
           UI.el('div', { className: 'world-flags-dock-head' }, [
-            UI.el('img', {
+            UI.bindImageZoom(UI.el('img', {
               className: 'world-flags-dock-img',
               src: country.image,
               alt: country.nameZh,
               loading: 'lazy',
-            }),
+            }), { caption: country.nameZh }),
             UI.el('div', { className: 'world-flags-dock-head-text' }, [
               renderTitle(country),
               renderNameLine(country),
@@ -847,9 +871,9 @@
             }, '×'),
           ]),
           country.desc
-            ? UI.el('div', { className: 'world-flags-dock-body' }, [
-                UI.el('p', { className: 'world-flags-dock-desc' }, country.desc),
-              ])
+            ? UI.el('div', { className: 'world-flags-dock-body wf-dock-body' },
+              parseDescSections(country.desc).map((section) => sectionBlock(section.title, section.text))
+            )
             : null,
         ])
       );
@@ -921,10 +945,19 @@
       }, `${region.label} (${region.countries.length})`)
     ));
 
+    const introGuide = UI.el('details', { className: 'world-flags-guide' }, [
+      UI.el('summary', {}, '這頁可以怎麼用？'),
+      UI.el('div', { className: 'world-flags-guide-body' }, [
+        UI.el('p', {}, '依洲別瀏覽各國國旗，可用中文、英文或 ISO 代碼搜尋。'),
+        UI.el('p', {}, '點選國旗後，下方面板會顯示首都、地理、語言、貨幣、經濟與文化摘要，以及旗幟的構圖、色彩象徵與歷史背景。'),
+        UI.el('p', { className: 'mb-0' }, '適合地理課複習、出國前快速查國情，或純粹認旗練習。'),
+      ]),
+    ]);
+
     const introMeta = UI.el('p', {
       className: 'text-muted world-flags-intro-meta',
       id: 'wf-intro-meta',
-    }, `共 ${total} 個國家與地區`);
+    }, `共 ${total} 個國家與地區 · 點選國旗查看詳情`);
 
     const searchMeta = UI.el('p', {
       className: 'text-muted world-flags-search-meta',
@@ -947,6 +980,7 @@
 
     const toolbar = UI.el('div', { className: 'world-flags-toolbar', id: 'wf-toolbar' }, [
       introMeta,
+      introGuide,
       searchRow,
       searchMeta,
       navWrap,
@@ -1016,23 +1050,38 @@
     app.classList.add('world-flags-app');
 
     const stickyTop = () => {
-      const top = getComputedStyle(app).getPropertyValue('--wf-sticky-top').trim() || '72px';
-      return top;
+      const root = getComputedStyle(document.documentElement);
+      return root.getPropertyValue('--header-offset').trim()
+        || getComputedStyle(app).getPropertyValue('--wf-sticky-top').trim()
+        || '72px';
     };
 
-    const scrollObserver = new IntersectionObserver(([entry]) => {
+    const onStickyCompactChange = ([entry]) => {
       const compact = !entry.isIntersecting;
       toolbar.classList.toggle('is-compact', compact);
       if (!compact) {
         toolbar.classList.remove('is-nav-open');
         regionToggle.setAttribute('aria-expanded', 'false');
       }
-    }, {
+    };
+
+    const makeStickyObserver = () => new IntersectionObserver(onStickyCompactChange, {
       root: null,
       threshold: 0,
       rootMargin: `-${stickyTop()} 0px 0px 0px`,
     });
+
+    let scrollObserver = makeStickyObserver();
     scrollObserver.observe(scrollSentinel);
+
+    const refreshStickyObserver = () => {
+      scrollObserver.disconnect();
+      scrollObserver = makeStickyObserver();
+      scrollObserver.observe(scrollSentinel);
+    };
+
+    window.addEventListener('resize', refreshStickyObserver);
+    window.addEventListener('watools:header-offset', refreshStickyObserver);
 
     const firstCard = regionsWrap.querySelector('.world-flags-card');
     if (firstCard) {
@@ -1042,67 +1091,1141 @@
   };
 
   R['population'] = function (app) {
-    mount(app, [UI.panel('世界人口統計', [
-      UI.el('div', { className: 'tool-result' }, [
-        UI.el('p', {}, '全球人口：約 80 億（2024 估計）'),
-        UI.el('p', {}, '男女比例：約 50.4% : 49.6%'),
-        UI.el('p', {}, '人口最多：印度、中國'),
-        UI.el('p', { className: 'text-muted small' }, '靜態參考數據，非即時統計。'),
+    const data = window.WA_POPULATION;
+    if (!data || !data.countries || !data.countries.length) {
+      mount(app, [UI.panel('世界人口統計', UI.el('p', { className: 'text-muted' }, '人口資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    const countries = data.countries.slice();
+    let sortKey = 'pop';
+    let sortDir = 'desc';
+    let regionFilter = 'all';
+    let searchQuery = '';
+    let selectedRow = null;
+
+    function fmtPop(n) {
+      if (n == null || Number.isNaN(n)) return '—';
+      const abs = Math.abs(n);
+      if (abs >= 1e9) return `${(n / 1e9).toFixed(2)} 億`;
+      if (abs >= 1e6) return `${(n / 1e6).toFixed(2)} 百萬`;
+      if (abs >= 1e4) return `${Math.round(n).toLocaleString('zh-Hant')}`;
+      return Math.round(n).toLocaleString('zh-Hant');
+    }
+
+    function fmtNum(n, digits) {
+      if (n == null || Number.isNaN(n)) return '—';
+      return Number(n).toLocaleString('zh-Hant', {
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits,
+      });
+    }
+
+    function fmtPct(n) {
+      if (n == null || Number.isNaN(n)) return '—';
+      return `${fmtNum(n, 2)}%`;
+    }
+
+    function fmtPerThousand(n) {
+      if (n == null || Number.isNaN(n)) return '—';
+      return `${fmtNum(n, 2)} / 千人`;
+    }
+
+    function fmtYears(n) {
+      if (n == null || Number.isNaN(n)) return '—';
+      return `${fmtNum(n, 1)} 歲`;
+    }
+
+    function fmtSexRatio(malePct, femalePct) {
+      if (malePct == null || femalePct == null) return '—';
+      const ratio = malePct / femalePct;
+      return `${fmtNum(ratio * 100, 1)} 男 : 100 女`;
+    }
+
+    const SORT_OPTIONS = [
+      { key: 'pop', label: '人口總數', group: 'resources', format: fmtPop },
+      { key: 'growth', label: '人口成長率', group: 'dynamics', format: fmtPct },
+      { key: 'birthRate', label: '出生率', group: 'dynamics', format: fmtPerThousand },
+      { key: 'deathRate', label: '死亡率', group: 'dynamics', format: fmtPerThousand },
+      { key: 'fertility', label: '總生育率', group: 'dynamics', format: (v) => (v == null ? '—' : `${fmtNum(v, 2)} 人/婦`) },
+      { key: 'age0_14', label: '0–14 歲佔比', group: 'structure', format: fmtPct },
+      { key: 'age15_64', label: '15–64 歲佔比', group: 'structure', format: fmtPct },
+      { key: 'age65up', label: '65+ 歲佔比', group: 'structure', format: fmtPct },
+      { key: 'depYouth', label: '扶幼比', group: 'structure', format: fmtPct },
+      { key: 'depOld', label: '扶老比', group: 'structure', format: fmtPct },
+      { key: 'depTotal', label: '總扶養比', group: 'structure', format: fmtPct },
+      { key: 'malePct', label: '男性佔比', group: 'structure', format: fmtPct },
+      { key: 'urbanPct', label: '城市化程度', group: 'migration', format: fmtPct },
+      { key: 'netMigrationRate', label: '淨遷移率', group: 'migration', format: fmtPerThousand },
+      { key: 'lifeExp', label: '平均餘命', group: 'health', format: fmtYears },
+      { key: 'healthyLife', label: '健康平均餘命', group: 'health', format: fmtYears },
+      { key: 'density', label: '人口密度', group: 'resources', format: (v) => (v == null ? '—' : `${fmtNum(v, 1)} 人/km²`) },
+      { key: 'literacy', label: '識字率', group: 'resources', format: fmtPct },
+    ];
+
+    const sortOptionMap = Object.fromEntries(SORT_OPTIONS.map((o) => [o.key, o]));
+
+    const CATEGORY_INFO = [
+      {
+        id: 'dynamics',
+        title: '1. 人口動態與成長率',
+        text: '人口成長率反映增加或減少速度；出生率、死亡率（每千人）評估自然增加；總生育率觀察少子化或人口爆炸趨勢。',
+      },
+      {
+        id: 'structure',
+        title: '2. 人口結構分析',
+        text: '依幼年、青壯年、老年佔比分析扶幼比、扶老比與總扶養比，評估勞動力與長照壓力；性別比例反映人口結構。',
+      },
+      {
+        id: 'migration',
+        title: '3. 遷徙與城市化',
+        text: '城市化程度反映都市與鄉村人口分佈；淨遷移率（每千人）反映國際移入移出與人口吸引力。',
+      },
+      {
+        id: 'health',
+        title: '4. 壽命與健康指標',
+        text: '平均餘命反映醫療與生活品質；健康平均餘命為扣除疾病失能後的健康存活年數（部分國家無公開資料）。',
+      },
+      {
+        id: 'resources',
+        title: '5. 資源與分佈',
+        text: '人口密度評估土地承載壓力；識字率反映教育普及與人力資源品質。',
+      },
+    ];
+
+    const detail = UI.el('div', { className: 'population-dock', id: 'pop-detail', hidden: true }, [
+      UI.el('p', { className: 'text-muted mb-0 population-dock-hint' }, '點選列表中的國家可查看完整指標。'),
+    ]);
+
+    function setDockOpen(open) {
+      detail.hidden = !open;
+      detail.classList.toggle('is-visible', open);
+      app.classList.toggle('population-has-dock', open);
+    }
+
+    function metricRow(label, value, hint) {
+      return UI.el('div', { className: 'population-metric-row' }, [
+        UI.el('span', { className: 'population-metric-label' }, label),
+        UI.el('span', { className: 'population-metric-value' }, value),
+        hint ? UI.el('span', { className: 'population-metric-hint' }, hint) : null,
+      ]);
+    }
+
+    function metricSection(title, rows) {
+      return UI.el('section', { className: 'population-metric-section' }, [
+        UI.el('h5', { className: 'population-metric-section-title' }, title),
+        UI.el('div', { className: 'population-metric-grid' }, rows),
+      ]);
+    }
+
+    function showDetail(c) {
+      if (selectedRow) selectedRow.classList.remove('is-selected');
+      selectedRow = document.querySelector(`.population-row[data-iso3="${c.iso3}"]`);
+      if (selectedRow) selectedRow.classList.add('is-selected');
+
+      const headParts = [
+        c.flagImage
+          ? UI.bindImageZoom(UI.el('img', {
+            className: 'population-dock-flag',
+            src: c.flagImage,
+            alt: c.nameZh,
+            loading: 'lazy',
+          }), { caption: c.nameZh })
+          : UI.el('span', { className: 'population-dock-flag population-dock-flag-fallback' }, c.iso3),
+        UI.el('div', { className: 'population-dock-head-text' }, [
+          UI.el('h4', { className: 'population-dock-title' }, [
+            c.nameZh,
+            UI.el('span', { className: 'population-code-inline' }, c.iso3),
+          ]),
+          c.nameEn && c.nameEn !== c.nameZh
+            ? UI.el('p', { className: 'population-dock-en' }, c.nameEn)
+            : null,
+          UI.el('p', { className: 'population-dock-meta' }, [
+            c.regionLabel,
+            c.dataYear ? ` · 資料年份 ${c.dataYear}` : '',
+          ]),
+        ]),
+        UI.el('button', {
+          type: 'button',
+          className: 'population-dock-close',
+          'aria-label': '關閉',
+          onClick: () => setDockOpen(false),
+        }, '×'),
+      ];
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'population-dock-inner' }, [
+          UI.el('div', { className: 'population-dock-head' }, headParts),
+          UI.el('div', { className: 'population-dock-body' }, [
+            metricSection('人口動態與成長率', [
+              metricRow('人口總數', fmtPop(c.pop)),
+              metricRow('人口成長率', fmtPct(c.growth), '年增減百分比'),
+              metricRow('出生率', fmtPerThousand(c.birthRate)),
+              metricRow('死亡率', fmtPerThousand(c.deathRate)),
+              metricRow('總生育率', c.fertility == null ? '—' : `${fmtNum(c.fertility, 2)} 人/婦`),
+            ]),
+            metricSection('人口結構分析', [
+              metricRow('0–14 歲', fmtPct(c.age0_14)),
+              metricRow('15–64 歲', fmtPct(c.age15_64)),
+              metricRow('65 歲以上', fmtPct(c.age65up)),
+              metricRow('扶幼比', fmtPct(c.depYouth)),
+              metricRow('扶老比', fmtPct(c.depOld)),
+              metricRow('總扶養比', fmtPct(c.depTotal)),
+              metricRow('男性佔比', fmtPct(c.malePct)),
+              metricRow('女性佔比', fmtPct(c.femalePct)),
+              metricRow('性別比例', fmtSexRatio(c.malePct, c.femalePct)),
+            ]),
+            metricSection('遷徙與城市化', [
+              metricRow('城市化程度', fmtPct(c.urbanPct)),
+              metricRow('淨遷移（人）', c.netMigration == null ? '—' : fmtPop(c.netMigration)),
+              metricRow('淨遷移率', fmtPerThousand(c.netMigrationRate), '每千人'),
+            ]),
+            metricSection('壽命與健康', [
+              metricRow('平均餘命', fmtYears(c.lifeExp)),
+              metricRow('健康平均餘命', fmtYears(c.healthyLife), c.healthyLife == null ? '資料未提供' : null),
+            ]),
+            metricSection('資源與分佈', [
+              metricRow('人口密度', c.density == null ? '—' : `${fmtNum(c.density, 1)} 人/km²`),
+              metricRow('識字率', fmtPct(c.literacy)),
+            ]),
+          ]),
+        ])
+      );
+      setDockOpen(true);
+    }
+
+    function filteredSorted() {
+      const q = searchQuery.trim().toLowerCase();
+      let list = countries.filter((c) => {
+        if (regionFilter !== 'all' && c.regionId !== regionFilter) return false;
+        if (!q) return true;
+        const hay = `${c.nameZh} ${c.nameEn} ${c.iso3}`.toLowerCase();
+        return hay.includes(q);
+      });
+      const opt = sortOptionMap[sortKey];
+      list.sort((a, b) => {
+        const av = a[sortKey];
+        const bv = b[sortKey];
+        if (av == null && bv == null) return a.nameZh.localeCompare(b.nameZh, 'zh-Hant');
+        if (av == null) return 1;
+        if (bv == null) return -1;
+        if (av === bv) return a.nameZh.localeCompare(b.nameZh, 'zh-Hant');
+        return sortDir === 'desc' ? bv - av : av - bv;
+      });
+      return list;
+    }
+
+    const summaryEl = UI.el('div', { className: 'population-summary' });
+    const metaEl = UI.el('p', { className: 'text-muted population-intro-meta' });
+    const searchMeta = UI.el('p', { className: 'text-muted population-search-meta', hidden: true });
+    const tbody = UI.el('tbody');
+
+    function renderSummary() {
+      const w = data.world || {};
+      summaryEl.replaceChildren(
+        UI.el('div', { className: 'population-summary-card' }, [
+          UI.el('span', { className: 'population-summary-label' }, '全球人口'),
+          UI.el('strong', { className: 'population-summary-value' }, fmtPop(w.pop)),
+        ]),
+        UI.el('div', { className: 'population-summary-card' }, [
+          UI.el('span', { className: 'population-summary-label' }, '涵蓋國家'),
+          UI.el('strong', { className: 'population-summary-value' }, `${data.countryCount}`),
+        ]),
+        UI.el('div', { className: 'population-summary-card' }, [
+          UI.el('span', { className: 'population-summary-label' }, '全球成長率'),
+          UI.el('strong', { className: 'population-summary-value' }, fmtPct(w.growth)),
+        ]),
+        UI.el('div', { className: 'population-summary-card' }, [
+          UI.el('span', { className: 'population-summary-label' }, '平均餘命'),
+          UI.el('strong', { className: 'population-summary-value' }, fmtYears(w.lifeExp)),
+        ])
+      );
+      metaEl.textContent = `資料來源：${data.source}（${data.fetchedAt} 更新）。點欄位標題或下拉選單可切換排行依據。`;
+    }
+
+    function renderTable() {
+      const list = filteredSorted();
+      const opt = sortOptionMap[sortKey];
+      tbody.replaceChildren();
+      list.forEach((c, idx) => {
+        const tr = UI.el('tr', {
+          className: 'population-row',
+          dataset: { iso3: c.iso3 },
+          tabIndex: 0,
+          role: 'button',
+          onClick: () => showDetail(c),
+          onKeydown: (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showDetail(c);
+            }
+          },
+        }, [
+          UI.el('td', { className: 'population-rank' }, String(idx + 1)),
+          UI.el('td', { className: 'population-country' }, [
+            c.flagImage
+              ? UI.el('img', { className: 'population-flag', src: c.flagImage, alt: '', loading: 'lazy' })
+              : UI.el('span', { className: 'population-flag-fallback' }, c.iso3.slice(0, 2)),
+            UI.el('span', { className: 'population-country-name' }, [
+              UI.el('strong', {}, c.nameZh),
+              c.nameEn && c.nameEn !== c.nameZh
+                ? UI.el('small', { className: 'population-country-en' }, c.nameEn)
+                : null,
+            ]),
+          ]),
+          UI.el('td', { className: 'population-primary' }, opt.format(c[sortKey])),
+          UI.el('td', { className: 'population-secondary d-none d-md-table-cell' }, fmtPop(c.pop)),
+          UI.el('td', { className: 'population-secondary d-none d-lg-table-cell' }, c.regionLabel),
+        ]);
+        tbody.appendChild(tr);
+      });
+      searchMeta.hidden = !searchQuery.trim();
+      searchMeta.textContent = searchQuery.trim()
+        ? `搜尋「${searchQuery.trim()}」：${list.length} 筆`
+        : '';
+    }
+
+    const search = UI.el('input', {
+      type: 'search',
+      className: 'form-control tool-input population-search',
+      placeholder: '搜尋國家名稱或代碼…',
+      onInput: (e) => {
+        searchQuery = e.target.value;
+        renderTable();
+      },
+    });
+
+    const regionSelect = UI.el('select', {
+      className: 'form-select tool-select population-region',
+      onChange: (e) => {
+        regionFilter = e.target.value;
+        renderTable();
+      },
+    }, [
+      UI.el('option', { value: 'all' }, '全部地區'),
+      ...(data.regions || []).map((r) => UI.el('option', { value: r.id }, `${r.label}（${r.count}）`)),
+    ]);
+
+    const sortSelect = UI.el('select', {
+      className: 'form-select tool-select population-sort',
+      onChange: (e) => {
+        sortKey = e.target.value;
+        renderTable();
+        updateHeader();
+      },
+    }, SORT_OPTIONS.map((o) => UI.el('option', { value: o.key, selected: o.key === sortKey }, o.label)));
+
+    const sortDirBtn = UI.el('button', {
+      type: 'button',
+      className: 'population-sort-dir',
+      title: '切換排序方向',
+      onClick: () => {
+        sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+        sortDirBtn.textContent = sortDir === 'desc' ? '↓ 高到低' : '↑ 低到高';
+        sortDirBtn.setAttribute('aria-label', sortDir === 'desc' ? '由高到低排序' : '由低到高排序');
+        renderTable();
+      },
+    }, '↓ 高到低');
+
+    const primaryTh = UI.el('th', { className: 'population-th-sortable', tabIndex: 0 }, sortOptionMap[sortKey].label);
+
+    function updateHeader() {
+      primaryTh.textContent = sortOptionMap[sortKey].label;
+      sortSelect.value = sortKey;
+    }
+
+    primaryTh.addEventListener('click', () => {
+      sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+      sortDirBtn.textContent = sortDir === 'desc' ? '↓ 高到低' : '↑ 低到高';
+      renderTable();
+    });
+
+    const table = UI.el('table', { className: 'table table-hover population-table' }, [
+      UI.el('thead', {}, UI.el('tr', {}, [
+        UI.el('th', { className: 'population-rank' }, '#'),
+        UI.el('th', {}, '國家'),
+        primaryTh,
+        UI.el('th', { className: 'd-none d-md-table-cell' }, '人口'),
+        UI.el('th', { className: 'd-none d-lg-table-cell' }, '地區'),
+      ])),
+      tbody,
+    ]);
+
+    const categoryGuide = UI.el('details', { className: 'population-guide' }, [
+      UI.el('summary', {}, '指標說明（五大類）'),
+      UI.el('div', { className: 'population-guide-body' },
+        CATEGORY_INFO.map((cat) => UI.el('div', { className: 'population-guide-item' }, [
+          UI.el('strong', {}, cat.title),
+          UI.el('p', {}, cat.text),
+        ]))
+      ),
+    ]);
+
+    const toolbar = UI.el('div', { className: 'population-toolbar' }, [
+      UI.el('div', { className: 'population-toolbar-row' }, [search, regionSelect]),
+      UI.el('div', { className: 'population-toolbar-row population-toolbar-row-sort' }, [
+        UI.el('label', { className: 'population-sort-label' }, '排行依據'),
+        sortSelect,
+        sortDirBtn,
       ]),
-    ])]);
+    ]);
+
+    app.classList.add('population-app');
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner population-layout' }, [
+      summaryEl,
+      metaEl,
+      categoryGuide,
+      toolbar,
+      searchMeta,
+      UI.el('div', { className: 'population-table-wrap table-responsive' }, table),
+      UI.el('p', { className: 'text-muted small population-footnote' }, [
+        '淨遷移率依人口估算（每千人）；識字率、健康平均餘命等指標部分國家無最新公開資料，列表中以 — 表示。',
+        ' ',
+        UI.el('a', { href: data.sourceUrl, target: '_blank', rel: 'noopener' }, 'World Bank Open Data'),
+      ]),
+      detail,
+    ]));
+
+    renderSummary();
+    renderTable();
+    if (countries[0]) showDetail(countries[0]);
   };
 
   R['coat-of-arms'] = function (app) {
-    const data = [
-      { country: '英國', name: '皇家徽章' }, { country: '西班牙', name: '西班牙國徽' },
-      { country: '德國', name: '聯邦鷹' }, { country: '台灣', name: '中華民國國徽' },
-    ];
-    mount(app, [UI.panel('國家徽章', UI.tableFrom(data, [
-      { key: 'country', label: '國家' }, { key: 'name', label: '徽章' },
-    ]))]);
+    const data = window.WA_COAT_OF_ARMS;
+    if (!data || !data.regions || !data.regions.length) {
+      mount(app, [UI.panel('國家徽章', UI.el('p', { className: 'text-muted' }, '徽章資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    const total = data.regions.reduce((n, r) => n + r.countries.length, 0);
+    let selectedCard = null;
+
+    const detail = UI.el('div', { className: 'world-flags-dock', id: 'coa-detail', hidden: true }, [
+      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選徽章可查看說明。'),
+    ]);
+
+    function setDockOpen(open) {
+      detail.hidden = !open;
+      detail.classList.toggle('is-visible', open);
+      app.classList.toggle('world-flags-has-dock', open);
+    }
+
+    function renderTitle(country) {
+      const titleParts = [country.nameZh];
+      if (country.code) {
+        titleParts.push(UI.el('span', { className: 'world-flags-code-inline' }, country.code.toUpperCase()));
+      }
+      return UI.el('h4', { className: 'world-flags-dock-title' }, titleParts);
+    }
+
+    function renderNameLine(country) {
+      const parts = [];
+      if (country.coatName) {
+        parts.push(UI.el('span', { className: 'world-flags-dock-en' }, country.coatName));
+      } else if (country.nameEn && country.nameEn !== country.nameZh) {
+        parts.push(UI.el('span', { className: 'world-flags-dock-en' }, country.nameEn));
+      }
+      if (country.coatType) {
+        if (parts.length) parts.push(UI.el('span', { className: 'world-flags-dock-sep', 'aria-hidden': 'true' }, '·'));
+        parts.push(UI.el('span', { className: 'world-flags-dock-native' }, country.coatType));
+      }
+      if (!parts.length) return null;
+      return UI.el('p', { className: 'world-flags-dock-names' }, parts);
+    }
+
+    function isGenericCoatField(field, text) {
+      if (!text) return true;
+      if (field === 'symbols') return /承載.+的主權與國家認同/.test(text);
+      if (field === 'history') return /徽章隨國家獨立、政體更迭/.test(text);
+      if (field === 'composition') return /^(採用歐洲紋章學結構|採用圓形國徽構圖|國家徽章通常以盾徽)/.test(text);
+      return false;
+    }
+
+    function buildCoaSections(country) {
+      const candidates = [
+        { title: '核心象徵與意義', field: 'symbols', text: country.symbols },
+        { title: '歷史由來與演變', field: 'history', text: country.history },
+        { title: '設計構圖與元素', field: 'composition', text: country.composition },
+      ];
+      return candidates.filter((item) => item.text && !isGenericCoatField(item.field, item.text));
+    }
+
+    function sectionBlock(title, text) {
+      if (!text) return null;
+      return UI.el('div', { className: 'coa-dock-section' }, [
+        UI.el('h5', { className: 'coa-dock-section-title' }, title),
+        UI.el('p', { className: 'world-flags-dock-desc' }, text),
+      ]);
+    }
+
+    function showDetail(country, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      const imgNode = country.image
+        ? UI.bindImageZoom(UI.el('img', {
+          className: 'world-flags-dock-img coa-dock-img',
+          src: country.image,
+          alt: country.coatName || country.nameZh,
+          loading: 'lazy',
+        }), { caption: country.coatName || country.nameZh })
+        : UI.el('div', { className: 'world-flags-dock-img coa-dock-img coa-dock-img-fallback' }, country.code?.toUpperCase() || '?');
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'world-flags-dock-inner' }, [
+          UI.el('div', { className: 'world-flags-dock-head' }, [
+            imgNode,
+            UI.el('div', { className: 'world-flags-dock-head-text' }, [
+              renderTitle(country),
+              renderNameLine(country),
+            ]),
+            UI.el('button', {
+              type: 'button',
+              className: 'world-flags-dock-close',
+              title: '收合',
+              'aria-label': '收合詳情',
+              onClick: () => {
+                if (selectedCard) selectedCard.classList.remove('is-selected');
+                selectedCard = null;
+                setDockOpen(false);
+              },
+            }, '×'),
+          ]),
+          UI.el('div', { className: 'world-flags-dock-body coa-dock-body' }, (() => {
+            const sections = buildCoaSections(country);
+            if (!sections.length) {
+              return [UI.el('p', { className: 'world-flags-dock-desc coa-dock-empty' },
+                '暫無詳細國徽說明。圖示供視覺辨識；若需深度背景，建議查閱該國政府或外交機關公開資料。')];
+            }
+            return sections.map((section, index) => sectionBlock(
+              sections.length > 1 ? `${index + 1}. ${section.title}` : section.title,
+              section.text
+            ));
+          })()),
+        ])
+      );
+      const body = detail.querySelector('.world-flags-dock-body');
+      if (body) body.scrollTop = 0;
+      setDockOpen(true);
+    }
+
+    function makeCard(country) {
+      const imgChild = country.image
+        ? UI.el('img', {
+          className: 'world-flags-img coa-card-img',
+          src: country.image,
+          alt: country.nameZh,
+          loading: 'lazy',
+        })
+        : UI.el('span', { className: 'coa-card-img-fallback' }, country.code?.toUpperCase() || '—');
+
+      return UI.el('button', {
+        type: 'button',
+        className: 'world-flags-card coa-card',
+        title: country.coatName || country.nameZh,
+        dataset: {
+          nameZh: country.nameZh,
+          nameEn: country.nameEn || '',
+          code: country.code || '',
+          coatName: country.coatName || '',
+        },
+        onClick: (e) => showDetail(country, e.currentTarget),
+      }, [
+        imgChild,
+        UI.el('span', { className: 'world-flags-name' }, [
+          country.nameZh,
+          country.code
+            ? UI.el('span', { className: 'world-flags-code-inline' }, country.code.toUpperCase())
+            : null,
+        ]),
+        country.coatName
+          ? UI.el('span', { className: 'world-flags-name-en' }, country.coatName)
+          : (country.nameEn && country.nameEn !== country.nameZh
+            ? UI.el('span', { className: 'world-flags-name-en' }, country.nameEn)
+            : null),
+      ]);
+    }
+
+    function makeRegionSection(region) {
+      const grid = UI.el('div', {
+        className: 'world-flags-grid',
+        id: `coa-region-${region.id}`,
+        dataset: { region: region.id },
+      }, region.countries.map(makeCard));
+
+      return UI.el('section', { className: 'world-flags-region' }, [
+        UI.el('h3', { className: 'world-flags-region-title' }, [
+          region.label,
+          UI.el('span', { className: 'world-flags-region-count' }, `${region.countries.length}`),
+        ]),
+        grid,
+      ]);
+    }
+
+    const search = UI.el('input', {
+      type: 'search',
+      className: 'form-control tool-input world-flags-search',
+      id: 'coa-search',
+      placeholder: '搜尋國家或徽章名稱…',
+      autocomplete: 'off',
+    });
+
+    const nav = UI.el('div', { className: 'world-flags-nav' }, data.regions.map((region) =>
+      UI.el('a', {
+        className: 'world-flags-nav-link',
+        href: `#coa-region-${region.id}`,
+      }, `${region.label} (${region.countries.length})`)
+    ));
+
+    const introMeta = UI.el('p', {
+      className: 'text-muted world-flags-intro-meta',
+      id: 'coa-intro-meta',
+    }, `共 ${total} 個國家與地區 · ${data.imageCount || 0} 枚徽章圖`);
+
+    const searchMeta = UI.el('p', {
+      className: 'text-muted world-flags-search-meta',
+      id: 'coa-meta',
+      hidden: true,
+    }, '');
+
+    const regionToggle = UI.el('button', {
+      type: 'button',
+      className: 'world-flags-region-toggle',
+      id: 'coa-region-toggle',
+      title: '選擇洲別',
+      'aria-expanded': 'false',
+      'aria-controls': 'coa-nav',
+    }, '洲');
+
+    const searchRow = UI.el('div', { className: 'world-flags-toolbar-row' }, [search, regionToggle]);
+    const navWrap = UI.el('div', { className: 'world-flags-nav-wrap', id: 'coa-nav' }, [nav]);
+
+    const toolbar = UI.el('div', { className: 'world-flags-toolbar', id: 'coa-toolbar' }, [
+      introMeta,
+      searchRow,
+      searchMeta,
+      navWrap,
+    ]);
+
+    regionToggle.addEventListener('click', () => {
+      const open = toolbar.classList.toggle('is-nav-open');
+      regionToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const scrollSentinel = UI.el('div', {
+      className: 'world-flags-scroll-sentinel',
+      'aria-hidden': 'true',
+    });
+
+    const regionsWrap = UI.el('div', { className: 'world-flags-regions', id: 'coa-regions' },
+      data.regions.map(makeRegionSection)
+    );
+
+    function filterItems() {
+      const q = search.value.trim().toLowerCase();
+      let visible = 0;
+      regionsWrap.querySelectorAll('.world-flags-region').forEach((section) => {
+        let regionVisible = 0;
+        section.querySelectorAll('.world-flags-card').forEach((card) => {
+          const zh = (card.dataset.nameZh || '').toLowerCase();
+          const en = (card.dataset.nameEn || '').toLowerCase();
+          const code = (card.dataset.code || '').toLowerCase();
+          const coat = (card.dataset.coatName || '').toLowerCase();
+          const match = !q || zh.includes(q) || en.includes(q) || code.includes(q) || coat.includes(q);
+          card.hidden = !match;
+          if (match) regionVisible += 1;
+        });
+        section.hidden = regionVisible === 0;
+        const countEl = section.querySelector('.world-flags-region-count');
+        if (countEl) countEl.textContent = String(regionVisible);
+        visible += regionVisible;
+      });
+      navWrap.hidden = !!q;
+      regionToggle.hidden = !!q;
+      if (searchMeta) {
+        if (q) {
+          searchMeta.hidden = false;
+          searchMeta.textContent = `找到 ${visible} 個符合「${search.value.trim()}」的結果`;
+        } else {
+          searchMeta.hidden = true;
+        }
+      }
+    }
+
+    search.addEventListener('input', filterItems);
+
+    mount(app, [
+      UI.panel('國家徽章', [
+        scrollSentinel,
+        toolbar,
+        regionsWrap,
+      ]),
+      detail,
+    ]);
+    app.classList.add('world-flags-app', 'coat-of-arms-app');
+
+    const stickyTop = () => {
+      const root = getComputedStyle(document.documentElement);
+      return root.getPropertyValue('--header-offset').trim()
+        || getComputedStyle(app).getPropertyValue('--wf-sticky-top').trim()
+        || '72px';
+    };
+
+    const onStickyCompactChange = ([entry]) => {
+      const compact = !entry.isIntersecting;
+      toolbar.classList.toggle('is-compact', compact);
+      if (!compact) {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    const makeStickyObserver = () => new IntersectionObserver(onStickyCompactChange, {
+      root: null,
+      threshold: 0,
+      rootMargin: `-${stickyTop()} 0px 0px 0px`,
+    });
+
+    let scrollObserver = makeStickyObserver();
+    scrollObserver.observe(scrollSentinel);
+
+    const refreshStickyObserver = () => {
+      scrollObserver.disconnect();
+      scrollObserver = makeStickyObserver();
+      scrollObserver.observe(scrollSentinel);
+    };
+
+    window.addEventListener('resize', refreshStickyObserver);
+    window.addEventListener('watools:header-offset', refreshStickyObserver);
+
+    const firstCard = regionsWrap.querySelector('.world-flags-card');
+    if (firstCard) {
+      const firstRegion = data.regions[0];
+      if (firstRegion && firstRegion.countries[0]) showDetail(firstRegion.countries[0], firstCard);
+    }
   };
 
   R['ethnic-china'] = function (app) {
-    const rows = ["漢族","壯族","滿族","回族","苗族","維吾爾族","土家族","彝族","蒙古族","藏族","布依族","侗族","瑤族","朝鮮族","白族","哈尼族","哈薩克族","黎族","傣族","畲族","傈僳族","仡佬族","東鄉族","高山族","拉祜族","水族","佤族","納西族","羌族","土族","仫佬族","錫伯族","柯尔克孜族","達斡爾族","景頗族","毛南族","撒拉族","布朗族","塔吉克族","阿昌族","普米族","鄂溫克族","怒族","京族","基諾族","德昂族","保安族","俄羅斯族","裕固族","烏孜別克族","門巴族","鄂倫春族","獨龍族","塔塔爾族","赫哲族","珞巴族"].map((e, i) => ({ no: i + 1, name: e }));
+    const rows = ["漢族","壯族","滿族","回族","苗族","維吾爾族","土家族","彝族","蒙古族","藏族","布依族","侗族","瑤族","朝鮮族","白族","哈尼族","哈薩克族","黎族","傣族","畲族","傈僳族","仡佬族","東鄉族","高山族","拉祜族","水族","佤族","納西族","羌族","土族","仫佬族","錫伯族","柯爾克孜族","達斡爾族","景頗族","毛南族","撒拉族","布朗族","塔吉克族","阿昌族","普米族","鄂溫克族","怒族","京族","基諾族","德昂族","保安族","俄羅斯族","裕固族","烏孜別克族","門巴族","鄂倫春族","獨龍族","塔塔爾族","赫哲族","珞巴族"].map((e, i) => ({ no: i + 1, name: e }));
     mount(app, [UI.panel('56 個民族', UI.tableFrom(rows, [
       { key: 'no', label: '#' }, { key: 'name', label: '民族' },
     ]))]);
   };
 
   R['national-anthem'] = function (app) {
-    const data = [
-      { country: '台灣', anthem: '中華民國國歌' }, { country: '美國', anthem: 'The Star-Spangled Banner' },
-      { country: '日本', anthem: '君が代' }, { country: '法國', anthem: 'La Marseillaise' },
-    ];
-    mount(app, [UI.panel('各國國歌', UI.tableFrom(data, [
-      { key: 'country', label: '國家' }, { key: 'anthem', label: '國歌' },
-    ]))]);
+    const data = window.WA_NATIONAL_ANTHEMS;
+    if (!data || !data.anthems || !data.anthems.length) {
+      mount(app, [UI.panel('各國國歌', UI.el('p', { className: 'text-muted' }, '國歌資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    const anthems = data.anthems.slice();
+    const anthemMap = new Map(anthems.map((a) => [a.code, a]));
+    const regions = data.regions || [];
+    let selectedCard = null;
+
+    const detail = UI.el('div', { className: 'world-flags-dock anthem-dock', id: 'anthem-detail', hidden: true }, [
+      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選國家可查看完整歌詞與典禮用段。'),
+    ]);
+
+    function setDockOpen(open) {
+      detail.hidden = !open;
+      detail.classList.toggle('is-visible', open);
+      app.classList.toggle('world-flags-has-dock', open);
+    }
+
+    function sanitizeLine(line) {
+      if (!line) return '';
+      const t = line.trim();
+      if (!t) return '';
+      if (/^\{\||wikitable|toccolours|valign\s*=|bgcolor\s*=|colspan\s*=|rowspan\s*=|^\!\s|italic=no\|/i.test(t)) {
+        return '';
+      }
+      if (/^===\s*.+\s*===$/.test(t)) return '';
+      if (/^\|/.test(t) && cjkRatio(t) < 0.2) return '';
+      if (/^第\d+段$/i.test(t)) return '';
+      return line;
+    }
+
+    function renderPairedLines(original, zh, official) {
+      const origLines = (original || '').split('\n').map((l) => sanitizeLine(l.trim())).filter(Boolean);
+      const zhLines = (zh || '').split('\n').map((l) => sanitizeLine(l.trim())).filter(Boolean);
+      const lineClass = official ? 'anthem-line anthem-line-official' : 'anthem-line';
+      const zhClass = official ? 'anthem-line anthem-line-zh anthem-line-official' : 'anthem-line anthem-line-zh';
+
+      if (!origLines.length && !zhLines.length) return [];
+
+      const count = Math.max(origLines.length, zhLines.length, 1);
+      return Array.from({ length: count }, (_, i) => {
+        const oLine = origLines[i];
+        const zLine = zhLines[i];
+        const parts = [];
+        if (oLine) parts.push(UI.el('p', { className: lineClass }, oLine));
+        if (zLine) parts.push(UI.el('p', { className: zhClass }, zLine));
+        if (!parts.length) return null;
+        return UI.el('div', { className: 'anthem-line-pair' }, parts);
+      }).filter(Boolean);
+    }
+
+    function renderVerse(verse, entry) {
+      return UI.el('div', {
+        className: verse.official ? 'anthem-verse anthem-verse-official' : 'anthem-verse',
+      }, [
+        UI.el('h5', { className: 'anthem-verse-label' }, verse.label),
+        UI.el('div', { className: 'anthem-verse-pairs', lang: entry.lang || undefined },
+          renderPairedLines(verse.original, verse.zh, verse.official)
+        ),
+      ]);
+    }
+
+    function showDetail(entry, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      const durationText = entry.durationSec
+        ? `標準演奏約 ${entry.durationSec} 秒（國際場合多介於 45–90 秒）`
+        : '標準演奏長度因場合而異';
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'world-flags-dock-inner' }, [
+          UI.el('div', { className: 'world-flags-dock-head anthem-dock-head' }, [
+            UI.el('div', { className: 'anthem-dock-icon', 'aria-hidden': 'true' }, '♪'),
+            UI.el('div', { className: 'world-flags-dock-head-text' }, [
+              UI.el('h4', { className: 'world-flags-dock-title' }, [
+                entry.country,
+                entry.code ? UI.el('span', { className: 'world-flags-code-inline' }, entry.code.toUpperCase()) : null,
+              ]),
+              UI.el('p', { className: 'world-flags-dock-names' }, [
+                UI.el('span', { className: 'world-flags-dock-en' }, entry.anthem),
+                UI.el('span', { className: 'world-flags-dock-sep', 'aria-hidden': 'true' }, '·'),
+                UI.el('span', { className: 'world-flags-dock-native' }, entry.anthemOriginal || entry.countryEn),
+              ]),
+            ]),
+            UI.el('button', {
+              type: 'button',
+              className: 'world-flags-dock-close',
+              title: '收合',
+              'aria-label': '收合詳情',
+              onClick: () => {
+                if (selectedCard) selectedCard.classList.remove('is-selected');
+                selectedCard = null;
+                setDockOpen(false);
+              },
+            }, '×'),
+          ]),
+          UI.el('div', { className: 'world-flags-dock-body anthem-dock-body' }, [
+            UI.el('div', { className: 'anthem-meta-block' }, [
+              UI.el('p', { className: 'anthem-meta-duration' }, durationText),
+              entry.durationNote
+                ? UI.el('p', { className: 'world-flags-dock-desc anthem-meta-note' }, entry.durationNote)
+                : null,
+            ]),
+            ...(entry.verses || []).map((verse) => renderVerse(verse, entry)),
+          ]),
+        ])
+      );
+      const body = detail.querySelector('.world-flags-dock-body');
+      if (body) body.scrollTop = 0;
+      setDockOpen(true);
+    }
+
+    function makeCard(entry) {
+      const officialVerse = (entry.verses || []).find((v) => v.official);
+      const hasLyrics = (entry.verses || []).some((v) => v.original && !v.original.startsWith('（暫無'));
+      return UI.el('button', {
+        type: 'button',
+        className: 'anthem-card',
+        title: entry.anthem,
+        dataset: {
+          country: entry.country,
+          code: entry.code || '',
+          anthem: entry.anthem,
+          region: entry.regionId || '',
+        },
+        onClick: (e) => showDetail(entry, e.currentTarget),
+      }, [
+        UI.el('span', { className: 'anthem-card-code' }, entry.code?.toUpperCase() || '—'),
+        UI.el('span', { className: 'anthem-card-country' }, entry.country),
+        UI.el('span', { className: 'anthem-card-name' }, entry.anthem),
+        officialVerse
+          ? UI.el('span', { className: 'anthem-card-official' }, officialVerse.label.replace(/（國際標準）/, '').trim())
+          : null,
+        entry.durationSec
+          ? UI.el('span', { className: 'anthem-card-duration' }, `約 ${entry.durationSec} 秒`)
+          : hasLyrics ? null : UI.el('span', { className: 'anthem-card-pending' }, '歌詞整理中'),
+      ]);
+    }
+
+    function makeRegionSection(region) {
+      const regionAnthems = anthems.filter((a) => a.regionId === region.id);
+      const grid = UI.el('div', {
+        className: 'anthem-grid',
+        id: `anthem-region-${region.id}`,
+        dataset: { region: region.id },
+      }, regionAnthems.map(makeCard));
+
+      return UI.el('section', { className: 'world-flags-region anthem-region' }, [
+        UI.el('h3', { className: 'world-flags-region-title' }, [
+          region.label,
+          UI.el('span', { className: 'world-flags-region-count' }, `${regionAnthems.length}`),
+        ]),
+        grid,
+      ]);
+    }
+
+    const search = UI.el('input', {
+      type: 'search',
+      className: 'form-control tool-input anthem-search world-flags-search',
+      id: 'anthem-search',
+      placeholder: '搜尋國家、國歌名稱…',
+      autocomplete: 'off',
+    });
+
+    const searchMeta = UI.el('p', {
+      className: 'text-muted anthem-search-meta world-flags-search-meta',
+      id: 'anthem-meta',
+      hidden: true,
+    }, '');
+
+    const nav = UI.el('div', { className: 'world-flags-nav' }, regions.map((region) => {
+      const count = anthems.filter((a) => a.regionId === region.id).length;
+      return UI.el('a', {
+        className: 'world-flags-nav-link',
+        href: `#anthem-region-${region.id}`,
+      }, `${region.label} (${count})`);
+    }));
+
+    const regionToggle = UI.el('button', {
+      type: 'button',
+      className: 'world-flags-region-toggle',
+      id: 'anthem-region-toggle',
+      title: '選擇洲別',
+      'aria-expanded': 'false',
+      'aria-controls': 'anthem-nav',
+    }, '洲');
+
+    const navWrap = UI.el('div', { className: 'world-flags-nav-wrap', id: 'anthem-nav' }, [nav]);
+
+    const toolbar = UI.el('div', { className: 'world-flags-toolbar anthem-toolbar', id: 'anthem-toolbar' }, [
+      UI.el('p', {
+        className: 'text-muted anthem-intro-meta world-flags-intro-meta',
+      }, `共 ${anthems.length} 首 · 點選卡片查看歌詞`),
+      UI.el('details', { className: 'anthem-guide world-flags-guide' }, [
+        UI.el('summary', {}, '這頁可以怎麼用？'),
+        UI.el('div', { className: 'anthem-guide-body world-flags-guide-body' }, [
+          UI.el('p', { className: 'mb-0' }, '依洲別瀏覽各國國歌，點選卡片查看完整歌詞原文與中文對照。'),
+        ]),
+      ]),
+      UI.el('div', { className: 'world-flags-toolbar-row' }, [search, regionToggle]),
+      searchMeta,
+      navWrap,
+    ]);
+
+    regionToggle.addEventListener('click', () => {
+      const open = toolbar.classList.toggle('is-nav-open');
+      regionToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const regionsWrap = UI.el('div', { className: 'world-flags-regions anthem-regions', id: 'anthem-regions' },
+      regions.map(makeRegionSection)
+    );
+
+    function filterItems() {
+      const q = search.value.trim().toLowerCase();
+      let visible = 0;
+      regionsWrap.querySelectorAll('.anthem-region').forEach((section) => {
+        let regionVisible = 0;
+        section.querySelectorAll('.anthem-card').forEach((card) => {
+          const entry = anthemMap.get(card.dataset.code);
+          if (!entry) return;
+          const hay = [
+            entry.country, entry.countryEn, entry.anthem, entry.anthemOriginal, entry.code,
+          ].join(' ').toLowerCase();
+          const match = !q || hay.includes(q);
+          card.hidden = !match;
+          if (match) regionVisible += 1;
+        });
+        section.hidden = regionVisible === 0;
+        const countEl = section.querySelector('.world-flags-region-count');
+        if (countEl) countEl.textContent = String(regionVisible);
+        visible += regionVisible;
+      });
+      navWrap.hidden = !!q;
+      regionToggle.hidden = !!q;
+      if (searchMeta) {
+        if (q) {
+          searchMeta.hidden = false;
+          searchMeta.textContent = `找到 ${visible} 首符合「${search.value.trim()}」的國歌`;
+        } else {
+          searchMeta.hidden = true;
+          searchMeta.textContent = '';
+        }
+      }
+    }
+
+    search.addEventListener('input', filterItems);
+
+    app.className = 'tool-app anthem-app world-flags-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner anthem-app-inner' }, [
+      toolbar,
+      regionsWrap,
+      detail,
+    ]));
+
+    const firstCard = regionsWrap.querySelector('.anthem-card');
+    const firstEntry = firstCard ? anthemMap.get(firstCard.dataset.code) : anthems[0];
+    if (firstEntry) showDetail(firstEntry, firstCard);
   };
 
   R['ufo'] = function (app) {
-    const types = [
-      { type: 'Greys', desc: '灰色皮膚、大頭大眼，綁架傳說常客' },
-      { type: 'Nordics', desc: '北歐型，金髮藍眼，較友善' },
-      { type: 'Reptilians', desc: '爬蟲類人形，陰謀論常客' },
-    ];
-    mount(app, [UI.panel('外星種族', UI.tableFrom(types, [
-      { key: 'type', label: '類型' }, { key: 'desc', label: '描述' },
-    ]))]);
+    const data = window.WA_UFO;
+    if (!data || !data.sections || !data.sections.length) {
+      mount(app, [UI.panel('外星種族', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    function makeTag(text) {
+      return UI.el('span', { className: 'ufo-tag' }, text);
+    }
+
+    function makeCard(item) {
+      const img = item.image
+        ? UI.bindImageZoom(UI.el('img', {
+          className: 'ufo-card-img',
+          src: item.image,
+          alt: item.title,
+          loading: 'lazy',
+        }), { caption: item.title, title: '點擊放大' })
+        : null;
+
+      return UI.el('article', { className: 'ufo-card' }, [
+        img,
+        UI.el('div', { className: 'ufo-card-body' }, [
+          UI.el('h4', { className: 'ufo-card-title' }, item.title),
+          item.subtitle
+            ? UI.el('p', { className: 'ufo-card-sub' }, item.subtitle)
+            : null,
+          UI.el('p', { className: 'ufo-card-desc' }, item.desc),
+          item.tags && item.tags.length
+            ? UI.el('div', { className: 'ufo-card-tags' }, item.tags.map(makeTag))
+            : null,
+        ]),
+      ]);
+    }
+
+    function makeSection(section) {
+      return UI.el('section', {
+        className: 'ufo-section',
+        id: `ufo-${section.id}`,
+      }, [
+        UI.el('h3', { className: 'ufo-section-title' }, section.title),
+        section.intro
+          ? UI.el('p', { className: 'ufo-section-intro' }, section.intro)
+          : null,
+        UI.el('div', { className: 'ufo-grid' }, section.items.map(makeCard)),
+      ]);
+    }
+
+    const nav = UI.el('nav', { className: 'ufo-nav', 'aria-label': '主題導覽' },
+      data.sections.map((section) => UI.el('a', {
+        className: 'ufo-nav-link',
+        href: `#ufo-${section.id}`,
+      }, section.title))
+    );
+
+    app.className = 'tool-app ufo-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner ufo-app-inner' }, [
+      UI.el('p', { className: 'text-muted ufo-intro' }, data.intro),
+      nav,
+      ...data.sections.map(makeSection),
+      UI.el('p', { className: 'text-muted ufo-disclaimer' }, '以上內容整理自 ufology 社群、科幻設定與公開報導，不代表 WaTools 立場，亦不等同科學共識。'),
+    ]));
   };
 
   R['monster'] = function (app) {
-    const monsters = [
-      { name: '饕餮', desc: '貪食怪獸' }, { name: '窮奇', desc: '懲善揚惡' },
-      { name: '梼杌', desc: '四凶之一' }, { name: '混沌', desc: '無面目' },
-      { name: '九尾狐', desc: '青丘之獸' }, { name: '年獸', desc: '除夕驅邪' },
-    ];
-    mount(app, [UI.panel('妖魔鬼怪', UI.tableFrom(monsters, [
-      { key: 'name', label: '名稱' }, { key: 'desc', label: '簡介' },
-    ]))]);
+    const data = window.WA_MONSTERS;
+    if (!data || !data.sections || !data.sections.length) {
+      mount(app, [UI.panel('妖魔鬼怪', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    function makeTag(text) {
+      return UI.el('span', { className: 'monster-tag' }, text);
+    }
+
+    function makeCard(item) {
+      const img = item.image
+        ? UI.bindImageZoom(UI.el('img', {
+          className: 'monster-card-img',
+          src: item.image,
+          alt: item.title,
+          loading: 'lazy',
+        }), { caption: item.title, title: '點擊放大' })
+        : null;
+
+      return UI.el('article', { className: 'monster-card' }, [
+        img,
+        UI.el('div', { className: 'monster-card-body' }, [
+          UI.el('h4', { className: 'monster-card-title' }, item.title),
+          item.subtitle
+            ? UI.el('p', { className: 'monster-card-sub' }, item.subtitle)
+            : null,
+          UI.el('p', { className: 'monster-card-desc' }, item.desc),
+          item.tags && item.tags.length
+            ? UI.el('div', { className: 'monster-card-tags' }, item.tags.map(makeTag))
+            : null,
+        ]),
+      ]);
+    }
+
+    function makeSection(section) {
+      return UI.el('section', {
+        className: 'monster-section',
+        id: `monster-${section.id}`,
+      }, [
+        UI.el('h3', { className: 'monster-section-title' }, section.title),
+        section.intro
+          ? UI.el('p', { className: 'monster-section-intro' }, section.intro)
+          : null,
+        UI.el('div', { className: 'monster-grid' }, section.items.map(makeCard)),
+      ]);
+    }
+
+    const nav = UI.el('nav', { className: 'monster-nav', 'aria-label': '主題導覽' },
+      data.sections.map((section) => UI.el('a', {
+        className: 'monster-nav-link',
+        href: `#monster-${section.id}`,
+      }, section.title))
+    );
+
+    app.className = 'tool-app monster-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner monster-app-inner' }, [
+      UI.el('p', { className: 'text-muted monster-intro' }, data.intro),
+      nav,
+      ...data.sections.map(makeSection),
+      UI.el('p', { className: 'text-muted monster-disclaimer' }, '以上內容整理自古籍志怪、民間傳說與影視作品，僅供文化閱讀與娛樂，不代表 WaTools 立場，亦請勿以之替代專業或安全指引。'),
+    ]));
   };
 
   R['capitals'] = function (app) {
-    mount(app, [UI.panel('各國首都', UI.tableFrom([{"country":"台灣","capital":"台北"},{"country":"日本","capital":"東京"},{"country":"美國","capital":"華盛頓"},{"country":"英國","capital":"倫敦"},{"country":"法國","capital":"巴黎"},{"country":"德國","capital":"柏林"},{"country":"中國","capital":"北京"},{"country":"澳洲","capital":"坎培拉"}], [
+    mount(app, [UI.panel('各國首都', UI.tableFrom([{"country":"臺灣","capital":"臺北"},{"country":"日本","capital":"東京"},{"country":"美國","capital":"華盛頓"},{"country":"英國","capital":"倫敦"},{"country":"法國","capital":"巴黎"},{"country":"德國","capital":"柏林"},{"country":"中國","capital":"北京"},{"country":"澳洲","capital":"坎培拉"}], [
       { key: 'country', label: '國家' }, { key: 'capital', label: '首都' },
     ]))]);
   };

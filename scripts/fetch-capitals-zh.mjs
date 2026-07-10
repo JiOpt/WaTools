@@ -16,7 +16,7 @@ SELECT ?capitalLabelEn ?capitalLabelZh WHERE {
 
 const MANUAL = {
   'beijing': '北京',
-  'taipei': '台北',
+  'taipei': '臺北',
   'hong kong': '香港',
   'macau': '澳門',
   'seoul': '首爾',
@@ -30,8 +30,8 @@ const MANUAL = {
   'berlin': '柏林',
   'moscow': '莫斯科',
   'tokyo': '東京',
-  'ulaanbaatar': '烏蘭巴托',
-  'ulan bator': '烏蘭巴托',
+  'ulaanbaatar': '烏蘭巴託',
+  'ulan bator': '烏蘭巴託',
   'new delhi': '新德里',
   'mumbai': '孟買',
   'bombay': '孟買',

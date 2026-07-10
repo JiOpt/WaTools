@@ -45,3 +45,24 @@ for (const file of htmlFiles) {
 }
 
 console.log(`Stamped assets with ?v=${WA_SITE_VERSION} on ${updated} HTML file(s) (${htmlFiles.length} scanned).`);
+
+const mainPath = path.join(root, 'assets', 'js', 'main.js');
+if (fs.existsSync(mainPath)) {
+  const mainSrc = fs.readFileSync(mainPath, 'utf8');
+  const synced = mainSrc.replace(
+    /const WA_SITE_VERSION = '[^']+';/,
+    `const WA_SITE_VERSION = '${WA_SITE_VERSION}';`
+  );
+  if (synced !== mainSrc) {
+    fs.writeFileSync(mainPath, synced, 'utf8');
+    console.log(`Synced assets/js/main.js -> v${WA_SITE_VERSION}`);
+  }
+}
+
+const footerRe = /(· v)([\d.]+)(<\/p>)/g;
+for (const file of htmlFiles) {
+  if (!['index.html', 'scriptures.html'].includes(path.basename(file))) continue;
+  const original = fs.readFileSync(file, 'utf8');
+  const next = original.replace(footerRe, `$1${WA_SITE_VERSION}$3`);
+  if (next !== original) fs.writeFileSync(file, next, 'utf8');
+}

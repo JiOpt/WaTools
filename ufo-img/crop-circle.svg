@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Crop circle">
+  <rect width="400" height="280" fill="#33691e"/>
+  <g stroke="#aed581" stroke-width="2" fill="none" opacity=".85">
+    <circle cx="200" cy="140" r="90"/>
+    <circle cx="200" cy="140" r="60"/>
+    <circle cx="200" cy="140" r="30"/>
+    <line x1="200" y1="50" x2="200" y2="230"/><line x1="110" y1="140" x2="290" y2="140"/>
+    <line x1="136" y1="76" x2="264" y2="204"/><line x1="264" y1="76" x2="136" y2="204"/>
+  </g>
+  <g fill="#c5e1a5" opacity=".25">
+    <rect x="0" y="0" width="400" height="280"/>
+  </g>
+</svg>
