@@ -4,9 +4,11 @@
 (function () {
   'use strict';
 
-  const WA_BOOT_VERSION = '0.6.29';
+  const WA_BOOT_VERSION = '0.6.35';
   const LOAD_TIMEOUT_MS = 12000;
   const scriptLoads = new Map();
+  let bootGeneration = 0;
+  let bootPromise = null;
 
   function getAssetBase() {
     const bootScript = document.currentScript
@@ -74,8 +76,7 @@
 
   function indexHref() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.indexHref();
-    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    return segs.length > 1 ? '../index.html' : 'index.html';
+    return '/index.html';
   }
 
   function showFailure(app, message) {
@@ -84,6 +85,13 @@
       '<div class="tool-missing text-center">' +
       '<p class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>' + message + '</p>' +
       '<a href="' + indexHref() + '" class="btn btn-outline-primary rounded-pill px-4 mt-2">瀏覽其他工具</a></div>';
+  }
+
+  function isStaleBoot(generation, app, slug) {
+    return generation !== bootGeneration
+      || !app.isConnected
+      || document.getElementById('tool-app') !== app
+      || app.dataset.tool !== slug;
   }
 
   function mountTool(app, slug) {
@@ -111,51 +119,91 @@
       '<a href="' + indexHref() + '" class="btn btn-outline-primary rounded-pill px-4 mt-2">瀏覽其他工具</a></div>';
   }
 
-  async function boot() {
+  function cancelToolBoot() {
+    bootGeneration += 1;
+    bootPromise = null;
+  }
+
+  async function boot(options) {
+    const force = options?.force === true;
     const app = document.getElementById('tool-app');
     if (!app) return;
 
     const slug = app.dataset.tool;
     if (!slug) return;
+    if (!force && app.dataset.waBooted === slug && !app.classList.contains('is-booting')) return;
+    if (bootPromise?.slug === slug && bootPromise?.generation === bootGeneration && !force) {
+      return bootPromise.promise;
+    }
 
-    app.classList.add('is-booting');
+    const generation = ++bootGeneration;
+    const targetApp = app;
+    const targetSlug = slug;
 
+    const run = (async () => {
+      targetApp.classList.add('is-booting');
+      targetApp.dataset.waBooted = '';
+      targetApp.replaceChildren();
+
+      try {
+        await loadScript('assets/js/tool-chunks.js');
+        if (isStaleBoot(generation, targetApp, targetSlug)) return;
+
+        const chunk = window.WA_TOOL_CHUNKS?.[targetSlug] || { part: 3, extra: [] };
+        const part = chunk.part || 3;
+        const extra = chunk.extra || [];
+
+        if (!window.WA_TOOLS_CATALOG) {
+          loadScript('assets/js/tools-data.js').then(() => {
+            window.dispatchEvent(new Event('mytoolife:catalog-ready'));
+          }).catch(() => {});
+        }
+
+        const implFile = part === 'wawa' || part === 4
+          ? 'tools-implementations-wawa.js'
+          : `tools-implementations-part${part}.js`;
+
+        await loadScript('assets/js/tool-ui.js');
+        if (isStaleBoot(generation, targetApp, targetSlug)) return;
+        await loadScript(`assets/js/${implFile}`);
+        if (isStaleBoot(generation, targetApp, targetSlug)) return;
+
+        for (const file of extra) {
+          if (file === 'tools-data.js' || file === 'tool-urls.js') continue;
+          await loadScript(`assets/js/${file}`);
+          if (isStaleBoot(generation, targetApp, targetSlug)) return;
+        }
+
+        mountTool(targetApp, targetSlug);
+        if (!isStaleBoot(generation, targetApp, targetSlug)) {
+          targetApp.dataset.waBooted = targetSlug;
+        }
+      } catch (err) {
+        if (isStaleBoot(generation, targetApp, targetSlug)) return;
+        console.error('[MyTooLife] tool-boot failed:', targetSlug, err);
+        showFailure(targetApp, '工具載入失敗，請重新整理。');
+      }
+    })();
+
+    bootPromise = { slug: targetSlug, generation, promise: run };
     try {
-      await loadScript('assets/js/tool-chunks.js');
-      const chunk = window.WA_TOOL_CHUNKS?.[slug] || { part: 3, extra: [] };
-      const part = chunk.part || 3;
-      const extra = chunk.extra || [];
-
-      if (!window.WA_TOOLS_CATALOG) {
-        loadScript('assets/js/tools-data.js').then(() => {
-          window.dispatchEvent(new Event('mytoolife:catalog-ready'));
-        }).catch(() => {});
-      }
-
-      const implFile = part === 'wawa' || part === 4
-        ? 'tools-implementations-wawa.js'
-        : `tools-implementations-part${part}.js`;
-
-      await loadScript('assets/js/tool-ui.js');
-      await loadScript(`assets/js/${implFile}`);
-
-      for (const file of extra) {
-        if (file === 'tools-data.js' || file === 'tool-urls.js') continue;
-        await loadScript(`assets/js/${file}`);
-      }
-
-      mountTool(app, slug);
-    } catch (err) {
-      console.error('[MyTooLife] tool-boot failed:', slug, err);
-      showFailure(app, '工具載入失敗，請重新整理。');
+      await run;
+    } finally {
+      if (bootPromise?.promise === run) bootPromise = null;
     }
   }
 
   function scheduleBoot() {
     if (!document.getElementById('tool-app')) return;
-    // Run after any sibling scripts (main.js) in the same parse pass.
-    queueMicrotask(boot);
+    queueMicrotask(() => boot());
   }
+
+  window.__waBootTool = (force) => boot({ force: force === true });
+  window.__waCancelToolBoot = cancelToolBoot;
+
+  window.addEventListener('mytoolife:soft-nav', () => {
+    boot({ force: true }).catch(() => {});
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', scheduleBoot, { once: true });

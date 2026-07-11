@@ -550,6 +550,7 @@ body.has-header-context .tool-section [id] {
   margin: 0 0 0 30px;
   border-radius: 50px;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .header .cta-btn:hover,
@@ -2565,24 +2566,44 @@ body.tool-page:has(#tool-app) .tool-section {
 }
 
 .tool-page-bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
+  column-gap: 12px;
   margin: 0 0 14px;
-  min-height: 0;
+  min-height: 34px;
 }
 
-.tool-page-bar-back {
+.tool-page-bar-back.btn {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0 12px;
+  height: 34px;
+  min-height: 34px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 8px;
+}
+
+.tool-page-bar-back.btn .bi {
+  margin: 0 !important;
+  font-size: 13px;
+  line-height: 1;
 }
 
 .tool-page-bar-title {
   margin: 0;
-  flex: 1 1 auto;
+  padding: 0;
   min-width: 0;
   font-size: calc(var(--site-text-base) * 1.125);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 34px;
   color: var(--heading-color);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2591,12 +2612,21 @@ body.tool-page:has(#tool-app) .tool-section {
 
 @media (max-width: 575px) {
   .tool-page-bar {
-    gap: 10px;
+    column-gap: 10px;
     margin-bottom: 12px;
+    min-height: 32px;
+  }
+
+  .tool-page-bar-back.btn {
+    height: 32px;
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
   }
 
   .tool-page-bar-title {
     font-size: var(--site-text-base);
+    line-height: 32px;
   }
 }
 
@@ -3295,6 +3325,74 @@ body.scripture-page [data-aos] {
   margin: 36px auto 0;
 }
 
+.scripture-pager-flat {
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.scripture-pager-flat.scripture-pager-top {
+  margin: 0 auto 20px;
+}
+
+.scripture-pager-flat.scripture-pager-bottom {
+  margin: 24px auto 0;
+}
+
+.scripture-pager-flat .scripture-pager-btn,
+.scripture-pager-flat .scripture-pager-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 34px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  max-width: min(100%, 200px);
+}
+
+.scripture-pager-flat .scripture-pager-link {
+  min-width: 0;
+  text-decoration: none;
+}
+
+.scripture-pager-flat .scripture-pager-link.is-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.scripture-pager-flat .scripture-pager-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  font-weight: 500;
+}
+
+.scripture-pager-flat .scripture-pager-prev {
+  justify-self: start;
+}
+
+.scripture-pager-flat .scripture-pager-home {
+  justify-self: center;
+}
+
+.scripture-pager-flat .scripture-pager-next {
+  justify-self: end;
+}
+
+.scripture-pager-flat .scripture-pager-chevron {
+  flex-shrink: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.scripture-pager-flat .scripture-pager-label,
+.scripture-pager-flat .scripture-pager-row {
+  display: none;
+}
+
 .scripture-pager-top {
   margin: 0 auto 28px;
 }
@@ -3391,10 +3489,21 @@ body.scripture-page [data-aos] {
 }
 
 .scripture-pager-home {
-  align-self: center;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
   font-size: 13px;
   padding: 8px 16px;
+  min-height: 72px;
+}
+
+.tool-page-bar .scripture-pager-home {
+  align-self: auto;
+  min-height: 34px;
+  height: 34px;
+  padding: 0 12px;
 }
 
 .scripture-segment-nav {
@@ -3474,6 +3583,32 @@ body.scripture-page [data-aos] {
     grid-template-columns: 1fr;
   }
 
+  .scripture-pager-flat {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+
+  .scripture-pager-flat .scripture-pager-btn,
+  .scripture-pager-flat .scripture-pager-home {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .scripture-pager-flat .scripture-pager-home {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    order: -1;
+  }
+
+  .scripture-pager-flat .scripture-pager-prev {
+    justify-self: stretch;
+  }
+
+  .scripture-pager-flat .scripture-pager-next {
+    justify-self: stretch;
+  }
+
   .scripture-pager-next {
     text-align: left;
   }
@@ -3481,6 +3616,8 @@ body.scripture-page [data-aos] {
   .scripture-pager-home {
     order: -1;
     justify-self: center;
+    min-height: 0;
+    align-self: center;
   }
 }
 
@@ -4420,6 +4557,15 @@ body.scripture-page [data-aos] {
 }
 
 /*--------------------------------------------------------------
+# Soft navigation (sitemap SPA-style main swap)
+--------------------------------------------------------------*/
+main.main.soft-nav-busy {
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/*--------------------------------------------------------------
 # Site Sitemap (desktop sidebar / mobile drawer)
 --------------------------------------------------------------*/
 :root {
@@ -4837,12 +4983,14 @@ body.scripture-page [data-aos] {
   line-height: 1.45;
 }
 
-.site-sitemap-list a.is-active .site-sitemap-icon-wrap {
-  background: color-mix(in srgb, var(--contrast-color), transparent 82%);
+.site-sitemap-list a.is-active .site-sitemap-icon-wrap,
+.site-sitemap-list a.is-recent .site-sitemap-icon-wrap,
+.site-sitemap-list a:hover .site-sitemap-icon-wrap {
+  background: transparent;
 }
 
 .site-sitemap-list a.is-active .site-sitemap-icon-wrap i {
-  color: var(--contrast-color);
+  color: var(--accent-color);
 }
 
 .site-sitemap-list a:hover {

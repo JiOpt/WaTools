@@ -67,6 +67,12 @@
     return catId ? `${catId}/${slug}.html` : `${slug}.html`;
   }
 
+  /** Site-root absolute page URL (e.g. /utility/whois.html). */
+  function absolutePageHref(relativePath) {
+    const clean = String(relativePath || '').replace(/^\/+/, '');
+    return `/${clean}`;
+  }
+
   function currentPageKey() {
     const segs = pathSegments();
     if (!segs.length) return 'index.html';
@@ -90,25 +96,20 @@
   }
 
   function toolHref(slug) {
-    if (!slug) return siteRootPrefix() + 'index.html';
+    if (!slug) return absolutePageHref('index.html');
     if (slug === 'scriptures') {
-      return `${siteRootPrefix()}${toolPath('scriptures')}`;
+      return absolutePageHref(toolPath('scriptures'));
     }
     buildMap();
-    const catId = slugToCategory.get(slug);
-    const curCat = currentCategoryId();
-    if (catId && curCat === catId) {
-      return `${slug}.html`;
-    }
-    return `${siteRootPrefix()}${toolPath(slug)}`;
+    return absolutePageHref(toolPath(slug));
   }
 
   function indexHref() {
-    return `${siteRootPrefix()}index.html`;
+    return absolutePageHref('index.html');
   }
 
   function categoryIndexHref(categoryId) {
-    return `${siteRootPrefix()}index.html#cat-${categoryId}`;
+    return `${absolutePageHref('index.html')}#cat-${categoryId}`;
   }
 
   function getCategoryId(slug) {
@@ -118,6 +119,7 @@
 
   window.WA_TOOL_URLS = {
     siteRootPrefix,
+    absolutePageHref,
     toolPath,
     toolHref,
     indexHref,

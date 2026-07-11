@@ -62,7 +62,7 @@
     bar.setAttribute('aria-label', '工具頁標題');
     bar.innerHTML = `
       <a href="${categoryBackHref(categoryId)}" class="btn btn-outline-secondary tool-page-bar-back scripture-pager-home">
-        <i class="bi bi-grid me-1" aria-hidden="true"></i>返回分類
+        <i class="bi bi-grid" aria-hidden="true"></i>返回分類
       </a>
       <h1 class="tool-page-bar-title">${escapeHtml(title)}</h1>`;
     return bar;
@@ -80,8 +80,25 @@
       ctx = api.resolveToolPage?.(slug, window.WA_TOOLS_CATALOG) || null;
     }
 
+    const title = ctx?.tool?.title || pageTitleFromDocument();
+    const categoryId = ctx?.category?.id || null;
     const existing = container.querySelector('.tool-page-bar');
-    if (existing) existing.remove();
+
+    if (existing) {
+      const titleEl = existing.querySelector('.tool-page-bar-title');
+      if (titleEl) titleEl.textContent = title;
+      if (!existing.querySelector('.tool-page-bar-back')) {
+        const back = document.createElement('a');
+        back.href = categoryBackHref(categoryId);
+        back.className = 'btn btn-outline-secondary tool-page-bar-back scripture-pager-home';
+        back.innerHTML = '<i class="bi bi-grid" aria-hidden="true"></i>返回分類';
+        existing.insertBefore(back, existing.firstChild);
+      } else {
+        existing.querySelector('.tool-page-bar-back').href = categoryBackHref(categoryId);
+      }
+      return true;
+    }
+
     container.insertBefore(renderPageBar(ctx), app);
     return true;
   }
@@ -89,22 +106,24 @@
   function renderPager(ctx) {
     const { category, prev, next } = ctx;
 
-    function linkCell(tool, kind, label) {
+    function linkCell(tool, kind) {
+      const label = kind === 'prev' ? '上一篇' : '下一篇';
       if (!tool) {
         return `<span class="scripture-pager-link scripture-pager-${kind} is-disabled" aria-hidden="true">
           <span class="scripture-pager-label">${label}</span>
-          <span class="scripture-pager-title">—</span>
+          <span class="scripture-pager-row"><span class="scripture-pager-title">—</span></span>
         </span>`;
       }
-      const chevron = kind === 'prev'
-        ? '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>'
-        : '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
-      const titleHtml = kind === 'prev'
-        ? `<span class="scripture-pager-row">${chevron}<span class="scripture-pager-title">${tool.title}</span></span>`
-        : `<span class="scripture-pager-row"><span class="scripture-pager-title">${tool.title}</span>${chevron}</span>`;
-      return `<a href="${window.WA_TOOL_URLS ? window.WA_TOOL_URLS.toolHref(tool.slug) : `${tool.slug}.html`}" class="scripture-pager-link scripture-pager-${kind}">
+      const href = window.WA_TOOL_URLS ? window.WA_TOOL_URLS.toolHref(tool.slug) : `${tool.slug}.html`;
+      const chevronPrev = '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>';
+      const chevronNext = '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
+      const row = kind === 'prev'
+        ? `<span class="scripture-pager-row">${chevronPrev}<span class="scripture-pager-title">${escapeHtml(tool.title)}</span></span>`
+        : `<span class="scripture-pager-row"><span class="scripture-pager-title">${escapeHtml(tool.title)}</span>${chevronNext}</span>`;
+      const aria = kind === 'prev' ? `上一篇：${tool.title}` : `下一篇：${tool.title}`;
+      return `<a href="${href}" class="scripture-pager-link scripture-pager-${kind}" aria-label="${escapeHtml(aria)}">
         <span class="scripture-pager-label">${label}</span>
-        ${titleHtml}
+        ${row}
       </a>`;
     }
 
@@ -112,11 +131,11 @@
     nav.className = 'scripture-pager tool-category-pager scripture-pager-bottom';
     nav.setAttribute('aria-label', '分類導覽');
     nav.innerHTML = `
-      ${linkCell(prev, 'prev', '上一篇')}
-      <a href="${window.WA_TOOL_URLS ? window.WA_TOOL_URLS.categoryIndexHref(category.id) : `index.html#cat-${category.id}`}" class="btn btn-outline-secondary scripture-pager-home">
-        <i class="bi bi-grid me-1"></i>${category.name}
+      ${linkCell(prev, 'prev')}
+      <a href="${categoryBackHref(category.id)}" class="btn btn-outline-secondary scripture-pager-home">
+        <i class="bi bi-grid me-1" aria-hidden="true"></i>返回分類
       </a>
-      ${linkCell(next, 'next', '下一篇')}`;
+      ${linkCell(next, 'next')}`;
     return nav;
   }
 

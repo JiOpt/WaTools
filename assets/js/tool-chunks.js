@@ -461,7 +461,10 @@ window.WA_TOOL_CHUNKS = {
     "part": 3
   },
   "coat-of-arms": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "coat-of-arms-data.js"
+    ]
   },
   "ethnic-china": {
     "part": 3
@@ -495,6 +498,9 @@ window.WA_TOOL_CHUNKS = {
     ]
   },
   "world-flags": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "world-flags-data.js"
+    ]
   }
 };

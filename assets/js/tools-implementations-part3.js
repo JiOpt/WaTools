@@ -2793,6 +2793,15 @@
   };
 
   // ===== WORLD =====
+  function siteMediaUrl(relativePath) {
+    if (!relativePath) return relativePath;
+    if (/^(https?:|data:|\/)/i.test(relativePath)) return relativePath;
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref(relativePath);
+    }
+    return `/${String(relativePath).replace(/^\/+/, '')}`;
+  }
+
   R['world-flags'] = function (app) {
     const data = window.WA_WORLD_FLAGS;
     if (!data || !data.regions || !data.regions.length) {
@@ -2875,7 +2884,7 @@
           UI.el('div', { className: 'world-flags-dock-head' }, [
             UI.bindImageZoom(UI.el('img', {
               className: 'world-flags-dock-img',
-              src: country.image,
+              src: siteMediaUrl(country.image),
               alt: country.nameZh,
               loading: 'lazy',
             }), { caption: country.nameZh }),
@@ -2921,7 +2930,7 @@
       }, [
         UI.el('img', {
           className: 'world-flags-img',
-          src: country.image,
+          src: siteMediaUrl(country.image),
           alt: country.nameZh,
           loading: 'lazy',
           width: '81',
@@ -3666,7 +3675,7 @@
       const imgNode = country.image
         ? UI.bindImageZoom(UI.el('img', {
           className: 'world-flags-dock-img coa-dock-img',
-          src: country.image,
+          src: siteMediaUrl(country.image),
           alt: country.coatName || country.nameZh,
           loading: 'lazy',
         }), { caption: country.coatName || country.nameZh })
@@ -3714,7 +3723,7 @@
       const imgChild = country.image
         ? UI.el('img', {
           className: 'world-flags-img coa-card-img',
-          src: country.image,
+          src: siteMediaUrl(country.image),
           alt: country.nameZh,
           loading: 'lazy',
         })
@@ -4067,30 +4076,7 @@
       });
       video.appendChild(UI.el('source', { src: meta.url, type: 'video/mp4' }));
       activePlayer = video;
-      const sourcePage = audioData?.sourcePage || 'https://www.ifreesite.com/world/national-anthem.htm';
-      return UI.el('div', { className: 'anthem-player-block' }, [
-        UI.el('div', { className: 'anthem-player-head' }, [
-          UI.el('span', { className: 'anthem-player-label' }, '國歌演奏'),
-          UI.el('a', {
-            className: 'anthem-player-ext',
-            href: meta.url,
-            target: '_blank',
-            rel: 'noopener noreferrer',
-            title: meta.title,
-          }, 'ifreesite MP4 ↗'),
-        ]),
-        video,
-        UI.el('p', { className: 'anthem-player-meta text-muted small mb-0' }, [
-          meta.title ? `${meta.title} · ` : '',
-          '使用瀏覽器內建播放列可拖曳時間軸。音源：',
-          UI.el('a', {
-            href: sourcePage,
-            target: '_blank',
-            rel: 'noopener noreferrer',
-          }, 'ifreesite 國歌演奏'),
-          '（第三方 CDN）',
-        ]),
-      ]);
+      return UI.el('div', { className: 'anthem-player-block' }, [video]);
     }
 
     function showDetail(entry, cardEl) {
@@ -4279,16 +4265,7 @@
     app.className = 'tool-app anthem-app world-flags-app';
     app.replaceChildren(UI.el('div', { className: 'tool-form-inner anthem-app-inner' }, [
       UI.el('div', { className: 'anthem-intro tool-panel-card' }, [
-        UI.el('p', { className: 'anthem-intro-lead mb-2' }, '點選國家可查看歌詞；若該國在 ifreesite 國歌演奏列表中有音源，詳情面板會顯示 HTML5 播放器，可直接在頁面上拖曳時間軸試聽。'),
-        UI.el('p', { className: 'text-muted small mb-0' }, [
-          '完整列表：',
-          UI.el('a', {
-            href: audioData?.sourcePage || 'https://www.ifreesite.com/world/national-anthem.htm',
-            target: '_blank',
-            rel: 'noopener noreferrer',
-          }, 'ifreesite 各國國歌演奏'),
-          ` · 已對應 ${Object.keys(audioByCode).length} 國 MP4 音源`,
-        ]),
+        UI.el('p', { className: 'anthem-intro-lead mb-0' }, '點選國家可查看歌詞；有音源的國家可在詳情面板直接試聽。'),
       ]),
       toolbar,
       regionsWrap,

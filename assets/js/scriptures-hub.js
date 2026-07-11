@@ -1,6 +1,13 @@
 (function () {
   'use strict';
 
+  function scriptureBookHref(slug) {
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref(`scripture/${slug}.html`);
+    }
+    return `/scripture/${slug}.html`;
+  }
+
   function renderHub() {
     const catalog = window.WA_SCRIPTURES_CATALOG;
     const container = document.getElementById('scriptures-hub');
@@ -16,7 +23,7 @@
           <div class="row gy-4">
             ${category.books.map((book) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="../scripture/${book.slug}.html" class="tool-card tool-card-ready scripture-card">
+                <a href="${scriptureBookHref(book.slug)}" class="tool-card tool-card-ready scripture-card">
                   <div class="tool-card-icon"><i class="bi bi-journal-richtext"></i></div>
                   <div class="tool-card-body">
                     <h3>${book.title}</h3>
@@ -32,5 +39,13 @@
     `).join('');
   }
 
-  document.addEventListener('DOMContentLoaded', renderHub);
+  window.__waBootScripturesHub = renderHub;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderHub, { once: true });
+  } else if (document.getElementById('scriptures-hub')) {
+    renderHub();
+  }
+
+  window.addEventListener('mytoolife:soft-nav', renderHub);
 })();

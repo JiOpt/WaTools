@@ -45,30 +45,25 @@
 
   function resolveHref(href) {
     if (!href) return href;
-    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('../')) return href;
+    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('/')) return href;
+    if (href.startsWith('../')) {
+      const stripped = href.replace(/^\.\.\//, '');
+      return stripped.startsWith('/') ? stripped : `/${stripped}`;
+    }
 
     let canonical = href;
     if (canonical.startsWith('scripture-')) {
       canonical = `scripture/${canonical.slice('scripture-'.length)}`;
     }
 
-    if (isInScriptureDir() && canonical.startsWith('scripture/')) {
-      return canonical.slice('scripture/'.length);
-    }
-    if (isInScriptureDir() && !canonical.startsWith('scripture/')) {
-      return `../${canonical}`;
-    }
-
-    const prefix = siteRootPrefix();
     if (canonical.includes('/')) {
-      if (prefix) return `${prefix}${canonical}`;
-      return canonical;
+      return canonical.startsWith('/') ? canonical : `/${canonical}`;
     }
 
     if (window.WA_TOOL_URLS && canonical.endsWith('.html')) {
       return window.WA_TOOL_URLS.toolHref(canonical.replace(/\.html$/, ''));
     }
-    return prefix ? `${prefix}${canonical}` : canonical;
+    return `/${canonical}`;
   }
 
   function pageTitle() {
@@ -170,6 +165,12 @@
       if (e.key === STORAGE_KEY) renderNavItems(readStore());
     });
   }
+
+  window.__waRecordNavVisit = function recordNavVisit() {
+    const list = recordVisit();
+    renderNavItems(list);
+    return list;
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

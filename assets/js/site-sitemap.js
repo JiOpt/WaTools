@@ -70,19 +70,15 @@
     for (const cat of window.WA_TOOLS_CATALOG || []) {
       for (const tool of cat.tools || []) {
         if (tool.slug === slug) {
-          const prefix = rootPrefix();
-          const curCat = currentHref().includes('/') ? currentHref().split('/')[0] : null;
-          if (curCat === cat.id) return `${slug}.html`;
-          return `${prefix}${cat.id}/${slug}.html`;
+          return `/${cat.id}/${slug}.html`;
         }
       }
     }
-    return `${rootPrefix()}${slug}.html`;
+    return `/${slug}.html`;
   }
 
   function scriptureBookHref(slug) {
-    if (isInScriptureDir()) return `${slug}.html`;
-    return `${rootPrefix()}scripture/${slug}.html`;
+    return `/scripture/${slug}.html`;
   }
 
   function scriptReady(base) {
@@ -388,6 +384,14 @@
     }
 
     try {
+      if (!window.WA_TOOL_URLS) {
+        await loadScriptOnce('assets/js/tool-urls.js');
+      }
+    } catch (err) {
+      console.warn('[MyTooLife] tool-urls unavailable:', err);
+    }
+
+    try {
       if (!window.WA_SCRIPTURES_CATALOG) {
         await loadScriptOnce('assets/js/scriptures-catalog.js');
       }
@@ -451,7 +455,7 @@
   }
 
   function canonicalHref(href, scriptureSlugs) {
-    let h = String(href || '').replace(/^\.\.\//, '');
+    let h = String(href || '').replace(/^\//, '').replace(/^\.\.\//, '');
     if (h.includes('/') && /\.html$/i.test(h)) return h;
     if (!h.includes('/') && h.endsWith('.html') && h !== 'index.html') {
       const slug = h.slice(0, -5);
@@ -476,26 +480,51 @@
 
   function resolveHref(href) {
     if (!href) return href;
-    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('../')) return href;
+    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('/')) return href;
+    if (href.startsWith('../')) {
+      const stripped = href.replace(/^\.\.\//, '');
+      return stripped.startsWith('/') ? stripped : `/${stripped}`;
+    }
 
     let canonical = href;
     if (canonical.startsWith('scripture-')) {
       canonical = `scripture/${canonical.slice('scripture-'.length)}`;
     }
-    if (isInScriptureDir() && canonical.startsWith('scripture/')) {
-      return canonical.slice('scripture/'.length);
+
+    if (!canonical.includes('/') && canonical.endsWith('.html') && canonical !== 'index.html') {
+      const slug = canonical.replace(/\.html$/i, '');
+      if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.toolHref(slug);
+      return `/${canonical}`;
     }
-    if (isInScriptureDir() && !canonical.startsWith('scripture/')) {
-      return `../${canonical}`;
-    }
-    const prefix = rootPrefix();
-    if (prefix && !canonical.startsWith('../') && canonical.includes('/')) {
-      return `${prefix}${canonical}`;
-    }
-    if (prefix && !canonical.includes('/') && canonical.endsWith('.html') && canonical !== 'index.html') {
-      return `${prefix}${canonical}`;
-    }
-    return canonical;
+
+    return canonical.startsWith('/') ? canonical : `/${canonical}`;
+  }
+
+  function hrefFromCanon(canon) {
+    if (!canon) return '/index.html';
+    if (canon === 'index.html') return '/index.html';
+    if (canon.startsWith('scripture/')) return `/${canon}`;
+    const slug = canon.includes('/')
+      ? canon.split('/').pop().replace(/\.html$/i, '')
+      : canon.replace(/\.html$/i, '');
+    if (window.WA_TOOL_URLS && slug) return window.WA_TOOL_URLS.toolHref(slug);
+    return `/${canon}`;
+  }
+
+  function refreshSitemapLinkHrefs(nav) {
+    if (!nav) return;
+    nav.querySelectorAll('a[href]').forEach((link) => {
+      const canon = link.dataset.canon;
+      if (canon) {
+        link.setAttribute('href', hrefFromCanon(canon));
+        return;
+      }
+      if (link.classList.contains('site-sitemap-home')) {
+        const label = link.textContent.trim();
+        if (label === '工具首頁') link.setAttribute('href', '/index.html');
+        else if (label === '藏經閣') link.setAttribute('href', toolHref('scriptures'));
+      }
+    });
   }
 
   function scriptureSlugSet(scriptures) {
@@ -779,8 +808,8 @@
         : null,
       el('div', { className: 'site-sitemap-head' }, [
         el('a', {
-          href: `${rootPrefix()}index.html`,
-          className: isActiveHref(`${rootPrefix()}index.html`, scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
+          href: '/index.html',
+          className: isActiveHref('/index.html', scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
         }, ['工具首頁']),
         el('a', {
           href: toolHref('scriptures'),
@@ -805,11 +834,16 @@
     applyGroupOpenState(nav, recentRankMap(history, scriptureSlugs), saved);
   }
 
+  function getSitemapNavScrollEl() {
+    return document.getElementById('site-sitemap')?.querySelector('.site-sitemap-nav') || null;
+  }
+
   function refreshSitemap(root, tools, scriptures, scriptureSlugs) {
     const aside = document.getElementById('site-sitemap');
     const q = aside?.querySelector('.site-sitemap-search')?.value || '';
     const saved = collectUiState(root);
     const history = readHistory();
+    const scrollTop = getSitemapNavScrollEl()?.scrollTop ?? 0;
     const next = buildNav(tools, scriptures, history, scriptureSlugs);
     root.replaceWith(next);
     hydrateNavState(next, saved, history, scriptureSlugs);
@@ -819,6 +853,13 @@
       link.addEventListener('click', () => setMobileOpen(false));
     });
     if (q) applySearch(next, q);
+    refreshSitemapLinkHrefs(next);
+    const restoreScroll = () => {
+      const scrollEl = getSitemapNavScrollEl();
+      if (scrollEl) scrollEl.scrollTop = scrollTop;
+    };
+    restoreScroll();
+    requestAnimationFrame(restoreScroll);
     return next;
   }
 
@@ -837,6 +878,7 @@
     nav.querySelectorAll('a[href]').forEach((link) => {
       link.addEventListener('click', () => setMobileOpen(false));
     });
+    refreshSitemapLinkHrefs(nav);
   }
 
   async function renderSitemapNav() {
@@ -1008,6 +1050,104 @@
 
     return initPromise;
   }
+
+  function patchSitemapAfterNav() {
+    const aside = document.getElementById('site-sitemap');
+    const nav = aside?.querySelector('.site-sitemap-nav');
+    if (!nav || !window.WA_TOOLS_CATALOG) return;
+
+    const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
+    const scriptures = window.WA_SCRIPTURES_CATALOG || [];
+    const scriptureSlugs = scriptureSlugSet(scriptures);
+    const history = readHistory();
+    const recentRankByHref = recentRankMap(history, scriptureSlugs);
+    const saved = collectUiState(nav);
+
+    nav.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const canon = link.dataset.canon || canonicalHref(href, scriptureSlugs);
+      let rank = -1;
+      if (recentRankByHref.has(canon)) rank = recentRankByHref.get(canon);
+      else if (recentRankByHref.has(href)) rank = recentRankByHref.get(href);
+      const active = isActiveHref(href, scriptureSlugs);
+      link.classList.remove('is-active', 'is-recent', 'is-recent-latest');
+      if (active) link.classList.add('is-active');
+      else if (rank === 0) link.classList.add('is-recent', 'is-recent-latest');
+      else if (rank >= 0) link.classList.add('is-recent');
+
+      const mark = link.querySelector('.site-sitemap-recent-mark');
+      if (active || rank < 0) mark?.remove();
+      else if (!mark && link.closest('.site-sitemap-list')) {
+        const dot = document.createElement('span');
+        dot.className = 'site-sitemap-recent-mark';
+        dot.title = '最近瀏覽';
+        link.insertBefore(dot, link.firstChild);
+      }
+    });
+
+    const recentSection = nav.querySelector('.site-sitemap-section[data-section="recent"]');
+    const recentList = buildRecentSection(history, scriptureSlugs);
+    if (recentList && recentSection) {
+      const body = recentSection.querySelector('.site-sitemap-section-body');
+      if (body) body.replaceChildren(recentList);
+      const countEl = recentSection.querySelector('.site-sitemap-section-count');
+      if (countEl) countEl.textContent = String(recentList.children.length);
+    } else if (!recentList && recentSection) {
+      recentSection.remove();
+    } else if (recentList && !recentSection) {
+      const section = buildSectionBlock('recent', '最近瀏覽', [recentList], {
+        count: recentList.children.length,
+      });
+      const head = nav.querySelector('.site-sitemap-head');
+      if (head) nav.insertBefore(section, head);
+      else nav.prepend(section);
+      bindSitemapTogglePersistence(aside);
+      section.querySelectorAll('a[href]').forEach((link) => {
+        link.addEventListener('click', () => setMobileOpen(false));
+      });
+    }
+
+    const seqSlot = aside.querySelector('.site-sitemap-seq-slot');
+    if (seqSlot) {
+      const seqPager = buildToolCategoryPager(tools);
+      seqSlot.replaceChildren(...(seqPager ? [seqPager] : []));
+    }
+
+    applyGroupOpenState(nav, recentRankByHref, saved);
+
+    refreshSitemapLinkHrefs(nav);
+
+    const q = aside.querySelector('.site-sitemap-search')?.value || '';
+    if (q) applySearch(nav, q);
+  }
+
+  function refreshSitemapForCurrentPage(options) {
+    if (!options?.full) {
+      patchSitemapAfterNav();
+      return;
+    }
+
+    const aside = document.getElementById('site-sitemap');
+    const currentNav = aside?.querySelector('.site-sitemap-nav');
+    if (!currentNav || !window.WA_TOOLS_CATALOG) return;
+
+    const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
+    const scriptures = window.WA_SCRIPTURES_CATALOG || [];
+    const scriptureSlugs = scriptureSlugSet(scriptures);
+    const seqSlot = aside.querySelector('.site-sitemap-seq-slot');
+    const q = aside.querySelector('.site-sitemap-search')?.value || '';
+    const next = refreshSitemap(currentNav, tools, scriptures, scriptureSlugs);
+    if (q) applySearch(next, q);
+
+    if (seqSlot) {
+      const seqPager = buildToolCategoryPager(tools);
+      seqSlot.replaceChildren(...(seqPager ? [seqPager] : []));
+    }
+  }
+
+  window.__waRefreshSitemapNav = refreshSitemapForCurrentPage;
+  window.__waPatchSitemapAfterNav = patchSitemapAfterNav;
 
   function scheduleInit(force) {
     const run = () => init(force).catch(() => {});

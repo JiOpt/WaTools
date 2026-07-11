@@ -32,34 +32,49 @@
     return window.WA_SITEMAP_PAGER;
   }
 
+  function scriptureBookHref(slug) {
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref(`scripture/${slug}.html`);
+    }
+    return `/scripture/${slug}.html`;
+  }
+
+  function scripturesCategoryHref(groupId) {
+    if (window.WA_TOOL_URLS?.toolHref) {
+      return `${window.WA_TOOL_URLS.toolHref('scriptures')}#scriptures-${groupId}`;
+    }
+    return `/utility/scriptures.html#scriptures-${groupId}`;
+  }
+
   function renderPagerNav(ctx) {
     const { group, prev, next } = ctx;
 
-    function linkCell(book, kind, label) {
+    function linkCell(book, kind) {
+      const label = kind === 'prev' ? '上一篇' : '下一篇';
       if (!book) {
         return `<span class="scripture-pager-link scripture-pager-${kind} is-disabled" aria-hidden="true">
           <span class="scripture-pager-label">${label}</span>
-          <span class="scripture-pager-title">—</span>
+          <span class="scripture-pager-row"><span class="scripture-pager-title">—</span></span>
         </span>`;
       }
-      const chevron = kind === 'prev'
-        ? '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>'
-        : '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
-      const titleHtml = kind === 'prev'
-        ? `<span class="scripture-pager-row">${chevron}<span class="scripture-pager-title">${book.title}</span></span>`
-        : `<span class="scripture-pager-row"><span class="scripture-pager-title">${book.title}</span>${chevron}</span>`;
-      return `<a href="${book.slug}.html" class="scripture-pager-link scripture-pager-${kind}">
+      const chevronPrev = '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>';
+      const chevronNext = '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
+      const row = kind === 'prev'
+        ? `<span class="scripture-pager-row">${chevronPrev}<span class="scripture-pager-title">${book.title}</span></span>`
+        : `<span class="scripture-pager-row"><span class="scripture-pager-title">${book.title}</span>${chevronNext}</span>`;
+      const aria = kind === 'prev' ? `上一篇：${book.title}` : `下一篇：${book.title}`;
+      return `<a href="${scriptureBookHref(book.slug)}" class="scripture-pager-link scripture-pager-${kind}" aria-label="${aria}">
         <span class="scripture-pager-label">${label}</span>
-        ${titleHtml}
+        ${row}
       </a>`;
     }
 
     return `
-      ${linkCell(prev, 'prev', '上一篇')}
-      <a href="../utility/scriptures.html#scriptures-${group.id}" class="btn btn-outline-secondary scripture-pager-home">
-        <i class="bi bi-grid me-1"></i>返回分類
+      ${linkCell(prev, 'prev')}
+      <a href="${scripturesCategoryHref(group.id)}" class="btn btn-outline-secondary scripture-pager-home">
+        <i class="bi bi-grid me-1" aria-hidden="true"></i>返回分類
       </a>
-      ${linkCell(next, 'next', '下一篇')}`;
+      ${linkCell(next, 'next')}`;
   }
 
   function updatePagerElement(el, ctx, position) {
@@ -104,6 +119,8 @@
       .then(() => pagerApi()?.ensureManifest())
       .then(() => injectPagers());
   });
+
+  window.__waBootScripturePager = boot;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {

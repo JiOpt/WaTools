@@ -2,9 +2,23 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { enrichScriptureContent } from './scripture-enrich.mjs';
-import { renderSeoMeta } from './seo-meta.mjs';
-import { WA_SITE_VERSION, stampAssetUrl } from './site-version.mjs';
-import { renderAnalyticsSnippet } from './site-analytics.mjs';
+import {
+  buildPageDescription,
+  buildScripturePageTitle,
+  renderArticleSchema,
+  renderSeoMeta,
+} from './seo-meta.mjs';
+import {
+  escapeHtml,
+  renderBodyScripts,
+  renderFooterShell,
+  renderHeadCore,
+  renderHeadOpen,
+  renderHeader,
+  renderPageChrome,
+  stampAssetUrl,
+  pathPrefix,
+} from './layout-shell.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -30,7 +44,7 @@ function rootPageHref(page) {
 }
 
 function rootAssetHref(relativePath) {
-  return stampAssetUrl(rootPageHref(relativePath), WA_SITE_VERSION);
+  return stampAssetUrl(rootPageHref(relativePath));
 }
 const INLINE_MERGE_MODES = {
   daode: 'h4-single',
@@ -92,7 +106,7 @@ function parseSupplementNoteBody(html) {
 
 function parseJingangChapterNotes(html) {
   const stripped = html
-    .replace(/^<h2 class="scripture-main-title">[\s\S]*?<\/h2>\s*/i, '')
+    .replace(/^<h[12] class="scripture-main-title">[\s\S]*?<\/h[12]>\s*/i, '')
     .replace(/(?:<p class="scripture-para">[\s\S]*?<\/p>\s*)+/g, '')
     .trim();
   const notes = [];
@@ -535,7 +549,7 @@ function parseSupplementParaBodies(html) {
 
 function stripSupplementHeader(html) {
   return html
-    .replace(/^<h2 class="scripture-main-title">[\s\S]*?<\/h2>\s*/i, '')
+    .replace(/^<h[12] class="scripture-main-title">[\s\S]*?<\/h[12]>\s*/i, '')
     .replace(/^<h3 class="scripture-chapter"[^>]*>[\s\S]*?<\/h3>\s*/i, '')
     .replace(/^<h1>[\s\S]*?<\/h1>\s*/i, '')
     .replace(/^<img[^>]*>\s*/i, '')
@@ -812,8 +826,7 @@ function transformContent(content) {
   out = out.replace(/<\/h3>/gi, '</h4>');
   out = out.replace(/<h2(?![^>]*class="scripture-main-title")(\s[^>]*)?>/gi, '<h3 class="scripture-chapter"$1>');
   out = out.replace(/<\/h2>/gi, '</h3>');
-  out = out.replace(/<h1(\s[^>]*)?>/gi, '<h2 class="scripture-main-title"$1>');
-  out = out.replace(/<\/h1>/gi, '</h2>');
+  out = out.replace(/<h1(\s[^>]*)?>/gi, '<h1 class="scripture-main-title"$1>');
 
   out = out.replace(/class="io_summary"/g, 'class="scripture-intro"');
   out = out.replace(/class="io_auther"/g, 'class="scripture-author"');
@@ -882,16 +895,18 @@ function getCategoryForBook(slug) {
   return null;
 }
 
-function renderPagerLink(href, kind, label, title) {
+function renderPagerLink(href, kind, title) {
+  const label = kind === 'prev' ? '上一篇' : '下一篇';
   const chevronPrev = '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>';
   const chevronNext = '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
-  const titleHtml = kind === 'prev'
+  const row = kind === 'prev'
     ? `<span class="scripture-pager-row">${chevronPrev}<span class="scripture-pager-title">${escapeHtml(title)}</span></span>`
     : `<span class="scripture-pager-row"><span class="scripture-pager-title">${escapeHtml(title)}</span>${chevronNext}</span>`;
-  return `<a href="${href}" class="scripture-pager-link scripture-pager-${kind}">
-        <span class="scripture-pager-label">${label}</span>
-        ${titleHtml}
-      </a>`;
+  const aria = kind === 'prev' ? `上一篇：${title}` : `下一篇：${title}`;
+  return `<a href="${href}" class="scripture-pager-link scripture-pager-${kind}" aria-label="${escapeHtml(aria)}">
+    <span class="scripture-pager-label">${label}</span>
+    ${row}
+  </a>`;
 }
 
 function renderPager(book, position = 'bottom') {
@@ -906,11 +921,11 @@ function renderPager(book, position = 'bottom') {
 
   return `
     <nav class="scripture-pager${posClass}" aria-label="篇章導覽">
-      ${renderPagerLink(scripturePageHref(prev.slug), 'prev', '上一篇', prev.title)}
+      ${renderPagerLink(scripturePageHref(prev.slug), 'prev', prev.title)}
       <a href="${rootPageHref(`scriptures.html#scriptures-${category.id}`)}" class="btn btn-outline-secondary scripture-pager-home">
-        <i class="bi bi-grid me-1"></i>返回分類
+        <i class="bi bi-grid me-1" aria-hidden="true"></i>返回分類
       </a>
-      ${renderPagerLink(scripturePageHref(next.slug), 'next', '下一篇', next.title)}
+      ${renderPagerLink(scripturePageHref(next.slug), 'next', next.title)}
     </nav>`;
 }
 
@@ -1024,54 +1039,38 @@ function injectSectionNavigation(html, bookSlug) {
   return out;
 }
 
-const FONT_SIZE_BOOT = `  <script>try{var s=localStorage.getItem('mytoolife-font-size');document.documentElement.setAttribute('data-font-size',s==='sm'||s==='lg'?s:'md')}catch(e){document.documentElement.setAttribute('data-font-size','md')}</script>`;
+const SCRIPTURE_DEPTH = 1;
 
 function renderScripturePage(book, mainContent, supplementsHtml, relatedHtml) {
   const category = getCategoryForBook(book.slug);
   const categoryName = category ? category.name : '藏經閣';
+  const pagePath = `scripture/${book.slug}.html`;
+  const pageTitle = buildScripturePageTitle(book.title);
+  const description = buildPageDescription(book.desc, [`${book.title}線上閱讀，${categoryName}。`]);
 
-  return `<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-${renderAnalyticsSnippet()}
-${FONT_SIZE_BOOT}
-  <title>${escapeHtml(book.title)} - 藏經閣 - MyTooLife</title>
+  return `${renderHeadOpen()}
+${renderHeadCore({ depth: SCRIPTURE_DEPTH, includePrefsBoot: false, includeFontSizeBoot: true })}
+  <title>${escapeHtml(pageTitle)}</title>
 ${renderSeoMeta({
-    title: `${book.title} - 藏經閣 - MyTooLife`,
-    description: book.desc,
-    path: `scripture/${book.slug}.html`,
+    title: pageTitle,
+    description,
+    path: pagePath,
     type: 'article',
     keywords: `${book.title},藏經閣,國學,佛經,MyTooLife`,
   })}
-  <link href="${rootAssetHref('assets/img/favicon.png')}" rel="icon">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="${rootAssetHref('assets/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
-  <link href="${rootAssetHref('assets/vendor/bootstrap-icons/bootstrap-icons.css')}" rel="stylesheet">
-  <link href="${rootAssetHref('assets/vendor/aos/aos.css')}" rel="stylesheet">
-  <link href="${rootAssetHref('assets/css/main.css')}" rel="stylesheet">
+${renderArticleSchema({ headline: book.title, description, url: pagePath })}
+${renderHeadCore({ depth: SCRIPTURE_DEPTH, includePrefsBoot: false, includeFontSizeBoot: false })}
 </head>
 <body class="tool-page scripture-page">
-  <header id="header" class="header sticky-top">
-    <div class="branding d-flex align-items-center">
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="${rootPageHref('index.html')}" class="logo d-flex align-items-center me-auto"><h1 class="sitename">MyTooLife</h1></a>
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="${rootPageHref('index.html')}">工具首頁</a></li>
-            <li><a href="${rootPageHref('scriptures.html')}" class="active">藏經閣</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-        <a class="cta-btn d-none d-sm-block" href="${rootPageHref('scriptures.html')}">返回藏經閣</a>
-      </div>
-    </div>
-  </header>
+${renderHeader({
+    depth: SCRIPTURE_DEPTH,
+    navItems: [
+      { href: `${pathPrefix(SCRIPTURE_DEPTH)}index.html`, label: '工具首頁' },
+      { href: rootPageHref('scriptures.html'), label: '藏經閣', active: true, ariaCurrent: true },
+    ],
+  })}
   <main class="main">
-    <section class="scripture-section section light-background">
+    <section class="scripture-section section light-background" aria-label="${escapeHtml(book.title)}">
       <div class="container" data-aos="fade-up">
         ${renderPager(book, 'top')}
         <article class="scripture-article">
@@ -1080,24 +1079,19 @@ ${renderSeoMeta({
           ${supplementsHtml}
         </article>
         ${renderPager(book, 'bottom')}
-        <div class="scripture-footer-meta">
+        <footer class="scripture-footer-meta">
           <span class="scripture-category-label">${escapeHtml(categoryName)}</span>
-        </div>
+        </footer>
       </div>
     </section>
   </main>
-  <footer id="footer" class="footer light-background">
-    <div class="container copyright text-center py-4">
-      <p>© <strong class="sitename">MyTooLife</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
-    </div>
-  </footer>
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
-  <script src="${rootAssetHref('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}"></script>
-  <script src="${rootAssetHref('assets/vendor/aos/aos.js')}"></script>
-  <script src="${rootAssetHref('assets/js/main.js')}"></script>
-  <script src="${rootAssetHref('assets/js/tools-data.js')}"></script>
-  <script src="${rootAssetHref('assets/js/scriptures-catalog.js')}"></script>
+${renderFooterShell()}
+${renderPageChrome()}
+${renderBodyScripts({
+    depth: SCRIPTURE_DEPTH,
+    extraScripts: ['assets/js/tools-data.js', 'assets/js/scriptures-catalog.js'],
+    deferMain: true,
+  })}
 </body>
 </html>`;
 }

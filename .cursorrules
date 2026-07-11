@@ -1,0 +1,34 @@
+# Cursor Rules for Project 吉吉 🐾 - Web SEO & Structure Guide
+
+## 1. 核心開發哲學
+- 優先檢視設計邏輯，代碼需具備極簡主義，確保半年後仍易於維護。
+- 兼顧 High Performance 載入速度（對 SEO 加分）與輕量化架構。
+- [請於此處補充技術棧，例如：基於 Next.js 14 App Router / React / Tailwind CSS 開發]
+
+## 2. 新增子頁面（Sub-pages）規範
+每次新增任何路由或子頁面時，必須自動包含並檢查以下結構：
+
+### A. 語意化 HTML 結構 (Semantic HTML)
+- 必須包含 `<main>` 作為主要內容區。
+- 每個頁面有且僅有一個 `<h1>` 標籤，且必須包含核心關鍵字。
+- 結構階層需依序為 `<h2>`, `<h3>`，不可跳階（例如 direct from <h1> to <h3>）。
+
+### B. 必要 SEO Meta 標籤與動態配置
+每個頁面組件必須依據專案框架規範定義：
+- `title`: 限制在 45-60 個字元內，格式統一為：「頁面名稱 | 品牌名稱」。
+- `description`: 限制在 110-150 個字元內，精準摘要頁面內容。
+- `canonical`: 必須明確標示標準網址，避免重複內容（Duplicate Content）扣分。
+
+### C. Open Graph (OG) & Twitter Cards
+- `og:title` / `og:description` / `og:image`
+- `og:type`: 依頁面屬性配置（如 website 或 article）。
+
+### D. 結構化資料 (Structured Data)
+- 商業核心頁面或文章頁面，必須自動評估並導入 **JSON-LD** 結構化資料（如 WebPage, Article 或 Product 類型），以利搜尋引擎建立豐富網頁摘要。
+
+## 3. SEO 自動檢查清單 (Checklist)
+在修改或檢查全部程式碼時，請依據以下標準進行 Review：
+1. 檢查所有 `<img>` 標籤是否皆有明確的 `alt` 屬性（不可為空，需具備敘述性），並優先使用框架優化的圖片組件（如 Next.js `<Image />`）以確保效能。
+2. 檢查所有 `<a>` 標籤（或框架內建 `<Link>`），若連往外部網站是否皆加上 `rel="noopener noreferrer"`。
+3. 確保文字與背景顏色對比度符合 WCAG AA 級標準（利於搜尋引擎爬蟲對 Accessibility 的評分）。
+4. 檢查是否有非必要的阻礙性 JavaScript，確保**首屏渲染（First Meaningful Paint）**與**核心網頁指標（Core Web Vitals, 如 LCP, INP）**效能最佳。

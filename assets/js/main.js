@@ -9,7 +9,7 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.6.27';
+  const WA_SITE_VERSION = '0.6.38';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
@@ -100,6 +100,7 @@
   if (document.querySelector('#header .branding')) {
     injectScript('assets/js/nav-history.js', { defer: true });
     injectScript('assets/js/user-menu.js', { defer: true });
+    injectScript('assets/js/soft-nav.js');
   }
 
   if (document.querySelector('#header .branding')) {

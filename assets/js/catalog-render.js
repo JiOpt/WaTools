@@ -1,6 +1,11 @@
 (function () {
   'use strict';
 
+  function toolCardHref(slug) {
+    if (window.WA_TOOL_URLS?.toolHref) return window.WA_TOOL_URLS.toolHref(slug);
+    return `/${slug}.html`;
+  }
+
   async function renderCatalog() {
     const catalog = window.WA_TOOLS_CATALOG;
     const container = document.getElementById('tools-catalog');
@@ -33,7 +38,7 @@
           <div class="row gy-4">
             ${category.tools.map((tool) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="${category.id}/${tool.slug}.html" class="tool-card tool-card-ready">
+                <a href="${toolCardHref(tool.slug)}" class="tool-card tool-card-ready">
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                   <div class="tool-card-body">
                     <h3>${tool.title}</h3>
@@ -48,11 +53,25 @@
     `).join('');
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderCatalog().catch(() => {});
+  async function bootToolsCatalog() {
+    await renderCatalog();
+  }
+
+  window.__waBootToolsCatalog = bootToolsCatalog;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      bootToolsCatalog().catch(() => {});
+    }, { once: true });
+  } else if (document.getElementById('tools-catalog')) {
+    bootToolsCatalog().catch(() => {});
+  }
+
+  window.addEventListener('mytoolife:soft-nav', () => {
+    bootToolsCatalog().catch(() => {});
   });
 
   window.addEventListener('mytoolife:publish-changed', () => {
-    renderCatalog().catch(() => {});
+    bootToolsCatalog().catch(() => {});
   });
 })();
