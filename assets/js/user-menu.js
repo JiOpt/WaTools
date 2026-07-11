@@ -157,6 +157,10 @@
       setOpen(panel.hidden);
     });
 
+    panel.addEventListener('click', (e) => {
+      if (e.target.closest('a[href]')) setOpen(false);
+    });
+
     document.addEventListener('click', (e) => {
       if (!wrap.contains(e.target)) setOpen(false);
     });

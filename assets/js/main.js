@@ -9,7 +9,7 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.6.39';
+  const WA_SITE_VERSION = '0.6.41';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
@@ -132,6 +132,7 @@
   if (document.querySelector('#header .branding')) {
     injectScript('assets/js/nav-history.js', { defer: true });
     injectScript('assets/js/user-menu.js', { defer: true });
+    injectScript('assets/js/page-views.js', { defer: true });
     injectScript('assets/js/soft-nav.js');
   }
 
@@ -233,6 +234,29 @@
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
+  function closeHeaderOverlays() {
+    if (document.body.classList.contains('mobile-nav-active')) {
+      document.body.classList.remove('mobile-nav-active');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.classList.add('bi-list');
+        mobileNavToggleBtn.classList.remove('bi-x');
+      }
+    }
+
+    document.body.classList.remove('site-sitemap-open');
+
+    const userMenu = document.getElementById('user-menu');
+    if (userMenu?.classList.contains('is-open')) {
+      const panel = document.getElementById('user-menu-panel');
+      const toggle = userMenu.querySelector('.user-menu-toggle');
+      if (panel) panel.hidden = true;
+      userMenu.classList.remove('is-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  window.__waCloseHeaderOverlays = closeHeaderOverlays;
+
   function mobileNavToogle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
@@ -243,16 +267,17 @@
   }
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * Close mobile nav / user menu when a header link is followed
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+  const siteHeader = document.getElementById('header');
+  if (siteHeader) {
+    siteHeader.addEventListener('click', (event) => {
+      if (event.target.closest('.toggle-dropdown, .user-menu-toggle, .mobile-nav-toggle')) return;
+      const anchor = event.target.closest('a[href]');
+      if (!anchor) return;
+      closeHeaderOverlays();
     });
-
-  });
+  }
 
   /**
    * Toggle mobile nav dropdowns

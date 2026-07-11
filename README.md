@@ -2,7 +2,7 @@
 
 免安裝 **mytoolife** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://mytoolife.com>（**v0.6.39**）
+- 網站：<https://mytoolife.com>（**v0.6.41**）
 - 自訂網域：`mytoolife.com`（GoDaddy 註冊，於 Firebase Hosting 綁定 DNS）
 - Firebase 專案 ID：`watoolio`（Google 後台專案名；對外網域為 `mytoolife.com`）
 
@@ -186,7 +186,7 @@ firebase hosting:disable --project watoolio
 
 > Firebase 專案 ID 為 `watoolio`，與對外品牌網域 `mytoolife.com` 不同，部署時請用 `--project watoolio`。
 
-> `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`（SEO 用，與工具發布清單 `sitemap.txt` 不同）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
+> `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。**SEO 相關變更後請執行 `npm run seo:build`**（產生 `sitemap.xml`、首頁爬蟲目錄、工具頁 meta）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
 
 ### 讓手機載入最新 JS/CSS（快取刷新）
 
@@ -213,11 +213,113 @@ firebase hosting:disable --project watoolio
 
 ## SEO
 
-- `robots.txt`：允許爬蟲，指向 `sitemap.xml`
-- `sitemap.xml`：137 個頁面（執行 `node scripts/generate-sitemap.mjs` 更新）
-- 首頁、藏經閣、SEO Search：含 canonical、Open Graph、Twitter Card、Schema.org
-- 經典內頁：重建時由 `scripts/seo-meta.mjs` 注入 SEO meta
+本站為 **靜態 HTML + Firebase Hosting**（非 Next.js）。SEO 由建置腳本集中產生，請依下列流程維護。
 
+### 現況（技術面）
+
+| 項目 | 說明 |
+|------|------|
+| `robots.txt` | 允許爬蟲；`Disallow: /index_plan.html`；指向 `sitemap.xml` |
+| `sitemap.xml` | 已開放工具 + 藏經閣 + 靜態頁；**網址為 clean URL**（無 `.html`），與 canonical 一致 |
+| 每頁 meta | `title`（45–60 字）、`description`（110–150 字）、`canonical`、`robots` |
+| Open Graph / Twitter | 全站工具頁、經文頁、首頁 |
+| JSON-LD | 首頁 `WebSite`；工具頁 `WebApplication`；經文 `Article` |
+| 首頁爬蟲目錄 | `index.html` 內靜態 `<nav class="seo-crawler-nav">`（JS 目錄的補充） |
+| soft-nav | 換頁時同步 `title`、description、canonical、OG、Twitter、JSON-LD |
+| 設定頁 | `noindex, follow`（不進搜尋結果，仍可被爬蟲跟隨連結） |
+| GA4 | `G-F5WQ4D7R9S` |
+
+### 建置指令（deploy 前建議全跑）
+
+```bash
+npm run sitemap:build    # sitemap.txt → sitemap-published.js（發布清單）
+npm run seo:build        # 依序：sitemap.xml → 首頁爬蟲目錄 → 工具頁 SEO meta
+```
+
+| 指令 | 腳本 | 何時執行 |
+|------|------|----------|
+| `npm run seo:sitemap` | `generate-sitemap.mjs` | 開放新工具、新增經文頁、`sitemap.txt` 變更後 |
+| `npm run seo:index` | `generate-index-seo.mjs` | `sitemap.txt` 或 `tools-data.js`、經典目錄變更後 |
+| `npm run seo:tools` | `generate-tool-pages.mjs` | 新增工具 slug、修改 `seo-meta.mjs` 規則後 |
+| `npm run seo:build` | `seo-build.mjs` | 上述三者一次執行 |
+
+**完整 deploy 前檢查：**
+
+1. 確認 `sitemap.txt` 內容
+2. `npm run sitemap:build`
+3. `npm run seo:build`
+4. 若改動 JS/CSS：`scripts/site-version.mjs` 遞增 → `node scripts/stamp-asset-version.mjs`
+5. `firebase deploy --only hosting --project watoolio`
+6. [Google Search Console](https://search.google.com/search-console) 重新提交 `sitemap.xml`
+
+### 新增工具頁（SEO 必做）
+
+1. 在 `assets/js/tools-data.js` 加入工具（`slug`、`title`、`desc`）
+2. 執行 `node scripts/generate-tool-pages.mjs`（或 `npm run seo:tools`）產生 `{category}/{slug}.html`
+3. 若要對外開放：將 slug 加入 `sitemap.txt` → `npm run sitemap:build` → `npm run seo:build`
+4. 確認產出頁面含：`canonical` 為 `https://mytoolife.com/{category}/{slug}`（無 `.html`）
+
+### 新增藏經閣經文
+
+1. `node scripts/build-scriptures.mjs`（內含 `seo-meta.mjs`）
+2. `npm run seo:sitemap` 更新 `sitemap.xml`
+3. `npm run seo:index` 更新首頁靜態連結
+
+### 不要索引的頁面
+
+在 `scripts/seo-meta.mjs` 的 `NOINDEX_SLUGS` 加入 slug（例如 `settings`），再執行 `npm run seo:tools` 重產該類頁面。
+
+### 關鍵檔案
+
+| 檔案 | 用途 |
+|------|------|
+| `scripts/seo-meta.mjs` | title/description/canonical/OG/JSON-LD 唯一規則來源 |
+| `scripts/generate-sitemap.mjs` | 產生 `sitemap.xml`（讀 `sitemap.txt` + 經文目錄） |
+| `scripts/generate-index-seo.mjs` | 首頁 `seo-crawler-nav` 靜態連結 |
+| `scripts/generate-tool-pages.mjs` | 批次產生工具頁 SEO head |
+| `scripts/seo-build.mjs` | 一次執行上述 SEO 建置 |
+| `assets/js/soft-nav.js` | SPA 換頁時同步 head meta |
+
+### 搜尋排名說明
+
+技術 SEO 只能讓 Google **正確收錄**；實際排名仍取決於關鍵字競爭、內容差異化、外部連結與持續更新。建議用 Search Console 觀察「曝光高、點擊低」的頁面，針對性優化 title/description。
+
+### 首頁工具卡片瀏覽人數（Firebase）
+
+以 **Cloud Functions + Firestore** 統計各工具 **獨立訪客數**（同一瀏覽器只計 1 人），顯示於首頁卡片標題下方（`X 人瀏覽`）。
+
+| 檔案 | 用途 |
+|------|------|
+| `functions/index.js` | API：`GET /api/pageviews?slugs=…`、`POST /api/pageviews` |
+| `assets/js/page-views.js` | 首頁批次讀取、進入工具頁時記錄 |
+| `firestore.rules` | 禁止前端直接讀寫（僅 Function 可寫） |
+
+**首次部署（含 Functions）：**
+
+```bash
+cd functions && npm install && cd ..
+firebase deploy --project watoolio
+```
+
+若只更新前端：
+
+```bash
+firebase deploy --only hosting --project watoolio
+```
+
+若只更新 API：
+
+```bash
+firebase deploy --only functions --project watoolio
+```
+
+**計數規則：**
+
+- 同一 `visitorId`（localStorage）對同一工具只計 **1 人**
+- 同一工作階段重複進入同一工具不重複 POST（sessionStorage）
+- `settings`、`scriptures` 不計數、不顯示
+
+本機 `127.0.0.1` 若未部署 Functions，卡片不顯示數字（不影響網站運作）。
 
 ## 版本更新
 
@@ -230,7 +332,7 @@ firebase hosting:disable --project watoolio
 
 **首頁與頁尾**
 - 首頁移除 hero 區塊，直接顯示工具目錄
-- 全站頁尾標語改為「讓工具，簡化每一天。」
+- 全站頁尾標語改為「讓工具生活，簡化每一天。」
 
 ### v0.6.28–0.6.33（2026-07-11）
 

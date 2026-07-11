@@ -551,26 +551,36 @@ body.has-header-context .tool-section [id] {
 }
 
 .header .branding {
-  min-height: 56px;
+  --site-logo-bar-height: 60px;
+  min-height: var(--site-logo-bar-height);
+  height: var(--site-logo-bar-height);
   padding: 0;
 }
 
 .header .branding > .container {
   padding-left: 0;
+  min-height: var(--site-logo-bar-height);
+  height: var(--site-logo-bar-height);
+}
+
+.header a.logo.d-flex {
+  align-items: center !important;
 }
 
 .header .logo {
   line-height: 0;
-  display: block;
-  width: fit-content;
-  max-width: min(calc(56px * 808 / 336), 52vw);
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: var(--site-logo-bar-height);
+  width: auto;
+  max-width: none;
   padding: 0;
-  margin-left: 0;
+  margin: 0;
   flex: 0 0 auto;
-  align-self: stretch;
 }
 
-.header .logo img {
+.header .logo img:not(.site-logo) {
   display: block;
   max-height: 36px;
   margin-right: 8px;
@@ -578,27 +588,21 @@ body.has-header-context .tool-section [id] {
 
 .header .logo img.site-logo {
   display: block;
-  height: 56px;
+  height: var(--site-logo-bar-height);
   width: auto;
-  aspect-ratio: 808 / 336;
-  max-width: none;
+  max-width: min(52vw, 280px);
+  max-height: var(--site-logo-bar-height);
   margin: 0;
-  flex: none;
+  padding: 0;
+  aspect-ratio: 808 / 336;
   object-fit: contain;
   object-position: left center;
+  flex-shrink: 0;
 }
 
 @media (max-width: 575px) {
   .header .branding {
-    min-height: 48px;
-  }
-
-  .header .logo {
-    max-width: min(calc(48px * 808 / 336), 56vw);
-  }
-
-  .header .logo img.site-logo {
-    height: 48px;
+    --site-logo-bar-height: 50px;
   }
 }
 
@@ -891,7 +895,7 @@ body.has-header-context .tool-section [id] {
     margin-right: auto !important;
     margin-left: 0 !important;
     flex: 0 0 auto;
-    align-self: stretch;
+    align-self: center;
   }
 
   .font-size-control {
@@ -2615,6 +2619,15 @@ body.torch-active .torch-visual i {
   margin-bottom: 2px;
   padding-right: 0;
   text-decoration: none;
+}
+
+.tool-card-views {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--default-color), transparent 38%);
+  font-weight: 500;
 }
 
 .tool-card p {
@@ -10472,5 +10485,43 @@ html[data-reduced-motion="true"] [data-aos] {
 .exif-app .tool-kv-table td {
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/*--------------------------------------------------------------
+# SEO crawler nav (index.html static links for search engines)
+--------------------------------------------------------------*/
+.seo-crawler-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.seo-crawler-nav a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.seo-crawler-nav h2,
+.seo-crawler-nav h3,
+.seo-crawler-nav h4 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.seo-crawler-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seo-crawler-nav li {
+  margin: 0;
+  padding: 0;
 }
 

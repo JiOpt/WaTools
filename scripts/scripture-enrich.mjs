@@ -145,7 +145,7 @@ function stripTags(str) {
 function normalizeVerseKey(text) {
   return stripTags(text)
     .replace(/^【[^】]+】\s*/u, '')
-    .replace(/\(\d+\.\d+\)/g, '')
+    .replace(/[（(]\d+\.\d+[）)]/g, '')
     .replace(/[\(（]\d+[）\)]/g, '')
     .replace(/[\u201c\u201d\u2018\u2019「」『』""'']/g, '')
     .replace(/[ \s·．。，、；：？！！]/g, '')

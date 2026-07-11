@@ -38,10 +38,11 @@
           <div class="row gy-4">
             ${category.tools.map((tool) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="${toolCardHref(tool.slug)}" class="tool-card tool-card-ready">
+                <a href="${toolCardHref(tool.slug)}" class="tool-card tool-card-ready" data-tool-slug="${tool.slug}">
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                   <div class="tool-card-body">
                     <h3>${tool.title}</h3>
+                    <span class="tool-card-views" hidden aria-label="瀏覽人數"></span>
                   </div>
                   <span class="tool-badge">可用</span>
                 </a>
@@ -54,6 +55,11 @@
 
     if (typeof AOS !== 'undefined') {
       try { AOS.refresh(); } catch (e) { /* ignore */ }
+    }
+
+    window.dispatchEvent(new CustomEvent('mytoolife:catalog-rendered'));
+    if (typeof window.__waPaintToolCardViews === 'function') {
+      window.__waPaintToolCardViews().catch(() => {});
     }
   }
 

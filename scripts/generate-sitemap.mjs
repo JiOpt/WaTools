@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
 import { fileURLToPath } from 'url';
+import { NOINDEX_SLUGS } from './seo-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_URL = 'https://mytoolife.com';
@@ -50,6 +51,7 @@ function collectScripturePages() {
 function collectPublishedToolPages(published, slugPaths) {
   const files = [];
   for (const slug of published) {
+    if (NOINDEX_SLUGS.has(slug)) continue;
     const rel = slugPaths.get(slug);
     if (!rel) continue;
     const abs = path.join(ROOT, rel);
@@ -73,7 +75,7 @@ function changefreqFor(file) {
 
 function toLoc(file) {
   if (file === 'index.html') return `${SITE_URL}/`;
-  return `${SITE_URL}/${file}`;
+  return `${SITE_URL}/${file.replace(/\.html$/i, '')}`;
 }
 
 const published = loadPublishedSlugs();

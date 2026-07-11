@@ -2,15 +2,35 @@ export const SITE_URL = 'https://mytoolife.com';
 export const SITE_NAME = 'MyTooLife';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
+/** Slugs that should not appear in search results (utility / account-like pages). */
+export const NOINDEX_SLUGS = new Set(['settings']);
+
+export function isNoindexSlug(slug) {
+  return NOINDEX_SLUGS.has(slug);
+}
+
+export function robotsForSlug(slug) {
+  return isNoindexSlug(slug) ? 'noindex, follow' : 'index, follow';
+}
+
+export function cleanPagePath(relativePath) {
+  if (!relativePath || relativePath === 'index.html' || relativePath === 'index') return '';
+  return String(relativePath).replace(/^\//, '').replace(/\.html$/i, '');
+}
+
+export function cleanPageHref(relativePath) {
+  const clean = cleanPagePath(relativePath);
+  return clean ? `/${clean}` : '/';
+}
+
 const TITLE_MIN = 45;
 const TITLE_MAX = 60;
 const DESC_MIN = 110;
 const DESC_MAX = 150;
 
 export function pageUrl(relativePath) {
-  if (!relativePath || relativePath === 'index.html' || relativePath === 'index') return `${SITE_URL}/`;
-  const clean = String(relativePath).replace(/^\//, '').replace(/\.html$/i, '');
-  return `${SITE_URL}/${clean}`;
+  const clean = cleanPagePath(relativePath);
+  return clean ? `${SITE_URL}/${clean}` : `${SITE_URL}/`;
 }
 
 export function clampText(text, min, max) {
@@ -63,13 +83,14 @@ export function renderSeoMeta({
   type = 'website',
   keywords = '',
   image = OG_IMAGE,
+  robots = 'index, follow',
 }) {
   const safeTitle = escapeAttr(title);
   const safeDesc = escapeAttr(description);
   const url = pageUrl(path);
   const kw = keywords ? `\n  <meta name="keywords" content="${escapeAttr(keywords)}">` : '';
   return `  <meta name="description" content="${safeDesc}">${kw}
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${escapeAttr(robots)}">
   <link rel="canonical" href="${url}">
   <meta property="og:type" content="${type}">
   <meta property="og:site_name" content="${SITE_NAME}">

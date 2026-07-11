@@ -278,7 +278,7 @@ function renderInlineNote(chapter) {
 function paraSummary(paraContent) {
   const plain = stripTags(paraContent)
     .replace(/^\d+\.\s*/, '')
-    .replace(/\(\d+\.\d+\)\s*$/, '')
+    .replace(/[（(]\d+\.\d+[）)]\s*$/, '')
     .trim();
   const quoteMatch = plain.match(/[「『"\u201c]([^」』"\u201d]+)[」』"\u201d]/u);
   if (quoteMatch) {
@@ -844,6 +844,7 @@ function transformContent(content) {
   out = out.replace(/<blockquote>/g, '<blockquote class="scripture-quote">');
   out = out.replace(/<hr\s*\/?>/gi, '<hr class="scripture-divider">');
   out = out.replace(/---+/g, '');
+  out = out.replace(/[（(]\d+\.\d+[）)]/g, '');
   out = out.replace(/\n{3,}/g, '\n\n');
 
   return out.trim();

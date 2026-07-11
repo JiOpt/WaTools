@@ -4,6 +4,10 @@
     "cleanup:anthems": "node scripts/cleanup-national-anthem-data.mjs",
     "merge:anthems": "node scripts/merge-anthem-enrich.mjs",
     "sitemap:build": "node scripts/build-sitemap-js.mjs",
+    "seo:sitemap": "node scripts/generate-sitemap.mjs",
+    "seo:index": "node scripts/generate-index-seo.mjs",
+    "seo:tools": "node scripts/generate-tool-pages.mjs",
+    "seo:build": "node scripts/seo-build.mjs",
     "tools:migrate-folders": "node scripts/migrate-tool-folders.mjs",
     "plan:serve": "node scripts/plan-dev-server.mjs",
     "fetch:car-brands": "node scripts/fetch-car-brand.mjs"

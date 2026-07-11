@@ -1,4 +1,21 @@
 {
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ],
   "hosting": {
     "public": ".",
     "ignore": [
@@ -9,11 +26,18 @@
       "assets/scss/**",
       "forms/**",
       "scripts/**",
+      "functions/**",
+      "firestore.rules",
+      "firestore.indexes.json",
       "index_plan.html",
       "sitemap.txt"
     ],
     "cleanUrls": true,
     "rewrites": [
+      {
+        "source": "/api/pageviews",
+        "function": "pageviews"
+      },
       {
         "source": "/",
         "destination": "/index.html"

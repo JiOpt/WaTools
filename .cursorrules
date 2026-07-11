@@ -1,46 +1,100 @@
-# Cursor Rules for Project 吉吉 🐾 - Web SEO & Structure Guide
+# Cursor Rules — MyTooLife（靜態站 SEO 與結構）
 
-## 1. 核心開發哲學
-- 優先檢視設計邏輯，代碼需具備極簡主義，確保半年後仍易於維護。
-- 兼顧 High Performance 載入速度（對 SEO 加分）與輕量化架構。
-- [請於此處補充技術棧，例如：基於 Next.js 14 App Router / React / Tailwind CSS 開發]
+## 1. 專案與技術棧
 
-## 2. 新增子頁面（Sub-pages）規範
-每次新增任何路由或子頁面時，必須自動包含並檢查以下結構：
+- **MyTooLife**：靜態 HTML + Bootstrap + 原生 JS，部署於 Firebase Hosting（`cleanUrls`）
+- 正式網域：`https://mytoolife.com`
+- **不是** Next.js；勿引入 App Router / `layout.js` 等 Next 專用模式
+- 全站局部換頁：`assets/js/soft-nav.js`（只換 `<main>`，header/footer 常駐）
 
-### A. 語意化 HTML 結構 (Semantic HTML)
-- 必須包含 `<main>` 作為主要內容區。
-- 每個頁面有且僅有一個 `<h1>` 標籤，且必須包含核心關鍵字。
-- 結構階層需依序為 `<h2>`, `<h3>`，不可跳階（例如 direct from <h1> to <h3>）。
+## 2. 核心開發哲學
 
-### B. 必要 SEO Meta 標籤與動態配置
-每個頁面組件必須依據專案框架規範定義：
-- `title`: 限制在 45-60 個字元內，格式統一為：「頁面名稱 | 品牌名稱」。
-- `description`: 限制在 110-150 個字元內，精準摘要頁面內容。
-- `canonical`: 必須明確標示標準網址，避免重複內容（Duplicate Content）扣分。
+- 最小必要 diff；沿用既有 `layout-shell.mjs`、`seo-meta.mjs` 慣例
+- 效能與可維護性優先（defer 腳本、版本號 `?v=` 快取刷新）
+- 半年後仍易讀：SEO 規則集中在 `scripts/seo-meta.mjs`，勿在各 HTML 手寫重複 meta
 
-### C. Open Graph (OG) & Twitter Cards
-- `og:title` / `og:description` / `og:image`
-- `og:type`: 依頁面屬性配置（如 website 或 article）。
+## 3. 新增子頁面（工具／經文／靜態頁）規範
 
-### D. 結構化資料 (Structured Data)
-- 商業核心頁面或文章頁面，必須自動評估並導入 **JSON-LD** 結構化資料（如 WebPage, Article 或 Product 類型），以利搜尋引擎建立豐富網頁摘要。
+### A. 語意化 HTML
 
-## 3. SEO 自動檢查清單 (Checklist)
-在修改或檢查全部程式碼時，請依據以下標準進行 Review：
-1. 檢查所有 `<img>` 標籤是否皆有明確的 `alt` 屬性（不可為空，需具備敘述性），並優先使用框架優化的圖片組件（如 Next.js `<Image />`）以確保效能。
-2. 檢查所有 `<a>` 標籤（或框架內建 `<Link>`），若連往外部網站是否皆加上 `rel="noopener noreferrer"`。
-3. 確保文字與背景顏色對比度符合 WCAG AA 級標準（利於搜尋引擎爬蟲對 Accessibility 的評分）。
-4. 檢查是否有非必要的阻礙性 JavaScript，確保**首屏渲染（First Meaningful Paint）**與**核心網頁指標（Core Web Vitals, 如 LCP, INP）**效能最佳。
+- 每頁一個 `<main>`、一個 `<h1>`（工具頁為 `#tool-page-title`）
+- 標題階層依序 `<h2>` → `<h3>`，不可跳階
 
-5. 【局部渲染與狀態保持 (Partial Rendering & State UX)】
-- 嚴格遵守網頁局部渲染原則：當用戶切換子頁面或刷新內容時，上方 Nav/Header、左側 Sitemap/Sidebar、下方 Footer 必須維持不變（不可發生重新掛載或閃爍），僅允許中央 <main> 內文區域進行資料變動。
-- 針對 Next.js 專案，所有全局或區域的共同佈局必須鎖在 `layout.js` 中；各子頁面 `page.js` 僅能渲染該頁專屬的內文組件，嚴禁在子頁面中重複引入全域的 Nav 或 Sidebar。
-- 維持視覺與互動格式的一併統一：新增或變更子頁面時，內文的標題字級、間距（Spacing）、按鈕樣式、讀取中狀態（Skeleton/Loading）必須與全站既有規範嚴格同步，提供最佳使用者體驗。
+### B. SEO Meta（必須）
 
-6. 【記憶體效能與穩定性控制 (Memory & Stability)】
-- 程式碼必須嚴防記憶體洩漏（Memory Leak）：在編寫任何常駐組件（如常駐的 Sitemap）或具備動態訂閱的子頁面時，必須確保在組件銷毀（Unmount）或路由切換時，執行完美的清理邏輯。
-- 具體實作約束：
-  1. 所有使用到的 `useEffect` 內若有 `addEventListener`、`setInterval`、`setTimeout`、或 WebSocket 訂閱，必須嚴格回傳（return）對應的 `removeEventListener` 或 `clear` 清理函式。
-  2. 優先使用框架內建或具備自動快取、自動銷毀機制的請求套件（如 SWR 或 TanStack Query），避免在全域變數中暫存大體積的重複資料。
-  3. 嚴禁在常駐組件中引發無效的重複渲染（Re-render），非必要時應使用 `React.memo` 或 `useMemo` 鎖定複雜的樹狀選單（Sitemap）結構。
+**工具頁**：用 `scripts/generate-tool-pages.mjs` 產生，或手動對齊 `seo-meta.mjs` 輸出：
+
+- `title`：45–60 字元，`buildToolPageTitle()`
+- `description`：110–150 字元，`buildPageDescription()`
+- `canonical`：`https://mytoolife.com/{category}/{slug}`（**無 `.html`**，與 Firebase `cleanUrls` 一致）
+- `meta robots`：預設 `index, follow`；設定等工具頁用 `NOINDEX_SLUGS`
+- Open Graph + Twitter Card：透過 `renderSeoMeta()`
+- JSON-LD：工具 `WebApplication`（`renderWebApplicationSchema`）；經文 `Article`（`renderArticleSchema`）
+
+**經文頁**：執行 `scripts/build-scriptures.mjs`（已整合 `seo-meta.mjs`）
+
+**首頁**：`index.html` 內含 JSON-LD `WebSite`；執行 `generate-index-seo.mjs` 維護靜態爬蟲目錄
+
+### C. 不要索引的頁面
+
+- 將 slug 加入 `scripts/seo-meta.mjs` → `NOINDEX_SLUGS`
+- 重跑 `npm run seo:tools`
+- 勿把純內部頁（如 `index_plan.html`）加入 `sitemap.xml`
+
+### D. 圖片與連結
+
+- `<img>` 必有描述性 `alt`（logo 用品牌名）
+- 外部連結加 `rel="noopener noreferrer"`（若 `target="_blank"`）
+- 站內連結優先 **clean URL**：`/life/calendar` 而非 `calendar.html`
+
+## 4. SEO 建置流程（新增／修改內容後）
+
+```bash
+npm run sitemap:build   # 若動了 sitemap.txt
+npm run seo:build       # sitemap.xml + 首頁爬蟲目錄 + 工具頁 meta
+```
+
+| 變更類型 | 額外步驟 |
+|----------|----------|
+| 新工具 slug | `tools-data.js` → `generate-tool-pages.mjs` → `sitemap.txt` → `seo:build` |
+| 新經文 | `build-scriptures.mjs` → `seo:sitemap` + `seo:index` |
+| 改 SEO 規則 | 改 `seo-meta.mjs` → `seo:build` |
+| soft-nav 換頁 meta | 改 `soft-nav.js` 的 `syncMeta()`，保持與 head 標籤一致 |
+
+Deploy 前：版本 bump → `stamp-asset-version.mjs` → `firebase deploy --project watoolio` → Search Console 重送 sitemap
+
+## 9. 首頁工具卡片瀏覽人數（Firebase）
+
+- API：`/api/pageviews`（Cloud Function `pageviews` + Firestore `pageviews/{slug}`）
+- 前端：`assets/js/page-views.js`；卡片 markup 在 `catalog-render.js`（`data-tool-slug`、`.tool-card-views`）
+- 顯示 **獨立訪客數**（`unique`）；進入工具頁 POST 記錄，首頁 GET 批次讀取
+- 新工具加入 `tools-data.js` 後無需改 API；`settings` / `scriptures` 不計數
+- 部署：`cd functions && npm install` → `firebase deploy --project watoolio`
+- 詳見 `README.md`「首頁工具卡片瀏覽人數」章節
+
+## 5. soft-nav 與 SEO
+
+- 爬蟲直接請求 URL 時仍收到完整 HTML（不受 soft-nav 影響）
+- 使用者站內換頁時，`soft-nav.js` 必須同步：`title`、`description`、`canonical`、OG、Twitter、JSON-LD
+- 新增 head 標籤類型時，一併更新 `syncMeta()`
+
+## 6. 局部渲染與狀態（本專案實作）
+
+- Header、左側網站地圖、Footer **不**隨換頁重載；僅 `<main class="main">` 替換
+- 換頁後呼叫 `__waCloseHeaderOverlays()` 關閉手機選單／下拉
+- 動態工具內容載入後需觸發 `mytoolife:soft-nav` 或對應 boot 函式
+
+## 7. SEO 檢查清單（Review 時）
+
+1. canonical 是否為 clean URL（無 `.html`）且與 `sitemap.xml` `<loc>` 一致
+2. JSON-LD 的 `url` 是否與 canonical 相同（`pageUrl()` 會去掉 `.html`）
+3. 首頁是否有 `seo-crawler-nav` 靜態連結（`generate-index-seo.mjs`）
+4. 新開放工具是否已寫入 `sitemap.txt` 並重跑 `seo:build`
+5. `settings` 等頁是否維持 `noindex`
+6. 圖片 `alt`、對比度、defer 腳本是否影響 LCP
+7. `robots.txt` 是否仍指向正確 `sitemap.xml`
+
+## 8. 記憶體與事件清理
+
+- `addEventListener` / `setInterval` 在 SPA 換頁或元件卸載時必須清理
+- 站內地圖、工具 boot 使用 `__waCancelToolBoot` 避免重複初始化

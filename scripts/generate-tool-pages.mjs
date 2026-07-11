@@ -17,6 +17,7 @@ import {
   buildToolPageTitle,
   renderSeoMeta,
   renderWebApplicationSchema,
+  robotsForSlug,
 } from './seo-meta.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,6 +50,7 @@ ${renderSeoMeta({
     path: pagePath,
     type: 'website',
     keywords,
+    robots: robotsForSlug(slug),
   })}
 ${renderWebApplicationSchema({ name: title, description, url: pagePath })}
 </head>

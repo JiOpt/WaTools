@@ -282,11 +282,45 @@
     if (nextList && curList) curList.innerHTML = nextList.innerHTML;
   }
 
+  function syncMetaTag(doc, selector, attr = 'content') {
+    const next = doc.querySelector(selector);
+    const cur = document.querySelector(selector);
+    if (!next || !cur) return;
+    const value = next.getAttribute(attr);
+    if (value != null) cur.setAttribute(attr, value);
+  }
+
   function syncMeta(doc) {
-    const desc = doc.querySelector('meta[name="description"]');
-    const curDesc = document.querySelector('meta[name="description"]');
-    if (desc && curDesc && desc.getAttribute('content') != null) {
-      curDesc.setAttribute('content', desc.getAttribute('content'));
+    syncMetaTag(doc, 'meta[name="description"]');
+    syncMetaTag(doc, 'meta[name="keywords"]');
+    syncMetaTag(doc, 'meta[name="robots"]');
+    syncMetaTag(doc, 'link[rel="canonical"]', 'href');
+
+    [
+      'og:type',
+      'og:site_name',
+      'og:title',
+      'og:description',
+      'og:url',
+      'og:image',
+      'og:locale',
+    ].forEach((property) => {
+      syncMetaTag(doc, `meta[property="${property}"]`);
+    });
+
+    [
+      'twitter:card',
+      'twitter:title',
+      'twitter:description',
+      'twitter:image',
+    ].forEach((name) => {
+      syncMetaTag(doc, `meta[name="${name}"]`);
+    });
+
+    const nextLd = doc.querySelector('script[type="application/ld+json"]');
+    const curLd = document.querySelector('script[type="application/ld+json"]');
+    if (nextLd && curLd) {
+      curLd.textContent = nextLd.textContent;
     }
   }
 
@@ -415,11 +449,15 @@
       window.renderSiteFooter();
     }
 
-    document.body.classList.remove('mobile-nav-active');
-    const toggle = document.querySelector('.mobile-nav-toggle');
-    if (toggle) {
-      toggle.classList.add('bi-list');
-      toggle.classList.remove('bi-x');
+    if (typeof window.__waCloseHeaderOverlays === 'function') {
+      window.__waCloseHeaderOverlays();
+    } else {
+      document.body.classList.remove('mobile-nav-active');
+      const toggle = document.querySelector('.mobile-nav-toggle');
+      if (toggle) {
+        toggle.classList.add('bi-list');
+        toggle.classList.remove('bi-x');
+      }
     }
 
     window.dispatchEvent(new CustomEvent('mytoolife:soft-nav', {
@@ -491,7 +529,9 @@
     event.preventDefault();
     event.stopPropagation();
 
-    if (anchor.closest('#site-sitemap')) {
+    if (typeof window.__waCloseHeaderOverlays === 'function') {
+      window.__waCloseHeaderOverlays();
+    } else if (anchor.closest('#site-sitemap')) {
       document.body.classList.remove('site-sitemap-open');
     }
     if (typeof anchor.blur === 'function') anchor.blur();
