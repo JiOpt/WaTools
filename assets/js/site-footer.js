@@ -8,6 +8,7 @@ window.WA_SITE_FOOTER = {
   copyrightLabel: '版權聲明',
   showContactLink: true,
   contactLabel: '聯絡我們',
-  /** Google 表單嵌入網址：表單 → 傳送 → 嵌入 HTML → 複製 iframe 的 src 貼到下方 */
-  googleFormEmbedUrl: '',
+  /** Google 表單：https://forms.gle/GFxVtVgkMQhvCL8u8 */
+  googleFormPublicUrl: 'https://forms.gle/GFxVtVgkMQhvCL8u8',
+  googleFormEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfEBbtKIHDmZ4YOjyRslKHeEY90SkUFx_lgnoRNGu3Z2CkR_w/viewform?embedded=true',
 };

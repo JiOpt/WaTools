@@ -1,5 +1,5 @@
 /**
- * Download car brand logos from Wikimedia Commons and build car-brand-data.js
+ * Download car brand logos and build car-brand-data.js
  * Run: node scripts/fetch-car-brand.mjs
  * Options: --skip-images  (reuse existing images, rebuild JS only)
  */
@@ -17,15 +17,6 @@ function wikiFileUrl(filename) {
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}`;
 }
 
-const SIMPLE_ICON_SLUGS = {
-  'mercedes-benz': 'mercedes',
-  kia: 'kia',
-  luxgen: null,
-  'land-rover': 'landrover',
-  ferrari: 'ferrari',
-  byd: 'byd',
-};
-
 function simpleIconUrl(slug) {
   return `https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/${slug}.svg`;
 }
@@ -41,6 +32,10 @@ function extFromContentType(ct, url) {
   if (ct?.includes('jpeg') || ct?.includes('jpg')) return '.jpg';
   const m = url.match(/\.(svg|png|jpe?g|webp)(\?|$)/i);
   return m ? `.${m[1].toLowerCase().replace('jpeg', 'jpg')}` : '.png';
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function downloadLogo(filename, destBase) {
@@ -65,31 +60,26 @@ async function downloadLogo(filename, destBase) {
   return path.basename(dest);
 }
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+async function downloadFromSimpleIcons(slug, destBase) {
+  const url = simpleIconUrl(slug);
+  const res = await fetch(url, { headers: { 'User-Agent': 'MyTooLife/1.0' } });
+  if (!res.ok) return null;
+  const dest = `${destBase}.svg`;
+  fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
+  return path.basename(dest);
 }
 
 async function downloadBrandLogo(brand, destBase) {
-  const candidates = [brand.logoFile, ...(brand.logoFallbacks || [])].filter(Boolean);
-  for (let i = 0; i < candidates.length; i++) {
-    if (i > 0) await sleep(1500);
-    const saved = await downloadLogo(candidates[i], destBase);
+  if (brand.simpleIconSlug) {
+    const saved = await downloadFromSimpleIcons(brand.simpleIconSlug, destBase);
     if (saved) return saved;
   }
 
-  const slug = SIMPLE_ICON_SLUGS[brand.id];
-  if (slug) {
-    await sleep(500);
-    const url = simpleIconUrl(slug);
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'MyTooLife/1.0' } });
-      if (res.ok) {
-        const dest = `${destBase}.svg`;
-        fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
-        console.log(`  fallback simple-icons: ${slug}`);
-        return path.basename(dest);
-      }
-    } catch { /* ignore */ }
+  const candidates = [brand.logoFile, ...(brand.logoFallbacks || [])].filter(Boolean);
+  for (let i = 0; i < candidates.length; i++) {
+    if (i > 0) await sleep(600);
+    const saved = await downloadLogo(candidates[i], destBase);
+    if (saved) return saved;
   }
 
   const dest = `${destBase}.svg`;
@@ -130,6 +120,7 @@ function buildDataJs(regions) {
       lines.push(`          nameZh: '${escJs(brand.nameZh)}',`);
       lines.push(`          nameEn: '${escJs(brand.nameEn)}',`);
       lines.push(`          tier: '${escJs(brand.tier)}',`);
+      if (brand.group) lines.push(`          group: '${escJs(brand.group)}',`);
       lines.push(`          image: 'life/car-brand-img/${brand.imageFile}',`);
       lines.push(`          desc: '${escJs(brand.desc)}',`);
       lines.push(`        },`);
@@ -162,16 +153,11 @@ async function main() {
           .find((p) => fs.existsSync(p));
         if (existing) {
           imageFile = path.basename(existing);
-          console.log(`  skip ${brand.id} (exists)`);
         } else {
-          console.log(`  fetch ${brand.id} ← ${brand.logoFile}`);
-          await sleep(800);
+          console.log(`  fetch ${brand.id}`);
+          await sleep(150);
           const saved = await downloadBrandLogo(brand, destBase);
-          if (!saved) {
-            imageFile = 'placeholder.svg';
-          } else {
-            imageFile = saved;
-          }
+          imageFile = saved || 'placeholder.svg';
         }
       } else {
         const existing = ['.svg', '.png', '.jpg', '.webp']
@@ -185,7 +171,7 @@ async function main() {
     regions.push({ ...region, brands });
   }
 
-  if (!skipImages && !fs.existsSync(path.join(IMG_DIR, 'placeholder.svg'))) {
+  if (!fs.existsSync(path.join(IMG_DIR, 'placeholder.svg'))) {
     fs.writeFileSync(path.join(IMG_DIR, 'placeholder.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><rect width="120" height="80" fill="#e8e8e8"/><text x="60" y="44" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#888">Logo</text></svg>`);
   }
 

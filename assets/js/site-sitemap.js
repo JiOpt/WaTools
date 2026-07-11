@@ -40,29 +40,32 @@
   }
 
   function isInScriptureDir() {
-    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
+    return /\/scripture\/[^/]+$/i.test(location.pathname.replace(/\\/g, '/'));
   }
 
   function rootPrefix() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
     if (isInScriptureDir()) return '../';
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    if (segs.length <= 1) return '';
+    if (!segs.length) return '';
+    const last = segs[segs.length - 1].replace(/\.html$/i, '');
+    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 
   function currentHref() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentPageKey();
     const path = location.pathname.replace(/\\/g, '/');
-    const scriptureMatch = path.match(/\/scripture\/([^/?#]+\.html)$/);
-    if (scriptureMatch) return `scripture/${scriptureMatch[1]}`;
+    const scriptureMatch = path.match(/\/scripture\/([^/?#]+)/);
+    if (scriptureMatch) return `scripture/${scriptureMatch[1].replace(/\.html$/i, '')}`;
     const segs = path.split('/').filter(Boolean);
     if (segs.length >= 2) {
-      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+      const last = segs[segs.length - 1].split('?')[0].split('#')[0].replace(/\.html$/i, '');
+      return `${segs[segs.length - 2]}/${last}`;
     }
-    const name = segs[0] || '';
-    if (!name || name === '') return 'index.html';
-    return name.split('?')[0].split('#')[0];
+    const name = (segs[0] || '').split('?')[0].split('#')[0].replace(/\.html$/i, '');
+    if (!name || name === 'index') return 'index';
+    return name;
   }
 
   function toolHref(slug) {
@@ -70,15 +73,16 @@
     for (const cat of window.WA_TOOLS_CATALOG || []) {
       for (const tool of cat.tools || []) {
         if (tool.slug === slug) {
-          return `/${cat.id}/${slug}.html`;
+          return `/${cat.id}/${slug}`;
         }
       }
     }
-    return `/${slug}.html`;
+    return `/${slug}`;
   }
 
   function scriptureBookHref(slug) {
-    return `/scripture/${slug}.html`;
+    if (window.WA_TOOL_URLS?.scriptureHref) return window.WA_TOOL_URLS.scriptureHref(slug);
+    return `/scripture/${slug}`;
   }
 
   function scriptReady(base) {
@@ -455,17 +459,15 @@
   }
 
   function canonicalHref(href, scriptureSlugs) {
-    let h = String(href || '').replace(/^\//, '').replace(/^\.\.\//, '');
-    if (h.includes('/') && /\.html$/i.test(h)) return h;
-    if (!h.includes('/') && h.endsWith('.html') && h !== 'index.html') {
-      const slug = h.slice(0, -5);
-      if (scriptureSlugs && scriptureSlugs.has(slug)) {
-        return `scripture/${h}`;
-      }
-      if (window.WA_TOOL_URLS) {
-        const catId = window.WA_TOOL_URLS.getCategoryId(slug);
-        if (catId) return `${catId}/${h}`;
-      }
+    let h = String(href || '').replace(/^\//, '').replace(/^\.\.\//, '').replace(/\.html$/i, '');
+    if (h.includes('/')) return h;
+    if (h === 'index') return 'index';
+    if (scriptureSlugs && scriptureSlugs.has(h)) {
+      return `scripture/${h}`;
+    }
+    if (window.WA_TOOL_URLS) {
+      const catId = window.WA_TOOL_URLS.getCategoryId(h);
+      if (catId) return `${catId}/${h}`;
     }
     return h;
   }
@@ -474,7 +476,7 @@
     const cur = currentHref();
     const target = canonicalHref(href, scriptureSlugs);
     if (target === cur) return true;
-    if (target === 'index.html' && (cur === '' || cur === 'index.html')) return true;
+    if (target === 'index' && (cur === '' || cur === 'index')) return true;
     return false;
   }
 
@@ -491,24 +493,24 @@
       canonical = `scripture/${canonical.slice('scripture-'.length)}`;
     }
 
-    if (!canonical.includes('/') && canonical.endsWith('.html') && canonical !== 'index.html') {
+    if (!canonical.includes('/') && canonical !== 'index') {
       const slug = canonical.replace(/\.html$/i, '');
       if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.toolHref(slug);
-      return `/${canonical}`;
+      return `/${slug}`;
     }
 
     return canonical.startsWith('/') ? canonical : `/${canonical}`;
   }
 
   function hrefFromCanon(canon) {
-    if (!canon) return '/index.html';
-    if (canon === 'index.html') return '/index.html';
+    if (!canon) return '/';
+    if (canon === 'index') return '/';
     if (canon.startsWith('scripture/')) return `/${canon}`;
     const slug = canon.includes('/')
       ? canon.split('/').pop().replace(/\.html$/i, '')
       : canon.replace(/\.html$/i, '');
     if (window.WA_TOOL_URLS && slug) return window.WA_TOOL_URLS.toolHref(slug);
-    return `/${canon}`;
+    return `/${canon.replace(/\.html$/i, '')}`;
   }
 
   function refreshSitemapLinkHrefs(nav) {
@@ -521,7 +523,7 @@
       }
       if (link.classList.contains('site-sitemap-home')) {
         const label = link.textContent.trim();
-        if (label === '工具首頁') link.setAttribute('href', '/index.html');
+        if (label === '工具首頁') link.setAttribute('href', '/');
         else if (label === '藏經閣') link.setAttribute('href', toolHref('scriptures'));
       }
     });
@@ -800,8 +802,8 @@
         : null,
       el('div', { className: 'site-sitemap-head' }, [
         el('a', {
-          href: '/index.html',
-          className: isActiveHref('/index.html', scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
+          href: '/',
+          className: isActiveHref('/', scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
         }, ['工具首頁']),
         el('a', {
           href: toolHref('scriptures'),

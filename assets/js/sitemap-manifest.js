@@ -13,9 +13,11 @@
   function rootPrefix() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
     const path = location.pathname.replace(/\\/g, '/');
-    if (/\/scripture\/[^/]+\.html$/i.test(path)) return '../';
+    if (/\/scripture\/[^/]+$/i.test(path)) return '../';
     const segs = path.split('/').filter(Boolean);
-    if (segs.length <= 1) return '';
+    if (!segs.length) return '';
+    const last = segs[segs.length - 1].replace(/\.html$/i, '');
+    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 
@@ -101,7 +103,10 @@
   }
 
   function loadEmbeddedScript() {
-    if (window.WA_PUBLISHED_SLUGS) return Promise.resolve(true);
+    if (window.WA_PUBLISHED_SLUGS) {
+      applyEmbedded();
+      return Promise.resolve(true);
+    }
     return new Promise((resolve) => {
       const base = 'assets/js/sitemap-published.js';
       if (document.querySelector(`script[src*="${base.split('?')[0]}"]`)) {
@@ -158,9 +163,8 @@
       }
 
       await loadEmbeddedScript();
-      if (!published) {
-        published = new Set();
-      }
+      if (!published) applyEmbedded();
+      if (!published) published = new Set();
       return published;
     })();
 
@@ -181,7 +185,8 @@
   function filterCatalog(catalog) {
     const list = Array.isArray(catalog) ? catalog : [];
     if (!shouldFilterNav()) return list;
-    if (!published && !applyEmbedded()) return [];
+    if (!published) applyEmbedded();
+    if (!published) return [];
     return list
       .map((category) => ({
         ...category,

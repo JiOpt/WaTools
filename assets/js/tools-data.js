@@ -5,7 +5,7 @@ window.WA_TOOLS_CATALOG = [
     tagline: '日常救急，不用下載 App 也能假裝有準備。',
     tools: [
       { slug: 'scriptures', title: '藏經閣', icon: 'bi-yin-yang', desc: '諸子百家、國學啟蒙、佛經，線上誦讀。', ready: true },
-      { slug: 'settings', title: '個人化設定', icon: 'bi-sliders', desc: '深色模式、字體大小、行距、護眼色溫、縮放與無障礙偏好。', ready: true },
+      { slug: 'settings', title: '設定', icon: 'bi-sliders', desc: '深色模式、字體大小、行距、護眼色溫、縮放與無障礙偏好。', ready: true },
       { slug: 'calculatortool', title: '線上計算工具', icon: 'bi-calculator', desc: '算年齡、換溫度，比口算體面一點。' },
       { slug: 'id-generator', title: '身份證 & 信用卡', icon: 'bi-credit-card', desc: '測試用假資料，請勿拿去買房。' },
       { slug: 'phone', title: '電話 & 手機號碼', icon: 'bi-telephone', desc: '隨機號碼產生器，適合填表單時假裝有在認真填。' },
@@ -175,7 +175,7 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'voltage', title: '電壓 & 插頭', icon: 'bi-plug', desc: '出國帶錯插頭，充電變修行。' },
       { slug: 'kinship', title: '親戚計算機', icon: 'bi-people', desc: '三姑六婆怎麼叫？機器比人親。' },
       { slug: 'parenting', title: '育兒工具', icon: 'bi-heart-pulse', desc: '婦幼資訊、親屬表，新手爸媽救星。' },
-      { slug: 'car-brand', title: '汽車品牌', icon: 'bi-car-front', desc: '各國車標圖鑑，品牌定位、招牌車款與選車重點。' },
+      { slug: 'car-brand', title: '汽車品牌', icon: 'bi-car-front', desc: '全球百餘車標圖鑑，依汽車集團分類與選車重點。' },
       { slug: 'world-cup', title: '世界盃足球賽', icon: 'bi-trophy', desc: 'FIFA 專題，四年一次的集體狂歡。' },
       { slug: 'datetime-calc', title: '日期時間計算', icon: 'bi-calendar-plus', desc: '兩日期相差幾天、加減 N 天，排程心算器。' },
       { slug: 'english-date', title: '英文日期格式', icon: 'bi-calendar3', desc: '2026-07-11 變 July 11, 2026，英文信開頭用。' },

@@ -1,5 +1,5 @@
 /**
- * Hierarchical tool URLs: /{categoryId}/{slug}.html
+ * Hierarchical tool URLs: /{categoryId}/{slug} (no .html; Firebase cleanUrls)
  * Requires WA_TOOLS_CATALOG (build map on first use).
  */
 (function () {
@@ -7,12 +7,12 @@
 
   if (window.WA_TOOL_URLS?.__installed) return;
 
-  const ROOT_PAGES = new Set([
-    'index.html',
-    'index_plan.html',
-    'copyright.html',
-    'contact.html',
-    'starter-page.html',
+  const ROOT_SLUGS = new Set([
+    'index',
+    'index_plan',
+    'copyright',
+    'contact',
+    'starter-page',
   ]);
 
   let slugToCategory = null;
@@ -38,47 +38,58 @@
     return path.split('/').filter(Boolean);
   }
 
+  function stripHtmlExt(segment) {
+    return String(segment || '').split('?')[0].split('#')[0].replace(/\.html$/i, '');
+  }
+
+  function isRootSlug(slug) {
+    const s = stripHtmlExt(slug);
+    return !s || s === 'index' || ROOT_SLUGS.has(s);
+  }
+
   function isInScriptureDir() {
-    return /\/scripture\/[^/]+\.html$/i.test(normalizePath(location.pathname));
+    const segs = pathSegments();
+    return segs.length >= 2 && segs[0] === 'scripture' && !isRootSlug(segs[1]);
   }
 
   function isInCategoryDir() {
     const segs = pathSegments();
     if (segs.length < 2) return false;
-    const file = segs[segs.length - 1];
-    if (!/\.html$/i.test(file)) return false;
-    if (isInScriptureDir()) return false;
-    if (ROOT_PAGES.has(file)) return false;
+    if (segs[0] === 'scripture') return false;
     const catId = segs[segs.length - 2];
+    const page = stripHtmlExt(segs[segs.length - 1]);
+    if (isRootSlug(page)) return false;
     buildMap();
     return [...slugToCategory.values()].includes(catId);
   }
 
   /** Prefix to reach site root from current page (e.g. '../' or '../../'). */
   function siteRootPrefix() {
-    if (isInScriptureDir()) return '../';
     const segs = pathSegments();
-    if (segs.length <= 1) return '';
+    if (!segs.length) return '';
+    if (segs.length === 1 && isRootSlug(segs[0])) return '';
     return '../'.repeat(segs.length - 1);
   }
 
   function toolPath(slug) {
     buildMap();
     const catId = slugToCategory.get(slug);
-    return catId ? `${catId}/${slug}.html` : `${slug}.html`;
+    return catId ? `${catId}/${slug}` : slug;
   }
 
-  /** Site-root absolute page URL (e.g. /utility/whois.html). */
+  /** Site-root absolute page URL (e.g. /utility/whois). */
   function absolutePageHref(relativePath) {
-    const clean = String(relativePath || '').replace(/^\/+/, '');
+    let clean = String(relativePath || '').replace(/^\/+/, '').replace(/\.html$/i, '');
+    if (!clean || clean === 'index') return '/';
     return `/${clean}`;
   }
 
   function currentPageKey() {
     const segs = pathSegments();
-    if (!segs.length) return 'index.html';
-    if (segs.length === 1) return segs[0].split('?')[0].split('#')[0];
-    return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+    if (!segs.length) return 'index';
+    const last = stripHtmlExt(segs[segs.length - 1]);
+    if (segs.length === 1) return last;
+    return `${segs[segs.length - 2]}/${last}`;
   }
 
   function currentCategoryId() {
@@ -91,26 +102,25 @@
     const app = document.getElementById('tool-app');
     if (app?.dataset?.tool) return app.dataset.tool;
     const key = currentPageKey();
-    if (key.includes('/')) return decodeURIComponent(key.split('/').pop().replace(/\.html$/i, ''));
-    const m = key.match(/^(.+)\.html$/i);
-    return m ? decodeURIComponent(m[1]) : '';
+    if (key.includes('/')) return decodeURIComponent(key.split('/').pop());
+    return isRootSlug(key) ? '' : decodeURIComponent(key);
   }
 
   function toolHref(slug) {
-    if (!slug) return absolutePageHref('index.html');
-    if (slug === 'scriptures') {
-      return absolutePageHref(toolPath('scriptures'));
-    }
-    buildMap();
+    if (!slug) return indexHref();
     return absolutePageHref(toolPath(slug));
   }
 
   function indexHref() {
-    return absolutePageHref('index.html');
+    return '/';
   }
 
   function categoryIndexHref(categoryId) {
-    return `${absolutePageHref('index.html')}#cat-${categoryId}`;
+    return `/#cat-${categoryId}`;
+  }
+
+  function scriptureHref(slug) {
+    return absolutePageHref(`scripture/${slug}`);
   }
 
   function getCategoryId(slug) {
@@ -125,6 +135,7 @@
     toolHref,
     indexHref,
     categoryIndexHref,
+    scriptureHref,
     currentPageKey,
     currentCategoryId,
     currentToolSlug,

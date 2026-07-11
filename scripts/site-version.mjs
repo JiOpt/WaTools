@@ -8,7 +8,7 @@
  *
  * 請勿由工具自動跳號；每次發佈前由使用者指定版本。
  */
-export const WA_SITE_VERSION = '0.6.38';
+export const WA_SITE_VERSION = '0.6.39';
 
 export function assetQuery(version = WA_SITE_VERSION) {
   return `?v=${version}`;

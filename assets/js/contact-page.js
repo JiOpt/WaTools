@@ -32,7 +32,7 @@
     slot.replaceChildren(iframe);
 
     if (external) {
-      const openUrl = externalFormUrl(embedUrl);
+      const openUrl = cfg.googleFormPublicUrl || externalFormUrl(embedUrl);
       if (openUrl) {
         external.href = openUrl;
         external.hidden = false;

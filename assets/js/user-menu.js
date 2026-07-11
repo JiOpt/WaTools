@@ -70,7 +70,7 @@
 
   function toggleLabel(cta) {
     const text = (cta.textContent || '').trim();
-    if (/設定/.test(text)) return '個人化設定';
+    if (/設定/.test(text)) return '設定';
     if (/首頁/.test(text)) return '我的選單';
     return text || '我的選單';
   }

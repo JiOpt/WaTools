@@ -114,7 +114,7 @@
 
   function indexHref() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.indexHref();
-    return '/index.html';
+    return '/';
   }
 
   function showFailure(app, message) {

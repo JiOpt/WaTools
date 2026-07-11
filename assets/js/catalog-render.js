@@ -3,7 +3,7 @@
 
   function toolCardHref(slug) {
     if (window.WA_TOOL_URLS?.toolHref) return window.WA_TOOL_URLS.toolHref(slug);
-    return `/${slug}.html`;
+    return `/${slug}`;
   }
 
   async function renderCatalog() {
@@ -51,6 +51,10 @@
         </div>
       </section>
     `).join('');
+
+    if (typeof AOS !== 'undefined') {
+      try { AOS.refresh(); } catch (e) { /* ignore */ }
+    }
   }
 
   async function bootToolsCatalog() {

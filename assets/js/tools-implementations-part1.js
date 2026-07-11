@@ -1077,7 +1077,7 @@
 
     mount(app, [
       hint('輸入網址或域名，產生搜尋引擎「收錄／反鏈」查詢連結，並檢測 robots.txt、sitemap.xml。'),
-      UI.input('網站網址或域名', 'seo-domain', 'text', 'watoolio.web.app'),
+      UI.input('網站網址或域名', 'seo-domain', 'text', 'mytoolife.com'),
       UI.btnGroup([
         UI.btn('產生查詢連結', 'btn btn-primary tool-btn', () => renderLinks(getVal('seo-domain'))),
         UI.btn('檢測基礎檔案', 'btn btn-outline-primary tool-btn', async () => {
@@ -1085,8 +1085,8 @@
           out.textContent = await checkBasics(getVal('seo-domain'));
         }),
         UI.btn('MyTooLife 預設', 'btn btn-outline-secondary tool-btn', () => {
-          setVal('seo-domain', 'watoolio.web.app');
-          renderLinks('watoolio.web.app');
+          setVal('seo-domain', 'mytoolife.com');
+          renderLinks('mytoolife.com');
         }),
       ]),
       UI.panel('搜尋引擎查詢', linksOut),
@@ -1104,7 +1104,7 @@
       ),
     ]);
 
-    renderLinks('watoolio.web.app');
+    renderLinks('mytoolife.com');
   };
 
   R.sitemap = function (app) {
@@ -1216,10 +1216,10 @@
 
     function getOpts() {
       return {
-        lower: document.getElementById('pw-lo').checked,
-        upper: document.getElementById('pw-up').checked,
-        num: document.getElementById('pw-nu').checked,
-        sym: document.getElementById('pw-sy').checked,
+            lower: document.getElementById('pw-lo').checked,
+            upper: document.getElementById('pw-up').checked,
+            num: document.getElementById('pw-nu').checked,
+            sym: document.getElementById('pw-sy').checked,
       };
     }
 
@@ -1253,8 +1253,8 @@
       syncLen();
       const len = getLen();
       const p = genPassword(len, getOpts());
-      setVal('pw-out', p);
-      updateStrength(p);
+          setVal('pw-out', p);
+          updateStrength(p);
     }
 
     mount(app, [
@@ -1285,8 +1285,8 @@
         ]),
         UI.btnGroup([
           UI.btn('產生新密碼', 'btn btn-primary tool-btn', doGenerate),
-          UI.copyBtn(() => getVal('pw-out')),
-        ]),
+        UI.copyBtn(() => getVal('pw-out')),
+      ]),
       ]),
       UI.panel('密碼強度檢測', [
         UI.el('div', { className: 'tool-field mb-0' }, [
@@ -1294,10 +1294,10 @@
           UI.el('div', { className: 'pwd-output-wrap' }, [pwInput, toggleVisBtn]),
         ]),
         UI.el('div', { className: 'pwd-strength-block' }, [
-          strengthBar,
+      strengthBar,
           UI.el('div', { className: 'pwd-strength-meta' }, [
             UI.el('span', { className: 'text-muted small' }, '強度：'),
-            strengthLabel,
+      strengthLabel,
           ]),
           strengthDesc,
           tipsList,
@@ -1493,17 +1493,17 @@
         ]),
         UI.el('div', { className: `emicon-canvas-wrap${currentTheme === 'transparent' ? ' emicon-canvas-wrap--checker' : ''}`, id: 'em-canvas-wrap' }, canvas),
         previewMeta,
-        UI.btnGroup([
+      UI.btnGroup([
           UI.btn('重新整理預覽', 'btn btn-primary tool-btn', renderAll),
           UI.btn('下載 PNG', 'btn btn-success tool-btn', () => {
             const email = getEmail();
             if (!email) { UI.alert('請先輸入 Email', 'warning'); return; }
             canvas.toBlob((blob) => {
               if (!blob) { UI.alert('無法產生圖片', 'danger'); return; }
-              const a = document.createElement('a');
+            const a = document.createElement('a');
               a.href = URL.createObjectURL(blob);
               a.download = `email-${email.replace(/[@.]/g, '-')}.png`;
-              a.click();
+            a.click();
               URL.revokeObjectURL(a.href);
             }, 'image/png');
           }),
@@ -1581,7 +1581,7 @@
     }
 
     function doEncrypt() {
-      const pass = getVal('te-pass');
+          const pass = getVal('te-pass');
       const plain = getVal('te-plain');
       if (!pass) { UI.alert('請輸入加密密碼', 'warning'); return; }
       if (!plain) { UI.alert('請輸入要加密的明文', 'warning'); return; }
@@ -1590,15 +1590,15 @@
     }
 
     function doDecrypt() {
-      const pass = getVal('te-pass');
+          const pass = getVal('te-pass');
       const cipher = getVal('te-cipher').trim();
       if (!pass) { UI.alert('請輸入加密密碼', 'warning'); return; }
       if (!cipher) { UI.alert('請貼上要解密的密文', 'warning'); return; }
-      try {
+          try {
         const plain = xorDecrypt(cipher, pass);
         setVal('te-plain', plain);
         setStatus(`解密成功，還原 ${plain.length} 個字元。`, 'success');
-      } catch {
+          } catch {
         setStatus('解密失敗：密碼錯誤或密文格式不正確。', 'danger');
         UI.alert('解密失敗，請確認密碼與 Base64 密文是否正確', 'danger');
       }

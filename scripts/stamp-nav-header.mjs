@@ -26,7 +26,7 @@ const htmlFiles = collectHtmlFiles(root).filter((file) => {
 });
 
 const HOME_LINK_RE = /\s*<li><a href="(?:\.\.\/)?index\.html"(?: class="active")?>工具首頁<\/a><\/li>\n?/g;
-const SETTINGS_NAV_RE = /\s*<li><a href="(?:\.\.\/)?settings\.html"(?: class="active")?>個人化設定<\/a><\/li>\n?/g;
+const SETTINGS_NAV_RE = /\s*<li><a href="(?:\.\.\/)?settings\.html"(?: class="active")?>設定<\/a><\/li>\n?/g;
 
 let updated = 0;
 
@@ -47,12 +47,12 @@ for (const file of htmlFiles) {
   if (isSettings) {
     next = next.replace(
       /<a class="cta-btn(?: d-none d-sm-block)?" href="[^"]*">[^<]*<\/a>/,
-      `<a class="cta-btn active" href="${prefix}settings.html" aria-current="page">個人化設定</a>`
+      `<a class="cta-btn active" href="${prefix}settings.html" aria-current="page">設定</a>`
     );
   } else {
     next = next.replace(
       /<a class="cta-btn(?: d-none d-sm-block)?" href="[^"]*">[^<]*<\/a>/,
-      `<a class="cta-btn" href="${prefix}settings.html">個人化設定</a>`
+      `<a class="cta-btn" href="${prefix}settings.html">設定</a>`
     );
   }
 

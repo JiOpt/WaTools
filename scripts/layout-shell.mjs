@@ -101,11 +101,11 @@ ${renderNavItems(navItems)}
   return `  <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="${prefix}index.html" class="logo d-flex align-items-center me-auto" aria-label="MyTooLife 工具首頁">
+        <a href="/" class="logo d-flex align-items-center me-auto" aria-label="MyTooLife 工具首頁">
           ${logoInner}
         </a>
         ${navBlock}
-        <a class="${ctaCls}" href="${prefix}utility/settings.html"${ctaAria}>個人化設定</a>
+        <a class="${ctaCls}" href="/utility/settings"${ctaAria}>設定</a>
       </div>
     </div>
   </header>`;

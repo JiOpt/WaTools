@@ -1124,11 +1124,11 @@ ${renderSeoMeta({
 ${renderArticleSchema({ headline: book.title, description, url: pagePath })}
 ${renderHeadCore({ depth: SCRIPTURE_DEPTH, includePrefsBoot: false, includeFontSizeBoot: false })}
 </head>
-<body class="tool-page scripture-page">
+<body class="tool-page scripture-page${book.slug === 'qianjiashi' ? ' qianjiashi-page' : ''}">
 ${renderHeader({
     depth: SCRIPTURE_DEPTH,
     navItems: [
-      { href: `${pathPrefix(SCRIPTURE_DEPTH)}index.html`, label: '工具首頁' },
+      { href: '/', label: '工具首頁' },
       { href: rootPageHref('scriptures.html'), label: '藏經閣', active: true, ariaCurrent: true },
     ],
   })}
@@ -1152,7 +1152,11 @@ ${renderFooterShell()}
 ${renderPageChrome()}
 ${renderBodyScripts({
     depth: SCRIPTURE_DEPTH,
-    extraScripts: ['assets/js/tools-data.js', 'assets/js/scriptures-catalog.js'],
+    extraScripts: [
+      'assets/js/tools-data.js',
+      'assets/js/scriptures-catalog.js',
+      ...(book.slug === 'qianjiashi' ? ['assets/js/qianjiashi-browse.js'] : []),
+    ],
     deferMain: true,
   })}
 </body>

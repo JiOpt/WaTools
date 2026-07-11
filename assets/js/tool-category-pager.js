@@ -22,7 +22,7 @@
       if (fromPath) return window.WA_TOOL_URLS.categoryIndexHref(fromPath);
       return window.WA_TOOL_URLS.indexHref();
     }
-    return categoryId ? `index.html#cat-${categoryId}` : 'index.html';
+    return categoryId ? `/#cat-${categoryId}` : '/';
   }
 
   function assetUrl(path) {

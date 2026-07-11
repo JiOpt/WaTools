@@ -31,7 +31,13 @@
     const path = String(pathname || '').replace(/\\/g, '/');
     if (!path || path === '/') return true;
     if (/\/assets\//i.test(path)) return false;
-    return /\.html$/i.test(path);
+    if (/\.html$/i.test(path)) return true;
+    const segs = path.split('/').filter(Boolean);
+    if (!segs.length) return true;
+    if (segs.length === 1) return true;
+    if (segs[0] === 'scripture' && segs.length === 2) return true;
+    if (segs.length === 2) return true;
+    return false;
   }
 
   function shouldSoftNavigate(anchor) {
@@ -88,40 +94,46 @@
     const path = url.pathname.replace(/\\/g, '/');
     const segs = path.split('/').filter(Boolean);
     const file = segs[segs.length - 1] || '';
-    if (!file || file === 'index.html' || path === '/') return url;
-    if (!file.endsWith('.html')) return url;
-    if (segs.length >= 2) return url;
-
-    const slug = file.replace(/\.html$/i, '');
-    if (window.WA_TOOL_URLS?.getCategoryId) {
-      const catId = window.WA_TOOL_URLS.getCategoryId(slug);
-      if (catId) {
-        url.pathname = `/${catId}/${file}`;
+    if (!file || file === 'index' || file === 'index.html' || path === '/') {
+      url.pathname = '/';
+      return url;
+    }
+    if (file.endsWith('.html')) {
+      if (segs.length >= 2) {
+        segs[segs.length - 1] = file.replace(/\.html$/i, '');
+        url.pathname = `/${segs.join('/')}`;
         return url;
       }
-    }
-
-    if (window.WA_TOOLS_CATALOG) {
-      for (const cat of window.WA_TOOLS_CATALOG) {
-        for (const tool of cat.tools || []) {
-          if (tool.slug === slug) {
-            url.pathname = `/${cat.id}/${file}`;
-            return url;
+      const slug = file.replace(/\.html$/i, '');
+      if (window.WA_TOOL_URLS?.getCategoryId) {
+        const catId = window.WA_TOOL_URLS.getCategoryId(slug);
+        if (catId) {
+          url.pathname = `/${catId}/${slug}`;
+          return url;
+        }
+      }
+      if (window.WA_TOOLS_CATALOG) {
+        for (const cat of window.WA_TOOLS_CATALOG) {
+          for (const tool of cat.tools || []) {
+            if (tool.slug === slug) {
+              url.pathname = `/${cat.id}/${slug}`;
+              return url;
+            }
           }
         }
       }
-    }
-
-    if (slug && !slug.includes('/')) {
-      const scriptureMatch = window.WA_SCRIPTURES_CATALOG?.some((cat) =>
-        (cat.books || []).some((book) => book.slug === slug)
-      );
-      if (scriptureMatch) {
-        url.pathname = `/scripture/${file}`;
-        return url;
+      if (slug && !slug.includes('/')) {
+        const scriptureMatch = window.WA_SCRIPTURES_CATALOG?.some((cat) =>
+          (cat.books || []).some((book) => book.slug === slug)
+        );
+        if (scriptureMatch) {
+          url.pathname = `/scripture/${slug}`;
+          return url;
+        }
       }
+      url.pathname = `/${slug}`;
+      return url;
     }
-
     return url;
   }
 

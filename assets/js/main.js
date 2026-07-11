@@ -9,7 +9,7 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.6.38';
+  const WA_SITE_VERSION = '0.6.39';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
@@ -23,10 +23,15 @@
   }
 
   function footerRootPrefix() {
+    if (window.WA_TOOL_URLS?.siteRootPrefix) {
+      return window.WA_TOOL_URLS.siteRootPrefix();
+    }
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    const page = segs[segs.length - 1] || '';
-    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
-    return depth ? '../'.repeat(depth) : '';
+    if (!segs.length) return '';
+    const last = segs[segs.length - 1].replace(/\.html$/i, '');
+    const rootSlugs = new Set(['index', 'copyright', 'contact', 'index_plan', 'starter-page']);
+    if (segs.length === 1 && rootSlugs.has(last)) return '';
+    return '../'.repeat(segs.length - 1);
   }
 
   function renderSiteFooter() {
@@ -40,13 +45,13 @@
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
 
     if (cfg.showCopyrightLink !== false) {
-      const href = cfg.copyrightHref || `${footerRootPrefix()}copyright.html`;
+      const href = cfg.copyrightHref || '/copyright';
       const label = cfg.copyrightLabel || '版權聲明';
       parts.push(` · <a href="${href}">${label}</a>`);
     }
 
     if (cfg.showContactLink !== false) {
-      const href = cfg.contactHref || `${footerRootPrefix()}contact.html`;
+      const href = cfg.contactHref || '/contact';
       const label = cfg.contactLabel || '聯絡我們';
       parts.push(` · <a href="${href}">${label}</a>`);
     }
@@ -74,10 +79,15 @@
       const base = script.src.replace(/assets\/js\/main\.js(\?.*)?$/, '');
       if (base && base !== script.src) return base;
     }
+    if (window.WA_TOOL_URLS?.siteRootPrefix) {
+      return window.WA_TOOL_URLS.siteRootPrefix();
+    }
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    const page = segs[segs.length - 1] || '';
-    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
-    return depth ? '../'.repeat(depth) : '';
+    if (!segs.length) return '';
+    const last = segs[segs.length - 1].replace(/\.html$/i, '');
+    const rootSlugs = new Set(['index', 'copyright', 'contact', 'index_plan', 'starter-page']);
+    if (segs.length === 1 && rootSlugs.has(last)) return '';
+    return '../'.repeat(segs.length - 1);
   }
 
   const assetBase = getAssetBase();
@@ -159,7 +169,7 @@
     }
   }
 
-  const isScripturePage = /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
+  const isScripturePage = /\/scripture\/[^/]+$/i.test(location.pathname.replace(/\\/g, '/'));
   if (isScripturePage) {
     if (!document.querySelector('script[src*="sitemap-manifest.js"]')) {
       injectScript('assets/js/sitemap-manifest.js', { defer: true });

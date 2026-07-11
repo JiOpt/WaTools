@@ -6,48 +6,57 @@
   const NAV_MAX = 7;
   const TOP_FREQUENT_MAX = 8;
   const NAV_SKIP_HREFS = new Set([
+    'index',
     'index.html',
+    'index_plan',
     'index_plan.html',
+    'settings',
     'settings.html',
+    'utility/settings',
     'utility/settings.html',
+    'copyright',
     'copyright.html',
   ]);
-  const NAV_SKIP_TITLES = new Set(['工具首頁', '個人化設定', '個人設定', '正式首頁', '版權聲明']);
+  const NAV_SKIP_TITLES = new Set(['工具首頁', '設定', '個人設定', '正式首頁', '版權聲明']);
   let memoryStore = null;
 
   function isInScriptureDir() {
-    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
+    return /\/scripture\/[^/]+$/i.test(location.pathname.replace(/\\/g, '/'));
   }
 
   function isInCategoryDir() {
     const path = location.pathname.replace(/\\/g, '/');
     const segs = path.split('/').filter(Boolean);
     if (segs.length < 2) return false;
-    return /\.html$/i.test(segs[segs.length - 1]) && !/\/scripture\//i.test(path);
+    if (segs[0] === 'scripture') return false;
+    return !['index', 'copyright', 'contact'].includes(segs[segs.length - 1].replace(/\.html$/i, ''));
   }
 
   function siteRootPrefix() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
     const path = location.pathname.replace(/\\/g, '/');
-    if (/\/scripture\/[^/]+\.html$/i.test(path)) return '../';
+    if (/\/scripture\/[^/]+$/i.test(path)) return '../';
     const segs = path.split('/').filter(Boolean);
-    if (segs.length <= 1) return '';
+    if (!segs.length) return '';
+    const last = segs[segs.length - 1].replace(/\.html$/i, '');
+    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 
   function pageHref() {
     if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentPageKey();
     const path = location.pathname.replace(/\\/g, '/');
-    const scriptureMatch = path.match(/\/scripture\/([^/?#]+\.html)$/);
-    if (scriptureMatch) return `scripture/${scriptureMatch[1]}`;
+    const scriptureMatch = path.match(/\/scripture\/([^/?#]+)/);
+    if (scriptureMatch) return `scripture/${scriptureMatch[1].replace(/\.html$/i, '')}`;
 
     const segs = path.split('/').filter(Boolean);
     if (segs.length >= 2) {
-      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+      const last = segs[segs.length - 1].split('?')[0].split('#')[0].replace(/\.html$/i, '');
+      return `${segs[segs.length - 2]}/${last}`;
     }
-    const name = segs[0] || '';
-    if (!name || name === '') return 'index.html';
-    return name.split('?')[0].split('#')[0];
+    const name = (segs[0] || '').split('?')[0].split('#')[0].replace(/\.html$/i, '');
+    if (!name || name === 'index') return 'index';
+    return name;
   }
 
   function resolveHref(href) {

@@ -3687,6 +3687,136 @@ body.scripture-page [data-aos] {
   scroll-margin-top: 96px;
 }
 
+/* 千家詩 — 搜尋、分類收折 */
+.qianjiashi-toolbar {
+  position: sticky;
+  top: var(--header-offset, 72px);
+  z-index: 980;
+  margin: 20px 0 24px;
+  padding: 14px 16px 16px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--background-color) 82%, var(--surface-color));
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 84%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.qianjiashi-search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.qianjiashi-search {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.qianjiashi-search-meta {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.qianjiashi-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.qianjiashi-category-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  background: color-mix(in srgb, var(--default-color), transparent 96%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.qianjiashi-category-tag:hover,
+.qianjiashi-category-tag.is-active {
+  color: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  text-decoration: none;
+}
+
+.qianjiashi-category {
+  margin: 0 0 28px;
+  scroll-margin-top: calc(var(--header-offset, 72px) + 120px);
+}
+
+.qianjiashi-category.is-empty {
+  display: none;
+}
+
+.qianjiashi-category-head {
+  margin: 0 0 12px;
+}
+
+.qianjiashi-category-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+  color: var(--heading-color);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.qianjiashi-category-toggle:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.qianjiashi-category-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 0.04em;
+}
+
+.qianjiashi-category-count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.qianjiashi-category-chevron {
+  font-size: 14px;
+  color: var(--accent-color);
+  transition: transform 0.2s ease;
+}
+
+.qianjiashi-category-toggle[aria-expanded="false"] .qianjiashi-category-chevron {
+  transform: rotate(-90deg);
+}
+
+.qianjiashi-category-body.is-collapsed {
+  display: none;
+}
+
+.qianjiashi-page .scripture-poem.is-filtered-out {
+  display: none;
+}
+
 .scripture-footer-meta {
   max-width: 900px;
   margin: 16px auto 0;
@@ -4679,24 +4809,105 @@ body.scripture-page [data-aos] {
 }
 
 .car-brand-app {
-  --wf-toolbar-offset-compact: 118px;
+  --wf-toolbar-offset-compact: 64px;
+}
+
+.car-brand-toolbar {
+  padding-top: 12px;
+  padding-bottom: 14px;
+}
+
+.car-brand-toolbar.is-compact {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .car-brand-app .world-flags-region-toggle {
-  display: none !important;
+  display: inline-flex;
 }
 
-.car-brand-app .world-flags-toolbar.is-compact .world-flags-guide {
+.car-brand-toolbar:not(.is-nav-open) .world-flags-nav-wrap {
   display: none;
 }
 
-.car-brand-app .world-flags-toolbar.is-compact .world-flags-nav-wrap {
-  display: block !important;
+.car-brand-toolbar.is-nav-open .world-flags-nav-wrap {
+  display: block;
   margin-top: 10px;
 }
 
-.car-brand-app .world-flags-toolbar.is-compact .world-flags-search-meta:not([hidden]) {
-  margin-top: 8px;
+.car-brand-toolbar.is-compact.is-nav-open .world-flags-nav-wrap {
+  margin-top: 10px;
+}
+
+.car-brand-toolbar.is-nav-open .world-flags-region-toggle {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+}
+
+.car-brand-app:has(.car-brand-toolbar.is-compact) .car-brand-region {
+  scroll-margin-top: calc(var(--wf-sticky-top) + var(--wf-toolbar-offset-compact));
+}
+
+.car-brand-toolbar .world-flags-nav-link.is-active {
+  color: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 45%);
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  font-weight: 700;
+}
+
+.car-brand-region {
+  scroll-margin-top: calc(var(--header-offset, 72px) + 130px);
+}
+
+.car-brand-region-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+  color: var(--heading-color);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.car-brand-region-toggle:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.car-brand-region-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--accent-color);
+}
+
+.car-brand-region-toggle .world-flags-region-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.car-brand-region-chevron {
+  font-size: 14px;
+  color: var(--accent-color);
+  transition: transform 0.2s ease;
+}
+
+.car-brand-region-toggle[aria-expanded="false"] .car-brand-region-chevron {
+  transform: rotate(-90deg);
+}
+
+.car-brand-region-body.is-collapsed {
+  display: none;
 }
 
 .car-brand-app .car-brand-img {
@@ -4713,6 +4924,10 @@ body.scripture-page [data-aos] {
   background: #fff;
   border-radius: 6px;
   padding: 6px;
+}
+
+.car-brand-app .car-brand-dock-group {
+  font-size: 12px;
 }
 
 .car-brand-tier {

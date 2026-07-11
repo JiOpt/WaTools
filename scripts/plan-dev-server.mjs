@@ -66,6 +66,22 @@ function safePath(urlPath) {
   return abs;
 }
 
+/** Match Firebase Hosting cleanUrls: /foo/bar → foo/bar.html */
+function resolveStaticFile(urlPath) {
+  const direct = safePath(urlPath);
+  if (!direct) return null;
+
+  if (fs.existsSync(direct) && fs.statSync(direct).isFile()) return direct;
+
+  const withHtml = `${direct}.html`;
+  if (fs.existsSync(withHtml) && fs.statSync(withHtml).isFile()) return withHtml;
+
+  const indexHtml = path.join(direct, 'index.html');
+  if (fs.existsSync(indexHtml) && fs.statSync(indexHtml).isFile()) return indexHtml;
+
+  return null;
+}
+
 const server = http.createServer(async (req, res) => {
   if (!isLocalRequest(req)) {
     if (req.url?.startsWith('/api/plan')) {
@@ -110,10 +126,11 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  const filePath = safePath(req.url === '/' ? '/index.html' : req.url);
+  const pathname = (req.url || '/').split('?')[0];
+  const filePath = pathname === '/' ? safePath('/index.html') : resolveStaticFile(pathname);
   if (!filePath) {
-    res.writeHead(403);
-    res.end('Forbidden');
+    res.writeHead(404);
+    res.end('Not found');
     return;
   }
 

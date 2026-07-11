@@ -2,9 +2,9 @@
 
 免安裝 **mytoolife** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://watoolio.web.app>（**v0.6.38**）
+- 網站：<https://mytoolife.com>（**v0.6.39**）
 - 自訂網域：`mytoolife.com`（GoDaddy 註冊，於 Firebase Hosting 綁定 DNS）
-- Firebase 專案：`watoolio`
+- Firebase 專案 ID：`watoolio`（Google 後台專案名；對外網域為 `mytoolife.com`）
 
 ---
 
@@ -15,10 +15,10 @@
 | `assets/img/` | 網站正式使用的 favicon、logo、Apple touch icon |
 | `assets/icon/` | 圖示原始檔／備份（未直接引用於 HTML） |
 | `assets/js/` | 工具目錄、藏經閣、全站腳本 |
-| `assets/js/user-preferences.js` | 個人化設定（主題、字體、繁簡等） |
+| `assets/js/user-preferences.js` | 設定（主題、字體、繁簡等） |
 | `assets/js/zh-variant.js` | 全站繁簡轉換（瀏覽器本地 OpenCC） |
 | `assets/js/vendor/opencc-t2cn.js` | OpenCC 繁→簡字典（約 101 KB，選簡體時才載入） |
-| `utility/settings.html` | 個人化設定頁 |
+| `utility/settings.html` | 設定頁 |
 | `assets/css/main.css` | 全站樣式（含藏經閣收折樣式） |
 | `scripture/` | 藏經閣各經典頁面（由建置腳本產生） |
 | `scripts/build-scriptures.mjs` | 從來源站抓取並產生經典 HTML |
@@ -124,9 +124,9 @@ calculatortool
 
 ---
 
-## 個人化設定與繁簡切換
+## 設定與繁簡切換
 
-路徑：**`/utility/settings.html`**（頁首「個人化設定」）
+路徑：**`/utility/settings.html`**（頁首「設定」）
 
 偏好儲存在瀏覽器 `localStorage`（鍵名 `mytoolife-user-prefs`），套用至全站所有頁面，無需帳號。
 
@@ -181,10 +181,10 @@ firebase hosting:disable --project watoolio
 
 1. [Firebase Console](https://console.firebase.google.com/) → 專案 `watoolio` → **Hosting** → **Add custom domain**
 2. 輸入 `mytoolife.com`（建議一併加入 `www.mytoolife.com`）
-3. 至 GoDaddy DNS 依 Firebase 指示設定 **TXT**（驗證）、**A**（根網域）、**CNAME**（`www` → `watoolio.web.app`）
+3. 至 GoDaddy DNS 依 Firebase 指示設定 **TXT**（驗證）、**A**（根網域）、**CNAME**（`www` → `mytoolife.com`）
 4. 等待 Firebase 顯示 Connected 並完成 SSL 憑證
 
-> `watoolio.web.app` 在綁定後仍可存取。站內 canonical／og:url 若仍為 `watoolio.web.app`，上線後可逐步改為 `https://mytoolife.com/...`（SEO 用）。
+> Firebase 專案 ID 為 `watoolio`，與對外品牌網域 `mytoolife.com` 不同，部署時請用 `--project watoolio`。
 
 > `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`（SEO 用，與工具發布清單 `sitemap.txt` 不同）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
 

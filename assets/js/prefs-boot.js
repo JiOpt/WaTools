@@ -31,8 +31,8 @@
   }
 
   function readPrefs() {
-    migrateKey('mytoolife-user-prefs', 'watools-user-prefs');
-    migrateKey('mytoolife-font-size', 'watools-font-size');
+    migrateKey('mytoolife-user-prefs', 'mytoolife-user-prefs');
+    migrateKey('mytoolife-font-size', 'mytoolife-font-size');
 
     var prefs = {};
     try {
@@ -45,7 +45,7 @@
     if (!prefs.fontSize) {
       try {
         var legacy = localStorage.getItem('mytoolife-font-size')
-          || localStorage.getItem('watools-font-size');
+          || localStorage.getItem('mytoolife-font-size');
         prefs.fontSize = legacy === 'sm' || legacy === 'lg' ? legacy : 'md';
       } catch (err) {
         prefs.fontSize = 'md';
@@ -98,10 +98,9 @@
     var path = location.pathname.replace(/\\/g, '/');
     if (/\/scripture\//i.test(path)) return false;
     var segs = path.split('/').filter(Boolean);
-    var page = (segs.pop() || 'index.html').split('#')[0].split('?')[0];
-    if (!/\.html$/i.test(page)) return false;
-    if (page === 'index.html' || page === 'index_plan.html' || page === 'copyright.html') return false;
-    if (page === 'settings.html' && segs.length === 0) return false;
+    var page = (segs.pop() || 'index').split('#')[0].split('?')[0].replace(/\.html$/i, '');
+    if (page === 'index' || page === 'index_plan' || page === 'copyright' || page === 'contact') return false;
+    if (page === 'settings' && segs.length === 0) return false;
     return segs.length >= 1;
   }
 

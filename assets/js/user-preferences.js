@@ -3,8 +3,8 @@
 
   var STORAGE_KEY = 'mytoolife-user-prefs';
   var LEGACY_FONT_KEY = 'mytoolife-font-size';
-  var OLD_STORAGE_KEY = 'watools-user-prefs';
-  var OLD_FONT_KEY = 'watools-font-size';
+  var OLD_STORAGE_KEY = 'mytoolife-user-prefs';
+  var OLD_FONT_KEY = 'mytoolife-font-size';
 
   function migrateLegacyStorage() {
     try {

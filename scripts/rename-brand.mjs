@@ -1,5 +1,5 @@
 /**
- * Rename MyTooLife / MyTooLife brand → MyTooLife (and watools → mytoolife identifiers).
+ * Rename MyTooLife / MyTooLife brand → MyTooLife.
  */
 import fs from 'fs';
 import path from 'path';
@@ -19,6 +19,8 @@ const REPLACEMENTS = [
   ['mytoolife_', 'mytoolife_'],
   ['.mytoolife-', '.mytoolife-'],
   ['mytoolife-', 'mytoolife-'],
+  ['mytoolife.web.app', 'mytoolife.com'],
+  ['mytoolife', 'mytoolife'],
   ['mytoolife-photo', 'mytoolife-photo'],
   ['mytoolife-doodle', 'mytoolife-doodle'],
 ];

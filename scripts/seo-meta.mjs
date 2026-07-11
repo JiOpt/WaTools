@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://watoolio.web.app';
+export const SITE_URL = 'https://mytoolife.com';
 export const SITE_NAME = 'MyTooLife';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
@@ -8,8 +8,9 @@ const DESC_MIN = 110;
 const DESC_MAX = 150;
 
 export function pageUrl(relativePath) {
-  if (!relativePath || relativePath === 'index.html') return `${SITE_URL}/`;
-  return `${SITE_URL}/${relativePath.replace(/^\//, '')}`;
+  if (!relativePath || relativePath === 'index.html' || relativePath === 'index') return `${SITE_URL}/`;
+  const clean = String(relativePath).replace(/^\//, '').replace(/\.html$/i, '');
+  return `${SITE_URL}/${clean}`;
 }
 
 export function clampText(text, min, max) {
