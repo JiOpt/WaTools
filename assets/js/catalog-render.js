@@ -39,12 +39,16 @@
             ${category.tools.map((tool) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <a href="${toolCardHref(tool.slug)}" class="tool-card tool-card-ready" data-tool-slug="${tool.slug}">
-                  <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
-                  <div class="tool-card-body">
+                  <div class="tool-card-top">
+                    <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                     <h3>${tool.title}</h3>
-                    <span class="tool-card-views" hidden aria-label="瀏覽人數"></span>
                   </div>
-                  <span class="tool-badge">可用</span>
+                  <div class="tool-card-foot">
+                    <span class="tool-card-views" aria-label="瀏覽人次">
+                      <i class="bi bi-eye" aria-hidden="true"></i>
+                      <span class="tool-card-views-num">…</span>
+                    </span>
+                  </div>
                 </a>
               </div>
             `).join('')}

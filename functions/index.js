@@ -58,7 +58,7 @@ exports.pageviews = onRequest(
         const counts = {};
         await Promise.all(slugs.map(async (slug) => {
           const snap = await db.collection(COLLECTION).doc(slug).get();
-          counts[slug] = snap.exists ? Number(snap.data().unique || 0) : 0;
+          counts[slug] = snap.exists ? Number(snap.data().views || 0) : 0;
         }));
 
         res.json({ counts });

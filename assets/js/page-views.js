@@ -1,6 +1,6 @@
 /**
- * Page view counts via Firebase Cloud Function (/api/pageviews).
- * Homepage cards show unique visitors; tool pages record a hit once per session.
+ * Tool page view counts via Firebase Cloud Function (/api/pageviews).
+ * Homepage cards show total views; tool pages record once per session.
  */
 (function () {
   'use strict';
@@ -8,7 +8,13 @@
   const API_PATH = '/api/pageviews';
   const VISITOR_KEY = 'mytoolife-visitor-id';
   const SESSION_PREFIX = 'mytoolife-pv-session:';
+  const CACHE_KEY = 'mytoolife-pv-cache';
+  const CACHE_TTL_MS = 60 * 1000;
   const SKIP_SLUGS = new Set(['settings', 'scriptures', 'index']);
+
+  function shouldSkipSlug(slug) {
+    return !slug || SKIP_SLUGS.has(slug);
+  }
 
   function visitorId() {
     try {
@@ -26,14 +32,31 @@
   }
 
   function formatCount(n) {
-    const num = Number(n) || 0;
-    if (num >= 100000) return `${Math.round(num / 10000)} 萬`;
-    if (num >= 10000) return `${(num / 10000).toFixed(1)} 萬`;
-    return num.toLocaleString('zh-Hant');
+    return Math.max(0, Number(n) || 0).toLocaleString('zh-Hant');
   }
 
-  function shouldSkipSlug(slug) {
-    return !slug || SKIP_SLUGS.has(slug);
+  function readCache() {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      if (!parsed?.ts || Date.now() - parsed.ts > CACHE_TTL_MS) return {};
+      return parsed.counts || {};
+    } catch {
+      return {};
+    }
+  }
+
+  function writeCache(counts) {
+    try {
+      const prev = readCache();
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        ts: Date.now(),
+        counts: { ...prev, ...counts },
+      }));
+    } catch {
+      /* ignore */
+    }
   }
 
   async function fetchCounts(slugs) {
@@ -43,10 +66,13 @@
     try {
       const res = await fetch(`${API_PATH}?slugs=${encodeURIComponent(list.join(','))}`, {
         credentials: 'same-origin',
+        cache: 'no-store',
       });
       if (!res.ok) return {};
       const data = await res.json();
-      return data.counts || {};
+      const counts = data.counts || {};
+      writeCache(counts);
+      return counts;
     } catch {
       return {};
     }
@@ -55,18 +81,19 @@
   function applyCounts(counts) {
     document.querySelectorAll('#tools-catalog [data-tool-slug]').forEach((card) => {
       const slug = card.getAttribute('data-tool-slug');
-      const slot = card.querySelector('.tool-card-views');
-      if (!slot || !slug) return;
+      const row = card.querySelector('.tool-card-views');
+      const numEl = card.querySelector('.tool-card-views-num');
+      if (!row || !numEl || !slug) return;
 
-      const n = counts[slug];
-      if (n == null || n === 0) {
-        slot.textContent = '';
-        slot.hidden = true;
+      if (counts[slug] == null) {
+        numEl.textContent = '—';
+        row.hidden = false;
         return;
       }
 
-      slot.textContent = `${formatCount(n)} 人瀏覽`;
-      slot.hidden = false;
+      numEl.textContent = formatCount(counts[slug]);
+      row.hidden = false;
+      row.setAttribute('aria-label', `瀏覽 ${formatCount(counts[slug])} 人次`);
     });
   }
 
@@ -75,6 +102,14 @@
       .map((el) => el.getAttribute('data-tool-slug'))
       .filter(Boolean);
     if (!slugs.length) return;
+
+    document.querySelectorAll('#tools-catalog .tool-card-views-num').forEach((el) => {
+      if (el.textContent === '') el.textContent = '…';
+    });
+
+    const cached = readCache();
+    if (Object.keys(cached).length) applyCounts(cached);
+
     const counts = await fetchCounts(slugs);
     applyCounts(counts);
   }
@@ -93,6 +128,7 @@
       const res = await fetch(API_PATH, {
         method: 'POST',
         credentials: 'same-origin',
+        cache: 'no-store',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug, visitorId: visitorId() }),
       });
@@ -103,6 +139,7 @@
       } catch {
         /* ignore */
       }
+      if (data.views != null) writeCache({ [slug]: data.views });
       return data;
     } catch {
       return null;
@@ -115,26 +152,42 @@
     recordPageView(slug);
   }
 
+  function bootPageViews() {
+    if (document.getElementById('tool-app')) {
+      recordCurrentToolPage();
+    }
+    if (document.getElementById('tools-catalog')?.querySelector('[data-tool-slug]')) {
+      paintCatalogCards().catch(() => {});
+    }
+  }
+
   window.__waPaintToolCardViews = paintCatalogCards;
   window.__waRecordPageView = recordPageView;
 
-  if (document.getElementById('tools-catalog')) {
-    window.addEventListener('mytoolife:catalog-rendered', () => {
+  window.addEventListener('mytoolife:catalog-rendered', () => {
+    if (document.getElementById('tools-catalog')) {
       paintCatalogCards().catch(() => {});
-    });
-    window.addEventListener('mytoolife:soft-nav', () => {
-      if (document.getElementById('tools-catalog')) {
-        paintCatalogCards().catch(() => {});
-      }
-    });
-  }
+    }
+  });
 
-  if (document.getElementById('tool-app')) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', recordCurrentToolPage, { once: true });
-    } else {
+  window.addEventListener('mytoolife:soft-nav', () => {
+    if (document.getElementById('tools-catalog')) {
+      paintCatalogCards().catch(() => {});
+    }
+    if (document.getElementById('tool-app')) {
       recordCurrentToolPage();
     }
-    window.addEventListener('mytoolife:soft-nav', recordCurrentToolPage);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && document.getElementById('tools-catalog')) {
+      paintCatalogCards().catch(() => {});
+    }
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootPageViews, { once: true });
+  } else {
+    bootPageViews();
   }
 })();

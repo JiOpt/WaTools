@@ -63,14 +63,12 @@ npm run seo:build       # sitemap.xml + 首頁爬蟲目錄 + 工具頁 meta
 
 Deploy 前：版本 bump → `stamp-asset-version.mjs` → `firebase deploy --project watoolio` → Search Console 重送 sitemap
 
-## 9. 首頁工具卡片瀏覽人數（Firebase）
+## 9. 首頁工具卡片瀏覽人次（Firebase）
 
 - API：`/api/pageviews`（Cloud Function `pageviews` + Firestore `pageviews/{slug}`）
-- 前端：`assets/js/page-views.js`；卡片 markup 在 `catalog-render.js`（`data-tool-slug`、`.tool-card-views`）
-- 顯示 **獨立訪客數**（`unique`）；進入工具頁 POST 記錄，首頁 GET 批次讀取
-- 新工具加入 `tools-data.js` 後無需改 API；`settings` / `scriptures` 不計數
-- 部署：`cd functions && npm install` → `firebase deploy --project watoolio`
-- 詳見 `README.md`「首頁工具卡片瀏覽人數」章節
+- 前端：`assets/js/page-views.js`；卡片 UI 在 `catalog-render.js`
+- 卡片顯示 `views`（總瀏覽次數）；進入工具頁 POST 記錄
+- 部署：`firebase deploy --only functions,hosting --project watoolio`
 
 ## 5. soft-nav 與 SEO
 
