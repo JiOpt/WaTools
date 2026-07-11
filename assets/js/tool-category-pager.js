@@ -27,17 +27,13 @@
 
     if (container.querySelector('.tool-category-pager:not(.tool-pager-placeholder)')) return;
 
-    if (!container.querySelector('.tool-category-pager.scripture-pager-top')) {
-      container.insertBefore(placeholderPager('top'), app);
-    }
     if (!container.querySelector('.tool-category-pager.scripture-pager-bottom')) {
       container.appendChild(placeholderPager('bottom'));
     }
   }
 
-  function renderPager(ctx, position) {
+  function renderPager(ctx) {
     const { category, prev, next } = ctx;
-    const posClass = position === 'top' ? 'scripture-pager-top' : 'scripture-pager-bottom';
 
     function linkCell(tool, kind, label) {
       if (!tool) {
@@ -59,7 +55,7 @@
     }
 
     const nav = document.createElement('nav');
-    nav.className = `scripture-pager tool-category-pager ${posClass}`;
+    nav.className = 'scripture-pager tool-category-pager scripture-pager-bottom';
     nav.setAttribute('aria-label', '分類導覽');
     nav.innerHTML = `
       ${linkCell(prev, 'prev', '上一篇')}
@@ -85,8 +81,7 @@
     }
 
     container.querySelectorAll('.tool-category-pager').forEach((el) => el.remove());
-    container.insertBefore(renderPager(ctx, 'top'), app);
-    container.appendChild(renderPager(ctx, 'bottom'));
+    container.appendChild(renderPager(ctx));
     return true;
   }
 

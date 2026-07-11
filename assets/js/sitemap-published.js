@@ -1,11 +1,12 @@
 /** Auto-generated from sitemap.txt — do not edit by hand. */
 window.WA_PUBLISHED_SLUGS = {
-  "updated": "2026-07-11T02:45:08.561Z",
+  "updated": "2026-07-11T02:52:11.035Z",
   "slugs": [
     "calculatortool",
     "coat-of-arms",
     "ethnic-china",
     "id-generator",
+    "monster",
     "national-anthem",
     "national-symbol",
     "population",

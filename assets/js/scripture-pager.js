@@ -79,13 +79,13 @@
     const top = document.querySelector('.scripture-section .scripture-pager-top');
     const bottom = document.querySelector('.scripture-section .scripture-pager-bottom');
 
+    top?.remove();
+
     if (!ctx) {
-      top?.remove();
       bottom?.remove();
       return false;
     }
 
-    updatePagerElement(top, ctx, 'top');
     updatePagerElement(bottom, ctx, 'bottom');
     return true;
   }
