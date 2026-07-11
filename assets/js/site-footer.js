@@ -3,7 +3,7 @@
  */
 window.WA_SITE_FOOTER = {
   siteName: 'MyTooLife',
-  tagline: '免下載、免註冊，點開即用。實用小工具，解決小麻煩。',
+  tagline: '讓工具生活，簡化每一天。',
   showCopyrightLink: true,
   copyrightLabel: '版權聲明',
   showContactLink: true,

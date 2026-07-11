@@ -40,7 +40,7 @@
 
     const cfg = window.WA_SITE_FOOTER || {};
     const siteName = cfg.siteName || 'MyTooLife';
-    const tagline = cfg.tagline || '免下載、免註冊，點開即用。實用小工具，解決小麻煩。';
+    const tagline = cfg.tagline || '讓工具生活，簡化每一天。';
     const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
 

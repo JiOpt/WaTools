@@ -3531,12 +3531,6 @@
 
     window.addEventListener('resize', refreshStickyObserver);
     window.addEventListener('mytoolife:header-offset', refreshStickyObserver);
-
-    const firstCard = regionsWrap.querySelector('.world-flags-card');
-    if (firstCard) {
-      const firstRegion = data.regions[0];
-      if (firstRegion && firstRegion.countries[0]) showDetail(firstRegion.countries[0], firstCard);
-    }
   };
 
   R['population'] = function (app) {
@@ -4011,7 +4005,6 @@
     renderSummary();
     updateHeader();
     renderTable();
-    if (countries[0]) showDetail(countries[0]);
   };
 
   R['coat-of-arms'] = function (app) {
@@ -4329,12 +4322,6 @@
 
     window.addEventListener('resize', refreshStickyObserver);
     window.addEventListener('mytoolife:header-offset', refreshStickyObserver);
-
-    const firstCard = regionsWrap.querySelector('.world-flags-card');
-    if (firstCard) {
-      const firstRegion = data.regions[0];
-      if (firstRegion && firstRegion.countries[0]) showDetail(firstRegion.countries[0], firstCard);
-    }
   };
 
   R['ethnic-china'] = function (app) {
@@ -4686,10 +4673,6 @@
       regionsWrap,
       detail,
     ]));
-
-    const firstCard = regionsWrap.querySelector('.anthem-card');
-    const firstEntry = firstCard ? anthemMap.get(firstCard.dataset.code) : anthems[0];
-    if (firstEntry) showDetail(firstEntry, firstCard);
   };
 
   R['ufo'] = function (app) {

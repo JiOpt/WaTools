@@ -255,7 +255,7 @@
     if (weatherActivated) return;
     weatherActivated = true;
     renderWeatherLoading(bar);
-    loadWeather(bar, { allowGps: true });
+    loadWeather(bar, { allowGps: true, forceGps: true });
   }
 
   function bindWeatherPrompt(bar) {
@@ -345,7 +345,7 @@
           source: 'gps',
         }),
         reject,
-        { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 }
+        { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 }
       );
     });
   }
@@ -365,25 +365,21 @@
 
   async function resolveGeo(options) {
     const allowGps = options?.allowGps === true;
+    const forceGps = options?.forceGps === true;
     const cached = readGeoCache();
 
-    if (cached?.lat != null && cached?.lon != null && (cached.label || !allowGps)) {
-      return cached;
-    }
-
-    if (allowGps) {
+    if (allowGps || forceGps) {
       try {
         const gps = await geolocationPromise();
-        const label = await reverseLabel(gps.lat, gps.lon);
-        const geo = { ...gps, label: label || '目前位置', ts: Date.now() };
+        const geo = { lat: gps.lat, lon: gps.lon, source: 'gps', ts: Date.now() };
         writeJson(GEO_CACHE_KEY, geo, true);
         return geo;
       } catch {
-        /* fall through */
+        if (cached?.lat != null && cached?.lon != null) return cached;
       }
+    } else if (cached?.lat != null && cached?.lon != null) {
+      return cached;
     }
-
-    if (cached?.lat != null && cached?.lon != null) return cached;
 
     try {
       const ip = await ipGeoPromise();
@@ -395,36 +391,56 @@
     }
   }
 
+  function applyGeoLabel(geo, label) {
+    if (!label) return geo;
+    const next = { ...geo, label };
+    writeJson(GEO_CACHE_KEY, next, true);
+    return next;
+  }
+
+  function refreshGeoLabel(bar, geo, payload) {
+    return reverseLabel(geo.lat, geo.lon).then((label) => {
+      if (!label) return;
+      const nextGeo = applyGeoLabel(geo, label);
+      const nextPayload = { ...payload, label };
+      writeJson(WEATHER_CACHE_KEY, nextPayload, weatherActivated);
+      renderWeather(bar, nextPayload);
+      syncHeaderOffset();
+      return nextGeo;
+    });
+  }
+
   async function loadWeather(bar, options) {
     const geo = await resolveGeo(options);
-    if (!geo.label && geo.lat != null) {
-      geo.label = await reverseLabel(geo.lat, geo.lon) || DEFAULT_GEO.label;
-      writeJson(GEO_CACHE_KEY, geo, true);
-    }
+    const placeFallback = geo.label || '目前位置';
 
     const cached = readWeatherCache(geo.lat, geo.lon);
     if (cached) {
-      renderWeather(bar, { ...cached, label: geo.label });
+      renderWeather(bar, { ...cached, label: placeFallback });
       syncHeaderOffset();
       if (weatherActivated) {
         setWeatherOptIn();
         startWeatherRefresh(bar);
       }
+      if (!geo.label) refreshGeoLabel(bar, geo, { ...cached, label: placeFallback });
       return;
     }
+
+    if (weatherActivated) renderWeatherLoading(bar);
 
     try {
       const wx = await fetchWeather(geo.lat, geo.lon);
       const payload = {
         lat: geo.lat,
         lon: geo.lon,
-        label: geo.label,
+        label: placeFallback,
         ts: Date.now(),
         ...wx,
       };
       writeJson(WEATHER_CACHE_KEY, payload, weatherActivated);
       renderWeather(bar, payload);
       if (weatherActivated) setWeatherOptIn();
+      if (!geo.label) refreshGeoLabel(bar, geo, payload);
     } catch {
       renderWeather(bar, null);
     }

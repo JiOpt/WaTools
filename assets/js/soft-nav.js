@@ -8,7 +8,14 @@
   const PAGE_BODY_CLASSES = ['index-page', 'tool-page', 'scripture-page', 'plan-page'];
   const PAGE_HTML_CLASSES = ['wa-tool-page'];
   const SOFT_NAV_ROOTS = '#header, main.main, #site-sitemap, #footer';
+  const PAGE_CACHE_MAX = 16;
+  const PAGE_CACHE_TTL_MS = 5 * 60 * 1000;
+  const BUSY_DELAY_MS = 100;
+
   let navigating = false;
+  let busyTimer = null;
+  const pageCache = new Map();
+  const prefetchPromises = new Map();
 
   function assetUrl(path) {
     if (typeof window.waAssetUrl === 'function') return window.waAssetUrl(path);
@@ -196,6 +203,67 @@
     throw new Error('missing main');
   }
 
+  function trimPageCache() {
+    if (pageCache.size <= PAGE_CACHE_MAX) return;
+    const entries = [...pageCache.entries()].sort((a, b) => a[1].ts - b[1].ts);
+    for (let i = 0; i < entries.length - PAGE_CACHE_MAX; i += 1) {
+      pageCache.delete(entries[i][0]);
+    }
+  }
+
+  async function getPageDocument(urlString) {
+    const resolved = resolveNavigationUrl(urlString);
+    if (!resolved) throw new Error('bad url');
+    const key = resolved.href;
+
+    const inflight = prefetchPromises.get(key);
+    if (inflight) {
+      prefetchPromises.delete(key);
+      const hit = await inflight;
+      if (hit) return hit;
+    }
+
+    const cached = pageCache.get(key);
+    if (cached && Date.now() - cached.ts < PAGE_CACHE_TTL_MS) {
+      return { doc: cached.doc, url: cached.url };
+    }
+
+    const result = await fetchPageDocument(urlString);
+    pageCache.set(key, { doc: result.doc, url: result.url, ts: Date.now() });
+    trimPageCache();
+    return result;
+  }
+
+  function prefetchPage(urlString) {
+    const resolved = resolveNavigationUrl(urlString);
+    if (!resolved) return;
+    const key = resolved.href;
+    if (pageCache.has(key) || prefetchPromises.has(key) || navigating) return;
+
+    const target = new URL(key);
+    const current = new URL(location.href);
+    if (sameDocumentUrl(target, current)) return;
+
+    const promise = fetchPageDocument(urlString)
+      .then((result) => {
+        pageCache.set(key, { doc: result.doc, url: result.url, ts: Date.now() });
+        trimPageCache();
+        return result;
+      })
+      .catch(() => null)
+      .finally(() => {
+        if (prefetchPromises.get(key) === promise) prefetchPromises.delete(key);
+      });
+
+    prefetchPromises.set(key, promise);
+  }
+
+  function handlePrefetchPointer(event) {
+    const anchor = event.target.closest('a[href]');
+    if (!anchor || !shouldSoftNavigate(anchor)) return;
+    prefetchPage(anchor.href);
+  }
+
   function syncBodyClasses(sourceBody, sourceHtml) {
     PAGE_BODY_CLASSES.forEach((cls) => document.body.classList.remove(cls));
     PAGE_BODY_CLASSES.forEach((cls) => {
@@ -225,8 +293,23 @@
   function setMainBusy(busy) {
     const main = document.querySelector('main.main');
     if (!main) return;
-    main.classList.toggle('soft-nav-busy', busy);
-    main.setAttribute('aria-busy', busy ? 'true' : 'false');
+
+    if (busy) {
+      if (busyTimer) return;
+      busyTimer = window.setTimeout(() => {
+        busyTimer = null;
+        main.classList.add('soft-nav-busy');
+        main.setAttribute('aria-busy', 'true');
+      }, BUSY_DELAY_MS);
+      return;
+    }
+
+    if (busyTimer) {
+      clearTimeout(busyTimer);
+      busyTimer = null;
+    }
+    main.classList.remove('soft-nav-busy');
+    main.setAttribute('aria-busy', 'false');
   }
 
   async function ensurePageScripts() {
@@ -236,26 +319,30 @@
     const hasToolsCatalog = document.getElementById('tools-catalog');
 
     if (hasToolApp) {
+      const baseLoads = [];
       if (!document.querySelector('script[src*="tools-data.js"]')) {
-        await loadScriptOnce('assets/js/tools-data.js');
+        baseLoads.push(loadScriptOnce('assets/js/tools-data.js'));
       }
       if (!document.querySelector('script[src*="tool-urls.js"]')) {
-        await loadScriptOnce('assets/js/tool-urls.js');
+        baseLoads.push(loadScriptOnce('assets/js/tool-urls.js'));
       }
       if (!document.querySelector('script[src*="sitemap-pager.js"]')) {
-        await loadScriptOnce('assets/js/sitemap-pager.js');
+        baseLoads.push(loadScriptOnce('assets/js/sitemap-pager.js'));
       }
+      if (baseLoads.length) await Promise.all(baseLoads);
       await loadScriptOnce('assets/js/tool-boot.js');
       await loadScriptOnce('assets/js/tool-category-pager.js');
     }
 
     if (isScripture) {
+      const scriptureLoads = [];
       if (!document.querySelector('script[src*="sitemap-pager.js"]')) {
-        await loadScriptOnce('assets/js/sitemap-pager.js');
+        scriptureLoads.push(loadScriptOnce('assets/js/sitemap-pager.js'));
       }
       if (!document.querySelector('script[src*="scriptures-catalog.js"]')) {
-        await loadScriptOnce('assets/js/scriptures-catalog.js');
+        scriptureLoads.push(loadScriptOnce('assets/js/scriptures-catalog.js'));
       }
+      if (scriptureLoads.length) await Promise.all(scriptureLoads);
       await loadScriptOnce('assets/js/scripture-pager.js');
     }
 
@@ -353,7 +440,7 @@
     let targetUrl = resolveNavigationUrl(urlString) || new URL(urlString, location.href);
 
     try {
-      const { doc, url: finalUrl } = await fetchPageDocument(targetUrl.href);
+      const { doc, url: finalUrl } = await getPageDocument(targetUrl.href);
       targetUrl = new URL(finalUrl, location.href);
 
       const nextMain = doc.querySelector('main.main');
@@ -373,6 +460,7 @@
       }
 
       window.scrollTo(0, 0);
+      setMainBusy(false);
       await afterNavigate();
 
       if (targetUrl.hash) {
@@ -430,6 +518,8 @@
   function init() {
     if (!document.querySelector('#header .branding')) return;
     document.addEventListener('click', handleSoftNavClick, true);
+    document.addEventListener('touchstart', handlePrefetchPointer, { capture: true, passive: true });
+    document.addEventListener('pointerdown', handlePrefetchPointer, { capture: true, passive: true });
     window.addEventListener('popstate', onPopState);
   }
 

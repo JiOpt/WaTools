@@ -69,17 +69,16 @@ export function renderNavItems(navItems = []) {
 /**
  * Site header — nav items are per-page; sitemap is injected at runtime by site-sitemap.js.
  */
+export function renderLogoInner(depth = 0) {
+  return `<img src="${assetHref('assets/img/logo.jpg', depth)}" alt="MyTooLife" class="site-logo" width="808" height="336" decoding="async">`;
+}
+
 export function renderHeader({
   depth = 0,
   navItems = [],
   settingsActive = false,
-  logoWithIcon = false,
 } = {}) {
-  const prefix = pathPrefix(depth);
-  const logoInner = logoWithIcon
-    ? `<img src="${assetHref('assets/icon/icon.png', depth)}" alt="MyTooLife" width="36" height="36">
-          <span class="sitename">MyTooLife</span>`
-    : '<span class="sitename">MyTooLife</span>';
+  const logoInner = renderLogoInner(depth);
 
   const navBlock = navItems.length
     ? `<nav id="navmenu" class="navmenu" aria-label="頁面導覽">
@@ -95,7 +94,7 @@ ${renderNavItems(navItems)}
 
   const ctaCls = settingsActive
     ? 'cta-btn active'
-    : 'cta-btn d-none d-sm-block';
+    : 'cta-btn';
   const ctaAria = settingsActive ? ' aria-current="page"' : '';
 
   return `  <header id="header" class="header sticky-top">

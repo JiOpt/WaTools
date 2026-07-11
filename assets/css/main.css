@@ -551,17 +551,55 @@ body.has-header-context .tool-section [id] {
 }
 
 .header .branding {
-  min-height: 60px;
-  padding: 10px 0;
+  min-height: 56px;
+  padding: 0;
+}
+
+.header .branding > .container {
+  padding-left: 0;
 }
 
 .header .logo {
-  line-height: 1;
+  line-height: 0;
+  display: block;
+  width: fit-content;
+  max-width: min(calc(56px * 808 / 336), 52vw);
+  padding: 0;
+  margin-left: 0;
+  flex: 0 0 auto;
+  align-self: stretch;
 }
 
 .header .logo img {
+  display: block;
   max-height: 36px;
   margin-right: 8px;
+}
+
+.header .logo img.site-logo {
+  display: block;
+  height: 56px;
+  width: auto;
+  aspect-ratio: 808 / 336;
+  max-width: none;
+  margin: 0;
+  flex: none;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 575px) {
+  .header .branding {
+    min-height: 48px;
+  }
+
+  .header .logo {
+    max-width: min(calc(48px * 808 / 336), 56vw);
+  }
+
+  .header .logo img.site-logo {
+    height: 48px;
+  }
 }
 
 .header .logo h1 {
@@ -851,7 +889,9 @@ body.has-header-context .tool-section [id] {
   .header .logo {
     order: 1;
     margin-right: auto !important;
+    margin-left: 0 !important;
     flex: 0 0 auto;
+    align-self: stretch;
   }
 
   .font-size-control {
@@ -4958,9 +4998,9 @@ body.scripture-page [data-aos] {
 # Soft navigation (sitemap SPA-style main swap)
 --------------------------------------------------------------*/
 main.main.soft-nav-busy {
-  opacity: 0.55;
+  opacity: 0.92;
   pointer-events: none;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.08s ease;
 }
 
 /*--------------------------------------------------------------

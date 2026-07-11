@@ -86,7 +86,7 @@
 
     const toggle = document.createElement('button');
     toggle.type = 'button';
-    toggle.className = `user-menu-toggle cta-btn d-none d-sm-inline-flex${isSettingsPage() ? ' active' : ''}`;
+    toggle.className = `user-menu-toggle cta-btn d-inline-flex${isSettingsPage() ? ' active' : ''}`;
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-controls', 'user-menu-panel');
