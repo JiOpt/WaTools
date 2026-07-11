@@ -25,7 +25,12 @@ window.WA_TOOL_CHUNKS = {
     "part": 2
   },
   "qrcode": {
-    "part": 2
+    "part": 2,
+    "extra": [
+      "vendor/qrcodegen.js",
+      "vendor/qrcodejs.min.js",
+      "qrcode-tool.js"
+    ]
   },
   "random-number": {
     "part": 4
@@ -35,6 +40,12 @@ window.WA_TOOL_CHUNKS = {
   },
   "screen-test": {
     "part": 2
+  },
+  "settings": {
+    "part": 2,
+    "extra": [
+      "user-preferences.js"
+    ]
   },
   "user-agent": {
     "part": 4
@@ -103,11 +114,7 @@ window.WA_TOOL_CHUNKS = {
     "part": 1
   },
   "sitemap": {
-    "part": 1,
-    "extra": [
-      "tools-data.js",
-      "tool-urls.js"
-    ]
+    "part": 1
   },
   "sql-formatter": {
     "part": 4
@@ -136,6 +143,9 @@ window.WA_TOOL_CHUNKS = {
   "case-converter": {
     "part": 1
   },
+  "chn-upper": {
+    "part": 1
+  },
   "colorfont": {
     "part": 1
   },
@@ -156,9 +166,6 @@ window.WA_TOOL_CHUNKS = {
   },
   "line-number": {
     "part": 4
-  },
-  "rmb-upper": {
-    "part": 1
   },
   "text-replace": {
     "part": 4
@@ -212,7 +219,11 @@ window.WA_TOOL_CHUNKS = {
     "part": 2
   },
   "exif": {
-    "part": 2
+    "part": 2,
+    "extra": [
+      "vendor/exifr.full.umd.js",
+      "exif-tool.js"
+    ]
   },
   "image-compress": {
     "part": 4
@@ -242,13 +253,22 @@ window.WA_TOOL_CHUNKS = {
     "part": 4
   },
   "calendar": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "calendar-engine.js",
+      "calendar-holidays.js",
+      "calendar-glossary.js",
+      "chinese-calendar.js"
+    ]
   },
   "car-brand": {
     "part": 3
   },
   "currency": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "currency-data.js"
+    ]
   },
   "datetime-calc": {
     "part": 4
@@ -275,7 +295,10 @@ window.WA_TOOL_CHUNKS = {
     "part": 4
   },
   "solar-terms": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "solar-terms-data.js"
+    ]
   },
   "stopwatch": {
     "part": 4
@@ -410,7 +433,10 @@ window.WA_TOOL_CHUNKS = {
     "part": 3
   },
   "emoji": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "emoji-data.js"
+    ]
   },
   "emoticon": {
     "part": 3
@@ -418,14 +444,15 @@ window.WA_TOOL_CHUNKS = {
   "keyboard-symbols": {
     "part": 3,
     "extra": [
-      "tools-data.js",
-      "scriptures-catalog.js",
-      "sitemap-manifest.js",
-      "site-sitemap.js"
+      "keyboard-symbols-data.js",
+      "keyboard-symbols-curated.js"
     ]
   },
   "punctuation": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "punctuation-data.js"
+    ]
   },
   "roman-numeral": {
     "part": 3
@@ -437,10 +464,16 @@ window.WA_TOOL_CHUNKS = {
     "part": 3
   },
   "symbols-generator": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "symbols-generator-data.js"
+    ]
   },
   "symbols-name": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "symbols-name-data.js"
+    ]
   },
   "ubcode": {
     "part": 3
@@ -489,7 +522,10 @@ window.WA_TOOL_CHUNKS = {
     ]
   },
   "population": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "population-data.js"
+    ]
   },
   "ufo": {
     "part": 3,

@@ -43,7 +43,7 @@
       <div class="container" data-aos="fade-up">
         <p class="plan-eyebrow"><i class="bi bi-shield-lock me-1"></i>內部頁面 · 不對外連結</p>
         <h1>工具發布計畫</h1>
-        <p class="plan-lead">切換工具的<strong>開放</strong>狀態。左側網站地圖、已開放／不顯示清單會<strong>即時同步</strong>根目錄 <code>sitemap.txt</code>；你在 VS Code 改檔也會自動反映。</p>
+        <p class="plan-lead">切換工具的<strong>開放</strong>狀態。左側網站地圖、已開放／不顯示清單會<strong>即時同步</strong>根目錄 <code>sitemap.txt</code>（發布清單）；<code>sitemap.xml</code> 為搜尋引擎用，應由 <code>sitemap.txt</code> 產生，而非反向同步。</p>
 
         <div id="plan-stats" class="mytoolife-stats plan-stats"></div>
 
@@ -72,7 +72,9 @@
           <ul>
             <li><strong>file:// 開啟：</strong>第一次請按「連結 sitemap.txt」，選專案根目錄的檔案，之後切換會自動寫入並每 2 秒監聽異動。</li>
             <li><strong>plan 伺服器：</strong><code>npm run plan:serve</code> 可自動讀寫並更新 <code>sitemap-published.js</code>。</li>
-            <li><strong>即時同步：</strong>左側網站地圖、已開放／不顯示清單會跟著 <code>sitemap.txt</code> 更新。</li>
+            <li><strong>發布清單：</strong><code>sitemap.txt</code> 決定哪些工具出現在首頁與左側地圖；plan 頁的已開放／不顯示清單以此為準。</li>
+            <li><strong>SEO 地圖：</strong><code>sitemap.xml</code> 給搜尋引擎爬蟲用，請執行 <code>node scripts/generate-sitemap.mjs</code> 依 <code>sitemap.txt</code> 產生（勿手動當成發布清單）。</li>
+            <li><strong>即時同步：</strong>左側網站地圖、已開放／不顯示清單會跟著 <code>sitemap.txt</code> 更新；你在 VS Code 改檔也會自動反映。</li>
             <li><strong>預覽：</strong>點 slug 或工具名稱可在新分頁開啟頁面。</li>
           </ul>
         </details>
@@ -128,6 +130,7 @@
   <script src="assets/vendor/aos/aos.js?v=0.6.38" defer></script>
   <script src="assets/js/main.js?v=0.6.38"></script>
   <script src="assets/js/tools-data.js?v=0.6.38"></script>
+  <script src="assets/js/tool-urls.js?v=0.6.38"></script>
   <script src="assets/js/sitemap-manifest.js?v=0.6.38"></script>
   <script src="assets/js/sitemap-file-sync.js?v=0.6.38"></script>
   <script src="assets/js/plan-catalog.js?v=0.6.38"></script>

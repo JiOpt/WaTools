@@ -406,7 +406,7 @@
     document.getElementById('cc-out').readOnly = true;
   };
 
-  R['rmb-upper'] = function (app) {
+  R['chn-upper'] = function (app) {
     mount(app, [
       hint('票據填寫須做到「資訊齊全、字跡清晰、防範塗改」，金額大寫須使用法定正楷或行書，並嚴格遵循結尾與間隔規範。大寫金額請用正楷（如：壹、貳），須緊接幣別填寫不可留空，金額至元為止請加「整」字，且全張票據嚴禁塗改。'),
       UI.input('金額（數字）', 'rmb-in', 'number', '1234.56'),

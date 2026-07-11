@@ -4,8 +4,15 @@
   const STORAGE_KEY = 'mytoolife-nav-history';
   const MAX_ITEMS = 30;
   const NAV_MAX = 7;
-  const NAV_SKIP_HREFS = new Set(['index.html', 'settings.html', 'utility/settings.html']);
-  const NAV_SKIP_TITLES = new Set(['工具首頁', '個人化設定']);
+  const TOP_FREQUENT_MAX = 8;
+  const NAV_SKIP_HREFS = new Set([
+    'index.html',
+    'index_plan.html',
+    'settings.html',
+    'utility/settings.html',
+    'copyright.html',
+  ]);
+  const NAV_SKIP_TITLES = new Set(['工具首頁', '個人化設定', '個人設定', '正式首頁', '版權聲明']);
   let memoryStore = null;
 
   function isInScriptureDir() {
@@ -101,13 +108,32 @@
       href,
       title: pageTitle(),
       ts: Date.now(),
+      count: 1,
     };
 
-    let list = readStore().filter((item) => item.href !== href);
+    let list = readStore();
+    const idx = list.findIndex((item) => item.href === href);
+    if (idx >= 0) {
+      const prev = list[idx];
+      entry.count = (prev.count || 1) + 1;
+      if (!entry.title && prev.title) entry.title = prev.title;
+      list.splice(idx, 1);
+    }
     list.unshift(entry);
     if (list.length > MAX_ITEMS) list = list.slice(0, MAX_ITEMS);
     writeStore(list);
     return list;
+  }
+
+  function topFrequent(list, limit = TOP_FREQUENT_MAX) {
+    return [...list]
+      .filter((item) => !shouldSkipHistoryItem(item))
+      .sort((a, b) => {
+        const diff = (b.count || 1) - (a.count || 1);
+        if (diff !== 0) return diff;
+        return (b.ts || 0) - (a.ts || 0);
+      })
+      .slice(0, limit);
   }
 
   function isCurrent(href) {
@@ -170,6 +196,22 @@
     const list = recordVisit();
     renderNavItems(list);
     return list;
+  };
+
+  window.WA_NAV_HISTORY = {
+    STORAGE_KEY,
+    readStore,
+    pageHref,
+    resolveHref,
+    shouldSkipItem: shouldSkipHistoryItem,
+    topFrequent,
+    settingsHref() {
+      if (window.WA_TOOL_URLS?.toolHref) {
+        return window.WA_TOOL_URLS.toolHref('settings');
+      }
+      const prefix = siteRootPrefix();
+      return `${prefix}utility/settings.html`;
+    },
   };
 
   if (document.readyState === 'loading') {

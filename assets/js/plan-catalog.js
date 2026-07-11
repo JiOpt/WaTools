@@ -16,7 +16,10 @@
   }
 
   function previewUrl(slug) {
-    return `${escapeHtml(slug)}.html`;
+    const href = window.WA_TOOL_URLS?.toolHref
+      ? window.WA_TOOL_URLS.toolHref(slug)
+      : `${slug}.html`;
+    return escapeHtml(href);
   }
 
   function setStatus(text, kind) {

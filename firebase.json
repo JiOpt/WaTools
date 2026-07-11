@@ -462,12 +462,22 @@
       },
       {
         "source": "/rmb-upper",
-        "destination": "/editor/rmb-upper",
+        "destination": "/editor/chn-upper",
         "type": 301
       },
       {
         "source": "/rmb-upper.html",
-        "destination": "/editor/rmb-upper.html",
+        "destination": "/editor/chn-upper.html",
+        "type": 301
+      },
+      {
+        "source": "/chn-upper",
+        "destination": "/editor/chn-upper",
+        "type": 301
+      },
+      {
+        "source": "/chn-upper.html",
+        "destination": "/editor/chn-upper.html",
         "type": 301
       },
       {

@@ -186,8 +186,10 @@
     ]);
   }
 
-  function renderSettingsPage() {
-    var app = document.getElementById('settings-app');
+  function renderSettingsPage(targetApp) {
+    var app = targetApp
+      || document.getElementById('tool-app')
+      || document.getElementById('settings-app');
     if (!app) return;
 
     var prefs = load();
@@ -310,9 +312,13 @@
     updateZoomLabel();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderSettingsPage);
-  } else {
-    renderSettingsPage();
+  window.WA_USER_PREFS.renderSettingsPage = renderSettingsPage;
+
+  if (document.getElementById('settings-app') && !document.getElementById('tool-app')) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { renderSettingsPage(); });
+    } else {
+      renderSettingsPage();
+    }
   }
 })();

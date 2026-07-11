@@ -125,6 +125,16 @@
     '寵辱若驚，貴大患若身。',
   ];
 
+  R.settings = function (app) {
+    if (typeof window.WA_USER_PREFS?.renderSettingsPage === 'function') {
+      window.WA_USER_PREFS.renderSettingsPage(app);
+      return;
+    }
+    app.innerHTML =
+      '<div class="tool-missing text-center">' +
+      '<p class="text-muted"><i class="bi bi-hourglass-split me-1"></i>設定模組載入中…</p></div>';
+  };
+
   R.scriptures = function (app) {
     const quoteBox = U.el('blockquote', { className: 'tool-result border-start border-3 ps-3 mb-0', style: 'white-space:pre-wrap;font-size:1.05rem' }, TAO_CH1);
     app.appendChild(U.el('div', { className: 'tool-form' }, [
@@ -505,32 +515,9 @@
   };
 
   R.qrcode = function (app) {
-    const canvas = U.el('canvas', { className: 'mx-auto d-block border rounded p-2 bg-white' });
-    const status = U.el('p', { className: 'text-muted small text-center' }, '載入 QR 函式庫中…');
-
-    app.appendChild(U.el('div', { className: 'tool-form' }, [
-      hint('把文字變方塊——掃不掃得到，看相機心情。'),
-      U.textarea('內容', 'qr-text', '輸入網址或文字…', 3),
-      U.btnGroup([
-        U.btn('產生 QR Code', 'btn btn-primary tool-btn', async () => {
-          const text = document.getElementById('qr-text').value.trim();
-          if (!text) { U.alert('請輸入內容', 'warning'); return; }
-          try {
-            await loadScript('https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js', 'QRCode');
-            await window.QRCode.toCanvas(canvas, text, { width: 256, margin: 2 });
-            status.textContent = '產生成功！拿手機試試看（記得開燈）。';
-          } catch (e) {
-            status.textContent = '產生失敗：' + e.message;
-          }
-        }),
-      ]),
-      U.el('div', { className: 'text-center my-3' }, canvas),
-      status,
-    ]));
-
-    loadScript('https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js', 'QRCode')
-      .then(() => { status.textContent = 'QR 函式庫已就緒。'; })
-      .catch(() => { status.textContent = 'QR 函式庫載入失敗，請檢查網路。'; });
+    app.innerHTML =
+      '<div class="tool-missing text-center">' +
+      '<p class="text-muted"><i class="bi bi-hourglass-split me-1"></i>QR Code 模組載入中…</p></div>';
   };
 
   R['qrcode-scan'] = function (app) {
@@ -720,20 +707,9 @@
   };
 
   R.exif = function (app) {
-    const out = U.output('exif-out');
-    app.appendChild(U.el('div', { className: 'tool-form' }, [
-      hint('讀取基本檔案資訊——進階 EXIF GPS 不在此列，隱私鬆了一口氣。'),
-      U.fileInput('image/*', (file) => {
-        out.textContent = [
-          `檔名：${file.name}`,
-          `大小：${formatBytes(file.size)}`,
-          `MIME：${file.type || '未知'}`,
-          `最後修改：${new Date(file.lastModified).toLocaleString('zh-TW')}`,
-          `最後修改 (ISO)：${new Date(file.lastModified).toISOString()}`,
-        ].join('\n');
-      }),
-      out,
-    ]));
+    app.innerHTML =
+      '<div class="tool-missing text-center">' +
+      '<p class="text-muted"><i class="bi bi-hourglass-split me-1"></i>EXIF 模組載入中…</p></div>';
   };
 
   R['image-coordinate'] = function (app) {
@@ -876,7 +852,7 @@
     canvas.addEventListener('touchend', end);
 
     app.appendChild(U.el('div', { className: 'tool-form' }, [
-      hint('塗鴉板——藝術天賦 optional，把滑鼠畫到報銷 mandatory。'),
+      hint('塗鴉板——只要動手，任何人都是畢卡索。'),
       U.row2(
         U.el('div', { className: 'tool-field' }, [
           U.el('label', { className: 'tool-label' }, '顏色'),

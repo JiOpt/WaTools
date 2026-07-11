@@ -8,6 +8,7 @@
     "plan:serve": "node scripts/plan-dev-server.mjs"
   },
   "devDependencies": {
-    "opencc-js": "^1.4.0"
+    "opencc-js": "^1.4.0",
+    "pinyin-to-zhuyin": "^1.1.0"
   }
 }

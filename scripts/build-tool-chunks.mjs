@@ -34,6 +34,33 @@ const CATEGORY_DIRS = [
   'culture', 'symbols', 'spiritual', 'world', 'scripture',
 ];
 
+/** Per-slug data / boot scripts not present in generated tool HTML. */
+const SLUG_EXTRAS = {
+  settings: ['user-preferences.js'],
+  qrcode: ['vendor/qrcodegen.js', 'vendor/qrcodejs.min.js', 'qrcode-tool.js'],
+  population: ['population-data.js'],
+  'world-flags': ['world-flags-data.js'],
+  'coat-of-arms': ['coat-of-arms-data.js'],
+  'national-anthem': ['national-anthem-data.js', 'national-anthem-audio.js'],
+  'national-symbol': ['national-symbol-data.js'],
+  monster: ['monster-data.js'],
+  ufo: ['ufo-data.js'],
+  'symbols-generator': ['symbols-generator-data.js'],
+  'keyboard-symbols': ['keyboard-symbols-data.js', 'keyboard-symbols-curated.js'],
+  emoji: ['emoji-data.js'],
+  exif: ['vendor/exifr.full.umd.js', 'exif-tool.js'],
+  punctuation: ['punctuation-data.js'],
+  'symbols-name': ['symbols-name-data.js'],
+  'world-time': ['world-time-data.js'],
+  'solar-terms': ['solar-terms-data.js'],
+  currency: ['currency-data.js'],
+  calendar: ['calendar-engine.js', 'calendar-holidays.js', 'calendar-glossary.js', 'chinese-calendar.js'],
+};
+
+const SLUG_PART_OVERRIDES = {
+  settings: 2,
+};
+
 function slugFromPart(content, partId) {
   const map = {};
   for (const m of content.matchAll(/R\['([^']+)'\]\s*=/g)) map[m[1]] = partId;
@@ -82,10 +109,13 @@ for (const { file, dir } of collectToolHtmlFiles()) {
   const html = fs.readFileSync(path.join(dir, file), 'utf8');
   if (!html.includes('id="tool-app"')) continue;
 
-  const part = slugPart[slug];
+  const part = SLUG_PART_OVERRIDES[slug] || slugPart[slug];
   if (!part) continue;
 
-  const extra = extrasFromHtml(html);
+  const extra = [...extrasFromHtml(html)];
+  for (const file of SLUG_EXTRAS[slug] || []) {
+    if (!extra.includes(file)) extra.push(file);
+  }
   chunks[slug] = extra.length ? { part, extra } : { part };
 }
 

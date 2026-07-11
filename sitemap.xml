@@ -1,818 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://watoolio.web.app/abc.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/copyright.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/alchemist.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/dev/color.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/alt-code.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/dev/naming-converter.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/area-code.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/dev/seo-keyword.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/bbcode.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/dev/timestamp.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/big5.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/fun/jinyong.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/bopomofo-chart.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/fun/lucky-draw.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/bopomofo-</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/fun/lucky-number.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/bopomofo-phonics.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/bopomofo-table.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/bopomofo.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/boshiamy.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/calculatortool.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/calendar.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/cangjie-chart.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/cangjie-dict.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/cangjie-practice.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/car-brand.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/case-converter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/chakra.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/coat-of-arms.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/color-blindness.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/color.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/colorfont.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/css-formatter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/currency.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/dedupe.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/dictionary.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/drawing.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/editor.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/email-icon.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/emoji.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/emoticon.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/enneagram.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/ethnic-china.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/exif.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/favicon.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/fortune-stick.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/ghost-story.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/hawkins.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/html-converter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/html-entities.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/html-js-formatter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/http-status.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/id-generator.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/image-coordinate.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/fun/reaction-test.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/ip.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/media/drawing.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/jinyong.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/media/exif.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/keyboard-mouse.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/media/image-compress.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/keyboard-symbols.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/media/image-coordinate.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/keycode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/kinship.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/longurl.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/lucky-draw.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/lucky-number.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/media-player.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/meitu.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/mind-reader.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/monster.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/music-player.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/national-anthem.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/national-symbol.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/numerology.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/parenting.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/password.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/phone.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/photo.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/pinyin-chart.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/pinyin-phonics.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/pinyin-syllable.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/pinyin-to-zh.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/pinyin.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/population.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/postal.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/punctuation.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/punycode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/qrcode-scan.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/qrcode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/rmb-upper.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/roman-numeral.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/rp-test.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/runcode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/screen-detect.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/screen-test.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/media/photo.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/36ji.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/baijiaxing.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/dabei.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/daode.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/dizang.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/dizigui.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/fahua.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/fozhou.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/jingang.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/lengyan.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/lunyu.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/qianjiashi.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/qianziwen.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/sanzijing.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/sunzi.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/xinjing.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://watoolio.web.app/scripture/yaoshi.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/scriptures.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/spiritual/hawkins.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/calculatortool.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/color-blindness.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/guid.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/ip.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/phone.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/qrcode-scan.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/random-number.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/screen-detect.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/screen-test.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://watoolio.web.app/utility/scriptures.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/seo-keyword.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/utility/settings.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/seo-search.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/utility/torch.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/shorturl.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/coat-of-arms.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/sitemap.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/ethnic-china.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/solar-terms.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/national-anthem.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/strokes.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/national-symbol.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/suzhou-numeral.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/population.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://watoolio.web.app/symbols-generator.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/symbols-name.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/text-garbled.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/textencrypt.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/time.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/torch.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/typing-practice.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/typing-teach.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/ubcode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/ufo.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/unicode-converter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/unicode-table.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/unicode.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/upload.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/url-crypto.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/url-encoder.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/viewsource.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/voltage.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/wishing-tree.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/wordcount.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/world-cup.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/world-flags.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/wubi.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/zh-converter.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/zh-table.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://watoolio.web.app/zodiac.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://watoolio.web.app/world/world-flags.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

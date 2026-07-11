@@ -2331,7 +2331,7 @@
       const flag = item.flag
         ? UI.el('img', {
           className: 'curr-card-flag',
-          src: item.flag,
+          src: siteMediaUrl(item.flag),
           alt: `${item.countryShort} 國旗`,
           loading: 'lazy',
         })
@@ -2793,13 +2793,28 @@
   };
 
   // ===== WORLD =====
+  const WORLD_MEDIA_DIRS = new Set([
+    'world-flags-img',
+    'coat-of-arms-img',
+    'national-symbol-img',
+    'monster-img',
+  ]);
+
   function siteMediaUrl(relativePath) {
     if (!relativePath) return relativePath;
     if (/^(https?:|data:|\/)/i.test(relativePath)) return relativePath;
-    if (window.WA_TOOL_URLS?.absolutePageHref) {
-      return window.WA_TOOL_URLS.absolutePageHref(relativePath);
+    let clean = String(relativePath).replace(/^\/+/, '');
+    const top = clean.split('/')[0];
+    if (WORLD_MEDIA_DIRS.has(top) && !clean.startsWith('world/')) {
+      clean = `world/${clean}`;
     }
-    return `/${String(relativePath).replace(/^\/+/, '')}`;
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref(clean);
+    }
+    if (typeof window.waAssetUrl === 'function') {
+      return window.waAssetUrl(clean);
+    }
+    return `/${clean}`;
   }
 
   R['world-flags'] = function (app) {
@@ -4292,7 +4307,7 @@
       const img = item.image
         ? UI.bindImageZoom(UI.el('img', {
           className: 'ufo-card-img',
-          src: item.image,
+          src: siteMediaUrl(item.image),
           alt: item.title,
           loading: 'lazy',
         }), { caption: item.title, title: '點擊放大' })
@@ -4357,7 +4372,7 @@
       const img = item.image
         ? UI.bindImageZoom(UI.el('img', {
           className: 'monster-card-img',
-          src: item.image,
+          src: siteMediaUrl(item.image),
           alt: item.title,
           loading: 'lazy',
         }), { caption: item.title, title: '點擊放大' })
@@ -4424,7 +4439,7 @@
       const img = item.image
         ? UI.bindImageZoom(UI.el('img', {
           className: 'nsym-card-img',
-          src: item.image,
+          src: siteMediaUrl(item.image),
           alt: title,
           loading: 'lazy',
         }), { caption: title, title: '點擊放大' })

@@ -13,7 +13,13 @@
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
-    return assetBase + base + '?v=' + WA_SITE_VERSION;
+    const prefix = assetBase || (function () {
+      const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+      const page = segs[segs.length - 1] || '';
+      const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
+      return depth ? '../'.repeat(depth) : '';
+    })();
+    return prefix + base + '?v=' + WA_SITE_VERSION;
   }
 
   function footerRootPrefix() {
@@ -55,8 +61,14 @@
 
   function getAssetBase() {
     const script = document.querySelector('script[src*="assets/js/main.js"]');
-    if (!script || !script.src) return '';
-    return script.src.replace(/assets\/js\/main\.js(\?.*)?$/, '');
+    if (script?.src) {
+      const base = script.src.replace(/assets\/js\/main\.js(\?.*)?$/, '');
+      if (base && base !== script.src) return base;
+    }
+    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+    const page = segs[segs.length - 1] || '';
+    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
+    return depth ? '../'.repeat(depth) : '';
   }
 
   const assetBase = getAssetBase();
@@ -288,7 +300,7 @@
    * Animation on scroll function and init
    */
   function aosInit() {
-    if (document.body.classList.contains('tool-page')
+    if ((document.body.classList.contains('tool-page') && !document.body.classList.contains('plan-page'))
       || document.documentElement.classList.contains('wa-tool-page')) {
       return;
     }

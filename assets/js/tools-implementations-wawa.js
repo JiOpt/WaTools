@@ -967,9 +967,9 @@
       UI.input('產生數量', 'rn-n', 'number', '5'),
       UI.btnGroup([
         UI.btn('產生', 'btn btn-primary tool-btn', () => {
-          const min = parseInt(getVal('rn-min'), 10);
-          const max = parseInt(getVal('rn-max'), 10);
-          const n = Math.min(100, Math.max(1, parseInt(getVal('rn-n'), 10) || 1));
+          const min = parseInt(getVal('rn-min') || '1', 10);
+          const max = parseInt(getVal('rn-max') || '100', 10);
+          const n = Math.min(100, Math.max(1, parseInt(getVal('rn-n') || '5', 10)));
           if (Number.isNaN(min) || Number.isNaN(max) || min > max) {
             UI.alert('請輸入有效範圍', 'warning');
             return;
@@ -981,6 +981,9 @@
       ]),
       UI.textarea('結果', 'rn-out', '', 4),
     ]);
+    setVal('rn-min', '1');
+    setVal('rn-max', '100');
+    setVal('rn-n', '5');
     readOnly('rn-out');
   };
 

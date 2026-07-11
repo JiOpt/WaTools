@@ -1,23 +1,61 @@
 # MyTooLife 發布清單
 # 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。
 # 以 # 開頭為註解；空行略過。一行一個 slug。
-# updated: 2026-07-11T07:35:50.205Z
+# updated: 2026-07-11T09:32:16.249Z
 
+bmi
 calculatortool
+calendar
+case-converter
 coat-of-arms
+color
 color-blindness
+datetime-calc
+drawing
+english-date
 ethnic-china
+exif
+expiry-date
+fortune-stick
 guid
+hawkins
+image-compress
+image-coordinate
 ip
+jinyong
+keyboard-mouse
+keycode
+lucky-draw
+lucky-number
+mind-reader
+naming-converter
 national-anthem
 national-symbol
 phone
+photo
 population
+qrcode-scan
+random-number
+reaction-test
+rp-test
 screen-detect
 screen-test
 scriptures
 seo-keyword
 settings
+solar-terms
+stopwatch
+timestamp
 torch
-whois
+unicode-table
+unit-area
+unit-byte
+unit-length
+unit-pressure
+unit-temperature
+unit-volume
+unit-weight
+wishing-tree
+wordcount
 world-flags
+zodiac

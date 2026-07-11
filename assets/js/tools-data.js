@@ -83,7 +83,7 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'editor', title: '線上編輯器', icon: 'bi-file-richtext', desc: 'HTML 文字編輯，協作平臺 lite 版。' },
       { slug: 'dedupe', title: '清除重複行', icon: 'bi-filter', desc: '去重複網址、姓名、文字，整理強迫症福音。' },
       { slug: 'case-converter', title: '英文大小寫轉換', icon: 'bi-type-bold', desc: 'UPPER lower Title Case，一鍵切換。' },
-      { slug: 'rmb-upper', title: '數字轉中文大寫', icon: 'bi-cash-stack', desc: '壹貳參肆，支票金額寫法不出錯。' },
+      { slug: 'chn-upper', title: '數字轉中文大寫', icon: 'bi-cash-stack', desc: '壹貳參肆，支票金額寫法不出錯。' },
       { slug: 'wordcount', title: '字數計算器', icon: 'bi-text-paragraph', desc: '字數、行數、段落，交稿前最後檢查。' },
       { slug: 'colorfont', title: '漸變彩字', icon: 'bi-palette2', desc: '多彩漸層文字，標題吸睛用。' },
       { slug: 'bbcode', title: 'BBCode 轉換', icon: 'bi-code', desc: 'HTML 與 BBCode 互轉，論壇時代遺產。' },

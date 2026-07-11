@@ -4,22 +4,29 @@
 (function () {
   'use strict';
 
-  const WA_BOOT_VERSION = '0.6.35';
+  const WA_BOOT_VERSION = '0.6.38';
   const LOAD_TIMEOUT_MS = 12000;
   const scriptLoads = new Map();
+  const loadedScripts = new Set();
   let bootGeneration = 0;
   let bootPromise = null;
+
+  function pathRootPrefix() {
+    if (window.WA_TOOL_URLS?.siteRootPrefix) return window.WA_TOOL_URLS.siteRootPrefix();
+    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+    const page = segs[segs.length - 1] || '';
+    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
+    return depth ? '../'.repeat(depth) : '';
+  }
 
   function getAssetBase() {
     const bootScript = document.currentScript
       || document.querySelector('script[src*="assets/js/tool-boot.js"]');
     if (bootScript?.src) {
-      return bootScript.src.replace(/assets\/js\/tool-boot\.js(\?.*)?$/, '');
+      const base = bootScript.src.replace(/assets\/js\/tool-boot\.js(\?.*)?$/, '');
+      if (base && base !== bootScript.src) return base;
     }
-    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    const page = segs[segs.length - 1] || '';
-    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
-    return depth ? '../'.repeat(depth) : '';
+    return pathRootPrefix();
   }
 
   const assetBase = getAssetBase();
@@ -28,16 +35,17 @@
     if (typeof window.waAssetUrl === 'function') return window.waAssetUrl(relativePath);
     const base = relativePath.split('?')[0];
     const extra = relativePath.includes('?') ? '&' + relativePath.split('?').slice(1).join('?') : '';
-    return `${assetBase}${base}?v=${WA_BOOT_VERSION}${extra}`;
+    const prefix = assetBase || pathRootPrefix();
+    return `${prefix}${base}?v=${WA_BOOT_VERSION}${extra}`;
   }
 
   function alreadyLoaded(relativePath) {
     const file = relativePath.split('?')[0].split('/').pop();
+    if (loadedScripts.has(file)) return true;
     if (file === 'tool-chunks.js') return !!window.WA_TOOL_CHUNKS;
     if (file === 'tool-ui.js') return !!window.WA_TOOL_UI;
     if (file === 'tools-data.js') return !!window.WA_TOOLS_CATALOG;
     if (file === 'tool-urls.js') return !!window.WA_TOOL_URLS;
-    if (file.startsWith('tools-implementations-')) return !!window.WA_TOOL_REGISTRY;
     return false;
   }
 
@@ -59,6 +67,7 @@
       script.onload = () => {
         clearTimeout(timer);
         script.dataset.loaded = '1';
+        loadedScripts.add(key.split('/').pop());
         resolve();
       };
       script.onerror = () => {
@@ -72,6 +81,35 @@
 
     scriptLoads.set(key, promise);
     return promise;
+  }
+
+  function hasToolInit(slug) {
+    return typeof window.WA_TOOL_REGISTRY?.[slug] === 'function';
+  }
+
+  async function ensureToolUi() {
+    if (window.WA_TOOL_UI) return;
+    const fileName = 'tool-ui.js';
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (!window.WA_TOOL_UI) {
+        if (attempt > 0) loadedScripts.delete(fileName);
+        await loadScript('assets/js/tool-ui.js');
+      }
+      if (window.WA_TOOL_UI) return;
+    }
+    throw new Error('tool-ui.js did not initialize WA_TOOL_UI');
+  }
+
+  async function ensureImplementation(implFile, slug) {
+    const fileName = implFile.split('/').pop();
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (!hasToolInit(slug)) {
+        if (attempt > 0) loadedScripts.delete(fileName);
+        await loadScript(`assets/js/${implFile}`);
+      }
+      if (hasToolInit(slug)) return;
+    }
+    throw new Error(`Missing tool implementation for ${slug}`);
   }
 
   function indexHref() {
@@ -163,9 +201,9 @@
           ? 'tools-implementations-wawa.js'
           : `tools-implementations-part${part}.js`;
 
-        await loadScript('assets/js/tool-ui.js');
+        await ensureToolUi();
         if (isStaleBoot(generation, targetApp, targetSlug)) return;
-        await loadScript(`assets/js/${implFile}`);
+        await ensureImplementation(implFile, targetSlug);
         if (isStaleBoot(generation, targetApp, targetSlug)) return;
 
         for (const file of extra) {
@@ -200,10 +238,6 @@
 
   window.__waBootTool = (force) => boot({ force: force === true });
   window.__waCancelToolBoot = cancelToolBoot;
-
-  window.addEventListener('mytoolife:soft-nav', () => {
-    boot({ force: true }).catch(() => {});
-  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', scheduleBoot, { once: true });

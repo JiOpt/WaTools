@@ -32,3 +32,15 @@
 2. 檢查所有 `<a>` 標籤（或框架內建 `<Link>`），若連往外部網站是否皆加上 `rel="noopener noreferrer"`。
 3. 確保文字與背景顏色對比度符合 WCAG AA 級標準（利於搜尋引擎爬蟲對 Accessibility 的評分）。
 4. 檢查是否有非必要的阻礙性 JavaScript，確保**首屏渲染（First Meaningful Paint）**與**核心網頁指標（Core Web Vitals, 如 LCP, INP）**效能最佳。
+
+5. 【局部渲染與狀態保持 (Partial Rendering & State UX)】
+- 嚴格遵守網頁局部渲染原則：當用戶切換子頁面或刷新內容時，上方 Nav/Header、左側 Sitemap/Sidebar、下方 Footer 必須維持不變（不可發生重新掛載或閃爍），僅允許中央 <main> 內文區域進行資料變動。
+- 針對 Next.js 專案，所有全局或區域的共同佈局必須鎖在 `layout.js` 中；各子頁面 `page.js` 僅能渲染該頁專屬的內文組件，嚴禁在子頁面中重複引入全域的 Nav 或 Sidebar。
+- 維持視覺與互動格式的一併統一：新增或變更子頁面時，內文的標題字級、間距（Spacing）、按鈕樣式、讀取中狀態（Skeleton/Loading）必須與全站既有規範嚴格同步，提供最佳使用者體驗。
+
+6. 【記憶體效能與穩定性控制 (Memory & Stability)】
+- 程式碼必須嚴防記憶體洩漏（Memory Leak）：在編寫任何常駐組件（如常駐的 Sitemap）或具備動態訂閱的子頁面時，必須確保在組件銷毀（Unmount）或路由切換時，執行完美的清理邏輯。
+- 具體實作約束：
+  1. 所有使用到的 `useEffect` 內若有 `addEventListener`、`setInterval`、`setTimeout`、或 WebSocket 訂閱，必須嚴格回傳（return）對應的 `removeEventListener` 或 `clear` 清理函式。
+  2. 優先使用框架內建或具備自動快取、自動銷毀機制的請求套件（如 SWR 或 TanStack Query），避免在全域變數中暫存大體積的重複資料。
+  3. 嚴禁在常駐組件中引發無效的重複渲染（Re-render），非必要時應使用 `React.memo` 或 `useMemo` 鎖定複雜的樹狀選單（Sitemap）結構。
