@@ -408,6 +408,36 @@ body.header-nav-auto.header-nav-hidden .world-flags-toolbar {
   white-space: nowrap;
 }
 
+.header-context-weather-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--contrast-color), transparent 55%);
+}
+
+.header-context-weather-prompt:hover {
+  text-decoration-color: var(--contrast-color);
+  background: color-mix(in srgb, var(--contrast-color), transparent 90%);
+}
+
+.header-context-weather-prompt:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--contrast-color), transparent 35%);
+  outline-offset: 2px;
+}
+
 @media (max-width: 767px) {
   .header-context-bar {
     overflow: hidden;
@@ -4642,6 +4672,74 @@ body.scripture-page [data-aos] {
 }
 
 /*--------------------------------------------------------------
+# Car brand tool
+--------------------------------------------------------------*/
+.car-brand-app .world-flags-grid {
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+}
+
+.car-brand-app {
+  --wf-toolbar-offset-compact: 118px;
+}
+
+.car-brand-app .world-flags-region-toggle {
+  display: none !important;
+}
+
+.car-brand-app .world-flags-toolbar.is-compact .world-flags-guide {
+  display: none;
+}
+
+.car-brand-app .world-flags-toolbar.is-compact .world-flags-nav-wrap {
+  display: block !important;
+  margin-top: 10px;
+}
+
+.car-brand-app .world-flags-toolbar.is-compact .world-flags-search-meta:not([hidden]) {
+  margin-top: 8px;
+}
+
+.car-brand-app .car-brand-img {
+  max-width: 72px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.car-brand-app .car-brand-dock-img {
+  max-width: 96px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.car-brand-tier {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.car-brand-tier-inline {
+  display: inline-block;
+  margin-left: 0.45em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+/*--------------------------------------------------------------
 # Soft navigation (sitemap SPA-style main swap)
 --------------------------------------------------------------*/
 main.main.soft-nav-busy {
@@ -5069,12 +5167,13 @@ main.main.soft-nav-busy {
 }
 
 .site-sitemap-list a.is-active .site-sitemap-icon-wrap,
-.site-sitemap-list a.is-recent .site-sitemap-icon-wrap,
+.site-sitemap-list a.is-visited .site-sitemap-icon-wrap,
 .site-sitemap-list a:hover .site-sitemap-icon-wrap {
   background: transparent;
 }
 
-.site-sitemap-list a.is-active .site-sitemap-icon-wrap i {
+.site-sitemap-list a.is-active .site-sitemap-icon-wrap i,
+.site-sitemap-list a.is-visited .site-sitemap-icon-wrap i {
   color: var(--accent-color);
 }
 
@@ -5084,29 +5183,15 @@ main.main.soft-nav-busy {
   text-decoration: none;
 }
 
+.site-sitemap-list a.is-visited {
+  color: var(--accent-color);
+  background: transparent;
+}
+
 .site-sitemap-list a.is-active {
   color: var(--accent-color);
   font-weight: 700;
   background: color-mix(in srgb, var(--accent-color), transparent 88%);
-}
-
-.site-sitemap-list a.is-recent {
-  background: color-mix(in srgb, var(--accent-color), transparent 94%);
-}
-
-.site-sitemap-list a.is-recent-latest {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.site-sitemap-recent-mark {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 6px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  vertical-align: middle;
-  transform: translateY(-1px);
 }
 
 .site-sitemap-recent {
@@ -5139,28 +5224,15 @@ main.main.soft-nav-busy {
   text-decoration: none;
 }
 
+.site-sitemap-recent-list a.is-visited {
+  color: var(--accent-color);
+  background: transparent;
+}
+
 .site-sitemap-recent-list a.is-active {
   color: var(--accent-color);
   font-weight: 700;
   background: color-mix(in srgb, var(--accent-color), transparent 88%);
-}
-
-.site-sitemap-recent-list a.is-recent-latest {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.site-sitemap-recent-dot {
-  flex: 0 0 auto;
-  width: 7px;
-  height: 7px;
-  margin-top: 4px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent-color), transparent 35%);
-}
-
-.site-sitemap-recent-list a.is-recent-latest .site-sitemap-recent-dot {
-  background: var(--accent-color);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 82%);
 }
 
 .site-sitemap-recent-title {
@@ -7289,6 +7361,43 @@ html[data-reduced-motion="true"] [data-aos] {
 
 .legal-section p:last-child {
   margin-bottom: 0;
+}
+
+.contact-topic-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--default-color);
+}
+
+.contact-topic-list li + li {
+  margin-top: 6px;
+}
+
+.contact-form-slot {
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 84%);
+}
+
+.contact-form-slot iframe {
+  display: block;
+  width: 100%;
+  min-height: 920px;
+  border: 0;
+}
+
+.contact-form-fallback {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.contact-form-external {
+  font-weight: 600;
 }
 
 .legal-section a {

@@ -175,7 +175,7 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'voltage', title: '電壓 & 插頭', icon: 'bi-plug', desc: '出國帶錯插頭，充電變修行。' },
       { slug: 'kinship', title: '親戚計算機', icon: 'bi-people', desc: '三姑六婆怎麼叫？機器比人親。' },
       { slug: 'parenting', title: '育兒工具', icon: 'bi-heart-pulse', desc: '婦幼資訊、親屬表，新手爸媽救星。' },
-      { slug: 'car-brand', title: '汽車品牌', icon: 'bi-car-front', desc: '各國車標圖鑑，路上認車用。' },
+      { slug: 'car-brand', title: '汽車品牌', icon: 'bi-car-front', desc: '各國車標圖鑑，品牌定位、招牌車款與選車重點。' },
       { slug: 'world-cup', title: '世界盃足球賽', icon: 'bi-trophy', desc: 'FIFA 專題，四年一次的集體狂歡。' },
       { slug: 'datetime-calc', title: '日期時間計算', icon: 'bi-calendar-plus', desc: '兩日期相差幾天、加減 N 天，排程心算器。' },
       { slug: 'english-date', title: '英文日期格式', icon: 'bi-calendar3', desc: '2026-07-11 變 July 11, 2026，英文信開頭用。' },

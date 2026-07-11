@@ -15,6 +15,7 @@
     focusVisible: false,
     highContrast: false,
     pageZoom: 100,
+    zhVariant: 'trad',
   };
 
   function migrateKey(nextKey, legacyKey) {
@@ -88,6 +89,7 @@
     root.setAttribute('data-high-contrast', highContrast ? 'true' : 'false');
     root.setAttribute('data-page-zoom', String(Math.min(200, Math.max(80, Math.round(pageZoom)))));
     root.style.zoom = pageZoom === 100 ? '' : String(pageZoom / 100);
+    root.setAttribute('data-zh-variant', pick(prefs, 'zhVariant') === 'simp' ? 'simp' : 'trad');
   }
 
   apply(readPrefs());

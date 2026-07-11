@@ -23,7 +23,10 @@
   }
 
   function footerRootPrefix() {
-    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/')) ? '../' : '';
+    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+    const page = segs[segs.length - 1] || '';
+    const depth = /\.html$/i.test(page) && segs.length > 1 ? segs.length - 1 : 0;
+    return depth ? '../'.repeat(depth) : '';
   }
 
   function renderSiteFooter() {
@@ -32,13 +35,19 @@
 
     const cfg = window.WA_SITE_FOOTER || {};
     const siteName = cfg.siteName || 'MyTooLife';
-    const tagline = cfg.tagline || '實用小工具，解決小麻煩';
+    const tagline = cfg.tagline || '免下載、免註冊，點開即用。實用小工具，解決小麻煩。';
     const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
 
     if (cfg.showCopyrightLink !== false) {
       const href = cfg.copyrightHref || `${footerRootPrefix()}copyright.html`;
       const label = cfg.copyrightLabel || '版權聲明';
+      parts.push(` · <a href="${href}">${label}</a>`);
+    }
+
+    if (cfg.showContactLink !== false) {
+      const href = cfg.contactHref || `${footerRootPrefix()}contact.html`;
+      const label = cfg.contactLabel || '聯絡我們';
       parts.push(` · <a href="${href}">${label}</a>`);
     }
 
@@ -104,6 +113,7 @@
    */
   if (document.querySelector('#header .branding')) {
     injectScript('assets/js/user-preferences.js', { defer: true });
+    injectScript('assets/js/zh-variant.js', { defer: true });
   }
 
   /**

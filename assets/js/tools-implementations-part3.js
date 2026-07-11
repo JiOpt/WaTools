@@ -2559,9 +2559,299 @@
   };
 
   R['car-brand'] = function (app) {
-    mount(app, [UI.panel('汽車品牌', UI.tableFrom([{"brand":"Toyota","country":"日本"},{"brand":"Honda","country":"日本"},{"brand":"BMW","country":"德國"},{"brand":"Mercedes-Benz","country":"德國"},{"brand":"Tesla","country":"美國"},{"brand":"Ford","country":"美國"},{"brand":"Luxgen","country":"臺灣"},{"brand":"Volkswagen","country":"德國"}], [
-      { key: 'brand', label: '品牌' }, { key: 'country', label: '產地' },
-    ]))]);
+    const data = window.WA_CAR_BRANDS;
+    if (!data || !data.regions || !data.regions.length) {
+      mount(app, [UI.panel('汽車品牌', UI.el('p', { className: 'text-muted' }, '品牌資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    const total = data.regions.reduce((n, r) => n + r.brands.length, 0);
+    let selectedCard = null;
+
+    function parseDescSections(desc) {
+      if (!desc) return [];
+      const sections = [];
+      const re = /【([^】]+)】([^【]*)/g;
+      let match;
+      while ((match = re.exec(desc)) !== null) {
+        const title = match[1].trim();
+        const text = match[2].trim();
+        if (text) sections.push({ title, text });
+      }
+      if (!sections.length && desc.trim()) {
+        sections.push({ title: '說明', text: desc.trim() });
+      }
+      return sections;
+    }
+
+    function sectionBlock(title, text) {
+      if (!text) return null;
+      return UI.el('div', { className: 'wf-dock-section' }, [
+        UI.el('h5', { className: 'wf-dock-section-title' }, title),
+        UI.el('p', { className: 'world-flags-dock-desc' }, text),
+      ]);
+    }
+
+    const detail = UI.el('div', { className: 'world-flags-dock', id: 'cb-detail', hidden: true }, [
+      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選車標可查看品牌介紹。'),
+    ]);
+
+    function setDockOpen(open) {
+      detail.hidden = !open;
+      detail.classList.toggle('is-visible', open);
+      app.classList.toggle('world-flags-has-dock', open);
+    }
+
+    function renderTitle(brand) {
+      const titleParts = [brand.nameZh];
+      if (brand.tier) {
+        titleParts.push(UI.el('span', { className: 'car-brand-tier-inline' }, brand.tier));
+      }
+      return UI.el('h4', { className: 'world-flags-dock-title' }, titleParts);
+    }
+
+    function renderNameLine(brand) {
+      if (!brand.nameEn || brand.nameEn === brand.nameZh) return null;
+      return UI.el('p', { className: 'world-flags-dock-names' }, [
+        UI.el('span', { className: 'world-flags-dock-en' }, brand.nameEn),
+      ]);
+    }
+
+    function showDetail(brand, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'world-flags-dock-inner' }, [
+          UI.el('div', { className: 'world-flags-dock-head' }, [
+            UI.bindImageZoom(UI.el('img', {
+              className: 'world-flags-dock-img car-brand-dock-img',
+              src: siteMediaUrl(brand.image),
+              alt: brand.nameZh,
+              loading: 'lazy',
+            }), { caption: brand.nameZh }),
+            UI.el('div', { className: 'world-flags-dock-head-text' }, [
+              renderTitle(brand),
+              renderNameLine(brand),
+            ]),
+            UI.el('button', {
+              type: 'button',
+              className: 'world-flags-dock-close',
+              title: '收合',
+              'aria-label': '收合詳情',
+              onClick: () => {
+                if (selectedCard) selectedCard.classList.remove('is-selected');
+                selectedCard = null;
+                setDockOpen(false);
+              },
+            }, '×'),
+          ]),
+          brand.desc
+            ? UI.el('div', { className: 'world-flags-dock-body wf-dock-body' },
+              parseDescSections(brand.desc).map((section) => sectionBlock(section.title, section.text))
+            )
+            : null,
+        ])
+      );
+      const body = detail.querySelector('.world-flags-dock-body');
+      if (body) body.scrollTop = 0;
+      setDockOpen(true);
+    }
+
+    function makeCard(brand) {
+      return UI.el('button', {
+        type: 'button',
+        className: 'world-flags-card car-brand-card',
+        title: brand.nameZh,
+        dataset: {
+          nameZh: brand.nameZh,
+          nameEn: brand.nameEn || '',
+          tier: brand.tier || '',
+        },
+        onClick: (e) => showDetail(brand, e.currentTarget),
+      }, [
+        UI.el('img', {
+          className: 'world-flags-img car-brand-img',
+          src: siteMediaUrl(brand.image),
+          alt: brand.nameZh,
+          loading: 'lazy',
+          width: '72',
+          height: '48',
+        }),
+        UI.el('span', { className: 'world-flags-name' }, brand.nameZh),
+        brand.nameEn && brand.nameEn !== brand.nameZh
+          ? UI.el('span', { className: 'world-flags-name-en' }, brand.nameEn)
+          : null,
+        brand.tier
+          ? UI.el('span', { className: 'car-brand-tier' }, brand.tier)
+          : null,
+      ]);
+    }
+
+    function makeRegionSection(region) {
+      const grid = UI.el('div', {
+        className: 'world-flags-grid car-brand-grid',
+        id: `cb-region-${region.id}`,
+        dataset: { region: region.id },
+      }, region.brands.map(makeCard));
+
+      return UI.el('section', { className: 'world-flags-region' }, [
+        UI.el('h3', { className: 'world-flags-region-title' }, [
+          region.label,
+          UI.el('span', { className: 'world-flags-region-count' }, `${region.brands.length}`),
+        ]),
+        grid,
+      ]);
+    }
+
+    const intro = data.intro || {};
+    const introGuide = UI.el('details', { className: 'world-flags-guide' }, [
+      UI.el('summary', {}, '選車時該看哪些重點？'),
+      UI.el('div', { className: 'world-flags-guide-body' }, [
+        ...(intro.guide || []).map((line) => UI.el('p', {}, line)),
+        intro.disclaimer
+          ? UI.el('p', { className: 'mb-0 text-muted small' }, intro.disclaimer)
+          : null,
+      ]),
+    ]);
+
+    const introMeta = UI.el('p', {
+      className: 'text-muted world-flags-intro-meta',
+      id: 'cb-intro-meta',
+    }, intro.summary || `共 ${total} 個品牌 · 點選車標查看詳情`);
+
+    const search = UI.el('input', {
+      type: 'search',
+      className: 'form-control tool-input world-flags-search',
+      id: 'cb-search',
+      placeholder: '搜尋品牌名稱（中文或英文）…',
+      autocomplete: 'off',
+    });
+
+    const nav = UI.el('div', { className: 'world-flags-nav' }, data.regions.map((region) =>
+      UI.el('a', {
+        className: 'world-flags-nav-link',
+        href: `#cb-region-${region.id}`,
+      }, `${region.label} (${region.brands.length})`)
+    ));
+
+    const searchMeta = UI.el('p', {
+      className: 'text-muted world-flags-search-meta',
+      id: 'cb-meta',
+      hidden: true,
+    }, '');
+
+    const regionToggle = UI.el('button', {
+      type: 'button',
+      className: 'world-flags-region-toggle',
+      id: 'cb-region-toggle',
+      title: '選擇產地',
+      'aria-expanded': 'false',
+      'aria-controls': 'cb-nav',
+    }, '產地');
+
+    const searchRow = UI.el('div', { className: 'world-flags-toolbar-row' }, [search, regionToggle]);
+    const navWrap = UI.el('div', { className: 'world-flags-nav-wrap', id: 'cb-nav' }, [nav]);
+    const toolbar = UI.el('div', { className: 'world-flags-toolbar', id: 'cb-toolbar' }, [
+      introMeta,
+      introGuide,
+      searchRow,
+      searchMeta,
+      navWrap,
+    ]);
+
+    regionToggle.addEventListener('click', () => {
+      const open = toolbar.classList.toggle('is-nav-open');
+      regionToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const scrollSentinel = UI.el('div', {
+      className: 'world-flags-scroll-sentinel',
+      'aria-hidden': 'true',
+    });
+
+    const regionsWrap = UI.el('div', { className: 'world-flags-regions', id: 'cb-regions' },
+      data.regions.map(makeRegionSection)
+    );
+
+    function filterBrands() {
+      const q = search.value.trim().toLowerCase();
+      let visible = 0;
+      regionsWrap.querySelectorAll('.world-flags-region').forEach((section) => {
+        let regionVisible = 0;
+        section.querySelectorAll('.world-flags-card').forEach((card) => {
+          const zh = (card.dataset.nameZh || '').toLowerCase();
+          const en = (card.dataset.nameEn || '').toLowerCase();
+          const tier = (card.dataset.tier || '').toLowerCase();
+          const show = !q || zh.includes(q) || en.includes(q) || tier.includes(q);
+          card.hidden = !show;
+          if (show) regionVisible++;
+        });
+        section.hidden = regionVisible === 0;
+        visible += regionVisible;
+      });
+      searchMeta.hidden = !q;
+      searchMeta.textContent = q ? `找到 ${visible} 個品牌` : '';
+      introMeta.hidden = !!q;
+    }
+
+    search.addEventListener('input', filterBrands);
+
+    const firstBrand = data.regions[0]?.brands[0];
+    const firstCard = regionsWrap.querySelector('.world-flags-card');
+
+    mount(app, [
+      scrollSentinel,
+      toolbar,
+      regionsWrap,
+      detail,
+    ]);
+
+    app.classList.add('world-flags-app', 'car-brand-app');
+
+    const stickyTop = () => {
+      const root = getComputedStyle(document.documentElement);
+      return root.getPropertyValue('--header-offset').trim()
+        || getComputedStyle(app).getPropertyValue('--wf-sticky-top').trim()
+        || '72px';
+    };
+
+    const onStickyCompactChange = ([entry]) => {
+      const compact = !entry.isIntersecting;
+      toolbar.classList.toggle('is-compact', compact);
+      if (!compact) {
+        toolbar.classList.remove('is-nav-open');
+        regionToggle.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    const makeStickyObserver = () => new IntersectionObserver(onStickyCompactChange, {
+      root: null,
+      threshold: 0,
+      rootMargin: `-${stickyTop()} 0px 0px 0px`,
+    });
+
+    let scrollObserver = makeStickyObserver();
+    scrollObserver.observe(scrollSentinel);
+
+    const refreshStickyObserver = () => {
+      scrollObserver.disconnect();
+      scrollObserver = makeStickyObserver();
+      scrollObserver.observe(scrollSentinel);
+    };
+
+    window.addEventListener('resize', refreshStickyObserver);
+    window.addEventListener('mytoolife:header-offset', refreshStickyObserver);
+
+    if (firstBrand && firstCard) showDetail(firstBrand, firstCard);
   };
 
   R['world-cup'] = function (app) {

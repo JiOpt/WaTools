@@ -30,6 +30,7 @@
     focusVisible: false,
     highContrast: false,
     pageZoom: 100,
+    zhVariant: 'trad',
   };
 
   function readRaw() {
@@ -67,6 +68,9 @@
     }
     apply(next);
     window.dispatchEvent(new CustomEvent('mytoolife:prefs-changed', { detail: next }));
+    if (window.WA_ZH_VARIANT?.apply) {
+      window.WA_ZH_VARIANT.apply(next.zhVariant === 'simp' ? 'simp' : 'trad');
+    }
     return next;
   }
 
@@ -90,6 +94,7 @@
     root.setAttribute('data-high-contrast', prefs.highContrast ? 'true' : 'false');
     root.setAttribute('data-page-zoom', String(prefs.pageZoom));
     root.style.zoom = prefs.pageZoom === 100 ? '' : String(prefs.pageZoom / 100);
+    root.setAttribute('data-zh-variant', prefs.zhVariant === 'simp' ? 'simp' : 'trad');
   }
 
   function reset() {
@@ -201,11 +206,13 @@
       var fontSize = form.querySelector('input[name="fontSize"]:checked');
       var lineHeight = form.querySelector('input[name="lineHeight"]:checked');
       var eyeSaver = form.querySelector('input[name="eyeSaver"]:checked');
+      var zhVariant = form.querySelector('input[name="zhVariant"]:checked');
       var zoom = form.querySelector('#pref-pageZoom');
       data.theme = theme ? theme.value : prefs.theme;
       data.fontSize = fontSize ? fontSize.value : prefs.fontSize;
       data.lineHeight = lineHeight ? lineHeight.value : prefs.lineHeight;
       data.eyeSaver = eyeSaver ? eyeSaver.value : prefs.eyeSaver;
+      data.zhVariant = zhVariant ? zhVariant.value : prefs.zhVariant;
       data.reducedMotion = Boolean(form.querySelector('#pref-reducedMotion')?.checked);
       data.focusVisible = Boolean(form.querySelector('#pref-focusVisible')?.checked);
       data.highContrast = Boolean(form.querySelector('#pref-highContrast')?.checked);
@@ -240,6 +247,12 @@
           optionRow('fontSize', 'sm', '小', '適合資訊密集、需一屏顯示更多內容。', 'radio', prefs.fontSize === 'sm'),
           optionRow('fontSize', 'md', '中（預設）', '一般閱讀的預設大小。', 'radio', prefs.fontSize === 'md'),
           optionRow('fontSize', 'lg', '大', '放大文字，減輕長文閱讀時的視覺負擔。', 'radio', prefs.fontSize === 'lg'),
+        ]),
+      ]),
+      section('繁簡中文', '網站原文為繁體。選擇簡體時，會在您的瀏覽器本地轉換頁面文字顯示。', [
+        el('div', { className: 'prefs-option-group', role: 'radiogroup', 'aria-label': '繁簡中文' }, [
+          optionRow('zhVariant', 'trad', '繁體', '顯示網站原始繁體用字。', 'radio', prefs.zhVariant !== 'simp'),
+          optionRow('zhVariant', 'simp', '簡體', '將介面文字轉為簡體顯示，無需重新整理。', 'radio', prefs.zhVariant === 'simp'),
         ]),
       ]),
       section('行距', '調整段落與列表的行距，提升長文閱讀舒適度。', [

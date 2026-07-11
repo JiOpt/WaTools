@@ -3,8 +3,12 @@
 
   const GEO_CACHE_KEY = 'mytoolife-header-geo';
   const WEATHER_CACHE_KEY = 'mytoolife-header-weather';
+  const WEATHER_OPT_IN_KEY = 'mytoolife-header-weather-opt-in';
   const WEATHER_TTL_MS = 30 * 60 * 1000;
   const DEFAULT_GEO = { lat: 25.033, lon: 121.565, label: '臺北' };
+
+  let weatherActivated = false;
+  let weatherRefreshTimer = null;
 
   const WMO_ICONS = [
     [0, 'bi-sun-fill', '晴'],
@@ -40,6 +44,22 @@
     try {
       sessionStorage.setItem(key, raw);
       if (persist) localStorage.setItem(key, raw);
+    } catch {
+      /* quota / file:// */
+    }
+  }
+
+  function isWeatherOptIn() {
+    try {
+      return localStorage.getItem(WEATHER_OPT_IN_KEY) === '1';
+    } catch {
+      return false;
+    }
+  }
+
+  function setWeatherOptIn() {
+    try {
+      localStorage.setItem(WEATHER_OPT_IN_KEY, '1');
     } catch {
       /* quota / file:// */
     }
@@ -162,9 +182,7 @@
           <span class="header-context-sep" aria-hidden="true">·</span>
           <span class="header-context-weekday"></span>
         </div>
-        <div class="header-context-weather" aria-live="polite">
-          <span class="header-context-weather-loading">定位天氣中…</span>
-        </div>
+        <div class="header-context-weather" aria-live="polite"></div>
       </div>
     `;
 
@@ -214,6 +232,49 @@
     box.setAttribute('aria-label', `${place} ${label}，現在 ${now} 度，今日 ${min} 到 ${max} 度`);
   }
 
+  function renderWeatherPrompt(bar) {
+    const box = bar.querySelector('.header-context-weather');
+    if (!box) return;
+    box.innerHTML = `
+      <button type="button" class="header-context-weather-prompt">
+        <i class="bi bi-cloud-sun header-context-weather-icon" aria-hidden="true"></i>
+        <span>查看天氣</span>
+      </button>
+    `;
+    box.setAttribute('aria-label', '點擊查看天氣，將詢問是否允許定位');
+  }
+
+  function renderWeatherLoading(bar) {
+    const box = bar.querySelector('.header-context-weather');
+    if (!box) return;
+    box.innerHTML = '<span class="header-context-weather-loading">定位天氣中…</span>';
+    box.removeAttribute('aria-label');
+  }
+
+  function activateWeather(bar) {
+    if (weatherActivated) return;
+    weatherActivated = true;
+    renderWeatherLoading(bar);
+    loadWeather(bar, { allowGps: true });
+  }
+
+  function bindWeatherPrompt(bar) {
+    const box = bar.querySelector('.header-context-weather');
+    if (!box) return;
+    box.addEventListener('click', (e) => {
+      if (weatherActivated) return;
+      if (!e.target.closest('.header-context-weather-prompt')) return;
+      activateWeather(bar);
+    });
+  }
+
+  function startWeatherRefresh(bar) {
+    if (weatherRefreshTimer) return;
+    weatherRefreshTimer = window.setInterval(() => {
+      loadWeather(bar, { allowGps: false });
+    }, WEATHER_TTL_MS);
+  }
+
   async function reverseLabel(lat, lon) {
     try {
       const url = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&language=zh&count=1`;
@@ -254,11 +315,21 @@
     return hit;
   }
 
-  function readWeatherCache(lat, lon) {
+  function readWeatherCache(lat, lon, options) {
     const hit = readJson(WEATHER_CACHE_KEY);
     if (!hit || hit.lat !== lat || hit.lon !== lon) return null;
-    if (Date.now() - hit.ts > WEATHER_TTL_MS) return null;
+    if (!options?.allowStale && Date.now() - hit.ts > WEATHER_TTL_MS) return null;
     return hit;
+  }
+
+  function showCachedWeather(bar) {
+    const geo = readGeoCache();
+    if (!geo) return false;
+    const cached = readWeatherCache(geo.lat, geo.lon, { allowStale: true });
+    if (!cached) return false;
+    renderWeather(bar, { ...cached, label: geo.label || cached.label });
+    syncHeaderOffset();
+    return true;
   }
 
   function geolocationPromise() {
@@ -292,21 +363,27 @@
     };
   }
 
-  async function resolveGeo() {
+  async function resolveGeo(options) {
+    const allowGps = options?.allowGps === true;
     const cached = readGeoCache();
-    if (cached?.label) return cached;
 
-    try {
-      const gps = await geolocationPromise();
-      const label = await reverseLabel(gps.lat, gps.lon);
-      const geo = { ...gps, label: label || '目前位置', ts: Date.now() };
-      writeJson(GEO_CACHE_KEY, geo, true);
-      return geo;
-    } catch {
-      /* fall through */
+    if (cached?.lat != null && cached?.lon != null && (cached.label || !allowGps)) {
+      return cached;
     }
 
-    if (cached) return cached;
+    if (allowGps) {
+      try {
+        const gps = await geolocationPromise();
+        const label = await reverseLabel(gps.lat, gps.lon);
+        const geo = { ...gps, label: label || '目前位置', ts: Date.now() };
+        writeJson(GEO_CACHE_KEY, geo, true);
+        return geo;
+      } catch {
+        /* fall through */
+      }
+    }
+
+    if (cached?.lat != null && cached?.lon != null) return cached;
 
     try {
       const ip = await ipGeoPromise();
@@ -318,8 +395,8 @@
     }
   }
 
-  async function loadWeather(bar) {
-    const geo = await resolveGeo();
+  async function loadWeather(bar, options) {
+    const geo = await resolveGeo(options);
     if (!geo.label && geo.lat != null) {
       geo.label = await reverseLabel(geo.lat, geo.lon) || DEFAULT_GEO.label;
       writeJson(GEO_CACHE_KEY, geo, true);
@@ -329,6 +406,10 @@
     if (cached) {
       renderWeather(bar, { ...cached, label: geo.label });
       syncHeaderOffset();
+      if (weatherActivated) {
+        setWeatherOptIn();
+        startWeatherRefresh(bar);
+      }
       return;
     }
 
@@ -341,12 +422,25 @@
         ts: Date.now(),
         ...wx,
       };
-      writeJson(WEATHER_CACHE_KEY, payload, false);
+      writeJson(WEATHER_CACHE_KEY, payload, weatherActivated);
       renderWeather(bar, payload);
+      if (weatherActivated) setWeatherOptIn();
     } catch {
       renderWeather(bar, null);
     }
     syncHeaderOffset();
+    if (weatherActivated) startWeatherRefresh(bar);
+  }
+
+  function bootWeather(bar) {
+    if (isWeatherOptIn()) {
+      weatherActivated = true;
+      if (!showCachedWeather(bar)) renderWeatherLoading(bar);
+      loadWeather(bar, { allowGps: false });
+      return;
+    }
+    renderWeatherPrompt(bar);
+    bindWeatherPrompt(bar);
   }
 
   function init() {
@@ -358,15 +452,11 @@
 
     if (bar) {
       renderDate(bar);
-      loadWeather(bar);
+      bootWeather(bar);
 
       window.setInterval(() => {
         renderDate(bar);
       }, 60000);
-
-      window.setInterval(() => {
-        loadWeather(bar);
-      }, WEATHER_TTL_MS);
     }
 
     syncHeaderOffset();

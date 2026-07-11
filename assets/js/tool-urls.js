@@ -11,6 +11,7 @@
     'index.html',
     'index_plan.html',
     'copyright.html',
+    'contact.html',
     'starter-page.html',
   ]);
 

@@ -560,8 +560,7 @@
   function linkClassNames(href, recentRank, scriptureSlugs) {
     const classes = [];
     if (isActiveHref(href, scriptureSlugs)) classes.push('is-active');
-    else if (recentRank === 0) classes.push('is-recent', 'is-recent-latest');
-    else if (recentRank >= 0) classes.push('is-recent');
+    else if (recentRank >= 0) classes.push('is-visited');
     return classes.join(' ');
   }
 
@@ -663,9 +662,6 @@
             className: linkClassNames(href, rank, scriptureSlugs),
             dataset: { label: `${tool.title} ${category.name}`, canon },
           }, [
-            rank >= 0 && !isActiveHref(href, scriptureSlugs)
-              ? el('span', { className: 'site-sitemap-recent-mark', title: '最近瀏覽' })
-              : null,
             ...toolLinkLabel(tool),
           ]),
         ]);
@@ -689,9 +685,6 @@
             className: linkClassNames(href, rank, scriptureSlugs),
             dataset: { label: `${book.title} ${category.name} 藏經閣`, canon },
           }, [
-            rank >= 0 && !isActiveHref(href, scriptureSlugs)
-              ? el('span', { className: 'site-sitemap-recent-mark', title: '最近瀏覽' })
-              : null,
             book.title,
           ]),
         ]);
@@ -710,10 +703,9 @@
       return el('li', null, [
         el('a', {
           href,
-          className: linkClassNames(href, index, scriptureSlugs),
+          className: 'is-visited',
           title: item.title,
         }, [
-          el('span', { className: 'site-sitemap-recent-dot', 'aria-hidden': 'true' }),
           el('span', { className: 'site-sitemap-recent-title' }, [item.title]),
           el('span', { className: 'site-sitemap-recent-time' }, [index === 0 ? '剛剛' : formatTime(item.ts)]),
         ]),
@@ -1071,19 +1063,12 @@
       if (recentRankByHref.has(canon)) rank = recentRankByHref.get(canon);
       else if (recentRankByHref.has(href)) rank = recentRankByHref.get(href);
       const active = isActiveHref(href, scriptureSlugs);
-      link.classList.remove('is-active', 'is-recent', 'is-recent-latest');
+      link.classList.remove('is-active', 'is-visited', 'is-recent', 'is-recent-latest');
       if (active) link.classList.add('is-active');
-      else if (rank === 0) link.classList.add('is-recent', 'is-recent-latest');
-      else if (rank >= 0) link.classList.add('is-recent');
+      else if (rank >= 0 || link.closest('.site-sitemap-recent-list')) link.classList.add('is-visited');
 
-      const mark = link.querySelector('.site-sitemap-recent-mark');
-      if (active || rank < 0) mark?.remove();
-      else if (!mark && link.closest('.site-sitemap-list')) {
-        const dot = document.createElement('span');
-        dot.className = 'site-sitemap-recent-mark';
-        dot.title = '最近瀏覽';
-        link.insertBefore(dot, link.firstChild);
-      }
+      link.querySelector('.site-sitemap-recent-mark')?.remove();
+      link.querySelector('.site-sitemap-recent-dot')?.remove();
     });
 
     const recentSection = nav.querySelector('.site-sitemap-section[data-section="recent"]');

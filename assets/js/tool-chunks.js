@@ -262,7 +262,10 @@ window.WA_TOOL_CHUNKS = {
     ]
   },
   "car-brand": {
-    "part": 3
+    "part": 3,
+    "extra": [
+      "car-brand-data.js"
+    ]
   },
   "currency": {
     "part": 3,

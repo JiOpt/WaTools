@@ -5,7 +5,8 @@
     "merge:anthems": "node scripts/merge-anthem-enrich.mjs",
     "sitemap:build": "node scripts/build-sitemap-js.mjs",
     "tools:migrate-folders": "node scripts/migrate-tool-folders.mjs",
-    "plan:serve": "node scripts/plan-dev-server.mjs"
+    "plan:serve": "node scripts/plan-dev-server.mjs",
+    "fetch:car-brands": "node scripts/fetch-car-brand.mjs"
   },
   "devDependencies": {
     "opencc-js": "^1.4.0",

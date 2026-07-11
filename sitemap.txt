@@ -1,17 +1,20 @@
 # MyTooLife 發布清單
 # 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。
 # 以 # 開頭為註解；空行略過。一行一個 slug。
-# updated: 2026-07-11T09:32:16.249Z
+# updated: 2026-07-11T10:59:38.880Z
 
 bmi
 calculatortool
 calendar
+car-brand
 case-converter
 coat-of-arms
 color
 color-blindness
+currency
 datetime-calc
 drawing
+emoji
 english-date
 ethnic-china
 exif
@@ -34,9 +37,12 @@ national-symbol
 phone
 photo
 population
+punctuation
 qrcode-scan
+radix-converter
 random-number
 reaction-test
+roman-numeral
 rp-test
 screen-detect
 screen-test
@@ -45,6 +51,7 @@ seo-keyword
 settings
 solar-terms
 stopwatch
+symbols-generator
 timestamp
 torch
 unicode-table

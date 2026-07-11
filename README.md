@@ -2,7 +2,8 @@
 
 免安裝 **mytoolife** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://watoolio.web.app>（**v0.6.1**）
+- 網站：<https://watoolio.web.app>（**v0.6.38**）
+- 自訂網域：`mytoolife.com`（GoDaddy 註冊，於 Firebase Hosting 綁定 DNS）
 - Firebase 專案：`watoolio`
 
 ---
@@ -14,6 +15,10 @@
 | `assets/img/` | 網站正式使用的 favicon、logo、Apple touch icon |
 | `assets/icon/` | 圖示原始檔／備份（未直接引用於 HTML） |
 | `assets/js/` | 工具目錄、藏經閣、全站腳本 |
+| `assets/js/user-preferences.js` | 個人化設定（主題、字體、繁簡等） |
+| `assets/js/zh-variant.js` | 全站繁簡轉換（瀏覽器本地 OpenCC） |
+| `assets/js/vendor/opencc-t2cn.js` | OpenCC 繁→簡字典（約 101 KB，選簡體時才載入） |
+| `utility/settings.html` | 個人化設定頁 |
 | `assets/css/main.css` | 全站樣式（含藏經閣收折樣式） |
 | `scripture/` | 藏經閣各經典頁面（由建置腳本產生） |
 | `scripts/build-scriptures.mjs` | 從來源站抓取並產生經典 HTML |
@@ -119,6 +124,30 @@ calculatortool
 
 ---
 
+## 個人化設定與繁簡切換
+
+路徑：**`/utility/settings.html`**（頁首「個人化設定」）
+
+偏好儲存在瀏覽器 `localStorage`（鍵名 `mytoolife-user-prefs`），套用至全站所有頁面，無需帳號。
+
+| 項目 | 說明 |
+|------|------|
+| 深色模式 | 淺色／深色／跟隨系統 |
+| 字體大小 | 小／中／大 |
+| **繁簡中文** | 繁體（預設）或簡體；選簡體時以 OpenCC 在本地轉換頁面文字 |
+| 行距、護眼色溫、縮放、無障礙 | 見設定頁各區塊 |
+
+**繁簡切換運作方式**
+
+- 網站原文為繁體；切換後**立即生效**，無需重新整理
+- `prefs-boot.js` 在 `<head>` 提早套用 `data-zh-variant`，減少閃爍
+- `main.js` 載入 `zh-variant.js`；動態插入的工具內容也會自動轉換
+- 切回繁體會還原原文（`originalString` 快取於 DOM 節點）
+
+相關模組：`user-preferences.js`、`zh-variant.js`、`prefs-boot.js`
+
+---
+
 ## Firebase 部署
 
 首次設定：
@@ -147,6 +176,15 @@ firebase deploy --only hosting --project watoolio
 ```bash
 firebase hosting:disable --project watoolio
 ```
+
+### 自訂網域（mytoolife.com）
+
+1. [Firebase Console](https://console.firebase.google.com/) → 專案 `watoolio` → **Hosting** → **Add custom domain**
+2. 輸入 `mytoolife.com`（建議一併加入 `www.mytoolife.com`）
+3. 至 GoDaddy DNS 依 Firebase 指示設定 **TXT**（驗證）、**A**（根網域）、**CNAME**（`www` → `watoolio.web.app`）
+4. 等待 Firebase 顯示 Connected 並完成 SSL 憑證
+
+> `watoolio.web.app` 在綁定後仍可存取。站內 canonical／og:url 若仍為 `watoolio.web.app`，上線後可逐步改為 `https://mytoolife.com/...`（SEO 用）。
 
 > `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`（SEO 用，與工具發布清單 `sitemap.txt` 不同）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
 
@@ -182,6 +220,17 @@ firebase hosting:disable --project watoolio
 
 
 ## 版本更新
+
+### v0.6.38（2026-07-11）
+
+**個人化與繁簡**
+- 設定頁新增「繁簡中文」：繁體／簡體即時切換，偏好存於 `localStorage`
+- 新增 `zh-variant.js` + `vendor/opencc-t2cn.js`（OpenCC 本地轉換，選簡體時才載入）
+- `prefs-boot.js`、`user-preferences.js`、`main.js` 串接 `data-zh-variant`
+
+**首頁與頁尾**
+- 首頁移除 hero 區塊，直接顯示工具目錄
+- 全站頁尾標語改為「免下載、免註冊，點開即用。實用小工具，解決小麻煩。」
 
 ### v0.6.28–0.6.33（2026-07-11）
 
