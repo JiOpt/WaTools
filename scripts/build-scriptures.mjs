@@ -1019,13 +1019,13 @@ function renderScripturePage(book, mainContent, supplementsHtml, relatedHtml) {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 ${renderAnalyticsSnippet()}
 ${FONT_SIZE_BOOT}
-  <title>${escapeHtml(book.title)} - 藏經閣 - WaTools</title>
+  <title>${escapeHtml(book.title)} - 藏經閣 - WaWaTools</title>
 ${renderSeoMeta({
-    title: `${book.title} - 藏經閣 - WaTools`,
+    title: `${book.title} - 藏經閣 - WaWaTools`,
     description: book.desc,
     path: `scripture/${book.slug}.html`,
     type: 'article',
-    keywords: `${book.title},藏經閣,國學,佛經,WaTools`,
+    keywords: `${book.title},藏經閣,國學,佛經,WaWaTools`,
   })}
   <link href="${rootAssetHref('assets/img/favicon.png')}" rel="icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -1040,7 +1040,7 @@ ${renderSeoMeta({
   <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="${rootPageHref('index.html')}" class="logo d-flex align-items-center me-auto"><h1 class="sitename">WaTools</h1></a>
+        <a href="${rootPageHref('index.html')}" class="logo d-flex align-items-center me-auto"><h1 class="sitename">WaWaTools</h1></a>
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="${rootPageHref('index.html')}">工具首頁</a></li>
@@ -1091,7 +1091,7 @@ ${renderSeoMeta({
   </main>
   <footer id="footer" class="footer light-background">
     <div class="container copyright text-center py-4">
-      <p>© <strong class="sitename">WaTools</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
+      <p>© <strong class="sitename">WaWaTools</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
     </div>
   </footer>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1109,7 +1109,7 @@ async function fetchScripture(source) {
   const url = `${BASE}${source}`;
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'WaTools-Builder/1.0',
+      'User-Agent': 'WaWaTools-Builder/1.0',
       Accept: 'text/html',
     },
   });

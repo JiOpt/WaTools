@@ -1,4 +1,4 @@
-# WaTools
+# WaWaTools
 
 免安裝 挖工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
@@ -17,8 +17,105 @@
 | `assets/css/main.css` | 全站樣式（含藏經閣收折樣式） |
 | `scripture/` | 藏經閣各經典頁面（由建置腳本產生） |
 | `scripts/build-scriptures.mjs` | 從來源站抓取並產生經典 HTML |
+| `sitemap.txt` | **本機**發布清單（一行一個 slug；註解以 `#` 開頭） |
+| `assets/js/sitemap-published.js` | **正式站**讀取的發布清單（由建置腳本產生） |
+| `index_plan.html` | 內部「工具發布計畫」頁（不對外部署） |
+| `scripts/plan-dev-server.mjs` | 本機 plan 伺服器（讀寫 `sitemap.txt`） |
+| `scripts/build-sitemap-js.mjs` | `sitemap.txt` → `sitemap-published.js` |
 
 > 網站 icon 慣例放在 `assets/img/`（或根目錄 `favicon.ico`），一般不用 `pic/` 這類資料夾。
+
+---
+
+## 工具發布計畫（開放／隱藏）
+
+以 **`sitemap.txt`** 為單一真相來源：檔案內的 **slug** 會出現在 **首頁工具目錄** 與 **左側網站地圖**。工具標題、圖示、分類仍來自 `assets/js/tools-data.js`；`sitemap.txt` 只決定「哪些工具要顯示」。
+
+### 架構
+
+```
+index_plan.html 切換開放／隱藏
+    ↓ 自動寫入（plan 伺服器或連結本機檔案）
+sitemap.txt（本機編輯、Git 追蹤）
+    ↓ npm run sitemap:build（plan 伺服器儲存時會自動執行）
+assets/js/sitemap-published.js
+    ↓ 正式站載入
+首頁 index.html、左側網站地圖（訪客只看已開放工具）
+```
+
+| 環境 | 讀取來源 | 說明 |
+|------|----------|------|
+| **本機 plan 伺服器** | `sitemap.txt` | 切換後自動寫入並重建 `sitemap-published.js` |
+| **本機 localhost** | `sitemap.txt` | 首頁與左側地圖依清單過濾；每 2 秒輪詢異動 |
+| **正式站** | `sitemap-published.js` | 不部署 `sitemap.txt`、`index_plan.html` |
+
+未開放的工具**不會**出現在首頁與左側地圖，但仍可直接開啟 `{slug}.html` 網址（方便本機開發）。
+
+### 本機操作（推薦）
+
+在專案根目錄：
+
+```bash
+npm run plan:serve
+```
+
+瀏覽器開啟 **http://127.0.0.1:3000/index_plan.html**
+
+- 切換工具的「開放／隱藏」→ 約 0.3 秒後自動寫入 `sitemap.txt` 並重建 `sitemap-published.js`
+- **已開放清單**、**不顯示清單**、左側網站地圖即時同步
+- 在 VS Code 手改 `sitemap.txt` 也會在 plan 頁反映（約 2 秒輪詢）
+
+預覽正式站效果：**http://127.0.0.1:3000/index.html**（同樣依 `sitemap.txt` 過濾）。
+
+### 以 file:// 開啟 plan 頁
+
+1. 開啟 `index_plan.html`（`file://`）
+2. 第一次請按 **「連結 sitemap.txt」**，選專案根目錄的檔案並允許讀寫
+3. 之後切換會自動寫入；亦可監聽 VS Code 的檔案異動
+
+若出現「自動儲存失敗」，代表尚未連結檔案或未使用 plan 伺服器，請改用 `npm run plan:serve` 或手動「儲存 sitemap.txt」。
+
+### 手動建置發布 JS
+
+```bash
+npm run sitemap:build
+```
+
+將目前 `sitemap.txt` 編譯為 `assets/js/sitemap-published.js`（deploy 前必做，除非剛用 plan 伺服器儲存過）。
+
+### sitemap.txt 格式
+
+```text
+# WaWaTools 發布清單
+# updated: 2026-07-11T02:18:48.631Z
+
+scriptures
+world-flags
+calculatortool
+```
+
+- 以 `#` 開頭為註解；空行略過
+- 一行一個 slug（對應 `{slug}.html`）
+
+### 部署注意
+
+`firebase.json` 已忽略 `index_plan.html`、`sitemap.txt`，訪客無法存取 plan 頁與原始清單。
+
+**deploy 前建議：**
+
+1. 確認 `sitemap.txt` 內容正確
+2. `npm run sitemap:build`（若未用 plan 伺服器自動建置）
+3. 照常 `firebase deploy --project watoolio`
+
+### 相關腳本與模組
+
+| 檔案 | 用途 |
+|------|------|
+| `assets/js/plan-catalog.js` | plan 頁 UI、清單、自動儲存 |
+| `assets/js/sitemap-file-sync.js` | 讀寫／輪詢 `sitemap.txt`（API、fetch、File System Access） |
+| `assets/js/sitemap-manifest.js` | 載入清單、過濾目錄、本機輪詢 |
+| `assets/js/catalog-render.js` | 首頁 `#tools-catalog` 渲染（僅顯示已開放工具） |
+| `assets/js/site-sitemap.js` | 左側網站地圖（依發布清單過濾） |
 
 ---
 
@@ -29,7 +126,7 @@
 ```bash
 npm install -g firebase-tools
 firebase login
-firebase init hosting   # 選 WaTools 資料夾；public 目錄填 .
+firebase init hosting   # 選 WaWaTools 資料夾；public 目錄填 .
 firebase deploy --project watoolio
 ```
 
@@ -51,7 +148,7 @@ firebase deploy --only hosting --project watoolio
 firebase hosting:disable --project watoolio
 ```
 
-> `firebase.json` 已設定 `public: "."`，`scripts/` 等建置用檔案不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`。
+> `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`（SEO 用，與工具發布清單 `sitemap.txt` 不同）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
 
 ### 讓手機載入最新 JS/CSS（快取刷新）
 
@@ -85,6 +182,23 @@ firebase hosting:disable --project watoolio
 
 
 ## 版本更新
+
+### v0.6.28–0.6.33（2026-07-11）
+
+**工具發布計畫**
+- 新增 `index_plan.html`：切換工具開放／隱藏，同步 **已開放／不顯示清單** 與左側網站地圖
+- 以 `sitemap.txt` 為本機發布清單；`npm run plan:serve` 自動讀寫並重建 `sitemap-published.js`
+- `file://` 模式可「連結 sitemap.txt」直接寫入本機檔案；支援 VS Code 手改後輪詢同步
+- 正式站只讀 `sitemap-published.js`；`firebase.json` 不部署 plan 頁與 `sitemap.txt`
+
+**首頁與導覽**
+- 本機 localhost 與正式站：首頁、左側地圖依發布清單過濾（不再本機顯示全部工具）
+- 首頁工具卡片精簡：移除分類副標題與卡片描述，只保留圖示＋名稱
+- 修正左側地圖載入：`main.js` 不重複注入腳本、`Array.flat` 相容性、manifest 重複初始化
+
+**npm scripts**
+- `plan:serve` — 本機靜態站 + plan API（`PUT/GET /api/sitemap`）
+- `sitemap:build` — `sitemap.txt` → `sitemap-published.js`
 
 ### v0.6.1（2026-07-10）
 

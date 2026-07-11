@@ -314,42 +314,1042 @@
 
   // ===== SYMBOLS =====
   R['symbols-generator'] = function (app) {
-    const prefixes = ['✨', '🌟', '💫', ''];
-    const suffixes = ['', '～', '！', '♡'];
-    const out = UI.output('sg-out');
-    mount(app, [UI.panel('表情符號產生器', [
-      UI.input('文字', 'sg-in', 'text', '輸入文字…'),
-      UI.btn('產生', 'btn btn-primary', () => {
-        const t = document.getElementById('sg-in').value || '你好';
-        out.textContent = UI.randomChoice(prefixes) + t + UI.randomChoice(suffixes);
+    const DATA = window.WA_SYMBOLS_GENERATOR;
+    const sections = DATA?.sections || [];
+    app.className = 'tool-app sg-app';
+
+    function insertAtCursor(textarea, str) {
+      textarea.focus();
+      if (typeof textarea.selectionStart === 'number' && typeof textarea.selectionEnd === 'number') {
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const before = textarea.value.slice(0, start);
+        const after = textarea.value.slice(end);
+        textarea.value = before + str + after;
+        const pos = start + str.length;
+        textarea.selectionStart = textarea.selectionEnd = pos;
+      } else {
+        textarea.value += str;
+      }
+    }
+
+    function moveEnd(textarea) {
+      textarea.focus();
+      const len = textarea.value.length;
+      textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
+    async function copyText(text, msg) {
+      try {
+        await navigator.clipboard.writeText(text || '');
+        UI.alert(msg || '已複製到剪貼簿', 'success');
+      } catch {
+        UI.alert('無法複製，請手動選取文字', 'warning');
+      }
+    }
+
+    const compose = UI.el('textarea', {
+      id: 'sg-text',
+      className: 'form-control sg-compose',
+      rows: 4,
+      placeholder: '點選下方符號按鈕，內容會插入游標位置；可連續點選組合顏文字…',
+    });
+
+    const composeToolbar = UI.el('div', { className: 'sg-compose-toolbar tool-btn-row' }, [
+      UI.btn('移到末尾', 'btn btn-outline-secondary btn-sm sg-toolbar-btn', () => moveEnd(compose)),
+      UI.btn('清除', 'btn btn-outline-secondary btn-sm sg-toolbar-btn', () => {
+        compose.value = '';
+        compose.focus();
       }),
-      UI.btnGroup([UI.copyBtn(() => out.textContent)]), out,
-    ])]);
+      UI.btn('全選', 'btn btn-outline-secondary btn-sm sg-toolbar-btn', () => {
+        compose.focus();
+        compose.select();
+      }),
+      UI.copyBtn(() => compose.value),
+    ]);
+
+    const composeSticky = UI.el('div', { className: 'sg-compose-sticky tool-panel-card' }, [
+      UI.el('div', { className: 'sg-compose-head' }, [
+        UI.el('span', { className: 'tool-label' }, '符號框'),
+        UI.el('span', { className: 'text-muted small' }, '連續點選符號可組合；按鈕文字即將插入的內容'),
+      ]),
+      compose,
+      composeToolbar,
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sg-search',
+      placeholder: '搜尋符號或分類…',
+    });
+
+    const nav = UI.el('nav', { className: 'sg-nav', 'aria-label': '符號分類' });
+    const sectionsWrap = UI.el('div', { className: 'sg-sections' });
+
+    function symText(raw) {
+      return UI.decodeHtmlEntities ? UI.decodeHtmlEntities(raw) : raw;
+    }
+
+    function makeSymChip(raw) {
+      const sym = symText(raw);
+      const symBtn = UI.btn(sym, 'sg-sym-btn', () => insertAtCursor(compose, sym));
+      symBtn.type = 'button';
+      symBtn.title = `插入「${sym}」`;
+      const copyIcon = UI.el('button', {
+        type: 'button',
+        className: 'sg-copy-btn',
+        title: `複製「${sym}」`,
+        'aria-label': `複製 ${sym}`,
+      }, UI.el('i', { className: 'bi bi-clipboard' }));
+      copyIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        copyText(sym, `已複製「${sym.length > 12 ? sym.slice(0, 12) + '…' : sym}」`);
+      });
+      return UI.el('div', { className: 'sg-chip', 'data-sym': sym }, [symBtn, copyIcon]);
+    }
+
+    function renderSections(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      sectionsWrap.replaceChildren();
+      nav.replaceChildren();
+
+      sections.forEach((sec, idx) => {
+        const secId = `sg-sec-${idx}`;
+        const matchTitle = !q || sec.title.toLowerCase().includes(q);
+        const matchedItems = (sec.items || []).filter((raw) => {
+          const sym = symText(raw);
+          return !q || sym.toLowerCase().includes(q) || raw.toLowerCase().includes(q) || matchTitle;
+        });
+        if (q && !matchedItems.length) return;
+
+        nav.appendChild(UI.el('a', {
+          href: `#${secId}`,
+          className: 'sg-nav-link',
+        }, sec.title));
+
+        const grid = UI.el('div', { className: 'sg-grid' });
+        matchedItems.forEach((sym) => grid.appendChild(makeSymChip(sym)));
+
+        sectionsWrap.appendChild(UI.el('section', {
+          id: secId,
+          className: 'sg-section tool-panel-card',
+        }, [
+          UI.el('div', { className: 'sg-section-head' }, [
+            UI.el('h3', { className: 'sg-section-title' }, sec.title),
+            UI.el('span', { className: 'sg-section-count text-muted small' }, `${matchedItems.length} 個`),
+          ]),
+          grid,
+        ]));
+      });
+
+      if (!sectionsWrap.children.length) {
+        sectionsWrap.appendChild(UI.el('p', {
+          className: 'text-muted small sg-empty',
+        }, '找不到符合的符號，請換個關鍵字試試。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    mount(app, [
+      UI.el('div', { className: 'sg-intro tool-panel-card' }, [
+        UI.el('p', { className: 'sg-lead mb-2' }, '表情符號是以文字與符號傳達心情的寫法。它原本是一種網路次文化，隨著即時通訊與論壇普及，已為社會廣泛接受。英文將 Emotion 與 icon 合併為 Emoticon；日語則以「顏文字」稱呼——用臉龐與符號組成圖案，表達撰寫者的心情。'),
+        UI.el('ul', { className: 'tool-checklist text-muted small mb-2' }, [
+          UI.el('li', {}, '點選符號按鈕：插入至上方符號框的游標位置，可連續點選組合。'),
+          UI.el('li', {}, '按鈕上的文字即將插入的內容；旁邊小圖示可單獨複製該符號。'),
+          UI.el('li', {}, '符號框提供清除、全選、複製，以及將游標移到末尾。'),
+        ]),
+        UI.el('p', { className: 'text-muted small mb-0' }, DATA?.itemCount
+          ? `收錄 ${DATA.sectionCount} 個分類、共 ${DATA.itemCount} 個符號，供論壇、聊天與社群貼文使用。`
+          : '符號資料載入中…'),
+      ]),
+      composeSticky,
+      UI.el('div', { className: 'sg-filter tool-field' }, searchInput),
+      nav,
+      sectionsWrap,
+    ]);
+
+    renderSections('');
+    app.className = 'tool-app tool-form sg-app';
   };
 
   R['keyboard-symbols'] = function (app) {
-    mount(app, [UI.panel('特殊符號', [
-      UI.tableFrom(SYMBOLS, [{ key: 'sym', label: '符號' }, { key: 'name', label: '名稱' }]),
-      UI.el('p', { className: 'text-muted small' }, '點選表格中的符號後複製使用。'),
-    ])]);
+    const DATA = window.WA_KEYBOARD_SYMBOLS;
+    const CURATED = window.WA_KEYBOARD_SYMBOLS_CURATED || {};
+    const CURATED_NAV_ORDER = [
+      '錯對符號',
+      '愛心符號',
+      '星星符號',
+      '箭頭符號',
+      '天氣符號（占星）',
+      '表情符號',
+      '手勢符號',
+      '環保符號',
+    ];
+
+    function curatedLabel(id) {
+      return id === '天氣符號（占星）' ? '天氣符號' : id;
+    }
+
+    function mergeCurated(sec) {
+      const extra = CURATED[sec.id] || CURATED[sec.title];
+      return extra ? { ...sec, ...extra } : sec;
+    }
+
+    const sections = (DATA?.sections || []).map(mergeCurated);
+
+    function normItem(item) {
+      return typeof item === 'string' ? { sym: item, label: '' } : item;
+    }
+
+    function itemHaystack(item) {
+      const { sym, label } = normItem(item);
+      return `${sym} ${label}`.toLowerCase();
+    }
+
+    function sectionHaystack(sec) {
+      const chunks = [sec.title, sec.intro || ''];
+      (sec.items || []).forEach((item) => chunks.push(itemHaystack(item)));
+      (sec.groups || []).forEach((group) => {
+        chunks.push(group.title, group.hint || '');
+        (group.rows || []).forEach((row) => {
+          chunks.push(row.label || '');
+          (row.items || []).forEach((item) => chunks.push(itemHaystack(item)));
+        });
+      });
+      (sec.pairs || []).forEach((pair) => {
+        chunks.push(pair.role, pair.plain, pair.emoji, pair.note || '');
+      });
+      return chunks.join(' ').toLowerCase();
+    }
+
+    function flattenSectionItems(sec) {
+      const list = [...(sec.items || []).map(normItem)];
+      (sec.groups || []).forEach((group) => {
+        (group.rows || []).forEach((row) => {
+          (row.items || []).forEach((item) => list.push(normItem(item)));
+        });
+      });
+      return list;
+    }
+
+    function appendSymbol(textarea, str) {
+      textarea.focus();
+      textarea.value += str;
+      const len = textarea.value.length;
+      textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text || '');
+        return true;
+      } catch {
+        UI.alert('無法複製，請手動選取文字', 'warning');
+        return false;
+      }
+    }
+
+    function pickSymbol(sym, btn) {
+      appendSymbol(compose, sym);
+      copyText(sym);
+      if (btn) {
+        btn.classList.add('kbs-picked');
+        setTimeout(() => btn.classList.remove('kbs-picked'), 280);
+      }
+    }
+
+    const compose = UI.el('textarea', {
+      id: 'kbs-text',
+      className: 'form-control sg-compose kbs-compose',
+      rows: 4,
+      placeholder: '點選下方符號，會複製並累積於此…',
+    });
+
+    const composeSticky = UI.el('div', { className: 'sg-compose-sticky tool-panel-card' }, [
+      UI.el('div', { className: 'sg-compose-head' }, [
+        UI.el('span', { className: 'tool-label' }, '符號框'),
+        UI.el('span', { className: 'text-muted small' }, '點一下符號即複製，並累積至框中'),
+      ]),
+      compose,
+      UI.el('div', { className: 'sg-compose-toolbar tool-btn-row' }, [
+        UI.btn('清除', 'btn btn-outline-secondary btn-sm', () => {
+          compose.value = '';
+          compose.focus();
+        }),
+        UI.btn('全選', 'btn btn-outline-secondary btn-sm', () => {
+          compose.focus();
+          compose.select();
+        }),
+        UI.copyBtn(() => compose.value),
+      ]),
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sg-search',
+      placeholder: '搜尋符號或分類…',
+    });
+    const nav = UI.el('nav', { className: 'sg-nav', 'aria-label': '符號分類' });
+    const sectionsWrap = UI.el('div', { className: 'sg-sections' });
+
+    function makeSymBtn(item) {
+      const { sym, label } = normItem(item);
+      const btn = UI.btn(sym, 'sg-sym-btn kbs-sym-btn', () => pickSymbol(sym, btn));
+      btn.type = 'button';
+      if (label) {
+        btn.title = label;
+        btn.setAttribute('aria-label', `${sym} ${label}`);
+      } else {
+        btn.title = `複製 ${sym}`;
+      }
+      return label
+        ? UI.el('div', { className: 'kbs-chip-labeled' }, [
+          btn,
+          UI.el('span', { className: 'kbs-chip-label text-muted' }, label),
+        ])
+        : btn;
+    }
+
+    function makePairCell(sym, kind) {
+      if (!sym) {
+        return UI.el('span', { className: 'kbs-pair-empty text-muted' }, '—');
+      }
+      const btn = UI.btn(sym, `sg-sym-btn kbs-sym-btn kbs-pair-btn kbs-pair-btn-${kind}`, () => pickSymbol(sym, btn));
+      btn.type = 'button';
+      btn.title = `複製 ${sym}`;
+      return btn;
+    }
+
+    function renderPairTable(pairs) {
+      const hasNotes = pairs.some((pair) => pair.note);
+      const tbody = UI.el('tbody', {}, pairs.map((pair) => {
+        const cells = [
+          UI.el('td', { className: 'kbs-pair-role' }, pair.role || ''),
+          UI.el('td', { className: 'kbs-pair-cell kbs-pair-plain' }, makePairCell(pair.plain, 'plain')),
+          UI.el('td', { className: 'kbs-pair-cell kbs-pair-emoji' }, makePairCell(pair.emoji, 'emoji')),
+        ];
+        if (hasNotes) cells.push(UI.el('td', { className: 'kbs-pair-note text-muted' }, pair.note || ''));
+        return UI.el('tr', {}, cells);
+      }));
+
+      const headCells = [
+        UI.el('th', { scope: 'col' }, '用途'),
+        UI.el('th', { scope: 'col' }, '純文字'),
+        UI.el('th', { scope: 'col' }, '彩色'),
+      ];
+      if (hasNotes) headCells.push(UI.el('th', { scope: 'col' }, '說明'));
+
+      return UI.el('div', { className: 'kbs-pair-table-wrap' }, [
+        UI.el('table', { className: 'kbs-pair-table' }, [
+          UI.el('thead', {}, UI.el('tr', {}, headCells)),
+          tbody,
+        ]),
+      ]);
+    }
+
+    function renderGroupBlock(group, q) {
+      const rows = (group.rows || []).map((row) => {
+        const items = (row.items || []).filter((item) => {
+          if (!q) return true;
+          return itemHaystack(item).includes(q) || (row.label || '').toLowerCase().includes(q);
+        });
+        if (q && !items.length) return null;
+
+        const grid = UI.el('div', { className: 'sg-grid kbs-grid kbs-row-grid' });
+        items.forEach((item) => grid.appendChild(makeSymBtn(item)));
+
+        return UI.el('div', { className: 'kbs-row' }, [
+          UI.el('div', { className: 'kbs-row-label' }, row.label || ''),
+          grid,
+        ]);
+      }).filter(Boolean);
+
+      if (!rows.length) return null;
+
+      return UI.el('div', { className: 'kbs-group' }, [
+        UI.el('div', { className: 'kbs-group-head' }, [
+          UI.el('h4', { className: 'kbs-group-title' }, group.title),
+          group.hint ? UI.el('p', { className: 'kbs-group-hint text-muted small' }, group.hint) : null,
+        ]),
+        ...rows,
+      ]);
+    }
+
+    function renderSectionBody(sec, q) {
+      const body = [];
+
+      if (sec.intro && !q) {
+        body.push(UI.el('p', { className: 'kbs-section-intro text-muted small' }, sec.intro));
+      }
+
+      if (sec.pairs?.length && (!q || sec.pairs.some((pair) => `${pair.role} ${pair.plain} ${pair.emoji} ${pair.note}`.toLowerCase().includes(q)))) {
+        const visiblePairs = q
+          ? sec.pairs.filter((pair) => `${pair.role} ${pair.plain} ${pair.emoji} ${pair.note}`.toLowerCase().includes(q))
+          : sec.pairs;
+        if (visiblePairs.length) body.push(renderPairTable(visiblePairs));
+      }
+
+      if (sec.groups?.length) {
+        sec.groups.forEach((group) => {
+          const block = renderGroupBlock(group, q);
+          if (block) body.push(block);
+        });
+      } else {
+        const matchedItems = flattenSectionItems(sec).filter((item) => !q || itemHaystack(item).includes(q) || sec.title.toLowerCase().includes(q));
+        const grid = UI.el('div', { className: 'sg-grid kbs-grid' });
+        matchedItems.forEach((item) => grid.appendChild(makeSymBtn(item)));
+        body.push(grid);
+      }
+
+      return body;
+    }
+
+    function sampleItemsFromGroups(groups, groupIndex, limit) {
+      const group = groups?.[groupIndex];
+      if (!group?.rows?.length) return [];
+      const merged = group.rows.flatMap((row) => row.items || []);
+      return merged.slice(0, limit || merged.length);
+    }
+
+    function renderInlineSymRow(items) {
+      const row = UI.el('div', { className: 'kbs-inline-syms' });
+      items.forEach((item) => row.appendChild(makeSymBtn(item)));
+      return row;
+    }
+
+    function renderCuratedOverview(q) {
+      if (q) return null;
+
+      const rows = CURATED_NAV_ORDER.map((catId) => {
+        const curated = CURATED[catId];
+        if (!curated?.groups?.length) return null;
+
+        const secIdx = sections.findIndex((sec) => sec.id === catId);
+        const anchor = secIdx >= 0 ? `kbs-sec-${secIdx}` : null;
+        const plainItems = sampleItemsFromGroups(curated.groups, 0, 8);
+        const emojiItems = sampleItemsFromGroups(curated.groups, 1, 8);
+        if (!plainItems.length && !emojiItems.length) return null;
+
+        const label = curatedLabel(catId);
+        const labelNode = anchor
+          ? UI.el('a', { href: `#${anchor}`, className: 'kbs-curated-cat-link' }, label)
+          : label;
+
+        return UI.el('tr', {}, [
+          UI.el('td', { className: 'kbs-curated-cat' }, labelNode),
+          UI.el('td', { className: 'kbs-curated-plain' }, renderInlineSymRow(plainItems)),
+          UI.el('td', { className: 'kbs-curated-emoji' }, renderInlineSymRow(emojiItems)),
+        ]);
+      }).filter(Boolean);
+
+      if (!rows.length) return null;
+
+      return UI.el('section', {
+        id: 'kbs-curated-overview',
+        className: 'sg-section tool-panel-card kbs-curated-overview',
+      }, [
+        UI.el('div', { className: 'sg-section-head' }, [
+          UI.el('h3', { className: 'sg-section-title' }, '純文字 ↔ 彩色 emoji 對照'),
+          UI.el('span', { className: 'sg-section-count text-muted small' }, `${rows.length} 個分類`),
+        ]),
+        UI.el('p', { className: 'kbs-section-intro text-muted small mb-2' }, '點分類名稱可跳至下方完整分類（#kbs-sec-1 起）。'),
+        UI.el('div', { className: 'kbs-pair-table-wrap' }, [
+          UI.el('table', { className: 'kbs-pair-table kbs-curated-table' }, [
+            UI.el('thead', {}, UI.el('tr', {}, [
+              UI.el('th', { scope: 'col' }, '分類'),
+              UI.el('th', { scope: 'col' }, '純文字範例'),
+              UI.el('th', { scope: 'col' }, '彩色 emoji 範例'),
+            ])),
+            UI.el('tbody', {}, rows),
+          ]),
+        ]),
+      ]);
+    }
+
+    function sectionItemCount(sec) {
+      if (sec.groups?.length) {
+        return sec.groups.reduce((n, group) => n + (group.rows || []).reduce((m, row) => m + (row.items || []).length, 0), 0);
+      }
+      return flattenSectionItems(sec).length;
+    }
+
+    function renderSections(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      sectionsWrap.replaceChildren();
+      nav.replaceChildren();
+
+      const overview = renderCuratedOverview(q);
+      if (overview) {
+        nav.appendChild(UI.el('a', {
+          href: '#kbs-curated-overview',
+          className: 'sg-nav-link sg-nav-link-curated',
+        }, '彩色對照'));
+        sectionsWrap.appendChild(overview);
+      }
+
+      sections.forEach((sec, idx) => {
+        const secId = `kbs-sec-${idx}`;
+        const matchTitle = !q || sec.title.toLowerCase().includes(q);
+        const matchSection = !q || matchTitle || sectionHaystack(sec).includes(q);
+        if (q && !matchSection) return;
+
+        nav.appendChild(UI.el('a', { href: `#${secId}`, className: 'sg-nav-link' }, sec.title));
+
+        const body = renderSectionBody(sec, q);
+        if (!body.length) return;
+
+        sectionsWrap.appendChild(UI.el('section', {
+          id: secId,
+          className: 'sg-section tool-panel-card',
+        }, [
+          UI.el('div', { className: 'sg-section-head' }, [
+            UI.el('h3', { className: 'sg-section-title' }, sec.title),
+            UI.el('span', { className: 'sg-section-count text-muted small' }, `${sectionItemCount(sec)} 個`),
+          ]),
+          ...body,
+        ]));
+      });
+
+      if (!sectionsWrap.children.length) {
+        sectionsWrap.appendChild(UI.el('p', {
+          className: 'text-muted small sg-empty',
+        }, '找不到符合的符號，請換個關鍵字試試。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    mount(app, [
+      UI.el('div', { className: 'sg-intro tool-panel-card kbs-intro' }, [
+        UI.el('p', { className: 'sg-lead mb-2' }, DATA?.intro || '收錄 Word、網頁、社群貼文常用的特殊符號，點一下即可複製使用。'),
+        UI.el('ul', { className: 'tool-checklist text-muted small mb-2' }, [
+          UI.el('li', {}, '點一下符號：立即複製到剪貼簿，並累積至上方符號框。'),
+          UI.el('li', {}, '可連續點選多個符號，組合後再一次性複製貼到 Word 或聊天室。'),
+          UI.el('li', {}, '符號框提供清除、全選、複製，方便整理已選內容。'),
+        ]),
+        UI.el('p', { className: 'text-muted small mb-0' }, DATA?.itemCount
+          ? `收錄 ${DATA.sectionCount} 個分類、共 ${DATA.itemCount} 個符號。`
+          : '符號資料載入中…'),
+      ]),
+      composeSticky,
+      UI.el('div', { className: 'sg-filter tool-field' }, searchInput),
+      nav,
+      sectionsWrap,
+    ]);
+
+    renderSections('');
+    app.className = 'tool-app tool-form sg-app kbs-app';
   };
 
   R['emoji'] = function (app) {
-    mount(app, [UI.panel('Emoji 分類', UI.tableFrom([{"cat":"笑臉","em":"😀 😃 😄 😁 😆"},{"cat":"手勢","em":"👍 👎 👋 ✌️ 🤞"},{"cat":"動物","em":"🐶 🐱 🐭 🐹 🐰"},{"cat":"食物","em":"🍎 🍕 🍔 🍣 🍜"},{"cat":"自然","em":"🌸 🌞 🌙 ⭐ 🌈"},{"cat":"物品","em":"💡 📱 💻 🎵 ⚽"}], [
-      { key: 'cat', label: '分類' }, { key: 'em', label: '表情' },
-    ]))]);
+    const DATA = window.WA_EMOJI;
+    const sections = DATA?.sections || [];
+
+    function appendEmoji(textarea, str) {
+      textarea.focus();
+      textarea.value += str;
+      const len = textarea.value.length;
+      textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text || '');
+        return true;
+      } catch {
+        UI.alert('無法複製，請手動選取文字', 'warning');
+        return false;
+      }
+    }
+
+    function pickEmoji(emoji, btn) {
+      appendEmoji(compose, emoji);
+      copyText(emoji);
+      if (btn) {
+        btn.classList.add('emo-picked');
+        setTimeout(() => btn.classList.remove('emo-picked'), 280);
+      }
+    }
+
+    const compose = UI.el('textarea', {
+      id: 'emo-text',
+      className: 'form-control sg-compose emo-compose',
+      rows: 4,
+      placeholder: '點選下方 Emoji，會複製並累積於此…',
+    });
+
+    const composeSticky = UI.el('div', { className: 'sg-compose-sticky tool-panel-card' }, [
+      UI.el('div', { className: 'sg-compose-head' }, [
+        UI.el('span', { className: 'tool-label' }, 'Emoji 框'),
+        UI.el('span', { className: 'text-muted small' }, '點一下即複製單個 Emoji，並累積至框中'),
+      ]),
+      compose,
+      UI.el('div', { className: 'sg-compose-toolbar tool-btn-row' }, [
+        UI.btn('清除', 'btn btn-outline-secondary btn-sm', () => {
+          compose.value = '';
+          compose.focus();
+        }),
+        UI.btn('全選', 'btn btn-outline-secondary btn-sm', () => {
+          compose.focus();
+          compose.select();
+        }),
+        UI.copyBtn(() => compose.value),
+      ]),
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sg-search',
+      placeholder: '搜尋 Emoji 或分類…',
+    });
+    const nav = UI.el('nav', { className: 'sg-nav', 'aria-label': 'Emoji 分類' });
+    const sectionsWrap = UI.el('div', { className: 'sg-sections' });
+
+    function makeEmojiBtn(emoji) {
+      const btn = UI.btn(emoji, 'emo-btn', () => pickEmoji(emoji, btn));
+      btn.type = 'button';
+      btn.title = `複製 ${emoji}`;
+      btn.setAttribute('aria-label', `複製 ${emoji}`);
+      return btn;
+    }
+
+    function renderSections(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      sectionsWrap.replaceChildren();
+      nav.replaceChildren();
+
+      sections.forEach((sec, idx) => {
+        const secId = `emo-sec-${idx}`;
+        const matchTitle = !q || sec.title.toLowerCase().includes(q);
+        const matchedItems = (sec.items || []).filter((emoji) =>
+          !q || matchTitle || emoji.includes(q)
+        );
+        if (q && !matchedItems.length) return;
+
+        nav.appendChild(UI.el('a', { href: `#${secId}`, className: 'sg-nav-link' }, sec.title));
+
+        const grid = UI.el('div', { className: 'sg-grid emo-grid' });
+        matchedItems.forEach((emoji) => grid.appendChild(makeEmojiBtn(emoji)));
+
+        sectionsWrap.appendChild(UI.el('section', {
+          id: secId,
+          className: 'sg-section tool-panel-card',
+        }, [
+          UI.el('div', { className: 'sg-section-head' }, [
+            UI.el('h3', { className: 'sg-section-title' }, sec.title),
+            UI.el('span', { className: 'sg-section-count text-muted small' }, `${matchedItems.length} 個`),
+          ]),
+          grid,
+        ]));
+      });
+
+      if (!sectionsWrap.children.length) {
+        sectionsWrap.appendChild(UI.el('p', {
+          className: 'text-muted small sg-empty',
+        }, '找不到符合的 Emoji，請換個關鍵字試試。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    const introParas = (DATA?.intro || []).slice(0, 3);
+    mount(app, [
+      UI.el('div', { className: 'sg-intro tool-panel-card emo-intro' }, [
+        ...introParas.map((p, i) => UI.el('p', {
+          className: i === 0 ? 'sg-lead mb-2' : 'text-muted small mb-2',
+        }, p)),
+        UI.el('ul', { className: 'tool-checklist text-muted small mb-2' }, [
+          UI.el('li', {}, '點一下 Emoji：立即複製到剪貼簿，並累積至上方 Emoji 框。'),
+          UI.el('li', {}, '可連續點選組合訊息，再用「複製」一次貼到聊天或貼文。'),
+          UI.el('li', {}, 'Emoji 框提供清除、全選、複製。各系統顯示圖案可能略有不同。'),
+        ]),
+        UI.el('p', { className: 'text-muted small mb-0' }, DATA?.itemCount
+          ? `收錄 ${DATA.sectionCount} 個分類、共 ${DATA.itemCount} 個 Emoji。`
+          : 'Emoji 資料載入中…'),
+      ]),
+      composeSticky,
+      UI.el('div', { className: 'sg-filter tool-field' }, searchInput),
+      nav,
+      sectionsWrap,
+    ]);
+
+    renderSections('');
+    app.className = 'tool-app tool-form sg-app emo-app';
   };
 
   R['punctuation'] = function (app) {
-    mount(app, [UI.panel('標點符號', UI.tableFrom([{"sym":"。","name":"句號"},{"sym":"，","name":"逗號"},{"sym":"、","name":"頓號"},{"sym":"；","name":"分號"},{"sym":"：","name":"冒號"},{"sym":"？","name":"問號"},{"sym":"！","name":"驚嘆號"},{"sym":"「","name":"左單引號"},{"sym":"」","name":"右單引號"},{"sym":"『","name":"左雙引號"},{"sym":"』","name":"右雙引號"},{"sym":"…","name":"刪節號"}], [
-      { key: 'sym', label: '符號' }, { key: 'name', label: '名稱' },
-    ]))]);
+    const DATA = window.WA_PUNCTUATION;
+    const sections = DATA?.sections || [];
+
+    function appendSymbol(textarea, str) {
+      textarea.focus();
+      textarea.value += str;
+      const len = textarea.value.length;
+      textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text || '');
+        return true;
+      } catch {
+        UI.alert('無法複製，請手動選取文字', 'warning');
+        return false;
+      }
+    }
+
+    function pickSymbol(sym, btn) {
+      appendSymbol(compose, sym);
+      copyText(sym);
+      if (btn) {
+        btn.classList.add('punc-picked');
+        setTimeout(() => btn.classList.remove('punc-picked'), 280);
+      }
+    }
+
+    function isMultiline(sym) {
+      return sym.includes('\n');
+    }
+
+    function symSearchText(sym) {
+      return sym.replace(/\n/g, ' ').toLowerCase();
+    }
+
+    const compose = UI.el('textarea', {
+      id: 'punc-text',
+      className: 'form-control sg-compose punc-compose',
+      rows: 4,
+      placeholder: '點選下方標點或符號，會複製並累積於此…',
+    });
+
+    const composeSticky = UI.el('div', { className: 'sg-compose-sticky tool-panel-card' }, [
+      UI.el('div', { className: 'sg-compose-head' }, [
+        UI.el('span', { className: 'tool-label' }, '標點框'),
+        UI.el('span', { className: 'text-muted small' }, '點一下即複製，並累積至框中'),
+      ]),
+      compose,
+      UI.el('div', { className: 'sg-compose-toolbar tool-btn-row' }, [
+        UI.btn('清除', 'btn btn-outline-secondary btn-sm', () => {
+          compose.value = '';
+          compose.focus();
+        }),
+        UI.btn('全選', 'btn btn-outline-secondary btn-sm', () => {
+          compose.focus();
+          compose.select();
+        }),
+        UI.copyBtn(() => compose.value),
+      ]),
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sg-search',
+      placeholder: '搜尋標點、符號或分類…',
+    });
+    const nav = UI.el('nav', { className: 'sg-nav', 'aria-label': '標點分類' });
+    const sectionsWrap = UI.el('div', { className: 'sg-sections' });
+
+    function makeSymBtn(sym) {
+      const multi = isMultiline(sym);
+      const cls = multi ? 'sg-sym-btn punc-sym-btn punc-sym-btn-multi' : 'sg-sym-btn punc-sym-btn';
+      const btn = UI.btn(sym, cls, () => pickSymbol(sym, btn));
+      btn.type = 'button';
+      const label = sym.replace(/\n/g, ' / ');
+      btn.title = `複製 ${label}`;
+      btn.setAttribute('aria-label', `複製 ${label}`);
+      return btn;
+    }
+
+    function renderSections(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      sectionsWrap.replaceChildren();
+      nav.replaceChildren();
+
+      sections.forEach((sec, idx) => {
+        const secId = `punc-sec-${idx}`;
+        const matchTitle = !q || sec.title.toLowerCase().includes(q);
+        const matchedItems = (sec.items || []).filter((sym) =>
+          !q || matchTitle || symSearchText(sym).includes(q)
+        );
+        if (q && !matchedItems.length) return;
+
+        nav.appendChild(UI.el('a', { href: `#${secId}`, className: 'sg-nav-link' }, sec.title));
+
+        const grid = UI.el('div', { className: 'sg-grid punc-grid' });
+        matchedItems.forEach((sym) => grid.appendChild(makeSymBtn(sym)));
+
+        sectionsWrap.appendChild(UI.el('section', {
+          id: secId,
+          className: 'sg-section tool-panel-card',
+        }, [
+          UI.el('div', { className: 'sg-section-head' }, [
+            UI.el('h3', { className: 'sg-section-title' }, sec.title),
+            UI.el('span', { className: 'sg-section-count text-muted small' }, `${matchedItems.length} 個`),
+          ]),
+          grid,
+        ]));
+      });
+
+      if (!sectionsWrap.children.length) {
+        sectionsWrap.appendChild(UI.el('p', {
+          className: 'text-muted small sg-empty',
+        }, '找不到符合的符號，請換個關鍵字試試。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    const introParas = (DATA?.intro || []).slice(0, 3);
+    mount(app, [
+      UI.el('div', { className: 'sg-intro tool-panel-card punc-intro' }, [
+        ...introParas.map((p, i) => UI.el('p', {
+          className: i === 0 ? 'sg-lead mb-2' : 'text-muted small mb-2',
+        }, p)),
+        UI.el('ul', { className: 'tool-checklist text-muted small mb-2' }, [
+          UI.el('li', {}, '點一下符號：立即複製到剪貼簿，並累積至上方標點框。'),
+          UI.el('li', {}, '可連續點選多個符號，組合後再一次性複製貼到 Word 或聊天室。'),
+          UI.el('li', {}, '標點框提供清除、全選、複製，方便整理已選內容。'),
+        ]),
+        UI.el('p', { className: 'text-muted small mb-0' }, DATA?.itemCount
+          ? `收錄 ${DATA.sectionCount} 個分類、共 ${DATA.itemCount} 個標點與符號。`
+          : '標點資料載入中…'),
+      ]),
+      composeSticky,
+      UI.el('div', { className: 'sg-filter tool-field' }, searchInput),
+      nav,
+      sectionsWrap,
+    ]);
+
+    renderSections('');
+    app.className = 'tool-app tool-form sg-app punc-app';
   };
 
   R['symbols-name'] = function (app) {
-    mount(app, [UI.panel('符號名稱', UI.tableFrom([{"sym":"。","name":"句號"},{"sym":"，","name":"逗號"},{"sym":"、","name":"頓號"},{"sym":"；","name":"分號"},{"sym":"：","name":"冒號"},{"sym":"？","name":"問號"},{"sym":"！","name":"驚嘆號"},{"sym":"「","name":"左單引號"},{"sym":"」","name":"右單引號"},{"sym":"『","name":"左雙引號"},{"sym":"』","name":"右雙引號"},{"sym":"…","name":"刪節號"},{"sym":"★","name":"實心星"},{"sym":"☆","name":"空心星"},{"sym":"♥","name":"愛心"},{"sym":"♦","name":"菱形"},{"sym":"♣","name":"梅花"},{"sym":"♠","name":"黑桃"},{"sym":"→","name":"右箭頭"},{"sym":"←","name":"左箭頭"},{"sym":"↑","name":"上箭頭"},{"sym":"↓","name":"下箭頭"},{"sym":"©","name":"版權"},{"sym":"®","name":"註冊"},{"sym":"™","name":"商標"},{"sym":"℃","name":"攝氏"},{"sym":"℉","name":"華氏"},{"sym":"㎡","name":"平方公尺"}], [
-      { key: 'sym', label: '符號' }, { key: 'name', label: '名稱' },
-    ]))]);
+    const DATA = window.WA_SYMBOLS_NAME;
+    const sections = DATA?.sections || [];
+
+    function normItem(item) {
+      if (typeof item === 'string') return { sym: item, zh: '', en: '' };
+      return item;
+    }
+
+    function appendSymbol(textarea, str) {
+      textarea.focus();
+      textarea.value += str;
+      const len = textarea.value.length;
+      textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text || '');
+        return true;
+      } catch {
+        UI.alert('無法複製，請手動選取文字', 'warning');
+        return false;
+      }
+    }
+
+    function pickSymbol(sym, btn) {
+      appendSymbol(compose, sym);
+      copyText(sym);
+      if (btn) {
+        btn.classList.add('symn-picked');
+        setTimeout(() => btn.classList.remove('symn-picked'), 280);
+      }
+    }
+
+    function itemLabel(item) {
+      const { zh, en } = normItem(item);
+      return zh || en || '';
+    }
+
+    function itemTitle(item) {
+      const { sym, zh, en } = normItem(item);
+      const parts = [sym];
+      if (zh) parts.push(zh);
+      if (en) parts.push(en);
+      return parts.join(' · ');
+    }
+
+    function isMultiline(sym) {
+      return sym.includes('\n');
+    }
+
+    const compose = UI.el('textarea', {
+      id: 'symn-text',
+      className: 'form-control sg-compose symn-compose',
+      rows: 4,
+      placeholder: '點選下方符號，會複製並累積於此…',
+    });
+
+    const composeSticky = UI.el('div', { className: 'sg-compose-sticky tool-panel-card' }, [
+      UI.el('div', { className: 'sg-compose-head' }, [
+        UI.el('span', { className: 'tool-label' }, '符號框'),
+        UI.el('span', { className: 'text-muted small' }, '點一下即複製單一符號，並累積至框中'),
+      ]),
+      compose,
+      UI.el('div', { className: 'sg-compose-toolbar tool-btn-row' }, [
+        UI.btn('清除', 'btn btn-outline-secondary btn-sm', () => {
+          compose.value = '';
+          compose.focus();
+        }),
+        UI.btn('全選', 'btn btn-outline-secondary btn-sm', () => {
+          compose.focus();
+          compose.select();
+        }),
+        UI.copyBtn(() => compose.value),
+      ]),
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sg-search',
+      placeholder: '搜尋符號、名稱或分類…',
+    });
+    const nav = UI.el('nav', { className: 'sg-nav', 'aria-label': '符號分類' });
+    const sectionsWrap = UI.el('div', { className: 'sg-sections' });
+    let viewMode = 'table';
+
+    const viewToggle = UI.el('div', { className: 'symn-view-toggle tool-btn-row mb-2' }, [
+      UI.btn('表格', 'btn btn-primary btn-sm symn-view-btn symn-view-btn-active', () => setView('table')),
+      UI.btn('卡片', 'btn btn-outline-secondary btn-sm symn-view-btn', () => setView('cards')),
+    ]);
+    const viewBtns = viewToggle.querySelectorAll('.symn-view-btn');
+
+    function setView(mode) {
+      viewMode = mode;
+      viewBtns.forEach((btn) => {
+        const isTable = btn.textContent === '表格';
+        const active = (mode === 'table' && isTable) || (mode === 'cards' && !isTable);
+        btn.classList.toggle('symn-view-btn-active', active);
+        btn.classList.toggle('btn-primary', active);
+        btn.classList.toggle('btn-outline-secondary', !active);
+      });
+      renderSections(searchInput.value);
+    }
+
+    function symDisplay(sym) {
+      return sym;
+    }
+
+    function makeSymBtn(item) {
+      const { sym, zh, en } = normItem(item);
+      const label = itemLabel(item);
+      const multi = isMultiline(sym);
+      const cls = multi ? 'sg-sym-btn symn-sym-btn symn-sym-btn-multi' : 'sg-sym-btn symn-sym-btn';
+      const btn = UI.btn(symDisplay(sym), cls, () => pickSymbol(sym, btn));
+      btn.type = 'button';
+      btn.title = itemTitle(item);
+      btn.setAttribute('aria-label', `複製 ${itemTitle(item)}`);
+      if (!label) return btn;
+      return UI.el('div', { className: 'kbs-chip-labeled symn-chip' }, [
+        btn,
+        UI.el('span', { className: 'kbs-chip-label text-muted', title: en || '' }, label),
+      ]);
+    }
+
+    function makeSectionTable(sec, items) {
+      const hasEn = sec.title !== '文本標點符號';
+      const isNumber = sec.title === '數字符號';
+      const thead = UI.el('thead', {}, UI.el('tr', {}, [
+        UI.el('th', { scope: 'col' }, isNumber ? '羅馬數字' : '符號'),
+        ...(hasEn ? [UI.el('th', { scope: 'col' }, '英文')] : []),
+        UI.el('th', { scope: 'col' }, isNumber ? '中文數字' : '中文'),
+      ]));
+      const tbody = UI.el('tbody');
+      items.forEach((item) => {
+        const { sym, zh, en } = normItem(item);
+        const symCell = UI.el('td', {
+          className: 'symn-sym-cell' + (isMultiline(sym) ? ' symn-sym-cell-multi' : ''),
+          title: '點一下複製符號',
+        }, symDisplay(sym));
+        symCell.addEventListener('click', () => pickSymbol(sym, symCell));
+        const cells = [symCell];
+        if (hasEn) cells.push(UI.el('td', { className: 'symn-en-cell text-muted' }, en || '—'));
+        cells.push(UI.el('td', { className: 'symn-zh-cell' }, zh || '—'));
+        tbody.appendChild(UI.el('tr', { className: 'symn-row' }, cells));
+      });
+      return UI.el('div', { className: 'table-responsive symn-table-wrap' }, [
+        UI.el('table', { className: 'table table-sm table-hover symn-table' }, [thead, tbody]),
+      ]);
+    }
+
+    function itemMatches(item, q, matchTitle) {
+      const { sym, zh, en } = normItem(item);
+      if (!q) return true;
+      if (matchTitle) return true;
+      const hay = `${sym} ${zh} ${en}`.replace(/\n/g, ' ').toLowerCase();
+      return hay.includes(q);
+    }
+
+    function renderSections(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      sectionsWrap.replaceChildren();
+      nav.replaceChildren();
+
+      sections.forEach((sec, idx) => {
+        const secId = `symn-sec-${idx}`;
+        const matchTitle = !q || sec.title.toLowerCase().includes(q);
+        const matchedItems = (sec.items || []).filter((item) => itemMatches(item, q, matchTitle));
+        if (q && !matchedItems.length) return;
+
+        nav.appendChild(UI.el('a', { href: `#${secId}`, className: 'sg-nav-link' }, sec.title));
+
+        const body = viewMode === 'table'
+          ? makeSectionTable(sec, matchedItems)
+          : (() => {
+            const grid = UI.el('div', { className: 'sg-grid kbs-grid symn-grid' });
+            matchedItems.forEach((item) => grid.appendChild(makeSymBtn(item)));
+            return grid;
+          })();
+
+        sectionsWrap.appendChild(UI.el('section', {
+          id: secId,
+          className: 'sg-section tool-panel-card',
+        }, [
+          UI.el('div', { className: 'sg-section-head' }, [
+            UI.el('h3', { className: 'sg-section-title' }, sec.title),
+            UI.el('span', { className: 'sg-section-count text-muted small' }, `${matchedItems.length} 個`),
+          ]),
+          body,
+        ]));
+      });
+
+      if (!sectionsWrap.children.length) {
+        sectionsWrap.appendChild(UI.el('p', {
+          className: 'text-muted small sg-empty',
+        }, '找不到符合的符號，請換個關鍵字試試。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    const introParas = (DATA?.intro || []).slice(0, 2);
+    mount(app, [
+      UI.el('div', { className: 'sg-intro tool-panel-card symn-intro' }, [
+        ...introParas.map((p, i) => UI.el('p', {
+          className: i === 0 ? 'sg-lead mb-2' : 'text-muted small mb-2',
+        }, p)),
+        UI.el('ul', { className: 'tool-checklist text-muted small mb-2' }, [
+          UI.el('li', {}, '點一下符號：立即複製到剪貼簿，並累積至上方符號框。'),
+          UI.el('li', {}, '表格模式顯示符號、英文、中文對照（資料來源：ifreesite）。'),
+          UI.el('li', {}, '可連續點選組合字串；符號框提供清除、全選、複製。'),
+        ]),
+        UI.el('p', { className: 'text-muted small mb-0' }, DATA?.itemCount
+          ? `收錄 ${DATA.sectionCount} 個分類、共 ${DATA.itemCount} 個符號及名稱。`
+          : '符號資料載入中…'),
+      ]),
+      composeSticky,
+      UI.el('div', { className: 'sg-filter tool-field' }, searchInput),
+      viewToggle,
+      nav,
+      sectionsWrap,
+    ]);
+
+    renderSections('');
+    app.className = 'tool-app tool-form sg-app symn-app';
   };
 
   R['boshiamy'] = function (app) {
@@ -438,46 +1438,1071 @@
 
   // ===== LIFE =====
   R['time'] = function (app) {
-    const box = UI.el('div', { id: 'time-box' });
-    function tick() {
-      box.replaceChildren(...[{"city":"臺北","tz":"Asia/Taipei"},{"city":"東京","tz":"Asia/Tokyo"},{"city":"紐約","tz":"America/New_York"},{"city":"倫敦","tz":"Europe/London"}].map((c) => {
-        const t = new Date().toLocaleString('zh-TW', { timeZone: c.tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-        return UI.el('div', { className: 'tool-result mb-2' }, c.city + '：' + t);
+    const DATA = window.WA_WORLD_TIME;
+    const items = DATA?.items || [];
+    if (!items.length) {
+      mount(app, [UI.panel('世界時間', UI.el('p', { className: 'text-muted' }, '時區資料載入失敗，請重新整理。'))]);
+      return;
+    }
+
+    function tzParts(date, tz) {
+      const dtf = new Intl.DateTimeFormat('en-GB', {
+        timeZone: tz,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      });
+      const map = {};
+      dtf.formatToParts(date).forEach((p) => {
+        if (p.type !== 'literal') map[p.type] = p.value;
+      });
+      return {
+        hour: +map.hour,
+        minute: +map.minute,
+        second: +map.second,
+        y: +map.year,
+        mo: +map.month,
+        d: +map.day,
+      };
+    }
+
+    function offsetMinutes(date, tz) {
+      const p = tzParts(date, tz);
+      const asUTC = Date.UTC(p.y, p.mo - 1, p.d, p.hour, p.minute, p.second);
+      return Math.round((asUTC - date.getTime()) / 60000);
+    }
+
+    function formatOffset(mins) {
+      const sign = mins >= 0 ? '+' : '-';
+      const abs = Math.abs(mins);
+      const h = Math.floor(abs / 60);
+      const m = abs % 60;
+      return `UTC${sign}${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+    }
+
+    function dayPeriod(hour) {
+      if (hour >= 6 && hour < 18) return { icon: '☀️', label: '白天', cls: 'wtime-period-day' };
+      if (hour >= 18 && hour < 21) return { icon: '🌆', label: '傍晚', cls: 'wtime-period-dusk' };
+      return { icon: '🌙', label: '夜晚', cls: 'wtime-period-night' };
+    }
+
+    function countryLabel(item) {
+      const base = item.countryZh || item.countryEn;
+      return item.tzLabel ? `${base}（${item.tzLabel}）` : base;
+    }
+
+    function itemHaystack(item) {
+      return [
+        item.countryZh,
+        item.countryEn,
+        item.capital,
+        item.tz,
+        item.tzAbbr,
+        item.tzName,
+        item.tzLabel,
+        item.iso2,
+        item.iso3,
+        item.region,
+      ].join(' ').toLowerCase();
+    }
+
+    const localClock = UI.el('div', { className: 'wtime-clock wtime-clock-local' });
+    const utcClock = UI.el('div', { className: 'wtime-clock wtime-clock-utc' });
+    const nowPanel = UI.el('dl', { className: 'wtime-now-grid' });
+    const countEl = UI.el('p', { className: 'text-muted small wtime-count' }, '');
+    const tbody = UI.el('tbody');
+    const tableWrap = UI.el('div', { className: 'table-responsive wtime-table-wrap' }, [
+      UI.el('table', { className: 'table table-sm table-hover wtime-table' }, [
+        UI.el('thead', {}, UI.el('tr', {}, [
+          UI.el('th', { scope: 'col', className: 'wtime-col-rank' }, '#'),
+          UI.el('th', { scope: 'col', className: 'wtime-col-period' }, '晝夜'),
+          UI.el('th', { scope: 'col' }, '國家／地區'),
+          UI.el('th', { scope: 'col', className: 'wtime-col-iana' }, 'IANA 時區'),
+          UI.el('th', { scope: 'col', className: 'wtime-col-utc' }, 'UTC 偏移'),
+          UI.el('th', { scope: 'col', className: 'wtime-col-time' }, '當地時間'),
+          UI.el('th', { scope: 'col', className: 'wtime-col-date' }, '日期'),
+        ])),
+        tbody,
+      ]),
+    ]);
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control wtime-search',
+      placeholder: '搜尋國家、城市、IANA 時區或 UTC…',
+    });
+
+    let filter = '';
+    let rowEls = [];
+    let nowCells = {};
+
+    function buildNowPanel() {
+      const rows = [
+        ['time', '時間'],
+        ['gregorian', '新曆'],
+        ['weekday', '今天'],
+        ['lunar', '農曆'],
+        ['yearLine', '今年'],
+        ['zodiac', '生肖'],
+        ['shichen', '時辰'],
+        ['solarTerm', '節氣'],
+      ];
+      nowPanel.replaceChildren(...rows.map(([key, label]) => {
+        const dd = UI.el('dd', { className: 'wtime-now-value' }, '—');
+        nowCells[key] = dd;
+        return UI.el('div', { className: 'wtime-now-row' }, [
+          UI.el('dt', { className: 'wtime-now-label' }, `${label}：`),
+          dd,
+        ]);
       }));
     }
-    tick(); setInterval(tick, 1000);
-    mount(app, [UI.panel('世界時間', [box, UI.el('p', { className: 'text-muted small' }, '臺北、東京、紐約、倫敦即時時鐘。')])]);
+
+    function updateNowPanel(date) {
+      const cal = window.WA_CHINESE_CALENDAR;
+      if (!cal?.formatNowInfo) {
+        Object.values(nowCells).forEach((el) => { el.textContent = '—'; });
+        return;
+      }
+      const info = cal.formatNowInfo(date);
+      Object.entries(nowCells).forEach(([key, el]) => {
+        el.textContent = info[key] || '—';
+        el.classList.toggle('wtime-now-time', key === 'time');
+      });
+    }
+
+    function buildRows() {
+      const q = filter.trim().toLowerCase();
+      const list = q ? items.filter((item) => itemHaystack(item).includes(q)) : items;
+      tbody.replaceChildren();
+      rowEls = list.map((item) => {
+        const tr = UI.el('tr', { className: 'wtime-row', 'data-tz': item.tz });
+        tr._item = item;
+        tr.appendChild(UI.el('td', { className: 'wtime-rank text-muted' }, '—'));
+        tr.appendChild(UI.el('td', { className: 'wtime-period' }, ''));
+        tr.appendChild(UI.el('td', { className: 'wtime-country' }, ''));
+        tr.appendChild(UI.el('td', { className: 'wtime-iana' }, ''));
+        tr.appendChild(UI.el('td', { className: 'wtime-utc' }, ''));
+        tr.appendChild(UI.el('td', { className: 'wtime-time' }, ''));
+        tr.appendChild(UI.el('td', { className: 'wtime-date text-muted' }, ''));
+        tbody.appendChild(tr);
+        return tr;
+      });
+      countEl.textContent = q
+        ? `顯示 ${list.length} / ${items.length} 個時區`
+        : `共 ${items.length} 個國家／地區時區（含多時區國家）`;
+    }
+
+    function tick() {
+      const now = new Date();
+      updateNowPanel(now);
+      const localTz = Intl.DateTimeFormat().resolvedOptions().timeZone || '本地';
+      localClock.replaceChildren(
+        UI.el('span', { className: 'wtime-clock-label' }, `您的位置 · ${localTz}`),
+        UI.el('strong', { className: 'wtime-clock-value' }, now.toLocaleTimeString('zh-TW', { hour12: false })),
+        UI.el('span', { className: 'wtime-clock-date text-muted' }, now.toLocaleDateString('zh-TW', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }))
+      );
+      utcClock.replaceChildren(
+        UI.el('span', { className: 'wtime-clock-label' }, '協調世界時 UTC'),
+        UI.el('strong', { className: 'wtime-clock-value' }, now.toLocaleTimeString('zh-TW', { timeZone: 'UTC', hour12: false })),
+        UI.el('span', { className: 'wtime-clock-date text-muted' }, now.toLocaleDateString('zh-TW', { timeZone: 'UTC', weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }))
+      );
+
+      const computed = rowEls.map((tr) => {
+        const item = tr._item;
+        const p = tzParts(now, item.tz);
+        const off = offsetMinutes(now, item.tz);
+        const period = dayPeriod(p.hour);
+        const timeStr = now.toLocaleTimeString('zh-TW', {
+          timeZone: item.tz,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        });
+        const dateStr = now.toLocaleDateString('zh-TW', {
+          timeZone: item.tz,
+          month: 'short',
+          day: 'numeric',
+          weekday: 'short',
+        });
+        return { tr, off, period, timeStr, dateStr, item };
+      });
+
+      computed.sort((a, b) => b.off - a.off || a.item.countryZh.localeCompare(b.item.countryZh, 'zh-Hant'));
+
+      let lastOff = null;
+      computed.forEach(({ tr, off, period, timeStr, dateStr, item }, idx) => {
+        tr.querySelector('.wtime-rank').textContent = String(idx + 1);
+        const periodCell = tr.querySelector('.wtime-period');
+        periodCell.className = `wtime-period ${period.cls}`;
+        periodCell.title = period.label;
+        periodCell.textContent = period.icon;
+        const countryCell = tr.querySelector('.wtime-country');
+        const countryKids = [];
+        if (item.emoji) countryKids.push(UI.el('span', { className: 'wtime-flag', 'aria-hidden': 'true' }, item.emoji));
+        countryKids.push(UI.el('span', { className: 'wtime-country-name' }, countryLabel(item)));
+        if (item.capital) {
+          countryKids.push(UI.el('span', { className: 'wtime-capital text-muted' }, item.capital));
+        }
+        countryCell.replaceChildren(...countryKids);
+        tr.querySelector('.wtime-iana').textContent = item.tz;
+        const utcCell = tr.querySelector('.wtime-utc');
+        const offStr = formatOffset(off);
+        utcCell.textContent = offStr;
+        utcCell.title = item.tzAbbr ? `${item.tzAbbr} · ${item.tzName || ''}` : (item.tzName || '');
+        tr.querySelector('.wtime-time').textContent = timeStr;
+        tr.querySelector('.wtime-date').textContent = dateStr;
+        tr.dataset.offset = String(off);
+        if (lastOff !== null && off !== lastOff) tr.classList.add('wtime-row-band');
+        else tr.classList.remove('wtime-row-band');
+        lastOff = off;
+      });
+      computed.forEach(({ tr }) => tbody.appendChild(tr));
+    }
+
+    searchInput.addEventListener('input', () => {
+      filter = searchInput.value;
+      buildRows();
+      tick();
+    });
+
+    buildNowPanel();
+    buildRows();
+    tick();
+    const timer = setInterval(tick, 1000);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('beforeunload', () => clearInterval(timer), { once: true });
+    }
+
+    app.className = 'tool-app wtime-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner wtime-inner' }, [
+      UI.el('p', { className: 'text-muted wtime-intro' }, DATA.intro),
+      UI.el('ul', { className: 'tool-checklist text-muted small wtime-checklist' }, [
+        UI.el('li', {}, '排序：UTC 偏移由大到小（最快 → 最慢），即從 UTC+14 到 UTC−12。'),
+        UI.el('li', {}, '☀️ 白天 06:00–17:59 · 🌆 傍晚 18:00–20:59 · 🌙 夜晚 21:00–05:59（依當地時間）。'),
+        UI.el('li', {}, 'IANA 欄位供工程師對照 API／資料庫時區名稱；夏令時間自動反映。'),
+      ]),
+      UI.el('div', { className: 'wtime-now-panel tool-panel-card' }, [
+        UI.el('h3', { className: 'wtime-now-title' }, '本地完整曆法'),
+        nowPanel,
+      ]),
+      UI.el('div', { className: 'wtime-clocks tool-panel-card' }, [localClock, utcClock]),
+      countEl,
+      UI.el('div', { className: 'tool-field wtime-filter' }, searchInput),
+      tableWrap,
+    ]));
   };
 
   R['calendar'] = function (app) {
+    const ENGINE = window.WA_CALENDAR_ENGINE;
+    const HOLIDAYS = window.WA_CALENDAR_HOLIDAYS || {};
+    const GLOSSARY = window.WA_CALENDAR_GLOSSARY;
+    const TIPS = window.WA_CALENDAR_TIPS || {};
+    const CHINESE = window.WA_CHINESE_CALENDAR;
+
+    if (!ENGINE?.buildMonth) {
+      mount(app, [UI.panel('萬年曆', UI.el('p', { className: 'text-muted' }, '曆法引擎載入失敗，請重新整理。'))]);
+      return;
+    }
+
     const now = new Date();
-    const y = now.getFullYear(), m = now.getMonth();
-    const first = new Date(y, m, 1).getDay();
-    const days = new Date(y, m + 1, 0).getDate();
-    let lunar = '';
-    try { lunar = new Intl.DateTimeFormat('zh-u-ca-chinese', { month: 'long', day: 'numeric' }).format(now); } catch (e) { lunar = '（農曆需瀏覽器支援）'; }
-    const cells = [];
-    for (let i = 0; i < first; i++) cells.push('');
-    for (let d = 1; d <= days; d++) cells.push(String(d));
-    const rows = [];
-    for (let i = 0; i < cells.length; i += 7) rows.push({ week: cells.slice(i, i + 7).join(' | ') });
-    mount(app, [UI.panel('萬年曆', [
-      UI.el('h4', {}, y + ' 年 ' + (m + 1) + ' 月'),
-      UI.el('p', {}, '農曆：' + lunar),
-      UI.tableFrom(rows, [{ key: 'week', label: '日曆' }]),
-    ])]);
+    let viewYear = now.getFullYear();
+    let viewMonth = now.getMonth() + 1;
+    let selectedDay = now.getDate();
+    let region = 'tw';
+
+    const intro = UI.el('div', { className: 'cal-intro' }, ENGINE.INTRO.map((p) => UI.el('p', { className: 'text-muted' }, p)));
+    const clockPanel = UI.el('div', { className: 'cal-clock-panel' });
+    const monthTitle = UI.el('h3', { className: 'cal-month-title' }, '');
+    const grid = UI.el('div', { className: 'cal-grid', role: 'grid' });
+    const detail = UI.el('div', { className: 'cal-detail tool-panel-card' });
+    const glossaryWrap = UI.el('div', { className: 'cal-glossary' });
+
+    const yearInput = UI.el('input', {
+      type: 'number',
+      className: 'form-control cal-year-input',
+      min: 1900,
+      max: 2099,
+      value: String(viewYear),
+    });
+    const monthSelect = UI.el('select', { className: 'form-select cal-month-select' });
+    for (let m = 1; m <= 12; m++) {
+      monthSelect.appendChild(UI.el('option', { value: String(m) }, `${m} 月`));
+    }
+    monthSelect.value = String(viewMonth);
+
+    const regionSelect = UI.el('select', { className: 'form-select cal-region-select' });
+    Object.entries(HOLIDAYS).forEach(([id, r]) => {
+      regionSelect.appendChild(UI.el('option', { value: id }, r.name));
+    });
+    regionSelect.value = region;
+
+    function pad2(n) { return String(n).padStart(2, '0'); }
+
+    function regionHoliday(y, m, d) {
+      const key = `${pad2(m)}-${pad2(d)}`;
+      return HOLIDAYS[region]?.fixed?.[key] || '';
+    }
+
+    function dayInfo() {
+      return ENGINE.getDay(viewYear, viewMonth, selectedDay);
+    }
+
+    function updateClock() {
+      if (!CHINESE?.formatNowInfo) {
+        clockPanel.replaceChildren(UI.el('p', { className: 'text-muted small' }, '時鐘模組未載入'));
+        return;
+      }
+      const info = CHINESE.formatNowInfo(new Date());
+      clockPanel.replaceChildren(
+        UI.el('div', { className: 'cal-clock-time' }, info.time),
+        UI.el('dl', { className: 'cal-clock-grid' }, [
+          ['gregorian', '新曆'], ['weekday', '今天'], ['lunar', '農曆'],
+          ['yearLine', '今年'], ['zodiac', '生肖'], ['shichen', '時辰'], ['solarTerm', '節氣'],
+        ].flatMap(([key, label]) => [
+          UI.el('dt', {}, `${label}`),
+          UI.el('dd', {}, info[key] || '—'),
+        ])),
+      );
+    }
+
+    function renderGlossary() {
+      if (!GLOSSARY?.sections?.length) {
+        glossaryWrap.replaceChildren();
+        return;
+      }
+      glossaryWrap.replaceChildren(
+        UI.el('h3', { className: 'cal-section-title' }, '曆法小辭典'),
+        ...GLOSSARY.sections.map((sec) => UI.el('details', { className: 'cal-gloss-group' }, [
+          UI.el('summary', { className: 'cal-gloss-title' }, sec.title),
+          UI.el('ul', { className: 'cal-gloss-list' }, sec.items.map((item) =>
+            UI.el('li', {}, [
+              UI.el('strong', {}, `${item.k}：`),
+              document.createTextNode(item.v),
+            ]))),
+        ])),
+      );
+    }
+
+    function renderDetail() {
+      const d = dayInfo();
+      if (!d) {
+        detail.replaceChildren(UI.el('p', { className: 'text-muted' }, '請選擇日期'));
+        return;
+      }
+      const hol = regionHoliday(d.solarYear, d.solarMonth, d.solarDay);
+      const tip = TIPS[d.jianchu] || '順應天時，亦需順應己心；宜忌僅供文化參考。';
+      const lunarLine = `${d.isLeap ? '閏' : ''}${d.lunarMonthLabel}月${d.lunarDayLabel}${d.monthSize ? `（${d.monthSize}）` : ''}`;
+
+      function row(label, value, cls) {
+        if (!value) return null;
+        return UI.el('div', { className: `cal-detail-row ${cls || ''}` }, [
+          UI.el('span', { className: 'cal-detail-label' }, label),
+          UI.el('span', { className: 'cal-detail-value' }, value),
+        ]);
+      }
+
+      detail.replaceChildren(
+        UI.el('div', { className: 'cal-detail-head' }, [
+          UI.el('p', { className: 'cal-detail-solar' }, [
+            UI.el('span', { className: 'cal-detail-daynum' }, String(d.solarDay)),
+            UI.el('span', { className: 'cal-detail-ym' }, `${d.solarYear} 年 ${d.solarMonth} 月 · 星期${d.weekday}`),
+          ]),
+          UI.el('p', { className: 'cal-detail-lunar' }, `農曆 ${d.ganzhiYear}年 ${lunarLine}`),
+          d.festival || hol
+            ? UI.el('p', { className: 'cal-detail-festival' }, [d.festival, hol].filter(Boolean).join(' · '))
+            : null,
+        ]),
+        UI.el('blockquote', { className: 'cal-tip' }, tip),
+        UI.el('div', { className: 'cal-detail-body' }, [
+          row('干支', `${d.ganzhiYear}年 ${d.ganzhiMonth}月 ${d.ganzhiDay}日`),
+          row('建除', d.jianchu),
+          row('值日', d.zhiri),
+          row('宜', d.yi, 'cal-yi'),
+          row('忌', d.ji, 'cal-ji'),
+          row('彭祖百忌', d.pengzu),
+          row('沖煞', d.chong),
+          row('五行', `${d.wuxing}${d.wuxingShort ? `（${d.wuxingShort}）` : ''}`),
+          row('吉凶神', d.jixiong),
+          row('物候', d.wuhou),
+          row('神位', d.gods),
+          row('命祿', d.minglu),
+          row('時辰', d.shichen),
+          row('月相', d.moonPhase),
+          row('六曜', d.rokuyou),
+        ].filter(Boolean)),
+        UI.el('p', { className: 'cal-disclaimer text-muted small' }, '黃曆宜忌源自傳統曆法，僅供文化與趣味參考，不作為唯一決策依據。'),
+      );
+    }
+
+    function renderGrid() {
+      const monthData = ENGINE.buildMonth(viewYear, viewMonth);
+      monthTitle.textContent = `${viewYear} 年 ${viewMonth} 月`;
+      yearInput.value = String(viewYear);
+      monthSelect.value = String(viewMonth);
+
+      const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+      grid.replaceChildren(
+        ...weekdays.map((w, idx) => UI.el('div', {
+          className: `cal-dow ${idx === 0 || idx === 6 ? 'is-weekend' : ''}`,
+          role: 'columnheader',
+        }, w)),
+      );
+
+      for (let i = 0; i < monthData.firstWeekday; i++) {
+        grid.appendChild(UI.el('div', { className: 'cal-cell cal-cell-empty', 'aria-hidden': 'true' }));
+      }
+
+      monthData.days.forEach((d) => {
+        const hol = regionHoliday(d.solarYear, d.solarMonth, d.solarDay);
+        const badge = d.festival || hol;
+        const isSelected = d.solarDay === selectedDay;
+        const isToday = d.isToday;
+        const btn = UI.el('button', {
+          type: 'button',
+          className: [
+            'cal-cell',
+            'cal-cell-day',
+            isSelected ? 'is-selected' : '',
+            isToday ? 'is-today' : '',
+            d.solarTerm ? 'has-term' : '',
+            badge ? 'has-festival' : '',
+          ].filter(Boolean).join(' '),
+          'aria-label': `${d.solarMonth}月${d.solarDay}日 農曆${d.lunarDayLabel}`,
+          onClick: () => {
+            selectedDay = d.solarDay;
+            renderGrid();
+            renderDetail();
+          },
+        }, [
+          UI.el('span', { className: 'cal-solar' }, String(d.solarDay)),
+          UI.el('span', { className: 'cal-lunar' }, d.lunarDay === 1
+            ? `${d.isLeap ? '閏' : ''}${d.lunarMonthLabel}月`
+            : d.lunarDayLabel),
+          badge ? UI.el('span', { className: 'cal-badge', title: badge }, '節') : null,
+          d.solarTerm ? UI.el('span', { className: 'cal-term-dot', title: d.solarTerm }) : null,
+        ]);
+        grid.appendChild(btn);
+      });
+
+      renderDetail();
+    }
+
+    function goToday() {
+      const t = new Date();
+      viewYear = t.getFullYear();
+      viewMonth = t.getMonth() + 1;
+      selectedDay = t.getDate();
+      renderGrid();
+    }
+
+    function shiftMonth(delta) {
+      viewMonth += delta;
+      if (viewMonth < 1) { viewMonth = 12; viewYear -= 1; }
+      if (viewMonth > 12) { viewMonth = 1; viewYear += 1; }
+      selectedDay = 1;
+      renderGrid();
+    }
+
+    yearInput.addEventListener('change', () => {
+      viewYear = Math.min(2099, Math.max(1900, Number(yearInput.value) || viewYear));
+      renderGrid();
+    });
+    monthSelect.addEventListener('change', () => {
+      viewMonth = Number(monthSelect.value) || viewMonth;
+      selectedDay = 1;
+      renderGrid();
+    });
+    regionSelect.addEventListener('change', () => {
+      region = regionSelect.value;
+      renderGrid();
+    });
+
+    const toolbar = UI.el('div', { className: 'cal-toolbar tool-panel-card' }, [
+      UI.el('div', { className: 'row g-2 align-items-end' }, [
+        UI.el('div', { className: 'col-6 col-md-2' }, [
+          UI.el('label', { className: 'form-label tool-label' }, '年份'),
+          yearInput,
+        ]),
+        UI.el('div', { className: 'col-6 col-md-2' }, [
+          UI.el('label', { className: 'form-label tool-label' }, '月份'),
+          monthSelect,
+        ]),
+        UI.el('div', { className: 'col-12 col-md-3' }, [
+          UI.el('label', { className: 'form-label tool-label' }, '參考假日'),
+          regionSelect,
+        ]),
+        UI.el('div', { className: 'col-12 col-md-5' }, [
+          UI.el('div', { className: 'cal-nav-btns tool-btn-row' }, [
+            UI.btn('◀ 上月', 'btn btn-outline-secondary btn-sm', () => shiftMonth(-1)),
+            UI.btn('今天', 'btn btn-primary btn-sm', goToday),
+            UI.btn('下月 ▶', 'btn btn-outline-secondary btn-sm', () => shiftMonth(1)),
+          ]),
+        ]),
+      ]),
+    ]);
+
+    renderGlossary();
+    updateClock();
+    renderGrid();
+    const timer = setInterval(updateClock, 1000);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('beforeunload', () => clearInterval(timer), { once: true });
+    }
+
+    app.className = 'tool-app cal-app';
+    app.replaceChildren(UI.el('div', { className: 'cal-app-inner' }, [
+      intro,
+      UI.el('div', { className: 'cal-clock tool-panel-card' }, [
+        UI.el('h3', { className: 'cal-section-title' }, '此刻'),
+        clockPanel,
+      ]),
+      toolbar,
+      UI.el('div', { className: 'cal-main' }, [
+        UI.el('div', { className: 'cal-month tool-panel-card' }, [
+          monthTitle,
+          grid,
+        ]),
+        detail,
+      ]),
+      glossaryWrap,
+    ]));
   };
 
   R['solar-terms'] = function (app) {
-    mount(app, [UI.panel('二十四節氣', UI.tableFrom([{"term":"立春","date":"2/4 前後"},{"term":"雨水","date":"2/19"},{"term":"驚蟄","date":"3/6"},{"term":"春分","date":"3/21"},{"term":"清明","date":"4/5"},{"term":"穀雨","date":"4/20"},{"term":"立夏","date":"5/6"},{"term":"小滿","date":"5/21"},{"term":"芒種","date":"6/6"},{"term":"夏至","date":"6/21"},{"term":"小暑","date":"7/7"},{"term":"大暑","date":"7/23"},{"term":"立秋","date":"8/8"},{"term":"處暑","date":"8/23"},{"term":"白露","date":"9/8"},{"term":"秋分","date":"9/23"},{"term":"寒露","date":"10/8"},{"term":"霜降","date":"10/24"},{"term":"立冬","date":"11/8"},{"term":"小雪","date":"11/22"},{"term":"大雪","date":"12/7"},{"term":"冬至","date":"12/22"},{"term":"小寒","date":"1/6"},{"term":"大寒","date":"1/20"}], [
-      { key: 'term', label: '節氣' }, { key: 'date', label: '約略日期' },
-    ]))]);
+    const DATA = window.WA_SOLAR_TERMS;
+    const CC = window.WA_CHINESE_CALENDAR;
+    const terms = DATA?.terms || [];
+    if (!terms.length) {
+      mount(app, [UI.panel('二十四節氣', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理。'))]);
+      return;
+    }
+
+    const SEASON_CLASS = { 春: 'spring', 夏: 'summer', 秋: 'autumn', 冬: 'winter' };
+    const now = new Date();
+    const year = now.getFullYear();
+    const termDates = CC?.buildTermDates ? CC.buildTermDates(year) : [];
+    const dateByName = Object.fromEntries(termDates.map((t) => [t.name, t.at]));
+
+    function formatTermDate(name) {
+      const d = dateByName[name];
+      if (!d) return '';
+      return `${d.getMonth() + 1}月${d.getDate()}日`;
+    }
+
+    function currentTermName() {
+      const label = CC?.solarTermLabel ? CC.solarTermLabel(now) : '';
+      return label.replace(/後$/, '');
+    }
+
+    const activeName = currentTermName();
+    let seasonFilter = '全部';
+    let search = '';
+    let expandedId = terms.find((t) => t.nameZh === activeName)?.id || terms[0].id;
+
+    const nowBanner = UI.el('div', { className: 'sterm-now tool-panel-card' });
+    const grid = UI.el('div', { className: 'sterm-grid' });
+    const countEl = UI.el('p', { className: 'text-muted small sterm-count' }, '');
+    const detailHost = UI.el('div', { className: 'sterm-detail-host' });
+    const nav = UI.el('nav', { className: 'sterm-nav', 'aria-label': '節氣季節' });
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control sterm-search',
+      placeholder: '搜尋節氣、習俗、諺語…',
+    });
+
+    function sectionBlock(title, text) {
+      if (!text) return null;
+      return UI.el('div', { className: 'sterm-section' }, [
+        UI.el('h5', { className: 'sterm-section-title' }, title),
+        UI.el('p', { className: 'sterm-section-text' }, text),
+      ]);
+    }
+
+    function proverbList(items) {
+      if (!items?.length) return null;
+      return UI.el('div', { className: 'sterm-section' }, [
+        UI.el('h5', { className: 'sterm-section-title' }, '諺語'),
+        UI.el('ul', { className: 'sterm-proverb-list' }, items.map((p) => {
+          const line = p.meaning ? `${p.saying}：${p.meaning}` : p.saying;
+          return UI.el('li', {}, line);
+        })),
+      ]);
+    }
+
+    function renderDetail(term) {
+      if (!term) {
+        detailHost.replaceChildren();
+        return;
+      }
+      detailHost.replaceChildren(UI.el('article', {
+        className: `sterm-detail tool-panel-card sterm-season-${SEASON_CLASS[term.season] || ''}`,
+        id: `sterm-${term.id}`,
+      }, [
+        UI.el('div', { className: 'sterm-detail-hero' }, [
+          UI.el('img', {
+            className: 'sterm-detail-img',
+            src: term.image || term.thumb,
+            alt: term.imageTitle || term.nameZh,
+            loading: 'lazy',
+          }),
+          UI.el('div', { className: 'sterm-detail-head' }, [
+            UI.el('div', { className: 'sterm-detail-badges' }, [
+              UI.el('span', { className: `sterm-season-badge sterm-season-${SEASON_CLASS[term.season]}` }, term.season),
+              term.category ? UI.el('span', { className: 'sterm-cat-badge' }, term.category) : null,
+              term.huangjing != null ? UI.el('span', { className: 'sterm-hj-badge' }, `黃經 ${term.huangjing}°`) : null,
+            ]),
+            UI.el('h3', { className: 'sterm-detail-title' }, [
+              term.nameZh,
+              UI.el('span', { className: 'sterm-detail-en' }, term.nameEn),
+            ]),
+            UI.el('p', { className: 'sterm-detail-date' }, [
+              `約 ${term.dateApprox}`,
+              formatTermDate(term.nameZh) ? ` · ${year} 年約 ${formatTermDate(term.nameZh)}` : '',
+            ]),
+            UI.el('p', { className: 'sterm-detail-intro' }, term.intro || term.summary),
+          ]),
+        ]),
+        term.wawaTip ? UI.el('blockquote', { className: 'sterm-tip' }, [
+          UI.el('strong', {}, 'WaWa 小提示'),
+          UI.el('span', {}, term.wawaTip),
+        ]) : null,
+        UI.el('div', { className: 'sterm-detail-body' }, [
+          sectionBlock('節氣解說', term.meaning || term.summary),
+          sectionBlock('民俗習慣', term.customs),
+          sectionBlock('養生保健', term.health),
+          proverbList(term.proverbs),
+        ].filter(Boolean)),
+      ]));
+    }
+
+    function termHaystack(t) {
+      return [
+        t.nameZh, t.nameEn, t.season, t.category, t.intro, t.summary,
+        t.meaning, t.customs, t.health, t.wawaTip,
+        ...(t.proverbs || []).flatMap((p) => [p.saying, p.meaning]),
+      ].join(' ').toLowerCase();
+    }
+
+    function renderNow() {
+      const active = terms.find((t) => t.nameZh === activeName);
+      const nextIdx = terms.findIndex((t) => t.nameZh === activeName);
+      const next = nextIdx >= 0 ? terms[(nextIdx + 1) % terms.length] : null;
+      nowBanner.replaceChildren([
+        UI.el('div', { className: 'sterm-now-text' }, [
+          UI.el('p', { className: 'sterm-now-label' }, '今日節氣'),
+          UI.el('p', { className: 'sterm-now-value' }, active
+            ? `${active.nameZh}${CC?.solarTermLabel && CC.solarTermLabel(now).endsWith('後') ? '後' : ''}`
+            : (CC?.solarTermLabel ? CC.solarTermLabel(now) : '—')),
+          UI.el('p', { className: 'text-muted small sterm-now-sub' }, active
+            ? `${year} 年 ${formatTermDate(active.nameZh) || active.dateApprox}${next ? ` · 下一節氣 ${next.nameZh}` : ''}`
+            : ''),
+        ]),
+        active?.thumb ? UI.el('img', {
+          className: 'sterm-now-thumb',
+          src: active.thumb,
+          alt: active.nameZh,
+          loading: 'lazy',
+        }) : null,
+      ]);
+    }
+
+    function renderGrid() {
+      const q = search.trim().toLowerCase();
+      const filtered = terms.filter((t) => {
+        if (seasonFilter !== '全部' && t.season !== seasonFilter) return false;
+        if (q && !termHaystack(t).includes(q)) return false;
+        return true;
+      });
+
+      countEl.textContent = q || seasonFilter !== '全部'
+        ? `顯示 ${filtered.length} / ${terms.length} 個節氣`
+        : `共 ${terms.length} 個節氣 · 資料更新 ${DATA.updated || ''}`;
+
+      grid.replaceChildren(...filtered.map((t) => {
+        const isActive = t.nameZh === activeName;
+        const isOpen = t.id === expandedId;
+        return UI.el('button', {
+          type: 'button',
+          className: [
+            'sterm-card',
+            `sterm-season-${SEASON_CLASS[t.season]}`,
+            isActive ? 'is-current' : '',
+            isOpen ? 'is-open' : '',
+          ].filter(Boolean).join(' '),
+          onClick: () => {
+            expandedId = t.id;
+            renderGrid();
+            renderDetail(t);
+            const el = document.getElementById(`sterm-${t.id}`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          },
+        }, [
+          UI.el('img', {
+            className: 'sterm-card-thumb',
+            src: t.thumb || t.image,
+            alt: t.nameZh,
+            loading: 'lazy',
+          }),
+          UI.el('span', { className: 'sterm-card-name' }, t.nameZh),
+          UI.el('span', { className: 'sterm-card-en' }, t.nameEn),
+          UI.el('span', { className: 'sterm-card-date' }, formatTermDate(t.nameZh) || t.dateApprox.replace(/^(\d)/, '約 $1')),
+          isActive ? UI.el('span', { className: 'sterm-card-now' }, '現在') : null,
+        ]);
+      }));
+
+      if (!filtered.length) {
+        grid.appendChild(UI.el('p', { className: 'text-muted small sterm-empty' }, '找不到符合的節氣，請換個關鍵字或季節。'));
+      }
+
+      const openTerm = filtered.find((t) => t.id === expandedId) || filtered[0];
+      if (openTerm && expandedId !== openTerm.id) expandedId = openTerm.id;
+      renderDetail(openTerm);
+    }
+
+    ['全部', '春', '夏', '秋', '冬'].forEach((label) => {
+      const btn = UI.el('button', {
+        type: 'button',
+        className: `sterm-nav-link${seasonFilter === label ? ' is-active' : ''}`,
+        onClick: () => {
+          seasonFilter = label;
+          nav.querySelectorAll('.sterm-nav-link').forEach((el) => {
+            el.classList.toggle('is-active', el.textContent === label);
+          });
+          renderGrid();
+        },
+      }, label);
+      nav.appendChild(btn);
+    });
+
+    searchInput.addEventListener('input', () => {
+      search = searchInput.value;
+      renderGrid();
+    });
+
+    const glossary = DATA.glossary || {};
+    const catList = UI.el('div', { className: 'sterm-categories' }, (glossary.categories || []).map((c) => (
+      UI.el('div', { className: 'sterm-cat-item' }, [
+        UI.el('strong', {}, c.label),
+        UI.el('span', {}, c.desc),
+      ])
+    )));
+
+    renderNow();
+    renderGrid();
+
+    app.className = 'tool-app sterm-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner sterm-app-inner' }, [
+      UI.el('p', { className: 'text-muted sterm-intro' }, DATA.intro),
+      UI.el('div', { className: 'sterm-overview tool-panel-card' }, [
+        UI.el('img', {
+          className: 'sterm-overview-img',
+          src: DATA.overviewImage,
+          alt: '二十四節氣概覽',
+          loading: 'lazy',
+        }),
+        UI.el('div', { className: 'sterm-overview-text' }, [
+          UI.el('p', { className: 'sterm-poem' }, glossary.poem),
+          UI.el('p', { className: 'text-muted small' }, glossary.poemNote),
+          UI.el('p', {}, glossary.about),
+        ]),
+      ]),
+      nowBanner,
+      UI.el('div', { className: 'tool-field sterm-filter' }, searchInput),
+      nav,
+      countEl,
+      grid,
+      detailHost,
+      UI.el('div', { className: 'sterm-glossary tool-panel-card' }, [
+        UI.el('h4', { className: 'sterm-glossary-title' }, '節氣分類'),
+        catList,
+        UI.el('h4', { className: 'sterm-glossary-title' }, '四季劃分'),
+        UI.el('div', { className: 'sterm-season-notes' }, (glossary.seasons || []).map((s) => (
+          UI.el('p', { className: 'sterm-season-note' }, [
+            UI.el('strong', {}, `${s.id}（${s.months}）`),
+            ` ${s.note}`,
+          ])
+        ))),
+      ]),
+      UI.el('p', { className: 'text-muted small sterm-source' }, '節氣圖文參考 ifreesite 二十四節氣，並加入 WaWaTools 生活化整理；精確交節時刻請以天文曆法為準。'),
+    ]));
   };
 
   R['currency'] = function (app) {
-    mount(app, [UI.panel('全球貨幣', UI.tableFrom([{"code":"TWD","name":"新臺幣","sym":"NT$"},{"code":"USD","name":"美元","sym":"$"},{"code":"EUR","name":"歐元","sym":"€"},{"code":"JPY","name":"日圓","sym":"¥"},{"code":"CNY","name":"人民幣","sym":"¥"},{"code":"GBP","name":"英鎊","sym":"£"}], [
-      { key: 'code', label: '代碼' }, { key: 'name', label: '名稱' }, { key: 'sym', label: '符號' },
-    ]))]);
+    const DATA = window.WA_CURRENCY;
+    const regions = DATA?.regions || [];
+    if (!regions.length) {
+      mount(app, [UI.panel('全球貨幣', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理。'))]);
+      return;
+    }
+
+    const allItems = regions.flatMap((r) => r.items.map((item) => ({ ...item, regionId: r.id, regionLabel: r.label })));
+    const currencyCodes = [...new Set(allItems.map((i) => i.code))].sort();
+    const CURRENCY_ZH_LOCAL = {};
+    allItems.forEach((i) => { CURRENCY_ZH_LOCAL[i.code] = i.currencyZh; });
+
+    // Obsolete ISO codes still shown in source data; API uses successor codes.
+    // ratio = obsolete units per 1 successor unit (e.g. 10 MRO = 1 MRU).
+    const OBSOLETE_CURRENCY = {
+      MRO: { api: 'MRU', ratio: 10 },
+      STD: { api: 'STN', ratio: 1000 },
+      ZMK: { api: 'ZMW', ratio: 1000 },
+      BYR: { api: 'BYN', ratio: 10000 },
+    };
+
+    function apiCode(code) {
+      return OBSOLETE_CURRENCY[code]?.api || code;
+    }
+
+    function rateBetween(base, target, rateTable) {
+      if (base === target) return 1;
+      const targetApi = apiCode(target);
+      const targetRatio = OBSOLETE_CURRENCY[target]?.ratio || 1;
+      const baseRatio = OBSOLETE_CURRENCY[base]?.ratio || 1;
+      const raw = rateTable[targetApi];
+      if (raw == null || !Number.isFinite(raw)) return null;
+      return (raw / baseRatio) * targetRatio;
+    }
+
+    let baseCode = 'TWD';
+    if (!currencyCodes.includes(baseCode)) baseCode = 'USD';
+    let rates = {};
+    let rateDate = '';
+    let rateError = '';
+    let rateLoading = false;
+
+    const rateStatus = UI.el('p', { className: 'curr-rate-status text-muted small' }, '匯率載入中…');
+    const countEl = UI.el('p', { className: 'curr-count text-muted small' }, '');
+    const gridWrap = UI.el('div', { className: 'curr-sections' });
+    const nav = UI.el('nav', { className: 'curr-nav', 'aria-label': '貨幣大洲' });
+
+    const baseSelect = UI.el('select', { className: 'form-select curr-base-select', id: 'curr-base' });
+    currencyCodes.forEach((code) => {
+      const opt = UI.el('option', { value: code }, `${CURRENCY_ZH_LOCAL[code] || code} (${code})`);
+      baseSelect.appendChild(opt);
+    });
+    DATA.baseSuggestions.forEach((code) => {
+      const opt = baseSelect.querySelector(`option[value="${code}"]`);
+      if (opt) opt.textContent = `${CURRENCY_ZH_LOCAL[code] || code} (${code}) ★`;
+    });
+    baseSelect.value = baseCode;
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control curr-search',
+      placeholder: '搜尋國家、貨幣名稱、代碼或符號…',
+    });
+
+    function formatRate(num) {
+      if (num == null || !Number.isFinite(num)) return '—';
+      if (num >= 100) return num.toFixed(2);
+      if (num >= 1) return num.toFixed(4);
+      if (num >= 0.01) return num.toFixed(4);
+      return num.toPrecision(4);
+    }
+
+    function rateLabel(item) {
+      if (item.code === baseCode) return '基準貨幣';
+      const r = rateBetween(baseCode, item.code, rates);
+      if (r == null) return '無匯率資料';
+      return `1 ${baseCode} = ${formatRate(r)} ${item.code}`;
+    }
+
+    function itemHaystack(item) {
+      return [
+        item.countryLabel,
+        item.countryShort,
+        item.countryEn,
+        item.currencyZh,
+        item.currencyEn,
+        item.symbol,
+        item.code,
+        item.subunit,
+        item.regionLabel,
+      ].join(' ').toLowerCase();
+    }
+
+    function makeCard(item) {
+      const flag = item.flag
+        ? UI.el('img', {
+          className: 'curr-card-flag',
+          src: item.flag,
+          alt: `${item.countryShort} 國旗`,
+          loading: 'lazy',
+        })
+        : UI.el('div', { className: 'curr-card-flag curr-card-flag-fallback', 'aria-hidden': 'true' }, item.code.slice(0, 2));
+
+      const symEl = item.symbol
+        ? UI.el('span', { className: 'curr-card-symbol', title: '貨幣符號' }, item.symbol)
+        : null;
+
+      return UI.el('article', {
+        className: 'curr-card',
+        dataset: { code: item.code, region: item.regionId },
+      }, [
+        UI.el('div', { className: 'curr-card-top' }, [flag, symEl]),
+        UI.el('div', { className: 'curr-card-body' }, [
+          UI.el('h4', { className: 'curr-card-country' }, item.countryShort),
+          item.countryLabel !== item.countryShort
+            ? UI.el('p', { className: 'curr-card-country-sub text-muted small' }, item.countryLabel)
+            : null,
+          UI.el('p', { className: 'curr-card-currency' }, [
+            UI.el('strong', {}, item.currencyZh),
+            item.currencyEn ? UI.el('span', { className: 'curr-card-currency-en' }, item.currencyEn) : null,
+          ]),
+          UI.el('div', { className: 'curr-card-meta' }, [
+            UI.el('span', { className: 'curr-meta-code' }, item.code),
+            item.subunit ? UI.el('span', { className: 'curr-meta-sub' }, `輔幣：${item.subunit}`) : null,
+          ]),
+          UI.el('p', { className: 'curr-card-rate', dataset: { code: item.code } }, rateLabel(item)),
+        ]),
+      ]);
+    }
+
+    function renderSections(query) {
+      const q = query.trim().toLowerCase();
+      gridWrap.replaceChildren();
+      let shown = 0;
+
+      regions.forEach((region) => {
+        const items = region.items.filter((item) => !q || itemHaystack({ ...item, regionLabel: region.label }).includes(q));
+        if (!items.length) return;
+        shown += items.length;
+
+        const section = UI.el('section', {
+          className: 'curr-region',
+          id: `curr-${region.id}`,
+        }, [
+          UI.el('h3', { className: 'curr-region-title' }, [
+            region.label,
+            UI.el('span', { className: 'curr-region-count' }, `${items.length}`),
+          ]),
+          UI.el('div', { className: 'curr-grid' }, items.map((item) => makeCard({ ...item, regionId: region.id, regionLabel: region.label }))),
+        ]);
+        gridWrap.appendChild(section);
+      });
+
+      countEl.textContent = q
+        ? `顯示 ${shown} / ${allItems.length} 筆`
+        : `共 ${allItems.length} 筆 · ${DATA.stats?.currencies || currencyCodes.length} 種貨幣代碼`;
+    }
+
+    function updateRateCells() {
+      gridWrap.querySelectorAll('.curr-card-rate').forEach((el) => {
+        const code = el.dataset.code;
+        const item = { code };
+        el.textContent = rateLabel(item);
+        el.classList.toggle('is-base', code === baseCode);
+        el.classList.toggle('is-unavailable', code !== baseCode && rateBetween(baseCode, code, rates) == null);
+      });
+    }
+
+    async function fetchOpenErApi(code) {
+      const res = await fetch(`https://open.er-api.com/v6/latest/${encodeURIComponent(code)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (json.result !== 'success' || !json.rates) throw new Error(json['error-type'] || 'bad response');
+      return {
+        rates: json.rates,
+        date: (json.time_last_update_utc || '').slice(0, 10),
+        source: 'open.er-api.com',
+      };
+    }
+
+    async function fetchFrankfurter(code) {
+      const res = await fetch(`https://api.frankfurter.app/latest?from=${encodeURIComponent(code)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (!json.rates || json.message) throw new Error(json.message || 'bad response');
+      return {
+        rates: { ...json.rates, [code]: 1 },
+        date: json.date || '',
+        source: 'frankfurter.app',
+      };
+    }
+
+    async function fetchRates() {
+      rateLoading = true;
+      rateError = '';
+      rateStatus.textContent = '匯率更新中…';
+      const fetchBase = apiCode(baseCode);
+      const aliasNote = fetchBase !== baseCode ? `（${baseCode} 以 ${fetchBase} 報價換算）` : '';
+      try {
+        let payload;
+        try {
+          payload = await fetchOpenErApi(fetchBase);
+        } catch (primaryErr) {
+          payload = await fetchFrankfurter(fetchBase);
+          payload.fallback = String(primaryErr.message || primaryErr);
+        }
+        rates = payload.rates;
+        rateDate = payload.date;
+        const fallbackNote = payload.fallback ? ' · 備援來源' : '';
+        rateStatus.textContent = rateDate
+          ? `匯率基準：${baseCode}${aliasNote} · 更新 ${rateDate}（${payload.source}，僅供參考${fallbackNote}）`
+          : `匯率基準：${baseCode}${aliasNote}（${payload.source}，僅供參考${fallbackNote}）`;
+      } catch (err) {
+        rateError = String(err.message || err);
+        rates = {};
+        rateStatus.textContent = `無法取得即時匯率（${rateError}），仍可查詢貨幣名稱與符號。`;
+      } finally {
+        rateLoading = false;
+        updateRateCells();
+      }
+    }
+
+    regions.forEach((region) => {
+      nav.appendChild(UI.el('a', {
+        href: `#curr-${region.id}`,
+        className: 'curr-nav-link',
+      }, region.label));
+    });
+
+    baseSelect.addEventListener('change', () => {
+      baseCode = baseSelect.value;
+      fetchRates();
+    });
+
+    searchInput.addEventListener('input', () => renderSections(searchInput.value));
+
+    renderSections('');
+    fetchRates();
+
+    mount(app, [
+      UI.el('div', { className: 'curr-app-inner' }, [
+        DATA.intro ? UI.el('p', { className: 'curr-intro text-muted' }, DATA.intro) : null,
+        UI.el('div', { className: 'curr-toolbar tool-panel-card' }, [
+          UI.el('div', { className: 'row g-3 align-items-end' }, [
+            UI.el('div', { className: 'col-md-4' }, [
+              UI.el('label', { className: 'form-label tool-label', for: 'curr-base' }, '匯率基準貨幣'),
+              baseSelect,
+            ]),
+            UI.el('div', { className: 'col-md-5' }, [
+              UI.el('label', { className: 'form-label tool-label' }, '搜尋'),
+              searchInput,
+            ]),
+            UI.el('div', { className: 'col-md-3' }, [
+              UI.btn('更新匯率', 'btn btn-outline-primary w-100', () => fetchRates()),
+            ]),
+          ]),
+          rateStatus,
+          countEl,
+        ]),
+        nav,
+        gridWrap,
+        UI.el('p', { className: 'curr-disclaimer text-muted small' }, [
+          '資料來源：',
+          UI.el('a', { href: DATA.source, target: '_blank', rel: 'noopener noreferrer' }, 'ifreesite 世界貨幣'),
+          ' · 匯率僅供參考，非所有貨幣皆有即時報價。',
+        ]),
+      ]),
+    ]);
+    app.className = 'tool-app curr-app';
   };
 
   R['postal'] = function (app) {
@@ -1823,6 +3848,9 @@
 
   R['national-anthem'] = function (app) {
     const data = window.WA_NATIONAL_ANTHEMS;
+    const audioData = window.WA_NATIONAL_ANTHEM_AUDIO;
+    const audioByCode = audioData?.byCode || {};
+    let activePlayer = null;
     if (!data || !data.anthems || !data.anthems.length) {
       mount(app, [UI.panel('各國國歌', UI.el('p', { className: 'text-muted' }, '國歌資料載入失敗，請重新整理頁面。'))]);
       return;
@@ -1834,7 +3862,7 @@
     let selectedCard = null;
 
     const detail = UI.el('div', { className: 'world-flags-dock anthem-dock', id: 'anthem-detail', hidden: true }, [
-      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選國家可查看完整歌詞與典禮用段。'),
+      UI.el('p', { className: 'text-muted mb-0 world-flags-dock-hint' }, '點選國家可查看完整歌詞。'),
     ]);
 
     function setDockOpen(open) {
@@ -1843,10 +3871,25 @@
       app.classList.toggle('world-flags-has-dock', open);
     }
 
+    function cjkRatio(text) {
+      const t = String(text || '').replace(/\s/g, '');
+      if (!t.length) return 0;
+      return (t.match(/[\u4e00-\u9fff]/g) || []).length / t.length;
+    }
+
+    function isSectionMarker(line) {
+      const t = (line || '').trim();
+      if (!t) return true;
+      if (/^副歌$/i.test(t) || /^refrain$/i.test(t) || /^chorus$/i.test(t)) return true;
+      if (/^[IVXLC]{1,4}$/.test(t)) return true;
+      return false;
+    }
+
     function sanitizeLine(line) {
       if (!line) return '';
       const t = line.trim();
       if (!t) return '';
+      if (isSectionMarker(t)) return '';
       if (/^\{\||wikitable|toccolours|valign\s*=|bgcolor\s*=|colspan\s*=|rowspan\s*=|^\!\s|italic=no\|/i.test(t)) {
         return '';
       }
@@ -1856,20 +3899,71 @@
       return line;
     }
 
-    function renderPairedLines(original, zh, official) {
-      const origLines = (original || '').split('\n').map((l) => sanitizeLine(l.trim())).filter(Boolean);
-      const zhLines = (zh || '').split('\n').map((l) => sanitizeLine(l.trim())).filter(Boolean);
+    function normAnthemName(value) {
+      return (value || '').trim().replace(/\s+/g, ' ');
+    }
+
+    function isPlaceholderLyric(line, entry) {
+      const t = normAnthemName(line);
+      if (!t) return true;
+      if (/^（/.test(t) && /暫無|整理中|待補|公開完整|Wikidata/i.test(t)) return true;
+      if (t === '（中文對照整理中）') return true;
+      const names = [entry.anthem, entry.anthemOriginal, entry.country, entry.countryEn]
+        .map(normAnthemName)
+        .filter(Boolean);
+      return names.includes(t);
+    }
+
+    function lyricLines(text, entry) {
+      return (text || '')
+        .split('\n')
+        .map((line) => sanitizeLine(line.trim().replace(/\}\}/g, '')))
+        .filter((line) => line && !isPlaceholderLyric(line, entry));
+    }
+
+    function verseHasContent(verse, entry) {
+      return lyricLines(verse.original, entry).length > 0 || lyricLines(verse.zh, entry).length > 0;
+    }
+
+    function buildDockNameNodes(entry) {
+      const zhName = normAnthemName(entry.anthem);
+      const nativeName = normAnthemName(entry.anthemOriginal || entry.countryEn);
+      if (zhName && nativeName && zhName === nativeName) {
+        return [
+          UI.el('span', {
+            className: 'world-flags-dock-native',
+            lang: entry.lang || undefined,
+          }, nativeName),
+        ];
+      }
+      const nodes = [];
+      if (entry.anthem) nodes.push(UI.el('span', { className: 'world-flags-dock-en' }, entry.anthem));
+      if (entry.anthem && nativeName) {
+        nodes.push(UI.el('span', { className: 'world-flags-dock-sep', 'aria-hidden': 'true' }, '·'));
+      }
+      if (nativeName) {
+        nodes.push(UI.el('span', {
+          className: 'world-flags-dock-native',
+          lang: entry.lang || undefined,
+        }, entry.anthemOriginal || entry.countryEn));
+      }
+      return nodes;
+    }
+
+    function renderPairedLines(original, zh, official, entry) {
+      const origLines = lyricLines(original, entry);
+      const zhLines = lyricLines(zh, entry);
       const lineClass = official ? 'anthem-line anthem-line-official' : 'anthem-line';
       const zhClass = official ? 'anthem-line anthem-line-zh anthem-line-official' : 'anthem-line anthem-line-zh';
 
       if (!origLines.length && !zhLines.length) return [];
 
-      const count = Math.max(origLines.length, zhLines.length, 1);
+      const count = Math.max(origLines.length, zhLines.length);
       return Array.from({ length: count }, (_, i) => {
         const oLine = origLines[i];
         const zLine = zhLines[i];
         const parts = [];
-        if (oLine) parts.push(UI.el('p', { className: lineClass }, oLine));
+        if (oLine) parts.push(UI.el('p', { className: lineClass, lang: entry.lang || undefined }, oLine));
         if (zLine) parts.push(UI.el('p', { className: zhClass }, zLine));
         if (!parts.length) return null;
         return UI.el('div', { className: 'anthem-line-pair' }, parts);
@@ -1877,24 +3971,62 @@
     }
 
     function renderVerse(verse, entry) {
+      const pairs = renderPairedLines(verse.original, verse.zh, verse.official, entry);
+      if (!pairs.length) return null;
       return UI.el('div', {
         className: verse.official ? 'anthem-verse anthem-verse-official' : 'anthem-verse',
       }, [
         UI.el('h5', { className: 'anthem-verse-label' }, verse.label),
-        UI.el('div', { className: 'anthem-verse-pairs', lang: entry.lang || undefined },
-          renderPairedLines(verse.original, verse.zh, verse.official)
-        ),
+        UI.el('div', { className: 'anthem-verse-pairs', lang: entry.lang || undefined }, pairs),
+      ]);
+    }
+
+    function buildPlayerBlock(entry) {
+      const meta = audioByCode[entry.code];
+      if (!meta?.url) return null;
+      const video = UI.el('video', {
+        className: 'anthem-player',
+        controls: true,
+        preload: 'none',
+        playsInline: true,
+        title: meta.title || entry.anthem,
+      });
+      video.appendChild(UI.el('source', { src: meta.url, type: 'video/mp4' }));
+      activePlayer = video;
+      const sourcePage = audioData?.sourcePage || 'https://www.ifreesite.com/world/national-anthem.htm';
+      return UI.el('div', { className: 'anthem-player-block' }, [
+        UI.el('div', { className: 'anthem-player-head' }, [
+          UI.el('span', { className: 'anthem-player-label' }, '國歌演奏'),
+          UI.el('a', {
+            className: 'anthem-player-ext',
+            href: meta.url,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            title: meta.title,
+          }, 'ifreesite MP4 ↗'),
+        ]),
+        video,
+        UI.el('p', { className: 'anthem-player-meta text-muted small mb-0' }, [
+          meta.title ? `${meta.title} · ` : '',
+          '使用瀏覽器內建播放列可拖曳時間軸。音源：',
+          UI.el('a', {
+            href: sourcePage,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          }, 'ifreesite 國歌演奏'),
+          '（第三方 CDN）',
+        ]),
       ]);
     }
 
     function showDetail(entry, cardEl) {
+      if (activePlayer) {
+        activePlayer.pause();
+        activePlayer = null;
+      }
       if (selectedCard) selectedCard.classList.remove('is-selected');
       selectedCard = cardEl || null;
       if (selectedCard) selectedCard.classList.add('is-selected');
-
-      const durationText = entry.durationSec
-        ? `標準演奏約 ${entry.durationSec} 秒（國際場合多介於 45–90 秒）`
-        : '標準演奏長度因場合而異';
 
       detail.replaceChildren(
         UI.el('div', { className: 'world-flags-dock-inner' }, [
@@ -1905,11 +4037,7 @@
                 entry.country,
                 entry.code ? UI.el('span', { className: 'world-flags-code-inline' }, entry.code.toUpperCase()) : null,
               ]),
-              UI.el('p', { className: 'world-flags-dock-names' }, [
-                UI.el('span', { className: 'world-flags-dock-en' }, entry.anthem),
-                UI.el('span', { className: 'world-flags-dock-sep', 'aria-hidden': 'true' }, '·'),
-                UI.el('span', { className: 'world-flags-dock-native' }, entry.anthemOriginal || entry.countryEn),
-              ]),
+              UI.el('p', { className: 'world-flags-dock-names' }, buildDockNameNodes(entry)),
             ]),
             UI.el('button', {
               type: 'button',
@@ -1924,14 +4052,9 @@
             }, '×'),
           ]),
           UI.el('div', { className: 'world-flags-dock-body anthem-dock-body' }, [
-            UI.el('div', { className: 'anthem-meta-block' }, [
-              UI.el('p', { className: 'anthem-meta-duration' }, durationText),
-              entry.durationNote
-                ? UI.el('p', { className: 'world-flags-dock-desc anthem-meta-note' }, entry.durationNote)
-                : null,
-            ]),
-            ...(entry.verses || []).map((verse) => renderVerse(verse, entry)),
-          ]),
+            buildPlayerBlock(entry),
+            ...(entry.verses || []).map((verse) => renderVerse(verse, entry)).filter(Boolean),
+          ].filter(Boolean)),
         ])
       );
       const body = detail.querySelector('.world-flags-dock-body');
@@ -1941,7 +4064,10 @@
 
     function makeCard(entry) {
       const officialVerse = (entry.verses || []).find((v) => v.official);
-      const hasLyrics = (entry.verses || []).some((v) => v.original && !v.original.startsWith('（暫無'));
+      const hasLyrics = (entry.verses || []).some((v) => verseHasContent(v, entry));
+      const officialLabel = officialVerse && hasLyrics
+        ? officialVerse.label.replace(/（國際標準）/, '').trim()
+        : '';
       return UI.el('button', {
         type: 'button',
         className: 'anthem-card',
@@ -1957,12 +4083,12 @@
         UI.el('span', { className: 'anthem-card-code' }, entry.code?.toUpperCase() || '—'),
         UI.el('span', { className: 'anthem-card-country' }, entry.country),
         UI.el('span', { className: 'anthem-card-name' }, entry.anthem),
-        officialVerse
-          ? UI.el('span', { className: 'anthem-card-official' }, officialVerse.label.replace(/（國際標準）/, '').trim())
+        officialLabel && officialLabel !== '歌詞'
+          ? UI.el('span', { className: 'anthem-card-official' }, officialLabel)
           : null,
-        entry.durationSec
-          ? UI.el('span', { className: 'anthem-card-duration' }, `約 ${entry.durationSec} 秒`)
-          : hasLyrics ? null : UI.el('span', { className: 'anthem-card-pending' }, '歌詞整理中'),
+        audioByCode[entry.code]
+          ? UI.el('span', { className: 'anthem-card-audio' }, '♪ 可播放')
+          : null,
       ]);
     }
 
@@ -2016,16 +4142,10 @@
 
     const navWrap = UI.el('div', { className: 'world-flags-nav-wrap', id: 'anthem-nav' }, [nav]);
 
-    const toolbar = UI.el('div', { className: 'world-flags-toolbar anthem-toolbar', id: 'anthem-toolbar' }, [
-      UI.el('p', {
-        className: 'text-muted anthem-intro-meta world-flags-intro-meta',
-      }, `共 ${anthems.length} 首 · 點選卡片查看歌詞`),
-      UI.el('details', { className: 'anthem-guide world-flags-guide' }, [
-        UI.el('summary', {}, '這頁可以怎麼用？'),
-        UI.el('div', { className: 'anthem-guide-body world-flags-guide-body' }, [
-          UI.el('p', { className: 'mb-0' }, '依洲別瀏覽各國國歌，點選卡片查看完整歌詞原文與中文對照。'),
-        ]),
-      ]),
+    const toolbar = UI.el('div', {
+      className: 'world-flags-toolbar anthem-toolbar is-compact',
+      id: 'anthem-toolbar',
+    }, [
       UI.el('div', { className: 'world-flags-toolbar-row' }, [search, regionToggle]),
       searchMeta,
       navWrap,
@@ -2084,6 +4204,18 @@
 
     app.className = 'tool-app anthem-app world-flags-app';
     app.replaceChildren(UI.el('div', { className: 'tool-form-inner anthem-app-inner' }, [
+      UI.el('div', { className: 'anthem-intro tool-panel-card' }, [
+        UI.el('p', { className: 'anthem-intro-lead mb-2' }, '點選國家可查看歌詞；若該國在 ifreesite 國歌演奏列表中有音源，詳情面板會顯示 HTML5 播放器，可直接在頁面上拖曳時間軸試聽。'),
+        UI.el('p', { className: 'text-muted small mb-0' }, [
+          '完整列表：',
+          UI.el('a', {
+            href: audioData?.sourcePage || 'https://www.ifreesite.com/world/national-anthem.htm',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          }, 'ifreesite 各國國歌演奏'),
+          ` · 已對應 ${Object.keys(audioByCode).length} 國 MP4 音源`,
+        ]),
+      ]),
       toolbar,
       regionsWrap,
       detail,
@@ -2155,7 +4287,7 @@
       UI.el('p', { className: 'text-muted ufo-intro' }, data.intro),
       nav,
       ...data.sections.map(makeSection),
-      UI.el('p', { className: 'text-muted ufo-disclaimer' }, '以上內容整理自 ufology 社群、科幻設定與公開報導，不代表 WaTools 立場，亦不等同科學共識。'),
+      UI.el('p', { className: 'text-muted ufo-disclaimer' }, '以上內容整理自 ufology 社群、科幻設定與公開報導，不代表 WaWaTools 立場，亦不等同科學共識。'),
     ]));
   };
 
@@ -2220,20 +4352,127 @@
       UI.el('p', { className: 'text-muted monster-intro' }, data.intro),
       nav,
       ...data.sections.map(makeSection),
-      UI.el('p', { className: 'text-muted monster-disclaimer' }, '以上內容整理自古籍志怪、民間傳說與影視作品，僅供文化閱讀與娛樂，不代表 WaTools 立場，亦請勿以之替代專業或安全指引。'),
+      UI.el('p', { className: 'text-muted monster-disclaimer' }, '以上內容整理自古籍志怪、民間傳說與影視作品，僅供文化閱讀與娛樂，不代表 WaWaTools 立場，亦請勿以之替代專業或安全指引。'),
     ]));
   };
 
-  R['capitals'] = function (app) {
-    mount(app, [UI.panel('各國首都', UI.tableFrom([{"country":"臺灣","capital":"臺北"},{"country":"日本","capital":"東京"},{"country":"美國","capital":"華盛頓"},{"country":"英國","capital":"倫敦"},{"country":"法國","capital":"巴黎"},{"country":"德國","capital":"柏林"},{"country":"中國","capital":"北京"},{"country":"澳洲","capital":"坎培拉"}], [
-      { key: 'country', label: '國家' }, { key: 'capital', label: '首都' },
-    ]))]);
-  };
-
   R['national-symbol'] = function (app) {
-    mount(app, [UI.panel('各國國寶', UI.tableFrom([{"country":"美國","animal":"白頭海雕","plant":"玫瑰"},{"country":"澳洲","animal":"袋鼠","plant":"金合歡"},{"country":"中國","animal":"大熊貓","plant":"牡丹"},{"country":"日本","animal":"綠雉","plant":"櫻花"}], [
-      { key: 'country', label: '國家' }, { key: 'animal', label: '動物' }, { key: 'plant', label: '植物' },
-    ]))]);
+    const data = window.WA_NATIONAL_SYMBOLS;
+    const items = data?.items || [];
+    if (!items.length) {
+      mount(app, [UI.panel('各國國寶', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    function makeRoleTag(role) {
+      return UI.el('span', { className: 'nsym-role-tag' }, role || '象徵');
+    }
+
+    function makeCard(item) {
+      const title = `${item.countryLabel || item.countryZh} · ${item.nameShort || item.nameZh}`;
+      const img = item.image
+        ? UI.bindImageZoom(UI.el('img', {
+          className: 'nsym-card-img',
+          src: item.image,
+          alt: title,
+          loading: 'lazy',
+        }), { caption: title, title: '點擊放大' })
+        : null;
+
+      const metaLines = [];
+      if (item.nameZh) metaLines.push(UI.el('p', { className: 'nsym-meta-line' }, [
+        UI.el('span', { className: 'nsym-meta-key' }, '中文'),
+        document.createTextNode(` ${item.nameZh}`),
+      ]));
+      if (item.nameEn) metaLines.push(UI.el('p', { className: 'nsym-meta-line' }, [
+        UI.el('span', { className: 'nsym-meta-key' }, '英文'),
+        document.createTextNode(` ${item.nameEn}`),
+      ]));
+      if (item.scientific) metaLines.push(UI.el('p', { className: 'nsym-meta-line nsym-meta-sci' }, [
+        UI.el('span', { className: 'nsym-meta-key' }, '學名'),
+        UI.el('em', {}, item.scientific),
+      ]));
+      if (item.alias) metaLines.push(UI.el('p', { className: 'nsym-meta-line text-muted small' }, [
+        UI.el('span', { className: 'nsym-meta-key' }, '又稱'),
+        document.createTextNode(` ${item.alias}`),
+      ]));
+
+      const wikiLink = item.wiki
+        ? UI.el('a', {
+          className: 'nsym-wiki-link small',
+          href: item.wiki,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        }, '維基百科 ↗')
+        : null;
+
+      return UI.el('article', { className: 'nsym-card' }, [
+        img,
+        UI.el('div', { className: 'nsym-card-body' }, [
+          UI.el('div', { className: 'nsym-card-head' }, [
+            UI.el('h4', { className: 'nsym-card-title' }, item.countryLabel || item.countryZh),
+            makeRoleTag(item.role),
+          ]),
+          UI.el('p', { className: 'nsym-card-sub' }, item.nameShort || item.nameZh),
+          UI.el('div', { className: 'nsym-meta' }, metaLines),
+          wikiLink,
+        ]),
+      ]);
+    }
+
+    function itemHaystack(item) {
+      return [
+        item.countryZh,
+        item.countryEn,
+        item.countryLabel,
+        item.role,
+        item.nameShort,
+        item.nameZh,
+        item.nameEn,
+        item.scientific,
+        item.alias,
+      ].join(' ').toLowerCase();
+    }
+
+    const searchInput = UI.el('input', {
+      type: 'search',
+      className: 'form-control nsym-search',
+      placeholder: '搜尋國家、國獸、國鳥或物種名稱…',
+    });
+    const grid = UI.el('div', { className: 'nsym-grid' });
+    const countEl = UI.el('p', { className: 'text-muted small nsym-count' }, '');
+
+    function render(filter) {
+      const q = (filter || '').trim().toLowerCase();
+      const matched = q ? items.filter((item) => itemHaystack(item).includes(q)) : items;
+      grid.replaceChildren(...matched.map(makeCard));
+      countEl.textContent = q
+        ? `找到 ${matched.length} / ${items.length} 筆`
+        : `共 ${items.length} 筆國家象徵`;
+      if (!matched.length) {
+        grid.appendChild(UI.el('p', { className: 'text-muted small nsym-empty' }, '找不到符合的項目，請換個關鍵字。'));
+      }
+    }
+
+    searchInput.addEventListener('input', () => render(searchInput.value));
+
+    app.className = 'tool-app nsym-app';
+    app.replaceChildren(UI.el('div', { className: 'tool-form-inner nsym-app-inner' }, [
+      UI.el('p', { className: 'text-muted nsym-intro' }, data.intro),
+      UI.el('ul', { className: 'tool-checklist text-muted small nsym-checklist' }, [
+        UI.el('li', {}, '收錄各國國獸、國鳥、國魚等法定或慣用象徵物種。'),
+        UI.el('li', {}, '點擊照片可放大；附中文、英文、學名與維基百科連結。'),
+        UI.el('li', {}, '資料整理自 ifreesite，圖片來源同頁面（均已小於 1MB）。'),
+      ]),
+      countEl,
+      UI.el('div', { className: 'tool-field nsym-filter' }, searchInput),
+      grid,
+      data.disclaimer
+        ? UI.el('p', { className: 'text-muted small nsym-disclaimer' }, data.disclaimer)
+        : null,
+    ]));
+
+    render('');
   };
 
 })();

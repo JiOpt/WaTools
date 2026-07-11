@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<title>萬年曆 | Calendar</title>
+<meta name="keywords" content="calendar,日曆,萬年曆,農曆,新曆,陰曆,陽曆,年份,日期,吉凶,黃道,吉日,宜忌,天干,地支,五行,節氣" />
+<meta name="description" content="萬年曆﹑日曆表﹑農曆查詢﹑新曆查詢﹑陰曆查詢﹑陽曆查詢" />
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="cr1.js"></script>
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="cr2.js"></script>
+<!-- <script type="text/javascript" src="o/jquery.js"></script>
+<script type="text/javascript" src="o/calendar.js"></script>
+<script type="text/javascript" src="o/calendarcontrol.js" tppabs="calendarcontrol.js"></script>
+<script type="text/javascript" src="o/2025.js" tppabs="2025.js"></script>
+<script type="text/javascript" src="o/webfunc.js"></script> -->
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="/1-theme/swfjs/showhide.js"></script>
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="/1-theme/swfjs/disnone.js"></script>
+<link rel="stylesheet" type="text/css" href="/1-theme/ifreesite/style.css" />
+<link rel="stylesheet" type="text/css" href="/1-theme/ifreesite/style-mini.css" />
+<meta name="author" content="Jack! and I.T Team" />
+<meta name="copyright" content="Online Tools." />
+<meta name="viewport" content="width=device-width" />
+<meta property="fb:app_id" content="174908615894115" />
+<meta property="fb:admins" content="1801384463" />
+<meta property="og:image" content="https://www.ifreesite.com/tool.png" />
+<!-- Popup Begin -->
+<link type="text/css" rel="stylesheet" href="/1-theme/popup/highslide.css" />
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="/1-theme/popup/highslide-full.js"></script>
+<!-- Popup Flash Use Begin -->
+<script type="1673780b40a5ce31ee448d9a-text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+<!-- Popup Flash Use End -->
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+    hs.graphicsDir = '/1-theme/popup/graphics/';
+    hs.outlineType = 'beveled';
+    hs.showCredits = false;
+	hs.headingEval = 'this.a.title';
+	hs.loadingText = '讀取中...';
+	hs.loadingTitle = '按此取消';
+	hs.resizeTitle = '調整大小';
+	// Add black close button
+	hs.registerOverlay({
+	slideshowGroup: 'group1',
+	html: '<div class="closebutton-black" onclick="return hs.close(this)" title="隱藏/關閉"></div>',
+	position: 'top right',
+	fade: 2, 
+	useOnHtml: true
+	});
+</script>
+<style type="text/css">
+/* CSS for removing the Move and Close text */
+.highslide-header .highslide-move, .highslide-header .highslide-close {
+	display: none;
+}
+/* CSS for the close buttons */
+.closebutton-black {
+	position: relative;
+	top: -15px;
+	left: 15px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background: url(/1-theme/popup/graphics/close.png);
+	/* NOTE! For IE6, you also need to update the highslide-ie6.css file. */
+}
+</style>
+<!-- Popup End -->
+<!-- Copy Begin -->
+<!-- <script type="module" src="/1-theme/zcopy/index.js"></script> -->
+<script type="1673780b40a5ce31ee448d9a-module" src="https://unpkg.com/@github/clipboard-copy-element@latest" crossorigin="anonymous"></script>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+  document.addEventListener('clipboard-copy', function (event) {
+   const clipboardne = event.target.querySelector('.clipboardne')
+    announcetws.setAttribute('aria-label', 'Copied');
+     clipboardne.hidden = false
+      setTimeout(function () {
+       announcetws.setAttribute('aria-label', '');
+        clipboardne.hidden = true
+         }, 1000)
+          });
+</script>
+<div aria-live="polite" id="announcetws"><!-- Copy Notice --></div>
+<!-- Copy End -->
+<!-- Sound Button Begin -->
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+	function soundxyv(ydanp) { //Voice1
+	var yp= ydanp.split(" ");
+	var audio = document.createElement('audio');
+audio.src = "https://01.ifreesite.com/"+yp[0]+".mp3";
+  audio.play();
+	var count=0;
+audio.addEventListener("ended", function() {
+    count ++;
+    audio.src = "https://01.ifreesite.com/"+yp[count]+".mp3";//"sat1.mp3";
+   if(count>yp.length-1) {count=0;}
+    else {audio.play(); }
+   },false);
+   }
+//-------------------------
+    function soundxzv(ydanp) { //Voice2
+	var yp= ydanp.split(" ");
+//	alert("ydanp="+ydanp);
+	var audio = document.createElement('audio');
+audio.src = "https://www.ifreesite.com/"+yp[0]+".mp3";
+  audio.play();
+	var count=0;
+audio.addEventListener("ended", function() {
+    count ++;
+    audio.src = "https://www.ifreesite.com/"+yp[count]+".mp3";//"sat1.mp3";
+   if(count>yp.length-1) {count=0;}
+    else {audio.play(); }
+   },false);
+}
+//------------------------
+
+//---------------------
+	var appendixPopup = null;
+	 function MM_openBrWindow(theURL,winName,features) {
+   if (appendixPopup && !appendixPopup.closed) {
+	 appendixPopup.close();
+ 	}
+	 appendixPopup = window.open(theURL,winName,features);
+	}
+</script>
+<!-- Sound Button End -->
+<!-- Google Analytic Begin -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEDGV3L0VY" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEDGV3L0VY');
+</script>
+<!-- Google Analytic End -->
+<!-- Page-level Ads Begin -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4355432878324120",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- Page-level Ads End -->
+</head>
+<body>
+<div id="if_container">
+  <header id="if_mainboxa" role="banner">
+    <div class="if_menu">
+      <ul>
+        <li class="if_menua">
+          <label class="if_menulabela"><img src="/1-theme/ifreesite/image/ia.png" />
+          </label>
+          <span><a href="/" title="線上工具｜網路資源" rel="home">主頁</a></span>
+        </li><li class="if_menub">
+          <label class="if_menulabelb"><img src="/1-theme/ifreesite/image/ib.png" />
+          </label>
+          <span><a href="//www.fmyeah.com" title="廣播電台線上收聽 | 電視直播在線收看" target="_blank">視聽樂</a></span>
+        </li><li class="if_menuc">
+          <label class="if_menulabelc"><img src="/1-theme/ifreesite/image/ic.png" />
+          </label>
+          <span><a href="//www.moonlol.com" title="月光部落 | 月亮下的碎碎唸唸" target="_blank">月光部落</a></span>
+        </li>
+      </ul>
+    </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4355432878324120"
+     data-ad-slot="2021560894"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <nav class="navmenu" role="navigation">
+      <ul>
+        <li class="navb">
+		<a href="/time" title="世界時間&全球時鐘">世界時間/全球時鐘</a>
+		</li>
+        <li class="nave">
+		<a href="/24-solar-terms" title="二十四節氣(廿四節氣)">二十四節氣(廿四節氣)</a>
+		</li>
+        <li class="navd">
+		<a href="/fate.htm" title="十二生肖&十二星座">十二生肖/十二星座</a>
+		</li>
+        <li class="navf">
+		<a href="/calculatortool/date.htm" title="末來時間">末來時間</a>
+		</li>
+      </ul>
+	 </nav>
+  </header>
+  <section id="if_mainboxb" role="main">
+    <div class="if_synopsib">
+      <div class="if_synopsis">
+	  萬年曆/Calendar
+	  </div>
+      <p class="tbi">萬年曆是記錄一定時間範圍內的具體陽曆(新曆)與陰曆(農曆)的日期和年曆；萬年只是一種象征，表示時間跨度大。</p>
+	  <p class="tbi">萬年曆包含黃曆、宜忌、五行等傳統信息，提供日期查看，為出行提供一定的指導。</p>
+	  <p class="tbi">萬年曆作為一種與百姓的生活息息相關的曆法，是中華智慧的結晶，並且千百年來一直是百姓喜聞樂見的生活指南。</p>
+    </div>
+<!-- ads
+<br /> -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<ins class="adsbygoogle if_adslot"
+     style="display:inline-block"
+     data-ad-client="ca-pub-4355432878324120"
+     data-ad-slot="7082315882"
+     data-ad-format="auto"
+     data-full-width-responsive="false"></ins>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br />
+<style type="text/css">
+.tableborder1 {border-right: 1px; border-top: 1px; border-left: 1px; width: 728px; border-bottom: 1px; background: #D9D9D9;}
+.tableborder1 th {padding-right: 0px; padding-left: 5px; font-weight: bold; font-size: 16px; padding-bottom: 0px; color: #BF5B16; line-height: normal; padding-top: 0px; height: 25px; background: #F9F5F1;}
+.tablebody1 {line-height: 200%; background: #fff;}
+.tablebody2 {line-height: normal; background: #f5fbff;}
+</style>
+<div class="toolbo">
+   <div class="tooltext">
+      <div class="overflowxy">
+         <table class="tableborder1" cellspacing="1" cellpadding="0" align="center" border="0">
+            <form name="CLD">
+               <tbody>
+                  <tr>
+                     <td valign="top" width="490">
+                        <table class="tableborder" style="width:490px;" cellspacing="1" cellpadding="0" align="left" border="0">
+                           <tbody>
+                              <tr height="50">
+                                 <th colspan="7">
+                                    公 元 
+                                    <select onchange="if (!window.__cfRLUnblockHandlers) return false; changeCld()" name="SY" data-cf-modified-1673780b40a5ce31ee448d9a-="">
+                                       <script type="1673780b40a5ce31ee448d9a-text/javascript">for(i=1900;i<2101;i++) document.write('<option>'+i);</script>
+                                    </select>
+                                    月 
+                                    <select onchange="if (!window.__cfRLUnblockHandlers) return false; changeCld()" name="SM" data-cf-modified-1673780b40a5ce31ee448d9a-="">
+                                       <script type="1673780b40a5ce31ee448d9a-text/javascript">for(i=1;i<13;i++) document.write('<option>'+i);</script>
+                                    </select>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font id="YMBG" style="font:13px 'Arial Black'"></font>
+                                 </th>
+                              </tr>
+                              <tr valign="center" height="38">
+                                 <td class="tablebody2" align="middle" width="60"><font color="red"><strong>日</strong></font></td>
+                                 <td class="tablebody2" align="middle" width="60"><strong>一</strong></td>
+                                 <td class="tablebody2" align="middle" width="60"><strong>二</strong></td>
+                                 <td class="tablebody2" align="middle" width="60"><strong>三</strong></td>
+                                 <td class="tablebody2" align="middle" width="60"><strong>四</strong></td>
+                                 <td class="tablebody2" align="middle" width="60"><strong>五</strong></td>
+                                 <td class="tablebody2" align="middle" width="60"><font color="red"><strong>六</strong></font></td>
+                              </tr>
+                              <script type="1673780b40a5ce31ee448d9a-text/javascript">
+                                 var gNum
+                                 for(i=0;i<6;i++) {
+                                 	document.write('<tr valign=middle height=57>')
+                                 	for(j=0;j<7;j++) {
+                                 		gNum = i*7+j
+                                 		document.write('<td align=center class=tablebody1 id="GD' + gNum +'" onClick="mOvr(' + gNum +');Main(' + gNum +');MoonRise(' + gNum +');"><strong><font style="font-family:Arial;font-size:17pt;cursor: help;line-height:20pt" TITLE="點擊查看右側日曆註解"  id="SD' + gNum +'" ')
+                                 		if(j == 0) document.write(' color=red')
+                                 		if(j == 6)
+                                 		if(i%2==1) document.write(' color=red')
+                                 		else document.write(' color=red')
+                                 		document.write('> </font></strong><br><font style="cursor: help" id="LD' + gNum + '"  style="font-size:9pt"> </font></td>')
+                                 	}
+                                 	document.write('</tr>')
+                                 }
+                              </script>
+                              <tr height="91">
+                                 <td class="tablebody2" colspan="7">
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                       <tbody>
+                                          <tr>
+                                             <td align="middle">
+                                                <table cellspacing="3" cellpadding="5" width="100%" border="0" style="font-size:13px;">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td>
+                                                            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td align="middle"><span id="sg3"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td align="middle"><span id="tim"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td align="middle" height="20"><span id="sg4"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td align="middle" height="20"><font color="#800080"><span id="dayglu1"></span></font></td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <tr height="56">
+                                 <th id="GZ" colspan="7"></th>
+                                 </td>
+                              </tr>
+                              <tr height="56">
+                                 <th colspan="7" style="font-size:25px;font-weight:bold;color:#000"><span id="Clock"></span>(<span id="tim2"></span>)</th>
+                              </tr>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                     <td valign="top" width="238">
+                        <table class="tableborder1" style="width:100%" cellspacing="1" cellpadding="1" border="0">
+                           <tbody>
+                              <tr>
+                                 <td class="tablebody1"><span id="sg2"></span></td>
+                              </tr>
+                              <tr>
+                                 <td class="tablebody2" id="rcrltd" align="middle"><span id="rcrl"></span><select type="text/javascript" id="province" disabled onchange="if (!window.__cfRLUnblockHandlers) return false; return province_onchange()" name="province" data-cf-modified-1673780b40a5ce31ee448d9a-=""></select>
+                                    <select id="city" disabled onchange="if (!window.__cfRLUnblockHandlers) return false; mychange()" name="city" data-cf-modified-1673780b40a5ce31ee448d9a-=""></select>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="tablebody1" align="middle" width="100%">
+                                    <table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                                       <tbody>
+                                          <tr height="67">
+                                             <td align="right" width="50%" bgcolor="#404040"><font color="yellow"><span style="line-height:25px"><span id="sg"></span></font></span><font color="#e5e5e5"><span id="rcrl2"></span></font></td>
+                                             <td bgcolor="#404040">&nbsp;<span id="sg5"></span></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <tr> </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+            </form>
+            </tbody>
+         </table>
+         <script type="1673780b40a5ce31ee448d9a-text/javascript" event="onload" for="window">
+            initial();
+            mOvr(7);
+            Main(7,7);
+            MoonRise(7,7);
+            window_onload();
+         </script>
+      </div>
+      <div class="if_mob">👈:左右拖曳即可水平捲動:👉</div>
+   </div>
+</div>
+<!-- <div class="toolbo">
+ <div class="tooltext">
+  <div class="overflowxy">
+  <table class="calendar-tb" cellspacing="1" bordercolordark="#ffffff" cellpadding="2" width="546" align="center" bgcolor="#cccccc" border="0">
+  <th bgcolor="#F4F8FD" height="24" align="center"><strong style="font-size:14px;">年份﹑日期查詢﹑農曆(陰曆)、新曆(陽曆)﹑節日、黃道吉日﹑天干地支</strong></th>
+  <tr>
+    <td align="left" bgcolor="#f6f6f6"><span style="margin:2px 6px;font-weight:bold">公元</span>
+      <select id="js_year" onChange="changeDate(this.value,document.getElementById('js_Month').value,pageDay);">
+        <option>2000年</option>
+      </select>
+      <select id="js_Month" onChange="changeDate(document.getElementById('js_year').value,this.value,pageDay);">
+        <option value="1">1月</option>
+        <option value="2">2月</option>
+        <option value="3">3月</option>
+        <option value="4">4月</option>
+        <option value="5">5月</option>
+        <option value="6">6月</option>
+        <option value="7">7月</option>
+        <option value="8">8月</option>
+        <option value="9">9月</option>
+        <option value="10">10月</option>
+        <option value="11">11月</option>
+        <option value="12">12月</option>
+      </select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" value="上一年" onClick="  pageYear--;changeDate(pageYear,pageMonth,pageDay);" />
+      <input type="button" value="下一年" onClick="pageYear++;changeDate(pageYear,pageMonth,pageDay);" />
+      <input type="button" value="上個月" onClick="pageMonth--;changeDate(pageYear,pageMonth,pageDay);" />
+      <input type="button" value="下個月" onClick="pageMonth++;changeDate(pageYear,pageMonth,pageDay);" />
+      <input type="button" value="今天" onClick=" var new_day = new Date();changeDate(new_day.getFullYear(),new_day.getMonth()+1,new_day.getDate());" /></td>
+  </tr>
+  <tr bgcolor=#f6f6f6>
+    <td class="calendar-week"><li>一(Mon)</li>
+      <li>二(Tue)</li>
+      <li>三(Wed)</li>
+      <li>四(Thu)</li>
+      <li>五(Fri)</li>
+      <li>六(Sat)</li>
+      <li class="right">日(Sun)</li></td>
+  </tr>
+  <tr bgcolor=#ffffff>
+    <td><div class="calendar-datail" id="calendar_datail"></div></td>
+  </tr>
+</table>
+</div>
+<div class="if_mob">👈:左右拖曳即可水平捲動:👉</div>
+<div class="calendar-datsa">
+  <span id="hdjr"></span>
+  <span id="today_date" style="font-size:16px;color:#A23400;font-weight:bold;"></span>
+</div>
+<table class="calendar-tb" cellspacing="1" bordercolordark="#ffffff" cellpadding="6" width="100%" align="center" bgcolor="#cccccc" border="0" class="if_tabletd">
+  <tr>
+    <th bgcolor="#f6f6f6" width="100" align="center">農曆</th>
+    <td id="nongli" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">干支</th>
+    <td id="ganzhi" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center"><font color="red">宜</font>
+    </th>
+    <td id="yi" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center"><font color="green">忌</font></th>
+    <td id="ji" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">吉神宜趨</th>
+    <td id="jsyq" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">凶神宜忌</th>
+    <td id="xsyj" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">每日胎神占方</th>
+    <td id="ts" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">五行</th>
+    <td id="wx" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">沖</th>
+    <td id="chong" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <th bgcolor="#f6f6f6" align="center">彭祖百忌</th>
+    <td id="pzbj" align="left" bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+</table>
+<script>var date,year,month,day;date=new Date();year=date.getFullYear();month=date.getMonth()+1;day=date.getDate();changeDate(year,month,day);</script>
+   </div>
+</div> -->
+    <div class="if_billpro">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6r+di+5g-2m-8y"
+     data-ad-client="ca-pub-4355432878324120"
+     data-ad-slot="3362562727"></ins>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+<div class="toolbo top">
+  <div class="tooltexs">
+    <div class="toolnav">
+	<div class="boxtitlf">新曆轉換為農曆︰(陽曆)=(陰曆)</div>
+      <iframe src="data1.php" frameborder="0" scrolling="no" width="100%" height="95" allowtransparency="true"></iframe> <!-- height 38-->
+    </div>
+  </div>
+</div>
+<div class="toolbo top down">
+  <div class="tooltexs">
+    <div class="toolnav">
+	<div class="boxtitlf">農曆轉換為新曆︰(陰曆)=(陽曆)</div>
+      <iframe src="data2.php" frameborder="0" scrolling="no" width="100%" height="95" allowtransparency="true"></iframe>
+    </div>
+  </div>
+</div>
+<strong class="if_boxa">智識庫</strong>
+<hr class="downtop" />
+<table class="if_trwd down">
+    <tbody>
+        <tr>
+            <td data-title="①"><a href="holiday.htm">傳統節日</a></td>
+            <td data-title="②"><a href="almanac-1.htm">黃曆用語</a></td>
+            <td data-title="③"><a href="almanac-2.htm">擇日術語</a></td>
+            <td data-title="④"><a href="almanac-3.htm">天干地支</a></td>
+            <td data-title="⑤"><a href="almanac-4.htm">五行術語</a></td>
+            <td data-title="⑥"><a href="almanac-5.htm">胎神占方</a></td>
+            <td data-title="⑦"><a href="pengzu.htm">彭祖百忌</a></td>
+        </tr>
+    </tbody>
+</table>
+<strong class="if_boxe">公眾假期</strong>
+<hr class="downtop" />
+<table class="if_trwd">
+    <tbody>
+        <tr>
+            <td data-title="①"><a href="//www.gov.hk/tc/about/abouthk/holiday" target="_blank">香港假日</a></td>
+            <td data-title="②"><a href="//www.dgpa.gov.tw/informationlist?uid=30" target="_blank">臺灣假日</a></td>
+            <td data-title="③"><a href="//www.gov.mo/zh-hant/public-holidays" target="_blank">澳門假日</a></td>
+            <td data-title="④"><a href="//holidays-calendar.net/calendar_zh_cn/china_zh_cn.html" target="_blank">中國假日</a></td>
+            <td data-title="⑤"><a href="//www.mom.gov.sg/employment-practices/public-holidays" target="_blank">新加坡假日</a></td>
+            <td data-title="⑥"><a href="//www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank">日本假日</a></td>
+            <td data-title="⑦"><a href="//publicholidays.co.kr" target="_blank">韓國假日</a></td>
+        </tr>
+    </tbody>
+</table>
+  </section>
+  <section id="if_mainboxc" role="complementary">
+   <div class="if_foads">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-4355432878324120"
+     data-ad-slot="3184445236"></ins>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+   </div>
+   <!-- PO -->
+   <script type="1673780b40a5ce31ee448d9a-text/javascript" src="//www.addus.info/time/te.js"></script>
+<div class="hey" data-nosnippet>
+<script type="1673780b40a5ce31ee448d9a-text/javascript">document.write(getCalendar())</script> <a href="//www.ifreesite.com/calendar" target="_blank">[萬年曆]</a> - 
+<a href="//www.ifreesite.com/typing/emoticon.htm" target="_blank">[表情符號]</a>
+<!--
+世界盃足球賽，每四年一度，充滿激情、動人與精彩的畫面及歌曲，回顧歷史，重溫經典。 <a href="" target="_blank">點此看 »</a>
+21世紀還不懂中文輸入法，太OUT了，來!...輕鬆快樂學打字。 
+許下一個願望，就是給自己種下一個希望。
+日常使用的「表情」符號與圖案，讓貼文者表達不同情感，究竟會有多少人知道其中的含意。
+在線上修改圖片，相片，照片So Easy.
+國徽（盾徽）代表著一個國家的主權，象徵著人民的傳統風格及民族精神。
+-->
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"56eb2af035954f1ebbae969b466b3e25","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous" type="1673780b40a5ce31ee448d9a-text/javascript"></script>
+  </section>
+  <footer id="if_mainboxd" class="if_colophon" role="contentinfo">
+    <div class="if_footer_box">
+      <div id="if_flk" class="if_footery">
+        <a href="/" title="線上工具｜網路資源" rel="home">線上工具</a> <span class="if_pipe">|</span> <a href="/sitemap.htm" title="網站地圖">Sitemap</a> <span class="if_pipe">|</span> <a href="//www.addus.info" title="聯絡我們">聯絡我們</a> <span class="if_pipe">|</span> <a href="/x/wish-sponsor" title="贊助(Sponsor)">贊助</a> <span class="if_pipe">|</span> <a href="/x/c/wishing-tree" title="Wishing Tree"><font color="#F9F900">許</font><font color="#FFE153">願</font><font color="#A8FF24">樹</font></a>
+        <div class="if_xs0">
+		Copyright &copy;2026 Online Tools,All Rights Reserved. <span class="if_scrolltop" onClick="if (!window.__cfRLUnblockHandlers) return false; window.scrollTo(0,0);return false;" title="回頂部" style="cursor:pointer" data-cf-modified-1673780b40a5ce31ee448d9a-=""><strong>TOP</strong></span>
+        </div>
+      </div>
+      <div id="if_frt">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_google_gmail" title="@Gmail 郵件分享!"></a>
+          <a class="a2a_button_facebook" title="分享至 Facebook"></a>
+          <a class="a2a_button_twitter" title="Twitter! 推特"></a>
+          <a class="a2a_button_whatsapp" title="WhatsApp Send"></a>
+		  <a class="a2a_button_telegram" title="Telegram 分享"></a>
+          <a class="a2a_button_wechat" title="WeChat 微信"></a>
+          <a class="a2a_button_line" title="Line Messages"></a>
+          <a class="a2a_dd" href="//www.addtoany.com/share" title="更多! More..."></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- AddToAny Begin -->
+<script type="1673780b40a5ce31ee448d9a-text/javascript" defer src="//static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny End -->
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="1673780b40a5ce31ee448d9a-|49" defer></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a190bf1f69748f24',t:'MTc4MzY5ODg2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

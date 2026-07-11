@@ -1,16 +1,33 @@
 (function () {
   'use strict';
 
-  function renderCatalog() {
+  async function renderCatalog() {
     const catalog = window.WA_TOOLS_CATALOG;
     const container = document.getElementById('tools-catalog');
     if (!catalog || !container) return;
 
-    container.innerHTML = catalog.map((category) => `
+    let visible = catalog;
+    const isPlan = document.body.classList.contains('plan-page');
+    if (!isPlan) {
+      if (!window.WA_SITEMAP_MANIFEST) {
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = (window.waAssetUrl || ((p) => p))('assets/js/sitemap-manifest.js');
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        });
+      }
+      if (window.WA_SITEMAP_MANIFEST) {
+        await window.WA_SITEMAP_MANIFEST.load();
+        visible = window.WA_SITEMAP_MANIFEST.filterCatalog(catalog);
+      }
+    }
+
+    container.innerHTML = visible.map((category) => `
       <section class="tools-category section" id="cat-${category.id}">
         <div class="container section-title" data-aos="fade-up">
           <h2>${category.name}</h2>
-          <p>${category.tagline}</p>
         </div>
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row gy-4">
@@ -20,7 +37,6 @@
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                   <div class="tool-card-body">
                     <h3>${tool.title}</h3>
-                    <p>${tool.desc}</p>
                   </div>
                   <span class="tool-badge">可用</span>
                 </a>
@@ -32,5 +48,11 @@
     `).join('');
   }
 
-  document.addEventListener('DOMContentLoaded', renderCatalog);
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCatalog().catch(() => {});
+  });
+
+  window.addEventListener('watools:publish-changed', () => {
+    renderCatalog().catch(() => {});
+  });
 })();

@@ -558,7 +558,7 @@ function buildLines(country, record, index, oldDesc, capitalMap, usdRates, capti
 
 async function loadCountries() {
   const res = await fetch('https://raw.githubusercontent.com/mledoze/countries/master/countries.json', {
-    headers: { 'User-Agent': 'WaTools/1.0 (world-flags desc)' },
+    headers: { 'User-Agent': 'WaWaTools/1.0 (world-flags desc)' },
   });
   if (!res.ok) throw new Error(`countries.json HTTP ${res.status}`);
   return res.json();
@@ -567,7 +567,7 @@ async function loadCountries() {
 async function loadUsdRates() {
   try {
     const res = await fetch('https://api.frankfurter.app/latest?from=USD', {
-      headers: { 'User-Agent': 'WaTools/1.0 (world-flags desc)' },
+      headers: { 'User-Agent': 'WaWaTools/1.0 (world-flags desc)' },
     });
     if (!res.ok) throw new Error(`Frankfurter HTTP ${res.status}`);
     const data = await res.json();

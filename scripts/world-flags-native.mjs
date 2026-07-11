@@ -155,7 +155,7 @@ export function attachNativeNames(country, endonymIndex, captionHtml) {
 
 export async function loadEndonymIndex() {
   const res = await fetch('https://raw.githubusercontent.com/mledoze/countries/master/countries.json', {
-    headers: { 'User-Agent': 'WaTools/1.0 (world-flags fetch)' },
+    headers: { 'User-Agent': 'WaWaTools/1.0 (world-flags fetch)' },
   });
   if (!res.ok) throw new Error(`Endonyms HTTP ${res.status}`);
   return buildEndonymIndex(await res.json());

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Scroll">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <rect x="70" y="60" width="180" height="120" rx="8" fill="#d7ccc8"/>
+  <path d="M70 80 Q50 80 50 100 L50 140 Q50 160 70 160" fill="#bcaaa4"/>
+  <path d="M250 80 Q270 80 270 100 L270 140 Q270 160 250 160" fill="#bcaaa4"/>
+  <path d="M95 95 H225 M95 115 H225 M95 135 H190" stroke="#8d6e63" stroke-width="3"/>
+</svg>

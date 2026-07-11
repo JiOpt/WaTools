@@ -41,7 +41,7 @@
     const h1 = document.querySelector('.page-title .heading h1')
       || document.querySelector('.watools-hero h1');
     if (h1 && h1.textContent.trim()) return h1.textContent.trim();
-    return document.title.replace(/\s*[-–—]\s*WaTools.*$/i, '').trim() || pageHref();
+    return document.title.replace(/\s*[-–—]\s*WaWaTools.*$/i, '').trim() || pageHref();
   }
 
   function readStore() {

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Maple leaf">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <path d="M160 40 L175 95 L230 85 L185 125 L200 180 L160 145 L120 180 L135 125 L90 85 L145 95 Z" fill="#c62828"/>
+  <path d="M160 40 L160 180" stroke="#b71c1c" stroke-width="3"/>
+</svg>

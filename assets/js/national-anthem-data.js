@@ -1,4 +1,4 @@
-/* Auto-generated — enrich merge 2026-07-10 */
+/* Auto-generated — cleaned 2026-07-10 */
 window.WA_NATIONAL_ANTHEMS = {
   "updated": "2026-07",
   "countryCount": 239,
@@ -228,13 +228,13 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "第一段（國際標準）",
           "official": true,
           "original": "Đoàn quân Việt Nam đi\nChung lòng đấu tranh\nPhá tan cơn vũ tuyết\nNhà thù xâm lược\nĐồng lòng cùng đi hy sinh\nTiếc gì thân sống\nThân vì đại nghĩa\nQuê hương nguy biến\nCòn lớn hơn nữa\nQuyết cùng đương đầu\nLàm tan cường quyền",
-          "zh": "越南軍隊前進，\n同心戰鬥，\n擊破暴風雪，\n侵略的敵人。\n同心赴死無惜身軀，\n為大義與危難的祖國，\n決心對抗強權。"
+          "zh": "越南軍隊前進，\n同心戰鬥，\n擊破暴風雪，\n侵略的敵人。\n同心赴死\n無惜身軀，\n為大義\n與危難的祖國，\n還有更大的理想，\n決心對抗\n擊潰強權。"
         },
         {
           "label": "第二段",
           "official": false,
           "original": "Đoàn quân Việt Nam đi\nSao vàng cộng hòa\nCùng chung sứ quyết\nĐem gươm bau ra\nĐoàn quân tiến lên\nSúng nòng sáng loa\nCùng vì nhân dân\nKhông có gì khó\nThân vì đại nghĩa\nQuyết chí hy sinh\nQuyết thay non sông\nLao sơn nước chảy",
-          "zh": "越南軍隊前進，\n金星共和國，\n齊心決意拔劍，\n軍隊向前，\n槍炮轟鳴，\n為人民無難事，\n為大義決心犧牲，\n願以山河換新生。"
+          "zh": "越南軍隊前進，\n金星共和國，\n齊心決意\n拔劍出鞘，\n軍隊向前，\n槍炮轟鳴，\n為人民\n沒有什麼困難，\n為大義\n決心犧牲，\n願以山河\n換山河長流。"
         }
       ],
       "source": "curated"
@@ -274,7 +274,7 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "全文（國際標準）",
           "official": true,
           "original": "Mari kita rakyat Singapura\nSama-sama menuju bahagia\nCita-cita kita yang mulia\nBerjaya Singapura\nMarilah kita bersatu\nDengan semangat yang baru\nSemua kita berseru\nMajulah Singapura\nMajulah Singapura\nMajulah Singapura",
-          "zh": "來吧，新加坡人民，\n一起邁向幸福；\n我們高貴的理想，\n新加坡成功。\n讓我們團結，\n以新的精神，\n眾人齊聲高呼：\n前進吧，新加坡！"
+          "zh": "來吧，新加坡人民，\n一起邁向幸福；\n我們高貴的理想，\n新加坡成功。\n讓我們團結，\n以新的精神，\n眾人齊聲高呼：\n前進吧，新加坡！\n前進吧，新加坡！\n前進吧，新加坡！"
         }
       ],
       "source": "curated"
@@ -308,15 +308,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "老撾人民歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "老撾人民歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -328,15 +321,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "王國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "王國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -348,15 +334,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -368,15 +347,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "世界不滅",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "世界不滅"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -408,15 +380,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "保佑神聖的土地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "保佑神聖的土地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -428,15 +393,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "斯里蘭卡國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "斯里蘭卡國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -448,15 +406,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "尼泊爾國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "尼泊爾國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -468,15 +419,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "團結一致向我們的國家致敬",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "團結一致向我們的國家致敬"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -488,15 +432,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "雷龍王國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "雷龍王國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -508,15 +445,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "金色的孟加拉",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "金色的孟加拉"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -528,15 +458,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "烏茲別克斯坦共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "烏茲別克斯坦共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -548,15 +471,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "吉爾吉斯共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "吉爾吉斯共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -568,15 +484,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我的哈薩克斯坦",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我的哈薩克斯坦"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -588,15 +497,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "塔吉克斯坦共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "塔吉克斯坦共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -608,15 +510,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "獨立、中立、土庫曼斯坦國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "獨立、中立、土庫曼斯坦國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -628,15 +523,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "獨立進行曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "獨立進行曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -648,15 +536,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "約旦國王萬歲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "約旦國王萬歲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -668,15 +549,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "希望曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "希望曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -688,15 +562,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "科威特國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "科威特國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -708,15 +575,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "和平的讚歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "和平的讚歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -728,15 +588,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國萬歲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國萬歲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -748,15 +601,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "衛國戰士",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "衛國戰士"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -768,15 +614,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "伊朗伊斯蘭共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "伊朗伊斯蘭共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -788,15 +627,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "沙特阿拉伯國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "沙特阿拉伯國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -808,15 +640,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -828,12 +653,12 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "聯合共和國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
+      "durationNote": "",
       "verses": [
         {
           "label": "歌詞",
           "official": true,
-          "original": "رددي أيتها الدنيا نشيدي\nردديه وأعيدي وأعيدي\nواذكري في فرحتي كل شهيد\nوأمنحيه حللاً من ضوء عيدي\nرددي أيتها الدنيا نشيدي\n \nوحدتي، وحدتي، يانشيداً رائعاً يملاُ نفسي\nأنت عهد عالق في كل ذمة\nرايتي، رايتي، يانسيجاً حكته من كل شمس\nأخلدي خافقة في كل قمة\nأمتي، أمتي، امنحيني البأس يامصدر بأسي\nوأذخريني لك يا أكرم أمة\n \nعشت إيماني وحبي أمميا\nومسيري فوق دربي عربيا\nوسيبقى نبض قلبي يمنيا\nلن ترى الدنيا على أرضي وصيا",
+          "original": "رددي أيتها الدنيا نشيدي\nردديه وأعيدي وأعيدي\nواذكري في فرحتي كل شهيد\nوأمنحيه حللاً من ضوء عيدي\nرددي أيتها الدنيا نشيدي\nوحدتي، وحدتي، يانشيداً رائعاً يملاُ نفسي\nأنت عهد عالق في كل ذمة\nرايتي، رايتي، يانسيجاً حكته من كل شمس\nأخلدي خافقة في كل قمة\nأمتي، أمتي، امنحيني البأس يامصدر بأسي\nوأذخريني لك يا أكرم أمة\nعشت إيماني وحبي أمميا\nومسيري فوق دربي عربيا\nوسيبقى نبض قلبي يمنيا\nلن ترى الدنيا على أرضي وصيا",
           "zh": "（中文對照整理中）"
         }
       ],
@@ -868,15 +693,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -908,15 +726,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -928,15 +739,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -994,7 +798,7 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "第一段（國際標準）",
           "official": true,
           "original": "نشيد البحرين الوطني|rtl=yes",
-          "zh": "我們的巴林"
+          "zh": "（中文對照整理中）"
         }
       ],
       "source": "wikipedia"
@@ -1008,15 +812,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "這裡是勇士的家園",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "這裡是勇士的家園"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1028,15 +825,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1048,15 +838,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我的救贖",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我的救贖"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1068,15 +851,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1088,15 +864,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我的家鄉",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我的家鄉"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1140,7 +909,7 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "第二段",
           "official": false,
           "original": "Thy choicest gifts in store\nOn him be pleased to pour;\nLong may he reign!\nMay he defend our laws,\nAnd ever give us cause\nTo sing with heart and voice\nGod save the King!",
-          "zh": "願你將最豐厚的恩賜傾注於他；\n願他長久統治！\n願他保衛我們的法律，\n並永遠給我們理由\n以心與聲高唱：天佑國王！"
+          "zh": "願你將最豐厚的恩賜\n傾注於他；\n願他長久統治！\n願他保衛我們的法律，\n並永遠給我們理由\n以心與聲高唱：\n天佑國王！"
         }
       ],
       "source": "curated"
@@ -1154,15 +923,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "威廉頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "威廉頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1174,15 +936,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "布拉班特人之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "布拉班特人之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1194,15 +949,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "摩納哥頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "摩納哥頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1214,15 +962,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "戰士之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "戰士之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1234,15 +975,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們的祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們的祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1254,15 +988,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "國王克里斯蒂安站在高聳桅杆上",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "國王克里斯蒂安站在高聳桅杆上"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1274,15 +1001,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "對！我們熱愛祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "對！我們熱愛祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1294,15 +1014,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "你古老，你自由",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "你古老，你自由"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1314,15 +1027,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "讚美歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "讚美歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1334,15 +1040,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們的國家",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們的國家"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1354,15 +1053,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "瑞士詩篇",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "瑞士詩篇"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1374,15 +1066,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "波蘭沒有滅亡",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "波蘭沒有滅亡"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1394,15 +1079,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "何處是我家",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "何處是我家"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1414,15 +1092,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "山的土地，河的土地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "山的土地，河的土地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1460,15 +1131,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "在年輕的萊因河上",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "在年輕的萊因河上"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1480,15 +1144,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "匈牙利國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "匈牙利國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1500,15 +1157,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "塔特洛山上電光閃閃",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "塔特洛山上電光閃閃"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1520,15 +1170,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "上帝保祐拉脫維亞",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "上帝保祐拉脫維亞"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1540,15 +1183,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們的語言",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們的語言"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1560,15 +1196,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我的土地，我的歡愉",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我的土地，我的歡愉"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1580,15 +1209,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "烏克蘭仍在人間",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "烏克蘭仍在人間"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1626,15 +1248,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1646,15 +1261,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1666,15 +1274,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們白俄羅斯人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們白俄羅斯人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1686,15 +1287,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1706,15 +1300,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "葡萄牙人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "葡萄牙人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1726,15 +1313,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "教皇進行曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "教皇進行曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1746,15 +1326,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "意大利人之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "意大利人之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1766,15 +1339,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "馬耳他頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "馬耳他頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1786,15 +1352,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1826,15 +1385,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "醒來吧，羅馬尼亞人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "醒來吧，羅馬尼亞人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1846,15 +1398,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "親愛的父母邦",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "親愛的父母邦"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1866,15 +1411,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們美麗的祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們美麗的祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1886,15 +1424,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祝酒辭",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祝酒辭"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1906,15 +1437,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "旗之讚歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "旗之讚歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1926,15 +1450,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1946,15 +1463,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "偉大的查理曼，我的父親",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "偉大的查理曼，我的父親"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1966,15 +1476,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "波斯尼亞和黑塞哥維那國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "波斯尼亞和黑塞哥維那國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -1986,15 +1489,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "啊，五月清亮的早晨",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "啊，五月清亮的早晨"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2006,15 +1502,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "歐羅巴洲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "歐羅巴洲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2026,15 +1515,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "正義的上帝",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "正義的上帝"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2046,15 +1528,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "聖馬力諾國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "聖馬力諾國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2084,13 +1559,13 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "第三段",
           "official": false,
           "original": "And where is that band who so vauntingly swore\nThat the havoc of war and the battle's confusion,\nA home and a country should leave us no more!\nTheir blood has washed out their foul footsteps' pollution.\nNo refuge could save the hireling and slave\nFrom the terror of flight, or the gloom of the grave:\nAnd the star-spangled banner in triumph doth wave,\nO'er the land of the free and the home of the brave!",
-          "zh": "那支曾誇口說戰爭與混亂\n將奪走我們家園與祖國的隊伍在哪裡！\n他們的血洗淨了汙穢的足跡。\n傭兵與奴隸無從逃脫，\n無論是驚恐的逃亡或墳墓的陰暗：\n星條旗在凱旋中飄揚，\n在那自由者的土地、勇敢者的家鄉！"
+          "zh": "那支曾誇口說\n戰爭與混亂\n將奪走我們家園與祖國的隊伍在哪裡！\n他們的血洗淨了汙穢的足跡。\n傭兵與奴隸無從逃脫，\n無論是驚恐的逃亡或墳墓的陰暗：\n星條旗在凱旋中飄揚，\n在那自由者的土地、勇敢者的家鄉！"
         },
         {
           "label": "第四段",
           "official": false,
           "original": "O thus be it ever, when freemen shall stand\nBetween their loved home and the war's desolation!\nBlest with vict'ry and peace, may the heav'n-rescued land\nPraise the Power that hath made and preserved us a nation.\nThen conquer we must, when our cause it is just,\nAnd this be our motto: \"In God is our trust.\"\nAnd the star-spangled banner in triumph shall wave\nO'er the land of the free and the home of the brave!",
-          "zh": "願自由人永遠如此，守護摯愛的家園免於戰禍！\n蒙勝利與和平之佑，願這受上天拯救的土地\n讚美創造並保全我們國家的力量。\n正義之時我們必勝，\n我們的格言是：「我們信靠上帝。」\n星條旗將在凱旋中飄揚，\n在那自由者的土地、勇敢者的家鄉！"
+          "zh": "願自由人永遠如此，\n守護摯愛的家園免於戰禍！\n蒙勝利與和平之佑，願這受上天拯救的土地\n讚美創造並保全我們國家的力量。\n正義之時我們必勝，\n我們的格言是：「我們信靠上帝。」\n星條旗將在凱旋中飄揚，\n在那自由者的土地、勇敢者的家鄉！"
         }
       ],
       "source": "curated"
@@ -2130,15 +1605,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "Toque de Bandera",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "Toque de Bandera"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2150,15 +1618,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "地峽頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "地峽頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2170,15 +1631,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "向您致敬，尼加拉瓜",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "向您致敬，尼加拉瓜"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2190,15 +1644,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "宏都拉斯國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "宏都拉斯國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2210,15 +1657,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "瓜地馬拉國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "瓜地馬拉國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2230,15 +1670,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由的土地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由的土地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2250,15 +1683,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "高貴的家園，你美麗的旗幟",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "高貴的家園，你美麗的旗幟"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2270,15 +1696,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "多明尼加共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "多明尼加共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2290,15 +1709,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "巴亞莫之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "巴亞莫之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2310,15 +1722,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "牙買加，我們熱愛的家園",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "牙買加，我們熱愛的家園"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2330,15 +1735,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "以自由之愛鑄成",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "以自由之愛鑄成"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2350,15 +1748,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "在熟年，在荒年",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "在熟年，在荒年"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2370,15 +1761,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "美麗的安提瓜，我們向您致敬",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "美麗的安提瓜，我們向您致敬"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2390,15 +1774,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "巴哈馬，向前進",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "巴哈馬，向前進"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2447,13 +1824,13 @@ window.WA_NATIONAL_ANTHEMS = {
         {
           "label": "第一段（國際標準）",
           "official": true,
-          "original": "I\nO Land of Beauty!\nOur country where peace abounds,\nThy children stand free\nOn the strength of will and love.\nWith God in all our struggles,\nSaint Kitts and Nevis be,\nA nation bound together,\nWith a common destiny.",
+          "original": "O Land of Beauty!\nOur country where peace abounds,\nThy children stand free\nOn the strength of will and love.\nWith God in all our struggles,\nSaint Kitts and Nevis be,\nA nation bound together,\nWith a common destiny.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第二段",
           "official": false,
-          "original": "II\nAs stalwarts we stand,\nFor justice and liberty.\nWith wisdom and truth,\nWe will serve and honour thee.\nNo sword nor spear can conquer,\nFor God  will sure defend.\nHis blessings shall forever,\nTo posterity extend.",
+          "original": "As stalwarts we stand,\nFor justice and liberty.\nWith wisdom and truth,\nWe will serve and honour thee.\nNo sword nor spear can conquer,\nFor God  will sure defend.\nHis blessings shall forever,\nTo posterity extend.",
           "zh": "（中文對照整理中）"
         }
       ],
@@ -2473,26 +1850,26 @@ window.WA_NATIONAL_ANTHEMS = {
         {
           "label": "第一段（國際標準）",
           "official": true,
-          "original": "I\nSaint Vincent, Land so beautiful\nWith joyful hearts we pledge to thee\nOur loyalty and love and vow\nTo keep you ever free.",
-          "zh": "聖文森的土地如此美麗"
+          "original": "Saint Vincent, Land so beautiful\nWith joyful hearts we pledge to thee\nOur loyalty and love and vow\nTo keep you ever free.",
+          "zh": "（中文對照整理中）"
         },
         {
           "label": "第二段",
           "official": false,
           "original": "Chorus:\nWhat e'er the future brings,\nOur faith will see us through.\nMay peace reign from shore to shore,\nAnd God bless and keep us true.",
-          "zh": "聖文森的土地如此美麗"
+          "zh": "（中文對照整理中）"
         },
         {
           "label": "第三段",
           "official": false,
-          "original": "II\nHairoun, Our fair and blessed Isle,\nYour mountains high, so clear and green,\nAre home to me, though I may stray,\nA haven, calm, serene.",
-          "zh": "聖文森的土地如此美麗"
+          "original": "Hairoun, Our fair and blessed Isle,\nYour mountains high, so clear and green,\nAre home to me, though I may stray,\nA haven, calm, serene.",
+          "zh": "（中文對照整理中）"
         },
         {
           "label": "第四段",
           "official": false,
-          "original": "III\nOur little sister islands are\nThose gems, the lovely Grenadines,\nUpon their seas and golden sands\nThe sunshine ever beams.",
-          "zh": "聖文森的土地如此美麗"
+          "original": "Our little sister islands are\nThose gems, the lovely Grenadines,\nUpon their seas and golden sands\nThe sunshine ever beams.",
+          "zh": "（中文對照整理中）"
         }
       ],
       "source": "wikipedia"
@@ -2526,12 +1903,12 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "薩爾瓦多國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
+      "durationNote": "",
       "verses": [
         {
           "label": "歌詞",
           "official": true,
-          "original": "副歌\nSaludemos la patria orgullosos\nDe hijos suyos podernos llamar;\nY juremos la vida animosa,\nSin descanso a su bien consagrar.\nI\nDe la paz en la dicha suprema,\nSiempre noble soñó El Salvador;\nFue obtenerla su eterno problema,\nConservarla es su gloria mayor.\nY con fe inquebrantable el camino\nDel progreso se afana en seguir\nPor llenar su grandioso destino,\nConquistarse un feliz porvenir.\nLe protege una férrea barrera\nContra el choque de ruin deslealtad,\nDesde el día que en su alta bandera\nCon su sangre escribió: ¡LIBERTAD!\n副歌\nII\nLibertad es su dogma, es su guía\nQue mil veces logró defender;\nY otras tantas, de audaz tiranía\nRechazar el odioso poder.\nDolorosa y sangrienta es su historia,\nPero excelsa y brillante a la vez;\nManantial de legítima gloria,\nGran lección de espartana altivez.\nNo desmaya en su innata bravura,\nEn cada hombre hay un héroe inmortal\nQue sabrá mantenerse a la altura\nDe su antiguo valor proverbial.\n副歌\nIII\nTodos son abnegados, y fieles\nAl prestigio del bélico ardor\nCon que siempre segaron laureles\nDe la patria salvando el honor.\nRespetar los derechos extraños\nY apoyarse en la recta razón\nEs para ella, sin torpes amaños\nSu invariable, más firme ambición.\nY en seguir esta línea se aferra\nDedicando su esfuerzo tenaz,\nEn hacer cruda guerra a la guerra:\nSu ventura se encuentra en la paz.''",
+          "original": "Saludemos la patria orgullosos\nDe hijos suyos podernos llamar;\nY juremos la vida animosa,\nSin descanso a su bien consagrar.\nDe la paz en la dicha suprema,\nSiempre noble soñó El Salvador;\nFue obtenerla su eterno problema,\nConservarla es su gloria mayor.\nY con fe inquebrantable el camino\nDel progreso se afana en seguir\nPor llenar su grandioso destino,\nConquistarse un feliz porvenir.\nLe protege una férrea barrera\nContra el choque de ruin deslealtad,\nDesde el día que en su alta bandera\nCon su sangre escribió: ¡LIBERTAD!\nLibertad es su dogma, es su guía\nQue mil veces logró defender;\nY otras tantas, de audaz tiranía\nRechazar el odioso poder.\nDolorosa y sangrienta es su historia,\nPero excelsa y brillante a la vez;\nManantial de legítima gloria,\nGran lección de espartana altivez.\nNo desmaya en su innata bravura,\nEn cada hombre hay un héroe inmortal\nQue sabrá mantenerse a la altura\nDe su antiguo valor proverbial.\nTodos son abnegados, y fieles\nAl prestigio del bélico ardor\nCon que siempre segaron laureles\nDe la patria salvando el honor.\nRespetar los derechos extraños\nY apoyarse en la recta razón\nEs para ella, sin torpes amaños\nSu invariable, más firme ambición.\nY en seguir esta línea se aferra\nDedicando su esfuerzo tenaz,\nEn hacer cruda guerra a la guerra:\nSu ventura se encuentra en la paz.''",
           "zh": "讓我們向祖國自豪地敬禮，\n我們能被稱作它的孩子\n並讓我們用靈魂和生命起誓\n為這世間最美的事物奉獻！\n我們在完美的幸福中享受和平，\n這曾是薩爾瓦多崇高的夢想。\n實現這一夢想，已成為她永恆的追求，\n能夠保有它，是她最大的榮耀，\n帶著不可磨滅的信仰，她努力追尋\n通往進步的道路\n為了完成她偉大的使命，\n並取得幸福的未來。\n一道堅實的屏障保護著她，\n抗擊卑劣的背叛，\n自從她那雄偉的旗幟飄揚的那天起，\n用它的鮮血書寫著自由。"
         }
       ],
@@ -2551,19 +1928,19 @@ window.WA_NATIONAL_ANTHEMS = {
         {
           "label": "第一段（國際標準）",
           "official": true,
-          "original": "I\nIsle of beauty, isle of splendour,\nIsle to all so sweet and fair,\nAll must surely gaze in wonder\nAt thy gifts so rich and rare.\nRivers, valleys, hills and mountains,\nAll these gifts we do extol.\nHealthy land, so like all fountains,\nGiving cheer that warms the soul.",
+          "original": "Isle of beauty, isle of splendour,\nIsle to all so sweet and fair,\nAll must surely gaze in wonder\nAt thy gifts so rich and rare.\nRivers, valleys, hills and mountains,\nAll these gifts we do extol.\nHealthy land, so like all fountains,\nGiving cheer that warms the soul.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第二段",
           "official": false,
-          "original": "II\nDominica, God hath blest thee\nWith a clime benign and bright,\nPastures green and flowers of beauty\nFilling all with pure delight,\nAnd a people strong and healthy,\nFull of godly reverent fear.\nMay we ever seek to praise Thee\nFor these gifts so rich and rare.",
+          "original": "Dominica, God hath blest thee\nWith a clime benign and bright,\nPastures green and flowers of beauty\nFilling all with pure delight,\nAnd a people strong and healthy,\nFull of godly reverent fear.\nMay we ever seek to praise Thee\nFor these gifts so rich and rare.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第三段",
           "official": false,
-          "original": "III\nCome ye forward, sons and daughters\nOf this gem beyond compare.\nStrive for honour, sons and daughters,\nDo the right, be firm, be fair.\nToil with hearts and hands and voices.\nWe must prosper! Sound the call,\nIn which ev'ryone rejoices,\n\"All for Each and Each for All\".",
+          "original": "Come ye forward, sons and daughters\nOf this gem beyond compare.\nStrive for honour, sons and daughters,\nDo the right, be firm, be fair.\nToil with hearts and hands and voices.\nWe must prosper! Sound the call,\nIn which ev'ryone rejoices,\n\"All for Each and Each for All\".",
           "zh": "（中文對照整理中）"
         }
       ],
@@ -2578,15 +1955,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "聖盧西亞的子女",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "聖盧西亞的子女"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2598,15 +1968,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "納米比亞，勇氣之地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "納米比亞，勇氣之地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2618,15 +1981,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "南非國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "南非國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2638,15 +1994,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "獨立高歌贊比亞，自豪又自由",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "獨立高歌贊比亞，自豪又自由"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2658,15 +2007,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "偉大群島的聯合",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "偉大群島的聯合"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2678,15 +2020,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "萊索托，我們的祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "萊索托，我們的祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2698,15 +2033,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "Chiuta dangililani Malaŵi",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "Chiuta dangililani Malaŵi"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2718,15 +2046,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "摩洛哥頌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "摩洛哥頌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2738,15 +2059,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "誓言",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "誓言"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2758,15 +2072,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們是上帝和我們土地的軍隊",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們是上帝和我們土地的軍隊"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2778,15 +2085,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2798,15 +2098,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國，祖國，祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國，祖國，祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2818,15 +2111,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國的衛士",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國的衛士"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2838,15 +2124,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "南蘇丹萬歲！",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "南蘇丹萬歲！"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2858,15 +2137,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "利比亞，利比亞，利比亞",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "利比亞，利比亞，利比亞"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2878,15 +2150,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "大家的旗幟",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "大家的旗幟"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2898,15 +2163,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "啊！烏幹達，美麗之地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "啊！烏幹達，美麗之地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2918,15 +2176,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "造物之神",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "造物之神"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2938,15 +2189,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "天佑非洲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "天佑非洲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2958,15 +2202,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "吉布地國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "吉布地國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2978,15 +2215,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們的蒲隆地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們的蒲隆地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -2998,15 +2228,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "厄立特里亞，厄立特里亞，厄立特里亞",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "厄立特里亞，厄立特里亞，厄立特里亞"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3018,15 +2241,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "塞舌爾人，團結起來",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "塞舌爾人，團結起來"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3038,15 +2254,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "大家的旗幟",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "大家的旗幟"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3058,15 +2267,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "美麗的盧旺達",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "美麗的盧旺達"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3078,15 +2280,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "前進，我的母親衣索比亞",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "前進，我的母親衣索比亞"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3098,15 +2293,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "為利比裡亞歡呼！",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "為利比裡亞歡呼！"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3118,15 +2306,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3138,15 +2319,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "毛裡塔尼亞國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "毛裡塔尼亞國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3158,15 +2332,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "乍得人民",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "乍得人民"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3178,15 +2345,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國的榮譽",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國的榮譽"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3198,15 +2358,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "阿比讓之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "阿比讓之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3218,15 +2371,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國，我們向你致敬",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國，我們向你致敬"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3238,15 +2384,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "塞內加爾共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "塞內加爾共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3258,15 +2397,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "尼日利亞，我們讚揚你",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "尼日利亞，我們讚揚你"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3278,15 +2410,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "為了非洲也為了你，馬裡",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "為了非洲也為了你，馬裡"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3298,15 +2423,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們崇敬你，自由的江山",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們崇敬你，自由的江山"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3318,15 +2436,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "為岡比亞我們的家園",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "為岡比亞我們的家園"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3338,15 +2449,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "上帝保佑我們的家園－迦納",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "上帝保佑我們的家園－迦納"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3358,15 +2462,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "這是我們最愛的國家",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "這是我們最愛的國家"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3378,15 +2475,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "一夜",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "一夜"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3398,15 +2488,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "新的黎明",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "新的黎明"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3418,15 +2501,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3438,15 +2514,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "復興歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "復興歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3458,15 +2527,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "一致",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "一致"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3478,15 +2540,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "集合歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "集合歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3498,15 +2553,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "聖多美普林西比國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "聖多美普林西比國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3518,15 +2566,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "讓我們跟踏著小路",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "讓我們跟踏著小路"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3538,15 +2579,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "剛果人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "剛果人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3558,15 +2592,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "起來，剛果人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "起來，剛果人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3578,15 +2605,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "啊，我們親愛的祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "啊，我們親愛的祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3598,15 +2618,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "保佑這高尚的土地",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "保佑這高尚的土地"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3618,15 +2631,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "哦 上帝，斯威士人祝福的賜予者",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "哦 上帝，斯威士人祝福的賜予者"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3638,15 +2644,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3658,15 +2657,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "安哥拉前進",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "安哥拉前進"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3678,15 +2670,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "津巴布韋國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "津巴布韋國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3698,15 +2683,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "親愛的祖國",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "親愛的祖國"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3718,15 +2696,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "智利國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "智利國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3738,15 +2709,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "烏拉圭國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "烏拉圭國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3758,15 +2722,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "秘魯國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "秘魯國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3778,15 +2735,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "玻利維亞人，有利命運",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "玻利維亞人，有利命運"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3798,15 +2748,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "哥倫比亞共和國國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "哥倫比亞共和國國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3818,15 +2761,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "祖國進行曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "祖國進行曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3838,15 +2774,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "平原遼闊廣大，陽光雨露使你成為富饒的國家",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "平原遼闊廣大，陽光雨露使你成為富饒的國家"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3858,15 +2787,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "國家的兒子們",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "國家的兒子們"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3898,15 +2820,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "光榮歸勇敢人民",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "光榮歸勇敢人民"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3918,15 +2833,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "向祖國致敬",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "向祖國致敬"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3938,15 +2846,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "巴拉圭人，無共和毋寧死",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "巴拉圭人，無共和毋寧死"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3958,15 +2859,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "永遠的馬紹爾群島",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "永遠的馬紹爾群島"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3978,15 +2872,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "站起來，基里巴斯",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "站起來，基里巴斯"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -3998,15 +2885,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "神是真理",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "神是真理"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4018,15 +2898,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "Preamble",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "Preamble"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4038,15 +2911,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們，我們，我們",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們，我們，我們"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4058,15 +2924,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "我們的帕勞",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "我們的帕勞"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4078,15 +2937,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4098,15 +2950,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "湯加群島國王之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "湯加群島國王之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4118,15 +2963,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "天佑新西蘭",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "天佑新西蘭"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4158,15 +2996,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "自由的旗幟",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "自由的旗幟"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4178,15 +3009,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "瑙魯之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "瑙魯之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4199,14 +3023,7 @@ window.WA_NATIONAL_ANTHEMS = {
       "lang": "fj",
       "durationSec": 60,
       "durationNote": "國際場合通常僅演奏第一段，約 45–90 秒；以下為完整歌詞分段對照。",
-      "verses": [
-        {
-          "label": "第一段（國際標準）",
-          "official": true,
-          "original": "\"Meda dau doka\"",
-          "zh": "第一節：\n合唱： \n第二節："
-        }
-      ],
+      "verses": [],
       "source": "wikipedia"
     },
     {
@@ -4223,25 +3040,25 @@ window.WA_NATIONAL_ANTHEMS = {
         {
           "label": "第一段（國際標準）",
           "official": true,
-          "original": "I\nO arise all you sons of this land,}}\nLet us sing of our joy to be free,}}\nPraising God and rejoicing to be\nPapua New Guinea.",
+          "original": "O arise all you sons of this land,\nLet us sing of our joy to be free,\nPraising God and rejoicing to be\nPapua New Guinea.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第二段",
           "official": false,
-          "original": "Shout our name from the mountains to seas and \"seas\" is sometimes sung as \"sea\".}}\nPapua New Guinea;\nLet us raise our voices and proclaim\nPapua New Guinea.",
+          "original": "Shout our name from the mountains to seas and \"seas\" is sometimes sung as \"sea\".\nPapua New Guinea;\nLet us raise our voices and proclaim\nPapua New Guinea.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第三段",
           "official": false,
-          "original": "II\nNow give thanks to the good Lord above\nFor His kindness, His wisdom and love\nFor this land of our fathers so free,\nPapua New Guinea.",
+          "original": "Now give thanks to the good Lord above\nFor His kindness, His wisdom and love\nFor this land of our fathers so free,\nPapua New Guinea.",
           "zh": "（中文對照整理中）"
         },
         {
           "label": "第四段",
           "official": false,
-          "original": "Shout again for the whole world to hear\nPapua New Guinea;\nWe're independent and we're free}}\nPapua New Guinea.",
+          "original": "Shout again for the whole world to hear\nPapua New Guinea;\nWe're independent and we're free\nPapua New Guinea.",
           "zh": "（中文對照整理中）"
         }
       ],
@@ -4262,7 +3079,7 @@ window.WA_NATIONAL_ANTHEMS = {
           "label": "第一段（國際標準）",
           "official": true,
           "original": "Ko e Iki he Lagi",
-          "zh": "紐埃國歌"
+          "zh": "（中文對照整理中）"
         }
       ],
       "source": "wikipedia"
@@ -4279,16 +3096,10 @@ window.WA_NATIONAL_ANTHEMS = {
       "durationNote": "國際場合通常僅演奏第一段，約 45–90 秒；以下為完整歌詞分段對照。",
       "verses": [
         {
-          "label": "第一段（國際標準）",
+          "label": "全文（國際標準）",
           "official": true,
-          "original": "God save our Solomon Islands from shore to shore\nBless}} all our people and all our lands\nWith your protecting hands\nJoy, peace, progress and prosperity",
+          "original": "God save our Solomon Islands from shore to shore\nBless all our people and all our lands\nWith your protecting hands\nJoy, peace, progress and prosperity\nThat men should brothers be, make nations see\nOur Solomon Islands, our Solomon Islands\nOur nation Solomon Islands\nStands for ever more.",
           "zh": "天佑我們所羅門群島的每一個海岸\n保佑我們全部人民和土地\n用禰那保護的手\n喜樂、和平、進步和繁榮\n讓各民族看到，我們的人民是兄弟\n我們的所羅門群島，我們的所羅門群島\n我們的國家所羅門群島\n永遠長存。"
-        },
-        {
-          "label": "第二段",
-          "official": false,
-          "original": "That men should brothers be, make nations see\nOur Solomon Islands, our Solomon Islands\nOur nation Solomon Islands\nStands for ever more.",
-          "zh": "Category:國歌\nCategory:所羅門群島歌曲"
         }
       ],
       "source": "wikipedia"
@@ -4302,15 +3113,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4342,15 +3146,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4362,15 +3159,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "Nuna asiilasooq",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "Nuna asiilasooq"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4382,15 +3172,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "博林克尼亞人",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "博林克尼亞人"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4402,15 +3185,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "美屬薩摩亞 (歌曲)",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "美屬薩摩亞 (歌曲)"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4422,15 +3198,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "波斯尼亞和黑塞哥維那國歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "波斯尼亞和黑塞哥維那國歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4442,15 +3211,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "直布羅陀之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "直布羅陀之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4462,15 +3224,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "庫拉索之歌",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "庫拉索之歌"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4482,15 +3237,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "義勇軍進行曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "義勇軍進行曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4534,15 +3282,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "義勇軍進行曲",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "義勇軍進行曲"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4554,15 +3295,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4574,15 +3308,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4594,15 +3321,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "Ia Ora 'O Tahiti Nui",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "Ia Ora 'O Tahiti Nui"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4614,15 +3334,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "天佑國王",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "天佑國王"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4634,15 +3347,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4654,15 +3360,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4674,15 +3373,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4694,15 +3386,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4714,15 +3399,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4734,15 +3412,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4754,15 +3425,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4774,15 +3438,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4794,15 +3451,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4814,15 +3464,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4834,15 +3477,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4854,15 +3490,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4874,15 +3503,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4894,15 +3516,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "天佑國王",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "天佑國王"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4914,15 +3529,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4934,15 +3542,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     },
     {
@@ -4954,15 +3555,8 @@ window.WA_NATIONAL_ANTHEMS = {
       "anthemOriginal": "—",
       "lang": "",
       "durationSec": 60,
-      "durationNote": "國歌名稱來自 Wikidata；完整歌詞資料整理中。",
-      "verses": [
-        {
-          "label": "歌詞",
-          "official": true,
-          "original": "（暫無公開完整歌詞資料）",
-          "zh": "—"
-        }
-      ],
+      "durationNote": "",
+      "verses": [],
       "source": "wikidata"
     }
   ]

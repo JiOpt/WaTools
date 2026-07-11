@@ -1,5 +1,5 @@
 /**
- * WaTools implementations — utility & media (part 2)
+ * WaWaTools implementations — utility & media (part 2)
  * Registers on window.WA_TOOL_REGISTRY[slug](appElement)
  */
 (function () {

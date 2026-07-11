@@ -9,22 +9,49 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.6.1';
+  const WA_SITE_VERSION = '0.6.27';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];
     return assetBase + base + '?v=' + WA_SITE_VERSION;
   }
 
-  function applySiteVersionFooter() {
-    const footer = document.querySelector('#footer .copyright p');
-    if (!footer || footer.querySelector('.site-version')) return;
-    footer.insertAdjacentHTML('beforeend', ` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
+  function footerRootPrefix() {
+    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/')) ? '../' : '';
   }
 
-  window.WA_SITE_VERSION = WA_SITE_VERSION;
-  window.waAssetUrl = waAssetUrl;
-  window.addEventListener('load', applySiteVersionFooter);
+  function renderSiteFooter() {
+    const slot = document.querySelector('#footer .copyright p');
+    if (!slot) return;
+
+    const cfg = window.WA_SITE_FOOTER || {};
+    const siteName = cfg.siteName || 'WaWaTools';
+    const tagline = cfg.tagline || '實用小工具，解決小麻煩';
+    const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
+    parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
+
+    if (cfg.showCopyrightLink !== false) {
+      const href = cfg.copyrightHref || `${footerRootPrefix()}copyright.html`;
+      const label = cfg.copyrightLabel || '版權聲明';
+      parts.push(` · <a href="${href}">${label}</a>`);
+    }
+
+    slot.innerHTML = parts.join('');
+  }
+
+  function bootSiteFooter() {
+    if (window.WA_SITE_FOOTER) {
+      renderSiteFooter();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = waAssetUrl('assets/js/site-footer.js');
+    script.onload = renderSiteFooter;
+    script.onerror = renderSiteFooter;
+    document.head.appendChild(script);
+  }
+
+  window.renderSiteFooter = renderSiteFooter;
 
   function getAssetBase() {
     const script = document.querySelector('script[src*="assets/js/main.js"]');
@@ -34,53 +61,97 @@
 
   const assetBase = getAssetBase();
 
+  window.WA_SITE_VERSION = WA_SITE_VERSION;
+  window.waAssetUrl = waAssetUrl;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootSiteFooter, { once: true });
+  } else {
+    bootSiteFooter();
+  }
+
+  function injectScript(relativePath, opts) {
+    const script = document.createElement('script');
+    script.src = waAssetUrl(relativePath);
+    if (opts?.defer) script.defer = true;
+    if (opts?.async) script.async = true;
+    (opts?.target || document.head).appendChild(script);
+    return script;
+  }
+
+  function runWhenIdle(fn, timeoutMs) {
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(fn, { timeout: timeoutMs || 2000 });
+    } else {
+      setTimeout(fn, 1);
+    }
+  }
+
   /**
    * User preferences — theme, reading, accessibility
    */
   if (document.querySelector('#header .branding')) {
-    const prefsScript = document.createElement('script');
-    prefsScript.src = waAssetUrl('assets/js/user-preferences.js');
-    document.head.appendChild(prefsScript);
+    injectScript('assets/js/user-preferences.js', { defer: true });
   }
 
   /**
    * Nav browsing history — load early, before optional template plugins
    */
   if (document.querySelector('#header .branding')) {
-    const navHistoryScript = document.createElement('script');
-    navHistoryScript.src = waAssetUrl('assets/js/nav-history.js');
-    document.head.appendChild(navHistoryScript);
-
-    const userMenuScript = document.createElement('script');
-    userMenuScript.src = waAssetUrl('assets/js/user-menu.js');
-    document.head.appendChild(userMenuScript);
+    injectScript('assets/js/nav-history.js', { defer: true });
+    injectScript('assets/js/user-menu.js', { defer: true });
   }
 
   if (document.querySelector('#header .branding')) {
-    const sitemapScript = document.createElement('script');
-    sitemapScript.src = waAssetUrl('assets/js/site-sitemap.js');
-    document.body.appendChild(sitemapScript);
-  }
+    const scheduleBootSitemap = () => {
+      if (document.querySelector('script[src*="site-sitemap.js"]')) return;
+      const bootSitemap = () => injectScript('assets/js/site-sitemap.js', { target: document.body, defer: true });
+      if (window.WA_TOOLS_CATALOG || !document.getElementById('tool-app')) {
+        bootSitemap();
+      } else {
+        window.addEventListener('watools:catalog-ready', bootSitemap, { once: true });
+        window.setTimeout(bootSitemap, 15000);
+      }
+    };
 
-  if (document.querySelector('#header .branding')) {
-    const headerContextScript = document.createElement('script');
-    headerContextScript.src = waAssetUrl('assets/js/header-context.js');
-    document.head.appendChild(headerContextScript);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scheduleBootSitemap, { once: true });
+    } else {
+      scheduleBootSitemap();
+    }
   }
 
   if (document.getElementById('tool-app')) {
-    const loadPager = () => {
+    if (!document.querySelector('script[src*="tools-data.js"]')) {
+      injectScript('assets/js/tools-data.js');
+    }
+    if (!document.querySelector('script[src*="sitemap-manifest.js"]')) {
+      injectScript('assets/js/sitemap-manifest.js', { defer: true });
+    }
+  }
+
+  if (document.querySelector('#header .branding')) {
+    runWhenIdle(() => {
+      injectScript('assets/js/header-context.js', { defer: true });
+    }, 1500);
+  }
+
+  if (document.getElementById('tool-app')) {
+    if (!document.querySelector('script[src*="tool-category-pager.js"]')) {
       const pagerScript = document.createElement('script');
       pagerScript.src = waAssetUrl('assets/js/tool-category-pager.js');
-      document.body.appendChild(pagerScript);
-    };
-    if (window.WA_TOOLS_CATALOG) {
-      loadPager();
-    } else {
+      (document.head || document.body).appendChild(pagerScript);
+    }
+
+    if (!window.WA_TOOLS_CATALOG) {
       const catalogScript = document.createElement('script');
       catalogScript.src = waAssetUrl('assets/js/tools-data.js');
-      catalogScript.onload = loadPager;
-      document.body.appendChild(catalogScript);
+      catalogScript.onload = () => {
+        window.dispatchEvent(new Event('watools:catalog-ready'));
+      };
+      (document.head || document.body).appendChild(catalogScript);
+    } else {
+      window.dispatchEvent(new Event('watools:catalog-ready'));
     }
   }
 
@@ -136,13 +207,30 @@
   });
 
   /**
-   * Preloader
+   * Preloader — hide as soon as DOM is ready (don't wait for all images/fonts)
    */
   const preloader = document.querySelector('#preloader');
+  let preloaderDone = false;
+
+  function dismissPreloader() {
+    if (!preloader || preloaderDone) return;
+    preloaderDone = true;
+    preloader.classList.add('preloader-done');
+    window.setTimeout(() => preloader.remove(), 450);
+  }
+
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+    const skipPreloader = document.body.classList.contains('tool-page')
+      || document.documentElement.classList.contains('wa-tool-page');
+    if (skipPreloader) {
+      dismissPreloader();
+    } else if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', dismissPreloader, { once: true });
+      window.setTimeout(dismissPreloader, 2800);
+    } else {
+      dismissPreloader();
+      window.setTimeout(dismissPreloader, 2800);
+    }
   }
 
   /**
@@ -172,16 +260,26 @@
    * Animation on scroll function and init
    */
   function aosInit() {
+    if (document.body.classList.contains('tool-page')
+      || document.documentElement.classList.contains('wa-tool-page')) {
+      return;
+    }
     if (typeof AOS !== 'undefined') {
       AOS.init({
         duration: 600,
         easing: 'ease-in-out',
         once: true,
-        mirror: false
+        mirror: false,
+        disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
       });
     }
   }
-  window.addEventListener('load', aosInit);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => runWhenIdle(aosInit, 1200), { once: true });
+  } else {
+    runWhenIdle(aosInit, 1200);
+  }
 
   /**
    * Initiate glightbox

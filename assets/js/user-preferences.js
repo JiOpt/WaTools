@@ -275,7 +275,7 @@
           },
         }, ['恢復預設']),
       ]),
-      el('p', { className: 'prefs-note text-muted', text: '設定會儲存在此瀏覽器，套用至 WaTools 全站所有頁面。' }),
+      el('p', { className: 'prefs-note text-muted', text: '設定會儲存在此瀏覽器，套用至 WaWaTools 全站所有頁面。' }),
     ]);
 
     form.addEventListener('change', function (e) {

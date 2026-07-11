@@ -229,6 +229,9 @@ export function cleanWikiLyrics(text, { preferChinese = false } = {}) {
       if (/^!\s/.test(t)) return false;
       if (/^;\S/.test(t)) return false;
       if (/^副歌$/i.test(t)) return false;
+      if (/^refrain$/i.test(t)) return false;
+      if (/^chorus$/i.test(t)) return false;
+      if (/^[IVXLC]{1,4}$/.test(t)) return false;
       return !/^style="|^bgcolor=|^colspan=|^rowspan=|^valign=/i.test(t);
     })
     .join('\n')

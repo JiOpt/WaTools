@@ -2,7 +2,38 @@
   'use strict';
 
   const HISTORY_KEY = 'watools-nav-history';
+  const UI_STATE_KEY = 'watools-sitemap-ui';
   const RECENT_MAX = 7;
+  const PAGER_SKIP = new Set(['monster']);
+
+  /** 分類標題圖示（對應 index 各 section） */
+  const CATEGORY_ICONS = {
+    utility: 'bi-tools',
+    media: 'bi-collection-play',
+    dev: 'bi-code-slash',
+    editor: 'bi-file-richtext',
+    security: 'bi-shield-lock',
+    culture: 'bi-translate',
+    symbols: 'bi-emoji-smile',
+    life: 'bi-book',
+    fun: 'bi-stars',
+    spiritual: 'bi-brightness-high',
+    world: 'bi-globe-asia-australia',
+  };
+
+  function sitemapIconBox(biClass, variant) {
+    if (!biClass) return null;
+    const cls = variant === 'cat' ? 'site-sitemap-icon-wrap site-sitemap-icon-wrap-cat' : 'site-sitemap-icon-wrap';
+    return el('span', { className: cls, 'aria-hidden': 'true' }, [
+      el('i', { className: `bi ${biClass}` }),
+    ]);
+  }
+
+  function toolLinkLabel(tool) {
+    const title = el('span', { className: 'site-sitemap-tool-title' }, tool.title);
+    if (!tool.icon) return [title];
+    return [sitemapIconBox(tool.icon), title];
+  }
 
   function assetUrl(path) {
     if (typeof window.waAssetUrl === 'function') return window.waAssetUrl(path);
@@ -36,31 +67,342 @@
     return `scripture/${slug}.html`;
   }
 
-  function loadScriptOnce(src) {
+  function scriptReady(base) {
+    if (base.includes('tools-data.js')) return Boolean(window.WA_TOOLS_CATALOG);
+    if (base.includes('scriptures-catalog.js')) return Boolean(window.WA_SCRIPTURES_CATALOG);
+    if (base.includes('sitemap-manifest.js')) return Boolean(window.WA_SITEMAP_MANIFEST);
+    return false;
+  }
+
+  function readUiState() {
+    try {
+      const raw = localStorage.getItem(UI_STATE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function writeUiState(state) {
+    try {
+      localStorage.setItem(UI_STATE_KEY, JSON.stringify(state));
+    } catch {
+      /* file:// or quota */
+    }
+  }
+
+  function collectUiState(nav) {
+    if (!nav) return readUiState();
+    const sections = {};
+    nav.querySelectorAll('.site-sitemap-section[data-section]').forEach((section) => {
+      sections[section.dataset.section] = section.open;
+    });
+    const groups = {};
+    nav.querySelectorAll('.site-sitemap-group[data-group]').forEach((group) => {
+      groups[group.dataset.group] = group.open;
+    });
+    return {
+      ...readUiState(),
+      panelCollapsed: document.body.classList.contains('site-sitemap-collapsed'),
+      sections,
+      groups,
+    };
+  }
+
+  function persistUiState(nav) {
+    writeUiState(collectUiState(nav));
+  }
+
+  function applySectionOpenState(nav, saved) {
+    if (!nav || !saved?.sections) return;
+    nav.querySelectorAll('.site-sitemap-section[data-section]').forEach((section) => {
+      const id = section.dataset.section;
+      if (id in saved.sections) section.open = saved.sections[id];
+    });
+  }
+
+  function setDesktopCollapsed(collapsed) {
+    document.body.classList.toggle('site-sitemap-collapsed', collapsed);
+    const btn = document.querySelector('.site-sitemap-collapse-btn');
+    const tab = document.querySelector('.site-sitemap-expand-tab');
+    if (btn) btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    if (tab) tab.hidden = !collapsed;
+    const state = readUiState();
+    state.panelCollapsed = collapsed;
+    writeUiState(state);
+  }
+
+  function bindGroupBulkActions(nav) {
+    const toolsSection = nav?.querySelector('.site-sitemap-section[data-section="tools"]');
+    if (!toolsSection) return;
+
+    toolsSection.querySelector('[data-sitemap-expand-all]')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toolsSection.querySelectorAll('.site-sitemap-group').forEach((group) => {
+        group.open = true;
+      });
+      persistUiState(nav);
+    });
+
+    toolsSection.querySelector('[data-sitemap-collapse-all]')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toolsSection.querySelectorAll('.site-sitemap-group').forEach((group) => {
+        group.open = false;
+      });
+      persistUiState(nav);
+    });
+  }
+
+  function bindSitemapTogglePersistence(aside) {
+    if (!aside || aside.dataset.toggleBound === '1') {
+      bindGroupBulkActions(aside?.querySelector('.site-sitemap-nav'));
+      return;
+    }
+    aside.dataset.toggleBound = '1';
+
+    aside.addEventListener('toggle', (e) => {
+      if (!e.target.matches('.site-sitemap-section, .site-sitemap-group')) return;
+      const nav = aside.querySelector('.site-sitemap-nav');
+      if (nav) persistUiState(nav);
+    }, true);
+
+    bindGroupBulkActions(aside.querySelector('.site-sitemap-nav'));
+  }
+
+  function buildSectionBlock(id, label, children, options) {
+    const summaryChildren = [
+      el('span', { className: 'site-sitemap-section-title' }, label),
+    ];
+    if (options?.count != null) {
+      summaryChildren.push(el('span', { className: 'site-sitemap-section-count' }, String(options.count)));
+    }
+    if (options?.actions?.length) {
+      summaryChildren.push(el('span', { className: 'site-sitemap-section-actions' }, options.actions));
+    }
+
+    return el('details', {
+      className: 'site-sitemap-section',
+      dataset: { section: id },
+      open: options?.open !== false,
+    }, [
+      el('summary', { className: 'site-sitemap-section-head' }, summaryChildren),
+      el('div', { className: 'site-sitemap-section-body' }, children),
+    ]);
+  }
+
+  function miniActionBtn(label, datasetKey) {
+    return el('button', {
+      type: 'button',
+      className: 'site-sitemap-mini-btn',
+      dataset: { [datasetKey]: '' },
+      title: label,
+    }, [label]);
+  }
+
+  function loadScriptOnce(src, timeoutMs) {
+    const limit = timeoutMs || 12000;
     const base = src.split('?')[0];
-    if (document.querySelector(`script[src*="${base}"]`)) {
+    if (base.includes('sitemap-manifest.js') && window.WA_SITEMAP_MANIFEST) {
       return Promise.resolve();
     }
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = assetUrl(src);
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
+    const existing = document.querySelector(`script[src*="${base}"]`);
+
+    function waitExisting() {
+      return new Promise((resolve, reject) => {
+        if (existing.dataset.waLoaded === '1' || scriptReady(base)) {
+          existing.dataset.waLoaded = '1';
+          resolve();
+          return;
+        }
+        const finish = () => {
+          existing.dataset.waLoaded = '1';
+          resolve();
+        };
+        if (!existing.async && !existing.defer) {
+          finish();
+          return;
+        }
+        if (existing.readyState === 'complete' || existing.readyState === 'loaded') {
+          finish();
+          return;
+        }
+        existing.addEventListener('load', finish, { once: true });
+        existing.addEventListener('error', () => reject(new Error(src)), { once: true });
+      });
+    }
+
+    function fetchNew() {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = assetUrl(src);
+        script.onload = () => {
+          script.dataset.waLoaded = '1';
+          resolve();
+        };
+        script.onerror = () => reject(new Error(src));
+        document.head.appendChild(script);
+      });
+    }
+
+    const load = existing ? waitExisting() : fetchNew();
+    return Promise.race([
+      load,
+      new Promise((_, reject) => {
+        window.setTimeout(() => reject(new Error(`timeout: ${src}`)), limit);
+      }),
+    ]);
+  }
+
+  function isPlanPage() {
+    return document.body.classList.contains('plan-page')
+      || /index_plan\.html$/i.test(location.pathname.replace(/\\/g, '/'));
+  }
+
+  async function loadPublishManifest() {
+    if (!window.WA_SITEMAP_MANIFEST) {
+      await loadScriptOnce('assets/js/sitemap-manifest.js');
+    }
+    if (!window.WA_SITEMAP_MANIFEST) return null;
+    return window.WA_SITEMAP_MANIFEST.load();
+  }
+
+  function applyPublishFilter(catalog) {
+    const list = Array.isArray(catalog) ? catalog : [];
+    if (!window.WA_SITEMAP_MANIFEST) return list;
+    try {
+      return window.WA_SITEMAP_MANIFEST.filterCatalog(list) || [];
+    } catch (err) {
+      console.warn('[WaWaTools] publish filter failed:', err);
+      return list;
+    }
+  }
+
+  function refreshSitemapFromPublish() {
+    const aside = document.getElementById('site-sitemap');
+    if (!aside || !window.WA_TOOLS_CATALOG) return;
+
+    return (async () => {
+      try {
+        await loadPublishManifest();
+      } catch (err) {
+        console.warn('[WaWaTools] publish refresh manifest:', err);
+      }
+
+      const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
+      const scriptures = window.WA_SCRIPTURES_CATALOG || [];
+      const scriptureSlugs = scriptureSlugSet(scriptures);
+      const currentNav = aside.querySelector('.site-sitemap-nav');
+      if (!currentNav) return;
+
+      const savedUi = readUiState();
+      const history = readHistory();
+      const next = buildNav(tools, scriptures, history, scriptureSlugs);
+      currentNav.replaceWith(next);
+      hydrateNavState(next, savedUi, history, scriptureSlugs);
+      bindGroupBulkActions(next);
+      bindSitemapTogglePersistence(aside);
+      next.querySelectorAll('a[href]').forEach((link) => {
+        link.addEventListener('click', () => setMobileOpen(false));
+      });
+
+      const seqSlot = aside.querySelector('.site-sitemap-seq-slot');
+      if (seqSlot) {
+        const seqPager = buildToolCategoryPager(tools);
+        seqSlot.replaceChildren(...(seqPager ? [seqPager] : []));
+      }
+    })();
+  }
+
+  window.addEventListener('watools:publish-changed', () => {
+    refreshSitemapFromPublish().catch((err) => {
+      console.warn('[WaWaTools] publish refresh failed:', err);
+    });
+  });
+
+  function waitForCatalogEvent(ms) {
+    return new Promise((resolve) => {
+      if (window.WA_TOOLS_CATALOG) {
+        resolve();
+        return;
+      }
+      let done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        resolve();
+      };
+      window.addEventListener('watools:catalog-ready', finish, { once: true });
+      window.setTimeout(finish, ms || 15000);
+    });
+  }
+
+  async function waitForToolsCatalog() {
+    if (window.WA_TOOLS_CATALOG) return;
+    await waitForCatalogEvent();
+    if (window.WA_TOOLS_CATALOG) return;
+    await new Promise((resolve) => {
+      let tries = 0;
+      const tick = () => {
+        if (window.WA_TOOLS_CATALOG || tries >= 80) {
+          resolve();
+          return;
+        }
+        tries += 1;
+        window.setTimeout(tick, 50);
+      };
+      tick();
     });
   }
 
   async function loadCatalogs() {
+    try {
+      if (!window.WA_TOOLS_CATALOG) {
+        await loadScriptOnce('assets/js/tools-data.js');
+      }
+    } catch (err) {
+      console.warn('[WaWaTools] tools-data unavailable:', err);
+    }
+
     if (!window.WA_TOOLS_CATALOG) {
-      await loadScriptOnce('assets/js/tools-data.js');
+      await waitForToolsCatalog();
     }
-    if (!window.WA_SCRIPTURES_CATALOG) {
-      await loadScriptOnce('assets/js/scriptures-catalog.js');
+
+    try {
+      if (!window.WA_SCRIPTURES_CATALOG) {
+        await loadScriptOnce('assets/js/scriptures-catalog.js');
+      }
+    } catch (err) {
+      console.warn('[WaWaTools] scriptures-catalog unavailable:', err);
     }
+
     return {
-      tools: window.WA_TOOLS_CATALOG || [],
-      scriptures: window.WA_SCRIPTURES_CATALOG || [],
+      tools: Array.isArray(window.WA_TOOLS_CATALOG) ? window.WA_TOOLS_CATALOG : [],
+      scriptures: Array.isArray(window.WA_SCRIPTURES_CATALOG) ? window.WA_SCRIPTURES_CATALOG : [],
     };
+  }
+
+  function buildLoadingNav() {
+    return el('nav', { className: 'site-sitemap-nav', 'aria-label': '網站地圖' }, [
+      el('p', { className: 'site-sitemap-loading text-muted small' }, ['工具目錄載入中…']),
+    ]);
+  }
+
+  function flattenNodes(items) {
+    const out = [];
+    const list = Array.isArray(items) ? items : (items ? [items] : []);
+    list.forEach((item) => {
+      if (item == null) return;
+      if (Array.isArray(item)) {
+        item.forEach((child) => {
+          if (child != null) out.push(child);
+        });
+      } else {
+        out.push(item);
+      }
+    });
+    return out;
   }
 
   function el(tag, attrs, children) {
@@ -70,12 +412,16 @@
         if (val == null) return;
         if (key === 'className') node.className = val;
         else if (key === 'text') node.textContent = val;
-        else if (key.startsWith('on') && typeof val === 'function') {
+        else if (key === 'dataset' && val && typeof val === 'object') {
+          Object.entries(val).forEach(([dk, dv]) => {
+            if (dv != null) node.dataset[dk] = String(dv);
+          });
+        } else if (key.startsWith('on') && typeof val === 'function') {
           node.addEventListener(key.slice(2).toLowerCase(), val);
         } else node.setAttribute(key, val);
       });
     }
-    (children || []).flat().filter(Boolean).forEach((child) => {
+    flattenNodes(children).forEach((child) => {
       if (typeof child === 'string') node.appendChild(document.createTextNode(child));
       else node.appendChild(child);
     });
@@ -124,14 +470,20 @@
 
   function scriptureSlugSet(scriptures) {
     const set = new Set();
-    scriptures.forEach((cat) => cat.books.forEach((book) => set.add(book.slug)));
+    if (!Array.isArray(scriptures)) return set;
+    scriptures.forEach((cat) => {
+      (cat.books || []).forEach((book) => {
+        if (book?.slug) set.add(book.slug);
+      });
+    });
     return set;
   }
 
   function readHistory() {
     try {
       const raw = localStorage.getItem(HISTORY_KEY);
-      return raw ? JSON.parse(raw) : [];
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
@@ -154,13 +506,85 @@
     return classes.join(' ');
   }
 
+  function currentToolSlugFromPage() {
+    const app = document.getElementById('tool-app');
+    if (app?.dataset?.tool) return app.dataset.tool;
+    const path = location.pathname.replace(/\\/g, '/');
+    const match = path.match(/\/([^/]+)\.html$/i);
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  function findToolCategoryContext(catalog) {
+    const slug = currentToolSlugFromPage();
+    if (!slug || PAGER_SKIP.has(slug)) return null;
+    for (const category of catalog) {
+      const tools = (category.tools || []).filter((t) => !PAGER_SKIP.has(t.slug));
+      const index = tools.findIndex((t) => t.slug === slug);
+      if (index >= 0) {
+        return {
+          category,
+          tools,
+          index,
+          prev: index > 0 ? tools[index - 1] : null,
+          next: index < tools.length - 1 ? tools[index + 1] : null,
+        };
+      }
+    }
+    return null;
+  }
+
+  function buildToolCategoryPager(catalog) {
+    const ctx = findToolCategoryContext(catalog);
+    if (!ctx || ctx.tools.length < 2) return null;
+
+    function linkBtn(tool, kind, label) {
+      if (!tool) {
+        return el('span', {
+          className: `site-sitemap-seq-link site-sitemap-seq-${kind} is-disabled`,
+          'aria-hidden': 'true',
+        }, [
+          el('span', { className: 'site-sitemap-seq-label' }, [label]),
+          el('span', { className: 'site-sitemap-seq-title' }, ['—']),
+        ]);
+      }
+      const icon = kind === 'prev' ? 'bi-chevron-left' : 'bi-chevron-right';
+      const labelEl = el('span', { className: 'site-sitemap-seq-label' }, [
+        kind === 'prev' ? el('i', { className: `bi ${icon}`, 'aria-hidden': 'true' }) : null,
+        label,
+        kind === 'next' ? el('i', { className: `bi ${icon}`, 'aria-hidden': 'true' }) : null,
+      ]);
+      return el('a', {
+        href: toolHref(tool.slug),
+        className: `site-sitemap-seq-link site-sitemap-seq-${kind}`,
+        title: tool.title,
+      }, [
+        labelEl,
+        el('span', { className: 'site-sitemap-seq-title' }, [tool.title]),
+      ]);
+    }
+
+    return el('nav', {
+      className: 'site-sitemap-seq',
+      'aria-label': '同分類上一篇下一篇',
+    }, [
+      linkBtn(ctx.prev, 'prev', '上一篇'),
+      el('span', { className: 'site-sitemap-seq-pos text-muted' }, [
+        `${ctx.index + 1} / ${ctx.tools.length}`,
+      ]),
+      linkBtn(ctx.next, 'next', '下一篇'),
+    ]);
+  }
+
   function buildToolSections(catalog, recentRankByHref, scriptureSlugs) {
     return catalog.map((category) => el('details', {
       className: 'site-sitemap-group',
       dataset: { group: category.id },
     }, [
-      el('summary', { className: 'site-sitemap-group-title' }, [category.name]),
-      el('ul', { className: 'site-sitemap-list' }, category.tools.map((tool) => {
+      el('summary', { className: 'site-sitemap-group-title' }, [
+        sitemapIconBox(CATEGORY_ICONS[category.id], 'cat'),
+        el('span', { className: 'site-sitemap-cat-title' }, category.name),
+      ]),
+      el('ul', { className: 'site-sitemap-list' }, (category.tools || []).map((tool) => {
         const href = toolHref(tool.slug);
         const canon = canonicalHref(href, scriptureSlugs);
         const rank = recentRankByHref.has(canon) ? recentRankByHref.get(canon) : -1;
@@ -173,7 +597,7 @@
             rank >= 0 && !isActiveHref(href, scriptureSlugs)
               ? el('span', { className: 'site-sitemap-recent-mark', title: '最近瀏覽' })
               : null,
-            tool.title,
+            ...toolLinkLabel(tool),
           ]),
         ]);
       })),
@@ -186,7 +610,7 @@
       dataset: { group: `scripture-${category.id}` },
     }, [
       el('summary', { className: 'site-sitemap-group-title' }, [category.name]),
-      el('ul', { className: 'site-sitemap-list' }, category.books.map((book) => {
+      el('ul', { className: 'site-sitemap-list' }, (category.books || []).map((book) => {
         const href = scriptureBookHref(book.slug);
         const canon = canonicalHref(href, scriptureSlugs);
         const rank = recentRankByHref.has(canon) ? recentRankByHref.get(canon) : -1;
@@ -212,23 +636,20 @@
       .slice(0, RECENT_MAX);
     if (!items.length) return null;
 
-    return el('div', { className: 'site-sitemap-recent' }, [
-      el('div', { className: 'site-sitemap-section-label' }, ['最近瀏覽']),
-      el('ul', { className: 'site-sitemap-recent-list' }, items.map((item, index) => {
-        const href = resolveHref(item.href);
-        return el('li', null, [
-          el('a', {
-            href,
-            className: linkClassNames(href, index, scriptureSlugs),
-            title: item.title,
-          }, [
-            el('span', { className: 'site-sitemap-recent-dot', 'aria-hidden': 'true' }),
-            el('span', { className: 'site-sitemap-recent-title' }, [item.title]),
-            el('span', { className: 'site-sitemap-recent-time' }, [index === 0 ? '剛剛' : formatTime(item.ts)]),
-          ]),
-        ]);
-      })),
-    ]);
+    return el('ul', { className: 'site-sitemap-recent-list' }, items.map((item, index) => {
+      const href = resolveHref(item.href);
+      return el('li', null, [
+        el('a', {
+          href,
+          className: linkClassNames(href, index, scriptureSlugs),
+          title: item.title,
+        }, [
+          el('span', { className: 'site-sitemap-recent-dot', 'aria-hidden': 'true' }),
+          el('span', { className: 'site-sitemap-recent-title' }, [item.title]),
+          el('span', { className: 'site-sitemap-recent-time' }, [index === 0 ? '剛剛' : formatTime(item.ts)]),
+        ]),
+      ]);
+    }));
   }
 
   function recentRankMap(history, scriptureSlugs) {
@@ -243,8 +664,13 @@
     return map;
   }
 
-  function openGroupsForContext(root, recentRankByHref) {
+  function applyGroupOpenState(root, recentRankByHref, saved) {
     root.querySelectorAll('.site-sitemap-group').forEach((group) => {
+      const id = group.dataset.group;
+      if (saved?.groups && id in saved.groups) {
+        group.open = saved.groups[id];
+        return;
+      }
       if (group.querySelector('a.is-active')) {
         group.open = true;
         return;
@@ -259,20 +685,21 @@
 
   function applySearch(root, query) {
     const q = query.trim().toLowerCase();
-    const recent = root.querySelector('.site-sitemap-recent');
-    if (recent) {
+    const recentSection = root.querySelector('.site-sitemap-section[data-section="recent"]');
+    if (recentSection) {
       if (!q) {
-        recent.hidden = false;
+        recentSection.hidden = false;
       } else {
         let recentVisible = 0;
-        recent.querySelectorAll('.site-sitemap-recent-list li').forEach((item) => {
+        recentSection.querySelectorAll('.site-sitemap-recent-list li').forEach((item) => {
           const link = item.querySelector('a');
           const label = (link?.title || link?.textContent || '').toLowerCase();
           const match = label.includes(q);
           item.hidden = !match;
           if (match) recentVisible += 1;
         });
-        recent.hidden = recentVisible === 0;
+        recentSection.hidden = recentVisible === 0;
+        if (recentVisible > 0) recentSection.open = true;
       }
     }
     root.querySelectorAll('.site-sitemap-group').forEach((group) => {
@@ -298,11 +725,18 @@
   }
 
   function buildNav(tools, scriptures, history, scriptureSlugs) {
-    const recentRankByHref = recentRankMap(history, scriptureSlugs);
-    const recentBlock = buildRecentSection(history, scriptureSlugs);
+    const catalog = Array.isArray(tools) ? tools : [];
+    const scriptureCatalog = Array.isArray(scriptures) ? scriptures : [];
+    const safeHistory = Array.isArray(history) ? history : [];
+    const recentRankByHref = recentRankMap(safeHistory, scriptureSlugs);
+    const recentList = buildRecentSection(safeHistory, scriptureSlugs);
+    const toolGroups = buildToolSections(catalog, recentRankByHref, scriptureSlugs);
+    const scriptureGroups = buildScriptureSections(scriptureCatalog, recentRankByHref, scriptureSlugs);
 
     return el('nav', { className: 'site-sitemap-nav', 'aria-label': '網站地圖' }, [
-      recentBlock,
+      recentList
+        ? buildSectionBlock('recent', '最近瀏覽', [recentList], { count: recentList.children.length })
+        : null,
       el('div', { className: 'site-sitemap-head' }, [
         el('a', {
           href: `${rootPrefix()}index.html`,
@@ -313,126 +747,262 @@
           className: isActiveHref(`${rootPrefix()}scriptures.html`, scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
         }, ['藏經閣']),
       ]),
-      el('div', { className: 'site-sitemap-section-label' }, ['工具分類']),
-      ...buildToolSections(tools, recentRankByHref, scriptureSlugs),
-      el('div', { className: 'site-sitemap-section-label' }, ['藏經閣經典']),
-      ...buildScriptureSections(scriptures, recentRankByHref, scriptureSlugs),
+      buildSectionBlock('tools', '工具分類', toolGroups, {
+        count: catalog.length,
+        actions: [
+          miniActionBtn('全展開', 'sitemapExpandAll'),
+          miniActionBtn('全收合', 'sitemapCollapseAll'),
+        ],
+      }),
+      buildSectionBlock('scriptures', '藏經閣經典', scriptureGroups, {
+        count: scriptureGroups.length,
+      }),
     ]);
+  }
+
+  function hydrateNavState(nav, saved, history, scriptureSlugs) {
+    applySectionOpenState(nav, saved);
+    applyGroupOpenState(nav, recentRankMap(history, scriptureSlugs), saved);
   }
 
   function refreshSitemap(root, tools, scriptures, scriptureSlugs) {
+    const aside = document.getElementById('site-sitemap');
+    const q = aside?.querySelector('.site-sitemap-search')?.value || '';
+    const saved = collectUiState(root);
     const history = readHistory();
     const next = buildNav(tools, scriptures, history, scriptureSlugs);
     root.replaceWith(next);
-    openGroupsForContext(next, recentRankMap(history, scriptureSlugs));
+    hydrateNavState(next, saved, history, scriptureSlugs);
+    bindGroupBulkActions(next);
+    bindSitemapTogglePersistence(document.getElementById('site-sitemap'));
     next.querySelectorAll('a[href]').forEach((link) => {
       link.addEventListener('click', () => setMobileOpen(false));
     });
+    if (q) applySearch(next, q);
     return next;
   }
 
-  async function init() {
-    if (!document.querySelector('#header .branding') || document.getElementById('site-sitemap')) return;
+  function mountNav(aside, seqSlot, nav, savedUi, visibleTools, scriptureSlugs) {
+    const oldNav = aside.querySelector('.site-sitemap-nav');
+    if (oldNav) oldNav.replaceWith(nav);
+    else if (seqSlot?.parentNode) seqSlot.insertAdjacentElement('afterend', nav);
 
-    const { tools, scriptures } = await loadCatalogs();
-    const scriptureSlugs = scriptureSlugSet(scriptures);
-    const history = readHistory();
+    if (seqSlot) {
+      const seqPager = buildToolCategoryPager(visibleTools);
+      seqSlot.replaceChildren(...(seqPager ? [seqPager] : []));
+    }
 
-    let nav = buildNav(tools, scriptures, history, scriptureSlugs);
-
-    const search = el('input', {
-      type: 'search',
-      className: 'site-sitemap-search',
-      placeholder: '搜尋工具或經典…',
-      'aria-label': '搜尋網站地圖',
-    });
-
-    const closeBtn = el('button', {
-      type: 'button',
-      className: 'site-sitemap-close d-xl-none',
-      'aria-label': '關閉網站地圖',
-      onClick: () => setMobileOpen(false),
-    }, ['×']);
-
-    const aside = el('aside', {
-      id: 'site-sitemap',
-      className: 'site-sitemap',
-      'aria-hidden': 'true',
-    }, [
-      el('div', { className: 'site-sitemap-top' }, [
-        el('strong', { className: 'site-sitemap-title' }, ['網站地圖']),
-        closeBtn,
-      ]),
-      search,
-      nav,
-    ]);
-
-    const backdrop = el('button', {
-      type: 'button',
-      className: 'site-sitemap-backdrop',
-      'aria-label': '關閉網站地圖',
-      onClick: () => setMobileOpen(false),
-    });
-
-    const fab = el('button', {
-      type: 'button',
-      className: 'site-sitemap-fab d-xl-none',
-      'aria-label': '開啟網站地圖',
-      'aria-expanded': 'false',
-      onClick: () => setMobileOpen(!document.body.classList.contains('site-sitemap-open')),
-    }, [
-      el('i', { className: 'bi bi-list-nested', 'aria-hidden': 'true' }),
-      el('span', { className: 'site-sitemap-fab-text' }, ['目錄']),
-    ]);
-
-    aside.querySelectorAll('a[href]').forEach((link) => {
+    hydrateNavState(nav, savedUi, readHistory(), scriptureSlugs);
+    bindGroupBulkActions(nav);
+    nav.querySelectorAll('a[href]').forEach((link) => {
       link.addEventListener('click', () => setMobileOpen(false));
     });
+  }
 
-    document.body.appendChild(aside);
-    document.body.appendChild(backdrop);
-    document.body.appendChild(fab);
-    document.body.classList.add('has-site-sitemap');
+  async function renderSitemapNav() {
+    await loadCatalogs();
+    try {
+      await loadPublishManifest();
+    } catch (err) {
+      console.warn('[WaWaTools] sitemap manifest unavailable:', err);
+    }
 
-    aside.addEventListener('input', (e) => {
-      if (!e.target.matches('.site-sitemap-search')) return;
-      const navEl = aside.querySelector('.site-sitemap-nav');
-      if (navEl) applySearch(navEl, e.target.value);
-    });
+    const scriptures = Array.isArray(window.WA_SCRIPTURES_CATALOG) ? window.WA_SCRIPTURES_CATALOG : [];
+    let visibleTools = applyPublishFilter(window.WA_TOOLS_CATALOG || []);
+    if (!visibleTools.length) {
+      const pub = window.WA_SITEMAP_MANIFEST?.getPublished?.();
+      if (pub?.size) {
+        await window.WA_SITEMAP_MANIFEST.load(true);
+        visibleTools = applyPublishFilter(window.WA_TOOLS_CATALOG || []);
+      }
+    }
 
-    openGroupsForContext(nav, recentRankMap(history, scriptureSlugs));
+    const scriptureSlugs = scriptureSlugSet(scriptures);
+    const nav = buildNav(visibleTools, scriptures, readHistory(), scriptureSlugs);
+    return { nav, visibleTools, scriptures, scriptureSlugs };
+  }
 
-    const asideEl = aside;
-    window.addEventListener('load', () => {
-      const currentNav = asideEl.querySelector('.site-sitemap-nav');
-      if (currentNav) nav = refreshSitemap(currentNav, tools, scriptures, scriptureSlugs);
-    });
+  let initPromise = null;
+  let shellReady = false;
 
+  async function init(force) {
+    if (!document.querySelector('#header .branding')) return;
+
+    const stuckLoading = document.querySelector('.site-sitemap-loading');
+    if (initPromise && !force && !stuckLoading) return initPromise;
+    if (force) initPromise = null;
+
+    initPromise = (async () => {
+      let aside = document.getElementById('site-sitemap');
+      let seqSlot;
+      let nav;
+      const savedUi = readUiState();
+
+      if (!aside) {
+        const closeBtn = el('button', {
+          type: 'button',
+          className: 'site-sitemap-close d-xl-none',
+          'aria-label': '關閉網站地圖',
+          onClick: () => setMobileOpen(false),
+        }, ['×']);
+
+        const collapseBtn = el('button', {
+          type: 'button',
+          className: 'site-sitemap-collapse-btn d-none d-xl-inline-flex',
+          'aria-label': '收合網站地圖',
+          'aria-expanded': 'true',
+          title: '收合側欄',
+          onClick: () => setDesktopCollapsed(!document.body.classList.contains('site-sitemap-collapsed')),
+        }, [
+          el('i', { className: 'bi bi-chevron-left', 'aria-hidden': 'true' }),
+        ]);
+
+        const search = el('input', {
+          type: 'search',
+          className: 'site-sitemap-search',
+          placeholder: '搜尋工具或經典…',
+          'aria-label': '搜尋網站地圖',
+        });
+
+        nav = buildLoadingNav();
+        seqSlot = el('div', { className: 'site-sitemap-seq-slot' });
+
+        aside = el('aside', {
+          id: 'site-sitemap',
+          className: 'site-sitemap',
+          'aria-hidden': 'true',
+        }, [
+          el('div', { className: 'site-sitemap-top' }, [
+            el('strong', { className: 'site-sitemap-title' }, ['網站地圖']),
+            el('div', { className: 'site-sitemap-top-actions' }, [collapseBtn, closeBtn]),
+          ]),
+          search,
+          seqSlot,
+          nav,
+        ]);
+
+        const expandTab = el('button', {
+          type: 'button',
+          className: 'site-sitemap-expand-tab',
+          'aria-label': '展開網站地圖',
+          title: '展開側欄',
+          hidden: true,
+          onClick: () => setDesktopCollapsed(false),
+        }, [
+          el('i', { className: 'bi bi-list-nested', 'aria-hidden': 'true' }),
+          el('span', { className: 'site-sitemap-expand-tab-text' }, ['地圖']),
+        ]);
+
+        const backdrop = el('button', {
+          type: 'button',
+          className: 'site-sitemap-backdrop',
+          'aria-label': '關閉網站地圖',
+          onClick: () => setMobileOpen(false),
+        });
+
+        const fab = el('button', {
+          type: 'button',
+          className: 'site-sitemap-fab d-xl-none',
+          'aria-label': '開啟網站地圖',
+          'aria-expanded': 'false',
+          onClick: () => setMobileOpen(!document.body.classList.contains('site-sitemap-open')),
+        }, [
+          el('i', { className: 'bi bi-list-nested', 'aria-hidden': 'true' }),
+          el('span', { className: 'site-sitemap-fab-text' }, ['']),
+        ]);
+
+        document.body.appendChild(aside);
+        document.body.appendChild(backdrop);
+        document.body.appendChild(fab);
+        document.body.appendChild(expandTab);
+        document.body.classList.add('has-site-sitemap');
+
+        const mq = window.matchMedia('(min-width: 1200px)');
+        function syncAria() {
+          aside.setAttribute('aria-hidden', mq.matches ? 'false' : 'true');
+        }
+        mq.addEventListener('change', syncAria);
+        syncAria();
+
+        aside.addEventListener('input', (e) => {
+          if (!e.target.matches('.site-sitemap-search')) return;
+          const navEl = aside.querySelector('.site-sitemap-nav');
+          if (navEl) applySearch(navEl, e.target.value);
+        });
+
+        bindSitemapTogglePersistence(aside);
+        if (savedUi.panelCollapsed) setDesktopCollapsed(true);
+        else setDesktopCollapsed(false);
+        shellReady = true;
+      } else {
+        seqSlot = aside.querySelector('.site-sitemap-seq-slot');
+        nav = aside.querySelector('.site-sitemap-nav');
+        if (!shellReady) {
+          bindSitemapTogglePersistence(aside);
+          shellReady = true;
+        }
+      }
+
+      let visibleTools = [];
+      let scriptures = [];
+      let scriptureSlugs = new Set();
+
+      try {
+        const rendered = await renderSitemapNav();
+        nav = rendered.nav;
+        visibleTools = rendered.visibleTools;
+        scriptures = rendered.scriptures;
+        scriptureSlugs = rendered.scriptureSlugs;
+        mountNav(aside, seqSlot, nav, savedUi, visibleTools, scriptureSlugs);
+      } catch (err) {
+        console.error('[WaWaTools] site-sitemap init failed:', err);
+        const loading = aside.querySelector('.site-sitemap-loading');
+        if (loading) {
+          loading.textContent = '無法載入工具目錄，請重新整理頁面。';
+        }
+        throw err;
+      }
+
+      return { visibleTools, scriptures, scriptureSlugs };
+    })();
+
+    return initPromise;
+  }
+
+  function scheduleInit(force) {
+    const run = () => init(force).catch(() => {});
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run, { once: true });
+    } else {
+      run();
+    }
+  }
+
+  if (!window.__WA_SITEMAP_EVENTS_BOUND) {
+    window.__WA_SITEMAP_EVENTS_BOUND = true;
     window.addEventListener('storage', (e) => {
       if (e.key !== HISTORY_KEY) return;
-      const currentNav = asideEl.querySelector('.site-sitemap-nav');
-      if (currentNav) {
-        const q = asideEl.querySelector('.site-sitemap-search')?.value || '';
-        nav = refreshSitemap(currentNav, tools, scriptures, scriptureSlugs);
-        if (q) applySearch(nav, q);
-      }
+      const asideEl = document.getElementById('site-sitemap');
+      const currentNav = asideEl?.querySelector('.site-sitemap-nav');
+      if (!currentNav || !window.WA_TOOLS_CATALOG) return;
+      const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
+      const scriptures = window.WA_SCRIPTURES_CATALOG || [];
+      const scriptureSlugs = scriptureSlugSet(scriptures);
+      if (!tools.length) return;
+      const q = asideEl.querySelector('.site-sitemap-search')?.value || '';
+      const next = refreshSitemap(currentNav, tools, scriptures, scriptureSlugs);
+      if (q) applySearch(next, q);
     });
-
-    const mq = window.matchMedia('(min-width: 1200px)');
-    function syncAria() {
-      aside.setAttribute('aria-hidden', mq.matches ? 'false' : 'true');
-    }
-    mq.addEventListener('change', syncAria);
-    syncAria();
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setMobileOpen(false);
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  scheduleInit(false);
+  window.addEventListener('load', () => {
+    if (document.querySelector('.site-sitemap-loading')) {
+      scheduleInit(true);
+    }
+  }, { once: true });
 })();

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Beaver">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="160" cy="140" rx="55" ry="40" fill="#5d4037"/>
+  <circle cx="130" cy="115" r="25" fill="#6d4c41"/>
+  <ellipse cx="195" cy="155" rx="25" ry="18" fill="#4e342e" transform="rotate(-20 195 155)"/>
+  <circle cx="120" cy="110" r="4" fill="#212121"/>
+  <rect x="200" y="170" width="60" height="25" rx="4" fill="#795548"/>
+</svg>

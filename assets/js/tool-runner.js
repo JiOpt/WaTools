@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function runTool() {
     const app = document.getElementById('tool-app');
     if (!app) return;
 
@@ -14,8 +14,12 @@
     if (typeof init === 'function') {
       try {
         init(app);
+        app.classList.remove('is-booting');
+        if (typeof window.__waInjectToolCategoryPager === 'function') {
+          window.__waInjectToolCategoryPager();
+        }
       } catch (err) {
-        console.error('[WaTools] Tool init failed:', slug, err);
+        console.error('[WaWaTools] Tool init failed:', slug, err);
         app.innerHTML =
           '<div class="tool-missing text-center">' +
           '<p class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>工具載入失敗，請重新整理頁面。</p>' +
@@ -30,5 +34,11 @@
       '<p><i class="bi bi-hourglass-split me-1"></i>這個工具還在準備中，敬請期待。</p>' +
       '<a href="index.html" class="btn btn-outline-primary rounded-pill px-4 mt-2">瀏覽其他工具</a>' +
       '</div>';
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runTool);
+  } else {
+    runTool();
+  }
 })();

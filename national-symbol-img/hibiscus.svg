@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Hibiscus">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <circle cx="160" cy="110" r="40" fill="#c62828"/>
+  <ellipse cx="130" cy="100" rx="22" ry="35" fill="#e53935" transform="rotate(-30 130 100)"/>
+  <ellipse cx="190" cy="100" rx="22" ry="35" fill="#e53935" transform="rotate(30 190 100)"/>
+  <ellipse cx="160" cy="75" rx="20" ry="32" fill="#ef5350"/>
+  <circle cx="160" cy="110" r="12" fill="#ffc107"/>
+  <path d="M160 150 L160 200" stroke="#388e3c" stroke-width="4"/>
+</svg>

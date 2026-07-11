@@ -61,6 +61,33 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
+    id: 'editor',
+    name: '線上編輯',
+    tagline: '文字處理小工具，寫作人的懶人包。',
+    tools: [
+      { slug: 'editor', title: '線上編輯器', icon: 'bi-file-richtext', desc: 'HTML 文字編輯，協作平臺 lite 版。' },
+      { slug: 'dedupe', title: '清除重複行', icon: 'bi-filter', desc: '去重複網址、姓名、文字，整理強迫症福音。' },
+      { slug: 'case-converter', title: '英文大小寫轉換', icon: 'bi-type-bold', desc: 'UPPER lower Title Case，一鍵切換。' },
+      { slug: 'rmb-upper', title: '數字轉中文大寫', icon: 'bi-cash-stack', desc: '壹貳參肆，支票金額寫法不出錯。' },
+      { slug: 'wordcount', title: '字數計算器', icon: 'bi-text-paragraph', desc: '字數、行數、段落，交稿前最後檢查。' },
+      { slug: 'colorfont', title: '漸變彩字', icon: 'bi-palette2', desc: '多彩漸層文字，標題吸睛用。' },
+      { slug: 'bbcode', title: 'BBCode 轉換', icon: 'bi-code', desc: 'HTML 與 BBCode 互轉，論壇時代遺產。' },
+      { slug: 'unicode-converter', title: 'Unicode 編碼轉換', icon: 'bi-binary', desc: 'Unicode 與字元互轉，編碼不再猜。' }
+    ]
+  },
+  {
+    id: 'security',
+    name: '網絡安全',
+    tagline: '密碼、加密、還原網址，隱私自己顧。',
+    tools: [
+      { slug: 'password', title: '密碼安全', icon: 'bi-shield-lock', desc: '產生隨機強密碼、即時檢測強度，並了解帳號安全最佳實務。' },
+      { slug: 'email-icon', title: '電子郵件圖示', icon: 'bi-envelope-at', desc: 'Email 轉 PNG 圖片或文字混淆，降低公開網頁被爬蟲收集的風險。' },
+      { slug: 'textencrypt', title: '文字加密', icon: 'bi-lock', desc: '本地 XOR 加密文字並輸出 Base64 密文，了解對稱加密概念（非工業級安全）。' },
+      { slug: 'longurl', title: '短網址還原', icon: 'bi-link', desc: '還原 bit.ly、t.co、0rz.tw 等短網址的真實 URL，點擊前先確認目的地。' },
+      { slug: 'url-crypto', title: '網址加密', icon: 'bi-key', desc: 'URL 16 進制加密／解密，支援 encodeURI、escape、ASP URLDecode 等格式。' }
+    ]
+  },
+  {
     id: 'culture',
     name: '中華文化',
     tagline: '繁簡轉換、注音拼音，文化輸出靠這頁。',
@@ -92,11 +119,11 @@ window.WA_TOOLS_CATALOG = [
     name: '符號學',
     tagline: '表情、標點、特殊字元，聊天比別人有料。',
     tools: [
-      { slug: 'symbols-generator', title: '表情符號產生器', icon: 'bi-emoji-smile', desc: '顏文字生成，社交恐懼也能可愛。' },
-      { slug: 'keyboard-symbols', title: '特殊符號大全', icon: 'bi-asterisk', desc: 'Word 和網頁特殊符號，複製就完事。' },
-      { slug: 'emoji', title: 'Emoji 顏文字', icon: 'bi-emoji-heart-eyes', desc: '繪文字圖案庫，情緒外包給 emoji。' },
-      { slug: 'punctuation', title: '標點符號大全', icon: 'bi-quote', desc: '全形半形標點，寫報告像有讀過書。' },
-      { slug: 'symbols-name', title: '標點符號名稱', icon: 'bi-info-circle', desc: '那個點叫什麼？中英文讀法都在這。' },
+      { slug: 'symbols-generator', title: '表情符號產生器', icon: 'bi-emoji-smile', desc: '點選符號按鈕組合顏文字，插入游標位置。' },
+      { slug: 'keyboard-symbols', title: '特殊符號大全', icon: 'bi-asterisk', desc: '點一下複製符號，累積至符號框。' },
+      { slug: 'emoji', title: 'Emoji 顏文字', icon: 'bi-emoji-heart-eyes', desc: '點一下複製 Emoji，累積至 Emoji 框。' },
+      { slug: 'punctuation', title: '標點符號大全', icon: 'bi-quote', desc: '全形半形標點、數學符號、線框等 852 個符號，點一下複製並累積。' },
+      { slug: 'symbols-name', title: '標點符號名稱', icon: 'bi-info-circle', desc: '239 個符號中英文唸法，點一下複製並累積至符號框。' },
       { slug: 'boshiamy', title: '嘸蝦米符號', icon: 'bi-input-cursor', desc: '嘸蝦米拆碼表，輸入法的密碼本。' },
       { slug: 'wubi', title: '五筆特殊符號', icon: 'bi-grid', desc: '五筆符號鍵碼，老派輸入法遺產。' },
       { slug: 'emoticon', title: 'Emoticon 表情', icon: 'bi-emoji-laughing', desc: '經典文字表情，復古但有效。' },
@@ -112,10 +139,10 @@ window.WA_TOOLS_CATALOG = [
     name: '生活百科',
     tagline: '時間、曆法、親戚稱呼，生活疑難雜症百科。',
     tools: [
-      { slug: 'time', title: '世界時間', icon: 'bi-clock', desc: '各城市現在幾點，跨時區開會不遲到。' },
-      { slug: 'calendar', title: '萬年曆', icon: 'bi-calendar-event', desc: '農曆、干支、吉日，選日子靠它。' },
+      { slug: 'time', title: '世界時間', icon: 'bi-clock', desc: '432 個時區 UTC 最快→最慢，IANA 對照與晝夜圖示。' },
+      { slug: 'calendar', title: '萬年曆', icon: 'bi-calendar-event', desc: '陽農曆、黃曆宜忌、干支五行與節氣物候。' },
       { slug: 'solar-terms', title: '二十四節氣', icon: 'bi-sun', desc: '立春驚蟄，節氣比天氣 App 有文化。' },
-      { slug: 'currency', title: '全球貨幣', icon: 'bi-currency-exchange', desc: '貨幣名稱與符號，出國前先認錢。' },
+      { slug: 'currency', title: '全球貨幣', icon: 'bi-currency-exchange', desc: '218 筆貨幣：國旗卡片、符號、ISO 代碼與即時匯率。' },
       { slug: 'postal', title: '國家代碼 & 郵編', icon: 'bi-mailbox', desc: '國碼郵編查詢，填地址不亂填。' },
       { slug: 'area-code', title: '各國電話區碼', icon: 'bi-telephone-plus', desc: '國際區號，打越洋電話前先看。' },
       { slug: 'voltage', title: '電壓 & 插頭', icon: 'bi-plug', desc: '出國帶錯插頭，充電變修行。' },
@@ -154,33 +181,6 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
-    id: 'editor',
-    name: '線上編輯',
-    tagline: '文字處理小工具，寫作人的懶人包。',
-    tools: [
-      { slug: 'editor', title: '線上編輯器', icon: 'bi-file-richtext', desc: 'HTML 文字編輯，協作平臺 lite 版。' },
-      { slug: 'dedupe', title: '清除重複行', icon: 'bi-filter', desc: '去重複網址、姓名、文字，整理強迫症福音。' },
-      { slug: 'case-converter', title: '英文大小寫轉換', icon: 'bi-type-bold', desc: 'UPPER lower Title Case，一鍵切換。' },
-      { slug: 'rmb-upper', title: '數字轉中文大寫', icon: 'bi-cash-stack', desc: '壹貳參肆，支票金額寫法不出錯。' },
-      { slug: 'wordcount', title: '字數計算器', icon: 'bi-text-paragraph', desc: '字數、行數、段落，交稿前最後檢查。' },
-      { slug: 'colorfont', title: '漸變彩字', icon: 'bi-palette2', desc: '多彩漸層文字，標題吸睛用。' },
-      { slug: 'bbcode', title: 'BBCode 轉換', icon: 'bi-code', desc: 'HTML 與 BBCode 互轉，論壇時代遺產。' },
-      { slug: 'unicode-converter', title: 'Unicode 編碼轉換', icon: 'bi-binary', desc: 'Unicode 與字元互轉，編碼不再猜。' }
-    ]
-  },
-  {
-    id: 'security',
-    name: '網絡安全',
-    tagline: '密碼、加密、還原網址，隱私自己顧。',
-    tools: [
-      { slug: 'password', title: '密碼安全', icon: 'bi-shield-lock', desc: '生成強密碼或檢測強度，123456 請退場。' },
-      { slug: 'email-icon', title: '電子郵件圖示', icon: 'bi-envelope-at', desc: 'E-Mail 圖示產生器，防爬蟲小幫手。' },
-      { slug: 'textencrypt', title: '文字加密', icon: 'bi-lock', desc: '私密話題加密，八卦也要有保障。' },
-      { slug: 'longurl', title: '短網址還原', icon: 'bi-link', desc: '縮網址還原，看看背後藏了什麼。' },
-      { slug: 'url-crypto', title: '網址加密', icon: 'bi-key', desc: '連結加密解密，分享多一層保護。' }
-    ]
-  },
-  {
     id: 'world',
     name: '大千世界',
     tagline: '旗幟、人口、國歌，環遊世界不用買機票。',
@@ -192,8 +192,7 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'national-anthem', title: '各國國歌', icon: 'bi-music-player', desc: '原文歌詞、中文翻譯，標示國際場合標準段落。' },
       { slug: 'ufo', title: '外星種族', icon: 'bi-rocket-takeoff', desc: 'UFO 圖鑑：種族、母星、文明等級與接觸傳說。' },
       { slug: 'monster', title: '妖魔鬼怪', icon: 'bi-bug', desc: '中式恐怖圖鑑：分類、異獸、弱點、文化寓意與《返校》《咒》等連結。' },
-      { slug: 'capitals', title: '各國首都', icon: 'bi-building', desc: '世界主要國家首都，地理小抄。' },
-      { slug: 'national-symbol', title: '各國國寶', icon: 'bi-flower1', desc: '象徵性動植物，國家名片。' }
+      { slug: 'national-symbol', title: '各國國寶', icon: 'bi-flower1', desc: '66 國國獸、國鳥、國魚圖鑑，附照片、中英文學名與維基連結。' }
     ]
   }
 ];

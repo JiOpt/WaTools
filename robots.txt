@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /index_plan.html
 
 Sitemap: https://watoolio.web.app/sitemap.xml

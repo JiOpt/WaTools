@@ -18,7 +18,7 @@ const ISO_MAP = path.join(__dirname, 'iso3166-alpha.json');
 const OUT_DATA = path.join(ROOT, 'assets', 'js', 'national-anthem-data.js');
 const WIKI_CACHE = path.join(__dirname, '_national-anthem-wiki-cache.json');
 
-const UA = 'WaTools/1.0 (national-anthem fetch; contact: local)';
+const UA = 'WaWaTools/1.0 (national-anthem fetch; contact: local)';
 const BATCH = 15;
 const WIKI_DELAY_MS = 120;
 const SPARQL_RETRIES = 3;

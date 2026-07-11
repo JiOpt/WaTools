@@ -36,7 +36,7 @@ function renderPage({ title, subtitle, slug }) {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 ${renderAnalyticsSnippet()}
 ${FONT_SIZE_BOOT}
-  <title>${escapeHtml(title)} - WaTools</title>
+  <title>${escapeHtml(title)} - WaWaTools</title>
   <meta name="description" content="${escapeHtml(subtitle)}">
   <link href="${A('assets/img/favicon.png')}" rel="icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -51,7 +51,7 @@ ${FONT_SIZE_BOOT}
   <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto"><h1 class="sitename">WaTools</h1></a>
+        <a href="index.html" class="logo d-flex align-items-center me-auto"><h1 class="sitename">WaWaTools</h1></a>
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="index.html">工具首頁</a></li>
@@ -92,7 +92,7 @@ ${FONT_SIZE_BOOT}
   </main>
   <footer id="footer" class="footer light-background">
     <div class="container copyright text-center py-4">
-      <p>© <strong class="sitename">WaTools</strong> — 實用的小工具，剛好夠用就好。</p>
+      <p>© <strong class="sitename">WaWaTools</strong> — 實用的小工具，剛好夠用就好。</p>
     </div>
   </footer>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

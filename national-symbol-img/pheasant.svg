@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Green pheasant">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="160" cy="145" rx="55" ry="35" fill="#2e7d32"/>
+  <circle cx="130" cy="105" r="22" fill="#388e3c"/>
+  <path d="M115 95 L95 85 L100 100 Z" fill="#ffc107"/>
+  <path d="M200 130 L240 120 L220 145 Z" fill="#1b5e20"/>
+  <circle cx="125" cy="100" r="4" fill="#212121"/>
+  <path d="M150 175 L145 210 M170 175 L175 210" stroke="#ff8f00" stroke-width="4"/>
+</svg>

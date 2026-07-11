@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://watoolio.web.app';
-export const SITE_NAME = 'WaTools';
+export const SITE_NAME = 'WaWaTools';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
 export function pageUrl(relativePath) {

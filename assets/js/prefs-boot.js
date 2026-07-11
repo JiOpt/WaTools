@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   var root = document.documentElement;
   var DEF = {
     theme: 'light',
@@ -71,4 +75,21 @@
   }
 
   apply(readPrefs());
+
+  function isToolPagePath() {
+    var page = (location.pathname.split('/').pop() || 'index.html').split('#')[0].split('?')[0];
+    if (!/\.html$/i.test(page)) return false;
+    if (page === 'index.html' || page === 'index_plan.html' || page === 'settings.html' || page === 'sitemap.html') {
+      return false;
+    }
+    return true;
+  }
+
+  if (isToolPagePath()) {
+    root.classList.add('wa-tool-page');
+    window.scrollTo(0, 0);
+    document.addEventListener('DOMContentLoaded', function () {
+      window.scrollTo(0, 0);
+    }, { once: true });
+  }
 })();

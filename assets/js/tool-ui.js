@@ -115,15 +115,44 @@
     return el('pre', attrs);
   }
 
+  function copyText(text, successMsg) {
+    const val = text == null ? '' : String(text);
+    const notify = (msg, type) => showAlert(msg, type || 'success');
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(val).then(
+        () => { notify(successMsg || '已複製到剪貼簿'); return true; },
+        () => fallbackCopy(val, successMsg),
+      );
+    }
+    return Promise.resolve(fallbackCopy(val, successMsg));
+  }
+
+  function fallbackCopy(text, successMsg) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      if (ok) {
+        showAlert(successMsg || '已複製到剪貼簿', 'success');
+        return true;
+      }
+    } catch {
+      /* ignore */
+    }
+    showAlert('無法複製，請手動選取文字', 'warning');
+    return false;
+  }
+
   function copyBtn(text) {
     const getText = typeof text === 'function' ? text : () => text;
-    return btn('複製', 'btn btn-outline-secondary btn-sm tool-copy-btn', async () => {
-      try {
-        await navigator.clipboard.writeText(getText() || '');
-        showAlert('已複製到剪貼簿', 'success');
-      } catch {
-        showAlert('無法複製，請手動選取文字', 'warning');
-      }
+    return btn('複製', 'btn btn-outline-secondary btn-sm tool-copy-btn', () => {
+      copyText(getText() || '', '已複製到剪貼簿');
     });
   }
 
@@ -338,6 +367,13 @@
     return img;
   }
 
+  function decodeHtmlEntities(str) {
+    if (typeof str !== 'string' || !/&(?:#\d+|#x[\da-f]+|\w+);/i.test(str)) return str;
+    const ta = document.createElement('textarea');
+    ta.innerHTML = str;
+    return ta.value;
+  }
+
   window.WA_TOOL_UI = {
     el,
     panel,
@@ -349,6 +385,7 @@
     btnGroup,
     output,
     copyBtn,
+    copyText,
     bindIO,
     tableFrom,
     fileInput,
@@ -358,5 +395,6 @@
     shuffle,
     bindImageZoom,
     imageLightbox,
+    decodeHtmlEntities,
   };
 })();

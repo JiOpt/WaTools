@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="assets/js/prefs-boot.js?v=0.6.16"></script>
+  <title>發布計畫 — WaWaTools（內部）</title>
+  <meta name="description" content="內部用：管理工具是否在網站地圖與首頁開放。">
+
+  <link href="assets/icon/icon.png?v=0.6.16" rel="icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css?v=0.6.16" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=0.6.16" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css?v=0.6.16" rel="stylesheet">
+  <link href="assets/css/main.css?v=0.6.27" rel="stylesheet">
+</head>
+
+<body class="index-page tool-page plan-page">
+
+  <header id="header" class="header sticky-top">
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_plan.html" class="logo d-flex align-items-center me-auto">
+          <img src="assets/icon/icon.png?v=0.6.16" alt="WaWaTools" width="36" height="36">
+          <h1 class="sitename">WaWaTools</h1>
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul></ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        <a class="cta-btn" href="index.html">正式首頁</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="watools-hero section light-background">
+      <div class="container" data-aos="fade-up">
+        <p class="plan-eyebrow"><i class="bi bi-shield-lock me-1"></i>內部頁面 · 不對外連結</p>
+        <h1>工具發布計畫</h1>
+        <p class="plan-lead">切換工具的<strong>開放</strong>狀態。左側網站地圖、已開放／不顯示清單會<strong>即時同步</strong>根目錄 <code>sitemap.txt</code>；你在 VS Code 改檔也會自動反映。</p>
+
+        <div id="plan-stats" class="watools-stats plan-stats"></div>
+
+        <div class="plan-toolbar">
+          <button type="button" class="btn btn-primary" id="plan-save" disabled>
+            <i class="bi bi-download me-1"></i>儲存 sitemap.txt
+          </button>
+          <button type="button" class="btn btn-outline-secondary" id="plan-copy">
+            <i class="bi bi-clipboard me-1"></i>複製內容
+          </button>
+          <button type="button" class="btn btn-outline-secondary" id="plan-reload">
+            <i class="bi bi-arrow-clockwise me-1"></i>重新載入
+          </button>
+          <button type="button" class="btn btn-outline-secondary" id="plan-link-file">
+            <i class="bi bi-link-45deg me-1"></i>連結 sitemap.txt
+          </button>
+          <label class="btn btn-outline-secondary mb-0">
+            <i class="bi bi-folder2-open me-1"></i>從檔案載入
+            <input type="file" id="plan-file" accept=".txt,text/plain" hidden>
+          </label>
+        </div>
+        <p id="plan-status" class="plan-status" role="status"></p>
+
+        <details class="plan-help">
+          <summary>運作方式與限制</summary>
+          <ul>
+            <li><strong>file:// 開啟：</strong>第一次請按「連結 sitemap.txt」，選專案根目錄的檔案，之後切換會自動寫入並每 2 秒監聽異動。</li>
+            <li><strong>plan 伺服器：</strong><code>npm run plan:serve</code> 可自動讀寫並更新 <code>sitemap-published.js</code>。</li>
+            <li><strong>即時同步：</strong>左側網站地圖、已開放／不顯示清單會跟著 <code>sitemap.txt</code> 更新。</li>
+            <li><strong>預覽：</strong>點 slug 或工具名稱可在新分頁開啟頁面。</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="section plan-lists-section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="plan-lists-grid">
+          <details class="plan-list-panel plan-list-hidden" id="plan-hidden-panel" open>
+            <summary class="plan-list-summary">
+              <span><i class="bi bi-eye-slash me-1"></i>不顯示清單</span>
+              <span class="plan-list-count" id="plan-hidden-count">0</span>
+            </summary>
+            <div class="plan-list-toolbar">
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="plan-copy-hidden">
+                <i class="bi bi-clipboard me-1"></i>複製 slug 清單
+              </button>
+            </div>
+            <div id="plan-hidden-list" class="plan-list-body" aria-live="polite"></div>
+          </details>
+
+          <details class="plan-list-panel plan-list-published" id="plan-published-panel">
+            <summary class="plan-list-summary">
+              <span><i class="bi bi-eye me-1"></i>已開放清單</span>
+              <span class="plan-list-count" id="plan-published-count">0</span>
+            </summary>
+            <div class="plan-list-toolbar">
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="plan-copy-published">
+                <i class="bi bi-clipboard me-1"></i>複製 slug 清單
+              </button>
+            </div>
+            <div id="plan-published-list" class="plan-list-body" aria-live="polite"></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div id="tools-catalog"></div>
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container copyright text-center py-4">
+      <p data-wa-site-footer></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js?v=0.6.16" defer></script>
+  <script src="assets/vendor/aos/aos.js?v=0.6.16" defer></script>
+  <script src="assets/js/main.js?v=0.6.29"></script>
+  <script src="assets/js/tools-data.js?v=0.6.29"></script>
+  <script src="assets/js/sitemap-manifest.js?v=0.6.29"></script>
+  <script src="assets/js/sitemap-file-sync.js?v=0.6.29"></script>
+  <script src="assets/js/plan-catalog.js?v=0.6.29"></script>
+
+</body>
+
+</html>

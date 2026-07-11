@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Rooster">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="160" cy="150" rx="40" ry="35" fill="#1565c0"/>
+  <circle cx="145" cy="115" r="22" fill="#1976d2"/>
+  <path d="M130 100 L115 85 L125 95 Z" fill="#ffc107"/>
+  <path d="M135 95 L128 75 L140 88 Z" fill="#e53935"/>
+  <path d="M200 145 L230 135 L215 160 Z" fill="#0d47a1"/>
+  <path d="M145 185 L140 215 M165 185 L170 215" stroke="#ff8f00" stroke-width="4"/>
+</svg>

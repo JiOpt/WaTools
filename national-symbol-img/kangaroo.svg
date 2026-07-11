@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Kangaroo">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="150" cy="150" rx="45" ry="35" fill="#a1887f"/>
+  <circle cx="120" cy="110" r="22" fill="#bcaaa4"/>
+  <path d="M195 130 Q240 100 250 140 Q230 160 200 155" fill="#8d6e63"/>
+  <path d="M130 185 L125 220 M145 185 L150 220" stroke="#8d6e63" stroke-width="6"/>
+  <path d="M170 185 L175 220" stroke="#8d6e63" stroke-width="5"/>
+  <circle cx="112" cy="105" r="4" fill="#212121"/>
+</svg>

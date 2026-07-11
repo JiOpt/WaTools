@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Bull">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="160" cy="145" rx="70" ry="45" fill="#212121"/>
+  <ellipse cx="130" cy="110" rx="30" ry="25" fill="#424242"/>
+  <path d="M105 95 Q90 70 75 85" stroke="#212121" stroke-width="8" fill="none"/>
+  <path d="M155 95 Q170 70 185 85" stroke="#212121" stroke-width="8" fill="none"/>
+  <circle cx="120" cy="105" r="4" fill="#fff"/>
+  <path d="M200 150 L240 140" stroke="#212121" stroke-width="5"/>
+</svg>

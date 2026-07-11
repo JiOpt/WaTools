@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Elephant">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <ellipse cx="170" cy="130" rx="75" ry="55" fill="#78909c"/>
+  <ellipse cx="115" cy="115" rx="35" ry="40" fill="#90a4ae"/>
+  <path d="M95 130 Q75 160 85 190 Q95 175 100 155" stroke="#78909c" stroke-width="14" fill="none"/>
+  <circle cx="105" cy="105" r="4" fill="#212121"/>
+  <path d="M130 185 L130 210 M155 185 L155 210 M180 185 L180 210" stroke="#546e7a" stroke-width="8"/>
+</svg>

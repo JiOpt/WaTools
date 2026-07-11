@@ -165,7 +165,7 @@ function parseCountries(html) {
 async function downloadImage(url, dest) {
   if (fs.existsSync(dest)) return;
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'WaTools/1.0 (world-flags fetch)' },
+    headers: { 'User-Agent': 'WaWaTools/1.0 (world-flags fetch)' },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
@@ -182,7 +182,7 @@ async function main() {
   } else {
     console.log('Fetching https://www.ifreesite.com/world/ ...');
     const res = await fetch('https://www.ifreesite.com/world/', {
-      headers: { 'User-Agent': 'WaTools/1.0 (world-flags fetch)' },
+      headers: { 'User-Agent': 'WaWaTools/1.0 (world-flags fetch)' },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     html = await res.text();

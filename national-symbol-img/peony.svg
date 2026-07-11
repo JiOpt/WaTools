@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="Peony">
+  <rect width="320" height="240" fill="#0d1117"/>
+  <circle cx="160" cy="110" r="55" fill="#e91e63" opacity=".9"/>
+  <circle cx="130" cy="95" r="35" fill="#f06292"/>
+  <circle cx="190" cy="95" r="35" fill="#f06292"/>
+  <circle cx="160" cy="75" r="30" fill="#f48fb1"/>
+  <circle cx="160" cy="110" r="18" fill="#ffeb3b"/>
+  <path d="M160 165 L160 210" stroke="#4caf50" stroke-width="6"/>
+  <ellipse cx="145" cy="200" rx="28" ry="12" fill="#388e3c"/>
+  <ellipse cx="175" cy="200" rx="28" ry="12" fill="#388e3c"/>
+</svg>
