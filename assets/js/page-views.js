@@ -1,6 +1,6 @@
 /**
- * Tool page view counts via Firebase Cloud Function (/api/pageviews).
- * Homepage cards show total views; tool pages record once per session.
+ * Page view counts via Firebase Cloud Function (/api/pageviews).
+ * Homepage tools + scriptures hub cards show total views; pages record once per session.
  */
 (function () {
   'use strict';
@@ -10,10 +10,22 @@
   const SESSION_PREFIX = 'mytoolife-pv-session:';
   const CACHE_KEY = 'mytoolife-pv-cache';
   const CACHE_TTL_MS = 60 * 1000;
+  const VIEW_POLL_MS = 30 * 1000;
+  const CARD_SELECTOR = '#tools-catalog [data-tool-slug], #scriptures-hub [data-page-slug]';
   const SKIP_SLUGS = new Set(['settings', 'scriptures', 'index']);
+
+  let viewPollTimer = null;
 
   function shouldSkipSlug(slug) {
     return !slug || SKIP_SLUGS.has(slug);
+  }
+
+  function cardSlug(card) {
+    return card.getAttribute('data-tool-slug') || card.getAttribute('data-page-slug') || '';
+  }
+
+  function hasViewCards() {
+    return !!document.querySelector(CARD_SELECTOR);
   }
 
   function visitorId() {
@@ -78,9 +90,20 @@
     }
   }
 
+  function updateCardCount(slug, views) {
+    const esc = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(slug) : slug;
+    const card = document.querySelector(`#tools-catalog [data-tool-slug="${esc}"], #scriptures-hub [data-page-slug="${esc}"]`);
+    const numEl = card?.querySelector('.tool-card-views-num');
+    const row = card?.querySelector('.tool-card-views');
+    if (!numEl || !row || views == null) return;
+    numEl.textContent = formatCount(views);
+    row.hidden = false;
+    row.setAttribute('aria-label', `瀏覽 ${formatCount(views)} 人次`);
+  }
+
   function applyCounts(counts) {
-    document.querySelectorAll('#tools-catalog [data-tool-slug]').forEach((card) => {
-      const slug = card.getAttribute('data-tool-slug');
+    document.querySelectorAll(CARD_SELECTOR).forEach((card) => {
+      const slug = cardSlug(card);
       const row = card.querySelector('.tool-card-views');
       const numEl = card.querySelector('.tool-card-views-num');
       if (!row || !numEl || !slug) return;
@@ -97,13 +120,13 @@
     });
   }
 
-  async function paintCatalogCards() {
-    const slugs = [...document.querySelectorAll('#tools-catalog [data-tool-slug]')]
-      .map((el) => el.getAttribute('data-tool-slug'))
+  async function paintViewCards() {
+    const slugs = [...document.querySelectorAll(CARD_SELECTOR)]
+      .map(cardSlug)
       .filter(Boolean);
     if (!slugs.length) return;
 
-    document.querySelectorAll('#tools-catalog .tool-card-views-num').forEach((el) => {
+    document.querySelectorAll(`${CARD_SELECTOR} .tool-card-views-num`).forEach((el) => {
       if (el.textContent === '') el.textContent = '…';
     });
 
@@ -112,6 +135,21 @@
 
     const counts = await fetchCounts(slugs);
     applyCounts(counts);
+  }
+
+  function startViewPolling() {
+    if (viewPollTimer || !hasViewCards()) return;
+    viewPollTimer = window.setInterval(() => {
+      if (document.visibilityState === 'visible' && hasViewCards()) {
+        paintViewCards().catch(() => {});
+      }
+    }, VIEW_POLL_MS);
+  }
+
+  function stopViewPolling() {
+    if (!viewPollTimer) return;
+    window.clearInterval(viewPollTimer);
+    viewPollTimer = null;
   }
 
   async function recordPageView(slug) {
@@ -139,49 +177,65 @@
       } catch {
         /* ignore */
       }
-      if (data.views != null) writeCache({ [slug]: data.views });
+      if (data.views != null) {
+        writeCache({ [slug]: data.views });
+        updateCardCount(slug, data.views);
+      }
       return data;
     } catch {
       return null;
     }
   }
 
-  function recordCurrentToolPage() {
-    const slug = window.WA_TOOL_URLS?.currentToolSlug?.();
-    if (!slug || !document.getElementById('tool-app')) return;
-    recordPageView(slug);
+  function currentScriptureSlug() {
+    const match = location.pathname.replace(/\\/g, '/').match(/\/scripture\/([^/]+)/i);
+    return match ? match[1].replace(/\.html$/i, '') : '';
+  }
+
+  function recordCurrentPageView() {
+    const app = document.getElementById('tool-app');
+    if (app) {
+      const slug = app.dataset.tool || window.WA_TOOL_URLS?.currentToolSlug?.();
+      if (slug) return recordPageView(slug);
+    }
+
+    const scriptureSlug = currentScriptureSlug();
+    if (scriptureSlug && document.querySelector('.scripture-section')) {
+      return recordPageView(scriptureSlug);
+    }
+
+    return null;
+  }
+
+  function refreshViewCards() {
+    if (!hasViewCards()) {
+      stopViewPolling();
+      return;
+    }
+    paintViewCards().catch(() => {});
+    startViewPolling();
   }
 
   function bootPageViews() {
-    if (document.getElementById('tool-app')) {
-      recordCurrentToolPage();
-    }
-    if (document.getElementById('tools-catalog')?.querySelector('[data-tool-slug]')) {
-      paintCatalogCards().catch(() => {});
-    }
+    recordCurrentPageView();
+    refreshViewCards();
   }
 
-  window.__waPaintToolCardViews = paintCatalogCards;
+  window.__waPaintViewCards = paintViewCards;
+  window.__waPaintToolCardViews = paintViewCards;
   window.__waRecordPageView = recordPageView;
+  window.__waRecordCurrentPageView = recordCurrentPageView;
 
-  window.addEventListener('mytoolife:catalog-rendered', () => {
-    if (document.getElementById('tools-catalog')) {
-      paintCatalogCards().catch(() => {});
-    }
-  });
-
+  window.addEventListener('mytoolife:catalog-rendered', refreshViewCards);
+  window.addEventListener('mytoolife:scriptures-hub-rendered', refreshViewCards);
   window.addEventListener('mytoolife:soft-nav', () => {
-    if (document.getElementById('tools-catalog')) {
-      paintCatalogCards().catch(() => {});
-    }
-    if (document.getElementById('tool-app')) {
-      recordCurrentToolPage();
-    }
+    recordCurrentPageView();
+    refreshViewCards();
   });
 
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && document.getElementById('tools-catalog')) {
-      paintCatalogCards().catch(() => {});
+    if (document.visibilityState === 'visible' && hasViewCards()) {
+      paintViewCards().catch(() => {});
     }
   });
 

@@ -423,6 +423,11 @@
       } else if (typeof window.__waInjectToolCategoryPager === 'function') {
         await window.__waInjectToolCategoryPager();
       }
+      if (typeof window.__waRecordPageView === 'function') {
+        const app = document.getElementById('tool-app');
+        const slug = app?.dataset?.tool || window.WA_TOOL_URLS?.currentToolSlug?.();
+        if (slug) await window.__waRecordPageView(slug);
+      }
     } else if (typeof window.__waInjectToolCategoryPager === 'function') {
       document.querySelectorAll('.tool-page-bar, .tool-category-pager').forEach((el) => el.remove());
     }
@@ -430,6 +435,9 @@
     if (document.querySelector('.scripture-section')) {
       if (typeof window.__waBootScripturePager === 'function') {
         await window.__waBootScripturePager();
+      }
+      if (typeof window.__waRecordCurrentPageView === 'function') {
+        await window.__waRecordCurrentPageView();
       }
     }
 

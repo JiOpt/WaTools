@@ -9,7 +9,7 @@
 (function() {
   "use strict";
 
-  const WA_SITE_VERSION = '0.6.43';
+  const WA_SITE_VERSION = '0.6.45';
 
   function waAssetUrl(relativePath) {
     const base = relativePath.split('?')[0];

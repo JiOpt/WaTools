@@ -1,3 +1,14 @@
+/**
+ * Sync site version for cache busting.
+ *
+ * Usage:
+ *   node scripts/stamp-asset-version.mjs          # JS-only (default): main.js only
+ *   node scripts/stamp-asset-version.mjs --html     # also stamp CSS/vendor ?v= in all HTML
+ *   node scripts/stamp-asset-version.mjs --all      # same as --html
+ *
+ * JS/CSS 小改動請用預設模式，不必動 180+ HTML。
+ * 只有改 bootstrap、main.css 等靜態引用時才加 --html。
+ */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,10 +17,21 @@ import { WA_SITE_VERSION } from './site-version.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const ASSET_ATTR_RE = /((?:href|src)=["'])((?:\.\.\/)?assets\/[^"?#]+)(?:\?v=[^"#]*)?(["'])/g;
+const args = new Set(process.argv.slice(2));
+const stampHtml = args.has('--html') || args.has('--all');
 
-function stampHtml(content) {
-  return content.replace(ASSET_ATTR_RE, (_, prefix, assetPath, suffix) => {
+const ASSET_ATTR_RE = /((?:href|src)=["'])((?:\.\.\/)?assets\/[^"?#]+)(?:\?v=[^"#]*)?(["'])/g;
+const ENTRY_SCRIPT_RE = /((?:href|src)=["'])((?:\.\.\/)?assets\/js\/(?:main|prefs-boot)\.js)(?:\?v=[^"#]*)?(["'])/g;
+
+/** CSS / vendor / images — keep ?v= for immutable cache busting. */
+const STAMPED_ASSET_RE = /((?:href|src)=["'])((?:\.\.\/)?assets\/(?!(?:js\/(?:main|prefs-boot)\.js))[^"?#]+)(?:\?v=[^"#]*)?(["'])/g;
+
+function stripEntryScriptVersions(content) {
+  return content.replace(ENTRY_SCRIPT_RE, '$1$2$3');
+}
+
+function stampStaticAssets(content) {
+  return content.replace(STAMPED_ASSET_RE, (_, prefix, assetPath, suffix) => {
     return `${prefix}${assetPath}?v=${WA_SITE_VERSION}${suffix}`;
   });
 }
@@ -34,35 +56,51 @@ const htmlFiles = collectHtmlFiles(root).filter((file) => {
   return !skipDirs.has(top);
 });
 
-let updated = 0;
-for (const file of htmlFiles) {
-  const original = fs.readFileSync(file, 'utf8');
-  const next = stampHtml(original);
-  if (next !== original) {
-    fs.writeFileSync(file, next, 'utf8');
-    updated += 1;
-  }
-}
-
-console.log(`Stamped assets with ?v=${WA_SITE_VERSION} on ${updated} HTML file(s) (${htmlFiles.length} scanned).`);
-
-const mainPath = path.join(root, 'assets', 'js', 'main.js');
-if (fs.existsSync(mainPath)) {
+function syncMainJs() {
+  const mainPath = path.join(root, 'assets', 'js', 'main.js');
+  if (!fs.existsSync(mainPath)) return false;
   const mainSrc = fs.readFileSync(mainPath, 'utf8');
   const synced = mainSrc.replace(
     /const WA_SITE_VERSION = '[^']+';/,
-    `const WA_SITE_VERSION = '${WA_SITE_VERSION}';`
+    `const WA_SITE_VERSION = '${WA_SITE_VERSION}';`,
   );
-  if (synced !== mainSrc) {
-    fs.writeFileSync(mainPath, synced, 'utf8');
-    console.log(`Synced assets/js/main.js -> v${WA_SITE_VERSION}`);
+  if (synced === mainSrc) return false;
+  fs.writeFileSync(mainPath, synced, 'utf8');
+  return true;
+}
+
+let entryStripped = 0;
+let htmlStamped = 0;
+
+if (stampHtml) {
+  for (const file of htmlFiles) {
+    const original = fs.readFileSync(file, 'utf8');
+    let next = stripEntryScriptVersions(original);
+    next = stampStaticAssets(next);
+    if (next !== original) {
+      fs.writeFileSync(file, next, 'utf8');
+      htmlStamped += 1;
+    }
+  }
+} else {
+  for (const file of htmlFiles) {
+    const original = fs.readFileSync(file, 'utf8');
+    const next = stripEntryScriptVersions(original);
+    if (next !== original) {
+      fs.writeFileSync(file, next, 'utf8');
+      entryStripped += 1;
+    }
   }
 }
 
-const footerRe = /(· v)([\d.]+)(<\/p>)/g;
-for (const file of htmlFiles) {
-  if (!['index.html', 'scriptures.html'].includes(path.basename(file))) continue;
-  const original = fs.readFileSync(file, 'utf8');
-  const next = original.replace(footerRe, `$1${WA_SITE_VERSION}$3`);
-  if (next !== original) fs.writeFileSync(file, next, 'utf8');
+const mainSynced = syncMainJs();
+
+if (stampHtml) {
+  console.log(`Stamped CSS/vendor ?v=${WA_SITE_VERSION} on ${htmlStamped} HTML file(s) (${htmlFiles.length} scanned).`);
+} else {
+  console.log(`JS-only: synced main.js -> v${WA_SITE_VERSION}${mainSynced ? '' : ' (unchanged)'}.`);
+  if (entryStripped) {
+    console.log(`Removed ?v= from main.js/prefs-boot.js in ${entryStripped} HTML file(s).`);
+  }
+  console.log('Tip: use --html only when CSS or vendor assets change.');
 }

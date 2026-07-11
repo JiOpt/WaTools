@@ -54,6 +54,15 @@
         ]
       },
       {
+        "source": "assets/js/{main,prefs-boot,site-footer}.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(js|css)",
         "headers": [
           {

@@ -61,7 +61,7 @@ npm run seo:build       # sitemap.xml + 首頁爬蟲目錄 + 工具頁 meta
 | 改 SEO 規則 | 改 `seo-meta.mjs` → `seo:build` |
 | soft-nav 換頁 meta | 改 `soft-nav.js` 的 `syncMeta()`，保持與 head 標籤一致 |
 
-Deploy 前：版本 bump → `stamp-asset-version.mjs` → `firebase deploy --project watoolio` → Search Console 重送 sitemap
+Deploy 前：版本 bump → `stamp-asset-version.mjs`（JS 預設；CSS 才加 `--html`）→ `firebase deploy --project watoolio`
 
 ## 9. 首頁工具卡片瀏覽人次（Firebase）
 

@@ -23,13 +23,18 @@
           <div class="row gy-4">
             ${category.books.map((book) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="${scriptureBookHref(book.slug)}" class="tool-card tool-card-ready scripture-card">
-                  <div class="tool-card-icon"><i class="bi bi-journal-richtext"></i></div>
-                  <div class="tool-card-body">
+                <a href="${scriptureBookHref(book.slug)}" class="tool-card tool-card-ready scripture-card" data-page-slug="${book.slug}">
+                  <div class="tool-card-top">
+                    <div class="tool-card-icon"><i class="bi bi-journal-richtext"></i></div>
                     <h3>${book.title}</h3>
-                    <p>${book.desc}</p>
                   </div>
-                  <span class="tool-badge">可讀</span>
+                  <p>${book.desc}</p>
+                  <div class="tool-card-foot">
+                    <span class="tool-card-views" aria-label="瀏覽人次">
+                      <i class="bi bi-eye" aria-hidden="true"></i>
+                      <span class="tool-card-views-num">…</span>
+                    </span>
+                  </div>
                 </a>
               </div>
             `).join('')}
@@ -37,6 +42,15 @@
         </div>
       </section>
     `).join('');
+
+    if (typeof AOS !== 'undefined') {
+      try { AOS.refresh(); } catch (e) { /* ignore */ }
+    }
+
+    window.dispatchEvent(new CustomEvent('mytoolife:scriptures-hub-rendered'));
+    if (typeof window.__waPaintViewCards === 'function') {
+      window.__waPaintViewCards().catch(() => {});
+    }
   }
 
   window.__waBootScripturesHub = renderHub;
