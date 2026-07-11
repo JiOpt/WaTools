@@ -79,11 +79,12 @@ function chapterNumFromTitle(title) {
 }
 
 function parseSupplementNoteBody(html) {
-  const stripped = html
-    .replace(/^<h2 class="scripture-main-title">[\s\S]*?<\/h2>\s*/i, '')
-    .trim();
+  const stripped = stripSupplementHeader(html);
+  if (/<p class="scripture-verse">/.test(stripped)) {
+    return { title: '註釋解讀', html: stripped };
+  }
   const annMatch = stripped.match(/<div class="scripture-annotation[^"]*">([\s\S]*?)<\/div>\s*$/);
-  if (annMatch) {
+  if (annMatch && !/<div class="scripture-(?:translation|exegesis)/.test(stripped)) {
     return { title: '【釋文】', html: annMatch[1].trim() };
   }
   return { title: '註釋解讀', html: stripped };
@@ -276,6 +277,10 @@ function paraSummary(paraContent) {
 function parseSupplementVerseBlocks(html) {
   const blocks = [];
   const chunks = html.split(/<p class="scripture-verse">/);
+  const prefix = chunks[0]?.trim() || '';
+  if (prefix && /<div class="scripture-(?:annotation|translation|exegesis)/.test(prefix)) {
+    blocks.push({ html: prefix });
+  }
   for (let i = 1; i < chunks.length; i += 1) {
     const endVerse = chunks[i].indexOf('</p>');
     if (endVerse === -1) continue;
@@ -293,17 +298,23 @@ function mergeInlineVerseNotes(mainContent, chapterMap) {
       const chapter = chapterMap.get(num);
       if (!chapter) return block;
 
-      const verseBlocks = parseSupplementVerseBlocks(chapter.html);
-      let vi = 0;
+      const paraContents = [];
+      parasSection.replace(/<p class="scripture-para">([\s\S]*?)<\/p>/g, (_, content) => {
+        paraContents.push(content);
+        return '';
+      });
+
+      const { buckets } = groupVerseSectionsByPara(paraContents, chapter.html);
+      let pi = 0;
       const newParas = parasSection.replace(
         /<p class="scripture-para">([\s\S]*?)<\/p>/g,
         (paraMatch, paraContent) => {
-          const note = verseBlocks[vi];
-          vi += 1;
-          if (!note) return paraMatch;
+          const noteHtml = buckets[pi]?.filter(Boolean).join('\n');
+          pi += 1;
+          if (!noteHtml?.trim()) return paraMatch;
           return `${paraMatch}${renderInlineNote({
             title: paraSummary(paraContent),
-            html: note.html,
+            html: noteHtml,
             verseLevel: true,
           })}`;
         }
@@ -525,6 +536,7 @@ function parseSupplementParaBodies(html) {
 function stripSupplementHeader(html) {
   return html
     .replace(/^<h2 class="scripture-main-title">[\s\S]*?<\/h2>\s*/i, '')
+    .replace(/^<h3 class="scripture-chapter"[^>]*>[\s\S]*?<\/h3>\s*/i, '')
     .replace(/^<h1>[\s\S]*?<\/h1>\s*/i, '')
     .replace(/^<img[^>]*>\s*/i, '')
     .replace(/<div class="io_comment">[\s\S]*$/i, '')
@@ -798,7 +810,7 @@ function transformContent(content) {
 
   out = out.replace(/<h3(\s[^>]*)?>/gi, '<h4 class="scripture-subhead"$1>');
   out = out.replace(/<\/h3>/gi, '</h4>');
-  out = out.replace(/<h2(\s[^>]*)?>/gi, '<h3 class="scripture-chapter"$1>');
+  out = out.replace(/<h2(?![^>]*class="scripture-main-title")(\s[^>]*)?>/gi, '<h3 class="scripture-chapter"$1>');
   out = out.replace(/<\/h2>/gi, '</h3>');
   out = out.replace(/<h1(\s[^>]*)?>/gi, '<h2 class="scripture-main-title"$1>');
   out = out.replace(/<\/h1>/gi, '</h2>');
@@ -870,6 +882,18 @@ function getCategoryForBook(slug) {
   return null;
 }
 
+function renderPagerLink(href, kind, label, title) {
+  const chevronPrev = '<i class="bi bi-chevron-left scripture-pager-chevron" aria-hidden="true"></i>';
+  const chevronNext = '<i class="bi bi-chevron-right scripture-pager-chevron" aria-hidden="true"></i>';
+  const titleHtml = kind === 'prev'
+    ? `<span class="scripture-pager-row">${chevronPrev}<span class="scripture-pager-title">${escapeHtml(title)}</span></span>`
+    : `<span class="scripture-pager-row"><span class="scripture-pager-title">${escapeHtml(title)}</span>${chevronNext}</span>`;
+  return `<a href="${href}" class="scripture-pager-link scripture-pager-${kind}">
+        <span class="scripture-pager-label">${label}</span>
+        ${titleHtml}
+      </a>`;
+}
+
 function renderPager(book, position = 'bottom') {
   const category = getCategoryForBook(book.slug);
   if (!category) return '';
@@ -882,17 +906,11 @@ function renderPager(book, position = 'bottom') {
 
   return `
     <nav class="scripture-pager${posClass}" aria-label="篇章導覽">
-      <a href="${scripturePageHref(prev.slug)}" class="scripture-pager-link scripture-pager-prev">
-        <span class="scripture-pager-label">上一篇</span>
-        <span class="scripture-pager-title">${escapeHtml(prev.title)}</span>
-      </a>
+      ${renderPagerLink(scripturePageHref(prev.slug), 'prev', '上一篇', prev.title)}
       <a href="${rootPageHref(`scriptures.html#scriptures-${category.id}`)}" class="btn btn-outline-secondary scripture-pager-home">
         <i class="bi bi-grid me-1"></i>返回分類
       </a>
-      <a href="${scripturePageHref(next.slug)}" class="scripture-pager-link scripture-pager-next">
-        <span class="scripture-pager-label">下一篇</span>
-        <span class="scripture-pager-title">${escapeHtml(next.title)}</span>
-      </a>
+      ${renderPagerLink(scripturePageHref(next.slug), 'next', '下一篇', next.title)}
     </nav>`;
 }
 
@@ -1006,7 +1024,7 @@ function injectSectionNavigation(html, bookSlug) {
   return out;
 }
 
-const FONT_SIZE_BOOT = `  <script>try{var s=localStorage.getItem('watools-font-size');document.documentElement.setAttribute('data-font-size',s==='sm'||s==='lg'?s:'md')}catch(e){document.documentElement.setAttribute('data-font-size','md')}</script>`;
+const FONT_SIZE_BOOT = `  <script>try{var s=localStorage.getItem('mytoolife-font-size');document.documentElement.setAttribute('data-font-size',s==='sm'||s==='lg'?s:'md')}catch(e){document.documentElement.setAttribute('data-font-size','md')}</script>`;
 
 function renderScripturePage(book, mainContent, supplementsHtml, relatedHtml) {
   const category = getCategoryForBook(book.slug);
@@ -1019,13 +1037,13 @@ function renderScripturePage(book, mainContent, supplementsHtml, relatedHtml) {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 ${renderAnalyticsSnippet()}
 ${FONT_SIZE_BOOT}
-  <title>${escapeHtml(book.title)} - 藏經閣 - WaWaTools</title>
+  <title>${escapeHtml(book.title)} - 藏經閣 - MyTooLife</title>
 ${renderSeoMeta({
-    title: `${book.title} - 藏經閣 - WaWaTools`,
+    title: `${book.title} - 藏經閣 - MyTooLife`,
     description: book.desc,
     path: `scripture/${book.slug}.html`,
     type: 'article',
-    keywords: `${book.title},藏經閣,國學,佛經,WaWaTools`,
+    keywords: `${book.title},藏經閣,國學,佛經,MyTooLife`,
   })}
   <link href="${rootAssetHref('assets/img/favicon.png')}" rel="icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -1040,7 +1058,7 @@ ${renderSeoMeta({
   <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="${rootPageHref('index.html')}" class="logo d-flex align-items-center me-auto"><h1 class="sitename">WaWaTools</h1></a>
+        <a href="${rootPageHref('index.html')}" class="logo d-flex align-items-center me-auto"><h1 class="sitename">MyTooLife</h1></a>
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="${rootPageHref('index.html')}">工具首頁</a></li>
@@ -1053,27 +1071,6 @@ ${renderSeoMeta({
     </div>
   </header>
   <main class="main">
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>${escapeHtml(book.title)}</h1>
-              <p class="mb-0">${escapeHtml(book.desc)}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="${rootPageHref('index.html')}">Home</a></li>
-            <li><a href="${rootPageHref('scriptures.html')}">藏經閣</a></li>
-            <li class="current">${escapeHtml(book.title)}</li>
-          </ol>
-        </div>
-      </nav>
-    </div>
     <section class="scripture-section section light-background">
       <div class="container" data-aos="fade-up">
         ${renderPager(book, 'top')}
@@ -1091,7 +1088,7 @@ ${renderSeoMeta({
   </main>
   <footer id="footer" class="footer light-background">
     <div class="container copyright text-center py-4">
-      <p>© <strong class="sitename">WaWaTools</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
+      <p>© <strong class="sitename">MyTooLife</strong> — 實用的小工具，剛好夠用就好。 · v${WA_SITE_VERSION}</p>
     </div>
   </footer>
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1109,7 +1106,7 @@ async function fetchScripture(source) {
   const url = `${BASE}${source}`;
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'WaWaTools-Builder/1.0',
+      'User-Agent': 'MyTooLife-Builder/1.0',
       Accept: 'text/html',
     },
   });

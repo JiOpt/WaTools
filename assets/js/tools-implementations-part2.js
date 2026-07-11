@@ -1,5 +1,5 @@
 /**
- * WaWaTools implementations — utility & media (part 2)
+ * MyTooLife implementations — utility & media (part 2)
  * Registers on window.WA_TOOL_REGISTRY[slug](appElement)
  */
 (function () {
@@ -52,7 +52,19 @@
         const pick = el('button', { type: 'button', className: 'btn btn-outline-primary tool-file-btn', onclick: () => input.click() }, '選擇檔案');
         return el('div', { className: 'tool-file-wrap' }, [pick, name, input]);
       },
-      alert: (msg, type) => { const a = el('div', { className: `alert alert-${type || 'info'} tool-alert` }, msg); (document.getElementById('tool-app') || document.body).prepend(a); setTimeout(() => a.remove(), 4000); },
+      alert: (msg, type) => {
+        if (window.WA_TOOL_UI?.alert) return window.WA_TOOL_UI.alert(msg, type);
+        const host = document.getElementById('tool-toast-host') || (() => {
+          const h = el('div', { id: 'tool-toast-host', className: 'tool-toast-host', 'aria-live': 'polite' });
+          document.body.appendChild(h);
+          return h;
+        })();
+        host.querySelectorAll('.tool-toast').forEach((n) => n.remove());
+        const a = el('div', { className: `alert alert-${type || 'info'} tool-toast`, role: 'alert' }, msg);
+        host.appendChild(a);
+        requestAnimationFrame(() => a.classList.add('is-visible'));
+        setTimeout(() => { a.classList.remove('is-visible'); a.classList.add('is-leaving'); setTimeout(() => a.remove(), 280); }, 4000);
+      },
       randomInt: (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
       randomChoice: (arr) => arr[Math.floor(Math.random() * arr.length)],
       shuffle: (arr) => { const c = arr.slice(); for (let i = c.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [c[i], c[j]] = [c[j], c[i]]; } return c; },
@@ -698,7 +710,7 @@
         U.btn('下載 PNG', 'btn btn-primary tool-btn', () => {
           if (!img) { U.alert('請先上傳圖片', 'warning'); return; }
           const a = document.createElement('a');
-          a.download = 'watools-photo.png';
+          a.download = 'mytoolife-photo.png';
           a.href = canvas.toDataURL('image/png');
           a.click();
         }),
@@ -881,7 +893,7 @@
         }),
         U.btn('下載 PNG', 'btn btn-primary tool-btn', () => {
           const a = document.createElement('a');
-          a.download = 'watools-doodle.png';
+          a.download = 'mytoolife-doodle.png';
           a.href = canvas.toDataURL('image/png');
           a.click();
         }),

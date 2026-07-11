@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'watools-font-size';
+  const STORAGE_KEY = 'mytoolife-font-size';
   const SIZES = ['sm', 'md', 'lg'];
 
   function getSaved() {

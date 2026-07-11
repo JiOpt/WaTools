@@ -243,16 +243,38 @@
     return el('div', { className: 'tool-file-wrap' }, [pickBtn, nameSpan, input]);
   }
 
+  function getToastHost() {
+    let host = document.getElementById('tool-toast-host');
+    if (!host) {
+      host = el('div', {
+        id: 'tool-toast-host',
+        className: 'tool-toast-host',
+        'aria-live': 'polite',
+        'aria-relevant': 'additions',
+      });
+      document.body.appendChild(host);
+    }
+    return host;
+  }
+
   function showAlert(msg, type) {
-    const app = document.getElementById('tool-app');
-    const host = app || document.querySelector('.tool-app') || document.body;
-    host.querySelectorAll('.tool-alert').forEach((node) => node.remove());
+    const host = getToastHost();
+    host.querySelectorAll('.tool-toast').forEach((node) => node.remove());
+
     const alertEl = el('div', {
-      className: `alert alert-${type || 'info'} tool-alert`,
+      className: `alert alert-${type || 'info'} tool-toast`,
       role: 'alert',
     }, msg);
-    host.insertBefore(alertEl, host.firstChild);
-    setTimeout(() => alertEl.remove(), 4000);
+    host.appendChild(alertEl);
+
+    requestAnimationFrame(() => alertEl.classList.add('is-visible'));
+
+    const dismiss = () => {
+      alertEl.classList.remove('is-visible');
+      alertEl.classList.add('is-leaving');
+      window.setTimeout(() => alertEl.remove(), 280);
+    };
+    window.setTimeout(dismiss, 4000);
   }
 
   function randomInt(min, max) {

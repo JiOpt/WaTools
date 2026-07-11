@@ -1,0 +1,1182 @@
+[
+  {
+    "source": "/scriptures",
+    "destination": "/utility/scriptures",
+    "type": 301
+  },
+  {
+    "source": "/scriptures.html",
+    "destination": "/utility/scriptures.html",
+    "type": 301
+  },
+  {
+    "source": "/settings",
+    "destination": "/utility/settings",
+    "type": 301
+  },
+  {
+    "source": "/settings.html",
+    "destination": "/utility/settings.html",
+    "type": 301
+  },
+  {
+    "source": "/calculatortool",
+    "destination": "/utility/calculatortool",
+    "type": 301
+  },
+  {
+    "source": "/calculatortool.html",
+    "destination": "/utility/calculatortool.html",
+    "type": 301
+  },
+  {
+    "source": "/id-generator",
+    "destination": "/utility/id-generator",
+    "type": 301
+  },
+  {
+    "source": "/id-generator.html",
+    "destination": "/utility/id-generator.html",
+    "type": 301
+  },
+  {
+    "source": "/phone",
+    "destination": "/utility/phone",
+    "type": 301
+  },
+  {
+    "source": "/phone.html",
+    "destination": "/utility/phone.html",
+    "type": 301
+  },
+  {
+    "source": "/color-blindness",
+    "destination": "/utility/color-blindness",
+    "type": 301
+  },
+  {
+    "source": "/color-blindness.html",
+    "destination": "/utility/color-blindness.html",
+    "type": 301
+  },
+  {
+    "source": "/screen-test",
+    "destination": "/utility/screen-test",
+    "type": 301
+  },
+  {
+    "source": "/screen-test.html",
+    "destination": "/utility/screen-test.html",
+    "type": 301
+  },
+  {
+    "source": "/screen-detect",
+    "destination": "/utility/screen-detect",
+    "type": 301
+  },
+  {
+    "source": "/screen-detect.html",
+    "destination": "/utility/screen-detect.html",
+    "type": 301
+  },
+  {
+    "source": "/torch",
+    "destination": "/utility/torch",
+    "type": 301
+  },
+  {
+    "source": "/torch.html",
+    "destination": "/utility/torch.html",
+    "type": 301
+  },
+  {
+    "source": "/ip",
+    "destination": "/utility/ip",
+    "type": 301
+  },
+  {
+    "source": "/ip.html",
+    "destination": "/utility/ip.html",
+    "type": 301
+  },
+  {
+    "source": "/qrcode-scan",
+    "destination": "/utility/qrcode-scan",
+    "type": 301
+  },
+  {
+    "source": "/qrcode-scan.html",
+    "destination": "/utility/qrcode-scan.html",
+    "type": 301
+  },
+  {
+    "source": "/qrcode",
+    "destination": "/utility/qrcode",
+    "type": 301
+  },
+  {
+    "source": "/qrcode.html",
+    "destination": "/utility/qrcode.html",
+    "type": 301
+  },
+  {
+    "source": "/upload",
+    "destination": "/media/upload",
+    "type": 301
+  },
+  {
+    "source": "/upload.html",
+    "destination": "/media/upload.html",
+    "type": 301
+  },
+  {
+    "source": "/meitu",
+    "destination": "/media/meitu",
+    "type": 301
+  },
+  {
+    "source": "/meitu.html",
+    "destination": "/media/meitu.html",
+    "type": 301
+  },
+  {
+    "source": "/photo",
+    "destination": "/media/photo",
+    "type": 301
+  },
+  {
+    "source": "/photo.html",
+    "destination": "/media/photo.html",
+    "type": 301
+  },
+  {
+    "source": "/exif",
+    "destination": "/media/exif",
+    "type": 301
+  },
+  {
+    "source": "/exif.html",
+    "destination": "/media/exif.html",
+    "type": 301
+  },
+  {
+    "source": "/image-coordinate",
+    "destination": "/media/image-coordinate",
+    "type": 301
+  },
+  {
+    "source": "/image-coordinate.html",
+    "destination": "/media/image-coordinate.html",
+    "type": 301
+  },
+  {
+    "source": "/music-player",
+    "destination": "/media/music-player",
+    "type": 301
+  },
+  {
+    "source": "/music-player.html",
+    "destination": "/media/music-player.html",
+    "type": 301
+  },
+  {
+    "source": "/media-player",
+    "destination": "/media/media-player",
+    "type": 301
+  },
+  {
+    "source": "/media-player.html",
+    "destination": "/media/media-player.html",
+    "type": 301
+  },
+  {
+    "source": "/drawing",
+    "destination": "/media/drawing",
+    "type": 301
+  },
+  {
+    "source": "/drawing.html",
+    "destination": "/media/drawing.html",
+    "type": 301
+  },
+  {
+    "source": "/color",
+    "destination": "/dev/color",
+    "type": 301
+  },
+  {
+    "source": "/color.html",
+    "destination": "/dev/color.html",
+    "type": 301
+  },
+  {
+    "source": "/favicon",
+    "destination": "/dev/favicon",
+    "type": 301
+  },
+  {
+    "source": "/favicon.html",
+    "destination": "/dev/favicon.html",
+    "type": 301
+  },
+  {
+    "source": "/shorturl",
+    "destination": "/dev/shorturl",
+    "type": 301
+  },
+  {
+    "source": "/shorturl.html",
+    "destination": "/dev/shorturl.html",
+    "type": 301
+  },
+  {
+    "source": "/url-encoder",
+    "destination": "/dev/url-encoder",
+    "type": 301
+  },
+  {
+    "source": "/url-encoder.html",
+    "destination": "/dev/url-encoder.html",
+    "type": 301
+  },
+  {
+    "source": "/css-formatter",
+    "destination": "/dev/css-formatter",
+    "type": 301
+  },
+  {
+    "source": "/css-formatter.html",
+    "destination": "/dev/css-formatter.html",
+    "type": 301
+  },
+  {
+    "source": "/html-js-formatter",
+    "destination": "/dev/html-js-formatter",
+    "type": 301
+  },
+  {
+    "source": "/html-js-formatter.html",
+    "destination": "/dev/html-js-formatter.html",
+    "type": 301
+  },
+  {
+    "source": "/viewsource",
+    "destination": "/dev/viewsource",
+    "type": 301
+  },
+  {
+    "source": "/viewsource.html",
+    "destination": "/dev/viewsource.html",
+    "type": 301
+  },
+  {
+    "source": "/html-converter",
+    "destination": "/dev/html-converter",
+    "type": 301
+  },
+  {
+    "source": "/html-converter.html",
+    "destination": "/dev/html-converter.html",
+    "type": 301
+  },
+  {
+    "source": "/runcode",
+    "destination": "/dev/runcode",
+    "type": 301
+  },
+  {
+    "source": "/runcode.html",
+    "destination": "/dev/runcode.html",
+    "type": 301
+  },
+  {
+    "source": "/unicode",
+    "destination": "/dev/unicode",
+    "type": 301
+  },
+  {
+    "source": "/unicode.html",
+    "destination": "/dev/unicode.html",
+    "type": 301
+  },
+  {
+    "source": "/punycode",
+    "destination": "/dev/punycode",
+    "type": 301
+  },
+  {
+    "source": "/punycode.html",
+    "destination": "/dev/punycode.html",
+    "type": 301
+  },
+  {
+    "source": "/http-status",
+    "destination": "/dev/http-status",
+    "type": 301
+  },
+  {
+    "source": "/http-status.html",
+    "destination": "/dev/http-status.html",
+    "type": 301
+  },
+  {
+    "source": "/html-entities",
+    "destination": "/dev/html-entities",
+    "type": 301
+  },
+  {
+    "source": "/html-entities.html",
+    "destination": "/dev/html-entities.html",
+    "type": 301
+  },
+  {
+    "source": "/keycode",
+    "destination": "/dev/keycode",
+    "type": 301
+  },
+  {
+    "source": "/keycode.html",
+    "destination": "/dev/keycode.html",
+    "type": 301
+  },
+  {
+    "source": "/unicode-table",
+    "destination": "/dev/unicode-table",
+    "type": 301
+  },
+  {
+    "source": "/unicode-table.html",
+    "destination": "/dev/unicode-table.html",
+    "type": 301
+  },
+  {
+    "source": "/big5",
+    "destination": "/dev/big5",
+    "type": 301
+  },
+  {
+    "source": "/big5.html",
+    "destination": "/dev/big5.html",
+    "type": 301
+  },
+  {
+    "source": "/keyboard-mouse",
+    "destination": "/dev/keyboard-mouse",
+    "type": 301
+  },
+  {
+    "source": "/keyboard-mouse.html",
+    "destination": "/dev/keyboard-mouse.html",
+    "type": 301
+  },
+  {
+    "source": "/seo-search",
+    "destination": "/dev/seo-search",
+    "type": 301
+  },
+  {
+    "source": "/seo-search.html",
+    "destination": "/dev/seo-search.html",
+    "type": 301
+  },
+  {
+    "source": "/seo-keyword",
+    "destination": "/dev/seo-keyword",
+    "type": 301
+  },
+  {
+    "source": "/seo-keyword.html",
+    "destination": "/dev/seo-keyword.html",
+    "type": 301
+  },
+  {
+    "source": "/editor",
+    "destination": "/editor/editor",
+    "type": 301
+  },
+  {
+    "source": "/editor.html",
+    "destination": "/editor/editor.html",
+    "type": 301
+  },
+  {
+    "source": "/dedupe",
+    "destination": "/editor/dedupe",
+    "type": 301
+  },
+  {
+    "source": "/dedupe.html",
+    "destination": "/editor/dedupe.html",
+    "type": 301
+  },
+  {
+    "source": "/case-converter",
+    "destination": "/editor/case-converter",
+    "type": 301
+  },
+  {
+    "source": "/case-converter.html",
+    "destination": "/editor/case-converter.html",
+    "type": 301
+  },
+  {
+    "source": "/rmb-upper",
+    "destination": "/editor/rmb-upper",
+    "type": 301
+  },
+  {
+    "source": "/rmb-upper.html",
+    "destination": "/editor/rmb-upper.html",
+    "type": 301
+  },
+  {
+    "source": "/wordcount",
+    "destination": "/editor/wordcount",
+    "type": 301
+  },
+  {
+    "source": "/wordcount.html",
+    "destination": "/editor/wordcount.html",
+    "type": 301
+  },
+  {
+    "source": "/colorfont",
+    "destination": "/editor/colorfont",
+    "type": 301
+  },
+  {
+    "source": "/colorfont.html",
+    "destination": "/editor/colorfont.html",
+    "type": 301
+  },
+  {
+    "source": "/bbcode",
+    "destination": "/editor/bbcode",
+    "type": 301
+  },
+  {
+    "source": "/bbcode.html",
+    "destination": "/editor/bbcode.html",
+    "type": 301
+  },
+  {
+    "source": "/unicode-converter",
+    "destination": "/editor/unicode-converter",
+    "type": 301
+  },
+  {
+    "source": "/unicode-converter.html",
+    "destination": "/editor/unicode-converter.html",
+    "type": 301
+  },
+  {
+    "source": "/password",
+    "destination": "/security/password",
+    "type": 301
+  },
+  {
+    "source": "/password.html",
+    "destination": "/security/password.html",
+    "type": 301
+  },
+  {
+    "source": "/email-icon",
+    "destination": "/security/email-icon",
+    "type": 301
+  },
+  {
+    "source": "/email-icon.html",
+    "destination": "/security/email-icon.html",
+    "type": 301
+  },
+  {
+    "source": "/textencrypt",
+    "destination": "/security/textencrypt",
+    "type": 301
+  },
+  {
+    "source": "/textencrypt.html",
+    "destination": "/security/textencrypt.html",
+    "type": 301
+  },
+  {
+    "source": "/longurl",
+    "destination": "/security/longurl",
+    "type": 301
+  },
+  {
+    "source": "/longurl.html",
+    "destination": "/security/longurl.html",
+    "type": 301
+  },
+  {
+    "source": "/url-crypto",
+    "destination": "/security/url-crypto",
+    "type": 301
+  },
+  {
+    "source": "/url-crypto.html",
+    "destination": "/security/url-crypto.html",
+    "type": 301
+  },
+  {
+    "source": "/typing-teach",
+    "destination": "/culture/typing-teach",
+    "type": 301
+  },
+  {
+    "source": "/typing-teach.html",
+    "destination": "/culture/typing-teach.html",
+    "type": 301
+  },
+  {
+    "source": "/typing-practice",
+    "destination": "/culture/typing-practice",
+    "type": 301
+  },
+  {
+    "source": "/typing-practice.html",
+    "destination": "/culture/typing-practice.html",
+    "type": 301
+  },
+  {
+    "source": "/dictionary",
+    "destination": "/culture/dictionary",
+    "type": 301
+  },
+  {
+    "source": "/dictionary.html",
+    "destination": "/culture/dictionary.html",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-dict",
+    "destination": "/culture/cangjie-dict",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-dict.html",
+    "destination": "/culture/cangjie-dict.html",
+    "type": 301
+  },
+  {
+    "source": "/zh-converter",
+    "destination": "/culture/zh-converter",
+    "type": 301
+  },
+  {
+    "source": "/zh-converter.html",
+    "destination": "/culture/zh-converter.html",
+    "type": 301
+  },
+  {
+    "source": "/zh-table",
+    "destination": "/culture/zh-table",
+    "type": 301
+  },
+  {
+    "source": "/zh-table.html",
+    "destination": "/culture/zh-table.html",
+    "type": 301
+  },
+  {
+    "source": "/text-garbled",
+    "destination": "/culture/text-garbled",
+    "type": 301
+  },
+  {
+    "source": "/text-garbled.html",
+    "destination": "/culture/text-garbled.html",
+    "type": 301
+  },
+  {
+    "source": "/pinyin",
+    "destination": "/culture/pinyin",
+    "type": 301
+  },
+  {
+    "source": "/pinyin.html",
+    "destination": "/culture/pinyin.html",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-to-zh",
+    "destination": "/culture/pinyin-to-zh",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-to-zh.html",
+    "destination": "/culture/pinyin-to-zh.html",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-chart",
+    "destination": "/culture/pinyin-chart",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-chart.html",
+    "destination": "/culture/pinyin-chart.html",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-syllable",
+    "destination": "/culture/pinyin-syllable",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-syllable.html",
+    "destination": "/culture/pinyin-syllable.html",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-phonics",
+    "destination": "/culture/pinyin-phonics",
+    "type": 301
+  },
+  {
+    "source": "/pinyin-phonics.html",
+    "destination": "/culture/pinyin-phonics.html",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-chart",
+    "destination": "/culture/cangjie-chart",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-chart.html",
+    "destination": "/culture/cangjie-chart.html",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-practice",
+    "destination": "/culture/cangjie-practice",
+    "type": 301
+  },
+  {
+    "source": "/cangjie-practice.html",
+    "destination": "/culture/cangjie-practice.html",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo",
+    "destination": "/culture/bopomofo",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo.html",
+    "destination": "/culture/bopomofo.html",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-chart",
+    "destination": "/culture/bopomofo-chart",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-chart.html",
+    "destination": "/culture/bopomofo-chart.html",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-phonics",
+    "destination": "/culture/bopomofo-phonics",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-phonics.html",
+    "destination": "/culture/bopomofo-phonics.html",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-index",
+    "destination": "/culture/bopomofo-index",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-index.html",
+    "destination": "/culture/bopomofo-index.html",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-table",
+    "destination": "/culture/bopomofo-table",
+    "type": 301
+  },
+  {
+    "source": "/bopomofo-table.html",
+    "destination": "/culture/bopomofo-table.html",
+    "type": 301
+  },
+  {
+    "source": "/abc",
+    "destination": "/culture/abc",
+    "type": 301
+  },
+  {
+    "source": "/abc.html",
+    "destination": "/culture/abc.html",
+    "type": 301
+  },
+  {
+    "source": "/symbols-generator",
+    "destination": "/symbols/symbols-generator",
+    "type": 301
+  },
+  {
+    "source": "/symbols-generator.html",
+    "destination": "/symbols/symbols-generator.html",
+    "type": 301
+  },
+  {
+    "source": "/keyboard-symbols",
+    "destination": "/symbols/keyboard-symbols",
+    "type": 301
+  },
+  {
+    "source": "/keyboard-symbols.html",
+    "destination": "/symbols/keyboard-symbols.html",
+    "type": 301
+  },
+  {
+    "source": "/emoji",
+    "destination": "/symbols/emoji",
+    "type": 301
+  },
+  {
+    "source": "/emoji.html",
+    "destination": "/symbols/emoji.html",
+    "type": 301
+  },
+  {
+    "source": "/punctuation",
+    "destination": "/symbols/punctuation",
+    "type": 301
+  },
+  {
+    "source": "/punctuation.html",
+    "destination": "/symbols/punctuation.html",
+    "type": 301
+  },
+  {
+    "source": "/symbols-name",
+    "destination": "/symbols/symbols-name",
+    "type": 301
+  },
+  {
+    "source": "/symbols-name.html",
+    "destination": "/symbols/symbols-name.html",
+    "type": 301
+  },
+  {
+    "source": "/boshiamy",
+    "destination": "/symbols/boshiamy",
+    "type": 301
+  },
+  {
+    "source": "/boshiamy.html",
+    "destination": "/symbols/boshiamy.html",
+    "type": 301
+  },
+  {
+    "source": "/wubi",
+    "destination": "/symbols/wubi",
+    "type": 301
+  },
+  {
+    "source": "/wubi.html",
+    "destination": "/symbols/wubi.html",
+    "type": 301
+  },
+  {
+    "source": "/emoticon",
+    "destination": "/symbols/emoticon",
+    "type": 301
+  },
+  {
+    "source": "/emoticon.html",
+    "destination": "/symbols/emoticon.html",
+    "type": 301
+  },
+  {
+    "source": "/ubcode",
+    "destination": "/symbols/ubcode",
+    "type": 301
+  },
+  {
+    "source": "/ubcode.html",
+    "destination": "/symbols/ubcode.html",
+    "type": 301
+  },
+  {
+    "source": "/alt-code",
+    "destination": "/symbols/alt-code",
+    "type": 301
+  },
+  {
+    "source": "/alt-code.html",
+    "destination": "/symbols/alt-code.html",
+    "type": 301
+  },
+  {
+    "source": "/roman-numeral",
+    "destination": "/symbols/roman-numeral",
+    "type": 301
+  },
+  {
+    "source": "/roman-numeral.html",
+    "destination": "/symbols/roman-numeral.html",
+    "type": 301
+  },
+  {
+    "source": "/suzhou-numeral",
+    "destination": "/symbols/suzhou-numeral",
+    "type": 301
+  },
+  {
+    "source": "/suzhou-numeral.html",
+    "destination": "/symbols/suzhou-numeral.html",
+    "type": 301
+  },
+  {
+    "source": "/strokes",
+    "destination": "/symbols/strokes",
+    "type": 301
+  },
+  {
+    "source": "/strokes.html",
+    "destination": "/symbols/strokes.html",
+    "type": 301
+  },
+  {
+    "source": "/time",
+    "destination": "/life/time",
+    "type": 301
+  },
+  {
+    "source": "/time.html",
+    "destination": "/life/time.html",
+    "type": 301
+  },
+  {
+    "source": "/calendar",
+    "destination": "/life/calendar",
+    "type": 301
+  },
+  {
+    "source": "/calendar.html",
+    "destination": "/life/calendar.html",
+    "type": 301
+  },
+  {
+    "source": "/solar-terms",
+    "destination": "/life/solar-terms",
+    "type": 301
+  },
+  {
+    "source": "/solar-terms.html",
+    "destination": "/life/solar-terms.html",
+    "type": 301
+  },
+  {
+    "source": "/currency",
+    "destination": "/life/currency",
+    "type": 301
+  },
+  {
+    "source": "/currency.html",
+    "destination": "/life/currency.html",
+    "type": 301
+  },
+  {
+    "source": "/postal",
+    "destination": "/life/postal",
+    "type": 301
+  },
+  {
+    "source": "/postal.html",
+    "destination": "/life/postal.html",
+    "type": 301
+  },
+  {
+    "source": "/area-code",
+    "destination": "/life/area-code",
+    "type": 301
+  },
+  {
+    "source": "/area-code.html",
+    "destination": "/life/area-code.html",
+    "type": 301
+  },
+  {
+    "source": "/voltage",
+    "destination": "/life/voltage",
+    "type": 301
+  },
+  {
+    "source": "/voltage.html",
+    "destination": "/life/voltage.html",
+    "type": 301
+  },
+  {
+    "source": "/kinship",
+    "destination": "/life/kinship",
+    "type": 301
+  },
+  {
+    "source": "/kinship.html",
+    "destination": "/life/kinship.html",
+    "type": 301
+  },
+  {
+    "source": "/parenting",
+    "destination": "/life/parenting",
+    "type": 301
+  },
+  {
+    "source": "/parenting.html",
+    "destination": "/life/parenting.html",
+    "type": 301
+  },
+  {
+    "source": "/car-brand",
+    "destination": "/life/car-brand",
+    "type": 301
+  },
+  {
+    "source": "/car-brand.html",
+    "destination": "/life/car-brand.html",
+    "type": 301
+  },
+  {
+    "source": "/world-cup",
+    "destination": "/life/world-cup",
+    "type": 301
+  },
+  {
+    "source": "/world-cup.html",
+    "destination": "/life/world-cup.html",
+    "type": 301
+  },
+  {
+    "source": "/wishing-tree",
+    "destination": "/fun/wishing-tree",
+    "type": 301
+  },
+  {
+    "source": "/wishing-tree.html",
+    "destination": "/fun/wishing-tree.html",
+    "type": 301
+  },
+  {
+    "source": "/mind-reader",
+    "destination": "/fun/mind-reader",
+    "type": 301
+  },
+  {
+    "source": "/mind-reader.html",
+    "destination": "/fun/mind-reader.html",
+    "type": 301
+  },
+  {
+    "source": "/zodiac",
+    "destination": "/fun/zodiac",
+    "type": 301
+  },
+  {
+    "source": "/zodiac.html",
+    "destination": "/fun/zodiac.html",
+    "type": 301
+  },
+  {
+    "source": "/ghost-story",
+    "destination": "/fun/ghost-story",
+    "type": 301
+  },
+  {
+    "source": "/ghost-story.html",
+    "destination": "/fun/ghost-story.html",
+    "type": 301
+  },
+  {
+    "source": "/fortune-stick",
+    "destination": "/fun/fortune-stick",
+    "type": 301
+  },
+  {
+    "source": "/fortune-stick.html",
+    "destination": "/fun/fortune-stick.html",
+    "type": 301
+  },
+  {
+    "source": "/rp-test",
+    "destination": "/fun/rp-test",
+    "type": 301
+  },
+  {
+    "source": "/rp-test.html",
+    "destination": "/fun/rp-test.html",
+    "type": 301
+  },
+  {
+    "source": "/jinyong",
+    "destination": "/fun/jinyong",
+    "type": 301
+  },
+  {
+    "source": "/jinyong.html",
+    "destination": "/fun/jinyong.html",
+    "type": 301
+  },
+  {
+    "source": "/lucky-number",
+    "destination": "/fun/lucky-number",
+    "type": 301
+  },
+  {
+    "source": "/lucky-number.html",
+    "destination": "/fun/lucky-number.html",
+    "type": 301
+  },
+  {
+    "source": "/alchemist",
+    "destination": "/fun/alchemist",
+    "type": 301
+  },
+  {
+    "source": "/alchemist.html",
+    "destination": "/fun/alchemist.html",
+    "type": 301
+  },
+  {
+    "source": "/lucky-draw",
+    "destination": "/fun/lucky-draw",
+    "type": 301
+  },
+  {
+    "source": "/lucky-draw.html",
+    "destination": "/fun/lucky-draw.html",
+    "type": 301
+  },
+  {
+    "source": "/numerology",
+    "destination": "/spiritual/numerology",
+    "type": 301
+  },
+  {
+    "source": "/numerology.html",
+    "destination": "/spiritual/numerology.html",
+    "type": 301
+  },
+  {
+    "source": "/enneagram",
+    "destination": "/spiritual/enneagram",
+    "type": 301
+  },
+  {
+    "source": "/enneagram.html",
+    "destination": "/spiritual/enneagram.html",
+    "type": 301
+  },
+  {
+    "source": "/chakra",
+    "destination": "/spiritual/chakra",
+    "type": 301
+  },
+  {
+    "source": "/chakra.html",
+    "destination": "/spiritual/chakra.html",
+    "type": 301
+  },
+  {
+    "source": "/hawkins",
+    "destination": "/spiritual/hawkins",
+    "type": 301
+  },
+  {
+    "source": "/hawkins.html",
+    "destination": "/spiritual/hawkins.html",
+    "type": 301
+  },
+  {
+    "source": "/world-flags",
+    "destination": "/world/world-flags",
+    "type": 301
+  },
+  {
+    "source": "/world-flags.html",
+    "destination": "/world/world-flags.html",
+    "type": 301
+  },
+  {
+    "source": "/population",
+    "destination": "/world/population",
+    "type": 301
+  },
+  {
+    "source": "/population.html",
+    "destination": "/world/population.html",
+    "type": 301
+  },
+  {
+    "source": "/coat-of-arms",
+    "destination": "/world/coat-of-arms",
+    "type": 301
+  },
+  {
+    "source": "/coat-of-arms.html",
+    "destination": "/world/coat-of-arms.html",
+    "type": 301
+  },
+  {
+    "source": "/ethnic-china",
+    "destination": "/world/ethnic-china",
+    "type": 301
+  },
+  {
+    "source": "/ethnic-china.html",
+    "destination": "/world/ethnic-china.html",
+    "type": 301
+  },
+  {
+    "source": "/national-anthem",
+    "destination": "/world/national-anthem",
+    "type": 301
+  },
+  {
+    "source": "/national-anthem.html",
+    "destination": "/world/national-anthem.html",
+    "type": 301
+  },
+  {
+    "source": "/ufo",
+    "destination": "/world/ufo",
+    "type": 301
+  },
+  {
+    "source": "/ufo.html",
+    "destination": "/world/ufo.html",
+    "type": 301
+  },
+  {
+    "source": "/monster",
+    "destination": "/world/monster",
+    "type": 301
+  },
+  {
+    "source": "/monster.html",
+    "destination": "/world/monster.html",
+    "type": 301
+  },
+  {
+    "source": "/national-symbol",
+    "destination": "/world/national-symbol",
+    "type": 301
+  },
+  {
+    "source": "/national-symbol.html",
+    "destination": "/world/national-symbol.html",
+    "type": 301
+  }
+]

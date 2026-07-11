@@ -17,10 +17,25 @@
     pageZoom: 100,
   };
 
+  function migrateKey(nextKey, legacyKey) {
+    try {
+      if (localStorage.getItem(nextKey) != null) return;
+      var legacy = localStorage.getItem(legacyKey);
+      if (legacy == null) return;
+      localStorage.setItem(nextKey, legacy);
+      localStorage.removeItem(legacyKey);
+    } catch (e) {
+      /* file:// or quota */
+    }
+  }
+
   function readPrefs() {
+    migrateKey('mytoolife-user-prefs', 'watools-user-prefs');
+    migrateKey('mytoolife-font-size', 'watools-font-size');
+
     var prefs = {};
     try {
-      var raw = localStorage.getItem('watools-user-prefs');
+      var raw = localStorage.getItem('mytoolife-user-prefs');
       if (raw) prefs = JSON.parse(raw) || {};
     } catch (e) {
       prefs = {};
@@ -28,7 +43,8 @@
 
     if (!prefs.fontSize) {
       try {
-        var legacy = localStorage.getItem('watools-font-size');
+        var legacy = localStorage.getItem('mytoolife-font-size')
+          || localStorage.getItem('watools-font-size');
         prefs.fontSize = legacy === 'sm' || legacy === 'lg' ? legacy : 'md';
       } catch (err) {
         prefs.fontSize = 'md';
@@ -77,12 +93,14 @@
   apply(readPrefs());
 
   function isToolPagePath() {
-    var page = (location.pathname.split('/').pop() || 'index.html').split('#')[0].split('?')[0];
+    var path = location.pathname.replace(/\\/g, '/');
+    if (/\/scripture\//i.test(path)) return false;
+    var segs = path.split('/').filter(Boolean);
+    var page = (segs.pop() || 'index.html').split('#')[0].split('?')[0];
     if (!/\.html$/i.test(page)) return false;
-    if (page === 'index.html' || page === 'index_plan.html' || page === 'settings.html' || page === 'sitemap.html') {
-      return false;
-    }
-    return true;
+    if (page === 'index.html' || page === 'index_plan.html' || page === 'copyright.html') return false;
+    if (page === 'settings.html' && segs.length === 0) return false;
+    return segs.length >= 1;
   }
 
   if (isToolPagePath()) {

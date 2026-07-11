@@ -11,7 +11,12 @@
   let updatedLine = '';
 
   function rootPrefix() {
-    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/')) ? '../' : '';
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
+    const path = location.pathname.replace(/\\/g, '/');
+    if (/\/scripture\/[^/]+\.html$/i.test(path)) return '../';
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length <= 1) return '';
+    return '../'.repeat(segs.length - 1);
   }
 
   function manifestUrl() {
@@ -64,7 +69,7 @@
         if (published && setsEqual(next, published)) return;
         published = next;
         loadPromise = Promise.resolve(published);
-        window.dispatchEvent(new CustomEvent('watools:publish-changed'));
+        window.dispatchEvent(new CustomEvent('mytoolife:publish-changed'));
       } catch {
         /* ignore */
       }
@@ -115,7 +120,7 @@
     const sorted = [...slugs].sort((a, b) => a.localeCompare(b, 'zh-Hant'));
     const ts = note || new Date().toISOString();
     return [
-      '# WaWaTools 發布清單',
+      '# MyTooLife 發布清單',
       '# 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。',
       '# 以 # 開頭為註解；空行略過。一行一個 slug。',
       `# updated: ${ts}`,

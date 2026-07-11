@@ -33,7 +33,7 @@
           <div class="row gy-4">
             ${category.tools.map((tool) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="${tool.slug}.html" class="tool-card tool-card-ready">
+                <a href="${category.id}/${tool.slug}.html" class="tool-card tool-card-ready">
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                   <div class="tool-card-body">
                     <h3>${tool.title}</h3>
@@ -52,7 +52,7 @@
     renderCatalog().catch(() => {});
   });
 
-  window.addEventListener('watools:publish-changed', () => {
+  window.addEventListener('mytoolife:publish-changed', () => {
     renderCatalog().catch(() => {});
   });
 })();

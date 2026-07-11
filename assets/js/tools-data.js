@@ -15,7 +15,12 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'torch', title: '手電筒', icon: 'bi-lightbulb-fill', desc: '閃光燈或螢幕照明，黑掉的地方先救再說。', ready: true },
       { slug: 'ip', title: '地理位置查詢', icon: 'bi-geo-alt', desc: '查 IP 在哪，順便確認 VPN 有沒有在摸魚。' },
       { slug: 'qrcode-scan', title: '掃碼器', icon: 'bi-upc-scan', desc: '對準 QR Code，比手動輸入有尊嚴。' },
-      { slug: 'qrcode', title: 'QR Code 產生器', icon: 'bi-qr-code', desc: '把連結變方塊，掃描率看運氣。' }
+      { slug: 'qrcode', title: 'QR Code 產生器', icon: 'bi-qr-code', desc: '把連結變方塊，掃描率看運氣。' },
+      { slug: 'guid', title: 'GUID 產生器', icon: 'bi-diagram-2', desc: 'UUID v4 一次多筆，測試資料不重複。' },
+      { slug: 'random-number', title: '隨機數產生器', icon: 'bi-shuffle', desc: '指定範圍亂數，抽籤公平靠 RNG。' },
+      { slug: 'whois', title: '域名 Whois', icon: 'bi-globe', desc: '查域名註冊資訊，過期時間先看好。' },
+      { slug: 'batch-open-url', title: '批量開網址', icon: 'bi-box-arrow-up-right', desc: '多個 URL 一次開分頁，測試連結用。' },
+      { slug: 'user-agent', title: 'User Agent', icon: 'bi-info-square', desc: '瀏覽器 UA 字串一覽，爬蟲偽裝前先看。' }
     ]
   },
   {
@@ -30,7 +35,9 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'image-coordinate', title: '圖片座標', icon: 'bi-crosshair', desc: '滑鼠指哪，像素座標就到哪。' },
       { slug: 'music-player', title: '網頁音樂播放器', icon: 'bi-music-note-beamed', desc: '本地音樂瀏覽器播放，版權自己負責。' },
       { slug: 'media-player', title: 'Web 影片播放器', icon: 'bi-film', desc: '拖進來就能播，省得找播放器。' },
-      { slug: 'drawing', title: '塗鴉板', icon: 'bi-brush', desc: '藝術家天賦 optional，塗鴉 mandatory。' }
+      { slug: 'drawing', title: '塗鴉板', icon: 'bi-brush', desc: '藝術家天賦 optional，塗鴉 mandatory。' },
+      { slug: 'barcode', title: '條碼產生器', icon: 'bi-upc-scan', desc: 'EAN、Code128 等條碼生成，包裝 mockup 用。' },
+      { slug: 'image-compress', title: '圖片壓縮', icon: 'bi-file-earmark-zip', desc: '本地壓縮 JPG/PNG，不上傳伺服器。' }
     ]
   },
   {
@@ -57,7 +64,15 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'keyboard-mouse', title: '鍵盤與滑鼠', icon: 'bi-mouse', desc: '測試輸入裝置，確認不是手殘是硬體。' },
       { slug: 'seo-search', title: 'SEO Search', icon: 'bi-search', desc: '收錄、反鏈查詢連結，robots / sitemap 檢測。' },
       { slug: 'sitemap', title: 'SiteMap 產生器', icon: 'bi-diagram-3', desc: 'XML / HTML 網站地圖，爬蟲不迷路。' },
-      { slug: 'seo-keyword', title: 'SEO Keyword', icon: 'bi-tags', desc: '關鍵字排名，看看誰在搜你。' }
+      { slug: 'seo-keyword', title: 'SEO Keyword', icon: 'bi-tags', desc: '關鍵字排名，看看誰在搜你。' },
+      { slug: 'json-editor', title: 'JSON 編輯器', icon: 'bi-braces', desc: '格式化、驗證、摺疊 JSON，API 回應整理用。' },
+      { slug: 'sql-formatter', title: 'SQL 格式化', icon: 'bi-database', desc: 'SQL 美化或壓縮，可讀性拯救計畫。' },
+      { slug: 'regex-test', title: '正則測試', icon: 'bi-slash-circle', desc: '即時匹配測試，regex 寫完先驗再說。' },
+      { slug: 'crontab-calc', title: 'Crontab 計算', icon: 'bi-clock-history', desc: 'Cron 表達式對照下次執行時間。' },
+      { slug: 'naming-converter', title: '命名轉換', icon: 'bi-input-cursor-text', desc: 'camelCase、snake_case、kebab-case 一鍵互轉。' },
+      { slug: 'json-to-typescript', title: 'JSON 轉 TypeScript', icon: 'bi-filetype-ts', desc: 'JSON 自動推斷型別，interface 懶人包。' },
+      { slug: 'timestamp', title: '時間戳轉換', icon: 'bi-hourglass-split', desc: 'Unix 時間戳與日期時間互轉，時區自己對。' },
+      { slug: 'timestamp-batch', title: '時間戳批量', icon: 'bi-hourglass-bottom', desc: '多筆時間戳一次轉，日誌分析前處理。' }
     ]
   },
   {
@@ -72,7 +87,15 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'wordcount', title: '字數計算器', icon: 'bi-text-paragraph', desc: '字數、行數、段落，交稿前最後檢查。' },
       { slug: 'colorfont', title: '漸變彩字', icon: 'bi-palette2', desc: '多彩漸層文字，標題吸睛用。' },
       { slug: 'bbcode', title: 'BBCode 轉換', icon: 'bi-code', desc: 'HTML 與 BBCode 互轉，論壇時代遺產。' },
-      { slug: 'unicode-converter', title: 'Unicode 編碼轉換', icon: 'bi-binary', desc: 'Unicode 與字元互轉，編碼不再猜。' }
+      { slug: 'unicode-converter', title: 'Unicode 編碼轉換', icon: 'bi-binary', desc: 'Unicode 與字元互轉，編碼不再猜。' },
+      { slug: 'text-replace', title: '文本替換', icon: 'bi-arrow-left-right', desc: '批次找換關鍵字，比 Ctrl+H 適合整段處理。' },
+      { slug: 'text-reverse', title: '文本反轉排序', icon: 'bi-sort-down', desc: '行序反轉、字序倒寫，整人或被整都靠它。' },
+      { slug: 'line-number', title: '文本加序號', icon: 'bi-list-ol', desc: '每行前自動編號，清單終於像清單。' },
+      { slug: 'text-to-html', title: '文本轉 HTML', icon: 'bi-filetype-html', desc: '換行變 <br>、段落變 <p>，懶得上 Markdown 時用。' },
+      { slug: 'word-frequency', title: '詞頻統計', icon: 'bi-bar-chart', desc: '看哪個字詞出現最勤，寫稿自我檢查用。' },
+      { slug: 'duplicate-check', title: '內容重複率', icon: 'bi-intersect', desc: '兩段文字有多像？洗稿檢測（僅供參考）。' },
+      { slug: 'fancy-font', title: '花體英文', icon: 'bi-type-strikethrough', desc: '普通字母變 Unicode 花體，社群限動標題用。' },
+      { slug: 'full-half', title: '全形半形轉換', icon: 'bi-distribute-horizontal', desc: '全形半形互轉，標點對齊不再靠肉眼。' }
     ]
   },
   {
@@ -84,7 +107,11 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'email-icon', title: '電子郵件圖示', icon: 'bi-envelope-at', desc: 'Email 轉 PNG 圖片或文字混淆，降低公開網頁被爬蟲收集的風險。' },
       { slug: 'textencrypt', title: '文字加密', icon: 'bi-lock', desc: '本地 XOR 加密文字並輸出 Base64 密文，了解對稱加密概念（非工業級安全）。' },
       { slug: 'longurl', title: '短網址還原', icon: 'bi-link', desc: '還原 bit.ly、t.co、0rz.tw 等短網址的真實 URL，點擊前先確認目的地。' },
-      { slug: 'url-crypto', title: '網址加密', icon: 'bi-key', desc: 'URL 16 進制加密／解密，支援 encodeURI、escape、ASP URLDecode 等格式。' }
+      { slug: 'url-crypto', title: '網址加密', icon: 'bi-key', desc: 'URL 16 進制加密／解密，支援 encodeURI、escape、ASP URLDecode 等格式。' },
+      { slug: 'base64', title: 'Base64 編解碼', icon: 'bi-braces-asterisk', desc: '文字、圖片 Base64 互轉，API 除錯必備。' },
+      { slug: 'hash-tool', title: 'MD5 / SHA 雜湊', icon: 'bi-fingerprint', desc: 'MD5、SHA-1、SHA-256 一次算，校對檔案用。' },
+      { slug: 'aes-crypto', title: 'AES 加解密', icon: 'bi-shield-fill-check', desc: '對稱加密試玩，密鑰自己記好。' },
+      { slug: 'morse-code', title: '摩斯電碼', icon: 'bi-broadcast', desc: '文字與 ·− 互轉，業餘無線電入門儀式。' }
     ]
   },
   {
@@ -149,7 +176,21 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'kinship', title: '親戚計算機', icon: 'bi-people', desc: '三姑六婆怎麼叫？機器比人親。' },
       { slug: 'parenting', title: '育兒工具', icon: 'bi-heart-pulse', desc: '婦幼資訊、親屬表，新手爸媽救星。' },
       { slug: 'car-brand', title: '汽車品牌', icon: 'bi-car-front', desc: '各國車標圖鑑，路上認車用。' },
-      { slug: 'world-cup', title: '世界盃足球賽', icon: 'bi-trophy', desc: 'FIFA 專題，四年一次的集體狂歡。' }
+      { slug: 'world-cup', title: '世界盃足球賽', icon: 'bi-trophy', desc: 'FIFA 專題，四年一次的集體狂歡。' },
+      { slug: 'datetime-calc', title: '日期時間計算', icon: 'bi-calendar-plus', desc: '兩日期相差幾天、加減 N 天，排程心算器。' },
+      { slug: 'english-date', title: '英文日期格式', icon: 'bi-calendar3', desc: '2026-07-11 變 July 11, 2026，英文信開頭用。' },
+      { slug: 'stopwatch', title: '線上碼表', icon: 'bi-stopwatch', desc: '計時、計圈，煮麵與 Pomodoro 兩用。' },
+      { slug: 'expiry-date', title: '保存期限計算', icon: 'bi-calendar-check', desc: '生產日加保存天數，過期日一眼知。' },
+      { slug: 'radix-converter', title: '進制轉換', icon: 'bi-123', desc: '二、八、十、十六進制互轉，位元運算前必備。' },
+      { slug: 'unit-length', title: '長度換算', icon: 'bi-rulers', desc: '公尺英尺英里，出國量家具不猜。' },
+      { slug: 'unit-weight', title: '重量換算', icon: 'bi-speedometer2', desc: '公斤磅盎司，食譜與健身都適用。' },
+      { slug: 'unit-volume', title: '體積換算', icon: 'bi-droplet', desc: '升加侖毫升，烘焙不再靠感覺。' },
+      { slug: 'unit-area', title: '面積換算', icon: 'bi-bounding-box', desc: '平方公尺、坪、英畝，買地看房參考。' },
+      { slug: 'unit-byte', title: '位元組換算', icon: 'bi-hdd', desc: 'KB MB GB TB，硬碟容量不再被 1024 整。' },
+      { slug: 'unit-temperature', title: '溫度換算', icon: 'bi-thermometer-half', desc: '攝氏華氏開氏，看國外天氣不懵。' },
+      { slug: 'unit-pressure', title: '壓力換算', icon: 'bi-wind', desc: 'Pa、bar、psi 互轉，工程與單車胎壓。' },
+      { slug: 'geo-coordinate', title: '座標格式轉換', icon: 'bi-geo', desc: '度分秒與十進制度互轉，地圖 API 座標整理用。' },
+      { slug: 'bmi', title: 'BMI 計算', icon: 'bi-heart-pulse', desc: '身高體重算 BMI，健康參考而非判決。' }
     ]
   },
   {
@@ -166,7 +207,8 @@ window.WA_TOOLS_CATALOG = [
       { slug: 'jinyong', title: '金庸人物卜', icon: 'bi-book-half', desc: '你是哪個武俠角色？江湖等你。' },
       { slug: 'lucky-number', title: '幸運號碼', icon: 'bi-dice-5', desc: '下一顆球幾號？彩券夢想製造機。' },
       { slug: 'alchemist', title: '人體鍊成陣', icon: 'bi-circle-square', desc: '人體成分分析，FA 迷的儀式感。' },
-      { slug: 'lucky-draw', title: '幸運大抽獎', icon: 'bi-gift', desc: '線上抽獎機，公平性由 RNG 保證。' }
+      { slug: 'lucky-draw', title: '幸運大抽獎', icon: 'bi-gift', desc: '線上抽獎機，公平性由 RNG 保證。' },
+      { slug: 'reaction-test', title: '反應速度測試', icon: 'bi-lightning', desc: '看到就按，測毫秒反應，輸了別怪滑鼠。' }
     ]
   },
   {

@@ -56,7 +56,7 @@
 
     return `
       ${linkCell(prev, 'prev', '上一篇')}
-      <a href="../scriptures.html#scriptures-${group.id}" class="btn btn-outline-secondary scripture-pager-home">
+      <a href="../utility/scriptures.html#scriptures-${group.id}" class="btn btn-outline-secondary scripture-pager-home">
         <i class="bi bi-grid me-1"></i>返回分類
       </a>
       ${linkCell(next, 'next', '下一篇')}`;
@@ -79,14 +79,14 @@
     const top = document.querySelector('.scripture-section .scripture-pager-top');
     const bottom = document.querySelector('.scripture-section .scripture-pager-bottom');
 
-    top?.remove();
-
     if (!ctx) {
+      top?.remove();
       bottom?.remove();
       return false;
     }
 
-    updatePagerElement(bottom, ctx, 'bottom');
+    if (top) updatePagerElement(top, ctx, 'top');
+    if (bottom) updatePagerElement(bottom, ctx, 'bottom');
     return true;
   }
 
@@ -99,7 +99,7 @@
     }
   }
 
-  window.addEventListener('watools:publish-changed', () => {
+  window.addEventListener('mytoolife:publish-changed', () => {
     ensurePagerApi()
       .then(() => pagerApi()?.ensureManifest())
       .then(() => injectPagers());

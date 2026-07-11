@@ -3,6 +3,28 @@
 
   const pagerApi = () => window.WA_SITEMAP_PAGER;
 
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function pageTitleFromDocument() {
+    return document.title.replace(/\s*[-–—|]\s*MyTooLife\s*$/i, '').trim() || document.title.trim();
+  }
+
+  function categoryBackHref(categoryId) {
+    if (window.WA_TOOL_URLS) {
+      if (categoryId) return window.WA_TOOL_URLS.categoryIndexHref(categoryId);
+      const fromPath = window.WA_TOOL_URLS.currentCategoryId();
+      if (fromPath) return window.WA_TOOL_URLS.categoryIndexHref(fromPath);
+      return window.WA_TOOL_URLS.indexHref();
+    }
+    return categoryId ? `index.html#cat-${categoryId}` : 'index.html';
+  }
+
   function assetUrl(path) {
     if (typeof window.waAssetUrl === 'function') return window.waAssetUrl(path);
     return path;
@@ -32,6 +54,38 @@
     }
   }
 
+  function renderPageBar(ctx) {
+    const categoryId = ctx?.category?.id || null;
+    const title = ctx?.tool?.title || pageTitleFromDocument();
+    const bar = document.createElement('header');
+    bar.className = 'tool-page-bar';
+    bar.setAttribute('aria-label', '工具頁標題');
+    bar.innerHTML = `
+      <a href="${categoryBackHref(categoryId)}" class="btn btn-outline-secondary tool-page-bar-back scripture-pager-home">
+        <i class="bi bi-grid me-1" aria-hidden="true"></i>返回分類
+      </a>
+      <h1 class="tool-page-bar-title">${escapeHtml(title)}</h1>`;
+    return bar;
+  }
+
+  function injectPageBar() {
+    const container = document.querySelector('.tool-section .container');
+    const app = document.getElementById('tool-app');
+    if (!container || !app) return false;
+
+    const api = pagerApi();
+    const slug = api?.currentToolSlugFromPage?.() || app.dataset.tool || '';
+    let ctx = null;
+    if (api && window.WA_TOOLS_CATALOG && slug) {
+      ctx = api.resolveToolPage?.(slug, window.WA_TOOLS_CATALOG) || null;
+    }
+
+    const existing = container.querySelector('.tool-page-bar');
+    if (existing) existing.remove();
+    container.insertBefore(renderPageBar(ctx), app);
+    return true;
+  }
+
   function renderPager(ctx) {
     const { category, prev, next } = ctx;
 
@@ -48,7 +102,7 @@
       const titleHtml = kind === 'prev'
         ? `<span class="scripture-pager-row">${chevron}<span class="scripture-pager-title">${tool.title}</span></span>`
         : `<span class="scripture-pager-row"><span class="scripture-pager-title">${tool.title}</span>${chevron}</span>`;
-      return `<a href="${tool.slug}.html" class="scripture-pager-link scripture-pager-${kind}">
+      return `<a href="${window.WA_TOOL_URLS ? window.WA_TOOL_URLS.toolHref(tool.slug) : `${tool.slug}.html`}" class="scripture-pager-link scripture-pager-${kind}">
         <span class="scripture-pager-label">${label}</span>
         ${titleHtml}
       </a>`;
@@ -59,7 +113,7 @@
     nav.setAttribute('aria-label', '分類導覽');
     nav.innerHTML = `
       ${linkCell(prev, 'prev', '上一篇')}
-      <a href="index.html#cat-${category.id}" class="btn btn-outline-secondary scripture-pager-home">
+      <a href="${window.WA_TOOL_URLS ? window.WA_TOOL_URLS.categoryIndexHref(category.id) : `index.html#cat-${category.id}`}" class="btn btn-outline-secondary scripture-pager-home">
         <i class="bi bi-grid me-1"></i>${category.name}
       </a>
       ${linkCell(next, 'next', '下一篇')}`;
@@ -106,31 +160,46 @@
   }
 
   async function boot() {
+    injectPageBar();
     ensurePagerPlaceholders();
     await ensurePagerApi();
     await pagerApi()?.ensureManifest();
+    injectPageBar();
     if (injectPagers()) return;
     if (window.WA_TOOLS_CATALOG) {
-      requestAnimationFrame(() => injectPagers());
+      requestAnimationFrame(() => {
+        injectPageBar();
+        injectPagers();
+      });
       return;
     }
-    window.addEventListener('watools:catalog-ready', () => injectPagers(), { once: true });
+    window.addEventListener('mytoolife:catalog-ready', () => {
+      injectPageBar();
+      injectPagers();
+    }, { once: true });
   }
 
   window.__waInjectToolCategoryPager = async () => {
     await ensurePagerApi();
     await pagerApi()?.ensureManifest();
+    injectPageBar();
     return injectPagers();
   };
   window.__waEnsurePagerPlaceholders = ensurePagerPlaceholders;
 
-  window.addEventListener('watools:publish-changed', () => {
+  window.addEventListener('mytoolife:publish-changed', () => {
     ensurePagerApi()
       .then(() => pagerApi()?.ensureManifest())
-      .then(() => injectPagers());
+      .then(() => {
+        injectPageBar();
+        injectPagers();
+      });
   });
 
-  if (document.body) ensurePagerPlaceholders();
+  if (document.body) {
+    injectPageBar();
+    ensurePagerPlaceholders();
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {

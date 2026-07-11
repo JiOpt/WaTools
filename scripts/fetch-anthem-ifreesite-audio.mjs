@@ -1,5 +1,5 @@
 /**
- * Map WaWaTools anthem codes to ifreesite MP4 URLs.
+ * Map MyTooLife anthem codes to ifreesite MP4 URLs.
  * Source: https://www.ifreesite.com/world/national-anthem.htm
  * Run: node scripts/fetch-anthem-ifreesite-audio.mjs
  */
@@ -266,7 +266,7 @@ function parseIfreesite(html) {
 
 async function main() {
   const res = await fetch(SOURCE_URL, {
-    headers: { 'User-Agent': 'WaWaTools/1.0 (anthem-audio map)' },
+    headers: { 'User-Agent': 'MyTooLife/1.0 (anthem-audio map)' },
   });
   if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
   const html = await res.text();

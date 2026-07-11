@@ -25,7 +25,7 @@
     if (!slot) return;
 
     const cfg = window.WA_SITE_FOOTER || {};
-    const siteName = cfg.siteName || 'WaWaTools';
+    const siteName = cfg.siteName || 'MyTooLife';
     const tagline = cfg.tagline || '實用小工具，解決小麻煩';
     const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
@@ -109,7 +109,7 @@
       if (window.WA_TOOLS_CATALOG || !document.getElementById('tool-app')) {
         bootSitemap();
       } else {
-        window.addEventListener('watools:catalog-ready', bootSitemap, { once: true });
+        window.addEventListener('mytoolife:catalog-ready', bootSitemap, { once: true });
         window.setTimeout(bootSitemap, 15000);
       }
     };
@@ -124,6 +124,9 @@
   if (document.getElementById('tool-app')) {
     if (!document.querySelector('script[src*="tools-data.js"]')) {
       injectScript('assets/js/tools-data.js');
+    }
+    if (!document.querySelector('script[src*="tool-urls.js"]')) {
+      injectScript('assets/js/tool-urls.js');
     }
     if (!document.querySelector('script[src*="sitemap-manifest.js"]')) {
       injectScript('assets/js/sitemap-manifest.js', { defer: true });
@@ -144,6 +147,10 @@
     if (!document.querySelector('script[src*="scripture-pager.js"]')) {
       injectScript('assets/js/scripture-pager.js');
     }
+  }
+
+  if (document.querySelector('#header .branding') && !document.querySelector('script[src*="tool-urls.js"]')) {
+    injectScript('assets/js/tool-urls.js', { defer: true });
   }
 
   if (document.querySelector('#header .branding') && !document.querySelector('script[src*="sitemap-pager.js"]')) {
@@ -167,11 +174,11 @@
       const catalogScript = document.createElement('script');
       catalogScript.src = waAssetUrl('assets/js/tools-data.js');
       catalogScript.onload = () => {
-        window.dispatchEvent(new Event('watools:catalog-ready'));
+        window.dispatchEvent(new Event('mytoolife:catalog-ready'));
       };
       (document.head || document.body).appendChild(catalogScript);
     } else {
-      window.dispatchEvent(new Event('watools:catalog-ready'));
+      window.dispatchEvent(new Event('mytoolife:catalog-ready'));
     }
   }
 

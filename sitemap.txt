@@ -1,16 +1,16 @@
-# WaWaTools 發布清單
+# MyTooLife 發布清單
 # 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。
 # 以 # 開頭為註解；空行略過。一行一個 slug。
-# updated: 2026-07-11T02:52:11.035Z
+# updated: 2026-07-11T03:43:25.518Z
 
-calculatortool
 coat-of-arms
 ethnic-china
-id-generator
 monster
 national-anthem
 national-symbol
 population
 scriptures
 seo-keyword
+settings
+whois
 world-flags

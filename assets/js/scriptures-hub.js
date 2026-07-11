@@ -16,7 +16,7 @@
           <div class="row gy-4">
             ${category.books.map((book) => `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <a href="scripture/${book.slug}.html" class="tool-card tool-card-ready scripture-card">
+                <a href="../scripture/${book.slug}.html" class="tool-card tool-card-ready scripture-card">
                   <div class="tool-card-icon"><i class="bi bi-journal-richtext"></i></div>
                   <div class="tool-card-body">
                     <h3>${book.title}</h3>

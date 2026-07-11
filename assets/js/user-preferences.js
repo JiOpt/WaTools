@@ -1,8 +1,25 @@
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'watools-user-prefs';
-  var LEGACY_FONT_KEY = 'watools-font-size';
+  var STORAGE_KEY = 'mytoolife-user-prefs';
+  var LEGACY_FONT_KEY = 'mytoolife-font-size';
+  var OLD_STORAGE_KEY = 'watools-user-prefs';
+  var OLD_FONT_KEY = 'watools-font-size';
+
+  function migrateLegacyStorage() {
+    try {
+      if (!localStorage.getItem(STORAGE_KEY) && localStorage.getItem(OLD_STORAGE_KEY)) {
+        localStorage.setItem(STORAGE_KEY, localStorage.getItem(OLD_STORAGE_KEY));
+        localStorage.removeItem(OLD_STORAGE_KEY);
+      }
+      if (!localStorage.getItem(LEGACY_FONT_KEY) && localStorage.getItem(OLD_FONT_KEY)) {
+        localStorage.setItem(LEGACY_FONT_KEY, localStorage.getItem(OLD_FONT_KEY));
+        localStorage.removeItem(OLD_FONT_KEY);
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  }
 
   var DEFAULTS = {
     theme: 'light',
@@ -16,6 +33,7 @@
   };
 
   function readRaw() {
+    migrateLegacyStorage();
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return {};
@@ -30,7 +48,7 @@
     var prefs = Object.assign({}, DEFAULTS, readRaw());
     if (!readRaw().fontSize) {
       try {
-        var legacy = localStorage.getItem(LEGACY_FONT_KEY);
+        var legacy = localStorage.getItem(LEGACY_FONT_KEY) || localStorage.getItem(OLD_FONT_KEY);
         if (legacy === 'sm' || legacy === 'lg') prefs.fontSize = legacy;
       } catch (err) {
         /* ignore */
@@ -48,7 +66,7 @@
       /* file:// or quota */
     }
     apply(next);
-    window.dispatchEvent(new CustomEvent('watools:prefs-changed', { detail: next }));
+    window.dispatchEvent(new CustomEvent('mytoolife:prefs-changed', { detail: next }));
     return next;
   }
 
@@ -82,7 +100,7 @@
     }
     var defaults = Object.assign({}, DEFAULTS);
     apply(defaults);
-    window.dispatchEvent(new CustomEvent('watools:prefs-changed', { detail: defaults }));
+    window.dispatchEvent(new CustomEvent('mytoolife:prefs-changed', { detail: defaults }));
     return defaults;
   }
 
@@ -275,7 +293,7 @@
           },
         }, ['恢復預設']),
       ]),
-      el('p', { className: 'prefs-note text-muted', text: '設定會儲存在此瀏覽器，套用至 WaWaTools 全站所有頁面。' }),
+      el('p', { className: 'prefs-note text-muted', text: '設定會儲存在此瀏覽器，套用至 MyTooLife 全站所有頁面。' }),
     ]);
 
     form.addEventListener('change', function (e) {

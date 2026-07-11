@@ -4,6 +4,7 @@
     "cleanup:anthems": "node scripts/cleanup-national-anthem-data.mjs",
     "merge:anthems": "node scripts/merge-anthem-enrich.mjs",
     "sitemap:build": "node scripts/build-sitemap-js.mjs",
+    "tools:migrate-folders": "node scripts/migrate-tool-folders.mjs",
     "plan:serve": "node scripts/plan-dev-server.mjs"
   },
   "devDependencies": {

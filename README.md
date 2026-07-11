@@ -1,6 +1,6 @@
-# WaWaTools
+# MyTooLife
 
-免安裝 挖工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
+免安裝 **mytoolife** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
 - 網站：<https://watoolio.web.app>（**v0.6.1**）
 - Firebase 專案：`watoolio`
@@ -86,7 +86,7 @@ npm run sitemap:build
 ### sitemap.txt 格式
 
 ```text
-# WaWaTools 發布清單
+# MyTooLife 發布清單
 # updated: 2026-07-11T02:18:48.631Z
 
 scriptures
@@ -126,7 +126,7 @@ calculatortool
 ```bash
 npm install -g firebase-tools
 firebase login
-firebase init hosting   # 選 WaWaTools 資料夾；public 目錄填 .
+firebase init hosting   # 選 MyTooLife 資料夾；public 目錄填 .
 firebase deploy --project watoolio
 ```
 

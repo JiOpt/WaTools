@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'watools-nav-history';
+  const STORAGE_KEY = 'mytoolife-nav-history';
 
   function isInScriptureDir() {
     return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
@@ -157,7 +157,7 @@
       if (e.key === STORAGE_KEY && !panel.hidden) renderHistory();
     });
 
-    window.addEventListener('watools:nav-history', () => {
+    window.addEventListener('mytoolife:nav-history', () => {
       if (!panel.hidden) renderHistory();
     });
 

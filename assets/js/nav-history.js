@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'watools-nav-history';
+  const STORAGE_KEY = 'mytoolife-nav-history';
   const MAX_ITEMS = 30;
   const NAV_MAX = 7;
-  const NAV_SKIP_HREFS = new Set(['index.html', 'settings.html']);
+  const NAV_SKIP_HREFS = new Set(['index.html', 'settings.html', 'utility/settings.html']);
   const NAV_SKIP_TITLES = new Set(['工具首頁', '個人化設定']);
   let memoryStore = null;
 
@@ -12,12 +12,33 @@
     return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
   }
 
+  function isInCategoryDir() {
+    const path = location.pathname.replace(/\\/g, '/');
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length < 2) return false;
+    return /\.html$/i.test(segs[segs.length - 1]) && !/\/scripture\//i.test(path);
+  }
+
+  function siteRootPrefix() {
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
+    const path = location.pathname.replace(/\\/g, '/');
+    if (/\/scripture\/[^/]+\.html$/i.test(path)) return '../';
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length <= 1) return '';
+    return '../'.repeat(segs.length - 1);
+  }
+
   function pageHref() {
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentPageKey();
     const path = location.pathname.replace(/\\/g, '/');
     const scriptureMatch = path.match(/\/scripture\/([^/?#]+\.html)$/);
     if (scriptureMatch) return `scripture/${scriptureMatch[1]}`;
 
-    const name = path.split('/').pop();
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length >= 2) {
+      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+    }
+    const name = segs[0] || '';
     if (!name || name === '') return 'index.html';
     return name.split('?')[0].split('#')[0];
   }
@@ -34,14 +55,27 @@
     if (isInScriptureDir() && canonical.startsWith('scripture/')) {
       return canonical.slice('scripture/'.length);
     }
-    return canonical;
+    if (isInScriptureDir() && !canonical.startsWith('scripture/')) {
+      return `../${canonical}`;
+    }
+
+    const prefix = siteRootPrefix();
+    if (canonical.includes('/')) {
+      if (prefix) return `${prefix}${canonical}`;
+      return canonical;
+    }
+
+    if (window.WA_TOOL_URLS && canonical.endsWith('.html')) {
+      return window.WA_TOOL_URLS.toolHref(canonical.replace(/\.html$/, ''));
+    }
+    return prefix ? `${prefix}${canonical}` : canonical;
   }
 
   function pageTitle() {
     const h1 = document.querySelector('.page-title .heading h1')
-      || document.querySelector('.watools-hero h1');
+      || document.querySelector('.mytoolife-hero h1');
     if (h1 && h1.textContent.trim()) return h1.textContent.trim();
-    return document.title.replace(/\s*[-–—]\s*WaWaTools.*$/i, '').trim() || pageHref();
+    return document.title.replace(/\s*[-–—]\s*MyTooLife.*$/i, '').trim() || pageHref();
   }
 
   function readStore() {
@@ -61,7 +95,7 @@
     } catch {
       /* file:// or quota — keep in memory for session */
     }
-    window.dispatchEvent(new CustomEvent('watools:nav-history'));
+    window.dispatchEvent(new CustomEvent('mytoolife:nav-history'));
   }
 
   function recordVisit() {

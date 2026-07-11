@@ -1,5 +1,5 @@
 /**
- * Build slug -> implementation chunk map from part1/2/3 + per-page data scripts.
+ * Build slug -> implementation chunk map from part1/2/3/wawa + per-page data scripts.
  * Run: node scripts/build-tool-chunks.mjs
  */
 import fs from 'fs';
@@ -13,6 +13,7 @@ const PARTS = [
   { id: 1, file: 'tools-implementations-part1.js' },
   { id: 2, file: 'tools-implementations-part2.js' },
   { id: 3, file: 'tools-implementations-part3.js' },
+  { id: 4, file: 'tools-implementations-wawa.js' },
 ];
 
 const SKIP_JS = new Set([
@@ -25,13 +26,19 @@ const SKIP_JS = new Set([
   'tools-implementations-part1.js',
   'tools-implementations-part2.js',
   'tools-implementations-part3.js',
+  'tools-implementations-wawa.js',
 ]);
+
+const CATEGORY_DIRS = [
+  'utility', 'dev', 'editor', 'security', 'media', 'life', 'fun',
+  'culture', 'symbols', 'spiritual', 'world', 'scripture',
+];
 
 function slugFromPart(content, partId) {
   const map = {};
-  for (const m of content.matchAll(/R\['([^']+)'\]\s*=/g)) {
-    map[m[1]] = partId;
-  }
+  for (const m of content.matchAll(/R\['([^']+)'\]\s*=/g)) map[m[1]] = partId;
+  for (const m of content.matchAll(/R\.([a-zA-Z][\w-]*)\s*=\s*function/g)) map[m[1]] = partId;
+  for (const m of content.matchAll(/makeUnitTool\(\s*['"]([^'"]+)['"]/g)) map[m[1]] = partId;
   return map;
 }
 
@@ -45,18 +52,34 @@ function extrasFromHtml(html) {
   return extras;
 }
 
+function collectToolHtmlFiles() {
+  const files = [];
+  const rootHtml = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && f !== 'index.html' && f !== 'index_plan.html');
+  rootHtml.forEach((f) => files.push({ file: f, dir: ROOT }));
+
+  for (const cat of CATEGORY_DIRS) {
+    const dir = path.join(ROOT, cat);
+    if (!fs.existsSync(dir)) continue;
+    fs.readdirSync(dir)
+      .filter((f) => f.endsWith('.html'))
+      .forEach((f) => files.push({ file: f, dir }));
+  }
+  return files;
+}
+
 const slugPart = {};
 for (const { id, file } of PARTS) {
-  const text = fs.readFileSync(path.join(ROOT, 'assets', 'js', file), 'utf8');
+  const filePath = path.join(ROOT, 'assets', 'js', file);
+  if (!fs.existsSync(filePath)) continue;
+  const text = fs.readFileSync(filePath, 'utf8');
   Object.assign(slugPart, slugFromPart(text, id));
 }
 
-const htmlFiles = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && f !== 'index.html' && f !== 'index_plan.html');
 const chunks = {};
 
-for (const file of htmlFiles) {
+for (const { file, dir } of collectToolHtmlFiles()) {
   const slug = file.replace(/\.html$/, '');
-  const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  const html = fs.readFileSync(path.join(dir, file), 'utf8');
   if (!html.includes('id="tool-app"')) continue;
 
   const part = slugPart[slug];

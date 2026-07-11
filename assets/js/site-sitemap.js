@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  const HISTORY_KEY = 'watools-nav-history';
-  const UI_STATE_KEY = 'watools-sitemap-ui';
+  const HISTORY_KEY = 'mytoolife-nav-history';
+  const UI_STATE_KEY = 'mytoolife-sitemap-ui';
   const RECENT_MAX = 7;
 
   /** 分類標題圖示（對應 index 各 section） */
@@ -44,26 +44,45 @@
   }
 
   function rootPrefix() {
-    return isInScriptureDir() ? '../' : '';
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
+    if (isInScriptureDir()) return '../';
+    const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+    if (segs.length <= 1) return '';
+    return '../'.repeat(segs.length - 1);
   }
 
   function currentHref() {
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentPageKey();
     const path = location.pathname.replace(/\\/g, '/');
     const scriptureMatch = path.match(/\/scripture\/([^/?#]+\.html)$/);
     if (scriptureMatch) return `scripture/${scriptureMatch[1]}`;
-    const name = path.split('/').pop();
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length >= 2) {
+      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+    }
+    const name = segs[0] || '';
     if (!name || name === '') return 'index.html';
     return name.split('?')[0].split('#')[0];
   }
 
   function toolHref(slug) {
-    if (slug === 'scriptures') return `${rootPrefix()}scriptures.html`;
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.toolHref(slug);
+    for (const cat of window.WA_TOOLS_CATALOG || []) {
+      for (const tool of cat.tools || []) {
+        if (tool.slug === slug) {
+          const prefix = rootPrefix();
+          const curCat = currentHref().includes('/') ? currentHref().split('/')[0] : null;
+          if (curCat === cat.id) return `${slug}.html`;
+          return `${prefix}${cat.id}/${slug}.html`;
+        }
+      }
+    }
     return `${rootPrefix()}${slug}.html`;
   }
 
   function scriptureBookHref(slug) {
     if (isInScriptureDir()) return `${slug}.html`;
-    return `scripture/${slug}.html`;
+    return `${rootPrefix()}scripture/${slug}.html`;
   }
 
   function scriptReady(base) {
@@ -273,7 +292,7 @@
     try {
       return window.WA_SITEMAP_MANIFEST.filterCatalog(list) || [];
     } catch (err) {
-      console.warn('[WaWaTools] publish filter failed:', err);
+      console.warn('[MyTooLife] publish filter failed:', err);
       return list;
     }
   }
@@ -286,7 +305,7 @@
       try {
         await loadPublishManifest();
       } catch (err) {
-        console.warn('[WaWaTools] publish refresh manifest:', err);
+        console.warn('[MyTooLife] publish refresh manifest:', err);
       }
 
       const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
@@ -314,9 +333,9 @@
     })();
   }
 
-  window.addEventListener('watools:publish-changed', () => {
+  window.addEventListener('mytoolife:publish-changed', () => {
     refreshSitemapFromPublish().catch((err) => {
-      console.warn('[WaWaTools] publish refresh failed:', err);
+      console.warn('[MyTooLife] publish refresh failed:', err);
     });
   });
 
@@ -332,7 +351,7 @@
         done = true;
         resolve();
       };
-      window.addEventListener('watools:catalog-ready', finish, { once: true });
+      window.addEventListener('mytoolife:catalog-ready', finish, { once: true });
       window.setTimeout(finish, ms || 15000);
     });
   }
@@ -361,7 +380,7 @@
         await loadScriptOnce('assets/js/tools-data.js');
       }
     } catch (err) {
-      console.warn('[WaWaTools] tools-data unavailable:', err);
+      console.warn('[MyTooLife] tools-data unavailable:', err);
     }
 
     if (!window.WA_TOOLS_CATALOG) {
@@ -373,7 +392,7 @@
         await loadScriptOnce('assets/js/scriptures-catalog.js');
       }
     } catch (err) {
-      console.warn('[WaWaTools] scriptures-catalog unavailable:', err);
+      console.warn('[MyTooLife] scriptures-catalog unavailable:', err);
     }
 
     return {
@@ -433,10 +452,15 @@
 
   function canonicalHref(href, scriptureSlugs) {
     let h = String(href || '').replace(/^\.\.\//, '');
-    if (!h.includes('/') && h.endsWith('.html') && h !== 'index.html' && h !== 'scriptures.html') {
+    if (h.includes('/') && /\.html$/i.test(h)) return h;
+    if (!h.includes('/') && h.endsWith('.html') && h !== 'index.html') {
       const slug = h.slice(0, -5);
       if (scriptureSlugs && scriptureSlugs.has(slug)) {
         return `scripture/${h}`;
+      }
+      if (window.WA_TOOL_URLS) {
+        const catId = window.WA_TOOL_URLS.getCategoryId(slug);
+        if (catId) return `${catId}/${h}`;
       }
     }
     return h;
@@ -463,6 +487,13 @@
     }
     if (isInScriptureDir() && !canonical.startsWith('scripture/')) {
       return `../${canonical}`;
+    }
+    const prefix = rootPrefix();
+    if (prefix && !canonical.startsWith('../') && canonical.includes('/')) {
+      return `${prefix}${canonical}`;
+    }
+    if (prefix && !canonical.includes('/') && canonical.endsWith('.html') && canonical !== 'index.html') {
+      return `${prefix}${canonical}`;
     }
     return canonical;
   }
@@ -506,11 +537,14 @@
   }
 
   function currentToolSlugFromPage() {
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentToolSlug();
     const app = document.getElementById('tool-app');
     if (app?.dataset?.tool) return app.dataset.tool;
     const path = location.pathname.replace(/\\/g, '/');
-    const match = path.match(/\/([^/]+)\.html$/i);
-    return match ? decodeURIComponent(match[1]) : '';
+    const nested = path.match(/\/([^/]+)\/([^/]+)\.html$/i);
+    if (nested) return decodeURIComponent(nested[2]);
+    const flat = path.match(/\/([^/]+)\.html$/i);
+    return flat ? decodeURIComponent(flat[1]) : '';
   }
 
   function findToolCategoryContext(catalog) {
@@ -749,8 +783,8 @@
           className: isActiveHref(`${rootPrefix()}index.html`, scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
         }, ['工具首頁']),
         el('a', {
-          href: `${rootPrefix()}scriptures.html`,
-          className: isActiveHref(`${rootPrefix()}scriptures.html`, scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
+          href: toolHref('scriptures'),
+          className: isActiveHref(toolHref('scriptures'), scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
         }, ['藏經閣']),
       ]),
       buildSectionBlock('tools', '工具分類', toolGroups, {
@@ -810,7 +844,7 @@
     try {
       await loadPublishManifest();
     } catch (err) {
-      console.warn('[WaWaTools] sitemap manifest unavailable:', err);
+      console.warn('[MyTooLife] sitemap manifest unavailable:', err);
     }
 
     const scriptures = Array.isArray(window.WA_SCRIPTURES_CATALOG) ? window.WA_SCRIPTURES_CATALOG : [];
@@ -961,7 +995,7 @@
         scriptureSlugs = rendered.scriptureSlugs;
         mountNav(aside, seqSlot, nav, savedUi, visibleTools, scriptureSlugs);
       } catch (err) {
-        console.error('[WaWaTools] site-sitemap init failed:', err);
+        console.error('[MyTooLife] site-sitemap init failed:', err);
         const loading = aside.querySelector('.site-sitemap-loading');
         if (loading) {
           loading.textContent = '無法載入工具目錄，請重新整理頁面。';

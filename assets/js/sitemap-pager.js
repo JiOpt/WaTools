@@ -8,7 +8,12 @@
   if (window.WA_SITEMAP_PAGER?.__installed) return;
 
   function rootPrefix() {
-    return /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/')) ? '../' : '';
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.siteRootPrefix();
+    const path = location.pathname.replace(/\\/g, '/');
+    if (/\/scripture\/[^/]+\.html$/i.test(path)) return '../';
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length <= 1) return '';
+    return '../'.repeat(segs.length - 1);
   }
 
   function assetUrl(path) {
@@ -74,10 +79,14 @@
   }
 
   function currentToolSlugFromPage() {
+    if (window.WA_TOOL_URLS) return window.WA_TOOL_URLS.currentToolSlug();
     const app = document.getElementById('tool-app');
     if (app?.dataset?.tool) return app.dataset.tool;
-    const match = location.pathname.replace(/\\/g, '/').match(/\/([^/]+)\.html$/i);
-    return match ? decodeURIComponent(match[1]) : '';
+    const path = location.pathname.replace(/\\/g, '/');
+    const nested = path.match(/\/([^/]+)\/([^/]+)\.html$/i);
+    if (nested) return decodeURIComponent(nested[2]);
+    const flat = path.match(/\/([^/]+)\.html$/i);
+    return flat ? decodeURIComponent(flat[1]) : '';
   }
 
   function scriptureSlugFromPage() {
@@ -106,6 +115,15 @@
    * @param {Array} catalog - WA_TOOLS_CATALOG or pre-filtered subset
    * @param {{ alreadyFiltered?: boolean }} [opts]
    */
+  function resolveToolPage(slug, catalog) {
+    if (!slug || !catalog) return null;
+    const category = findToolCategory(slug, catalog);
+    if (!category) return null;
+    const tool = (category.tools || []).find((item) => item.slug === slug);
+    if (!tool) return null;
+    return { category, tool };
+  }
+
   function resolveToolPager(slug, catalog, opts) {
     if (!slug) return null;
     const category = findToolCategory(slug, catalog);
@@ -150,6 +168,7 @@
     wrapNeighbors,
     currentToolSlugFromPage,
     scriptureSlugFromPage,
+    resolveToolPage,
     resolveToolPager,
     resolveScripturePager,
     __installed: true,

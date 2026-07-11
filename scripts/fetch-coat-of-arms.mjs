@@ -34,7 +34,7 @@ function iso2ForCode(code, isoMap) {
 async function downloadImage(url, dest) {
   if (fs.existsSync(dest)) return true;
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'WaWaTools/1.0 (coat-of-arms fetch)' },
+    headers: { 'User-Agent': 'MyTooLife/1.0 (coat-of-arms fetch)' },
   });
   if (!res.ok) return false;
   const buf = Buffer.from(await res.arrayBuffer());
@@ -105,7 +105,7 @@ async function main() {
   const withImg = enriched.reduce((n, r) => n + r.countries.filter((c) => c.image).length, 0);
 
   const payload = {
-    source: 'WaWaTools / mainfacts.com coat of arms images',
+    source: 'MyTooLife / mainfacts.com coat of arms images',
     imageNote: 'Images via mainfacts.com; descriptions curated and enriched locally.',
     countryCount: total,
     imageCount: withImg,

@@ -5,7 +5,7 @@
   'use strict';
 
   const POLL_MS = 2000;
-  const IDB_NAME = 'watools-plan';
+  const IDB_NAME = 'mytoolife-plan';
   const IDB_STORE = 'kv';
   const HANDLE_KEY = 'sitemap-handle';
 

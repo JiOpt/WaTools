@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  const GEO_CACHE_KEY = 'watools-header-geo';
-  const WEATHER_CACHE_KEY = 'watools-header-weather';
+  const GEO_CACHE_KEY = 'mytoolife-header-geo';
+  const WEATHER_CACHE_KEY = 'mytoolife-header-weather';
   const WEATHER_TTL_MS = 30 * 60 * 1000;
   const DEFAULT_GEO = { lat: 25.033, lon: 121.565, label: '臺北' };
 
@@ -99,7 +99,7 @@
     document.documentElement.style.setProperty('--header-offset', `${h}px`);
     document.documentElement.style.setProperty('--site-sitemap-top', `${h}px`);
     document.documentElement.style.setProperty('--wf-sticky-top', `${h}px`);
-    window.dispatchEvent(new CustomEvent('watools:header-offset', { detail: { height: h } }));
+    window.dispatchEvent(new CustomEvent('mytoolife:header-offset', { detail: { height: h } }));
   }
 
   function setupHeaderNavAutoHide() {

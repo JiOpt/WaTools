@@ -6,7 +6,7 @@ import { WA_SITE_VERSION } from './site-version.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const INLINE_BOOT_RE = /<script>try\{var s=localStorage\.getItem\('watools-font-size'\);document\.documentElement\.setAttribute\('data-font-size',s==='sm'\|\|s==='lg'\?s:'md'\)\}catch\(e\)\{document\.documentElement\.setAttribute\('data-font-size','md'\)\}<\/script>/g;
+const INLINE_BOOT_RE = /<script>try\{var s=localStorage\.getItem\('mytoolife-font-size'\);document\.documentElement\.setAttribute\('data-font-size',s==='sm'\|\|s==='lg'\?s:'md'\)\}catch\(e\)\{document\.documentElement\.setAttribute\('data-font-size','md'\)\}<\/script>/g;
 
 function collectHtmlFiles(dir) {
   const files = [];

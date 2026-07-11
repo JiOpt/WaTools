@@ -54,7 +54,7 @@ function parseHtml(html) {
 
 async function main() {
   const res = await fetch(SOURCE_URL, {
-    headers: { 'User-Agent': 'WaWaTools/1.0 (symbols-generator)' },
+    headers: { 'User-Agent': 'MyTooLife/1.0 (symbols-generator)' },
   });
   if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
   const html = await res.text();

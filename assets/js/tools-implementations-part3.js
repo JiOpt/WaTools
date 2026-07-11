@@ -2229,7 +2229,7 @@
           ])
         ))),
       ]),
-      UI.el('p', { className: 'text-muted small sterm-source' }, '節氣圖文參考 ifreesite 二十四節氣，並加入 WaWaTools 生活化整理；精確交節時刻請以天文曆法為準。'),
+      UI.el('p', { className: 'text-muted small sterm-source' }, '節氣圖文參考 ifreesite 二十四節氣，並加入 MyTooLife 生活化整理；精確交節時刻請以天文曆法為準。'),
     ]));
   };
 
@@ -2579,7 +2579,7 @@
 
   // ===== FUN =====
   R['wishing-tree'] = function (app) {
-    const KEY = 'watools_wishes';
+    const KEY = 'mytoolife_wishes';
     const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
     const save = (arr) => localStorage.setItem(KEY, JSON.stringify(arr));
     const listEl = UI.el('div', { id: 'wish-list' });
@@ -3106,7 +3106,7 @@
     };
 
     window.addEventListener('resize', refreshStickyObserver);
-    window.addEventListener('watools:header-offset', refreshStickyObserver);
+    window.addEventListener('mytoolife:header-offset', refreshStickyObserver);
 
     const firstCard = regionsWrap.querySelector('.world-flags-card');
     if (firstCard) {
@@ -3904,7 +3904,7 @@
     };
 
     window.addEventListener('resize', refreshStickyObserver);
-    window.addEventListener('watools:header-offset', refreshStickyObserver);
+    window.addEventListener('mytoolife:header-offset', refreshStickyObserver);
 
     const firstCard = regionsWrap.querySelector('.world-flags-card');
     if (firstCard) {
@@ -4361,7 +4361,7 @@
       UI.el('p', { className: 'text-muted ufo-intro' }, data.intro),
       nav,
       ...data.sections.map(makeSection),
-      UI.el('p', { className: 'text-muted ufo-disclaimer' }, '以上內容整理自 ufology 社群、科幻設定與公開報導，不代表 WaWaTools 立場，亦不等同科學共識。'),
+      UI.el('p', { className: 'text-muted ufo-disclaimer' }, '以上內容整理自 ufology 社群、科幻設定與公開報導，不代表 MyTooLife 立場，亦不等同科學共識。'),
     ]));
   };
 
@@ -4426,7 +4426,7 @@
       UI.el('p', { className: 'text-muted monster-intro' }, data.intro),
       nav,
       ...data.sections.map(makeSection),
-      UI.el('p', { className: 'text-muted monster-disclaimer' }, '以上內容整理自古籍志怪、民間傳說與影視作品，僅供文化閱讀與娛樂，不代表 WaWaTools 立場，亦請勿以之替代專業或安全指引。'),
+      UI.el('p', { className: 'text-muted monster-disclaimer' }, '以上內容整理自古籍志怪、民間傳說與影視作品，僅供文化閱讀與娛樂，不代表 MyTooLife 立場，亦請勿以之替代專業或安全指引。'),
     ]));
   };
 
