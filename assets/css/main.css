@@ -5009,6 +5009,18 @@ body.tool-page #tool-app.is-booting {
   color: var(--accent-color);
 }
 
+.population-th-sortable.is-sorted {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.population-primary.is-sorted-col,
+.population-metric.is-sorted-col {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
 .population-row {
   cursor: pointer;
 }
@@ -5075,7 +5087,8 @@ body.tool-page #tool-app.is-booting {
   white-space: nowrap;
 }
 
-.population-secondary {
+.population-secondary,
+.population-metric {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   color: color-mix(in srgb, var(--default-color), transparent 15%);

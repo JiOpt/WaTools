@@ -1,27 +1,11 @@
 (function () {
   'use strict';
 
-  /** Slugs excluded from 上一篇／下一篇 chain (page may still exist in catalog). */
-  const PAGER_SKIP = new Set(['monster']);
+  const pagerApi = () => window.WA_SITEMAP_PAGER;
 
-  function currentToolSlug() {
-    const app = document.getElementById('tool-app');
-    if (app?.dataset?.tool) return app.dataset.tool;
-    const match = location.pathname.match(/\/([^/]+)\.html$/i);
-    return match ? decodeURIComponent(match[1]) : '';
-  }
-
-  function findCategory(slug) {
-    const catalog = window.WA_TOOLS_CATALOG;
-    if (!catalog || !slug) return null;
-    for (const category of catalog) {
-      if (category.tools.some((tool) => tool.slug === slug)) return category;
-    }
-    return null;
-  }
-
-  function visibleTools(category) {
-    return category.tools.filter((tool) => !PAGER_SKIP.has(tool.slug));
+  function assetUrl(path) {
+    if (typeof window.waAssetUrl === 'function') return window.waAssetUrl(path);
+    return path;
   }
 
   function placeholderPager(position) {
@@ -51,9 +35,8 @@
     }
   }
 
-  function renderPager(category, tools, index, position) {
-    const prev = index > 0 ? tools[index - 1] : null;
-    const next = index < tools.length - 1 ? tools[index + 1] : null;
+  function renderPager(ctx, position) {
+    const { category, prev, next } = ctx;
     const posClass = position === 'top' ? 'scripture-pager-top' : 'scripture-pager-bottom';
 
     function linkCell(tool, kind, label) {
@@ -88,41 +71,49 @@
   }
 
   function injectPagers() {
-    const slug = currentToolSlug();
+    const api = pagerApi();
+    if (!api || !window.WA_TOOLS_CATALOG) return false;
+
+    const slug = api.currentToolSlugFromPage();
     const container = document.querySelector('.tool-section .container');
     const app = document.getElementById('tool-app');
 
-    if (!slug || PAGER_SKIP.has(slug)) {
+    const ctx = api.resolveToolPager(slug, window.WA_TOOLS_CATALOG);
+    if (!ctx || !container || !app) {
       container?.querySelectorAll('.tool-pager-placeholder').forEach((el) => el.remove());
       return false;
     }
-
-    const category = findCategory(slug);
-    const tools = category ? visibleTools(category) : [];
-    if (!category || tools.length < 2) {
-      container?.querySelectorAll('.tool-pager-placeholder').forEach((el) => el.remove());
-      return false;
-    }
-
-    const index = tools.findIndex((tool) => tool.slug === slug);
-    if (index < 0) {
-      container?.querySelectorAll('.tool-pager-placeholder').forEach((el) => el.remove());
-      return false;
-    }
-
-    if (!container || !app) return false;
 
     container.querySelectorAll('.tool-category-pager').forEach((el) => el.remove());
-
-    const topPager = renderPager(category, tools, index, 'top');
-    const bottomPager = renderPager(category, tools, index, 'bottom');
-    container.insertBefore(topPager, app);
-    container.appendChild(bottomPager);
+    container.insertBefore(renderPager(ctx, 'top'), app);
+    container.appendChild(renderPager(ctx, 'bottom'));
     return true;
   }
 
-  function boot() {
+  function loadScriptOnce(relativePath) {
+    const base = relativePath.split('?')[0];
+    if (document.querySelector(`script[src*="${base}"]`)) {
+      return Promise.resolve();
+    }
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = assetUrl(relativePath);
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load ${relativePath}`));
+      document.head.appendChild(script);
+    });
+  }
+
+  async function ensurePagerApi() {
+    if (window.WA_SITEMAP_PAGER) return window.WA_SITEMAP_PAGER;
+    await loadScriptOnce('assets/js/sitemap-pager.js');
+    return window.WA_SITEMAP_PAGER;
+  }
+
+  async function boot() {
     ensurePagerPlaceholders();
+    await ensurePagerApi();
+    await pagerApi()?.ensureManifest();
     if (injectPagers()) return;
     if (window.WA_TOOLS_CATALOG) {
       requestAnimationFrame(() => injectPagers());
@@ -131,16 +122,26 @@
     window.addEventListener('watools:catalog-ready', () => injectPagers(), { once: true });
   }
 
-  window.__waInjectToolCategoryPager = injectPagers;
+  window.__waInjectToolCategoryPager = async () => {
+    await ensurePagerApi();
+    await pagerApi()?.ensureManifest();
+    return injectPagers();
+  };
   window.__waEnsurePagerPlaceholders = ensurePagerPlaceholders;
 
-  if (document.body) {
-    ensurePagerPlaceholders();
-  }
+  window.addEventListener('watools:publish-changed', () => {
+    ensurePagerApi()
+      .then(() => pagerApi()?.ensureManifest())
+      .then(() => injectPagers());
+  });
+
+  if (document.body) ensurePagerPlaceholders();
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
+    document.addEventListener('DOMContentLoaded', () => {
+      boot().catch(() => injectPagers());
+    });
   } else {
-    boot();
+    boot().catch(() => injectPagers());
   }
 })();

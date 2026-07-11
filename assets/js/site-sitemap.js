@@ -4,7 +4,6 @@
   const HISTORY_KEY = 'watools-nav-history';
   const UI_STATE_KEY = 'watools-sitemap-ui';
   const RECENT_MAX = 7;
-  const PAGER_SKIP = new Set(['monster']);
 
   /** 分類標題圖示（對應 index 各 section） */
   const CATEGORY_ICONS = {
@@ -516,17 +515,24 @@
 
   function findToolCategoryContext(catalog) {
     const slug = currentToolSlugFromPage();
-    if (!slug || PAGER_SKIP.has(slug)) return null;
+    if (!slug) return null;
+
+    const api = window.WA_SITEMAP_PAGER;
+    if (api) {
+      return api.resolveToolPager(slug, catalog, { alreadyFiltered: true });
+    }
+
     for (const category of catalog) {
-      const tools = (category.tools || []).filter((t) => !PAGER_SKIP.has(t.slug));
+      const tools = category.tools || [];
       const index = tools.findIndex((t) => t.slug === slug);
-      if (index >= 0) {
+      if (index >= 0 && tools.length >= 2) {
+        const len = tools.length;
         return {
           category,
           tools,
           index,
-          prev: index > 0 ? tools[index - 1] : null,
-          next: index < tools.length - 1 ? tools[index + 1] : null,
+          prev: tools[(index - 1 + len) % len],
+          next: tools[(index + 1) % len],
         };
       }
     }

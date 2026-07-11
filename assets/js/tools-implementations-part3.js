@@ -3123,6 +3123,12 @@
     }
 
     const countries = data.countries.slice();
+    const worldPop = data.world?.pop;
+    countries.forEach((c) => {
+      c.worldShare = worldPop && c.pop != null ? (c.pop / worldPop) * 100 : null;
+      c.sexRatioMF = c.malePct != null && c.femalePct ? c.malePct / c.femalePct : null;
+    });
+
     let sortKey = 'pop';
     let sortDir = 'desc';
     let regionFilter = 'all';
@@ -3167,8 +3173,25 @@
       return `${fmtNum(ratio * 100, 1)} 男 : 100 女`;
     }
 
+    function fmtSexRatioMF(malePct, femalePct) {
+      if (malePct == null || femalePct == null || femalePct === 0) return '—';
+      return `${fmtNum(malePct / femalePct, 2)} : 1`;
+    }
+
+    function fmtWorldShare(pop) {
+      const worldPop = data.world?.pop;
+      if (worldPop == null || pop == null || Number.isNaN(pop)) return '—';
+      return fmtPct((pop / worldPop) * 100);
+    }
+
+    function fmtDensity(v) {
+      if (v == null || Number.isNaN(v)) return '—';
+      return `${fmtNum(v, 1)} 人/km²`;
+    }
+
     const SORT_OPTIONS = [
       { key: 'pop', label: '人口總數', group: 'resources', format: fmtPop },
+      { key: 'worldShare', label: '全球人口佔比', group: 'resources', format: fmtPct },
       { key: 'growth', label: '人口成長率', group: 'dynamics', format: fmtPct },
       { key: 'birthRate', label: '出生率', group: 'dynamics', format: fmtPerThousand },
       { key: 'deathRate', label: '死亡率', group: 'dynamics', format: fmtPerThousand },
@@ -3180,6 +3203,7 @@
       { key: 'depOld', label: '扶老比', group: 'structure', format: fmtPct },
       { key: 'depTotal', label: '總扶養比', group: 'structure', format: fmtPct },
       { key: 'malePct', label: '男性佔比', group: 'structure', format: fmtPct },
+      { key: 'sexRatioMF', label: '男女比例', group: 'structure', format: (v) => (v == null ? '—' : `${fmtNum(v, 2)} : 1`) },
       { key: 'urbanPct', label: '城市化程度', group: 'migration', format: fmtPct },
       { key: 'netMigrationRate', label: '淨遷移率', group: 'migration', format: fmtPerThousand },
       { key: 'lifeExp', label: '平均餘命', group: 'health', format: fmtYears },
@@ -3370,7 +3394,6 @@
 
     function renderTable() {
       const list = filteredSorted();
-      const opt = sortOptionMap[sortKey];
       tbody.replaceChildren();
       list.forEach((c, idx) => {
         const tr = UI.el('tr', {
@@ -3398,9 +3421,18 @@
                 : null,
             ]),
           ]),
-          UI.el('td', { className: 'population-primary' }, opt.format(c[sortKey])),
-          UI.el('td', { className: 'population-secondary d-none d-md-table-cell' }, fmtPop(c.pop)),
-          UI.el('td', { className: 'population-secondary d-none d-lg-table-cell' }, c.regionLabel),
+          UI.el('td', {
+            className: `population-primary${sortKey === 'pop' ? ' is-sorted-col' : ''}`,
+          }, fmtPop(c.pop)),
+          UI.el('td', {
+            className: `population-metric${sortKey === 'worldShare' ? ' is-sorted-col' : ''}`,
+          }, fmtWorldShare(c.pop)),
+          UI.el('td', {
+            className: `population-metric${sortKey === 'density' ? ' is-sorted-col' : ''}`,
+          }, fmtDensity(c.density)),
+          UI.el('td', {
+            className: `population-metric${sortKey === 'sexRatioMF' ? ' is-sorted-col' : ''}`,
+          }, fmtSexRatioMF(c.malePct, c.femalePct)),
         ]);
         tbody.appendChild(tr);
       });
@@ -3452,26 +3484,67 @@
       },
     }, '↓ 高到低');
 
-    const primaryTh = UI.el('th', { className: 'population-th-sortable', tabIndex: 0 }, sortOptionMap[sortKey].label);
+    const popTh = UI.el('th', {
+      className: 'population-th-sortable',
+      tabIndex: 0,
+    }, '人口總數');
+    const worldShareTh = UI.el('th', {
+      className: 'population-th-sortable',
+      tabIndex: 0,
+    }, '全球人口佔比 (%)');
+    const densityTh = UI.el('th', {
+      className: 'population-th-sortable',
+      tabIndex: 0,
+    }, '人口密度 (人/km²)');
+    const sexRatioTh = UI.el('th', {
+      className: 'population-th-sortable',
+      tabIndex: 0,
+    }, '男女比例 (Male/Female)');
+
+    function setSortDirUi() {
+      sortDirBtn.textContent = sortDir === 'desc' ? '↓ 高到低' : '↑ 低到高';
+      sortDirBtn.setAttribute('aria-label', sortDir === 'desc' ? '由高到低排序' : '由低到高排序');
+    }
 
     function updateHeader() {
-      primaryTh.textContent = sortOptionMap[sortKey].label;
+      popTh.classList.toggle('is-sorted', sortKey === 'pop');
+      worldShareTh.classList.toggle('is-sorted', sortKey === 'worldShare');
+      densityTh.classList.toggle('is-sorted', sortKey === 'density');
+      sexRatioTh.classList.toggle('is-sorted', sortKey === 'sexRatioMF');
       sortSelect.value = sortKey;
     }
 
-    primaryTh.addEventListener('click', () => {
-      sortDir = sortDir === 'desc' ? 'asc' : 'desc';
-      sortDirBtn.textContent = sortDir === 'desc' ? '↓ 高到低' : '↑ 低到高';
+    function applySort(key) {
+      if (sortKey === key) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+      else sortKey = key;
+      setSortDirUi();
+      updateHeader();
       renderTable();
-    });
+    }
+
+    function bindSortHeader(th, key) {
+      th.addEventListener('click', () => applySort(key));
+      th.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          applySort(key);
+        }
+      });
+    }
+
+    bindSortHeader(popTh, 'pop');
+    bindSortHeader(worldShareTh, 'worldShare');
+    bindSortHeader(densityTh, 'density');
+    bindSortHeader(sexRatioTh, 'sexRatioMF');
 
     const table = UI.el('table', { className: 'table table-hover population-table' }, [
       UI.el('thead', {}, UI.el('tr', {}, [
         UI.el('th', { className: 'population-rank' }, '#'),
         UI.el('th', {}, '國家'),
-        primaryTh,
-        UI.el('th', { className: 'd-none d-md-table-cell' }, '人口'),
-        UI.el('th', { className: 'd-none d-lg-table-cell' }, '地區'),
+        popTh,
+        worldShareTh,
+        densityTh,
+        sexRatioTh,
       ])),
       tbody,
     ]);
@@ -3512,6 +3585,7 @@
     ]));
 
     renderSummary();
+    updateHeader();
     renderTable();
     if (countries[0]) showDetail(countries[0]);
   };

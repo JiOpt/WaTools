@@ -128,6 +128,26 @@
     if (!document.querySelector('script[src*="sitemap-manifest.js"]')) {
       injectScript('assets/js/sitemap-manifest.js', { defer: true });
     }
+    if (!document.querySelector('script[src*="sitemap-pager.js"]')) {
+      injectScript('assets/js/sitemap-pager.js');
+    }
+  }
+
+  const isScripturePage = /\/scripture\/[^/]+\.html$/i.test(location.pathname.replace(/\\/g, '/'));
+  if (isScripturePage) {
+    if (!document.querySelector('script[src*="sitemap-manifest.js"]')) {
+      injectScript('assets/js/sitemap-manifest.js', { defer: true });
+    }
+    if (!document.querySelector('script[src*="sitemap-pager.js"]')) {
+      injectScript('assets/js/sitemap-pager.js');
+    }
+    if (!document.querySelector('script[src*="scripture-pager.js"]')) {
+      injectScript('assets/js/scripture-pager.js');
+    }
+  }
+
+  if (document.querySelector('#header .branding') && !document.querySelector('script[src*="sitemap-pager.js"]')) {
+    injectScript('assets/js/sitemap-pager.js', { defer: true });
   }
 
   if (document.querySelector('#header .branding')) {
