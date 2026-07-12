@@ -282,7 +282,32 @@
     if (nextList && curList) curList.innerHTML = nextList.innerHTML;
   }
 
-  function syncMeta(doc) {
+  function syncFavicon(doc, pageUrl) {
+    const nextIcon = doc.querySelector('link[rel="icon"]');
+    if (!nextIcon) return;
+
+    const rawHref = nextIcon.getAttribute('href');
+    if (!rawHref) return;
+
+    let resolvedHref;
+    try {
+      resolvedHref = new URL(rawHref, pageUrl).href;
+    } catch {
+      return;
+    }
+
+    let curIcon = document.querySelector('link[rel="icon"]');
+    if (!curIcon) {
+      curIcon = document.createElement('link');
+      curIcon.rel = 'icon';
+      document.head.appendChild(curIcon);
+    }
+    if (curIcon.href !== resolvedHref) {
+      curIcon.href = resolvedHref;
+    }
+  }
+
+  function syncMeta(doc, pageUrl) {
     const desc = doc.querySelector('meta[name="description"]');
     const curDesc = document.querySelector('meta[name="description"]');
     if (desc && curDesc && desc.getAttribute('content') != null) {
@@ -364,6 +389,17 @@
         await loadScriptOnce('assets/js/sitemap-manifest.js');
       }
       await loadScriptOnce('assets/js/catalog-render.js');
+    }
+
+    if (document.getElementById('torch-section')) {
+      await loadScriptOnce('assets/js/torch.js');
+    }
+
+    if (document.getElementById('contact-form-slot')) {
+      if (!window.WA_SITE_FOOTER && !document.querySelector('script[src*="site-footer.js"]')) {
+        await loadScriptOnce('assets/js/site-footer.js');
+      }
+      await loadScriptOnce('assets/js/contact-page.js');
     }
   }
 
@@ -453,7 +489,8 @@
       document.title = doc.title || document.title;
       syncBodyClasses(doc.body, doc.documentElement);
       syncHeaderNav(doc);
-      syncMeta(doc);
+      syncMeta(doc, targetUrl.href);
+      syncFavicon(doc, targetUrl.href);
 
       if (push) {
         history.pushState({ softNav: true }, '', targetUrl.href);

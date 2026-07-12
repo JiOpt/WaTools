@@ -7,16 +7,10 @@
 
   const BLINK_INTERVAL_MS = 500;
 
-  const els = {
-    screenLight: document.getElementById('torch-screen-light'),
-    status: document.getElementById('torch-status'),
-    statusDetail: document.getElementById('torch-status-detail'),
-    btnOn: document.getElementById('torch-btn-on'),
-    btnOff: document.getElementById('torch-btn-off'),
-    btnBlink: document.getElementById('torch-btn-blink'),
-    wakeLock: document.getElementById('torch-wake-lock'),
-    helpCamera: document.getElementById('torch-help-camera'),
-  };
+  let els = {};
+  let eventsBound = false;
+  let bootPromise = null;
+  let lastBootAt = 0;
 
   const state = {
     stream: null,
@@ -29,6 +23,34 @@
     blinkOn: false,
     wakeLockSentinel: null,
   };
+
+  function isTorchPage() {
+    return !!document.getElementById('torch-section');
+  }
+
+  function queryElements() {
+    return {
+      screenLight: document.getElementById('torch-screen-light'),
+      status: document.getElementById('torch-status'),
+      statusDetail: document.getElementById('torch-status-detail'),
+      btnOn: document.getElementById('torch-btn-on'),
+      btnOff: document.getElementById('torch-btn-off'),
+      btnBlink: document.getElementById('torch-btn-blink'),
+      wakeLock: document.getElementById('torch-wake-lock'),
+      helpCamera: document.getElementById('torch-help-camera'),
+    };
+  }
+
+  function ensureScreenLightOverlay() {
+    let el = document.getElementById('torch-screen-light');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'torch-screen-light';
+      el.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(el);
+    }
+    return el;
+  }
 
   function setStatus(text, detail) {
     if (els.status) els.status.textContent = text;
@@ -176,6 +198,15 @@
     }
   }
 
+  function resetRuntimeState() {
+    state.stream = null;
+    state.track = null;
+    state.hasTorch = false;
+    state.mode = 'none';
+    state.isOn = false;
+    stopBlinking();
+  }
+
   async function initCamera() {
     if (!navigator.mediaDevices?.getUserMedia) {
       state.mode = 'screen';
@@ -183,6 +214,8 @@
       setStatus('手電筒已關閉', '沒相機？沒關係，螢幕也能當手電筒');
       return;
     }
+
+    setStatus('手電筒已關閉', '正在請求相機權限…');
 
     try {
       state.stream = await navigator.mediaDevices.getUserMedia({
@@ -224,34 +257,79 @@
       state.stream = null;
     }
     setScreenLight(false);
+    document.body.classList.remove('torch-active');
+    resetRuntimeState();
   }
 
   function bindEvents() {
-    els.btnOn?.addEventListener('click', turnOn);
-    els.btnOff?.addEventListener('click', turnOff);
-    els.btnBlink?.addEventListener('click', toggleBlink);
+    if (eventsBound) return;
+    eventsBound = true;
 
-    els.wakeLock?.addEventListener('change', () => {
-      if (els.wakeLock.checked && (state.isOn || state.isBlinking)) {
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('#torch-btn-on')) turnOn();
+      else if (event.target.closest('#torch-btn-off')) turnOff();
+      else if (event.target.closest('#torch-btn-blink')) toggleBlink();
+    });
+
+    document.addEventListener('change', (event) => {
+      if (event.target.id !== 'torch-wake-lock') return;
+      if (els.wakeLock?.checked && (state.isOn || state.isBlinking)) {
         requestWakeLockIfEnabled();
-      } else if (!els.wakeLock.checked) {
+      } else if (!els.wakeLock?.checked) {
         releaseWakeLock();
       }
     });
 
     document.addEventListener('visibilitychange', () => {
+      if (!isTorchPage()) return;
       if (document.visibilityState === 'visible' && els.wakeLock?.checked && (state.isOn || state.isBlinking)) {
         requestWakeLockIfEnabled();
       }
     });
 
     window.addEventListener('pagehide', cleanup);
+    window.addEventListener('mytoolife:soft-nav', scheduleBoot);
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    bindEvents();
-    updateButtons();
-    await initCamera();
-    refreshStatusLabel();
-  });
+  async function boot() {
+    if (!isTorchPage()) {
+      cleanup();
+      return;
+    }
+
+    const now = Date.now();
+    if (state.stream && now - lastBootAt < 500) return;
+    if (bootPromise) return bootPromise;
+
+    bootPromise = (async () => {
+      bindEvents();
+      cleanup();
+      els = queryElements();
+      ensureScreenLightOverlay();
+      els.screenLight = document.getElementById('torch-screen-light');
+      updateButtons();
+      await initCamera();
+      refreshStatusLabel();
+      lastBootAt = Date.now();
+    })();
+
+    try {
+      await bootPromise;
+    } finally {
+      bootPromise = null;
+    }
+  }
+
+  function scheduleBoot() {
+    boot();
+  }
+
+  window.__waBootTorch = boot;
+  window.__waCleanupTorch = cleanup;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleBoot);
+  } else {
+    scheduleBoot();
+  }
 })();

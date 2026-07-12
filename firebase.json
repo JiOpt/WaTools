@@ -251,6 +251,11 @@
         "type": 301
       },
       {
+        "source": "/favicon.ico",
+        "destination": "/assets/img/favicon.png",
+        "type": 301
+      },
+      {
         "source": "/favicon",
         "destination": "/dev/favicon",
         "type": 301

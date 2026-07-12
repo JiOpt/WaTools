@@ -8,7 +8,7 @@ window.WA_SITE_FOOTER = {
   copyrightLabel: '版權聲明',
   showContactLink: true,
   contactLabel: '聯絡我們',
-  /** Google 表單：https://forms.gle/GFxVtVgkMQhvCL8u8 */
-  googleFormPublicUrl: 'https://forms.gle/GFxVtVgkMQhvCL8u8',
+  /** Google 表單：https://forms.gle/Zoejh3mxY1d2YwtT7 */
+  googleFormPublicUrl: 'https://forms.gle/Zoejh3mxY1d2YwtT7',
   googleFormEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfEBbtKIHDmZ4YOjyRslKHeEY90SkUFx_lgnoRNGu3Z2CkR_w/viewform?embedded=true',
 };
