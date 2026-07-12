@@ -1,0 +1,17 @@
+[debug] [2026-07-12T04:47:05.377Z] ----------------------------------------------------------------------
+[debug] [2026-07-12T04:47:05.384Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\chuch\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project watoolio
+[debug] [2026-07-12T04:47:05.384Z] CLI Version:   15.23.0
+[debug] [2026-07-12T04:47:05.384Z] Platform:      win32
+[debug] [2026-07-12T04:47:05.385Z] Node Version:  v24.18.0
+[debug] [2026-07-12T04:47:05.385Z] Detected Agent: unknown
+[debug] [2026-07-12T04:47:05.385Z] Time:          Sun Jul 12 2026 12:47:05 GMT+0800 (台北標準時間)
+[debug] [2026-07-12T04:47:05.385Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-12T04:47:08.368Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-12T04:47:08.369Z] > authorizing via signed-in user (chuchy0531@gmail.com)
+[debug] [2026-07-12T04:47:08.369Z] [iam] checking project watoolio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-12T04:47:08.399Z] Checked if tokens are valid: true, expires at: 1783833248479
+[debug] [2026-07-12T04:47:08.399Z] Checked if tokens are valid: true, expires at: 1783833248479
+[debug] [2026-07-12T04:47:08.401Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/watoolio:testIamPermissions [none]
+[debug] [2026-07-12T04:47:08.401Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/watoolio:testIamPermissions  x-goog-user-project=watoolio
+[debug] [2026-07-12T04:47:08.401Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/watoolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
