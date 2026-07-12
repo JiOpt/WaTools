@@ -118,7 +118,7 @@ function parseBlocks(html) {
 
 async function downloadImage(url, dest) {
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'MyTooLife/1.0 (national-symbol fetch)' },
+    headers: { 'User-Agent': 'Toolpian/1.0 (national-symbol fetch)' },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
@@ -136,7 +136,7 @@ async function main() {
     html = fs.readFileSync(local, 'utf8');
   } else {
     const res = await fetch(SOURCE_URL, {
-      headers: { 'User-Agent': 'MyTooLife/1.0 (national-symbol fetch)' },
+      headers: { 'User-Agent': 'Toolpian/1.0 (national-symbol fetch)' },
     });
     if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
     html = await res.text();

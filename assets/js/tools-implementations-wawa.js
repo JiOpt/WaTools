@@ -1,5 +1,5 @@
 /**
- * MyTooLife — WaWa catalog tools (editor, security, dev, utility, media, life, fun)
+ * Toolpian — WaWa catalog tools (editor, security, dev, utility, media, life, fun)
  */
 (function () {
   'use strict';
@@ -574,7 +574,7 @@
   R['fancy-font'] = function (app) {
     mount(app, [
       hint('普通英文變 Unicode 花體，IG 限動標題瞬間高級（也可能像 spam）。'),
-      UI.input('英文', 'ff-in', 'text', 'MyTooLife'),
+      UI.input('英文', 'ff-in', 'text', 'Toolpian'),
       UI.select('風格', 'ff-style', [
         { value: 'bold', label: '粗體 𝐁𝐨𝐥𝐝' },
         { value: 'italic', label: '斜體 𝐼𝑡𝑎𝑙𝑖𝑐' },
@@ -748,7 +748,7 @@
   R['json-editor'] = function (app) {
     mount(app, [
       hint('JSON 格式化、驗證、壓縮——API 回應整理，讓同事以為你很專業。'),
-      UI.textarea('JSON', 'je-in', '{"name":"MyTooLife"}', 8),
+      UI.textarea('JSON', 'je-in', '{"name":"Toolpian"}', 8),
       UI.btnGroup([
         UI.btn('格式化', 'btn btn-primary tool-btn', () => {
           try {
@@ -1070,7 +1070,7 @@
     const svg = UI.el('svg', { id: 'bc-svg' });
     mount(app, [
       hint('Code128 條碼產生，包裝 mockup 用——掃不掃得到看運氣。'),
-      UI.input('條碼內容', 'bc-in', 'text', 'MyTooLife'),
+      UI.input('條碼內容', 'bc-in', 'text', 'Toolpian'),
       UI.btnGroup([
         UI.btn('產生條碼', 'btn btn-primary tool-btn', async () => {
           try {

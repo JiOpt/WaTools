@@ -156,7 +156,7 @@
         runConvert();
         startObserver();
       } catch (err) {
-        console.error('[MyTooLife] zh-variant convert failed:', err);
+        console.error('[Toolpian] zh-variant convert failed:', err);
         document.documentElement.setAttribute('data-zh-variant', 'trad');
         setLang('trad');
       }

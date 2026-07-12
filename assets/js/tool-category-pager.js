@@ -12,7 +12,7 @@
   }
 
   function pageTitleFromDocument() {
-    return document.title.replace(/\s*[-–—|]\s*MyTooLife\s*$/i, '').trim() || document.title.trim();
+    return document.title.replace(/\s*[-–—|]\s*Toolpian\s*$/i, '').trim() || document.title.trim();
   }
 
   function categoryBackHref(categoryId) {

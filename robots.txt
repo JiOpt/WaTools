@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /index_plan.html
 
-Sitemap: https://mytoolife.com/sitemap.xml
+Sitemap: https://toolpian.com/sitemap.xml

@@ -19,7 +19,7 @@
           window.__waInjectToolCategoryPager();
         }
       } catch (err) {
-        console.error('[MyTooLife] Tool init failed:', slug, err);
+        console.error('[Toolpian] Tool init failed:', slug, err);
         app.innerHTML =
           '<div class="tool-missing text-center">' +
           '<p class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>工具載入失敗，請重新整理頁面。</p>' +

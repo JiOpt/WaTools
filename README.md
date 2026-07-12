@@ -1,10 +1,10 @@
-# MyTooLife
+# Toolpian
 
-免安裝 **mytoolife** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
+免安裝 **toolpian** 線上工具，另含 **藏經閣**（國學經典閱讀）。靜態網站，部署至 [Firebase Hosting](https://firebase.google.com/docs/hosting)。
 
-- 網站：<https://mytoolife.com>（**v0.6.39**）
-- 自訂網域：`mytoolife.com`（GoDaddy 註冊，於 Firebase Hosting 綁定 DNS）
-- Firebase 專案 ID：`watoolio`（Google 後台專案名；對外網域為 `mytoolife.com`）
+- 網站：<https://toolpian.com>（**v0.6.39**）
+- 自訂網域：`toolpian.com`（GoDaddy 註冊，於 Firebase Hosting 綁定 DNS）
+- Firebase 專案 ID：`watoolio`（Google 後台專案名；對外網域為 `toolpian.com`）
 
 ---
 
@@ -91,7 +91,7 @@ npm run sitemap:build
 ### sitemap.txt 格式
 
 ```text
-# MyTooLife 發布清單
+# Toolpian 發布清單
 # updated: 2026-07-11T02:18:48.631Z
 
 scriptures
@@ -155,7 +155,7 @@ calculatortool
 ```bash
 npm install -g firebase-tools
 firebase login
-firebase init hosting   # 選 MyTooLife 資料夾；public 目錄填 .
+firebase init hosting   # 選 Toolpian 資料夾；public 目錄填 .
 firebase deploy --project watoolio
 ```
 
@@ -177,14 +177,14 @@ firebase deploy --only hosting --project watoolio
 firebase hosting:disable --project watoolio
 ```
 
-### 自訂網域（mytoolife.com）
+### 自訂網域（toolpian.com）
 
 1. [Firebase Console](https://console.firebase.google.com/) → 專案 `watoolio` → **Hosting** → **Add custom domain**
-2. 輸入 `mytoolife.com`（建議一併加入 `www.mytoolife.com`）
-3. 至 GoDaddy DNS 依 Firebase 指示設定 **TXT**（驗證）、**A**（根網域）、**CNAME**（`www` → `mytoolife.com`）
+2. 輸入 `toolpian.com`（建議一併加入 `www.toolpian.com`）
+3. 至 GoDaddy DNS 依 Firebase 指示設定 **TXT**（驗證）、**A**（根網域）、**CNAME**（`www` → `toolpian.com`）
 4. 等待 Firebase 顯示 Connected 並完成 SSL 憑證
 
-> Firebase 專案 ID 為 `watoolio`，與對外品牌網域 `mytoolife.com` 不同，部署時請用 `--project watoolio`。
+> Firebase 專案 ID 為 `watoolio`，與對外品牌網域 `toolpian.com` 不同，部署時請用 `--project watoolio`。
 
 > `firebase.json` 已設定 `public: "."`，`scripts/`、`index_plan.html`、`sitemap.txt` 等不會上傳。若更新經典內容，請先執行 `node scripts/build-scriptures.mjs` 再 deploy。更新頁面後可執行 `node scripts/generate-sitemap.mjs` 重新產生 `sitemap.xml`（SEO 用，與工具發布清單 `sitemap.txt` 不同）。**deploy 前請確認已執行 `npm run sitemap:build`**（或透過 `npm run plan:serve` 儲存時自動建置）。
 

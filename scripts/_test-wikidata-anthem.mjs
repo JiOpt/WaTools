@@ -10,5 +10,5 @@ SELECT ?iso2 ?countryLabel ?anthemLabel ?anthemLabelEn ?anthemLabelZh WHERE {
 }
 `;
 const url = `https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(query)}`;
-const res = await fetch(url, { headers: { Accept: 'application/sparql-results+json', 'User-Agent': 'MyTooLife/1.0' } });
+const res = await fetch(url, { headers: { Accept: 'application/sparql-results+json', 'User-Agent': 'Toolpian/1.0' } });
 console.log(JSON.stringify(await res.json(), null, 2));

@@ -4,7 +4,7 @@ import vm from 'vm';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE_URL = 'https://mytoolife.com';
+const SITE_URL = 'https://toolpian.com';
 const SITEMAP_TXT = path.join(ROOT, 'sitemap.txt');
 const TOOLS_DATA = path.join(ROOT, 'assets', 'js', 'tools-data.js');
 

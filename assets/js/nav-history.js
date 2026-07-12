@@ -86,7 +86,7 @@
     const h1 = document.querySelector('.page-title .heading h1')
       || document.querySelector('.mytoolife-hero h1');
     if (h1 && h1.textContent.trim()) return h1.textContent.trim();
-    return document.title.replace(/\s*[-–—]\s*MyTooLife.*$/i, '').trim() || pageHref();
+    return document.title.replace(/\s*[-–—]\s*Toolpian.*$/i, '').trim() || pageHref();
   }
 
   function readStore() {

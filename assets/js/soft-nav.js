@@ -470,7 +470,7 @@
         }
       }
     } catch (err) {
-      console.warn('[MyTooLife] soft-nav failed, falling back to full load:', err);
+      console.warn('[Toolpian] soft-nav failed, falling back to full load:', err);
       location.assign(targetUrl.href);
     } finally {
       setMainBusy(false);

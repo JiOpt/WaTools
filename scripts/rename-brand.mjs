@@ -1,5 +1,6 @@
 /**
- * Rename MyTooLife / MyTooLife brand → MyTooLife.
+ * Rename Toolpian brand → Toolpian (display name & User-Agent).
+ * Does not change toolpian.com URLs or localStorage / event keys (mytoolife-*).
  */
 import fs from 'fs';
 import path from 'path';
@@ -8,21 +9,15 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const SKIP_DIRS = new Set(['node_modules', '.git', '.firebase']);
+const SKIP_DIRS = new Set(['node_modules', '.git', '.firebase', 'functions']);
 const EXT = new Set(['.html', '.js', '.mjs', '.css', '.md', '.txt', '.json']);
 
 /** Apply in order — longer / more specific patterns first. */
 const REPLACEMENTS = [
-  ['MyTooLife', 'MyTooLife'],
-  ['MyTooLife', 'MyTooLife'],
-  ['mytoolife:', 'mytoolife:'],
-  ['mytoolife_', 'mytoolife_'],
-  ['.mytoolife-', '.mytoolife-'],
-  ['mytoolife-', 'mytoolife-'],
-  ['mytoolife.web.app', 'mytoolife.com'],
-  ['mytoolife', 'mytoolife'],
-  ['mytoolife-photo', 'mytoolife-photo'],
-  ['mytoolife-doodle', 'mytoolife-doodle'],
+  ['Toolpian', 'Toolpian'],
+  ['content="toolpian,', 'content="toolpian,'],
+  ['**toolpian**', '**toolpian**'],
+  ['免安裝 **toolpian**', '免安裝 **toolpian**'],
 ];
 
 function shouldSkipDir(name) {

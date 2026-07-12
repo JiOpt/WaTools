@@ -70,7 +70,7 @@ export function renderNavItems(navItems = []) {
  * Site header — nav items are per-page; sitemap is injected at runtime by site-sitemap.js.
  */
 export function renderLogoInner(depth = 0) {
-  return `<img src="${assetHref('assets/img/logo.jpg', depth)}" alt="MyTooLife" class="site-logo" width="808" height="336" decoding="async">`;
+  return `<img src="${assetHref('assets/img/logo.jpg', depth)}" alt="Toolpian" class="site-logo" width="808" height="336" decoding="async">`;
 }
 
 export function renderHeader({
@@ -100,7 +100,7 @@ ${renderNavItems(navItems)}
   return `  <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-center me-auto" aria-label="MyTooLife 工具首頁">
+        <a href="/" class="logo d-flex align-items-center me-auto" aria-label="Toolpian 工具首頁">
           ${logoInner}
         </a>
         ${navBlock}

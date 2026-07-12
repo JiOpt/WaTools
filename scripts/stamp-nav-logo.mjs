@@ -34,7 +34,7 @@ function depthOf(filePath) {
 
 function logoImg(depth) {
   const prefix = depth > 0 ? '../'.repeat(depth) : '';
-  return `<img src="${prefix}assets/img/logo.jpg?v=${WA_SITE_VERSION}" alt="MyTooLife" class="site-logo" width="808" height="336" decoding="async">`;
+  return `<img src="${prefix}assets/img/logo.jpg?v=${WA_SITE_VERSION}" alt="Toolpian" class="site-logo" width="808" height="336" decoding="async">`;
 }
 
 function stampHeaderLogo(html, imgTag) {

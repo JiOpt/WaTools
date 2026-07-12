@@ -1,5 +1,5 @@
-export const SITE_URL = 'https://mytoolife.com';
-export const SITE_NAME = 'MyTooLife';
+export const SITE_URL = 'https://toolpian.com';
+export const SITE_NAME = 'Toolpian';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
 const TITLE_MIN = 45;
@@ -27,7 +27,7 @@ export function buildToolPageTitle(toolTitle) {
   const suffix = ` | ${SITE_NAME}`;
   let title = `${toolTitle} - 免費線上工具，即開即用無需註冊${suffix}`;
   if (title.length < TITLE_MIN) {
-    title = `${toolTitle} - MyTooLife 免費線上實用工具，打開就能用${suffix}`;
+    title = `${toolTitle} - Toolpian 免費線上實用工具，打開就能用${suffix}`;
   }
   return clampText(title, TITLE_MIN, TITLE_MAX);
 }
@@ -36,12 +36,12 @@ export function buildScripturePageTitle(bookTitle) {
   const suffix = ` | ${SITE_NAME}`;
   let title = `${bookTitle} - 藏經閣線上閱讀，免費誦讀經典${suffix}`;
   if (title.length < TITLE_MIN) {
-    title = `${bookTitle} - MyTooLife 藏經閣線上閱讀，靜心祈福${suffix}`;
+    title = `${bookTitle} - Toolpian 藏經閣線上閱讀，靜心祈福${suffix}`;
   }
   return clampText(title, TITLE_MIN, TITLE_MAX);
 }
 
-const SITE_DESC_PAD = 'MyTooLife 是免費線上工具與藏經閣平台，無需註冊、免下載，支援電腦與手機，打開即用，資料保留在您的裝置中更安全。';
+const SITE_DESC_PAD = 'Toolpian 是免費線上工具與藏經閣平台，無需註冊、免下載，支援電腦與手機，打開即用，資料保留在您的裝置中更安全。';
 
 export function buildPageDescription(base, extras = []) {
   const parts = [base, ...extras].filter(Boolean);

@@ -138,7 +138,7 @@ async function main() {
     html = fs.readFileSync(local, 'utf8');
   } else {
     const res = await fetch(SOURCE_URL, {
-      headers: { 'User-Agent': 'MyTooLife/1.0 (symbols-name)' },
+      headers: { 'User-Agent': 'Toolpian/1.0 (symbols-name)' },
     });
     if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
     html = await res.text();
