@@ -2,7 +2,7 @@
  * 全站頁尾文案 — 修改此檔即可同步所有頁面。
  */
 window.WA_SITE_FOOTER = {
-  siteName: 'Toolpian',
+  siteName: 'Kawatool',
   tagline: '讓工具生活，簡化每一天。',
   showCopyrightLink: true,
   copyrightLabel: '版權聲明',

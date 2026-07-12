@@ -1,6 +1,6 @@
 /**
- * Rename Toolpian brand → Toolpian (display name & User-Agent).
- * Does not change toolpian.com URLs or localStorage / event keys (mytoolife-*).
+ * Rename Kawatool brand → Kawatool (display name & User-Agent).
+ * Does not change kawatool.com URLs or localStorage / event keys (mytoolife-*).
  */
 import fs from 'fs';
 import path from 'path';
@@ -14,10 +14,10 @@ const EXT = new Set(['.html', '.js', '.mjs', '.css', '.md', '.txt', '.json']);
 
 /** Apply in order — longer / more specific patterns first. */
 const REPLACEMENTS = [
-  ['Toolpian', 'Toolpian'],
-  ['content="toolpian,', 'content="toolpian,'],
-  ['**toolpian**', '**toolpian**'],
-  ['免安裝 **toolpian**', '免安裝 **toolpian**'],
+  ['Kawatool', 'Kawatool'],
+  ['content="kawatool,', 'content="kawatool,'],
+  ['**kawatool**', '**kawatool**'],
+  ['免安裝 **kawatool**', '免安裝 **kawatool**'],
 ];
 
 function shouldSkipDir(name) {

@@ -55,7 +55,7 @@ const MANUAL = {
 
 async function main() {
   const url = `https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(SPARQL)}`;
-  const res = await fetch(url, { headers: { 'User-Agent': 'Toolpian/1.0 (world-flags capitals)' } });
+  const res = await fetch(url, { headers: { 'User-Agent': 'Kawatool/1.0 (world-flags capitals)' } });
   if (!res.ok) throw new Error(`Wikidata HTTP ${res.status}`);
   const data = await res.json();
   const map = { ...MANUAL };

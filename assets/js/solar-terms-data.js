@@ -1,4 +1,4 @@
-/* Auto-generated — ifreesite 24-solar-terms + Toolpian tips */
+/* Auto-generated — ifreesite 24-solar-terms + Kawatool tips */
 window.WA_SOLAR_TERMS = {
   "updated": "2026-07-10",
   "sourcePage": "https://www.ifreesite.com/24-solar-terms/",

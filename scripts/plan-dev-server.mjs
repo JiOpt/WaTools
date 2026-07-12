@@ -146,6 +146,6 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`Toolpian plan server: http://127.0.0.1:${PORT}/index_plan.html`);
+  console.log(`Kawatool plan server: http://127.0.0.1:${PORT}/index_plan.html`);
   console.log('Toggle tools → auto-writes sitemap.txt + sitemap-published.js');
 });

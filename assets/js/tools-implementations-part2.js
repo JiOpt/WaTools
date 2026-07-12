@@ -1,5 +1,5 @@
 /**
- * Toolpian implementations — utility & media (part 2)
+ * Kawatool implementations — utility & media (part 2)
  * Registers on window.WA_TOOL_REGISTRY[slug](appElement)
  */
 (function () {

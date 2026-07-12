@@ -1,5 +1,5 @@
 /**
- * Replace toolpian.com → toolpian.com across site files.
+ * Replace kawatool.com → kawatool.com across site files.
  */
 import fs from 'fs';
 import path from 'path';
@@ -12,8 +12,8 @@ const SKIP_DIRS = new Set(['node_modules', '.git', '.firebase', 'functions']);
 const EXT = new Set(['.html', '.js', '.mjs', '.css', '.md', '.txt', '.json', '.xml']);
 
 const REPLACEMENTS = [
-  ['www.toolpian.com', 'www.toolpian.com'],
-  ['toolpian.com', 'toolpian.com'],
+  ['www.kawatool.com', 'www.kawatool.com'],
+  ['kawatool.com', 'kawatool.com'],
 ];
 
 function shouldSkipDir(name) {

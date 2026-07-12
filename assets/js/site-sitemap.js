@@ -292,7 +292,7 @@
     try {
       return window.WA_SITEMAP_MANIFEST.filterCatalog(list) || [];
     } catch (err) {
-      console.warn('[Toolpian] publish filter failed:', err);
+      console.warn('[Kawatool] publish filter failed:', err);
       return list;
     }
   }
@@ -305,7 +305,7 @@
       try {
         await loadPublishManifest();
       } catch (err) {
-        console.warn('[Toolpian] publish refresh manifest:', err);
+        console.warn('[Kawatool] publish refresh manifest:', err);
       }
 
       const tools = applyPublishFilter(window.WA_TOOLS_CATALOG);
@@ -335,7 +335,7 @@
 
   window.addEventListener('mytoolife:publish-changed', () => {
     refreshSitemapFromPublish().catch((err) => {
-      console.warn('[Toolpian] publish refresh failed:', err);
+      console.warn('[Kawatool] publish refresh failed:', err);
     });
   });
 
@@ -380,7 +380,7 @@
         await loadScriptOnce('assets/js/tools-data.js');
       }
     } catch (err) {
-      console.warn('[Toolpian] tools-data unavailable:', err);
+      console.warn('[Kawatool] tools-data unavailable:', err);
     }
 
     if (!window.WA_TOOLS_CATALOG) {
@@ -392,7 +392,7 @@
         await loadScriptOnce('assets/js/tool-urls.js');
       }
     } catch (err) {
-      console.warn('[Toolpian] tool-urls unavailable:', err);
+      console.warn('[Kawatool] tool-urls unavailable:', err);
     }
 
     try {
@@ -400,7 +400,7 @@
         await loadScriptOnce('assets/js/scriptures-catalog.js');
       }
     } catch (err) {
-      console.warn('[Toolpian] scriptures-catalog unavailable:', err);
+      console.warn('[Kawatool] scriptures-catalog unavailable:', err);
     }
 
     return {
@@ -880,7 +880,7 @@
     try {
       await loadPublishManifest();
     } catch (err) {
-      console.warn('[Toolpian] sitemap manifest unavailable:', err);
+      console.warn('[Kawatool] sitemap manifest unavailable:', err);
     }
 
     const scriptures = Array.isArray(window.WA_SCRIPTURES_CATALOG) ? window.WA_SCRIPTURES_CATALOG : [];
@@ -1031,7 +1031,7 @@
         scriptureSlugs = rendered.scriptureSlugs;
         mountNav(aside, seqSlot, nav, savedUi, visibleTools, scriptureSlugs);
       } catch (err) {
-        console.error('[Toolpian] site-sitemap init failed:', err);
+        console.error('[Kawatool] site-sitemap init failed:', err);
         const loading = aside.querySelector('.site-sitemap-loading');
         if (loading) {
           loading.textContent = '無法載入工具目錄，請重新整理頁面。';

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /index_plan.html
 
-Sitemap: https://toolpian.com/sitemap.xml
+Sitemap: https://kawatool.com/sitemap.xml
