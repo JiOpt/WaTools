@@ -227,6 +227,15 @@ window.WA_TOOLS_CATALOG = [
     name: '大千世界',
     tagline: '旗幟、人口、國歌，環遊世界不用買機票。',
     tools: [
+      {
+        slug: 'japanese-shrine',
+        title: '日本神社',
+        icon: 'bi-bank2',
+        desc: '依地區分類日本神社：主祭神、專屬強項、參拜禮儀與御守知識；點卡片看詳細介紹。',
+        seoTitle: '日本神社｜主祭神・專屬強項・參拜禮儀圖鑑 | Kawatool',
+        seoDescription: '依日本地區分類神社，標示主祭神與專屬強項（結緣、求財、學業），並解說鳥居、手水舍、二禮二拍手一禮與御守繪馬。',
+        seoKeywords: '日本神社,主祭神,結緣神社,參拜禮儀,二禮二拍手一禮,御守,出雲大社,明治神宮,伏見稻荷,Kawatool',
+      },
       { slug: 'world-flags', title: '世界旗幟', icon: 'bi-flag', desc: '各國國旗一覽，附首都、地理、語言、貨幣與旗幟寓意；依洲別瀏覽，點旗即看詳情。' },
       { slug: 'population', title: '世界人口統計', icon: 'bi-people-fill', desc: '各國人口排行與成長率、結構、城市化、壽命等指標。' },
       { slug: 'coat-of-arms', title: '國家徽章', icon: 'bi-award', desc: '各國國徽紋章、象徵意義與歷史演變。' },

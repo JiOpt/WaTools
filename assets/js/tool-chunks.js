@@ -505,6 +505,12 @@ window.WA_TOOL_CHUNKS = {
   "ethnic-china": {
     "part": 3
   },
+  "japanese-shrine": {
+    "part": 3,
+    "extra": [
+      "japanese-shrine-data.js"
+    ]
+  },
   "monster": {
     "part": 3,
     "extra": [

@@ -25,6 +25,7 @@ hawkins
 image-compress
 image-coordinate
 ip
+japanese-shrine
 jinyong
 keyboard-mouse
 keycode

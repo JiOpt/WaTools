@@ -1234,6 +1234,16 @@
         "source": "/national-symbol.html",
         "destination": "/world/national-symbol.html",
         "type": 301
+      },
+      {
+        "source": "/japanese-shrine",
+        "destination": "/world/japanese-shrine",
+        "type": 301
+      },
+      {
+        "source": "/japanese-shrine.html",
+        "destination": "/world/japanese-shrine.html",
+        "type": 301
       }
     ]
   }

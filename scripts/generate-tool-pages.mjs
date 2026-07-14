@@ -15,6 +15,7 @@ import {
   buildPageDescription,
   buildToolKeywords,
   buildToolPageTitle,
+  clampText,
   renderSeoMeta,
   renderWebApplicationSchema,
 } from './seo-meta.mjs';
@@ -33,12 +34,14 @@ const catalog = loadCatalog();
 
 const skipSlugs = new Set(['torch', 'scriptures']);
 
-function renderPage({ title, subtitle, slug, categoryId, categoryName }) {
+function renderPage({ title, subtitle, slug, categoryId, categoryName, seoTitle, seoDescription, seoKeywords }) {
   const selfHref = `${slug}.html`;
   const pagePath = `${categoryId}/${slug}.html`;
-  const pageTitle = buildToolPageTitle(title);
-  const description = buildPageDescription(subtitle, [`${title}線上工具，${categoryName}分類。`]);
-  const keywords = buildToolKeywords(title, categoryName, slug);
+  const pageTitle = clampText(seoTitle || buildToolPageTitle(title), 0, 60);
+  const description = seoDescription
+    ? buildPageDescription(seoDescription)
+    : buildPageDescription(subtitle, [`${title}線上工具，${categoryName}分類。`]);
+  const keywords = seoKeywords || buildToolKeywords(title, categoryName, slug);
 
   return `${renderHeadOpen()}
 ${renderHeadCore({ depth: PAGE_DEPTH })}
@@ -109,6 +112,9 @@ for (const category of catalog) {
       slug: tool.slug,
       categoryId: category.id,
       categoryName: category.name,
+      seoTitle: tool.seoTitle,
+      seoDescription: tool.seoDescription,
+      seoKeywords: tool.seoKeywords,
     });
     fs.writeFileSync(file, html, 'utf8');
     const relTarget = `${category.id}/${tool.slug}.html`;

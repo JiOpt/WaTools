@@ -3198,6 +3198,7 @@
     'coat-of-arms-img',
     'national-symbol-img',
     'monster-img',
+    'japanese-shrine-img',
   ]);
 
   function siteMediaUrl(relativePath) {
@@ -4673,6 +4674,261 @@
       regionsWrap,
       detail,
     ]));
+  };
+
+  R['japanese-shrine'] = function (app) {
+    document.body.classList.remove('shrine-has-dock');
+    const data = window.WA_JAPANESE_SHRINES;
+    if (!data || !data.regions || !data.regions.length) {
+      mount(app, [UI.panel('日本神社', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    let selectedCard = null;
+
+    const dock = UI.el('div', {
+      className: 'shrine-dock',
+      id: 'shrine-detail',
+      hidden: true,
+      'aria-live': 'polite',
+    }, [
+      UI.el('p', { className: 'text-muted mb-0 shrine-dock-hint' }, '點選神社卡片可查看詳細介紹。'),
+    ]);
+
+    function setDockOpen(open) {
+      dock.hidden = !open;
+      dock.classList.toggle('is-visible', open);
+      app.classList.toggle('shrine-has-dock', open);
+      document.body.classList.toggle('shrine-has-dock', open);
+    }
+
+    function makeTag(text, kind) {
+      return UI.el('span', { className: kind === 'kami' ? 'shrine-tag shrine-tag-kami' : 'shrine-tag' }, text);
+    }
+
+    function closeDock() {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = null;
+      setDockOpen(false);
+    }
+
+    if (window.__waShrineEscHandler) {
+      document.removeEventListener('keydown', window.__waShrineEscHandler);
+    }
+    window.__waShrineEscHandler = (ev) => {
+      if (ev.key === 'Escape' && dock.classList.contains('is-visible')) closeDock();
+    };
+    document.addEventListener('keydown', window.__waShrineEscHandler);
+
+    function showShrineDetail(shrine, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      dock.replaceChildren(UI.el('div', { className: 'shrine-dock-inner' }, [
+        UI.el('div', { className: 'shrine-dock-head' }, [
+          UI.bindImageZoom(UI.el('img', {
+            className: 'shrine-dock-img',
+            src: siteMediaUrl(shrine.image),
+            alt: shrine.name,
+            loading: 'lazy',
+          }), { caption: shrine.name }),
+          UI.el('div', { className: 'shrine-dock-head-text' }, [
+            UI.el('h3', { className: 'shrine-dock-title' }, shrine.name),
+            shrine.nameJa && shrine.nameJa !== shrine.name
+              ? UI.el('p', { className: 'shrine-dock-ja' }, shrine.nameJa)
+              : null,
+            UI.el('p', { className: 'shrine-dock-loc' }, shrine.location || ''),
+          ]),
+          UI.el('button', {
+            type: 'button',
+            className: 'shrine-dock-close',
+            title: '關閉',
+            'aria-label': '關閉詳情',
+            onClick: closeDock,
+          }, '×'),
+        ]),
+        UI.el('div', { className: 'shrine-dock-body' }, [
+        UI.el('div', { className: 'shrine-dock-meta' }, [
+          UI.el('div', { className: 'shrine-dock-meta-row' }, [
+            UI.el('span', { className: 'shrine-dock-meta-key' }, '主祭神'),
+            UI.el('span', { className: 'shrine-dock-meta-val' }, shrine.kami),
+          ]),
+          UI.el('div', { className: 'shrine-dock-meta-row' }, [
+            UI.el('span', { className: 'shrine-dock-meta-key' }, '專屬強項'),
+            UI.el('div', { className: 'shrine-dock-tags' }, (shrine.blessings || []).map((b) => makeTag(b))),
+          ]),
+        ]),
+        shrine.detail
+          ? UI.el('div', { className: 'shrine-dock-section' }, [
+            UI.el('h4', { className: 'shrine-dock-section-title' }, '神社簡介'),
+            UI.el('p', { className: 'shrine-dock-desc' }, shrine.detail),
+          ])
+          : null,
+        shrine.tips
+          ? UI.el('div', { className: 'shrine-dock-section' }, [
+            UI.el('h4', { className: 'shrine-dock-section-title' }, '參訪提示'),
+            UI.el('p', { className: 'shrine-dock-desc' }, shrine.tips),
+          ])
+          : null,
+        ]),
+      ]));
+      setDockOpen(true);
+    }
+
+    function showEtiquetteDetail(item, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      dock.replaceChildren(UI.el('div', { className: 'shrine-dock-inner' }, [
+        UI.el('div', { className: 'shrine-dock-head' }, [
+          item.image
+            ? UI.bindImageZoom(UI.el('img', {
+              className: 'shrine-dock-img',
+              src: siteMediaUrl(item.image),
+              alt: item.title,
+              loading: 'lazy',
+            }), { caption: item.title })
+            : null,
+          UI.el('div', { className: 'shrine-dock-head-text' }, [
+            UI.el('h3', { className: 'shrine-dock-title' }, item.title),
+            UI.el('p', { className: 'shrine-dock-loc' }, item.summary || ''),
+          ]),
+          UI.el('button', {
+            type: 'button',
+            className: 'shrine-dock-close',
+            title: '關閉',
+            'aria-label': '關閉詳情',
+            onClick: closeDock,
+          }, '×'),
+        ]),
+        UI.el('div', { className: 'shrine-dock-body' }, [
+          UI.el('div', { className: 'shrine-dock-section' }, [
+            UI.el('h4', { className: 'shrine-dock-section-title' }, '詳細說明'),
+            UI.el('p', { className: 'shrine-dock-desc' }, item.detail),
+          ]),
+        ]),
+      ]));
+      setDockOpen(true);
+    }
+
+    function makeShrineCard(shrine) {
+      const card = UI.el('article', {
+        className: 'shrine-card',
+        tabIndex: 0,
+        role: 'button',
+        'aria-label': `${shrine.name}，主祭神 ${shrine.kami}`,
+      }, [
+        UI.el('img', {
+          className: 'shrine-card-img',
+          src: siteMediaUrl(shrine.image),
+          alt: `${shrine.name}外觀`,
+          loading: 'lazy',
+        }),
+        UI.el('div', { className: 'shrine-card-body' }, [
+          UI.el('h4', { className: 'shrine-card-title' }, shrine.name),
+          UI.el('p', { className: 'shrine-card-loc' }, shrine.location || ''),
+          UI.el('p', { className: 'shrine-card-kami' }, [
+            UI.el('span', { className: 'shrine-card-kami-label' }, '主祭神'),
+            document.createTextNode(shrine.kami),
+          ]),
+          UI.el('div', { className: 'shrine-card-tags' }, (shrine.blessings || []).map((b) => makeTag(b))),
+          UI.el('p', { className: 'shrine-card-hint' }, '點此查看詳細介紹'),
+        ]),
+      ]);
+
+      const open = () => showShrineDetail(shrine, card);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          open();
+        }
+      });
+      return card;
+    }
+
+    function makeEtiquetteCard(item) {
+      const card = UI.el('article', {
+        className: 'shrine-card shrine-card-etiquette',
+        tabIndex: 0,
+        role: 'button',
+        'aria-label': item.title,
+      }, [
+        item.image
+          ? UI.el('img', {
+            className: 'shrine-card-img',
+            src: siteMediaUrl(item.image),
+            alt: item.title,
+            loading: 'lazy',
+          })
+          : null,
+        UI.el('div', { className: 'shrine-card-body' }, [
+          UI.el('h4', { className: 'shrine-card-title' }, item.title),
+          UI.el('p', { className: 'shrine-card-summary' }, item.summary),
+          UI.el('p', { className: 'shrine-card-hint' }, '點此查看詳細介紹'),
+        ]),
+      ]);
+      const open = () => showEtiquetteDetail(item, card);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          open();
+        }
+      });
+      return card;
+    }
+
+    function makeRegion(region) {
+      return UI.el('section', {
+        className: 'shrine-region',
+        id: `shrine-${region.id}`,
+      }, [
+        UI.el('h3', { className: 'shrine-region-title' }, region.title),
+        region.intro
+          ? UI.el('p', { className: 'shrine-region-intro' }, region.intro)
+          : null,
+        UI.el('div', { className: 'shrine-grid' }, region.shrines.map(makeShrineCard)),
+      ]);
+    }
+
+    const etiquetteBlock = data.etiquette
+      ? UI.el('section', {
+        className: 'shrine-region shrine-etiquette',
+        id: 'shrine-etiquette',
+      }, [
+        UI.el('h3', { className: 'shrine-region-title' }, data.etiquette.title),
+        data.etiquette.intro
+          ? UI.el('p', { className: 'shrine-region-intro' }, data.etiquette.intro)
+          : null,
+        UI.el('div', { className: 'shrine-grid' }, (data.etiquette.items || []).map(makeEtiquetteCard)),
+      ])
+      : null;
+
+    const navItems = [
+      data.etiquette
+        ? UI.el('a', { className: 'shrine-nav-link', href: '#shrine-etiquette' }, '參拜禮儀')
+        : null,
+      ...data.regions.map((region) => UI.el('a', {
+        className: 'shrine-nav-link',
+        href: `#shrine-${region.id}`,
+      }, region.title)),
+    ].filter(Boolean);
+
+    app.className = 'tool-app shrine-app';
+    app.replaceChildren(
+      UI.el('div', { className: 'tool-form-inner shrine-app-inner' }, [
+        UI.el('p', { className: 'text-muted shrine-intro' }, data.intro),
+        UI.el('nav', { className: 'shrine-nav', 'aria-label': '地區導覽' }, navItems),
+        etiquetteBlock,
+        ...data.regions.map(makeRegion),
+        UI.el('p', { className: 'text-muted shrine-disclaimer' },
+          '內容整理自公開神社資訊與參拜常識，僅供文化導覽。參拜細節請以各神社現場標示與官方說明為準。神社照片為示意圖像，實際景色請以現地為準。'),
+      ]),
+      dock
+    );
   };
 
   R['ufo'] = function (app) {

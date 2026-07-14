@@ -451,7 +451,7 @@
       window.renderSiteFooter();
     }
 
-    document.body.classList.remove('mobile-nav-active');
+    document.body.classList.remove('mobile-nav-active', 'shrine-has-dock', 'world-flags-has-dock');
     const toggle = document.querySelector('.mobile-nav-toggle');
     if (toggle) {
       toggle.classList.add('bi-list');

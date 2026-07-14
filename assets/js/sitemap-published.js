@@ -24,6 +24,7 @@ window.WA_PUBLISHED_SLUGS = {
     "image-compress",
     "image-coordinate",
     "ip",
+    "japanese-shrine",
     "jinyong",
     "keyboard-mouse",
     "keycode",
