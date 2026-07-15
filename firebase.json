@@ -1237,12 +1237,42 @@
       },
       {
         "source": "/japanese-shrine",
-        "destination": "/world/japanese-shrine",
+        "destination": "/japan/japanese-shrine",
         "type": 301
       },
       {
         "source": "/japanese-shrine.html",
-        "destination": "/world/japanese-shrine.html",
+        "destination": "/japan/japanese-shrine.html",
+        "type": 301
+      },
+      {
+        "source": "/anime-hometown",
+        "destination": "/japan/anime-hometown",
+        "type": 301
+      },
+      {
+        "source": "/anime-hometown.html",
+        "destination": "/japan/anime-hometown.html",
+        "type": 301
+      },
+      {
+        "source": "/world/japanese-shrine",
+        "destination": "/japan/japanese-shrine",
+        "type": 301
+      },
+      {
+        "source": "/world/japanese-shrine.html",
+        "destination": "/japan/japanese-shrine.html",
+        "type": 301
+      },
+      {
+        "source": "/world/anime-hometown",
+        "destination": "/japan/anime-hometown",
+        "type": 301
+      },
+      {
+        "source": "/world/anime-hometown.html",
+        "destination": "/japan/anime-hometown.html",
         "type": 301
       }
     ]

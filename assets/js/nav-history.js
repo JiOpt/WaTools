@@ -82,11 +82,42 @@
     return `/${canonical}`;
   }
 
+  /** Short label for top nav — prefer catalog/tool bar name over SEO <title>. */
+  function shortNavTitle(raw) {
+    let t = String(raw || '').trim();
+    if (!t) return '';
+    t = t.replace(/\s*[|｜]\s*Kawatool\s*$/i, '').trim();
+    t = t.replace(/\s*[-–—]\s*Kawatool.*$/i, '').trim();
+    // Keep left segment before full-width/half-width pipe (SEO subtitle).
+    const pipe = t.search(/\s*[|｜]\s*/);
+    if (pipe > 0) t = t.slice(0, pipe).trim();
+    return t;
+  }
+
+  function catalogTitleForHref(href) {
+    const key = String(href || '');
+    const slug = key.includes('/') ? key.split('/').pop() : key;
+    if (!slug || !window.WA_TOOLS_CATALOG) return '';
+    for (const category of window.WA_TOOLS_CATALOG) {
+      for (const tool of category.tools || []) {
+        if (tool.slug === slug && tool.title) return String(tool.title).trim();
+      }
+    }
+    return '';
+  }
+
   function pageTitle() {
+    const bar = document.querySelector('.tool-page-bar-title');
+    if (bar && bar.textContent.trim()) return shortNavTitle(bar.textContent);
+
     const h1 = document.querySelector('.page-title .heading h1')
       || document.querySelector('.mytoolife-hero h1');
-    if (h1 && h1.textContent.trim()) return h1.textContent.trim();
-    return document.title.replace(/\s*[-–—]\s*Kawatool.*$/i, '').trim() || pageHref();
+    if (h1 && h1.textContent.trim()) return shortNavTitle(h1.textContent);
+
+    const fromCatalog = catalogTitleForHref(pageHref());
+    if (fromCatalog) return fromCatalog;
+
+    return shortNavTitle(document.title) || pageHref();
   }
 
   function readStore() {
@@ -125,7 +156,8 @@
     if (idx >= 0) {
       const prev = list[idx];
       entry.count = (prev.count || 1) + 1;
-      if (!entry.title && prev.title) entry.title = prev.title;
+      // Prefer freshly resolved short title; fall back to shortened stored title.
+      if (!entry.title && prev.title) entry.title = shortNavTitle(prev.title);
       list.splice(idx, 1);
     }
     list.unshift(entry);
@@ -178,8 +210,9 @@
       li.className = 'nav-history-entry';
       const a = document.createElement('a');
       a.href = resolveHref(item.href);
-      a.textContent = item.title;
-      a.title = item.title;
+      const label = catalogTitleForHref(item.href) || shortNavTitle(item.title) || item.title || item.href;
+      a.textContent = label;
+      a.title = label;
       if (isCurrent(item.href)) a.classList.add('active');
       li.appendChild(a);
       frag.appendChild(li);
@@ -199,6 +232,10 @@
     window.addEventListener('storage', (e) => {
       if (e.key === STORAGE_KEY) renderNavItems(readStore());
     });
+
+    window.addEventListener('mytoolife:catalog-ready', () => {
+      renderNavItems(readStore());
+    });
   }
 
   window.__waRecordNavVisit = function recordNavVisit() {
@@ -212,6 +249,11 @@
     readStore,
     pageHref,
     resolveHref,
+    shortNavTitle,
+    displayTitle(item) {
+      if (!item) return '';
+      return catalogTitleForHref(item.href) || shortNavTitle(item.title) || item.title || item.href || '';
+    },
     shouldSkipItem: shouldSkipHistoryItem,
     topFrequent,
     settingsHref() {

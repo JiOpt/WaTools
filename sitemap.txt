@@ -3,6 +3,7 @@
 # 以 # 開頭為註解；空行略過。一行一個 slug。
 # updated: 2026-07-11T10:59:38.880Z
 
+anime-hometown
 bmi
 calculatortool
 calendar
@@ -26,6 +27,7 @@ image-compress
 image-coordinate
 ip
 japanese-shrine
+gourmet
 jinyong
 keyboard-mouse
 keycode
@@ -43,9 +45,11 @@ qrcode-scan
 radix-converter
 random-number
 reaction-test
+retro
 roman-numeral
 rp-test
 screen-detect
+stay
 screen-test
 scriptures
 seo-keyword
@@ -66,4 +70,6 @@ unit-weight
 wishing-tree
 wordcount
 world-flags
+yokai
+yokocho
 zodiac

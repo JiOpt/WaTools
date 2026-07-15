@@ -262,10 +262,7 @@ window.WA_TOOL_CHUNKS = {
     ]
   },
   "car-brand": {
-    "part": 3,
-    "extra": [
-      "car-brand-data.js"
-    ]
+    "part": 3
   },
   "currency": {
     "part": 3,
@@ -505,12 +502,6 @@ window.WA_TOOL_CHUNKS = {
   "ethnic-china": {
     "part": 3
   },
-  "japanese-shrine": {
-    "part": 3,
-    "extra": [
-      "japanese-shrine-data.js"
-    ]
-  },
   "monster": {
     "part": 3,
     "extra": [
@@ -546,6 +537,48 @@ window.WA_TOOL_CHUNKS = {
     "part": 3,
     "extra": [
       "world-flags-data.js"
+    ]
+  },
+  "anime-hometown": {
+    "part": 3,
+    "extra": [
+      "anime-hometown-data.js"
+    ]
+  },
+  "gourmet": {
+    "part": 3,
+    "extra": [
+      "japan-theme-tools.js"
+    ]
+  },
+  "japanese-shrine": {
+    "part": 3,
+    "extra": [
+      "japanese-shrine-data.js"
+    ]
+  },
+  "retro": {
+    "part": 3,
+    "extra": [
+      "japan-theme-tools.js"
+    ]
+  },
+  "stay": {
+    "part": 3,
+    "extra": [
+      "japan-theme-tools.js"
+    ]
+  },
+  "yokai": {
+    "part": 3,
+    "extra": [
+      "japan-theme-tools.js"
+    ]
+  },
+  "yokocho": {
+    "part": 3,
+    "extra": [
+      "japan-theme-tools.js"
     ]
   }
 };

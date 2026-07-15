@@ -1,0 +1,196 @@
+/* Theme 5: Hidden Gems & Machiya Stays — Wabi-Sabi */
+:root {
+  --stay-earth: #a89078;
+  --stay-forest: #1e3a2f;
+  --stay-stone: #6b6e6a;
+  --stay-sand: #e8e2d8;
+  --stay-ink: #1a1f1c;
+  --stay-paper: #f4f1eb;
+}
+
+.tool-app.theme-stay {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(30, 58, 47, 0.08), transparent 40%),
+    linear-gradient(180deg, #f7f4ef 0%, #ebe6dc 50%, #e2ddd2 100%);
+  color: var(--stay-ink);
+  border-radius: 12px;
+  padding: 1rem 1.1rem 1.5rem;
+}
+
+.theme-stay .jp-hero {
+  background:
+    linear-gradient(120deg, rgba(30, 58, 47, 0.12), transparent 55%),
+    linear-gradient(to bottom, transparent, rgba(244, 241, 235, 0.9));
+}
+
+.theme-stay .jp-hero h1 {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--stay-forest);
+}
+
+.theme-stay .jp-section h2 {
+  color: var(--stay-forest);
+}
+
+.cat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(244, 241, 235, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(30, 58, 47, 0.12);
+}
+
+.cat-nav a {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid rgba(30, 58, 47, 0.2);
+  color: var(--stay-forest);
+  transition: background 0.2s, color 0.2s;
+}
+
+.cat-nav a:hover,
+.cat-nav a:focus-visible {
+  background: var(--stay-forest);
+  color: var(--stay-paper);
+  outline: none;
+}
+
+.stay-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.stay-card {
+  background: var(--stay-paper);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(107, 110, 106, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.stay-card__visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #2a332e;
+}
+
+.stay-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.7s ease;
+}
+
+.stay-card__img--night {
+  opacity: 0;
+}
+
+.stay-card.is-night .stay-card__img--day {
+  opacity: 0;
+}
+
+.stay-card.is-night .stay-card__img--night {
+  opacity: 1;
+}
+
+.stay-card__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 40%, rgba(255, 240, 210, 0.15) 100%);
+  opacity: 1;
+  transition: opacity 0.7s ease, background 0.7s ease;
+  z-index: 1;
+}
+
+.stay-card.is-night .stay-card__glow {
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(255, 200, 100, 0.22), transparent 45%),
+    linear-gradient(180deg, rgba(10, 20, 40, 0.25) 0%, rgba(5, 15, 30, 0.55) 100%);
+}
+
+.stay-card__body {
+  padding: 1.2rem 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.stay-card__meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stay-stone);
+}
+
+.stay-card h3 {
+  margin: 0;
+  font-family: var(--jp-font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--stay-forest);
+}
+
+.stay-card__loc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--stay-stone);
+}
+
+.stay-card__desc {
+  margin: 0;
+  font-size: 0.92rem;
+  opacity: 0.88;
+  flex: 1;
+}
+
+.stay-toggle {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  appearance: none;
+  border: 1px solid rgba(30, 58, 47, 0.35);
+  background: transparent;
+  color: var(--stay-forest);
+  padding: 0.45rem 0.95rem;
+  font: inherit;
+  font-size: 0.82rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.stay-toggle:hover,
+.stay-toggle:focus-visible {
+  background: var(--stay-forest);
+  color: var(--stay-paper);
+  outline: none;
+}
+
+.stay-card.is-night .stay-toggle {
+  border-color: rgba(168, 144, 120, 0.5);
+  color: #3d3428;
+  background: rgba(168, 144, 120, 0.2);
+}
+
+.stay-category {
+  scroll-margin-top: 4.5rem;
+  margin-bottom: 2rem;
+}
+
+.stay-category > h2 {
+  margin-bottom: 0.35rem;
+}

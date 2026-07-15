@@ -31,7 +31,7 @@ const SKIP_JS = new Set([
 
 const CATEGORY_DIRS = [
   'utility', 'dev', 'editor', 'security', 'media', 'life', 'fun',
-  'culture', 'symbols', 'spiritual', 'world', 'scripture',
+  'culture', 'symbols', 'spiritual', 'world', 'japan', 'scripture',
 ];
 
 /** Per-slug data / boot scripts not present in generated tool HTML. */
@@ -55,6 +55,13 @@ const SLUG_EXTRAS = {
   'solar-terms': ['solar-terms-data.js'],
   currency: ['currency-data.js'],
   calendar: ['calendar-engine.js', 'calendar-holidays.js', 'calendar-glossary.js', 'chinese-calendar.js'],
+  'japanese-shrine': ['japanese-shrine-data.js'],
+  'anime-hometown': ['anime-hometown-data.js'],
+  retro: ['japan-theme-tools.js'],
+  yokai: ['japan-theme-tools.js'],
+  yokocho: ['japan-theme-tools.js'],
+  gourmet: ['japan-theme-tools.js'],
+  stay: ['japan-theme-tools.js'],
 };
 
 const SLUG_PART_OVERRIDES = {

@@ -1,0 +1,58 @@
+# Role & Philosophy
+You are an expert Frontend Developer who crafts highly performant, visually stunning, and responsive websites. 
+Your goal is to build five new immersive theme pages under the local directory `japan/` without affecting any existing files.
+
+# Absolute Constraints (High Performance & Low Power)
+1. **No Fat Frameworks**: Use Vanilla HTML5, CSS3, and modern Vanilla JS. No React/Vue unless absolutely necessary.
+2. **Mobile First & Responsive**: Every page must render perfectly on both Desktop (high scanability) and Mobile (smooth touch).
+3. **Resource Efficiency**: Use native CSS animations instead of heavy JS libraries to keep GPU/CPU usage low. 
+4. **Lazy Loading**: All images must use `loading="lazy"` and have explicit width/height to avoid Layout Shifts (CLS).
+5. **Robust Error Handling**: Implement graceful fallbacks for any interactive elements.
+
+# Task Directory Structure to Create
+- `japan/retro.html` (Theme 1: Showa & Taisho Retro Romantic)
+- `japan/yokai.html` (Theme 2: Japanese Yokai & Urban Legends)
+- `japan/yokocho.html` (Theme 3: Midnight Alley & Izakaya Soundscape)
+- `japan/gourmet.html` (Theme 4: B-kyu Gurume Food Map)
+- `japan/stay.html` (Theme 5: Hidden Gems & Machiya Stays)
+- `japan/css/` (Theme-specific stylesheets, lightweight & modular)
+- `japan/js/` (Theme-specific interactive scripts)
+
+# Implementation Details for Each Theme
+## 1. retro.html (昭和/大正復古)
+- **Vibe**: Warm orange/wood tones, nostalgic film grain effect via CSS noise, elegant serif typography.
+- **Key Feature**: A "Time Slider" that transitionally morphs a section of the page from "Modern Tokyo" to "Showa Era" using high-performance CSS `clip-path`.
+
+## 2. yokai.html (妖怪百鬼夜行)
+- **Vibe**: Dark mode, low-light, spooky green/purple accents.
+- **Key Feature**: A "Spotlight Search" effect. The cursor behaves like a flashlight, revealing hidden Yokai graphics on the page using CSS `mix-blend-mode: multiply/difference` and JS mousemove event listener.
+
+## 3. yokocho.html (深夜橫丁)
+- **Vibe**: Warm lantern glows, hand-drawn style menus, cozy and healing atmosphere.
+- **Key Feature**: An interactive "Ambient Soundboard" (toggle buttons for rain, sizzling grill, distant clinking glasses) using lightweight HTML5 `<audio>` elements.
+
+## 4. gourmet.html (在地 B 級美食地圖)
+- **Vibe**: Vibrant and appetizing. Sunny yellow and warm white accents, clean layout, large high-contrast food cards.
+- **Theme**: "B-kyu Gurume" (B-class Gourmet) - focusing on legendary, affordable local dishes (e.g., Nagoya Tebasaki, Fukuoka Hakata Ramen, Osaka Takoyaki).
+- **Key Feature**: An interactive **"Food Filter Carousel"**. Users can filter dishes by "Region" (Kanto, Kansai, Kyushu) or "Budget/Type" using a highly responsive, GPU-accelerated tag system.
+- **Coding Standard**: 
+  - Store food card data in a clean, local JSON array at the top of the JS file for easy future API integration and clean maintainability.
+  - Implement a modern CSS **Skeleton Screen** loading animation to prevent layout shifts before Unsplash placeholder images are fully rendered.
+
+## 5. stay.html (隱世極境：秘境溫泉與特色町家民宿)
+- **Vibe**: Zen-like luxury, quiet aesthetic (Wabi-Sabi). Neutral earth tones, dark forest greens, stone grays, and spacious minimalist grids.
+- **Theme**: "Hidden Gems & Machiya Stays" - curated guide to staying in authentic Kyoto townhouses (Machiya), historic ryokans, and remote forest treehouses.
+- **Key Feature**: A **"Day-to-Night Ambient Previewer"**. Users can click a "Daytime View / Nighttime View" toggle on each accommodation card. The card's background image and ambient lighting gradient smoothly cross-fade to show the ryokan under different times of day (use CSS transition opacity for high performance).
+- **Coding Standard**: 
+  - Restrict image sizes and wrap each card in a semantic `<article>` tag.
+  - Implement lightweight CSS smooth-scroll so users can easily navigate through different accommodation categories (e.g., Ryokan, Machiya, Nature Stay).
+
+# Comprehensive Site-wide Alignment (IMPORTANT)
+1. **Modular Navigation**: Create a consistent, lightweight, and fully responsive global Header/Navigation bar across all 5 pages (`retro.html`, `yokai.html`, `yokocho.html`, `gourmet.html`, `stay.html`) using relative paths (e.g., `./retro.html`), allowing seamless switching between them.
+2. **Unified Semantic Layout**: Ensure all HTML files adhere strictly to SEO-friendly HTML5 guidelines (proper use of `<header>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+3. **Zero Dependencies**: Confirm that all new interaction features are written in pure Vanilla JS with strict performance optimizations (throttling on scroll/mousemove events).
+
+# Agent Execution Loop Rules
+1. **Self-Verification**: After writing each HTML/CSS/JS file, run a quick syntax validator or programmatic check to ensure there are no broken tags or unescaped characters.
+2. **Progress Logging**: Write a running log to `japan/agent_build.log` after completing each sub-task (e.g., "Step 1: retro.html created and validated successfully").
+3. **No Asking For Permission**: Do not stop to ask me questions. If you encounter an ambiguity, make a reasonable, expert engineering decision and proceed.

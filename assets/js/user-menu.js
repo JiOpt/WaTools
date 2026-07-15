@@ -129,16 +129,27 @@
       }
 
       const cur = pageHref();
+      const displayTitle = (item) => {
+        const api = navApi();
+        if (api?.displayTitle) return api.displayTitle(item);
+        return String(item?.title || item?.href || '').trim();
+      };
+      const escapeHtml = (s) => String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
       list.forEach((item, index) => {
         const li = document.createElement('li');
         li.setAttribute('role', 'none');
         const a = document.createElement('a');
         a.href = resolveHref(item.href);
         a.setAttribute('role', 'menuitem');
-        a.title = item.title;
+        const label = displayTitle(item);
+        a.title = label;
         if (item.href === cur) a.classList.add('is-current');
         const count = item.count || 1;
-        a.innerHTML = `<span class="user-menu-history-rank">${index + 1}</span><span class="user-menu-history-title">${item.title}</span><span class="user-menu-history-count">${count} 次</span>`;
+        a.innerHTML = `<span class="user-menu-history-rank">${index + 1}</span><span class="user-menu-history-title">${escapeHtml(label)}</span><span class="user-menu-history-count">${count} 次</span>`;
         li.appendChild(a);
         historyList.appendChild(li);
       });

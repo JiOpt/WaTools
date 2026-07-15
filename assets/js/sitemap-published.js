@@ -2,6 +2,7 @@
 window.WA_PUBLISHED_SLUGS = {
   "updated": "2026-07-11T10:59:38.880Z",
   "slugs": [
+    "anime-hometown",
     "bmi",
     "calculatortool",
     "calendar",
@@ -19,6 +20,7 @@ window.WA_PUBLISHED_SLUGS = {
     "exif",
     "expiry-date",
     "fortune-stick",
+    "gourmet",
     "guid",
     "hawkins",
     "image-compress",
@@ -42,6 +44,7 @@ window.WA_PUBLISHED_SLUGS = {
     "radix-converter",
     "random-number",
     "reaction-test",
+    "retro",
     "roman-numeral",
     "rp-test",
     "screen-detect",
@@ -50,6 +53,7 @@ window.WA_PUBLISHED_SLUGS = {
     "seo-keyword",
     "settings",
     "solar-terms",
+    "stay",
     "stopwatch",
     "symbols-generator",
     "timestamp",
@@ -65,6 +69,8 @@ window.WA_PUBLISHED_SLUGS = {
     "wishing-tree",
     "wordcount",
     "world-flags",
+    "yokai",
+    "yokocho",
     "zodiac"
   ]
 };

@@ -1,0 +1,213 @@
+/* Theme 4: B-kyu Gurume Food Map */
+:root {
+  --gm-yellow: #f5c518;
+  --gm-sun: #ffe566;
+  --gm-ink: #1c1a12;
+  --gm-cream: #fffdf5;
+  --gm-accent: #e85d04;
+  --gm-card: #ffffff;
+}
+
+.tool-app.theme-gourmet {
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(245, 197, 24, 0.35), transparent 45%),
+    linear-gradient(180deg, #fffef8 0%, #fff8e6 40%, #fff5d6 100%);
+  color: var(--gm-ink);
+  border-radius: 12px;
+  padding: 1rem 1.1rem 1.5rem;
+}
+
+.theme-gourmet .jp-hero {
+  background: linear-gradient(135deg, rgba(245, 197, 24, 0.35), transparent 55%);
+}
+
+.theme-gourmet .jp-hero h1 {
+  color: #2a2208;
+}
+
+.theme-gourmet .jp-section h2 {
+  color: #3d320a;
+}
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-row__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+  min-width: 3.5rem;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.filter-tag {
+  appearance: none;
+  border: 1.5px solid rgba(28, 26, 18, 0.18);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--gm-ink);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s var(--jp-ease), background 0.2s, border-color 0.2s, color 0.2s;
+  will-change: transform;
+}
+
+.filter-tag:hover,
+.filter-tag:focus-visible {
+  transform: translateY(-1px) scale(1.03);
+  border-color: var(--gm-accent);
+  outline: none;
+}
+
+.filter-tag.is-active {
+  background: var(--gm-yellow);
+  border-color: #c9a010;
+  color: #1c1a12;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(245, 197, 24, 0.4);
+}
+
+.food-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 0 0 1rem;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.food-card {
+  background: var(--gm-card);
+  border-radius: var(--jp-radius);
+  overflow: hidden;
+  border: 1px solid rgba(28, 26, 18, 0.08);
+  box-shadow: 0 8px 24px rgba(28, 26, 18, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--jp-ease), box-shadow 0.3s;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(28, 26, 18, 0.1);
+}
+
+.food-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #f0ead8;
+  overflow: hidden;
+}
+
+.food-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.food-card__media img.is-loaded {
+  opacity: 1;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #ebe4d0 0%, #f7f1df 40%, #ebe4d0 80%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+}
+
+.food-card__media.is-ready .skeleton {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.food-card__body {
+  padding: 1.1rem 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.food-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.food-card__tags span {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: #fff3c4;
+  color: #5c4a00;
+  font-weight: 600;
+}
+
+.food-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-family: var(--jp-font-serif);
+}
+
+.food-card__city {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  margin: 0;
+}
+
+.food-card__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  flex: 1;
+}
+
+.food-card__price {
+  margin-top: 0.35rem;
+  font-weight: 700;
+  color: var(--gm-accent);
+  font-size: 0.95rem;
+}
+
+.food-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+

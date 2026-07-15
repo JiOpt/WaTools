@@ -1,6 +1,6 @@
 /**
  * 日本神社 — 依地區分類；卡片顯示主祭神／專屬強項，點開看詳情。
- * 圖片置於 world/japanese-shrine-img/（各檔 <1MB）。
+ * 圖片置於 japan/japanese-shrine-img/（各檔 <1MB）。
  */
 window.WA_JAPANESE_SHRINES = {
   intro:

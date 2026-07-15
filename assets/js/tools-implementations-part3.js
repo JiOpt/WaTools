@@ -3192,22 +3192,24 @@
     ])]);
   };
 
-  // ===== WORLD =====
-  const WORLD_MEDIA_DIRS = new Set([
-    'world-flags-img',
-    'coat-of-arms-img',
-    'national-symbol-img',
-    'monster-img',
-    'japanese-shrine-img',
-  ]);
+  // ===== WORLD / JAPAN MEDIA =====
+  const MEDIA_FOLDER_BASE = {
+    'world-flags-img': 'world',
+    'coat-of-arms-img': 'world',
+    'national-symbol-img': 'world',
+    'monster-img': 'world',
+    'japanese-shrine-img': 'japan',
+    'anime-hometown-img': 'japan',
+  };
 
   function siteMediaUrl(relativePath) {
     if (!relativePath) return relativePath;
     if (/^(https?:|data:|\/)/i.test(relativePath)) return relativePath;
     let clean = String(relativePath).replace(/^\/+/, '');
     const top = clean.split('/')[0];
-    if (WORLD_MEDIA_DIRS.has(top) && !clean.startsWith('world/')) {
-      clean = `world/${clean}`;
+    const base = MEDIA_FOLDER_BASE[top];
+    if (base && !clean.startsWith(`${base}/`) && !clean.startsWith('world/') && !clean.startsWith('japan/')) {
+      clean = `${base}/${clean}`;
     }
     if (window.WA_TOOL_URLS?.absolutePageHref) {
       return window.WA_TOOL_URLS.absolutePageHref(clean);
@@ -4931,6 +4933,177 @@
     );
   };
 
+  R['anime-hometown'] = function (app) {
+    document.body.classList.remove('anime-has-dock');
+    const data = window.WA_ANIME_HOMETOWN;
+    const spots = data?.spots || [];
+    if (!spots.length) {
+      mount(app, [UI.panel('日本動漫故鄉', UI.el('p', { className: 'text-muted' }, '資料載入失敗，請重新整理頁面。'))]);
+      return;
+    }
+
+    let selectedCard = null;
+    const dock = UI.el('div', {
+      className: 'anime-dock',
+      id: 'anime-detail',
+      hidden: true,
+      'aria-live': 'polite',
+    });
+
+    function setDockOpen(open) {
+      dock.hidden = !open;
+      dock.classList.toggle('is-visible', open);
+      app.classList.toggle('anime-has-dock', open);
+      document.body.classList.toggle('anime-has-dock', open);
+    }
+
+    function closeDock() {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = null;
+      setDockOpen(false);
+    }
+
+    if (window.__waAnimeEscHandler) {
+      document.removeEventListener('keydown', window.__waAnimeEscHandler);
+    }
+    window.__waAnimeEscHandler = (ev) => {
+      if (ev.key === 'Escape' && dock.classList.contains('is-visible')) closeDock();
+    };
+    document.addEventListener('keydown', window.__waAnimeEscHandler);
+
+    function makeTag(text) {
+      return UI.el('span', { className: 'anime-tag' }, text);
+    }
+
+    function showDetail(spot, cardEl) {
+      if (selectedCard) selectedCard.classList.remove('is-selected');
+      selectedCard = cardEl || null;
+      if (selectedCard) selectedCard.classList.add('is-selected');
+
+      const highlightList = (spot.highlights || []).length
+        ? UI.el('ul', { className: 'anime-dock-list' },
+          spot.highlights.map((line) => UI.el('li', {}, line)))
+        : null;
+
+      dock.replaceChildren(UI.el('div', { className: 'anime-dock-inner' }, [
+        UI.el('div', { className: 'anime-dock-head' }, [
+          UI.bindImageZoom(UI.el('img', {
+            className: 'anime-dock-img',
+            src: siteMediaUrl(spot.image),
+            alt: spot.title,
+            loading: 'lazy',
+          }), { caption: spot.title }),
+          UI.el('div', { className: 'anime-dock-head-text' }, [
+            UI.el('h3', { className: 'anime-dock-title' }, spot.title),
+            UI.el('p', { className: 'anime-dock-work' }, spot.work),
+            UI.el('p', { className: 'anime-dock-loc' }, spot.location || ''),
+          ]),
+          UI.el('button', {
+            type: 'button',
+            className: 'anime-dock-close',
+            title: '關閉',
+            'aria-label': '關閉詳情',
+            onClick: closeDock,
+          }, '×'),
+        ]),
+        UI.el('div', { className: 'anime-dock-body' }, [
+          UI.el('div', { className: 'anime-dock-meta' }, [
+            UI.el('div', { className: 'anime-dock-meta-row' }, [
+              UI.el('span', { className: 'anime-dock-meta-key' }, '作品'),
+              UI.el('span', { className: 'anime-dock-meta-val' }, spot.work),
+            ]),
+            spot.author
+              ? UI.el('div', { className: 'anime-dock-meta-row' }, [
+                UI.el('span', { className: 'anime-dock-meta-key' }, '作者／導演'),
+                UI.el('span', { className: 'anime-dock-meta-val' }, spot.author),
+              ])
+              : null,
+            UI.el('div', { className: 'anime-dock-meta-row' }, [
+              UI.el('span', { className: 'anime-dock-meta-key' }, '特色'),
+              UI.el('span', { className: 'anime-dock-meta-val' }, spot.feature),
+            ]),
+          ]),
+          spot.detail
+            ? UI.el('div', { className: 'anime-dock-section' }, [
+              UI.el('h4', { className: 'anime-dock-section-title' }, '景點介紹'),
+              UI.el('p', { className: 'anime-dock-desc' }, spot.detail),
+            ])
+            : null,
+          highlightList
+            ? UI.el('div', { className: 'anime-dock-section' }, [
+              UI.el('h4', { className: 'anime-dock-section-title' }, '必訪景點'),
+              highlightList,
+            ])
+            : null,
+          spot.tips
+            ? UI.el('div', { className: 'anime-dock-section' }, [
+              UI.el('h4', { className: 'anime-dock-section-title' }, '交通與提示'),
+              UI.el('p', { className: 'anime-dock-desc' }, spot.tips),
+            ])
+            : null,
+          spot.altImage
+            ? UI.el('div', { className: 'anime-dock-section' }, [
+              UI.el('h4', { className: 'anime-dock-section-title' }, '更多風景'),
+              UI.bindImageZoom(UI.el('img', {
+                className: 'anime-dock-extra-img',
+                src: siteMediaUrl(spot.altImage),
+                alt: `${spot.title}相關風景`,
+                loading: 'lazy',
+              }), { caption: spot.title }),
+            ])
+            : null,
+        ]),
+      ]));
+      setDockOpen(true);
+    }
+
+    function makeCard(spot) {
+      const card = UI.el('article', {
+        className: 'anime-card',
+        tabIndex: 0,
+        role: 'button',
+        'aria-label': `${spot.work}，${spot.title}`,
+      }, [
+        UI.el('img', {
+          className: 'anime-card-img',
+          src: siteMediaUrl(spot.image),
+          alt: `${spot.title}風景示意`,
+          loading: 'lazy',
+        }),
+        UI.el('div', { className: 'anime-card-body' }, [
+          UI.el('p', { className: 'anime-card-work' }, spot.work),
+          UI.el('h4', { className: 'anime-card-title' }, spot.title),
+          UI.el('p', { className: 'anime-card-loc' }, spot.location || ''),
+          UI.el('p', { className: 'anime-card-feature' }, [
+            UI.el('span', { className: 'anime-card-feature-label' }, '特色'),
+            document.createTextNode(spot.feature),
+          ]),
+          UI.el('div', { className: 'anime-card-tags' }, (spot.tags || []).map(makeTag)),
+          UI.el('p', { className: 'anime-card-hint' }, '點此看必訪景點'),
+        ]),
+      ]);
+      const open = () => showDetail(spot, card);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          open();
+        }
+      });
+      return card;
+    }
+
+    app.className = 'tool-app anime-app';
+    app.replaceChildren(
+      UI.el('div', { className: 'tool-form-inner anime-app-inner' }, [
+        UI.el('p', { className: 'text-muted anime-intro' }, data.intro),
+        UI.el('div', { className: 'anime-grid' }, spots.map(makeCard)),
+        UI.el('p', { className: 'text-muted anime-disclaimer' }, data.disclaimer),
+      ]),
+      dock
+    );
+  };
+
   R['ufo'] = function (app) {
     const data = window.WA_UFO;
     if (!data || !data.sections || !data.sections.length) {
@@ -5179,5 +5352,24 @@
 
     render('');
   };
+
+  function mountJapanTheme(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_JAPAN_THEME && window.WA_MOUNT_JAPAN_THEME[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '主題模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['retro'] = mountJapanTheme('retro', '昭和大正復古');
+  R['yokai'] = mountJapanTheme('yokai', '妖怪百鬼夜行');
+  R['yokocho'] = mountJapanTheme('yokocho', '深夜橫丁');
+  R['gourmet'] = mountJapanTheme('gourmet', 'B級美食地圖');
+  R['stay'] = mountJapanTheme('stay', '隱世溫泉町家');
 
 })();

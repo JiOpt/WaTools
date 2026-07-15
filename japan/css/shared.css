@@ -1,0 +1,85 @@
+/* Japan theme tools — scoped under .tool-app.wa-jp-theme only */
+.tool-app.wa-jp-theme {
+  --jp-nav-h: 56px;
+  --jp-max: 1100px;
+  --jp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --jp-radius: 12px;
+  --jp-font-sans: "Noto Sans TC", "Hiragino Sans", "PingFang TC", sans-serif;
+  --jp-font-serif: "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif;
+  font-family: var(--jp-font-sans);
+  line-height: 1.65;
+  color: #1a1a1a;
+  margin: 0 -0.25rem;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.tool-app.wa-jp-theme *,
+.tool-app.wa-jp-theme *::before,
+.tool-app.wa-jp-theme *::after {
+  box-sizing: border-box;
+}
+
+.tool-app.wa-jp-theme img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tool-app.wa-jp-theme a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* —— Shared theme chrome —— */
+.wa-jp-theme .jp-hero {
+  position: relative;
+  padding: 0.5rem 0 1.5rem;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.wa-jp-theme .jp-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
+}
+
+.wa-jp-theme .jp-hero__lead {
+  max-width: 38rem;
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.wa-jp-theme .jp-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 0 2rem;
+}
+
+.wa-jp-theme .jp-section h2 {
+  font-family: var(--jp-font-serif);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  margin: 0 0 0.5rem;
+}
+
+.wa-jp-theme .jp-section__intro {
+  margin: 0 0 1.75rem;
+  max-width: 40rem;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-jp-theme *,
+  .wa-jp-theme *::before,
+  .wa-jp-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

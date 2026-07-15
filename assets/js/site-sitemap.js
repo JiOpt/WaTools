@@ -17,6 +17,7 @@
     life: 'bi-book',
     fun: 'bi-stars',
     spiritual: 'bi-brightness-high',
+    japan: 'bi-geo-alt',
     world: 'bi-globe-asia-australia',
   };
 
