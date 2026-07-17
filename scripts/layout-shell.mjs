@@ -70,7 +70,7 @@ export function renderNavItems(navItems = []) {
  * Site header — nav items are per-page; sitemap is injected at runtime by site-sitemap.js.
  */
 export function renderLogoInner(depth = 0) {
-  return `<img src="${assetHref('assets/img/logo.jpg', depth)}" alt="Kawatool" class="site-logo" width="808" height="336" decoding="async">`;
+  return `<span class="site-logo-frame" aria-hidden="true"><img src="${assetHref('assets/img/logo.jpg', depth)}" alt="" class="site-logo" width="136" height="136" decoding="async"></span><span class="site-logo-text"><span class="site-logo-text-full">KaWaTool 卡哇兔線上工具</span><span class="site-logo-text-short">KaWaTool</span></span>`;
 }
 
 export function renderHeader({
@@ -100,7 +100,7 @@ ${renderNavItems(navItems)}
   return `  <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-center me-auto" aria-label="Kawatool 工具首頁">
+        <a href="/" class="logo d-flex align-items-center me-auto" aria-label="KaWaTool 卡哇兔線上工具首頁">
           ${logoInner}
         </a>
         ${navBlock}

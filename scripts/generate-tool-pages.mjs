@@ -14,8 +14,7 @@ import {
 import {
   buildPageDescription,
   buildToolKeywords,
-  buildToolPageTitle,
-  clampText,
+  normalizePageTitle,
   renderSeoMeta,
   renderWebApplicationSchema,
 } from './seo-meta.mjs';
@@ -37,7 +36,7 @@ const skipSlugs = new Set(['torch', 'scriptures']);
 function renderPage({ title, subtitle, slug, categoryId, categoryName, seoTitle, seoDescription, seoKeywords }) {
   const selfHref = `${slug}.html`;
   const pagePath = `${categoryId}/${slug}.html`;
-  const pageTitle = clampText(seoTitle || buildToolPageTitle(title), 0, 60);
+  const pageTitle = normalizePageTitle(seoTitle || title);
   const description = seoDescription
     ? buildPageDescription(seoDescription)
     : buildPageDescription(subtitle, [`${title}線上工具，${categoryName}分類。`]);

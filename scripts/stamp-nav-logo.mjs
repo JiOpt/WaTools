@@ -1,5 +1,5 @@
 /**
- * Replace header text/icon logo with assets/img/logo.jpg across HTML pages.
+ * Stamp header logo (bunny icon + brand text) across HTML pages.
  * Run: node scripts/stamp-nav-logo.mjs
  */
 import fs from 'node:fs';
@@ -32,22 +32,28 @@ function depthOf(filePath) {
   return rel.split(path.sep).filter(Boolean).length;
 }
 
-function logoImg(depth) {
+function logoInner(depth) {
   const prefix = depth > 0 ? '../'.repeat(depth) : '';
-  return `<img src="${prefix}assets/img/logo.jpg?v=${WA_SITE_VERSION}" alt="Kawatool" class="site-logo" width="808" height="336" decoding="async">`;
+  return `<span class="site-logo-frame" aria-hidden="true"><img src="${prefix}assets/img/logo.jpg?v=${WA_SITE_VERSION}" alt="" class="site-logo" width="136" height="136" decoding="async"></span><span class="site-logo-text"><span class="site-logo-text-full">KaWaTool 卡哇兔線上工具</span><span class="site-logo-text-short">KaWaTool</span></span>`;
 }
 
-function stampHeaderLogo(html, imgTag) {
-  return html.replace(
-    /(<header[^>]*>[\s\S]*?<a\s+href="[^"]*"\s+class="logo[^"]*"[^>]*>)[\s\S]*?(<\/a>)/,
-    `$1\n          ${imgTag}\n        $2`,
-  );
+function stampHeaderLogo(html, inner) {
+  return html
+    .replace(
+      /(<a\s+href="[^"]*"\s+class="logo[^"]*"[^>]*aria-label=")[^"]*(")/,
+      `$1KaWaTool 卡哇兔線上工具首頁$2`,
+    )
+    .replace(
+      /(<a\s+href="[^"]*"\s+class="logo[^"]*"[^>]*>)[\s\S]*?(<\/a>)/,
+      `$1\n          ${inner}\n        $2`,
+    );
 }
 
 let changed = 0;
 for (const file of walkHtml(ROOT)) {
   const before = fs.readFileSync(file, 'utf8');
-  const after = stampHeaderLogo(before, logoImg(depthOf(file)));
+  if (!/<a\s+href="[^"]*"\s+class="logo/.test(before)) continue;
+  const after = stampHeaderLogo(before, logoInner(depthOf(file)));
   if (after !== before) {
     fs.writeFileSync(file, after, 'utf8');
     changed += 1;

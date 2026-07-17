@@ -73,7 +73,8 @@ function changefreqFor(file) {
 
 function toLoc(file) {
   if (file === 'index.html') return `${SITE_URL}/`;
-  return `${SITE_URL}/${file}`;
+  // Match Firebase cleanUrls + page canonicals (no .html suffix).
+  return `${SITE_URL}/${String(file).replace(/\.html$/i, '')}`;
 }
 
 const published = loadPublishedSlugs();

@@ -2,10 +2,10 @@ export const SITE_URL = 'https://kawatool.com';
 export const SITE_NAME = 'Kawatool';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
-const TITLE_MIN = 45;
-const TITLE_MAX = 60;
-const DESC_MIN = 110;
-const DESC_MAX = 150;
+export const TITLE_MIN = 45;
+export const TITLE_MAX = 60;
+export const DESC_MIN = 110;
+export const DESC_MAX = 150;
 
 export function pageUrl(relativePath) {
   if (!relativePath || relativePath === 'index.html' || relativePath === 'index') return `${SITE_URL}/`;
@@ -16,32 +16,57 @@ export function pageUrl(relativePath) {
 export function clampText(text, min, max) {
   let s = String(text || '').replace(/\s+/g, ' ').trim();
   if (!s) return '';
-  if (s.length > max) {
+  if (typeof max === 'number' && s.length > max) {
     s = `${s.slice(0, Math.max(1, max - 1)).trim()}…`;
   }
-  if (min && s.length < min) return s;
   return s;
 }
 
-export function buildToolPageTitle(toolTitle) {
+/** Build a page title in the 45–60 character range:「頁面名稱 | Kawatool」. */
+export function normalizePageTitle(rawTitle) {
   const suffix = ` | ${SITE_NAME}`;
-  let title = `${toolTitle} - 免費線上工具，即開即用無需註冊${suffix}`;
+  let core = String(rawTitle || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(new RegExp(`\\s*\\|\\s*${SITE_NAME}\\s*$`, 'i'), '')
+    .trim();
+  if (!core) core = SITE_NAME;
+
+  const expand = '｜免費線上工具，即開即用無需註冊';
+  let title = `${core}${suffix}`;
+  if (title.length >= TITLE_MIN && title.length <= TITLE_MAX) return title;
   if (title.length < TITLE_MIN) {
-    title = `${toolTitle} - Kawatool 免費線上實用工具，打開就能用${suffix}`;
+    title = `${core}${expand}${suffix}`;
   }
-  return clampText(title, TITLE_MIN, TITLE_MAX);
+  if (title.length > TITLE_MAX) {
+    const budget = TITLE_MAX - expand.length - suffix.length;
+    if (budget >= 8) {
+      core = core.slice(0, budget).trim();
+      title = `${core}${expand}${suffix}`;
+    }
+    title = clampText(title, 0, TITLE_MAX);
+  }
+  if (title.length < TITLE_MIN) {
+    title = clampText(`${core}${expand}・實用${suffix}`, 0, TITLE_MAX);
+  }
+  return title;
+}
+
+export function buildToolPageTitle(toolTitle) {
+  return normalizePageTitle(toolTitle);
 }
 
 export function buildScripturePageTitle(bookTitle) {
   const suffix = ` | ${SITE_NAME}`;
   let title = `${bookTitle} - 藏經閣線上閱讀，免費誦讀經典${suffix}`;
   if (title.length < TITLE_MIN) {
-    title = `${bookTitle} - Kawatool 藏經閣線上閱讀，靜心祈福${suffix}`;
+    title = `${bookTitle} - 藏經閣線上閱讀，靜心祈福誦讀${suffix}`;
   }
-  return clampText(title, TITLE_MIN, TITLE_MAX);
+  return normalizePageTitle(title.replace(new RegExp(`\\s*\\|\\s*${SITE_NAME}\\s*$`, 'i'), '').trim());
 }
 
 const SITE_DESC_PAD = 'Kawatool 是免費線上工具與藏經閣平台，無需註冊、免下載，支援電腦與手機，打開即用，資料保留在您的裝置中更安全。';
+const SITE_DESC_PAD_SHORT = '免安裝、免註冊，開啟瀏覽器即可使用，資料保留在本機更安心。';
 
 export function buildPageDescription(base, extras = []) {
   const parts = [base, ...extras].filter(Boolean);
@@ -49,7 +74,13 @@ export function buildPageDescription(base, extras = []) {
   if (text.length < DESC_MIN) {
     text = `${text} ${SITE_DESC_PAD}`.replace(/\s+/g, ' ').trim();
   }
-  return clampText(text, DESC_MIN, DESC_MAX);
+  if (text.length < DESC_MIN) {
+    text = `${text} ${SITE_DESC_PAD_SHORT}`.replace(/\s+/g, ' ').trim();
+  }
+  if (text.length > DESC_MAX) {
+    text = `${text.slice(0, DESC_MAX - 1).trim()}…`;
+  }
+  return text;
 }
 
 export function buildToolKeywords(toolTitle, categoryName, slug) {
