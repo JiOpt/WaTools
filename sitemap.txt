@@ -1,18 +1,22 @@
 # Kawatool 發布清單
 # 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。
 # 以 # 開頭為註解；空行略過。一行一個 slug。
-# updated: 2026-07-11T10:59:38.880Z
+# updated: 2026-07-17T15:46:33.660Z
 
 anime-hometown
+audio-notes-summarizer
+avatar-safe-zone
 bmi
 calculatortool
 calendar
 car-brand
 case-converter
+chat-screenshot-maker
 coat-of-arms
 color
 color-blindness
 currency
+daily-fortune-card
 datetime-calc
 drawing
 emoji
@@ -21,30 +25,40 @@ ethnic-china
 exif
 expiry-date
 fortune-stick
+gourmet
+gpa-calculator
 guid
+hashtag-organizer
 hawkins
 ig-font-generator
+ig-grid-splitter
 image-compress
 image-compressor
 image-coordinate
+income-tax-estimator
 instagram-caption-formatter
 ip
 japanese-shrine
-gourmet
 jinyong
 keyboard-mouse
 keycode
+labor-health-insurance
 labor-retirement-calculator
 line-image-preview-cropper
+link-preview-card
 lucky-draw
 lucky-number
 markdown-to-html-cleaner
+meeting-cost-calculator
 meme-caption-generator
 mind-reader
+mortgage-calculator
 naming-converter
 national-anthem
 national-symbol
+overtime-leave-calculator
 password-generator-pro
+pdf-page-reorder
 phone
 photo
 population
@@ -54,17 +68,19 @@ qrcode-scan
 radix-converter
 random-number
 reaction-test
+resume-photo-spec
 retro
 roman-numeral
 rp-test
 screen-detect
-stay
 screen-test
 scriptures
 seo-keyword
 settings
 solar-terms
+speech-time-estimator
 speech-to-text-notebook
+stay
 stopwatch
 symbols-generator
 timestamp
@@ -77,9 +93,12 @@ unit-pressure
 unit-temperature
 unit-volume
 unit-weight
+vehicle-loan-calculator
+video-to-gif
 wishing-tree
 wordcount
 world-flags
 yokai
 yokocho
+youtube-thumbnail-factory
 zodiac

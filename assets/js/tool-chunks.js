@@ -553,6 +553,126 @@ window.WA_TOOL_CHUNKS = {
       "creator-tools.js"
     ]
   },
+  "audio-notes-summarizer": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "avatar-safe-zone": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "chat-screenshot-maker": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "daily-fortune-card": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "gpa-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "hashtag-organizer": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "ig-grid-splitter": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "income-tax-estimator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "invoice-checker": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "labor-health-insurance": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "link-preview-card": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "meeting-cost-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "mortgage-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "overtime-leave-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "pdf-page-reorder": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "resume-photo-spec": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "speech-time-estimator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "vehicle-loan-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "video-to-gif": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "youtube-thumbnail-factory": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
   "coat-of-arms": {
     "part": 3,
     "extra": [

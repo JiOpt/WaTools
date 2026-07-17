@@ -5397,4 +5397,38 @@
   R['speech-to-text-notebook'] = mountCreatorTool('speech-to-text-notebook', '語音轉文字筆記本');
   R['qr-code-beautifier'] = mountCreatorTool('qr-code-beautifier', 'QR 漸層美化');
 
+  function mountViralTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_VIRAL && window.WA_MOUNT_VIRAL[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '工具模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['invoice-checker'] = mountViralTool('invoice-checker', '統一發票對獎');
+  R['mortgage-calculator'] = mountViralTool('mortgage-calculator', '房貸月付試算');
+  R['income-tax-estimator'] = mountViralTool('income-tax-estimator', '綜所稅速算');
+  R['overtime-leave-calculator'] = mountViralTool('overtime-leave-calculator', '加班費特休試算');
+  R['labor-health-insurance'] = mountViralTool('labor-health-insurance', '勞健保級距查詢');
+  R['ig-grid-splitter'] = mountViralTool('ig-grid-splitter', 'IG 九宮格切割');
+  R['chat-screenshot-maker'] = mountViralTool('chat-screenshot-maker', '對話截圖產生器');
+  R['avatar-safe-zone'] = mountViralTool('avatar-safe-zone', '大頭貼安全區');
+  R['resume-photo-spec'] = mountViralTool('resume-photo-spec', '履歷證件照規格');
+  R['youtube-thumbnail-factory'] = mountViralTool('youtube-thumbnail-factory', 'YouTube 縮圖工廠');
+  R['hashtag-organizer'] = mountViralTool('hashtag-organizer', 'Hashtag 整理櫃');
+  R['meeting-cost-calculator'] = mountViralTool('meeting-cost-calculator', '會議成本計算機');
+  R['gpa-calculator'] = mountViralTool('gpa-calculator', 'GPA 加權計算');
+  R['vehicle-loan-calculator'] = mountViralTool('vehicle-loan-calculator', '車貸機車貸試算');
+  R['daily-fortune-card'] = mountViralTool('daily-fortune-card', '今日運勢分享卡');
+  R['speech-time-estimator'] = mountViralTool('speech-time-estimator', '演講時間估算');
+  R['video-to-gif'] = mountViralTool('video-to-gif', '影片短片段擷取');
+  R['pdf-page-reorder'] = mountViralTool('pdf-page-reorder', 'PDF 頁面重排');
+  R['audio-notes-summarizer'] = mountViralTool('audio-notes-summarizer', '音檔重點筆記本');
+  R['link-preview-card'] = mountViralTool('link-preview-card', '連結預覽卡產生');
+
 })();

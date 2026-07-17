@@ -31,7 +31,7 @@ const SKIP_JS = new Set([
 
 const CATEGORY_DIRS = [
   'utility', 'dev', 'editor', 'security', 'media', 'life', 'fun',
-  'culture', 'symbols', 'spiritual', 'creator', 'world', 'japan', 'scripture',
+  'culture', 'symbols', 'spiritual', 'creator', 'viral', 'world', 'japan', 'scripture',
 ];
 
 /** Per-slug data / boot scripts not present in generated tool HTML. */
@@ -72,6 +72,26 @@ const SLUG_EXTRAS = {
   'password-generator-pro': ['creator-tools.js'],
   'speech-to-text-notebook': ['creator-tools.js'],
   'qr-code-beautifier': ['creator-tools.js'],
+  'invoice-checker': ['viral-tools.js'],
+  'mortgage-calculator': ['viral-tools.js'],
+  'income-tax-estimator': ['viral-tools.js'],
+  'overtime-leave-calculator': ['viral-tools.js'],
+  'labor-health-insurance': ['viral-tools.js'],
+  'ig-grid-splitter': ['viral-tools.js'],
+  'chat-screenshot-maker': ['viral-tools.js'],
+  'avatar-safe-zone': ['viral-tools.js'],
+  'resume-photo-spec': ['viral-tools.js'],
+  'youtube-thumbnail-factory': ['viral-tools.js'],
+  'hashtag-organizer': ['viral-tools.js'],
+  'meeting-cost-calculator': ['viral-tools.js'],
+  'gpa-calculator': ['viral-tools.js'],
+  'vehicle-loan-calculator': ['viral-tools.js'],
+  'daily-fortune-card': ['viral-tools.js'],
+  'speech-time-estimator': ['viral-tools.js'],
+  'video-to-gif': ['viral-tools.js'],
+  'pdf-page-reorder': ['viral-tools.js'],
+  'audio-notes-summarizer': ['viral-tools.js'],
+  'link-preview-card': ['viral-tools.js'],
 };
 
 const SLUG_PART_OVERRIDES = {

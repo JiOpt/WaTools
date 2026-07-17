@@ -18,6 +18,7 @@
     fun: 'bi-stars',
     spiritual: 'bi-brightness-high',
     creator: 'bi-lightning-charge',
+    viral: 'bi-graph-up-arrow',
     japan: 'bi-geo-alt',
     world: 'bi-globe-asia-australia',
   };

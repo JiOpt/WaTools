@@ -1,0 +1,338 @@
+/* Viral tools — always bright (match catalog), ignore site dark-theme vars */
+.tool-app.wa-viral {
+  --vr-accent: #1977cc;
+  --vr-heading: #2c4964;
+  --vr-text: #444444;
+  --vr-muted: #6c757d;
+  --vr-surface: #ffffff;
+  --vr-soft: #f5f9fc;
+  --vr-border: rgba(25, 119, 204, 0.22);
+  --vr-emerald: #0d9488;
+  --vr-rose: #e11d48;
+  color: var(--vr-text);
+  background: transparent !important;
+  border-radius: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+html[data-theme="dark"] .tool-app.wa-viral,
+html[data-theme="dark"] .wa-viral .vr-card,
+html[data-theme="dark"] .wa-viral .vr-input,
+html[data-theme="dark"] .wa-viral .vr-textarea,
+html[data-theme="dark"] .wa-viral .vr-select,
+html[data-theme="dark"] .wa-viral .vr-drop,
+html[data-theme="dark"] .wa-viral .vr-result,
+html[data-theme="dark"] .wa-viral .vr-chip,
+html[data-theme="dark"] .wa-viral .vr-password,
+html[data-theme="dark"] .wa-viral .vr-canvas,
+html[data-theme="dark"] .wa-viral .vr-preview-box,
+html[data-theme="dark"] .wa-viral #vr-md-preview {
+  color-scheme: light;
+}
+
+.wa-viral .vr-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(25, 119, 204, 0.22) !important;
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem 1.35rem;
+  box-shadow: 0 4px 18px rgba(41, 99, 160, 0.06);
+  color: #444444;
+}
+
+.wa-viral .vr-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vr-accent);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.wa-viral .vr-lead {
+  margin: 0 0 1rem;
+  color: var(--vr-muted);
+  font-size: 0.92rem;
+}
+
+.wa-viral label.vr-label {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--vr-heading);
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+.wa-viral .vr-input,
+.wa-viral .vr-textarea,
+.wa-viral .vr-select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--vr-accent), transparent 72%);
+  background: #fff;
+  color: var(--vr-text);
+  padding: 0.6rem 0.85rem;
+  outline: none;
+}
+
+.wa-viral .vr-input:focus,
+.wa-viral .vr-textarea:focus,
+.wa-viral .vr-select:focus {
+  border-color: var(--vr-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--vr-accent), transparent 85%);
+}
+
+.wa-viral .vr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--vr-accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.wa-viral .vr-btn:hover {
+  background: color-mix(in srgb, var(--vr-accent) 88%, #000 12%);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--vr-accent), transparent 70%);
+}
+
+.wa-viral .vr-btn-emerald {
+  background: color-mix(in srgb, var(--vr-accent), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--vr-accent), transparent 55%);
+  color: var(--vr-accent);
+}
+
+.wa-viral .vr-btn-emerald:hover {
+  background: color-mix(in srgb, var(--vr-accent), transparent 82%);
+  color: var(--vr-heading);
+}
+
+.wa-viral .vr-btn-rose {
+  background: #fff5f7;
+  border: 1px solid color-mix(in srgb, var(--vr-rose), transparent 55%);
+  color: var(--vr-rose);
+}
+
+.wa-viral .vr-btn-rose:hover {
+  background: #ffe4ea;
+}
+
+.wa-viral .vr-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.wa-viral .vr-stack > * + * {
+  margin-top: 0.9rem;
+}
+
+.wa-viral .vr-result {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  border: 1px solid var(--vr-border);
+  background: var(--vr-soft);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.wa-viral .vr-result-name {
+  font-size: 0.75rem;
+  color: var(--vr-accent);
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.wa-viral .vr-result-text {
+  margin: 0;
+  word-break: break-all;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--vr-heading);
+}
+
+.wa-viral .vr-toast {
+  text-align: center;
+  color: var(--vr-emerald);
+  font-size: 0.88rem;
+  min-height: 1.25rem;
+}
+
+.wa-viral .vr-muted {
+  color: var(--vr-muted);
+  font-size: 0.82rem;
+}
+
+.wa-viral .vr-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1.75rem 1rem;
+  border: 1px dashed color-mix(in srgb, var(--vr-accent), transparent 55%);
+  border-radius: 12px;
+  background: var(--vr-soft);
+  cursor: pointer;
+  text-align: center;
+  color: var(--vr-heading);
+}
+
+.wa-viral .vr-drop:hover {
+  border-color: var(--vr-accent);
+  background: color-mix(in srgb, var(--vr-accent), transparent 94%);
+}
+
+.wa-viral .vr-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .wa-viral .vr-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wa-viral .vr-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .wa-viral .vr-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.wa-viral canvas.vr-canvas {
+  width: 100%;
+  max-height: 360px;
+  border-radius: 12px;
+  background: var(--vr-soft);
+  border: 1px solid var(--vr-border);
+}
+
+.wa-viral .vr-chip {
+  border: 1px solid var(--vr-border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  background: #fff;
+  color: var(--vr-heading);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.wa-viral .vr-chip:hover {
+  border-color: color-mix(in srgb, var(--vr-accent), transparent 40%);
+  color: var(--vr-accent);
+}
+
+.wa-viral .vr-chip.is-on {
+  border-color: var(--vr-accent);
+  background: color-mix(in srgb, var(--vr-accent), transparent 90%);
+  color: var(--vr-accent);
+  font-weight: 600;
+}
+
+.wa-viral .vr-password {
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  letter-spacing: 0.04em;
+  word-break: break-all;
+  color: var(--vr-heading);
+  margin: 0;
+  padding: 0.85rem;
+  background: var(--vr-soft);
+  border-radius: 10px;
+  border: 1px solid var(--vr-border);
+}
+
+.wa-viral .vr-preview-box {
+  width: 12rem;
+  height: 12rem;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--vr-border);
+  background: var(--vr-soft);
+}
+
+.wa-viral .vr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.wa-viral .vr-table th,
+.wa-viral .vr-table td {
+  border: 1px solid var(--vr-border);
+  padding: 0.4rem 0.5rem;
+  text-align: right;
+}
+
+.wa-viral .vr-table th {
+  background: var(--vr-soft);
+  color: var(--vr-heading);
+  text-align: center;
+}
+
+.wa-viral .vr-big-num {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--vr-accent);
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.wa-viral #vr-md-preview {
+  color: var(--vr-text);
+  background: var(--vr-soft);
+  border: 1px solid var(--vr-border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.wa-viral #vr-md-preview h1,
+.wa-viral #vr-md-preview h2,
+.wa-viral #vr-md-preview h3 {
+  font-weight: 600;
+  margin: 0.7em 0 0.3em;
+  color: var(--vr-heading);
+}
+.wa-viral #vr-md-preview p { margin: 0.45em 0; }
+.wa-viral #vr-md-preview ul,
+.wa-viral #vr-md-preview ol { margin: 0.45em 0 0.45em 1.2em; }
+.wa-viral #vr-md-preview code {
+  background: color-mix(in srgb, var(--vr-accent), transparent 90%);
+  color: var(--vr-heading);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.wa-viral #vr-md-preview a { color: var(--vr-accent); }
+.wa-viral #vr-md-preview blockquote {
+  border-left: 3px solid var(--vr-accent);
+  padding-left: 0.7rem;
+  color: var(--vr-muted);
+}
+
+.wa-viral input[type="range"] {
+  accent-color: var(--vr-accent);
+}
+
+.wa-viral input[type="checkbox"],
+.wa-viral input[type="radio"] {
+  accent-color: var(--vr-accent);
+}
