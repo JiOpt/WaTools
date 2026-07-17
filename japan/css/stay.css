@@ -94,8 +94,14 @@
   transition: opacity 0.7s ease;
 }
 
+.stay-card__img--day {
+  opacity: 1;
+  z-index: 0;
+}
+
 .stay-card__img--night {
   opacity: 0;
+  z-index: 0;
 }
 
 .stay-card.is-night .stay-card__img--day {
@@ -104,6 +110,19 @@
 
 .stay-card.is-night .stay-card__img--night {
   opacity: 1;
+}
+
+.stay-card__img.is-broken {
+  opacity: 0 !important;
+}
+
+.stay-card__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, #3a453e 0%, #1e3a2f 55%, #121816 100%);
+  z-index: -1;
 }
 
 .stay-card__glow {
@@ -155,22 +174,34 @@
   margin: 0;
   font-size: 0.92rem;
   opacity: 0.88;
-  flex: 1;
+}
+
+.stay-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.stay-card__live {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--stay-stone);
 }
 
 .stay-toggle {
-  align-self: flex-start;
-  margin-top: 0.35rem;
   appearance: none;
   border: 1px solid rgba(30, 58, 47, 0.35);
   background: transparent;
   color: var(--stay-forest);
-  padding: 0.45rem 0.95rem;
+  padding: 0.4rem 0.85rem;
   font: inherit;
   font-size: 0.82rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.25s, color 0.25s, border-color 0.25s;
+  white-space: nowrap;
 }
 
 .stay-toggle:hover,

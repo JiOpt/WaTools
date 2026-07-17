@@ -31,7 +31,7 @@ const SKIP_JS = new Set([
 
 const CATEGORY_DIRS = [
   'utility', 'dev', 'editor', 'security', 'media', 'life', 'fun',
-  'culture', 'symbols', 'spiritual', 'world', 'japan', 'scripture',
+  'culture', 'symbols', 'spiritual', 'creator', 'world', 'japan', 'scripture',
 ];
 
 /** Per-slug data / boot scripts not present in generated tool HTML. */
@@ -62,6 +62,16 @@ const SLUG_EXTRAS = {
   yokocho: ['japan-theme-tools.js'],
   gourmet: ['japan-theme-tools.js'],
   stay: ['japan-theme-tools.js'],
+  'ig-font-generator': ['creator-tools.js'],
+  'image-compressor': ['creator-tools.js'],
+  'labor-retirement-calculator': ['creator-tools.js'],
+  'instagram-caption-formatter': ['creator-tools.js'],
+  'meme-caption-generator': ['creator-tools.js'],
+  'line-image-preview-cropper': ['creator-tools.js'],
+  'markdown-to-html-cleaner': ['creator-tools.js'],
+  'password-generator-pro': ['creator-tools.js'],
+  'speech-to-text-notebook': ['creator-tools.js'],
+  'qr-code-beautifier': ['creator-tools.js'],
 };
 
 const SLUG_PART_OVERRIDES = {

@@ -3200,6 +3200,7 @@
     'monster-img': 'world',
     'japanese-shrine-img': 'japan',
     'anime-hometown-img': 'japan',
+    'stay-img': 'japan',
   };
 
   function siteMediaUrl(relativePath) {
@@ -5371,5 +5372,29 @@
   R['yokocho'] = mountJapanTheme('yokocho', '深夜橫丁');
   R['gourmet'] = mountJapanTheme('gourmet', 'B級美食地圖');
   R['stay'] = mountJapanTheme('stay', '隱世溫泉町家');
+
+  function mountCreatorTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_CREATOR && window.WA_MOUNT_CREATOR[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '工具模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['ig-font-generator'] = mountCreatorTool('ig-font-generator', 'IG 特殊字體');
+  R['image-compressor'] = mountCreatorTool('image-compressor', '前端圖片壓縮');
+  R['labor-retirement-calculator'] = mountCreatorTool('labor-retirement-calculator', '勞退金試算');
+  R['instagram-caption-formatter'] = mountCreatorTool('instagram-caption-formatter', '貼文排版空白字');
+  R['meme-caption-generator'] = mountCreatorTool('meme-caption-generator', '迷因梗圖產生器');
+  R['line-image-preview-cropper'] = mountCreatorTool('line-image-preview-cropper', 'LINE 防裁切預覽');
+  R['markdown-to-html-cleaner'] = mountCreatorTool('markdown-to-html-cleaner', 'Markdown 轉 HTML');
+  R['password-generator-pro'] = mountCreatorTool('password-generator-pro', '高強度密碼產生');
+  R['speech-to-text-notebook'] = mountCreatorTool('speech-to-text-notebook', '語音轉文字筆記本');
+  R['qr-code-beautifier'] = mountCreatorTool('qr-code-beautifier', 'QR 漸層美化');
 
 })();

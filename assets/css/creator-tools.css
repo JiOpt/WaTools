@@ -1,0 +1,299 @@
+/* Creator tools — always bright (match catalog), ignore site dark-theme vars */
+.tool-app.wa-creator {
+  --cr-accent: #1977cc;
+  --cr-heading: #2c4964;
+  --cr-text: #444444;
+  --cr-muted: #6c757d;
+  --cr-surface: #ffffff;
+  --cr-soft: #f5f9fc;
+  --cr-border: rgba(25, 119, 204, 0.22);
+  --cr-emerald: #0d9488;
+  --cr-rose: #e11d48;
+  color: var(--cr-text);
+  background: transparent !important;
+  border-radius: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+html[data-theme="dark"] .tool-app.wa-creator,
+html[data-theme="dark"] .wa-creator .cr-card,
+html[data-theme="dark"] .wa-creator .cr-input,
+html[data-theme="dark"] .wa-creator .cr-textarea,
+html[data-theme="dark"] .wa-creator .cr-select,
+html[data-theme="dark"] .wa-creator .cr-drop,
+html[data-theme="dark"] .wa-creator .cr-result,
+html[data-theme="dark"] .wa-creator .cr-chip,
+html[data-theme="dark"] .wa-creator .cr-password,
+html[data-theme="dark"] .wa-creator .cr-canvas,
+html[data-theme="dark"] .wa-creator .cr-preview-box,
+html[data-theme="dark"] .wa-creator #cr-md-preview {
+  color-scheme: light;
+}
+
+.wa-creator .cr-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(25, 119, 204, 0.22) !important;
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem 1.35rem;
+  box-shadow: 0 4px 18px rgba(41, 99, 160, 0.06);
+  color: #444444;
+}
+
+.wa-creator .cr-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cr-accent);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.wa-creator .cr-lead {
+  margin: 0 0 1rem;
+  color: var(--cr-muted);
+  font-size: 0.92rem;
+}
+
+.wa-creator label.cr-label {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--cr-heading);
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+.wa-creator .cr-input,
+.wa-creator .cr-textarea,
+.wa-creator .cr-select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--cr-accent), transparent 72%);
+  background: #fff;
+  color: var(--cr-text);
+  padding: 0.6rem 0.85rem;
+  outline: none;
+}
+
+.wa-creator .cr-input:focus,
+.wa-creator .cr-textarea:focus,
+.wa-creator .cr-select:focus {
+  border-color: var(--cr-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cr-accent), transparent 85%);
+}
+
+.wa-creator .cr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--cr-accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.wa-creator .cr-btn:hover {
+  background: color-mix(in srgb, var(--cr-accent) 88%, #000 12%);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--cr-accent), transparent 70%);
+}
+
+.wa-creator .cr-btn-emerald {
+  background: color-mix(in srgb, var(--cr-accent), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--cr-accent), transparent 55%);
+  color: var(--cr-accent);
+}
+
+.wa-creator .cr-btn-emerald:hover {
+  background: color-mix(in srgb, var(--cr-accent), transparent 82%);
+  color: var(--cr-heading);
+}
+
+.wa-creator .cr-btn-rose {
+  background: #fff5f7;
+  border: 1px solid color-mix(in srgb, var(--cr-rose), transparent 55%);
+  color: var(--cr-rose);
+}
+
+.wa-creator .cr-btn-rose:hover {
+  background: #ffe4ea;
+}
+
+.wa-creator .cr-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.wa-creator .cr-stack > * + * {
+  margin-top: 0.9rem;
+}
+
+.wa-creator .cr-result {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  border: 1px solid var(--cr-border);
+  background: var(--cr-soft);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.wa-creator .cr-result-name {
+  font-size: 0.75rem;
+  color: var(--cr-accent);
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.wa-creator .cr-result-text {
+  margin: 0;
+  word-break: break-all;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--cr-heading);
+}
+
+.wa-creator .cr-toast {
+  text-align: center;
+  color: var(--cr-emerald);
+  font-size: 0.88rem;
+  min-height: 1.25rem;
+}
+
+.wa-creator .cr-muted {
+  color: var(--cr-muted);
+  font-size: 0.82rem;
+}
+
+.wa-creator .cr-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1.75rem 1rem;
+  border: 1px dashed color-mix(in srgb, var(--cr-accent), transparent 55%);
+  border-radius: 12px;
+  background: var(--cr-soft);
+  cursor: pointer;
+  text-align: center;
+  color: var(--cr-heading);
+}
+
+.wa-creator .cr-drop:hover {
+  border-color: var(--cr-accent);
+  background: color-mix(in srgb, var(--cr-accent), transparent 94%);
+}
+
+.wa-creator .cr-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .wa-creator .cr-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wa-creator canvas.cr-canvas {
+  width: 100%;
+  max-height: 360px;
+  border-radius: 12px;
+  background: var(--cr-soft);
+  border: 1px solid var(--cr-border);
+}
+
+.wa-creator .cr-chip {
+  border: 1px solid var(--cr-border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  background: #fff;
+  color: var(--cr-heading);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.wa-creator .cr-chip:hover {
+  border-color: color-mix(in srgb, var(--cr-accent), transparent 40%);
+  color: var(--cr-accent);
+}
+
+.wa-creator .cr-chip.is-on {
+  border-color: var(--cr-accent);
+  background: color-mix(in srgb, var(--cr-accent), transparent 90%);
+  color: var(--cr-accent);
+  font-weight: 600;
+}
+
+.wa-creator .cr-password {
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  letter-spacing: 0.04em;
+  word-break: break-all;
+  color: var(--cr-heading);
+  margin: 0;
+  padding: 0.85rem;
+  background: var(--cr-soft);
+  border-radius: 10px;
+  border: 1px solid var(--cr-border);
+}
+
+.wa-creator .cr-preview-box {
+  width: 12rem;
+  height: 12rem;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--cr-border);
+  background: var(--cr-soft);
+}
+
+.wa-creator #cr-md-preview {
+  color: var(--cr-text);
+  background: var(--cr-soft);
+  border: 1px solid var(--cr-border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.wa-creator #cr-md-preview h1,
+.wa-creator #cr-md-preview h2,
+.wa-creator #cr-md-preview h3 {
+  font-weight: 600;
+  margin: 0.7em 0 0.3em;
+  color: var(--cr-heading);
+}
+.wa-creator #cr-md-preview p { margin: 0.45em 0; }
+.wa-creator #cr-md-preview ul,
+.wa-creator #cr-md-preview ol { margin: 0.45em 0 0.45em 1.2em; }
+.wa-creator #cr-md-preview code {
+  background: color-mix(in srgb, var(--cr-accent), transparent 90%);
+  color: var(--cr-heading);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.wa-creator #cr-md-preview a { color: var(--cr-accent); }
+.wa-creator #cr-md-preview blockquote {
+  border-left: 3px solid var(--cr-accent);
+  padding-left: 0.7rem;
+  color: var(--cr-muted);
+}
+
+.wa-creator input[type="range"] {
+  accent-color: var(--cr-accent);
+}
+
+.wa-creator input[type="checkbox"],
+.wa-creator input[type="radio"] {
+  accent-color: var(--cr-accent);
+}

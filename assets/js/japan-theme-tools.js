@@ -440,16 +440,26 @@
   }
 
   /* ——— stay ——— */
-  function stayCard(meta, title, loc, desc, daySrc, dayAlt, nightSrc, nightAlt) {
+  function stayImg(file) {
+    try {
+      return new URL('./stay-img/' + file, global.location.href).href;
+    } catch (e) {
+      return 'stay-img/' + file;
+    }
+  }
+
+  function stayCard(meta, title, loc, desc, dayFile, dayAlt, nightFile, nightAlt) {
     return '<article class="stay-card">' +
       '<div class="stay-card__visual">' +
-      '<img class="stay-card__img stay-card__img--day" src="' + daySrc + '" alt="' + dayAlt + '" width="720" height="540" loading="lazy" decoding="async">' +
-      '<img class="stay-card__img stay-card__img--night" src="' + nightSrc + '" alt="' + nightAlt + '" width="720" height="540" loading="lazy" decoding="async">' +
+      '<img class="stay-card__img stay-card__img--day" src="' + stayImg(dayFile) + '" alt="' + dayAlt + '" width="720" height="540" loading="lazy" decoding="async">' +
+      '<img class="stay-card__img stay-card__img--night" src="' + stayImg(nightFile) + '" alt="' + nightAlt + '" width="720" height="540" loading="lazy" decoding="async">' +
       '<div class="stay-card__glow" aria-hidden="true"></div></div>' +
       '<div class="stay-card__body"><p class="stay-card__meta">' + meta + '</p><h3>' + title + '</h3>' +
       '<p class="stay-card__loc">' + loc + '</p><p class="stay-card__desc">' + desc + '</p>' +
+      '<div class="stay-card__actions">' +
       '<p class="stay-card__live" aria-live="polite">目前：日間氛圍</p>' +
-      '<button type="button" class="stay-toggle" aria-pressed="false">切換夜間視角</button></div></article>';
+      '<button type="button" class="stay-toggle" aria-pressed="false">切換夜間視角</button>' +
+      '</div></div></article>';
   }
 
   function mountStay(app) {
@@ -462,28 +472,36 @@
       '<nav class="cat-nav" aria-label="旅宿分類"><a href="#cat-ryokan">旅館</a><a href="#cat-machiya">町家</a><a href="#cat-nature">自然棲居</a></nav>' +
       '<section class="jp-section stay-category" id="cat-ryokan"><h2>歷史旅館 Ryokan</h2><div class="stay-grid">' +
       stayCard('Ryokan', '山澗秘湯館', '東北 · 藏王週邊（示意）', '露天風呂面對檜木與霧氣。',
-        'https://images.unsplash.com/photo-1578469550956-0e2b2ed8b89d?auto=format&fit=crop&w=720&q=70', '日間日式庭園',
-        'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=720&q=70', '夜間燈籠庭園') +
+        'ryokan-day.jpg', '日間日式溫泉旅館庭園',
+        'ryokan-night.jpg', '夜間燈火的日式街景氛圍') +
       stayCard('Ryokan', '百年廊下宿', '北陸 · 溫泉街（示意）', '木走廊足音與懷石節奏。',
-        'https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=720&q=70', '日間傳統建築',
-        'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=720&q=70', '夜間街道燈光') +
+        'corridor-day.jpg', '日間榻榻米與障子室內',
+        'corridor-night.jpg', '夜間燈籠照亮的傳統街道') +
       '</div></section>' +
       '<section class="jp-section stay-category" id="cat-machiya"><h2>京都町家 Machiya</h2><div class="stay-grid">' +
       stayCard('Machiya', '格窗静町', '京都 · 西陣周邊（示意）', '窄長屋進深，障子透出暖光。',
-        'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=720&q=70', '日間町屋',
-        'https://images.unsplash.com/photo-1478436127897-768ebb58f56a?auto=format&fit=crop&w=720&q=70', '夜間巷弄') +
+        'machiya-day.jpg', '日間京都木造町屋街道',
+        'machiya-night.jpg', '夜間霓虹與町屋街景') +
       stayCard('Machiya', '坪庭茶宿', '京都 · 東山近郊（示意）', '一席茶、一坪綠。',
-        'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=720&q=70', '日間榻榻米',
-        'https://images.unsplash.com/photo-1590073844006-3335f5f693d9?auto=format&fit=crop&w=720&q=70', '夜間室內燈光') +
+        'tea-day.jpg', '日間京都神社鳥居與石階',
+        'tea-night.jpg', '夜間燈籠與日式巷弄') +
       '</div></section>' +
       '<section class="jp-section stay-category" id="cat-nature"><h2>自然棲居 Nature</h2><div class="stay-grid">' +
       stayCard('Nature', '樹冠木屋', '信州 · 森林邊緣（示意）', '白天葉隙光斑，夜間萬籟。',
-        'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=720&q=70', '日間森林',
-        'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=720&q=70', '夜間森林') +
+        'forest-day.jpg', '日間陽光穿過森林樹冠',
+        'forest-night.jpg', '夜間低光森林氛圍') +
       stayCard('Nature', '湖霧小居', '北海道 · 湖畔（示意）', '晨霧與暮色交接。',
-        'https://images.unsplash.com/photo-1501785888041-af3ba85f932b?auto=format&fit=crop&w=720&q=70', '日間湖畔',
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=720&q=70', '黃昏山景') +
+        'lake-day.jpg', '日間寧靜湖畔山景',
+        'lake-night.jpg', '黃昏山脈與暮光景色') +
       '</div></section>';
+
+    app.querySelectorAll('.stay-card__img').forEach(function (img) {
+      img.addEventListener('error', function onErr() {
+        img.removeEventListener('error', onErr);
+        img.classList.add('is-broken');
+        img.alt = (img.alt || '旅宿') + '（圖片無法載入）';
+      });
+    });
 
     function setMode(card, night) {
       card.classList.toggle('is-night', night);

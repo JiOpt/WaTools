@@ -493,6 +493,66 @@ window.WA_TOOL_CHUNKS = {
   "numerology": {
     "part": 3
   },
+  "ig-font-generator": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "image-compressor": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "instagram-caption-formatter": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "labor-retirement-calculator": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "line-image-preview-cropper": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "markdown-to-html-cleaner": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "meme-caption-generator": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "password-generator-pro": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "qr-code-beautifier": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
+  "speech-to-text-notebook": {
+    "part": 3,
+    "extra": [
+      "creator-tools.js"
+    ]
+  },
   "coat-of-arms": {
     "part": 3,
     "extra": [
