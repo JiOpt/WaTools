@@ -2,16 +2,16 @@ window.WA_TOOLS_CATALOG = [
   {
     "id": "toeic",
     "name": "多益 TOEIC",
-    "tagline": "介紹、單字、聽讀技巧與備考節奏，精簡對焦常考點。",
+    "tagline": "線上學習多益：收藏單字、文法練題、聽讀技巧，分級複習好回訪。",
     "tools": [
       {
         "slug": "toeic-intro",
         "title": "多益測驗介紹",
         "icon": "bi-info-circle",
         "desc": "2.5 小時、聽力四題／閱讀三題結構與計分速覽。",
-        "seoTitle": "多益測驗介紹｜時間題型與計分｜TOEIC L&R | KaWaTool",
-        "seoDescription": "精簡介紹多益聽力與閱讀：考試時間、Parts 1–7 題型與分數區間，適合初次報考者快速建立全貌。",
-        "seoKeywords": "多益,TOEIC,題型,計分,聽力,閱讀"
+        "seoTitle": "多益線上學習入門｜題型計分與單字文法路徑",
+        "seoDescription": "多益線上學習總覽：聽讀題型與計分一次看懂，並導引單字收藏、文法練題與聽力閱讀分級練習，方便反覆回訪複習。",
+        "seoKeywords": "多益線上學習,多益入門,TOEIC學習,多益單字,多益文法,免費多益"
       },
       {
         "slug": "toeic-mock-tests",
@@ -35,47 +35,47 @@ window.WA_TOOLS_CATALOG = [
         "slug": "toeic-vocab",
         "title": "多益單字記憶",
         "icon": "bi-card-text",
-        "desc": "約7000字多益單字：Level1高頻＋Level2金色證書情境，可朗讀複習。",
-        "seoTitle": "線上多益TOEIC單字背誦｜約7000字分級衝刺金色證書860分攻略",
-        "seoDescription": "免費多益單字背誦工具，收錄約7000字：Level1（550–750）高頻與Level2（860+金色證書）十六專業情境，可分類分頁學習，含同義詞、朗讀與熟悉度標記，協助背單字衝860分。",
-        "seoKeywords": "多益單字,多益單字背誦,多益單字本,TOEIC vocabulary,金色證書,860分,商業英文單字,多益單字app",
-        "seoLead": "免費線上多益單字庫約7000字，Level 1 高頻打底、Level 2 金色證書專業情境（含銀行／旅宿），支援朗讀、同義詞與熟悉度複習，協助衝刺860分。"
+        "desc": "約7000字可收藏標記：分級學習、朗讀複習、瀏覽進度回訪。",
+        "seoTitle": "多益單字線上學習｜收藏單字本約7000字分級複習",
+        "seoDescription": "免費多益單字線上學習與收藏：約7000字可標記熟悉度、朗讀與同義詞，Level1／2分級分頁瀏覽，累積複習進度、反覆回訪背單字衝860。",
+        "seoKeywords": "多益單字,多益單字學習,收藏單字,多益單字本,單字標記,TOEIC vocabulary,線上背單字,860分",
+        "seoLead": "線上學習並收藏多益單字約7000字：熟悉度標記、朗讀與同義詞，Level 1／2 分級分頁瀏覽，方便反覆回訪複習衝刺860分。"
       },
       {
         "slug": "toeic-listening",
         "title": "聽力答題技巧",
         "icon": "bi-headphones",
-        "desc": "Parts 1–4 陷阱、四國口音與圖片預讀重點。",
-        "seoTitle": "多益聽力技巧｜Parts 1–4 與口音陷阱 | KaWaTool",
-        "seoDescription": "針對多益聽力四大題整理解題重點、美加英澳口音差異與 Part 1 圖片預讀節奏。",
-        "seoKeywords": "多益聽力,TOEIC Listening,口音,Part1"
+        "desc": "聽力陷阱分級學習約120則，可朗讀收藏複習、回訪進度。",
+        "seoTitle": "多益聽力線上學習｜分級陷阱收藏複習約120則",
+        "seoDescription": "多益聽力線上學習：四國口音與圖片預讀，Level1／2約120則陷阱可朗讀正確句、標記熟悉度收藏，分頁瀏覽方便反覆複習加分。",
+        "seoKeywords": "多益聽力,多益聽力學習,TOEIC Listening,聽力技巧,收藏複習,線上學習"
       },
       {
         "slug": "toeic-reading",
         "title": "閱讀解題策略",
         "icon": "bi-book",
-        "desc": "Parts 5–7 作答順序、時間分配與 60 練題。",
-        "seoTitle": "多益閱讀策略｜Parts 5–7 時間分配 | KaWaTool",
-        "seoDescription": "統整多益閱讀三大題作答順序與時間規劃，並提供精簡練習例題掌握常考點。",
-        "seoKeywords": "多益閱讀,TOEIC Reading,Part7,時間分配"
+        "desc": "閱讀策略＋分級練題約120題，標記收藏方便回訪學習。",
+        "seoTitle": "多益閱讀線上學習｜分級練題收藏複習約120題",
+        "seoDescription": "多益閱讀線上學習：Parts 5–7時間與順序＋Level1／2約120題可標記熟悉度收藏，分級瀏覽練題，適合反覆回訪衝刺金色證書。",
+        "seoKeywords": "多益閱讀,多益閱讀學習,TOEIC Reading,閱讀練題,收藏複習,線上學習"
       },
       {
         "slug": "toeic-grammar",
         "title": "文法速成指南",
         "icon": "bi-pencil-square",
-        "desc": "Part 5／6 常客：詞性、介系詞、分詞、假設等。",
-        "seoTitle": "多益文法速成｜Part 5／6 常考點 60 例 | KaWaTool",
-        "seoDescription": "鎖定多益 Part 5、6 高頻文法：詞性、介系詞與連接詞、分詞形容詞、代名詞等，附精簡例題。",
-        "seoKeywords": "多益文法,TOEIC grammar,Part5,介系詞"
+        "desc": "多益文法線上學習約120例，可收藏標記、分級回訪複習。",
+        "seoTitle": "多益文法線上學習｜Part5／6文法收藏練題約120例",
+        "seoDescription": "多益文法線上學習：Part 5／6詞性、介系詞與假設等，Level1／2約120例可標記熟悉度收藏，分級瀏覽練題，反覆複習打穩基礎。",
+        "seoKeywords": "多益文法,多益文法學習,TOEIC grammar,文法練習,收藏文法,Part5,線上學習"
       },
       {
         "slug": "toeic-study-plan",
         "title": "備試時間規劃表",
         "icon": "bi-calendar-week",
         "desc": "1 個月衝刺與 3 個月扎實進度建議。",
-        "seoTitle": "多益讀書計畫｜1 個月／3 個月排程 | KaWaTool",
-        "seoDescription": "依準備期長短提供多益每日學習節奏建議，兼顧單字、聽力、閱讀與模擬考。",
-        "seoKeywords": "多益讀書計畫,TOEIC study plan"
+        "seoTitle": "多益學習計畫｜單字文法聽讀每日排程回訪",
+        "seoDescription": "多益線上學習排程：依1／3個月安排單字收藏、文法練題與聽讀複習節奏，養成每日回訪習慣，穩定擴充練習量。",
+        "seoKeywords": "多益讀書計畫,多益學習計畫,單字文法,TOEIC study plan,線上學習"
       },
       {
         "slug": "toeic-error-review",
@@ -127,7 +127,7 @@ window.WA_TOOLS_CATALOG = [
   {
     "id": "toefl",
     "name": "托福 TOEFL",
-    "tagline": "iBT 四科、學術單字與說寫範例，精簡對焦常考點。",
+    "tagline": "線上學習托福：收藏學術單字、文法練題與四科技巧，分級回訪。",
     "tools": [
       {
         "slug": "toefl-intro",
@@ -160,38 +160,38 @@ window.WA_TOOLS_CATALOG = [
         "slug": "toefl-vocab",
         "title": "托福單字記憶",
         "icon": "bi-card-text",
-        "desc": "約萬字托福單字：Level1學術基礎＋Level2 AWL／學科進階。",
-        "seoTitle": "免費線上托福TOEFL單字背誦練習｜AWL學術萬字衝刺托福120分攻略",
-        "seoDescription": "免費托福單字背誦工具，收錄約萬字：Level1學術基礎與Level2 AWL核心、研究方法及生物天文歷史等學科進階，可主題分頁學習，含同義詞、朗讀與熟悉度，協助背單字衝托福120。",
-        "seoKeywords": "托福單字,托福單字背誦,TOEFL vocabulary,AWL,Academic Word List,托福120,學術英文單字,托福單字本",
-        "seoLead": "免費線上托福學術單字庫約萬字，Level 1 打底、Level 2 含 AWL 與生物／天文／歷史等進階主題，支援朗讀、同義詞與熟悉度複習，協助衝刺110–120分。"
+        "desc": "約萬字可收藏標記：AWL分級學習、朗讀複習、瀏覽進度回訪。",
+        "seoTitle": "托福單字線上學習｜收藏AWL學術單字本約萬字",
+        "seoDescription": "免費托福單字線上學習與收藏：約萬字可標記熟悉度、朗讀與同義詞，Level1／2含AWL與學科進階，分頁瀏覽累積複習進度、反覆回訪衝120。",
+        "seoKeywords": "托福單字,托福單字學習,收藏單字,AWL,Academic Word List,托福單字本,線上背單字,TOEFL vocabulary",
+        "seoLead": "線上學習並收藏托福學術單字約萬字：熟悉度標記、朗讀與同義詞，Level 1／2（含 AWL）分級分頁瀏覽，方便反覆回訪複習衝刺110–120分。"
       },
       {
         "slug": "toefl-listening",
         "title": "聽力答題技巧",
         "icon": "bi-headphones",
         "desc": "對話／演講主旨細節態度，附 60 情境速記。",
-        "seoTitle": "托福聽力技巧｜對話演講 60 情境 | KaWaTool",
-        "seoDescription": "針對托福聽力校園對話與課堂演講整理解題重點，並提供 60 則情境速記。",
-        "seoKeywords": "托福聽力,TOEFL Listening"
+        "seoTitle": "托福聽力線上學習｜情境速記收藏複習約60則",
+        "seoDescription": "托福聽力線上學習：校園對話與課堂演講解題重點，約60則情境可標記熟悉度收藏，方便反覆回訪複習主旨細節與態度題。",
+        "seoKeywords": "托福聽力,托福聽力學習,TOEFL Listening,收藏複習,線上學習"
       },
       {
         "slug": "toefl-reading",
         "title": "閱讀解題策略",
         "icon": "bi-book",
         "desc": "細節推論詞義修辭，附 60 練題。",
-        "seoTitle": "托福閱讀策略｜題型與 60 練題 | KaWaTool",
-        "seoDescription": "統整托福閱讀常考題型與定位方法，並提供 60 題精簡練習。",
-        "seoKeywords": "托福閱讀,TOEFL Reading"
+        "seoTitle": "托福閱讀線上學習｜分級練題收藏複習約60題",
+        "seoDescription": "托福閱讀線上學習：常考題型與定位方法，約60題可標記熟悉度收藏，分頁瀏覽練題，適合反覆回訪累積練習量。",
+        "seoKeywords": "托福閱讀,托福閱讀學習,TOEFL Reading,練題收藏,線上學習"
       },
       {
         "slug": "toefl-grammar",
         "title": "文法速成指南",
         "icon": "bi-pencil-square",
-        "desc": "長句從句與寫作高頻文法 60 例。",
-        "seoTitle": "托福文法速成｜從句一致 60 例 | KaWaTool",
-        "seoDescription": "鎖定托福閱讀與寫作高頻文法：主詞動詞一致、關係子句、分詞等，附 60 例題。",
-        "seoKeywords": "托福文法,TOEFL grammar"
+        "desc": "托福文法線上學習約60例，可收藏標記、回訪複習。",
+        "seoTitle": "托福文法線上學習｜從句一致文法收藏練題約60例",
+        "seoDescription": "托福文法線上學習：主詞動詞一致、關係子句與分詞等，約60例可標記熟悉度收藏，方便分頁瀏覽與反覆回訪複習讀寫基礎。",
+        "seoKeywords": "托福文法,托福文法學習,TOEFL grammar,文法練習,收藏文法,線上學習"
       },
       {
         "slug": "toefl-speaking",

@@ -200,32 +200,104 @@
     return { load, save, get, cycle, count, makeSel, makeBtn, metaText, FAM_LABEL };
   }
 
+  function makeSkillLevelBar(onChange, initial) {
+    let level = initial === 2 ? 2 : 1;
+    const bar = el('div', { className: 'toeic-level-bar', role: 'tablist', 'aria-label': '練習等級' });
+    const btnL1 = el('button', {
+      type: 'button',
+      className: 'toeic-level-btn' + (level === 1 ? ' is-on' : ''),
+      role: 'tab',
+      'aria-selected': level === 1 ? 'true' : 'false',
+      textContent: 'Level 1｜基礎高頻（550–750）',
+    });
+    const btnL2 = el('button', {
+      type: 'button',
+      className: 'toeic-level-btn' + (level === 2 ? ' is-on' : ''),
+      role: 'tab',
+      'aria-selected': level === 2 ? 'true' : 'false',
+      textContent: 'Level 2｜金色證書特攻（860+）',
+    });
+    function setLevel(next) {
+      level = next;
+      btnL1.classList.toggle('is-on', level === 1);
+      btnL2.classList.toggle('is-on', level === 2);
+      btnL1.setAttribute('aria-selected', level === 1 ? 'true' : 'false');
+      btnL2.setAttribute('aria-selected', level === 2 ? 'true' : 'false');
+      if (typeof onChange === 'function') onChange(level);
+    }
+    btnL1.addEventListener('click', () => setLevel(1));
+    btnL2.addEventListener('click', () => setLevel(2));
+    bar.appendChild(btnL1);
+    bar.appendChild(btnL2);
+    return { bar, getLevel: () => level, setLevel };
+  }
+
+  function itemSkillLevel(it) {
+    const n = Number(it && it.level);
+    return n === 2 ? 2 : 1;
+  }
+
   function quizBlock(items, opts) {
     const list = el('div', { className: 'toeic-quiz-list' });
     const filterBar = el('div', { className: 'toeic-filter' });
     const toolbar = el('div', { className: 'toeic-toolbar' });
     const meta = el('p', { className: 'toeic-muted' });
-    const topics = Array.from(new Set(items.map((x) => x[opts.topicKey || 'topic'] || x.skill || x.part)));
+    const levelHint = el('p', { className: 'toeic-muted' });
     const fam = opts.famKey ? createFamApi(opts.famKey, 'toeic') : null;
     const famSel = fam ? fam.makeSel() : null;
     let active = 'all';
     let famFilter = 'all';
     let famMap = fam ? fam.load() : {};
+    let skillLevel = 1;
 
     function itemId(it) {
       return opts.idOf ? opts.idOf(it) : String(it.id);
+    }
+
+    function pool() {
+      return (items || []).filter((it) => itemSkillLevel(it) === skillLevel);
+    }
+
+    function topicKeyOf(it) {
+      return it[opts.topicKey] != null ? it[opts.topicKey] : it.skill || it.part;
+    }
+
+    function rebuildTopics() {
+      filterBar.innerHTML = '';
+      active = 'all';
+      filterBar.appendChild(
+        el('button', {
+          type: 'button',
+          className: 'toeic-chip-btn is-on',
+          textContent: '題型：全部',
+          onclick: (e) => setTopic('all', e.currentTarget),
+        })
+      );
+      Array.from(new Set(pool().map(topicKeyOf))).forEach((t) => {
+        filterBar.appendChild(
+          el('button', {
+            type: 'button',
+            className: 'toeic-chip-btn',
+            textContent: String(t),
+            onclick: (e) => setTopic(String(t), e.currentTarget),
+          })
+        );
+      });
     }
 
     function paint() {
       if (fam) famMap = fam.load();
       list.innerHTML = '';
       let n = 0;
-      items
+      const cur = pool();
+      levelHint.textContent =
+        (skillLevel === 2 ? 'Level 2｜金色證書（860+）' : 'Level 1｜基礎高頻（550–750）') +
+        '｜本級 ' +
+        cur.length +
+        ' 題';
+      cur
         .filter((it) => {
-          if (active !== 'all') {
-            const key = it[opts.topicKey] != null ? it[opts.topicKey] : it.skill || it.part;
-            if (String(key) !== String(active)) return false;
-          }
+          if (active !== 'all' && String(topicKeyOf(it)) !== String(active)) return false;
           if (fam && famFilter !== 'all') {
             if (fam.get(famMap, itemId(it)) !== famFilter) return false;
           }
@@ -234,7 +306,7 @@
         .forEach((it) => {
           n += 1;
           const id = itemId(it);
-          const level = fam ? fam.get(famMap, id) : '';
+          const famLv = fam ? fam.get(famMap, id) : '';
           const ans = el('div', { className: 'toeic-ans', hidden: true }, [
             el('strong', { textContent: '答案 ' + it.ans + '　' }),
             document.createTextNode(it.why || ''),
@@ -252,18 +324,19 @@
               className: 'toeic-chip',
               textContent: opts.meta ? opts.meta(it) : it.topic || 'Part ' + it.part,
             }),
+            el('span', { className: 'toeic-chip', textContent: 'L' + itemSkillLevel(it) }),
             el('span', { className: 'toeic-muted', textContent: '#' + it.id }),
           ];
           if (fam) {
             metaRow.push(
-              fam.makeBtn(level, () => {
+              fam.makeBtn(famLv, () => {
                 fam.cycle(famMap, id);
                 paint();
               })
             );
           }
           list.appendChild(
-            el('article', { className: 'toeic-q' + (level ? ' fam-' + level : '') }, [
+            el('article', { className: 'toeic-q' + (famLv ? ' fam-' + famLv : '') }, [
               el('div', { className: 'toeic-q-meta' }, metaRow),
               it.point ? el('p', { className: 'toeic-point', textContent: it.point }) : null,
               el('p', { className: 'toeic-stem', textContent: it.q }),
@@ -284,31 +357,18 @@
       else meta.textContent = '顯示 ' + n + ' 筆';
     }
 
-    filterBar.appendChild(
-      el('button', {
-        type: 'button',
-        className: 'toeic-chip-btn is-on',
-        textContent: '題型：全部',
-        onclick: (e) => setTopic('all', e.currentTarget),
-      })
-    );
-    topics.forEach((t) => {
-      filterBar.appendChild(
-        el('button', {
-          type: 'button',
-          className: 'toeic-chip-btn',
-          textContent: String(t),
-          onclick: (e) => setTopic(String(t), e.currentTarget),
-        })
-      );
-    });
-
     function setTopic(k, btn) {
       active = k;
       filterBar.querySelectorAll('.toeic-chip-btn').forEach((b) => b.classList.remove('is-on'));
       btn.classList.add('is-on');
       paint();
     }
+
+    const levelUi = makeSkillLevelBar((lv) => {
+      skillLevel = lv;
+      rebuildTopics();
+      paint();
+    }, 1);
 
     if (famSel) {
       famSel.addEventListener('change', () => {
@@ -317,41 +377,63 @@
       });
       toolbar.appendChild(famSel);
     }
+    rebuildTopics();
     paint();
-    return fam ? [toolbar, filterBar, meta, list] : [filterBar, list];
+    return fam
+      ? [levelUi.bar, levelHint, toolbar, filterBar, meta, list]
+      : [levelUi.bar, levelHint, filterBar, list];
   }
 
   function trapListWithFam(traps, famKey) {
     const fam = createFamApi(famKey, 'toeic');
     const famSel = fam.makeSel();
-    const partSel = el('select', { className: 'toeic-select', 'aria-label': '題型' }, [
-      el('option', { value: 'all', textContent: '題型：全部' }),
-      ...Array.from(new Set(traps.map((t) => t.part))).map((p) =>
-        el('option', { value: p, textContent: p })
-      ),
-    ]);
+    const partSel = el('select', { className: 'toeic-select', 'aria-label': '題型' });
     const list = el('div', { className: 'toeic-trap-list' });
     const meta = el('p', { className: 'toeic-muted' });
+    const levelHint = el('p', { className: 'toeic-muted' });
     let famMap = fam.load();
+    let skillLevel = 1;
+
+    function pool() {
+      return (traps || []).filter((t) => itemSkillLevel(t) === skillLevel);
+    }
+
+    function rebuildParts() {
+      const cur = partSel.value || 'all';
+      partSel.innerHTML = '';
+      partSel.appendChild(el('option', { value: 'all', textContent: '題型：全部' }));
+      Array.from(new Set(pool().map((t) => t.part))).forEach((p) => {
+        partSel.appendChild(el('option', { value: p, textContent: p }));
+      });
+      const ok = Array.from(partSel.options).some((o) => o.value === cur);
+      partSel.value = ok ? cur : 'all';
+    }
 
     function paint() {
       famMap = fam.load();
       const part = partSel.value;
       const famFilter = famSel.value;
+      const cur = pool();
+      levelHint.textContent =
+        (skillLevel === 2 ? 'Level 2｜金色證書（860+）' : 'Level 1｜基礎高頻（550–750）') +
+        '｜本級 ' +
+        cur.length +
+        ' 則';
       list.innerHTML = '';
       let n = 0;
-      traps.forEach((t, i) => {
-        const id = 'trap-' + (i + 1);
-        const level = fam.get(famMap, id);
+      cur.forEach((t) => {
+        const id = 'trap-' + (t.id != null ? t.id : n + 1);
+        const famLv = fam.get(famMap, id);
         if (part !== 'all' && t.part !== part) return;
-        if (famFilter !== 'all' && level !== famFilter) return;
+        if (famFilter !== 'all' && famLv !== famFilter) return;
         n += 1;
         list.appendChild(
-          el('article', { className: 'toeic-q' + (level ? ' fam-' + level : '') }, [
+          el('article', { className: 'toeic-q' + (famLv ? ' fam-' + famLv : '') }, [
             el('div', { className: 'toeic-q-meta' }, [
               el('span', { className: 'toeic-chip', textContent: t.part }),
-              el('span', { className: 'toeic-muted', textContent: '#' + (i + 1) }),
-              fam.makeBtn(level, () => {
+              el('span', { className: 'toeic-chip', textContent: 'L' + itemSkillLevel(t) }),
+              el('span', { className: 'toeic-muted', textContent: '#' + (t.id != null ? t.id : n) }),
+              fam.makeBtn(famLv, () => {
                 fam.cycle(famMap, id);
                 paint();
               }),
@@ -377,10 +459,17 @@
       meta.textContent = fam.metaText(n, famMap);
     }
 
+    const levelUi = makeSkillLevelBar((lv) => {
+      skillLevel = lv;
+      rebuildParts();
+      paint();
+    }, 1);
+
     partSel.addEventListener('change', paint);
     famSel.addEventListener('change', paint);
+    rebuildParts();
     paint();
-    return [el('div', { className: 'toeic-toolbar' }, [partSel, famSel]), meta, list];
+    return [levelUi.bar, levelHint, el('div', { className: 'toeic-toolbar' }, [partSel, famSel]), meta, list];
   }
 
   /* ——— pages ——— */
@@ -979,7 +1068,9 @@
   }
 
   function mountListening(app) {
-    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。下列 60 則可朗讀正確句、標記熟悉度複習。', [
+    const data = global.WA_TOEIC_LISTENING;
+    const traps = (data && data.items) || [];
+    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。Level 1／2 分級陷阱速記，可朗讀正確句、標記熟悉度。', [
       card('四國口音', [
         p('美、加、英、澳都會出現。重點不是「聽出哪國」，而是適應母音、r 音與語速差異；平時混聽四國播客／官方音檔。'),
         ul([
@@ -998,14 +1089,17 @@
           '數字、專有名詞、轉折（however／actually）常出題。',
         ]),
       ]),
-      card('60 常考陷阱速記', trapListWithFam(LISTENING_TRAPS, 'wa-toeic-listening-fam')),
+      card(
+        '常考陷阱速記（分級）',
+        traps.length ? trapListWithFam(traps, 'wa-toeic-listening-fam') : [p('資料未載入')]
+      ),
     ]);
   }
 
   function mountReading(app) {
     const data = global.WA_TOEIC_READING;
     const items = (data && data.items) || [];
-    shell(app, '閱讀解題策略', data && data.focus ? data.focus : 'Parts 5–7 時間與順序。', [
+    shell(app, '閱讀解題策略', data && data.focus ? data.focus : 'Parts 5–7 時間與順序。Level 1／2 分級練題。', [
       card('時間分配（75 分鐘）', [
         ul([
           'Part 5：約 10–12 分鐘（一題勿超過 30 秒）。',
@@ -1018,7 +1112,7 @@
         p('習慣「5 → 6 → 7 單篇易→難 → 雙／多篇」。Part 7 先讀題幹問什麼（細節／推論／同義），再回文定位。'),
       ]),
       card(
-        '60 練題（精簡）',
+        '練題（Level 分級）',
         items.length
           ? quizBlock(items, {
               topicKey: 'part',
@@ -1033,7 +1127,7 @@
   function mountGrammar(app) {
     const data = global.WA_TOEIC_GRAMMAR;
     const items = (data && data.items) || [];
-    shell(app, '文法速成指南', data && data.focus ? data.focus : 'Part 5／6 常考點。', [
+    shell(app, '文法速成指南', data && data.focus ? data.focus : 'Part 5／6 常考點。Level 1／2 分級例題。', [
       card('優先順序', [
         ul([
           '詞性轉換（名／動／形／副）— 出題量最大。',
@@ -1043,7 +1137,7 @@
         ]),
       ]),
       card(
-        '60 例題',
+        '例題（Level 分級）',
         items.length
           ? quizBlock(items, { topicKey: 'topic', famKey: 'wa-toeic-grammar-fam' })
           : [p('資料未載入')]
@@ -1062,7 +1156,7 @@
       ]),
       card('3 個月扎實', [
         ul([
-          '第 1 月：單字 15 情境輪完＋文法速成 60 例打底。',
+          '第 1 月：單字 15 情境輪完＋文法速成分級例題打底。',
           '第 2 月：聽力 Parts 1–4 技巧＋閱讀時間配速。',
           '第 3 月：每週至少 1 整回模考＋錯題本複習。',
           '平日 60–90 分；假日加長聽力或 Part 7。',
@@ -1242,70 +1336,6 @@
       ]),
     ]);
   }
-
-  /** 60 listening trap flashcards */
-  const LISTENING_TRAPS = [
-    { part: 'Part 1', trap: '動作進行中 vs 已完成', ex: '圖：男子正在倒茶。', wrong: 'He has poured the tea.', right: 'He is pouring tea.', tip: '進行式對進行中動作。' },
-    { part: 'Part 1', trap: '相似物品', ex: '圖：桌上是筆電。', wrong: 'A typewriter is on the desk.', right: 'A laptop is on the desk.', tip: '先辨物件再聽敘述。' },
-    { part: 'Part 1', trap: '位置介系詞', ex: '人在櫃檯後。', wrong: 'She is standing in front of the counter.', right: 'She is behind the counter.', tip: '預讀時標位置。' },
-    { part: 'Part 1', trap: '多人只描述一人', ex: '兩人交談。', wrong: 'Only one woman is speaking on the phone.', right: 'Two colleagues are talking.', tip: '數人數與互動。' },
-    { part: 'Part 1', trap: '同義動詞', ex: '推車。', wrong: 'He is carrying a cart.', right: 'He is pushing a cart.', tip: 'carry≠push。' },
-    { part: 'Part 1', trap: '被動狀態', ex: '門開著無人推。', wrong: 'Someone is opening the door.', right: 'The door is open.', tip: '狀態 vs 動作。' },
-    { part: 'Part 1', trap: '工具誤判', ex: '戴耳機。', wrong: 'She is wearing glasses.', right: 'She is wearing a headset.', tip: '預讀標配件。' },
-    { part: 'Part 1', trap: '室內外', ex: '室內會議。', wrong: 'They are sitting on a park bench.', right: 'They are in a meeting room.', tip: '背景線索。' },
-    { part: 'Part 1', trap: '數量', ex: '三箱。', wrong: 'There are two boxes.', right: 'There are three boxes.', tip: '先數再聽。' },
-    { part: 'Part 1', trap: '左右', ex: '花在左側。', wrong: 'Flowers are on the right.', right: 'Flowers are on the left.', tip: '聽 left/right。' },
-    { part: 'Part 2', trap: '疑問詞 who', ex: 'Who will lead the tour?', wrong: 'At three o\'clock.', right: 'Ms. Chen will.', tip: 'Who→人。' },
-    { part: 'Part 2', trap: 'where', ex: 'Where is the printer?', wrong: 'It prints quickly.', right: 'On the second floor.', tip: 'Where→地點。' },
-    { part: 'Part 2', trap: 'when', ex: 'When does the fair open?', wrong: 'In Hall B.', right: 'Next Monday.', tip: 'When→時間。' },
-    { part: 'Part 2', trap: 'why', ex: 'Why was the flight delayed?', wrong: 'Gate 12.', right: 'Due to weather.', tip: 'Why→原因。' },
-    { part: 'Part 2', trap: 'how', ex: 'How do I access the file?', wrong: 'It\'s confidential.', right: 'Use the shared drive.', tip: 'How→方式。' },
-    { part: 'Part 2', trap: 'yes/no 陷阱', ex: 'Did you send the invoice?', wrong: 'The invoice is high.', right: 'Not yet, I\'ll send it now.', tip: '先答是否再補充。' },
-    { part: 'Part 2', trap: '相似音', ex: 'Is the meeting at noon?', wrong: 'No, it\'s a moon lamp.', right: 'Yes, at 12.', tip: '勿被諧音帶跑。' },
-    { part: 'Part 2', trap: '重複原字', ex: 'Can you copy this report?', wrong: 'I like copy machines.', right: 'Sure, how many pages?', tip: '複誦原字常是誘答。' },
-    { part: 'Part 2', trap: '否定', ex: 'Has the package arrived?', wrong: 'Yes, it hasn\'t.', right: 'No, not yet.', tip: '注意否語意一致。' },
-    { part: 'Part 2', trap: '建議問句', ex: 'Should we hire a temp?', wrong: 'Temps are temporary.', right: 'Yes, for two weeks.', tip: '給明確建議。' },
-    { part: 'Part 2', trap: '選擇問', ex: 'Tea or coffee?', wrong: 'I work in marketing.', right: 'Coffee, please.', tip: '二選一要選邊。' },
-    { part: 'Part 2', trap: '間接拒絕', ex: 'Can you stay late?', wrong: 'Late means after five.', right: 'I have another appointment.', tip: '委婉拒也是正解。' },
-    { part: 'Part 2', trap: '確認', ex: 'You\'re free at 3, right?', wrong: 'Three is a number.', right: 'Actually, make it 4.', tip: '可糾正前提。' },
-    { part: 'Part 2', trap: 'what time', ex: 'What time is check-in?', wrong: 'At the front desk.', right: 'From 3 p.m.', tip: '時間 vs 地點。' },
-    { part: 'Part 2', trap: 'how long', ex: 'How long is the warranty?', wrong: 'It\'s under the seat.', right: 'Two years.', tip: '長度／期間。' },
-    { part: 'Part 3', trap: '目的', ex: '對話在改會議室。', wrong: 'They discuss a product launch only.', right: 'They need a larger room.', tip: '聽 why they called。' },
-    { part: 'Part 3', trap: '身份', ex: '對方要報價。', wrong: 'A job applicant.', right: 'A supplier.', tip: '抓角色用詞。' },
-    { part: 'Part 3', trap: '時間變更', ex: '原 10 點改 11 點。', wrong: '10 a.m.', right: '11 a.m.', tip: '以最後確認為準。' },
-    { part: 'Part 3', trap: '請求', ex: '請寄電子檔。', wrong: 'Print 50 copies.', right: 'Email the file.', tip: '聽 request。' },
-    { part: 'Part 3', trap: '地點', ex: '在倉庫取貨。', wrong: 'At the café.', right: 'At the warehouse.', tip: '專有名詞定位。' },
-    { part: 'Part 3', trap: '態度', ex: '客戶不滿延誤。', wrong: 'They are celebrating.', right: 'They are frustrated.', tip: '語調＋抱怨詞。' },
-    { part: 'Part 3', trap: '下一步', ex: '會後寄議程。', wrong: 'Cancel the meeting.', right: 'Send the agenda.', tip: '聽 I\'ll / we\'ll。' },
-    { part: 'Part 3', trap: '同義替換', ex: 'cut costs＝reduce expenses', wrong: 'Increase the budget.', right: 'Lower spending.', tip: '選項常換字。' },
-    { part: 'Part 3', trap: '數字', ex: '訂 40 張，不是 14。', wrong: '14 tickets.', right: '40 tickets.', tip: 'teen／ty 分清。' },
-    { part: 'Part 3', trap: '轉折', ex: 'However, the client declined.', wrong: 'The client agreed.', right: 'The client refused.', tip: 'however 後常是答案。' },
-    { part: 'Part 3', trap: '圖表題', ex: '聽哪個季度最高。', wrong: '憑常識選。', right: '對照題目問的季度。', tip: '先讀圖題再聽。' },
-    { part: 'Part 3', trap: '三人對話', ex: '第三人給方案。', wrong: '只聽前兩人。', right: '注意第三個聲音。', tip: '誰提出解法。' },
-    { part: 'Part 3', trap: '電話留言', ex: '回撥分機。', wrong: 'Visit the office.', right: 'Call extension…', tip: '聽聯絡方式。' },
-    { part: 'Part 3', trap: '優惠條件', ex: '買二送一至月底。', wrong: 'Always free.', right: 'Until month-end.', tip: '期限常考。' },
-    { part: 'Part 3', trap: '問題原因', ex: '系統當機。', wrong: 'Wrong address.', right: 'A system outage.', tip: '聽 cause。' },
-    { part: 'Part 4', trap: '廣播目的', ex: '閘門變更通知。', wrong: 'Weather forecast.', right: 'Gate change.', tip: '開頭常講目的。' },
-    { part: 'Part 4', trap: '導覽', ex: '下一站博物館。', wrong: 'Return to hotel now.', right: 'Visit the museum next.', tip: '聽 next stop。' },
-    { part: 'Part 4', trap: '語音信箱', ex: '請按 2 轉客服。', wrong: 'Hang up.', right: 'Press 2.', tip: '聽指示數字。' },
-    { part: 'Part 4', trap: '新聞', ex: '股價上漲。', wrong: 'Prices fell.', right: 'Prices rose.', tip: '升跌動詞。' },
-    { part: 'Part 4', trap: '廣告', ex: '本週五折。', wrong: 'Closed this week.', right: 'Half-price this week.', tip: '優惠條件。' },
-    { part: 'Part 4', trap: '會議開場', ex: '討論預算。', wrong: 'A birthday party.', right: 'Budget review.', tip: 'agenda 詞。' },
-    { part: 'Part 4', trap: '交通', ex: '改道施工。', wrong: 'Free parking forever.', right: 'Detour due to construction.', tip: '施工／改道。' },
-    { part: 'Part 4', trap: '天氣影響', ex: '戶外活動取消。', wrong: 'It will be sunny indoors.', right: 'The outdoor event is canceled.', tip: '取消／延期。' },
-    { part: 'Part 4', trap: '課程宣傳', ex: '需線上報名。', wrong: 'Walk in only.', right: 'Register online.', tip: '報名方式。' },
-    { part: 'Part 4', trap: '工廠導覽', ex: '需戴安全帽。', wrong: 'Wear sandals.', right: 'Wear a hard hat.', tip: '安全規定。' },
-    { part: 'Part 4', trap: '航班', ex: '延誤兩小時。', wrong: 'On time.', right: 'Delayed two hours.', tip: 'delay 時長。' },
-    { part: 'Part 4', trap: '募款', ex: '捐款用途。', wrong: 'Ignore the cause.', right: 'Funds go to…', tip: '聽 purpose of funds。' },
-    { part: 'Part 4', trap: '產品發表', ex: '上市日期。', wrong: 'Already discontinued.', right: 'Available from…', tip: 'release date。' },
-    { part: 'Part 4', trap: '政策變更', ex: '退貨改 30 天。', wrong: 'No returns.', right: '30-day returns.', tip: '新舊政策對照。' },
-    { part: '口音', trap: '英式 schedule', ex: 'ˈʃedjuːl 與美式 ˈskedʒuːl', wrong: '當成年份。', right: '都是「行程表」。', tip: '辨義不辨腔。' },
-    { part: '口音', trap: '澳式語調', ex: '句尾上揚像問句', wrong: '一定是疑問。', right: '可能是陳述。', tip: '靠內容詞判斷。' },
-    { part: '口音', trap: '加式詞彙', ex: 'washroom', wrong: '洗衣店。', right: '洗手間。', tip: '同義 restroom。' },
-    { part: '口音', trap: '連音', ex: 'want to→wanna', wrong: '放棄整句。', right: '抓重音實詞。', tip: '名詞動詞優先。' },
-    { part: '口音', trap: '數字 ty/teen', ex: 'thirty / thirteen', wrong: '隨便猜。', right: '聽重音位置。', tip: 'teen 後重、ty 前重。' },
-    { part: '綜合', trap: '預讀習慣', ex: 'Directions 發呆', wrong: '等開考再看題。', right: '先劃關鍵字。', tip: '預讀＝送分時間。' },
-  ];
 
   const mounts = {
     'toeic-intro': mountIntro,
