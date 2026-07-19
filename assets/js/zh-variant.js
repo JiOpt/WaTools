@@ -26,6 +26,10 @@
   }
 
   function setLang(variant) {
+    if (window.WA_LOCALE?.isEn?.()) {
+      document.documentElement.lang = 'en';
+      return;
+    }
     document.documentElement.lang = variant === 'simp' ? 'zh-CN' : 'zh-Hant';
   }
 
@@ -146,8 +150,17 @@
   }
 
   async function applyVariant(variant) {
+    if (window.WA_LOCALE?.isEn?.() || document.documentElement.getAttribute('data-locale') === 'en') {
+      document.documentElement.lang = 'en';
+      document.documentElement.setAttribute('data-locale', 'en');
+      stopObserver();
+      runRestore();
+      return;
+    }
+
     const next = variant === 'simp' ? 'simp' : 'trad';
     document.documentElement.setAttribute('data-zh-variant', next);
+    setLang(next);
 
     if (next === 'simp') {
       try {

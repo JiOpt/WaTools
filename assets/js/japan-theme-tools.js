@@ -333,7 +333,7 @@
     { id: 'okonomiyaki', name: '廣島燒／大阪燒', city: '廣島 · 大阪', region: 'kansai', type: 'grill', budget: 'mid', price: '¥850〜', desc: '層層麵皮與高麗菜堆疊的国民鐵板料理。', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=640&q=70', alt: '大阪燒' },
     { id: 'gyutan', name: '仙台牛舌定食', city: '宮城 · 仙台', region: 'kanto', type: 'grill', budget: 'high', price: '¥1500〜', desc: '厚切炭烤牛舌配麥飯與尾湯。', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=640&q=70', alt: '牛舌定食' },
     { id: 'kishimen', name: '名古屋膝蓋麵', city: '愛知 · 名古屋', region: 'chubu', type: 'noodles', budget: 'low', price: '¥700〜', desc: '寬扁麵條吸飽高湯的地方味。', img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=640&q=70', alt: '湯麵碗' },
-    { id: 'motsunabe', name: '福岡牛腸鍋', city: '福岡', region: 'kyushu', type: 'hotpot', budget: 'mid', price: '¥1200〜', desc: '大蒜與辣油香氣十足的暖心牛雜鍋。', img: 'https://images.unsplash.com/photo-1512058566634-78c16a1a6615?auto=format&fit=crop&w=640&q=70', alt: '日式火鍋' },
+    { id: 'motsunabe', name: '福岡牛腸鍋', city: '福岡', region: 'kyushu', type: 'hotpot', budget: 'mid', price: '¥1200〜', desc: '大蒜與辣油香氣十足的暖心牛雜鍋。', img: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=640&q=70', alt: '熱騰騰的日式湯鍋料理' },
     { id: 'taiyaki', name: '鯛魚燒', city: '關東各地', region: 'kanto', type: 'street', budget: 'low', price: '¥200〜', desc: '紅豆餡散步甜點經典。', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=640&q=70', alt: '鲷鱼烧甜点' }
   ];
   var REGION_LABELS = { all: '全部', kanto: '關東', kansai: '關西', chubu: '中部', kyushu: '九州' };
@@ -531,5 +531,5 @@
     stay: mountStay
   };
 
-  global.WA_MOUNT_JAPAN_THEME = MOUNTS;
+  Object.assign(global.WA_MOUNT_JAPAN_THEME || (global.WA_MOUNT_JAPAN_THEME = {}), MOUNTS);
 })(typeof window !== 'undefined' ? window : this);

@@ -5372,6 +5372,26 @@
   R['yokocho'] = mountJapanTheme('yokocho', '深夜橫丁');
   R['gourmet'] = mountJapanTheme('gourmet', 'B級美食地圖');
   R['stay'] = mountJapanTheme('stay', '隱世溫泉町家');
+  R['fuji-views'] = mountJapanTheme('fuji-views', '富士十二景');
+  R['sakura-front'] = mountJapanTheme('sakura-front', '櫻前線圖鑑');
+  R['momiji-trail'] = mountJapanTheme('momiji-trail', '紅葉巡禮');
+  R['matsuri-calendar'] = mountJapanTheme('matsuri-calendar', '祭典一年曆');
+  R['hanabi-guide'] = mountJapanTheme('hanabi-guide', '花火大會圖鑑');
+  R['torii-tunnel'] = mountJapanTheme('torii-tunnel', '千本鳥居隧道');
+  R['karesansui'] = mountJapanTheme('karesansui', '枯山水庭園');
+  R['kenrokuen'] = mountJapanTheme('kenrokuen', '兼六園金澤');
+  R['otaru-canal'] = mountJapanTheme('otaru-canal', '小樽運河');
+  R['nagoya-castle'] = mountJapanTheme('nagoya-castle', '名古屋城金鯱');
+  R['onsen-kyo'] = mountJapanTheme('onsen-kyo', '溫泉郷地圖');
+  R['wagashi-scroll'] = mountJapanTheme('wagashi-scroll', '和菓子四季');
+  R['aizome-kimono'] = mountJapanTheme('aizome-kimono', '藍染與和服');
+  R['railway-views'] = mountJapanTheme('railway-views', '鉄道風景色');
+  R['ama-shima'] = mountJapanTheme('ama-shima', '海女與志摩');
+  R['ghost-stations'] = mountJapanTheme('ghost-stations', '幽靈秘境駅');
+  R['inari-fox'] = mountJapanTheme('inari-fox', '狐狸稻荷');
+  R['samurai-armor'] = mountJapanTheme('samurai-armor', '武士甲冑');
+  R['ukiyo-e-now'] = mountJapanTheme('ukiyo-e-now', '浮世繪對照');
+  R['kabukicho-neon'] = mountJapanTheme('kabukicho-neon', '歌舞伎町霓虹');
 
   function mountCreatorTool(slug, title) {
     return function (app) {
@@ -5421,6 +5441,7 @@
   R['resume-photo-spec'] = mountViralTool('resume-photo-spec', '履歷證件照規格');
   R['youtube-thumbnail-factory'] = mountViralTool('youtube-thumbnail-factory', 'YouTube 縮圖工廠');
   R['hashtag-organizer'] = mountViralTool('hashtag-organizer', 'Hashtag 整理櫃');
+  R['llm-api-cost-calculator'] = mountViralTool('llm-api-cost-calculator', 'LLM API 成本換算');
   R['meeting-cost-calculator'] = mountViralTool('meeting-cost-calculator', '會議成本計算機');
   R['gpa-calculator'] = mountViralTool('gpa-calculator', 'GPA 加權計算');
   R['vehicle-loan-calculator'] = mountViralTool('vehicle-loan-calculator', '車貸機車貸試算');
@@ -5429,6 +5450,7 @@
   R['video-to-gif'] = mountViralTool('video-to-gif', '影片短片段擷取');
   R['pdf-page-reorder'] = mountViralTool('pdf-page-reorder', 'PDF 頁面重排');
   R['audio-notes-summarizer'] = mountViralTool('audio-notes-summarizer', '音檔重點筆記本');
+  R['threads-persona-analyzer'] = mountViralTool('threads-persona-analyzer', 'Threads 脆友人格');
   R['link-preview-card'] = mountViralTool('link-preview-card', '連結預覽卡產生');
 
 })();

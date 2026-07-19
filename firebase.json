@@ -17,6 +17,14 @@
       {
         "source": "/",
         "destination": "/index.html"
+      },
+      {
+        "source": "/en",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/en/",
+        "destination": "/en/index.html"
       }
     ],
     "headers": [
@@ -25,12 +33,21 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache, max-age=0, must-revalidate"
+            "value": "public, max-age=0, must-revalidate"
           }
         ]
       },
       {
-        "source": "**/*.@(js|css)",
+        "source": "**/*.@(js|css|woff2|woff|ttf|otf|png|jpg|jpeg|gif|webp|svg|ico|map)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**",
         "headers": [
           {
             "key": "Cache-Control",
@@ -58,6 +75,16 @@
       {
         "source": "/settings.html",
         "destination": "/utility/settings.html",
+        "type": 301
+      },
+      {
+        "source": "/en/settings",
+        "destination": "/en/utility/settings",
+        "type": 301
+      },
+      {
+        "source": "/en/settings.html",
+        "destination": "/en/utility/settings.html",
         "type": 301
       },
       {

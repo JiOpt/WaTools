@@ -17,7 +17,7 @@
     const segs = path.split('/').filter(Boolean);
     if (!segs.length) return '';
     const last = segs[segs.length - 1].replace(/\.html$/i, '');
-    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
+    if (segs.length === 1 && ['index', 'copyright', 'contact', 'privacy', 'disclaimer'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 

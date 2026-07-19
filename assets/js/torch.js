@@ -24,6 +24,52 @@
     wakeLockSentinel: null,
   };
 
+  function isEn() {
+    return document.documentElement.getAttribute('data-locale') === 'en' ||
+      (window.WA_LOCALE && window.WA_LOCALE.isEn && window.WA_LOCALE.isEn());
+  }
+
+  const MSG = {
+    zh: {
+      blinking: '閃爍中',
+      blinkCam: '閃光燈在蹦迪',
+      blinkScreen: '螢幕在呼吸',
+      on: '手電筒已開啟',
+      onCam: '閃光燈全開，請對準需要照的地方',
+      onScreen: '螢幕全白，請勿直視太久',
+      off: '手電筒已關閉',
+      standbyCam: '閃光燈待命中',
+      standbyScreen: '螢幕照明待命中',
+      allowOrScreen: '允許相機，或直接用螢幕頂上',
+      noCamOk: '沒相機？沒關係，螢幕也能當手電筒',
+      requesting: '正在請求相機權限…',
+      readyCam: '閃光燈已就位，隨時可開',
+      noFlashScreen: '這支手機沒閃光燈，螢幕將代班',
+      deniedTryScreen: '相機權限還沒給，先試試螢幕照明？',
+    },
+    en: {
+      blinking: 'Blinking',
+      blinkCam: 'Flash is strobing',
+      blinkScreen: 'Screen is pulsing',
+      on: 'Torch is on',
+      onCam: 'Flash at full power — aim where you need light',
+      onScreen: 'Screen is white — avoid staring too long',
+      off: 'Torch is off',
+      standbyCam: 'Flash on standby',
+      standbyScreen: 'Screen light on standby',
+      allowOrScreen: 'Allow the camera, or use the screen light',
+      noCamOk: 'No camera? The screen still works as a torch',
+      requesting: 'Requesting camera permission…',
+      readyCam: 'Flash ready — turn on anytime',
+      noFlashScreen: 'No flash on this phone — screen light will cover',
+      deniedTryScreen: 'Camera still denied — try screen light?',
+    },
+  };
+
+  function t(key) {
+    return (isEn() ? MSG.en : MSG.zh)[key] || MSG.zh[key] || key;
+  }
+
   function isTorchPage() {
     return !!document.getElementById('torch-section');
   }
@@ -112,19 +158,19 @@
 
   function refreshStatusLabel() {
     if (state.isBlinking) {
-      setStatus('閃爍中', state.mode === 'camera' ? '閃光燈在蹦迪' : '螢幕在呼吸');
+      setStatus(t('blinking'), state.mode === 'camera' ? t('blinkCam') : t('blinkScreen'));
       return;
     }
     if (state.isOn) {
-      setStatus('手電筒已開啟', state.mode === 'camera' ? '閃光燈全開，請對準需要照的地方' : '螢幕全白，請勿直視太久');
+      setStatus(t('on'), state.mode === 'camera' ? t('onCam') : t('onScreen'));
       return;
     }
     if (state.mode === 'camera') {
-      setStatus('手電筒已關閉', '閃光燈待命中');
+      setStatus(t('off'), t('standbyCam'));
     } else if (state.mode === 'screen') {
-      setStatus('手電筒已關閉', '螢幕照明待命中');
+      setStatus(t('off'), t('standbyScreen'));
     } else {
-      setStatus('手電筒已關閉', '允許相機，或直接用螢幕頂上');
+      setStatus(t('off'), t('allowOrScreen'));
     }
   }
 
@@ -211,11 +257,11 @@
     if (!navigator.mediaDevices?.getUserMedia) {
       state.mode = 'screen';
       if (els.helpCamera) els.helpCamera.hidden = false;
-      setStatus('手電筒已關閉', '沒相機？沒關係，螢幕也能當手電筒');
+      setStatus(t('off'), t('noCamOk'));
       return;
     }
 
-    setStatus('手電筒已關閉', '正在請求相機權限…');
+    setStatus(t('off'), t('requesting'));
 
     try {
       state.stream = await navigator.mediaDevices.getUserMedia({
@@ -233,14 +279,11 @@
 
       if (els.helpCamera) els.helpCamera.hidden = state.hasTorch;
 
-      setStatus(
-        '手電筒已關閉',
-        state.hasTorch ? '閃光燈已就位，隨時可開' : '這支手機沒閃光燈，螢幕將代班'
-      );
+      setStatus(t('off'), state.hasTorch ? t('readyCam') : t('noFlashScreen'));
     } catch (err) {
       state.mode = 'screen';
       if (els.helpCamera) els.helpCamera.hidden = false;
-      setStatus('手電筒已關閉', '相機權限還沒給，先試試螢幕照明？');
+      setStatus(t('off'), t('deniedTryScreen'));
       console.warn('Camera init failed:', err);
     }
   }

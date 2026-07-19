@@ -100,8 +100,8 @@
       budget: "mid",
       price: "¥1200〜",
       desc: "大蒜與辣油香氣十足的暖心牛雜鍋，九州夜宵代表。",
-      img: "https://images.unsplash.com/photo-1512058566634-78c16a1a6615?auto=format&fit=crop&w=640&q=70",
-      alt: "熱騰騰的日式火鍋特寫"
+      img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=640&q=70",
+      alt: "熱騰騰的日式湯鍋料理"
     },
     {
       id: "taiyaki",

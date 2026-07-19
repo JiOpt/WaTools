@@ -31,8 +31,33 @@
     ]);
   }
 
-  function toolLinkLabel(tool) {
-    const title = el('span', { className: 'site-sitemap-tool-title' }, tool.title);
+  function L(key, zh) {
+    if (window.WA_LOCALE?.t && window.WA_LOCALE.isEn?.()) {
+      return window.WA_LOCALE.t(key, zh);
+    }
+    return zh;
+  }
+
+  function toolDisplayTitle(tool, category) {
+    if (window.WA_LOCALE?.catalogLabel) {
+      return window.WA_LOCALE.catalogLabel(category || { id: '' }, tool);
+    }
+    return tool.title;
+  }
+
+  function categoryDisplayName(category) {
+    if (window.WA_LOCALE?.catalogLabel) return window.WA_LOCALE.catalogLabel(category);
+    return category.name;
+  }
+
+  function homeHref() {
+    if (window.WA_LOCALE?.href) return window.WA_LOCALE.href('');
+    if (window.WA_TOOL_URLS?.indexHref) return window.WA_TOOL_URLS.indexHref();
+    return '/';
+  }
+
+  function toolLinkLabel(tool, category) {
+    const title = el('span', { className: 'site-sitemap-tool-title' }, toolDisplayTitle(tool, category));
     if (!tool.icon) return [title];
     return [sitemapIconBox(tool.icon), title];
   }
@@ -43,7 +68,7 @@
   }
 
   function isInScriptureDir() {
-    return /\/scripture\/[^/]+$/i.test(location.pathname.replace(/\\/g, '/'));
+    return /(?:^|\/)scripture\/[^/]+$/i.test(location.pathname.replace(/\\/g, '/').replace(/\/en(?=\/)/, ''));
   }
 
   function rootPrefix() {
@@ -52,7 +77,7 @@
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
     if (!segs.length) return '';
     const last = segs[segs.length - 1].replace(/\.html$/i, '');
-    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
+    if (segs.length === 1 && ['index', 'copyright', 'contact', 'privacy', 'disclaimer'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 
@@ -85,7 +110,8 @@
 
   function scriptureBookHref(slug) {
     if (window.WA_TOOL_URLS?.scriptureHref) return window.WA_TOOL_URLS.scriptureHref(slug);
-    return `/scripture/${slug}`;
+    const s = String(slug || '').replace(/^\/+/, '').replace(/\.html$/i, '').replace(/^scripture\//i, '');
+    return `/scripture/${s}`;
   }
 
   function scriptReady(base) {
@@ -413,7 +439,7 @@
   }
 
   function buildLoadingNav() {
-    return el('nav', { className: 'site-sitemap-nav', 'aria-label': '網站地圖' }, [
+    return el('nav', { className: 'site-sitemap-nav', 'aria-label': L('chrome.sitemap', '網站地圖') }, [
       el('p', { className: 'site-sitemap-loading text-muted small' }, ['工具目錄載入中…']),
     ]);
   }
@@ -463,6 +489,7 @@
 
   function canonicalHref(href, scriptureSlugs) {
     let h = String(href || '').replace(/^\//, '').replace(/^\.\.\//, '').replace(/\.html$/i, '');
+    if (h.startsWith('en/')) h = h.slice(3);
     if (h.includes('/')) return h;
     if (h === 'index') return 'index';
     if (scriptureSlugs && scriptureSlugs.has(h)) {
@@ -507,13 +534,16 @@
 
   function hrefFromCanon(canon) {
     if (!canon) return '/';
-    if (canon === 'index') return '/';
-    if (canon.startsWith('scripture/')) return `/${canon}`;
-    const slug = canon.includes('/')
-      ? canon.split('/').pop().replace(/\.html$/i, '')
-      : canon.replace(/\.html$/i, '');
+    let c = String(canon).replace(/^\/+/, '');
+    if (c.startsWith('en/')) c = c.slice(3);
+    if (c === 'index') return homeHref();
+    // Scripture books: always Chinese path (no /en/)
+    if (c.startsWith('scripture/')) return `/${c}`;
+    const slug = c.includes('/')
+      ? c.split('/').pop().replace(/\.html$/i, '')
+      : c.replace(/\.html$/i, '');
     if (window.WA_TOOL_URLS && slug) return window.WA_TOOL_URLS.toolHref(slug);
-    return `/${canon.replace(/\.html$/i, '')}`;
+    return `/${c.replace(/\.html$/i, '')}`;
   }
 
   function refreshSitemapLinkHrefs(nav) {
@@ -526,8 +556,11 @@
       }
       if (link.classList.contains('site-sitemap-home')) {
         const label = link.textContent.trim();
-        if (label === '工具首頁') link.setAttribute('href', '/');
-        else if (label === '藏經閣') link.setAttribute('href', toolHref('scriptures'));
+        if (label === '工具首頁' || label === 'Tools home') link.setAttribute('href', homeHref());
+        else if (label === '藏經閣' || label === 'Open scripture library') {
+          // Hub has EN shell; books themselves stay on zh /scripture/*
+          link.setAttribute('href', toolHref('scriptures'));
+        }
       }
     });
   }
@@ -629,22 +662,22 @@
       return el('a', {
         href: toolHref(tool.slug),
         className: `site-sitemap-seq-link site-sitemap-seq-${kind}`,
-        title: tool.title,
+        title: toolDisplayTitle(tool, ctx.category),
       }, [
         labelEl,
-        el('span', { className: 'site-sitemap-seq-title' }, [tool.title]),
+        el('span', { className: 'site-sitemap-seq-title' }, [toolDisplayTitle(tool, ctx.category)]),
       ]);
     }
 
     return el('nav', {
       className: 'site-sitemap-seq',
-      'aria-label': '同分類上一篇下一篇',
+      'aria-label': L('chrome.seqAria', '同分類上一篇下一篇'),
     }, [
-      linkBtn(ctx.prev, 'prev', '上一篇'),
+      linkBtn(ctx.prev, 'prev', L('chrome.prevTool', '上一篇')),
       el('span', { className: 'site-sitemap-seq-pos text-muted' }, [
         `${ctx.index + 1} / ${ctx.tools.length}`,
       ]),
-      linkBtn(ctx.next, 'next', '下一篇'),
+      linkBtn(ctx.next, 'next', L('chrome.nextTool', '下一篇')),
     ]);
   }
 
@@ -655,7 +688,7 @@
     }, [
       el('summary', { className: 'site-sitemap-group-title' }, [
         sitemapIconBox(CATEGORY_ICONS[category.id], 'cat'),
-        el('span', { className: 'site-sitemap-cat-title' }, category.name),
+        el('span', { className: 'site-sitemap-cat-title' }, categoryDisplayName(category)),
       ]),
       el('ul', { className: 'site-sitemap-list' }, (category.tools || []).map((tool) => {
         const href = toolHref(tool.slug);
@@ -665,9 +698,9 @@
           el('a', {
             href,
             className: linkClassNames(href, rank, scriptureSlugs),
-            dataset: { label: `${tool.title} ${category.name}`, canon },
+            dataset: { label: `${toolDisplayTitle(tool, category)} ${categoryDisplayName(category)}`, canon },
           }, [
-            ...toolLinkLabel(tool),
+            ...toolLinkLabel(tool, category),
           ]),
         ]);
       })),
@@ -711,8 +744,10 @@
           className: 'is-visited',
           title: item.title,
         }, [
-          el('span', { className: 'site-sitemap-recent-title' }, [item.title]),
-          el('span', { className: 'site-sitemap-recent-time' }, [index === 0 ? '剛剛' : formatTime(item.ts)]),
+          el('span', { className: 'site-sitemap-recent-title' }, [
+            (window.WA_NAV_HISTORY?.displayTitle?.({ href: item.href, title: item.title }) || item.title),
+          ]),
+          el('span', { className: 'site-sitemap-recent-time' }, [index === 0 ? L('chrome.justNow', '剛剛') : formatTime(item.ts)]),
         ]),
       ]);
     }));
@@ -799,30 +834,33 @@
     const toolGroups = buildToolSections(catalog, recentRankByHref, scriptureSlugs);
     const scriptureGroups = buildScriptureSections(scriptureCatalog, recentRankByHref, scriptureSlugs);
 
-    return el('nav', { className: 'site-sitemap-nav', 'aria-label': '網站地圖' }, [
+    const home = homeHref();
+    return el('nav', { className: 'site-sitemap-nav', 'aria-label': L('chrome.sitemap', '網站地圖') }, [
       recentList
-        ? buildSectionBlock('recent', '最近瀏覽', [recentList], { count: recentList.children.length })
+        ? buildSectionBlock('recent', L('chrome.recent', '最近瀏覽'), [recentList], { count: recentList.children.length })
         : null,
       el('div', { className: 'site-sitemap-head' }, [
         el('a', {
-          href: '/',
-          className: isActiveHref('/', scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
-        }, ['工具首頁']),
+          href: home,
+          className: isActiveHref(home, scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
+        }, [L('chrome.toolsHome', '工具首頁')]),
+      ]),
+      buildSectionBlock('tools', L('chrome.toolsSection', '工具分類'), toolGroups, {
+        count: catalog.length,
+        actions: [
+          miniActionBtn(L('chrome.expandAll', '全展開'), 'sitemapExpandAll'),
+          miniActionBtn(L('chrome.collapseAll', '全收合'), 'sitemapCollapseAll'),
+        ],
+      }),
+      buildSectionBlock('scriptures', L('chrome.scripturesSection', '藏經閣（延伸閱讀）'), scriptureGroups, {
+        count: scriptureGroups.length,
+      }),
+      el('div', { className: 'site-sitemap-foot' }, [
         el('a', {
           href: toolHref('scriptures'),
           className: isActiveHref(toolHref('scriptures'), scriptureSlugs) ? 'site-sitemap-home is-active' : 'site-sitemap-home',
-        }, ['藏經閣']),
+        }, [L('chrome.scripturesEnter', '進入藏經閣')]),
       ]),
-      buildSectionBlock('tools', '工具分類', toolGroups, {
-        count: catalog.length,
-        actions: [
-          miniActionBtn('全展開', 'sitemapExpandAll'),
-          miniActionBtn('全收合', 'sitemapCollapseAll'),
-        ],
-      }),
-      buildSectionBlock('scriptures', '藏經閣經典', scriptureGroups, {
-        count: scriptureGroups.length,
-      }),
     ]);
   }
 
@@ -921,16 +959,16 @@
         const closeBtn = el('button', {
           type: 'button',
           className: 'site-sitemap-close d-xl-none',
-          'aria-label': '關閉網站地圖',
+          'aria-label': L('chrome.closeSitemap', '關閉網站地圖'),
           onClick: () => setMobileOpen(false),
         }, ['×']);
 
         const collapseBtn = el('button', {
           type: 'button',
           className: 'site-sitemap-collapse-btn d-none d-xl-inline-flex',
-          'aria-label': '收合網站地圖',
+          'aria-label': L('chrome.collapseSitemap', '收合網站地圖'),
           'aria-expanded': 'true',
-          title: '收合側欄',
+          title: L('chrome.collapseSitemap', '收合側欄'),
           onClick: () => setDesktopCollapsed(!document.body.classList.contains('site-sitemap-collapsed')),
         }, [
           el('i', { className: 'bi bi-chevron-left', 'aria-hidden': 'true' }),
@@ -939,8 +977,8 @@
         const search = el('input', {
           type: 'search',
           className: 'site-sitemap-search',
-          placeholder: '搜尋工具或經典…',
-          'aria-label': '搜尋網站地圖',
+          placeholder: L('chrome.sitemapSearch', '搜尋工具或經典…'),
+          'aria-label': L('chrome.sitemapSearchAria', '搜尋網站地圖'),
         });
 
         nav = buildLoadingNav();
@@ -952,7 +990,7 @@
           'aria-hidden': 'true',
         }, [
           el('div', { className: 'site-sitemap-top' }, [
-            el('strong', { className: 'site-sitemap-title' }, ['網站地圖']),
+            el('strong', { className: 'site-sitemap-title' }, [L('chrome.sitemap', '網站地圖')]),
             el('div', { className: 'site-sitemap-top-actions' }, [collapseBtn, closeBtn]),
           ]),
           search,
@@ -963,26 +1001,26 @@
         const expandTab = el('button', {
           type: 'button',
           className: 'site-sitemap-expand-tab',
-          'aria-label': '展開網站地圖',
-          title: '展開側欄',
+          'aria-label': L('chrome.expandSitemap', '展開網站地圖'),
+          title: L('chrome.expandSitemap', '展開側欄'),
           hidden: true,
           onClick: () => setDesktopCollapsed(false),
         }, [
           el('i', { className: 'bi bi-list-nested', 'aria-hidden': 'true' }),
-          el('span', { className: 'site-sitemap-expand-tab-text' }, ['地圖']),
+          el('span', { className: 'site-sitemap-expand-tab-text' }, [L('chrome.sitemap', '地圖')]),
         ]);
 
         const backdrop = el('button', {
           type: 'button',
           className: 'site-sitemap-backdrop',
-          'aria-label': '關閉網站地圖',
+          'aria-label': L('chrome.closeSitemap', '關閉網站地圖'),
           onClick: () => setMobileOpen(false),
         });
 
         const fab = el('button', {
           type: 'button',
           className: 'site-sitemap-fab d-xl-none',
-          'aria-label': '開啟網站地圖',
+          'aria-label': L('chrome.openSitemap', '開啟網站地圖'),
           'aria-expanded': 'false',
           onClick: () => setMobileOpen(!document.body.classList.contains('site-sitemap-open')),
         }, [

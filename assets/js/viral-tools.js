@@ -5,7 +5,7 @@
 (function (global) {
   'use strict';
 
-  var VIRAL_CSS_VER = 'vr-bright-1';
+  var VIRAL_CSS_VER = 'vr-edge-cache-1';
 
   function viralCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -18,6 +18,7 @@
     return 'assets/css/viral-tools.css?v=' + VIRAL_CSS_VER;
   }
 
+  /** Non-blocking stylesheet: critical look lives in ensureBrightInline(). */
   function ensureViralCss() {
     var key = 'wa-viral-css';
     var href;
@@ -34,8 +35,14 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
+    link.media = 'print';
     link.setAttribute('data-wa-key', key);
+    link.onload = function () { link.media = 'all'; };
     document.head.appendChild(link);
+    // Fallback if onload already fired / cached
+    requestAnimationFrame(function () {
+      if (link.sheet) link.media = 'all';
+    });
   }
 
   function ensureBrightInline() {
@@ -81,15 +88,38 @@
 
   function prepMount(app) {
     cleanupFns(app);
+    // Local component state only — never write quiz/calc state to window.
+    app.__waLocal = null;
     ensureBrightInline();
     ensureViralCss();
     app.className = 'tool-app wa-viral';
     app.replaceChildren();
-    var onHide = function () { cleanupFns(app); };
+    var onHide = function () {
+      cleanupFns(app);
+      app.__waLocal = null;
+    };
     global.addEventListener('pagehide', onHide);
     onCleanup(app, function () {
       global.removeEventListener('pagehide', onHide);
+      app.__waLocal = null;
     });
+  }
+
+  function wrapCanvasText(ctx, text, maxWidth) {
+    var str = String(text || '');
+    var lines = [];
+    var line = '';
+    for (var i = 0; i < str.length; i++) {
+      var test = line + str.charAt(i);
+      if (line && ctx.measureText(test).width > maxWidth) {
+        lines.push(line);
+        line = str.charAt(i);
+      } else {
+        line = test;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
   }
 
   function money(n) {
@@ -342,90 +372,234 @@
     });
   }
 
-  /* ——— 2. mortgage-calculator ——— */
+  /* ——— 2. mortgage-calculator (2026 一般房貸 / 新青安) ——— */
   function mountMortgageCalculator(app) {
     prepMount(app);
+
+    var YOUTH = [
+      { untilMonth: 36, rate: 0.01775 },
+      { untilMonth: 60, rate: 0.02105 },
+      { untilMonth: Infinity, rate: 0.02275 }
+    ];
+
     app.innerHTML =
       '<section class="vr-card vr-stack">' +
-      '  <p class="vr-eyebrow">Mortgage</p>' +
-      '  <p class="vr-lead">房貸本息試算 · 含提前還款估算</p>' +
-      '  <div class="vr-grid-2">' +
-      '    <label class="vr-label">貸款本金（元）<input id="vr-mg-principal" class="vr-input" type="number" value="8000000"></label>' +
-      '    <label class="vr-label">年利率（%）<input id="vr-mg-rate" class="vr-input" type="number" step="0.01" value="2.1"></label>' +
-      '    <label class="vr-label">年限（年）<input id="vr-mg-years" class="vr-input" type="number" value="30"></label>' +
-      '    <label class="vr-label">每月額外還款（元）<input id="vr-mg-extra" class="vr-input" type="number" value="0"></label>' +
+      '  <p class="vr-eyebrow">2026 Mortgage</p>' +
+      '  <p class="vr-lead">最新房貸與新青安貸款台幣試算 · 純前端本息攤還</p>' +
+      '  <div class="vr-chips" role="group" aria-label="貸款方案">' +
+      '    <button type="button" class="vr-chip is-on" data-plan="general" aria-pressed="true">方案 A｜一般房貸</button>' +
+      '    <button type="button" class="vr-chip" data-plan="youth" aria-pressed="false">方案 B｜新青安貸款</button>' +
       '  </div>' +
-      '  <div id="vr-mg-summary" class="vr-stack"></div>' +
-      '  <canvas id="vr-mg-chart" class="vr-canvas" width="640" height="120"></canvas>' +
-      '  <div id="vr-mg-table-wrap"></div>' +
+      '  <div class="vr-grid-2">' +
+      '    <label class="vr-label">貸款總額（萬元）' +
+      '      <input id="vr-mg-wan" class="vr-input" type="number" min="1" step="1" value="800">' +
+      '    </label>' +
+      '    <label class="vr-label">貸款年限' +
+      '      <select id="vr-mg-years" class="vr-select">' +
+      '        <option value="20">20 年</option>' +
+      '        <option value="30" selected>30 年</option>' +
+      '        <option value="40">40 年</option>' +
+      '      </select>' +
+      '    </label>' +
+      '    <label class="vr-label">寬限期（年）' +
+      '      <select id="vr-mg-grace" class="vr-select">' +
+      '        <option value="0" selected>0 年（無寬限期）</option>' +
+      '        <option value="1">1 年</option>' +
+      '        <option value="2">2 年</option>' +
+      '        <option value="3">3 年</option>' +
+      '        <option value="4">4 年</option>' +
+      '        <option value="5">5 年</option>' +
+      '      </select>' +
+      '    </label>' +
+      '    <label class="vr-label" id="vr-mg-rate-wrap">年利率（%）' +
+      '      <input id="vr-mg-rate" class="vr-input" type="number" min="0" step="0.001" value="2.2">' +
+      '    </label>' +
+      '  </div>' +
+      '  <p id="vr-mg-plan-note" class="vr-muted"></p>' +
+      '  <div id="vr-mg-cards" class="vr-pay-cards"></div>' +
+      '  <div id="vr-mg-extra" class="vr-stack"></div>' +
+      '  <details class="vr-details" open>' +
+      '    <summary>展開前 12 個月繳款明細</summary>' +
+      '    <div id="vr-mg-table-wrap"></div>' +
+      '  </details>' +
+      '  <p class="vr-muted">※ 試算為示意：寬限期只付利息；其後採本息平均攤還。新青安利率依「貸款起算月數」分段（前 3 年 1.775%、第 4–5 年 2.105%、第 6 年起 2.275%），利率變動時會重算月付。實際核貸條件與銀行公告為準。</p>' +
       '</section>';
 
-    function calc() {
-      var P = Math.max(0, Number(app.querySelector('#vr-mg-principal').value) || 0);
-      var annual = Math.max(0, Number(app.querySelector('#vr-mg-rate').value) || 0) / 100;
-      var years = Math.max(1, Number(app.querySelector('#vr-mg-years').value) || 1);
-      var extra = Math.max(0, Number(app.querySelector('#vr-mg-extra').value) || 0);
-      var r = annual / 12;
-      var n = years * 12;
-      var monthly = r === 0 ? P / n : (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    var plan = 'general';
 
-      var balance = P;
-      var totalInterest = 0;
+    function annualRateForMonth(monthIndex1Based) {
+      if (plan === 'general') {
+        return Math.max(0, Number(app.querySelector('#vr-mg-rate').value) || 0) / 100;
+      }
+      for (var i = 0; i < YOUTH.length; i++) {
+        if (monthIndex1Based <= YOUTH[i].untilMonth) return YOUTH[i].rate;
+      }
+      return YOUTH[YOUTH.length - 1].rate;
+    }
+
+    function pmt(principal, monthlyRate, months) {
+      if (months <= 0) return 0;
+      if (monthlyRate === 0) return principal / months;
+      var f = Math.pow(1 + monthlyRate, months);
+      return (principal * monthlyRate * f) / (f - 1);
+    }
+
+    function buildSchedule(principal, totalMonths, graceMonths) {
+      var balance = principal;
       var rows = [];
-      for (var i = 1; i <= n && balance > 0.01; i++) {
+      var amortPmt = 0;
+      var lastRateKey = null;
+      var gracePaySample = 0;
+      var amortPaySample = 0;
+
+      for (var m = 1; m <= totalMonths && balance > 0.005; m++) {
+        var annual = annualRateForMonth(m);
+        var r = annual / 12;
+        var rateKey = String(annual);
         var interest = balance * r;
-        var principalPay = monthly - interest;
-        var pay = monthly + extra;
-        if (principalPay + extra > balance) {
-          pay = interest + balance;
-          principalPay = balance;
+        var principalPay = 0;
+        var payment = 0;
+        var phase = m <= graceMonths ? 'grace' : 'amort';
+
+        if (phase === 'grace') {
+          payment = interest;
+          principalPay = 0;
+          if (m === 1 || gracePaySample === 0) gracePaySample = payment;
         } else {
-          principalPay += extra;
+          var remaining = totalMonths - m + 1;
+          if (amortPmt === 0 || rateKey !== lastRateKey) {
+            amortPmt = pmt(balance, r, remaining);
+            lastRateKey = rateKey;
+          }
+          principalPay = amortPmt - interest;
+          if (principalPay > balance) {
+            principalPay = balance;
+            payment = interest + principalPay;
+          } else {
+            payment = amortPmt;
+          }
+          balance -= principalPay;
+          if (balance < 0) balance = 0;
+          if (amortPaySample === 0) amortPaySample = payment;
         }
-        balance -= principalPay;
-        totalInterest += interest;
-        if (i <= 12) {
-          rows.push({ m: i, pay: pay, principal: principalPay, interest: interest, balance: Math.max(0, balance) });
-        }
-        if (balance <= 0) break;
+
+        rows.push({
+          m: m,
+          phase: phase,
+          ratePct: annual * 100,
+          payment: payment,
+          principal: principalPay,
+          interest: interest,
+          balance: phase === 'grace' ? principal : balance
+        });
       }
 
-      app.querySelector('#vr-mg-summary').innerHTML =
-        '<div class="vr-result"><div><p class="vr-result-name">每月應付（含額外）</p>' +
-        '<p class="vr-result-text">NT$ ' + money(monthly + extra) + '</p></div></div>' +
-        '<div class="vr-result"><div><p class="vr-result-name">總利息（估算）</p>' +
-        '<p class="vr-result-text">NT$ ' + money(totalInterest) + '</p></div></div>';
+      var totalInterest = 0;
+      var totalPay = 0;
+      for (var i = 0; i < rows.length; i++) {
+        totalInterest += rows[i].interest;
+        totalPay += rows[i].payment;
+      }
 
-      var canvas = app.querySelector('#vr-mg-chart');
-      var ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      var total = P + totalInterest;
-      var pW = total > 0 ? (P / total) * (canvas.width - 40) : 0;
-      var iW = total > 0 ? (totalInterest / total) * (canvas.width - 40) : 0;
-      ctx.fillStyle = '#1977cc';
-      roundRect(ctx, 20, 40, pW, 40, 8);
-      ctx.fill();
-      ctx.fillStyle = '#0d9488';
-      roundRect(ctx, 20 + pW, 40, iW, 40, 8);
-      ctx.fill();
-      ctx.fillStyle = '#2c4964';
-      ctx.font = '13px sans-serif';
-      ctx.fillText('本金 NT$ ' + money(P), 20, 28);
-      ctx.fillText('利息 NT$ ' + money(totalInterest), 20 + pW + 8, 28);
+      return {
+        rows: rows,
+        gracePay: graceMonths > 0 ? gracePaySample : 0,
+        amortPay: amortPaySample || (rows.length ? rows[rows.length - 1].payment : 0),
+        totalInterest: totalInterest,
+        totalPay: totalPay
+      };
+    }
 
-      var tbl = '<table class="vr-table"><thead><tr><th>期</th><th>月付</th><th>本金</th><th>利息</th><th>餘額</th></tr></thead><tbody>';
-      rows.forEach(function (row) {
-        tbl += '<tr><td>' + row.m + '</td><td>' + money(row.pay) + '</td><td>' + money(row.principal) +
-          '</td><td>' + money(row.interest) + '</td><td>' + money(row.balance) + '</td></tr>';
+    function syncPlanUi() {
+      var rateWrap = app.querySelector('#vr-mg-rate-wrap');
+      var note = app.querySelector('#vr-mg-plan-note');
+      if (plan === 'youth') {
+        rateWrap.style.display = 'none';
+        note.textContent = '新青安：前 3 年 1.775% → 第 4–5 年 2.105% → 第 6 年起 2.275%（機動分段示意）。';
+      } else {
+        rateWrap.style.display = '';
+        note.textContent = '一般房貸：採單一固定／機動利率（預設 2.2%，可自行調整）。';
+      }
+      app.querySelectorAll('[data-plan]').forEach(function (btn) {
+        var on = btn.getAttribute('data-plan') === plan;
+        btn.classList.toggle('is-on', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-      tbl += '</tbody></table>';
-      app.querySelector('#vr-mg-table-wrap').innerHTML = '<p class="vr-muted">前 12 期攤還表</p>' + tbl;
+    }
+
+    function calc() {
+      var wan = Math.max(0, Number(app.querySelector('#vr-mg-wan').value) || 0);
+      var years = Number(app.querySelector('#vr-mg-years').value) || 30;
+      var graceYears = Math.min(5, Math.max(0, Number(app.querySelector('#vr-mg-grace').value) || 0));
+      if (graceYears >= years) graceYears = Math.max(0, years - 1);
+
+      var principal = wan * 10000;
+      var totalMonths = years * 12;
+      var graceMonths = graceYears * 12;
+      var result = buildSchedule(principal, totalMonths, graceMonths);
+
+      var cards = app.querySelector('#vr-mg-cards');
+      if (graceMonths > 0) {
+        cards.innerHTML =
+          '<article class="vr-pay-card">' +
+          '  <p class="vr-pay-card__label">寬限期每月需付</p>' +
+          '  <p class="vr-pay-card__value">NT$ ' + money(result.gracePay) + '</p>' +
+          '  <p class="vr-pay-card__hint">僅繳利息 · 共 ' + graceYears + ' 年（' + graceMonths + ' 期）</p>' +
+          '</article>' +
+          '<article class="vr-pay-card vr-pay-card--accent">' +
+          '  <p class="vr-pay-card__label">寬限期後每月需付</p>' +
+          '  <p class="vr-pay-card__value">NT$ ' + money(result.amortPay) + '</p>' +
+          '  <p class="vr-pay-card__hint">本息平均攤還 · 剩餘 ' + (years - graceYears) + ' 年</p>' +
+          '</article>';
+      } else {
+        cards.innerHTML =
+          '<article class="vr-pay-card vr-pay-card--accent" style="grid-column:1/-1">' +
+          '  <p class="vr-pay-card__label">每月本利和</p>' +
+          '  <p class="vr-pay-card__value">NT$ ' + money(result.amortPay) + '</p>' +
+          '  <p class="vr-pay-card__hint">無寬限期 · 本息平均攤還 ' + years + ' 年</p>' +
+          '</article>';
+      }
+
+      app.querySelector('#vr-mg-extra').innerHTML =
+        '<div class="vr-result"><div><p class="vr-result-name">貸款本金</p><p class="vr-result-text">NT$ ' + money(principal) + '（' + wan + ' 萬）</p></div></div>' +
+        '<div class="vr-result"><div><p class="vr-result-name">總繳利息（全期估算）</p><p class="vr-result-text">NT$ ' + money(result.totalInterest) + '</p></div></div>' +
+        '<div class="vr-result"><div><p class="vr-result-name">總繳金額（本金＋利息）</p><p class="vr-result-text">NT$ ' + money(result.totalPay) + '</p></div></div>';
+
+      var first12 = result.rows.slice(0, 12);
+      var tbl = '<div class="vr-table-scroll"><table class="vr-table"><thead><tr>' +
+        '<th>期數</th><th>階段</th><th>年利率</th><th>月付</th><th>本金</th><th>利息</th><th>餘額</th>' +
+        '</tr></thead><tbody>';
+      first12.forEach(function (row) {
+        tbl += '<tr><td>' + row.m + '</td><td>' + (row.phase === 'grace' ? '寬限期' : '攤還') +
+          '</td><td>' + row.ratePct.toFixed(3) + '%</td><td>' + money(row.payment) +
+          '</td><td>' + money(row.principal) + '</td><td>' + money(row.interest) +
+          '</td><td>' + money(row.balance) + '</td></tr>';
+      });
+      tbl += '</tbody></table></div>';
+      app.querySelector('#vr-mg-table-wrap').innerHTML = tbl || '<p class="vr-muted">尚無明細</p>';
+    }
+
+    function onPlanClick(e) {
+      var btn = e.target.closest('[data-plan]');
+      if (!btn || !app.contains(btn)) return;
+      plan = btn.getAttribute('data-plan');
+      syncPlanUi();
+      calc();
     }
 
     var schedule = bindRafSchedule(app, calc);
-    ['#vr-mg-principal', '#vr-mg-rate', '#vr-mg-years', '#vr-mg-extra'].forEach(function (sel) {
+    app.addEventListener('click', onPlanClick);
+    ['#vr-mg-wan', '#vr-mg-rate'].forEach(function (sel) {
       app.querySelector(sel).addEventListener('input', schedule);
     });
+    ['#vr-mg-years', '#vr-mg-grace'].forEach(function (sel) {
+      app.querySelector(sel).addEventListener('change', schedule);
+    });
+    onCleanup(app, function () {
+      app.removeEventListener('click', onPlanClick);
+    });
+
+    syncPlanUi();
     calc();
   }
 
@@ -1116,6 +1290,162 @@
     var schedule = bindRafSchedule(app, render);
     app.querySelector('#vr-ht-in').addEventListener('input', schedule);
     render();
+  }
+
+  /* ——— LLM API price table (edit prices here; formulas stay separate) ——— */
+  /** @type {{ updated: string, note: string, models: Array<{id:string,vendor:string,name:string,inputUsdPer1M:number,outputUsdPer1M:number,performancePick?:boolean}> }} */
+  var LLM_API_PRICE_TABLE_2026 = {
+    updated: '2026-07',
+    note: '靜態示意價（USD / 每百萬 tokens）。請依各家官網公告自行更新。',
+    models: [
+      {
+        id: 'gpt-4o',
+        vendor: 'OpenAI',
+        name: 'GPT-4o',
+        inputUsdPer1M: 2.5,
+        outputUsdPer1M: 10,
+        performancePick: false
+      },
+      {
+        id: 'claude-3-5-sonnet',
+        vendor: 'Anthropic',
+        name: 'Claude 3.5 Sonnet',
+        inputUsdPer1M: 3,
+        outputUsdPer1M: 15,
+        performancePick: true
+      },
+      {
+        id: 'gemini-1-5-pro',
+        vendor: 'Google',
+        name: 'Gemini 1.5 Pro',
+        inputUsdPer1M: 1.25,
+        outputUsdPer1M: 5,
+        performancePick: false
+      }
+    ]
+  };
+
+  function llmMonthlyUsd(model, requests, avgInputTokens, avgOutputTokens) {
+    var inTokens = requests * avgInputTokens;
+    var outTokens = requests * avgOutputTokens;
+    return (inTokens / 1e6) * model.inputUsdPer1M + (outTokens / 1e6) * model.outputUsdPer1M;
+  }
+
+  function moneyUsd(n) {
+    return Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  /* ——— llm-api-cost-calculator ——— */
+  function mountLlmApiCostCalculator(app) {
+    prepMount(app);
+
+    var priceTable = LLM_API_PRICE_TABLE_2026;
+    var models = priceTable.models || [];
+
+    app.innerHTML =
+      '<section class="vr-card vr-stack">' +
+      '  <p class="vr-eyebrow">2026 LLM Pricing</p>' +
+      '  <p class="vr-lead">AI 算力成本與主流 LLM API 價格換算 · 純前端試算</p>' +
+      '  <div class="vr-grid-2">' +
+      '    <label class="vr-label">每月總 Requests 數' +
+      '      <input id="vr-llm-req" class="vr-input" type="number" min="0" step="1" value="100000">' +
+      '    </label>' +
+      '    <label class="vr-label">平均單次 Input Tokens' +
+      '      <input id="vr-llm-in" class="vr-input" type="number" min="0" step="1" value="800">' +
+      '    </label>' +
+      '    <label class="vr-label">平均單次 Output Tokens' +
+      '      <input id="vr-llm-out" class="vr-input" type="number" min="0" step="1" value="400">' +
+      '    </label>' +
+      '    <label class="vr-label">台幣匯率（USD→TWD）' +
+      '      <input id="vr-llm-fx" class="vr-input" type="number" min="0.01" step="0.1" value="32.5">' +
+      '    </label>' +
+      '  </div>' +
+      '  <div id="vr-llm-usage" class="vr-result">' +
+      '    <p class="vr-result-name">用量摘要</p>' +
+      '    <p id="vr-llm-usage-text" class="vr-result-text"></p>' +
+      '  </div>' +
+      '  <div id="vr-llm-list" class="vr-llm-list" aria-live="polite"></div>' +
+      '  <details class="vr-details">' +
+      '    <summary>內建價格表（可於程式碼 JSON 手動修改）</summary>' +
+      '    <div id="vr-llm-price-table" class="vr-table-scroll"></div>' +
+      '  </details>' +
+      '  <p class="vr-muted">※ 價格資料更新於 ' + escapeHtml(priceTable.updated) + '。' +
+      escapeHtml(priceTable.note || '') + ' 實際計費以各供應商帳單與區域／批次折扣為準。</p>' +
+      '</section>';
+
+    function renderPriceTable() {
+      var html = '<table class="vr-table"><thead><tr>' +
+        '<th>供應商</th><th>模型</th><th>Input／百萬</th><th>Output／百萬</th>' +
+        '</tr></thead><tbody>';
+      models.forEach(function (m) {
+        html += '<tr><td>' + escapeHtml(m.vendor) + '</td><td>' + escapeHtml(m.name) +
+          '</td><td>$' + moneyUsd(m.inputUsdPer1M) + '</td><td>$' + moneyUsd(m.outputUsdPer1M) + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      app.querySelector('#vr-llm-price-table').innerHTML = html;
+    }
+
+    function calc() {
+      var requests = Math.max(0, Number(app.querySelector('#vr-llm-req').value) || 0);
+      var avgIn = Math.max(0, Number(app.querySelector('#vr-llm-in').value) || 0);
+      var avgOut = Math.max(0, Number(app.querySelector('#vr-llm-out').value) || 0);
+      var fx = Math.max(0.01, Number(app.querySelector('#vr-llm-fx').value) || 32.5);
+
+      var totalIn = requests * avgIn;
+      var totalOut = requests * avgOut;
+      app.querySelector('#vr-llm-usage-text').textContent =
+        '每月約 ' + money(totalIn) + ' Input Tokens + ' + money(totalOut) +
+        ' Output Tokens（匯率 1 USD ≈ ' + fx + ' TWD）';
+
+      var rows = models.map(function (m) {
+        var usd = llmMonthlyUsd(m, requests, avgIn, avgOut);
+        return {
+          model: m,
+          usd: usd,
+          twd: usd * fx
+        };
+      }).sort(function (a, b) { return a.usd - b.usd; });
+
+      var cheapestId = rows.length ? rows[0].model.id : null;
+      var list = app.querySelector('#vr-llm-list');
+      if (!rows.length) {
+        list.innerHTML = '<p class="vr-muted">尚無模型價格資料</p>';
+        return;
+      }
+
+      list.innerHTML = rows.map(function (row, idx) {
+        var m = row.model;
+        var badges = [];
+        if (m.id === cheapestId) badges.push('<span class="vr-llm-badge vr-llm-badge--deal">最划算</span>');
+        if (m.performancePick) badges.push('<span class="vr-llm-badge vr-llm-badge--perf">效能首選</span>');
+        var rank = idx + 1;
+        return (
+          '<article class="vr-llm-card' + (m.id === cheapestId ? ' is-best' : '') + '">' +
+          '  <div class="vr-llm-card__head">' +
+          '    <span class="vr-llm-rank">#' + rank + '</span>' +
+          '    <div>' +
+          '      <p class="vr-llm-card__vendor">' + escapeHtml(m.vendor) + '</p>' +
+          '      <p class="vr-llm-card__name">' + escapeHtml(m.name) + '</p>' +
+          '    </div>' +
+          '    <div class="vr-llm-badges">' + badges.join('') + '</div>' +
+          '  </div>' +
+          '  <div class="vr-llm-card__body">' +
+          '    <div><p class="vr-llm-card__label">每月美金</p><p class="vr-llm-card__usd">US$ ' + moneyUsd(row.usd) + '</p></div>' +
+          '    <div><p class="vr-llm-card__label">每月台幣</p><p class="vr-llm-card__twd">NT$ ' + money(row.twd) + '</p></div>' +
+          '  </div>' +
+          '  <p class="vr-llm-card__meta">$' + moneyUsd(m.inputUsdPer1M) + ' / $' + moneyUsd(m.outputUsdPer1M) +
+          '（每百萬 Input／Output）</p>' +
+          '</article>'
+        );
+      }).join('');
+    }
+
+    renderPriceTable();
+    var schedule = bindRafSchedule(app, calc);
+    ['#vr-llm-req', '#vr-llm-in', '#vr-llm-out', '#vr-llm-fx'].forEach(function (sel) {
+      app.querySelector(sel).addEventListener('input', schedule);
+    });
+    calc();
   }
 
   /* ——— 12. meeting-cost-calculator ——— */
@@ -1869,8 +2199,397 @@
     render();
   }
 
+  /* ——— threads-persona-analyzer ——— */
+  function mountThreadsPersonaAnalyzer(app) {
+    prepMount(app);
+
+    var QUESTIONS = [
+      {
+        id: 'q1',
+        text: '你在脆上看到不爽的言論會？',
+        options: [
+          { key: 'A', label: '直接開噴，鍵戰到天光', spice: 3, chill: 0, gold: 0 },
+          { key: 'B', label: '默默封鎖，眼不見為淨', spice: 0, chill: 3, gold: 1 },
+          { key: 'C', label: '截圖公審，讓大家一起評理', spice: 2, chill: 0, gold: 1 }
+        ]
+      },
+      {
+        id: 'q2',
+        text: '半夜刷到「含金量」貼文時你通常？',
+        options: [
+          { key: 'A', label: '留言「這篇可收藏」然後轉身忘光', spice: 1, chill: 2, gold: 1 },
+          { key: 'B', label: '立刻轉發並加三點職場洞察', spice: 0, chill: 0, gold: 3 },
+          { key: 'C', label: '先按讚，再回一句「真的」交差', spice: 0, chill: 3, gold: 0 }
+        ]
+      },
+      {
+        id: 'q3',
+        text: '有人在你貼文下抬槓，你的最終兵器是？',
+        options: [
+          { key: 'A', label: '長文反擊＋引用資料來源', spice: 1, chill: 0, gold: 3 },
+          { key: 'B', label: '回「好喔」然後已讀不回', spice: 0, chill: 3, gold: 0 },
+          { key: 'C', label: '開串戰，順便練打字速度', spice: 3, chill: 0, gold: 0 }
+        ]
+      }
+    ];
+
+    var PERSONAS = {
+      spicy: { title: '脆辣重度成癮者', tag: 'SPICY', blurb: '鍵盤溫度偏高，回覆速度比 5G 還快。' },
+      chill: { title: '躺平系邊緣脆友', tag: 'CHILL', blurb: '世界很吵，你選擇靜音與滑過去。' },
+      gold: { title: '高含金量知識博主', tag: 'GOLD', blurb: '留言區像講座，收藏夾被你養得很好。' },
+      hunter: { title: '公審系截圖獵人', tag: 'EVIDENCE', blurb: '證據導向，情緒與條理並存的脆場特務。' }
+    };
+
+    var ROASTS = [
+      '你的 Threads 活躍度，比公司週報還規律。',
+      '同事以為你在加班，其實你在精修回覆語氣。',
+      '你的收藏夾叫「以後再看」，目前已堆積成數位化石。',
+      '會議中點頭如搗蒜，其實腦內正在構思下一則脆文。',
+      '你回覆「哈哈」的次數，足以申請社群外交官。',
+      '含金量檢測中…結果顯示：你很會裝忙但也很會看熱鬧。',
+      '封鎖名單長度，已接近你的年度 KPI。',
+      '你不是社恐，你是「只想在脆上當主角」的選擇性外向。',
+      '凌晨兩點還在滑，早上九點卻說自己睡眠品質很好。',
+      '你的人設穩定：白天專業、晚上脆上有點危險。',
+      '每次說「最後一則」都是謊言，演算法比你更懂你。',
+      '你的讚是真心的，但你的「稍後閱讀」是儀式性安慰。'
+    ];
+
+    var local = { step: 1, handle: '', answers: {}, result: null };
+    app.__waLocal = local;
+
+    function normalizeHandle(raw) {
+      return String(raw || '').trim().replace(/^@+/, '').replace(/[^a-zA-Z0-9._]/g, '').slice(0, 30);
+    }
+
+    function scoreAnswers() {
+      var scores = { spice: 0, chill: 0, gold: 0 };
+      QUESTIONS.forEach(function (q) {
+        var opt = q.options.find(function (o) { return o.key === local.answers[q.id]; });
+        if (!opt) return;
+        scores.spice += opt.spice;
+        scores.chill += opt.chill;
+        scores.gold += opt.gold;
+      });
+      return scores;
+    }
+
+    function pickPersona(scores) {
+      if (scores.spice >= 3 && scores.gold >= 2) return PERSONAS.hunter;
+      var max = Math.max(scores.spice, scores.chill, scores.gold);
+      if (scores.spice === max) return PERSONAS.spicy;
+      if (scores.gold === max) return PERSONAS.gold;
+      return PERSONAS.chill;
+    }
+
+    function pickRoasts(rng, n) {
+      var pool = ROASTS.slice();
+      var out = [];
+      while (out.length < n && pool.length) {
+        out.push(pool.splice(Math.floor(rng() * pool.length), 1)[0]);
+      }
+      return out;
+    }
+
+    function goldMeter(scores) {
+      var total = (scores.spice + scores.chill + scores.gold) || 1;
+      return Math.min(99, Math.max(12, Math.round((scores.gold / total) * 100 + scores.gold * 4)));
+    }
+
+    function runAnalyze() {
+      var seed = seededHash(local.handle + '|' + QUESTIONS.map(function (q) { return local.answers[q.id] || ''; }).join('') + '|threads');
+      var rng = mulberry32(seed);
+      var scores = scoreAnswers();
+      local.result = {
+        handle: local.handle,
+        persona: pickPersona(scores),
+        scores: scores,
+        gold: goldMeter(scores),
+        roasts: pickRoasts(rng, 3),
+        date: new Date().toISOString().slice(0, 10)
+      };
+      local.step = 3;
+      render();
+    }
+
+    function shareText() {
+      var result = local.result;
+      if (!result) return '';
+      var url = location.href.split('#')[0];
+      return (
+        '我測出 Threads 人格是「' + result.persona.title + '」！含金量 ' + result.gold + '%\n' +
+        '→ @' + result.handle + '\n' +
+        result.roasts.map(function (line, i) { return (i + 1) + '. ' + line; }).join('\n') + '\n' +
+        '你也來測：' + url + '\n#Threads #脆友人格 #Kawatool'
+      );
+    }
+
+    /** Pure Canvas 2D export — no html2canvas / external libs. */
+    function paintShareCard(result) {
+      var W = 840;
+      var H = 1120;
+      var canvas = document.createElement('canvas');
+      canvas.width = W;
+      canvas.height = H;
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return null;
+
+      var grad = ctx.createLinearGradient(0, 0, W, H);
+      grad.addColorStop(0, '#0b1220');
+      grad.addColorStop(0.48, '#12304f');
+      grad.addColorStop(1, '#0f766e');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+      var g1 = ctx.createRadialGradient(100, 140, 20, 100, 140, 280);
+      g1.addColorStop(0, 'rgba(14,165,164,0.35)');
+      g1.addColorStop(1, 'rgba(14,165,164,0)');
+      ctx.fillStyle = g1;
+      ctx.fillRect(0, 0, W, H);
+
+      var g2 = ctx.createRadialGradient(740, 80, 10, 740, 80, 260);
+      g2.addColorStop(0, 'rgba(249,115,22,0.28)');
+      g2.addColorStop(1, 'rgba(249,115,22,0)');
+      ctx.fillStyle = g2;
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.strokeStyle = 'rgba(94,234,212,0.55)';
+      ctx.lineWidth = 4;
+      roundRect(ctx, 28, 28, W - 56, H - 56, 28);
+      ctx.stroke();
+
+      var x = 64;
+      var y = 88;
+      ctx.fillStyle = 'rgba(255,255,255,0.72)';
+      ctx.font = '600 22px "Noto Sans TC", sans-serif';
+      ctx.fillText('KaWaTool · Threads 脆友鑑定', x, y);
+
+      y += 52;
+      ctx.fillStyle = '#7dd3fc';
+      ctx.font = '600 34px "Noto Sans TC", sans-serif';
+      ctx.fillText('@' + result.handle, x, y);
+
+      y += 42;
+      roundRect(ctx, x, y, 160, 36, 8);
+      ctx.fillStyle = '#5eead4';
+      ctx.fill();
+      ctx.fillStyle = '#0b1220';
+      ctx.font = '700 18px "Noto Sans TC", sans-serif';
+      ctx.fillText(result.persona.tag, x + 16, y + 25);
+
+      y += 78;
+      ctx.fillStyle = '#fff';
+      ctx.font = '800 52px "Noto Sans TC", sans-serif';
+      wrapCanvasText(ctx, result.persona.title, W - 128).forEach(function (line) {
+        ctx.fillText(line, x, y);
+        y += 60;
+      });
+
+      y += 8;
+      ctx.fillStyle = 'rgba(255,255,255,0.82)';
+      ctx.font = '400 26px "Noto Sans TC", sans-serif';
+      wrapCanvasText(ctx, result.persona.blurb, W - 128).forEach(function (line) {
+        ctx.fillText(line, x, y);
+        y += 36;
+      });
+
+      y += 28;
+      roundRect(ctx, x, y, W - 128, 88, 16);
+      ctx.fillStyle = 'rgba(255,255,255,0.1)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.16)';
+      ctx.lineWidth = 2;
+      roundRect(ctx, x, y, W - 128, 88, 16);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.78)';
+      ctx.font = '500 24px "Noto Sans TC", sans-serif';
+      ctx.fillText('含金量', x + 28, y + 54);
+      ctx.fillStyle = '#fde68a';
+      ctx.font = '800 40px "Noto Sans TC", sans-serif';
+      var goldLabel = result.gold + '%';
+      ctx.fillText(goldLabel, x + (W - 128) - 28 - ctx.measureText(goldLabel).width, y + 58);
+
+      y += 130;
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.font = '400 24px "Noto Sans TC", sans-serif';
+      result.roasts.forEach(function (roast, idx) {
+        var lines = wrapCanvasText(ctx, (idx + 1) + '. ' + roast, W - 140);
+        lines.forEach(function (line) {
+          ctx.fillText(line, x, y);
+          y += 34;
+        });
+        y += 14;
+      });
+
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      ctx.font = '400 20px "Noto Sans TC", sans-serif';
+      ctx.fillText(result.date + ' · 純前端娛樂結果', x, H - 64);
+
+      return canvas;
+    }
+
+    function downloadShareCard() {
+      var toast = app.querySelector('#vr-th-toast');
+      var btn = app.querySelector('#vr-th-dl');
+      if (!local.result) return;
+      if (toast) toast.textContent = '正在產生圖卡…';
+      if (btn) btn.disabled = true;
+
+      try {
+        var canvas = paintShareCard(local.result);
+        if (!canvas) throw new Error('canvas');
+        canvas.toBlob(function (blob) {
+          if (btn) btn.disabled = false;
+          if (!blob) {
+            if (toast) toast.textContent = '圖卡產生失敗';
+            return;
+          }
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'threads-persona-' + local.result.handle + '.png';
+          a.click();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 800);
+          if (toast) toast.textContent = '已下載分享圖卡 PNG';
+        }, 'image/png');
+      } catch (err) {
+        if (btn) btn.disabled = false;
+        if (toast) toast.textContent = '圖卡產生失敗，請再試一次';
+      }
+    }
+
+    function renderStep1() {
+      app.innerHTML =
+        '<section class="vr-card vr-stack">' +
+        '  <p class="vr-eyebrow">Threads Persona</p>' +
+        '  <p class="vr-lead">脆友社交人格與含金量分析器 · 純娛樂不連後端</p>' +
+        '  <label class="vr-label">Threads 帳號 ID' +
+        '    <input id="vr-th-id" class="vr-input" type="text" maxlength="30" placeholder="例如：kawa_tool（不用加 @）" autocomplete="username" value="' + escapeHtml(local.handle) + '">' +
+        '  </label>' +
+        '  <p class="vr-muted">僅用於結果卡顯示，不會查詢或上傳任何帳號資料。</p>' +
+        '  <button type="button" id="vr-th-next" class="vr-btn">下一步：回答三題</button>' +
+        '</section>';
+
+      app.querySelector('#vr-th-next').addEventListener('click', function () {
+        var id = normalizeHandle(app.querySelector('#vr-th-id').value);
+        if (!id) {
+          app.querySelector('#vr-th-id').focus();
+          return;
+        }
+        local.handle = id;
+        local.step = 2;
+        render();
+      });
+    }
+
+    function renderStep2() {
+      var qHtml = QUESTIONS.map(function (q, qi) {
+        var opts = q.options.map(function (o) {
+          var checked = local.answers[q.id] === o.key ? ' checked' : '';
+          return (
+            '<label class="vr-th-option">' +
+            '  <input type="radio" name="' + q.id + '" value="' + o.key + '"' + checked + '>' +
+            '  <span><strong>' + o.key + '.</strong> ' + escapeHtml(o.label) + '</span>' +
+            '</label>'
+          );
+        }).join('');
+        return (
+          '<fieldset class="vr-th-q">' +
+          '  <legend>Q' + (qi + 1) + '. ' + escapeHtml(q.text) + '</legend>' +
+          opts +
+          '</fieldset>'
+        );
+      }).join('');
+
+      app.innerHTML =
+        '<section class="vr-card vr-stack">' +
+        '  <p class="vr-eyebrow">Step 2 / 3 · @' + escapeHtml(local.handle) + '</p>' +
+        '  <p class="vr-lead">三題幽默選擇 · 決定你的脆場人設</p>' +
+        qHtml +
+        '  <p id="vr-th-warn" class="vr-toast" hidden></p>' +
+        '  <div class="vr-row">' +
+        '    <button type="button" id="vr-th-back" class="vr-btn vr-btn-emerald">上一步</button>' +
+        '    <button type="button" id="vr-th-analyze" class="vr-btn">產生分析結果</button>' +
+        '  </div>' +
+        '</section>';
+
+      QUESTIONS.forEach(function (q) {
+        app.querySelectorAll('input[name="' + q.id + '"]').forEach(function (inp) {
+          inp.addEventListener('change', function () { local.answers[q.id] = inp.value; });
+        });
+      });
+
+      app.querySelector('#vr-th-back').addEventListener('click', function () {
+        local.step = 1;
+        render();
+      });
+
+      app.querySelector('#vr-th-analyze').addEventListener('click', function () {
+        var ok = QUESTIONS.every(function (q) { return !!local.answers[q.id]; });
+        var warn = app.querySelector('#vr-th-warn');
+        if (!ok) {
+          warn.hidden = false;
+          warn.textContent = '請先完成三題再分析。';
+          return;
+        }
+        runAnalyze();
+      });
+    }
+
+    function renderStep3() {
+      var r = local.result;
+      var roastLis = r.roasts.map(function (line) {
+        return '<li>' + escapeHtml(line) + '</li>';
+      }).join('');
+
+      app.innerHTML =
+        '<section class="vr-card vr-stack">' +
+        '  <p class="vr-eyebrow">Your Threads Report</p>' +
+        '  <p class="vr-lead">分析完成 · 下載圖卡去脆上炫耀</p>' +
+        '  <div id="vr-th-share-card" class="vr-th-share-card">' +
+        '    <div class="vr-th-share-card__inner">' +
+        '      <p class="vr-th-share-card__brand">KaWaTool · Threads 脆友鑑定</p>' +
+        '      <p class="vr-th-share-card__handle">@' + escapeHtml(r.handle) + '</p>' +
+        '      <p class="vr-th-share-card__tag">' + escapeHtml(r.persona.tag) + '</p>' +
+        '      <p class="vr-th-share-card__title">' + escapeHtml(r.persona.title) + '</p>' +
+        '      <p class="vr-th-share-card__blurb">' + escapeHtml(r.persona.blurb) + '</p>' +
+        '      <div class="vr-th-share-card__meter"><span>含金量</span><strong>' + r.gold + '%</strong></div>' +
+        '      <ol class="vr-th-share-card__roasts">' + roastLis + '</ol>' +
+        '      <p class="vr-th-share-card__foot">' + escapeHtml(r.date) + ' · 純前端娛樂結果</p>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="vr-row">' +
+        '    <button type="button" id="vr-th-dl" class="vr-btn">下載分享圖卡</button>' +
+        '    <button type="button" id="vr-th-copy" class="vr-btn vr-btn-emerald">複製成果網址</button>' +
+        '  </div>' +
+        '  <button type="button" id="vr-th-retry" class="vr-btn vr-btn-rose">再測一次</button>' +
+        '  <p id="vr-th-toast" class="vr-toast"></p>' +
+        '  <p class="vr-muted">※ 結果由選擇權重＋種子亂數產生，僅供娛樂，與真實帳號無關。圖卡以原生 Canvas 匯出。</p>' +
+        '</section>';
+
+      app.querySelector('#vr-th-dl').addEventListener('click', downloadShareCard);
+      app.querySelector('#vr-th-copy').addEventListener('click', function () {
+        copyText(shareText(), app.querySelector('#vr-th-toast'), '已複製！可直接貼到 Threads');
+      });
+      app.querySelector('#vr-th-retry').addEventListener('click', function () {
+        local.answers = {};
+        local.result = null;
+        local.step = 1;
+        render();
+      });
+    }
+
+    function render() {
+      if (local.step === 1) renderStep1();
+      else if (local.step === 2) renderStep2();
+      else renderStep3();
+    }
+
+    render();
+  }
+
   /* ——— exports ——— */
-  global.WA_MOUNT_VIRAL = {
+  var mounts = {
     'invoice-checker': mountInvoiceChecker,
     'mortgage-calculator': mountMortgageCalculator,
     'income-tax-estimator': mountIncomeTaxEstimator,
@@ -1882,6 +2601,7 @@
     'resume-photo-spec': mountResumePhotoSpec,
     'youtube-thumbnail-factory': mountYoutubeThumbnailFactory,
     'hashtag-organizer': mountHashtagOrganizer,
+    'llm-api-cost-calculator': mountLlmApiCostCalculator,
     'meeting-cost-calculator': mountMeetingCostCalculator,
     'gpa-calculator': mountGpaCalculator,
     'vehicle-loan-calculator': mountVehicleLoanCalculator,
@@ -1890,7 +2610,9 @@
     'video-to-gif': mountVideoToGif,
     'pdf-page-reorder': mountPdfPageReorder,
     'audio-notes-summarizer': mountAudioNotesSummarizer,
+    'threads-persona-analyzer': mountThreadsPersonaAnalyzer,
     'link-preview-card': mountLinkPreviewCard
   };
+  global.WA_MOUNT_VIRAL = Object.assign(global.WA_MOUNT_VIRAL || {}, mounts);
 
 })(typeof window !== 'undefined' ? window : this);

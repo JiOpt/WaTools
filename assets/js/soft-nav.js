@@ -41,6 +41,11 @@
     if (/\.html$/i.test(path)) return true;
     const segs = path.split('/').filter(Boolean);
     if (!segs.length) return true;
+    // /en, /en/page, /en/cat/slug
+    if (segs[0] === 'en') {
+      if (segs.length <= 3) return true;
+      return false;
+    }
     if (segs.length === 1) return true;
     if (segs[0] === 'scripture' && segs.length === 2) return true;
     if (segs.length === 2) return true;
@@ -100,22 +105,39 @@
 
     const path = url.pathname.replace(/\\/g, '/');
     const segs = path.split('/').filter(Boolean);
-    const file = segs[segs.length - 1] || '';
-    if (!file || file === 'index' || file === 'index.html' || path === '/') {
+    const localeSeg = segs[0] === 'en' ? 'en' : null;
+    const contentSegs = localeSeg ? segs.slice(1) : segs;
+    const file = contentSegs[contentSegs.length - 1] || segs[segs.length - 1] || '';
+    const withLocale = (p) => {
+      const clean = String(p || '').replace(/^\/+/, '');
+      if (!clean) return localeSeg ? '/en' : '/';
+      return localeSeg ? `/en/${clean}` : `/${clean}`;
+    };
+
+    if (path === '/') {
       url.pathname = '/';
       return url;
     }
+    if (path === '/en' || path === '/en/') {
+      url.pathname = '/en';
+      return url;
+    }
+    if (!contentSegs.length || file === 'index' || file === 'index.html') {
+      url.pathname = localeSeg ? '/en' : '/';
+      return url;
+    }
     if (file.endsWith('.html')) {
-      if (segs.length >= 2) {
-        segs[segs.length - 1] = file.replace(/\.html$/i, '');
-        url.pathname = `/${segs.join('/')}`;
+      if (contentSegs.length >= 2) {
+        const next = contentSegs.slice();
+        next[next.length - 1] = file.replace(/\.html$/i, '');
+        url.pathname = withLocale(next.join('/'));
         return url;
       }
       const slug = file.replace(/\.html$/i, '');
       if (window.WA_TOOL_URLS?.getCategoryId) {
         const catId = window.WA_TOOL_URLS.getCategoryId(slug);
         if (catId) {
-          url.pathname = `/${catId}/${slug}`;
+          url.pathname = withLocale(`${catId}/${slug}`);
           return url;
         }
       }
@@ -123,7 +145,7 @@
         for (const cat of window.WA_TOOLS_CATALOG) {
           for (const tool of cat.tools || []) {
             if (tool.slug === slug) {
-              url.pathname = `/${cat.id}/${slug}`;
+              url.pathname = withLocale(`${cat.id}/${slug}`);
               return url;
             }
           }
@@ -134,11 +156,11 @@
           (cat.books || []).some((book) => book.slug === slug)
         );
         if (scriptureMatch) {
-          url.pathname = `/scripture/${slug}`;
+          url.pathname = withLocale(`scripture/${slug}`);
           return url;
         }
       }
-      url.pathname = `/${slug}`;
+      url.pathname = withLocale(slug);
       return url;
     }
     return url;
@@ -451,6 +473,10 @@
       window.renderSiteFooter();
     }
 
+    if (window.WA_LOCALE?.syncDocument) {
+      window.WA_LOCALE.syncDocument();
+    }
+
     document.body.classList.remove('mobile-nav-active', 'shrine-has-dock', 'world-flags-has-dock', 'anime-has-dock');
     const toggle = document.querySelector('.mobile-nav-toggle');
     if (toggle) {
@@ -527,6 +553,13 @@
 
     event.preventDefault();
     event.stopPropagation();
+
+    if (anchor.closest('#user-menu, #user-menu-panel')) {
+      if (typeof window.WA_USER_MENU?.close === 'function') window.WA_USER_MENU.close();
+      document.getElementById('user-menu')?.classList.remove('is-open');
+      document.getElementById('user-menu-panel')?.setAttribute('hidden', '');
+      document.getElementById('header')?.classList.remove('user-menu-open');
+    }
 
     if (anchor.closest('#site-sitemap')) {
       document.body.classList.remove('site-sitemap-open');

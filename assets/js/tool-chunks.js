@@ -619,6 +619,12 @@ window.WA_TOOL_CHUNKS = {
       "viral-tools.js"
     ]
   },
+  "llm-api-cost-calculator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
   "meeting-cost-calculator": {
     "part": 3,
     "extra": [
@@ -650,6 +656,12 @@ window.WA_TOOL_CHUNKS = {
     ]
   },
   "speech-time-estimator": {
+    "part": 3,
+    "extra": [
+      "viral-tools.js"
+    ]
+  },
+  "threads-persona-analyzer": {
     "part": 3,
     "extra": [
       "viral-tools.js"
@@ -719,10 +731,34 @@ window.WA_TOOL_CHUNKS = {
       "world-flags-data.js"
     ]
   },
+  "aizome-kimono": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "ama-shima": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
   "anime-hometown": {
     "part": 3,
     "extra": [
       "anime-hometown-data.js"
+    ]
+  },
+  "fuji-views": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "ghost-stations": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
     ]
   },
   "gourmet": {
@@ -731,10 +767,76 @@ window.WA_TOOL_CHUNKS = {
       "japan-theme-tools.js"
     ]
   },
+  "hanabi-guide": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "inari-fox": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
   "japanese-shrine": {
     "part": 3,
     "extra": [
       "japanese-shrine-data.js"
+    ]
+  },
+  "kabukicho-neon": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "karesansui": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "kenrokuen": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "matsuri-calendar": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "momiji-trail": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "nagoya-castle": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "onsen-kyo": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "otaru-canal": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "railway-views": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
     ]
   },
   "retro": {
@@ -743,10 +845,40 @@ window.WA_TOOL_CHUNKS = {
       "japan-theme-tools.js"
     ]
   },
+  "sakura-front": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "samurai-armor": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
   "stay": {
     "part": 3,
     "extra": [
       "japan-theme-tools.js"
+    ]
+  },
+  "torii-tunnel": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "ukiyo-e-now": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
+    ]
+  },
+  "wagashi-scroll": {
+    "part": 3,
+    "extra": [
+      "japan-theme-extra.js"
     ]
   },
   "yokai": {

@@ -6,6 +6,10 @@ window.WA_SITE_FOOTER = {
   tagline: '讓工具生活，簡化每一天。',
   showCopyrightLink: true,
   copyrightLabel: '版權聲明',
+  showPrivacyLink: true,
+  privacyLabel: '隱私權政策',
+  showDisclaimerLink: true,
+  disclaimerLabel: '免責聲明',
   showContactLink: true,
   contactLabel: '聯絡我們',
   /** Google 表單：https://forms.gle/Zoejh3mxY1d2YwtT7 */

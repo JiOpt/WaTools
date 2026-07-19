@@ -29,7 +29,7 @@
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
     if (!segs.length) return '';
     const last = segs[segs.length - 1].replace(/\.html$/i, '');
-    const rootSlugs = new Set(['index', 'copyright', 'contact', 'index_plan', 'starter-page']);
+    const rootSlugs = new Set(['index', 'copyright', 'contact', 'privacy', 'disclaimer', 'index_plan', 'starter-page']);
     if (segs.length === 1 && rootSlugs.has(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
@@ -39,20 +39,38 @@
     if (!slot) return;
 
     const cfg = window.WA_SITE_FOOTER || {};
+    const en = window.WA_LOCALE?.isEn?.() || document.documentElement.getAttribute('data-locale') === 'en';
+    const t = (key, fallback) => (window.WA_LOCALE?.t ? window.WA_LOCALE.t(key, fallback) : fallback);
     const siteName = cfg.siteName || 'Kawatool';
-    const tagline = cfg.tagline || '讓工具生活，簡化每一天。';
+    const tagline = en ? t('footer.tagline', cfg.taglineEn || 'Tools for everyday life.') : (cfg.tagline || '讓工具生活，簡化每一天。');
     const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);
 
+    const abs = (path) => (window.WA_TOOL_URLS?.absolutePageHref
+      ? window.WA_TOOL_URLS.absolutePageHref(path)
+      : (window.WA_LOCALE?.href ? window.WA_LOCALE.href(path) : `/${path}`));
+
     if (cfg.showCopyrightLink !== false) {
-      const href = cfg.copyrightHref || '/copyright';
-      const label = cfg.copyrightLabel || '版權聲明';
+      const href = cfg.copyrightHref || abs('copyright');
+      const label = en ? t('footer.copyright', 'Copyright') : (cfg.copyrightLabel || '版權聲明');
+      parts.push(` · <a href="${href}">${label}</a>`);
+    }
+
+    if (cfg.showPrivacyLink !== false) {
+      const href = cfg.privacyHref || abs('privacy');
+      const label = en ? t('footer.privacy', 'Privacy Policy') : (cfg.privacyLabel || '隱私權政策');
+      parts.push(` · <a href="${href}">${label}</a>`);
+    }
+
+    if (cfg.showDisclaimerLink !== false) {
+      const href = cfg.disclaimerHref || abs('disclaimer');
+      const label = en ? t('footer.disclaimer', 'Disclaimer') : (cfg.disclaimerLabel || '免責聲明');
       parts.push(` · <a href="${href}">${label}</a>`);
     }
 
     if (cfg.showContactLink !== false) {
-      const href = cfg.contactHref || '/contact';
-      const label = cfg.contactLabel || '聯絡我們';
+      const href = cfg.contactHref || abs('contact');
+      const label = en ? t('footer.contact', 'Contact') : (cfg.contactLabel || '聯絡我們');
       parts.push(` · <a href="${href}">${label}</a>`);
     }
 
@@ -85,7 +103,7 @@
     const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
     if (!segs.length) return '';
     const last = segs[segs.length - 1].replace(/\.html$/i, '');
-    const rootSlugs = new Set(['index', 'copyright', 'contact', 'index_plan', 'starter-page']);
+    const rootSlugs = new Set(['index', 'copyright', 'contact', 'privacy', 'disclaimer', 'index_plan', 'starter-page']);
     if (segs.length === 1 && rootSlugs.has(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
@@ -122,6 +140,8 @@
    * User preferences — theme, reading, accessibility
    */
   if (document.querySelector('#header .branding')) {
+    injectScript('assets/js/i18n-en.js', { defer: true });
+    injectScript('assets/js/locale.js', { defer: true });
     injectScript('assets/js/user-preferences.js', { defer: true });
     injectScript('assets/js/zh-variant.js', { defer: true });
   }

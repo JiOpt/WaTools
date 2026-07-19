@@ -29,28 +29,46 @@
       }
     }
 
-    container.innerHTML = visible.map((category) => `
+    // Phase-1 English shells: show trending (viral) category first; other cats keep zh titles until translated.
+    if (window.WA_LOCALE?.isEn?.()) {
+      visible = visible.filter((c) => c.id === 'viral').concat(
+        visible.filter((c) => c.id !== 'viral')
+      );
+    }
+
+    container.innerHTML = visible.map((category) => {
+      const catName = window.WA_LOCALE?.catalogLabel
+        ? window.WA_LOCALE.catalogLabel(category)
+        : category.name;
+      const badge = window.WA_LOCALE?.t
+        ? window.WA_LOCALE.t('chrome.available', '可用')
+        : '可用';
+      return `
       <section class="tools-category section" id="cat-${category.id}">
         <div class="container section-title" data-aos="fade-up">
-          <h2>${category.name}</h2>
+          <h2>${catName}</h2>
         </div>
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row gy-4">
-            ${category.tools.map((tool) => `
+            ${category.tools.map((tool) => {
+              const title = window.WA_LOCALE?.catalogLabel
+                ? window.WA_LOCALE.catalogLabel(category, tool)
+                : tool.title;
+              return `
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <a href="${toolCardHref(tool.slug)}" class="tool-card tool-card-ready">
                   <div class="tool-card-icon"><i class="bi ${tool.icon}"></i></div>
                   <div class="tool-card-body">
-                    <h3>${tool.title}</h3>
+                    <h3>${title}</h3>
                   </div>
-                  <span class="tool-badge">可用</span>
+                  <span class="tool-badge">${badge}</span>
                 </a>
-              </div>
-            `).join('')}
+              </div>`;
+            }).join('')}
           </div>
         </div>
-      </section>
-    `).join('');
+      </section>`;
+    }).join('');
 
     if (typeof AOS !== 'undefined') {
       try { AOS.refresh(); } catch (e) { /* ignore */ }

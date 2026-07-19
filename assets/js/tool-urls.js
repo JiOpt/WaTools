@@ -12,6 +12,8 @@
     'index_plan',
     'copyright',
     'contact',
+    'privacy',
+    'disclaimer',
     'starter-page',
   ]);
 
@@ -38,6 +40,17 @@
     return path.split('/').filter(Boolean);
   }
 
+  function contentSegments() {
+    const segs = pathSegments();
+    if (segs[0] === 'en') return segs.slice(1);
+    return segs;
+  }
+
+  function localePrefix() {
+    if (window.WA_LOCALE?.prefix) return window.WA_LOCALE.prefix();
+    return pathSegments()[0] === 'en' ? '/en' : '';
+  }
+
   function stripHtmlExt(segment) {
     return String(segment || '').split('?')[0].split('#')[0].replace(/\.html$/i, '');
   }
@@ -48,12 +61,12 @@
   }
 
   function isInScriptureDir() {
-    const segs = pathSegments();
+    const segs = contentSegments();
     return segs.length >= 2 && segs[0] === 'scripture' && !isRootSlug(segs[1]);
   }
 
   function isInCategoryDir() {
-    const segs = pathSegments();
+    const segs = contentSegments();
     if (segs.length < 2) return false;
     if (segs[0] === 'scripture') return false;
     const catId = segs[segs.length - 2];
@@ -68,6 +81,8 @@
     const segs = pathSegments();
     if (!segs.length) return '';
     if (segs.length === 1 && isRootSlug(segs[0])) return '';
+    // /en and /en/index are one level under root
+    if (segs.length === 1 && segs[0] === 'en') return '../';
     return '../'.repeat(segs.length - 1);
   }
 
@@ -77,15 +92,23 @@
     return catId ? `${catId}/${slug}` : slug;
   }
 
-  /** Site-root absolute page URL (e.g. /utility/whois). */
+  /** Site-root absolute page URL (e.g. /utility/whois or /en/utility/whois). */
   function absolutePageHref(relativePath) {
     let clean = String(relativePath || '').replace(/^\/+/, '').replace(/\.html$/i, '');
-    if (!clean || clean === 'index') return '/';
-    return `/${clean}`;
+    if (clean.startsWith('en/')) clean = clean.slice(3);
+    // Scripture books are zh-only — never under /en/
+    if (clean === 'scripture' || clean.startsWith('scripture/')) {
+      return `/${clean}`;
+    }
+    if (window.WA_LOCALE?.href) return window.WA_LOCALE.href(clean);
+    const pre = localePrefix();
+    if (!clean || clean === 'index') return pre || '/';
+    return `${pre}/${clean}`;
   }
 
   function currentPageKey() {
-    const segs = pathSegments();
+    if (window.WA_LOCALE?.pageKeyFromPath) return window.WA_LOCALE.pageKeyFromPath(location.pathname);
+    const segs = contentSegments();
     if (!segs.length) return 'index';
     const last = stripHtmlExt(segs[segs.length - 1]);
     if (segs.length === 1) return last;
@@ -112,15 +135,21 @@
   }
 
   function indexHref() {
-    return '/';
+    return absolutePageHref('');
   }
 
   function categoryIndexHref(categoryId) {
-    return `/#cat-${categoryId}`;
+    const pre = localePrefix();
+    return `${pre || ''}/#cat-${categoryId}`;
   }
 
+  /** Scripture content has no English edition — always Chinese path. */
   function scriptureHref(slug) {
-    return absolutePageHref(`scripture/${slug}`);
+    const s = String(slug || '')
+      .replace(/^\/+/, '')
+      .replace(/\.html$/i, '')
+      .replace(/^scripture\//i, '');
+    return `/scripture/${s}`;
   }
 
   function getCategoryId(slug) {
@@ -143,6 +172,8 @@
     isInScriptureDir,
     getCategoryId,
     buildMap,
+    localePrefix,
+    contentSegments,
     __installed: true,
   };
 

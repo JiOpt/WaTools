@@ -287,6 +287,11 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   background-color: var(--background-color);
+  overflow: visible;
+}
+
+.header.user-menu-open {
+  z-index: 10060;
 }
 
 body.header-nav-auto .header.sticky-top {
@@ -553,7 +558,8 @@ body.has-header-context .tool-section [id] {
 .header .branding {
   min-height: 56px;
   padding: 0;
-  overflow: hidden;
+  /* Must stay visible so .user-menu-panel (absolute below CTA) is not clipped */
+  overflow: visible;
 }
 
 .header .branding > .container {
@@ -700,6 +706,7 @@ body.has-header-context .tool-section [id] {
 .user-menu {
   position: relative;
   flex: 0 0 auto;
+  z-index: 1002;
 }
 
 .user-menu-toggle {
@@ -730,7 +737,7 @@ body.has-header-context .tool-section [id] {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  z-index: 1001;
+  z-index: 10050;
   width: min(320px, calc(100vw - 24px));
   max-height: min(70vh, 480px);
   overflow: auto;
@@ -5263,6 +5270,20 @@ main.main.soft-nav-busy {
   gap: 8px;
   margin-bottom: 10px;
   padding: 0 4px;
+}
+
+.site-sitemap-foot {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 0 4px 4px;
+}
+
+.site-sitemap-foot .site-sitemap-home {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--default-color);
+  background: color-mix(in srgb, var(--default-color), transparent 94%);
 }
 
 .site-sitemap a,

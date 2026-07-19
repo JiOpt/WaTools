@@ -16,8 +16,14 @@
     'utility/settings.html',
     'copyright',
     'copyright.html',
+    'privacy',
+    'privacy.html',
+    'disclaimer',
+    'disclaimer.html',
+    'contact',
+    'contact.html',
   ]);
-  const NAV_SKIP_TITLES = new Set(['工具首頁', '設定', '個人設定', '正式首頁', '版權聲明']);
+  const NAV_SKIP_TITLES = new Set(['工具首頁', '設定', '個人設定', '正式首頁', '版權聲明', '隱私權政策', '免責聲明', '聯絡我們']);
   let memoryStore = null;
 
   function isInScriptureDir() {
@@ -29,7 +35,7 @@
     const segs = path.split('/').filter(Boolean);
     if (segs.length < 2) return false;
     if (segs[0] === 'scripture') return false;
-    return !['index', 'copyright', 'contact'].includes(segs[segs.length - 1].replace(/\.html$/i, ''));
+    return !['index', 'copyright', 'contact', 'privacy', 'disclaimer'].includes(segs[segs.length - 1].replace(/\.html$/i, ''));
   }
 
   function siteRootPrefix() {
@@ -39,7 +45,7 @@
     const segs = path.split('/').filter(Boolean);
     if (!segs.length) return '';
     const last = segs[segs.length - 1].replace(/\.html$/i, '');
-    if (segs.length === 1 && ['index', 'copyright', 'contact'].includes(last)) return '';
+    if (segs.length === 1 && ['index', 'copyright', 'contact', 'privacy', 'disclaimer'].includes(last)) return '';
     return '../'.repeat(segs.length - 1);
   }
 
@@ -100,7 +106,12 @@
     if (!slug || !window.WA_TOOLS_CATALOG) return '';
     for (const category of window.WA_TOOLS_CATALOG) {
       for (const tool of category.tools || []) {
-        if (tool.slug === slug && tool.title) return String(tool.title).trim();
+        if (tool.slug === slug) {
+          if (window.WA_LOCALE?.catalogLabel) {
+            return String(window.WA_LOCALE.catalogLabel(category, tool) || tool.title || '').trim();
+          }
+          if (tool.title) return String(tool.title).trim();
+        }
       }
     }
     return '';

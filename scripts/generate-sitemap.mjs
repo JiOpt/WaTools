@@ -8,7 +8,7 @@ const SITE_URL = 'https://kawatool.com';
 const SITEMAP_TXT = path.join(ROOT, 'sitemap.txt');
 const TOOLS_DATA = path.join(ROOT, 'assets', 'js', 'tools-data.js');
 
-const STATIC_PAGES = new Set(['index.html', 'copyright.html', 'contact.html']);
+const STATIC_PAGES = new Set(['index.html', 'copyright.html', 'contact.html', 'privacy.html', 'disclaimer.html']);
 const EXCLUDE = new Set(['starter-page.html', 'index_plan.html']);
 
 function loadPublishedSlugs() {

@@ -4,6 +4,8 @@
     "cleanup:anthems": "node scripts/cleanup-national-anthem-data.mjs",
     "merge:anthems": "node scripts/merge-anthem-enrich.mjs",
     "sitemap:build": "node scripts/build-sitemap-js.mjs",
+    "en:i18n": "node scripts/build-i18n-en-tools.mjs",
+    "en:shells": "node scripts/build-i18n-en-tools.mjs && node scripts/gen-en-shells.mjs",
     "tools:migrate-folders": "node scripts/migrate-tool-folders.mjs",
     "plan:serve": "node scripts/plan-dev-server.mjs",
     "fetch:car-brands": "node scripts/fetch-car-brand.mjs"

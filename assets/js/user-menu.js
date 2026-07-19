@@ -2,6 +2,7 @@
   'use strict';
 
   const TOP_MAX = 8;
+  let menuApi = null;
 
   function navApi() {
     return window.WA_NAV_HISTORY || null;
@@ -18,15 +19,25 @@
     }
   }
 
+  function isSettingsPage() {
+    const href = pageHref();
+    return href === 'settings.html'
+      || href === 'utility/settings.html'
+      || href === 'settings'
+      || href === 'utility/settings';
+  }
+
   function pageHref() {
+    if (window.WA_TOOL_URLS?.currentPageKey) return window.WA_TOOL_URLS.currentPageKey();
     const api = navApi();
     if (api?.pageHref) return api.pageHref();
     const path = location.pathname.replace(/\\/g, '/');
+    const segs = path.split('/').filter(Boolean);
+    if (segs[0] === 'en') segs.shift();
     const scriptureMatch = path.match(/\/scripture\/([^/?#]+\.html)$/);
     if (scriptureMatch) return `scripture/${scriptureMatch[1]}`;
-    const segs = path.split('/').filter(Boolean);
     if (segs.length >= 2) {
-      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0]}`;
+      return `${segs[segs.length - 2]}/${segs[segs.length - 1].split('?')[0].split('#')[0].replace(/\.html$/i, '')}`;
     }
     const name = segs[0] || '';
     if (!name) return 'index.html';
@@ -34,10 +45,17 @@
   }
 
   function resolveHref(href) {
+    if (!href) return href;
+    if (href.startsWith('http://') || href.startsWith('https://')) return href;
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref(String(href).replace(/^\/+/, '').replace(/\.html$/i, ''));
+    }
+    if (window.WA_LOCALE?.href) {
+      return window.WA_LOCALE.href(String(href).replace(/^\/+/, '').replace(/\.html$/i, ''));
+    }
     const api = navApi();
     if (api?.resolveHref) return api.resolveHref(href);
-    if (!href) return href;
-    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('/')) return href;
+    if (href.startsWith('/')) return href;
     const prefix = (() => {
       const segs = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
       const depth = segs.length > 1 ? segs.length - 1 : 0;
@@ -48,16 +66,15 @@
   }
 
   function settingsHref() {
+    if (window.WA_TOOL_URLS?.absolutePageHref) {
+      return window.WA_TOOL_URLS.absolutePageHref('utility/settings');
+    }
+    if (window.WA_LOCALE?.href) return window.WA_LOCALE.href('utility/settings');
     const api = navApi();
     if (api?.settingsHref) return api.settingsHref();
-    const cta = document.querySelector('#header .cta-btn[href*="settings"]');
-    if (cta) return cta.getAttribute('href');
-    return 'utility/settings.html';
-  }
-
-  function isSettingsPage() {
-    const href = pageHref();
-    return href === 'settings.html' || href === 'utility/settings.html';
+    const cta = document.querySelector('#header .cta-btn[href*="settings"], #header a.cta-btn');
+    if (cta && cta.getAttribute('href')) return cta.getAttribute('href');
+    return '/utility/settings';
   }
 
   function topFrequent(list) {
@@ -68,20 +85,62 @@
       .slice(0, TOP_MAX);
   }
 
-  function toggleLabel(cta) {
-    const text = (cta.textContent || '').trim();
-    if (/設定/.test(text)) return '設定';
-    if (/首頁/.test(text)) return '我的選單';
-    return text || '我的選單';
+  function isEn() {
+    return window.WA_LOCALE?.isEn?.() || document.documentElement.getAttribute('data-locale') === 'en';
+  }
+
+  function isSimp() {
+    return !isEn() && document.documentElement.getAttribute('data-zh-variant') === 'simp';
+  }
+
+  function t(key, fallback) {
+    if (isEn() && window.WA_LOCALE?.t) return window.WA_LOCALE.t(key, fallback);
+    return fallback;
+  }
+
+  function toggleLabelText() {
+    if (isEn()) return t('chrome.settings', 'Settings');
+    return isSimp() ? '设定' : '設定';
+  }
+
+  function personalSettingsLabel() {
+    if (isEn()) return t('chrome.personalSettings', 'Personal settings');
+    return isSimp() ? '个人设定' : '個人設定';
+  }
+
+  function mostVisitedLabel() {
+    if (isEn()) return t('chrome.mostVisited', 'Most visited');
+    return isSimp() ? '最常浏览' : '最常瀏覽';
+  }
+
+  function noHistoryLabel() {
+    if (isEn()) return t('chrome.noHistory', 'No browsing history yet — visit a few tools and they will show up here.');
+    return isSimp() ? '还没有浏览纪录，多逛几个工具就会出现啰' : '還沒有瀏覽紀錄，多逛幾個工具就會出現囉';
+  }
+
+  function countLabel(count) {
+    if (isEn()) return `${count} ${t('chrome.times', 'views')}`;
+    return isSimp() ? `${count} 次` : `${count} 次`;
+  }
+
+  function closeMenu() {
+    if (menuApi?.setOpen) menuApi.setOpen(false);
   }
 
   function initUserMenu() {
-    const cta = document.querySelector('#header .branding .cta-btn');
-    if (!cta || document.getElementById('user-menu')) return;
+    const existing = document.getElementById('user-menu');
+    if (existing && menuApi) {
+      menuApi.refreshChrome();
+      return;
+    }
 
-    const settingsLink = settingsHref();
+    const cta = document.querySelector('#header .branding .cta-btn:not(.user-menu-toggle)')
+      || document.querySelector('#header .branding a.cta-btn');
+    if (!cta && !existing) return;
+    if (existing) return;
+
     const wrap = document.createElement('div');
-    wrap.className = 'user-menu';
+    wrap.className = 'user-menu ignore-opencc';
     wrap.id = 'user-menu';
 
     const toggle = document.createElement('button');
@@ -90,7 +149,7 @@
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-controls', 'user-menu-panel');
-    toggle.innerHTML = `${toggleLabel(cta)} <i class="bi bi-chevron-down user-menu-chevron" aria-hidden="true"></i>`;
+    toggle.innerHTML = `${toggleLabelText()} <i class="bi bi-chevron-down user-menu-chevron" aria-hidden="true"></i>`;
 
     const panel = document.createElement('div');
     panel.className = 'user-menu-panel';
@@ -100,14 +159,15 @@
 
     const settingsItem = document.createElement('a');
     settingsItem.className = 'user-menu-settings';
-    settingsItem.href = settingsLink;
+    settingsItem.href = settingsHref();
     settingsItem.setAttribute('role', 'menuitem');
-    settingsItem.innerHTML = '<i class="bi bi-sliders" aria-hidden="true"></i><span>個人設定</span>';
+    settingsItem.innerHTML = '<i class="bi bi-sliders" aria-hidden="true"></i><span></span>';
+    settingsItem.querySelector('span').textContent = personalSettingsLabel();
     if (isSettingsPage()) settingsItem.setAttribute('aria-current', 'page');
 
     const historyHead = document.createElement('div');
     historyHead.className = 'user-menu-history-head';
-    historyHead.textContent = '最常瀏覽';
+    historyHead.textContent = mostVisitedLabel();
 
     const historyList = document.createElement('ul');
     historyList.className = 'user-menu-history';
@@ -123,7 +183,7 @@
       if (!list.length) {
         const empty = document.createElement('li');
         empty.className = 'user-menu-history-empty';
-        empty.textContent = '還沒有瀏覽紀錄，多逛幾個工具就會出現囉';
+        empty.textContent = noHistoryLabel();
         historyList.appendChild(empty);
         return;
       }
@@ -147,9 +207,11 @@
         a.setAttribute('role', 'menuitem');
         const label = displayTitle(item);
         a.title = label;
-        if (item.href === cur) a.classList.add('is-current');
+        if (item.href === cur || resolveHref(item.href) === location.pathname) {
+          a.classList.add('is-current');
+        }
         const count = item.count || 1;
-        a.innerHTML = `<span class="user-menu-history-rank">${index + 1}</span><span class="user-menu-history-title">${escapeHtml(label)}</span><span class="user-menu-history-count">${count} 次</span>`;
+        a.innerHTML = `<span class="user-menu-history-rank">${index + 1}</span><span class="user-menu-history-title">${escapeHtml(label)}</span><span class="user-menu-history-count">${countLabel(count)}</span>`;
         li.appendChild(a);
         historyList.appendChild(li);
       });
@@ -160,13 +222,36 @@
       panel.hidden = !on;
       toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
       wrap.classList.toggle('is-open', on);
-      if (on) renderHistory();
+      document.getElementById('header')?.classList.toggle('user-menu-open', on);
+      if (on) {
+        settingsItem.href = settingsHref();
+        renderHistory();
+      }
+    }
+
+    function refreshChrome() {
+      toggle.classList.toggle('active', isSettingsPage());
+      toggle.innerHTML = `${toggleLabelText()} <i class="bi bi-chevron-down user-menu-chevron" aria-hidden="true"></i>`;
+      settingsItem.href = settingsHref();
+      const span = settingsItem.querySelector('span');
+      if (span) span.textContent = personalSettingsLabel();
+      if (isSettingsPage()) settingsItem.setAttribute('aria-current', 'page');
+      else settingsItem.removeAttribute('aria-current');
+      historyHead.textContent = mostVisitedLabel();
+      if (!panel.hidden) renderHistory();
     }
 
     toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       setOpen(panel.hidden);
     });
+
+    // Capture phase: soft-nav also uses capture and would otherwise leave the menu open.
+    panel.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (link && panel.contains(link)) setOpen(false);
+    }, true);
 
     document.addEventListener('click', (e) => {
       if (!wrap.contains(e.target)) setOpen(false);
@@ -176,24 +261,34 @@
       if (e.key === 'Escape') setOpen(false);
     });
 
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'mytoolife-nav-history' && !panel.hidden) renderHistory();
-    });
-
-    window.addEventListener('mytoolife:nav-history', () => {
-      if (!panel.hidden) renderHistory();
-    });
+    menuApi = { setOpen, refreshChrome, wrap, panel, toggle };
+    window.WA_USER_MENU = { close: () => setOpen(false), refresh: refreshChrome };
 
     renderHistory();
+  }
+
+  function onSoftNav() {
+    closeMenu();
+    if (!document.getElementById('user-menu')) {
+      initUserMenu();
+      return;
+    }
+    menuApi?.refreshChrome?.();
   }
 
   function boot() {
     if (window.WA_NAV_HISTORY) {
       initUserMenu();
-      return;
+    } else {
+      window.addEventListener('mytoolife:nav-history', initUserMenu, { once: true });
+      window.setTimeout(initUserMenu, 0);
     }
-    window.addEventListener('mytoolife:nav-history', initUserMenu, { once: true });
-    window.setTimeout(initUserMenu, 0);
+    window.addEventListener('mytoolife:soft-nav', onSoftNav);
+    window.addEventListener('mytoolife:prefs-changed', () => {
+      // Language/theme may change labels; keep menu closed and refresh chrome.
+      closeMenu();
+      menuApi?.refreshChrome?.();
+    });
   }
 
   if (document.readyState === 'loading') {

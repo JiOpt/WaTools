@@ -16,6 +16,7 @@
     highContrast: false,
     pageZoom: 100,
     zhVariant: 'trad',
+    locale: 'zh',
   };
 
   function migrateKey(nextKey, legacyKey) {
@@ -90,6 +91,9 @@
     root.setAttribute('data-page-zoom', String(Math.min(200, Math.max(80, Math.round(pageZoom)))));
     root.style.zoom = pageZoom === 100 ? '' : String(pageZoom / 100);
     root.setAttribute('data-zh-variant', pick(prefs, 'zhVariant') === 'simp' ? 'simp' : 'trad');
+    var pathLocale = /^\/en(\/|$)/i.test(location.pathname.replace(/\\/g, '/')) ? 'en' : 'zh';
+    root.setAttribute('data-locale', pathLocale);
+    if (pathLocale === 'en') root.lang = 'en';
   }
 
   apply(readPrefs());
@@ -98,8 +102,9 @@
     var path = location.pathname.replace(/\\/g, '/');
     if (/\/scripture\//i.test(path)) return false;
     var segs = path.split('/').filter(Boolean);
+    if (segs[0] === 'en') segs.shift();
     var page = (segs.pop() || 'index').split('#')[0].split('?')[0].replace(/\.html$/i, '');
-    if (page === 'index' || page === 'index_plan' || page === 'copyright' || page === 'contact') return false;
+    if (page === 'index' || page === 'index_plan' || page === 'copyright' || page === 'contact' || page === 'privacy' || page === 'disclaimer') return false;
     if (page === 'settings' && segs.length === 0) return false;
     return segs.length >= 1;
   }
