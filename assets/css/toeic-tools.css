@@ -1,0 +1,201 @@
+/* TOEIC theme tools */
+.tool-app.wa-toeic {
+  --toeic-accent: #0f4c81;
+  --toeic-ink: #1e293b;
+  --toeic-muted: #64748b;
+  --toeic-line: rgba(15, 76, 129, 0.18);
+  --toeic-soft: #f1f7fc;
+  color: var(--toeic-ink);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+.wa-toeic .toeic-wrap { max-width: 920px; margin: 0 auto; }
+.wa-toeic .toeic-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--toeic-accent);
+  font-weight: 700;
+}
+.wa-toeic .toeic-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--toeic-ink);
+}
+.wa-toeic .toeic-lead {
+  margin: 0 0 1.25rem;
+  color: var(--toeic-muted);
+  line-height: 1.6;
+}
+.wa-toeic .toeic-card {
+  background: #fff;
+  border: 1px solid var(--toeic-line);
+  border-radius: 12px;
+  padding: 1rem 1.1rem 1.15rem;
+  margin-bottom: 0.9rem;
+}
+.wa-toeic .toeic-h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--toeic-accent);
+}
+.wa-toeic .toeic-p,
+.wa-toeic .toeic-point,
+.wa-toeic .toeic-stem,
+.wa-toeic .toeic-ex,
+.wa-toeic .toeic-exzh,
+.wa-toeic .toeic-syn,
+.wa-toeic .toeic-tip {
+  margin: 0.35rem 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+.wa-toeic .toeic-tip { color: var(--toeic-accent); }
+.wa-toeic .toeic-muted { color: var(--toeic-muted); font-size: 0.88rem; }
+.wa-toeic .toeic-ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.55;
+}
+.wa-toeic .toeic-ul li { margin: 0.28rem 0; }
+.wa-toeic .toeic-links {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+.wa-toeic .toeic-links li { margin: 0.4rem 0; }
+.wa-toeic .toeic-links a {
+  color: var(--toeic-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.wa-toeic .toeic-links a:hover { text-decoration: underline; }
+
+.wa-toeic .toeic-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+.wa-toeic .toeic-input,
+.wa-toeic .toeic-select,
+.wa-toeic .toeic-textarea {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--toeic-line);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+.wa-toeic .toeic-toolbar .toeic-select { max-width: 280px; }
+.wa-toeic .toeic-toolbar .toeic-input { flex: 1; min-width: 160px; }
+.wa-toeic .toeic-textarea { margin: 0.5rem 0; min-height: 4.5rem; }
+
+.wa-toeic .toeic-btn {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: var(--toeic-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+.wa-toeic .toeic-btn:hover { filter: brightness(1.05); }
+.wa-toeic .toeic-btn-ghost {
+  background: transparent;
+  color: var(--toeic-accent);
+  border: 1px solid var(--toeic-line);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+}
+
+.wa-toeic .toeic-chip,
+.wa-toeic .toeic-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--toeic-line);
+  background: var(--toeic-soft);
+  color: var(--toeic-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+}
+.wa-toeic .toeic-chip-btn {
+  cursor: pointer;
+  font: inherit;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+}
+.wa-toeic .toeic-chip-btn.is-on {
+  background: var(--toeic-accent);
+  color: #fff;
+  border-color: var(--toeic-accent);
+}
+.wa-toeic .toeic-filter { margin-bottom: 0.75rem; }
+
+.wa-toeic .toeic-q {
+  border-top: 1px solid var(--toeic-line);
+  padding: 0.85rem 0 0.35rem;
+}
+.wa-toeic .toeic-q:first-child { border-top: 0; padding-top: 0; }
+.wa-toeic .toeic-q-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.wa-toeic .toeic-choices {
+  margin: 0.35rem 0 0.2rem;
+  padding: 0;
+  list-style: none;
+}
+.wa-toeic .toeic-choices li {
+  margin: 0.2rem 0;
+  line-height: 1.45;
+}
+.wa-toeic .toeic-ans {
+  margin-top: 0.45rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--toeic-soft);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.wa-toeic .toeic-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+.wa-toeic .toeic-vocab-card {
+  border: 1px solid var(--toeic-line);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  background: #fff;
+}
+.wa-toeic .toeic-vocab-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+}
+.wa-toeic .toeic-vocab-head strong { font-size: 1.05rem; }
+.wa-toeic .toeic-syn { color: var(--toeic-accent); font-size: 0.88rem; }
+.wa-toeic .toeic-ex { font-style: italic; color: #334155; }
+.wa-toeic .toeic-exzh { color: var(--toeic-muted); font-size: 0.88rem; }
+.wa-toeic .toeic-trap-list .toeic-q { margin-bottom: 0.25rem; }
+
+@media (max-width: 576px) {
+  .wa-toeic .toeic-title { font-size: 1.25rem; }
+  .wa-toeic .toeic-vocab-grid { grid-template-columns: 1fr; }
+}

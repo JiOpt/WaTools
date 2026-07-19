@@ -9,8 +9,21 @@
       "assets/scss/**",
       "forms/**",
       "scripts/**",
+      "functions/**",
+      "package.json",
+      "package-lock.json",
+      "**/package.json",
+      "**/package-lock.json",
+      ".tmp-samurai-check/**",
+      "**/.tmp*/**",
+      "**/agent-transcripts/**",
       "index_plan.html",
-      "sitemap.txt"
+      "sitemap.txt",
+      "README.md",
+      "**/*.md",
+      ".cursorrules",
+      "**/.cursor/**",
+      "**/.git/**"
     ],
     "cleanUrls": true,
     "rewrites": [

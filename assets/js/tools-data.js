@@ -1,5 +1,129 @@
 window.WA_TOOLS_CATALOG = [
   {
+    "id": "toeic",
+    "name": "多益 TOEIC",
+    "tagline": "介紹、單字、聽讀技巧與備考節奏，精簡對焦常考點。",
+    "tools": [
+      {
+        "slug": "toeic-intro",
+        "title": "多益測驗介紹",
+        "icon": "bi-info-circle",
+        "desc": "2.5 小時、聽力四題／閱讀三題結構與計分速覽。",
+        "seoTitle": "多益測驗介紹｜時間題型與計分｜TOEIC L&R | Kawatool",
+        "seoDescription": "精簡介紹多益聽力與閱讀：考試時間、Parts 1–7 題型與分數區間，適合初次報考者快速建立全貌。",
+        "seoKeywords": "多益,TOEIC,題型,計分,聽力,閱讀"
+      },
+      {
+        "slug": "toeic-mock-tests",
+        "title": "免費模擬測驗",
+        "icon": "bi-clipboard2-check",
+        "desc": "官方與優質免費試題連結，方便自我檢測。",
+        "seoTitle": "多益免費模擬測驗｜線上試題資源 | Kawatool",
+        "seoDescription": "整理多益免費模擬與考古資源連結，幫你用正式題感做實力檢測與時間配速練習。",
+        "seoKeywords": "多益模擬考,免費TOEIC,線上測驗"
+      },
+      {
+        "slug": "toeic-score-levels",
+        "title": "程度落點分析",
+        "icon": "bi-bar-chart-steps",
+        "desc": "600／750／860 分區間對照，看清目標差距。",
+        "seoTitle": "多益分數落點｜600 750 860 程度對照 | Kawatool",
+        "seoDescription": "對照多益常見分數區間與能力描述，快速判斷目前落點與衝刺目標。",
+        "seoKeywords": "多益分數,TOEIC等級,860分"
+      },
+      {
+        "slug": "toeic-vocab",
+        "title": "單字記憶工具",
+        "icon": "bi-card-text",
+        "desc": "15 大商業情境×60 高頻字，附同義詞與例句。",
+        "seoTitle": "多益單字｜15 商業情境高頻字與同義詞 | Kawatool",
+        "seoDescription": "依財務、人事、差旅等 15 情境整理多益高頻單字，含同義詞替換與精簡例句，方便記憶與刷題。",
+        "seoKeywords": "多益單字,TOEIC vocabulary,商業英文,同義詞"
+      },
+      {
+        "slug": "toeic-listening",
+        "title": "聽力答題技巧",
+        "icon": "bi-headphones",
+        "desc": "Parts 1–4 陷阱、四國口音與圖片預讀重點。",
+        "seoTitle": "多益聽力技巧｜Parts 1–4 與口音陷阱 | Kawatool",
+        "seoDescription": "針對多益聽力四大題整理解題重點、美加英澳口音差異與 Part 1 圖片預讀節奏。",
+        "seoKeywords": "多益聽力,TOEIC Listening,口音,Part1"
+      },
+      {
+        "slug": "toeic-reading",
+        "title": "閱讀解題策略",
+        "icon": "bi-book",
+        "desc": "Parts 5–7 作答順序、時間分配與 60 練題。",
+        "seoTitle": "多益閱讀策略｜Parts 5–7 時間分配 | Kawatool",
+        "seoDescription": "統整多益閱讀三大題作答順序與時間規劃，並提供精簡練習例題掌握常考點。",
+        "seoKeywords": "多益閱讀,TOEIC Reading,Part7,時間分配"
+      },
+      {
+        "slug": "toeic-grammar",
+        "title": "文法速成指南",
+        "icon": "bi-pencil-square",
+        "desc": "Part 5／6 常客：詞性、介系詞、分詞、假設等。",
+        "seoTitle": "多益文法速成｜Part 5／6 常考點 60 例 | Kawatool",
+        "seoDescription": "鎖定多益 Part 5、6 高頻文法：詞性、介系詞與連接詞、分詞形容詞、代名詞等，附精簡例題。",
+        "seoKeywords": "多益文法,TOEIC grammar,Part5,介系詞"
+      },
+      {
+        "slug": "toeic-study-plan",
+        "title": "備試時間規劃表",
+        "icon": "bi-calendar-week",
+        "desc": "1 個月衝刺與 3 個月扎實進度建議。",
+        "seoTitle": "多益讀書計畫｜1 個月／3 個月排程 | Kawatool",
+        "seoDescription": "依準備期長短提供多益每日學習節奏建議，兼顧單字、聽力、閱讀與模擬考。",
+        "seoKeywords": "多益讀書計畫,TOEIC study plan"
+      },
+      {
+        "slug": "toeic-error-review",
+        "title": "刷題與檢討工具",
+        "icon": "bi-journal-check",
+        "desc": "錯題分類、常見誤區與有效複習流程。",
+        "seoTitle": "多益錯題檢討｜刷題方法與常見誤區 | Kawatool",
+        "seoDescription": "教你建立多益錯題本、區分知識型與粗心型錯誤，讓刷題真正轉成分數。",
+        "seoKeywords": "多益錯題,刷題檢討,TOEIC review"
+      },
+      {
+        "slug": "toeic-resources",
+        "title": "推薦學習資源",
+        "icon": "bi-collection",
+        "desc": "書籍、課程、APP 與 YouTube 精選入口。",
+        "seoTitle": "多益學習資源｜書籍課程 APP YouTube | Kawatool",
+        "seoDescription": "精選多益備考書籍、線上課程、實用 APP 與 YouTube 頻道，方便延伸學習。",
+        "seoKeywords": "多益書籍,TOEIC APP,多益課程"
+      },
+      {
+        "slug": "toeic-registration",
+        "title": "報名與考場須知",
+        "icon": "bi-person-vcard",
+        "desc": "線上報名流程、相片規格與當日注意事項。",
+        "seoTitle": "多益報名流程｜相片規格與考場實戰 | Kawatool",
+        "seoDescription": "整理多益官方線上報名步驟、證件照規格、應攜帶物品與劃卡／時間配速提醒。",
+        "seoKeywords": "多益報名,TOEIC報名,考場注意"
+      },
+      {
+        "slug": "toeic-speaking-writing",
+        "title": "說寫測驗簡介",
+        "icon": "bi-mic",
+        "desc": "Speaking & Writing 題型與何時需要報考。",
+        "seoTitle": "多益口說寫作｜S&W 題型簡介 | Kawatool",
+        "seoDescription": "補充多益口說與寫作測驗題型與適用情境，適合外商求職或升遷需求者快速了解。",
+        "seoKeywords": "多益口說,TOEIC Speaking,Writing"
+      },
+      {
+        "slug": "toeic-mindset",
+        "title": "心態與撞牆突破",
+        "icon": "bi-emoji-smile",
+        "desc": "成績停滯解法與考試焦慮調適。",
+        "seoTitle": "多益撞牆期｜成績停滯與焦慮調適 | Kawatool",
+        "seoDescription": "針對多益準備常見成績停滯與考試焦慮，提供精簡可執行的調整策略。",
+        "seoKeywords": "多益焦慮,成績停滯,備考心態"
+      }
+    ]
+  },
+  {
     "id": "viral",
     "name": "熱搜剛需",
     "tagline": "房貸試算、Threads 人格、API 成本與發票對獎，搜得到也用得上。",

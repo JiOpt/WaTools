@@ -29,12 +29,13 @@
       }
     }
 
-    // Phase-1 English shells: show trending (viral) category first; other cats keep zh titles until translated.
-    if (window.WA_LOCALE?.isEn?.()) {
-      visible = visible.filter((c) => c.id === 'viral').concat(
-        visible.filter((c) => c.id !== 'viral')
-      );
-    }
+    // Prefer catalog array order (TOEIC first, then viral / rest).
+    // Keep a light bump so published homepage still leads with exam + trending.
+    const preferred = ['toeic', 'viral', 'creator'];
+    visible = preferred
+      .map((id) => visible.find((c) => c.id === id))
+      .filter(Boolean)
+      .concat(visible.filter((c) => !preferred.includes(c.id)));
 
     container.innerHTML = visible.map((category) => {
       const catName = window.WA_LOCALE?.catalogLabel

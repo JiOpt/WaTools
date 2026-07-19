@@ -5453,4 +5453,31 @@
   R['threads-persona-analyzer'] = mountViralTool('threads-persona-analyzer', 'Threads 脆友人格');
   R['link-preview-card'] = mountViralTool('link-preview-card', '連結預覽卡產生');
 
+  function mountToeicTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_TOEIC && window.WA_MOUNT_TOEIC[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '多益模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['toeic-intro'] = mountToeicTool('toeic-intro', '多益測驗介紹');
+  R['toeic-mock-tests'] = mountToeicTool('toeic-mock-tests', '免費模擬測驗');
+  R['toeic-score-levels'] = mountToeicTool('toeic-score-levels', '程度落點分析');
+  R['toeic-vocab'] = mountToeicTool('toeic-vocab', '單字記憶工具');
+  R['toeic-listening'] = mountToeicTool('toeic-listening', '聽力答題技巧');
+  R['toeic-reading'] = mountToeicTool('toeic-reading', '閱讀解題策略');
+  R['toeic-grammar'] = mountToeicTool('toeic-grammar', '文法速成指南');
+  R['toeic-study-plan'] = mountToeicTool('toeic-study-plan', '備試時間規劃表');
+  R['toeic-error-review'] = mountToeicTool('toeic-error-review', '刷題與檢討工具');
+  R['toeic-resources'] = mountToeicTool('toeic-resources', '推薦學習資源');
+  R['toeic-registration'] = mountToeicTool('toeic-registration', '報名與考場須知');
+  R['toeic-speaking-writing'] = mountToeicTool('toeic-speaking-writing', '說寫測驗簡介');
+  R['toeic-mindset'] = mountToeicTool('toeic-mindset', '心態與撞牆突破');
+
 })();

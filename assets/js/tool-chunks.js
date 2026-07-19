@@ -892,5 +892,18 @@ window.WA_TOOL_CHUNKS = {
     "extra": [
       "japan-theme-tools.js"
     ]
-  }
+  },
+  "toeic-intro": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-mock-tests": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-score-levels": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-vocab": { "part": 3, "extra": ["toeic-vocab-data.js", "toeic-tools.js"] },
+  "toeic-listening": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-reading": { "part": 3, "extra": ["toeic-reading-data.js", "toeic-tools.js"] },
+  "toeic-grammar": { "part": 3, "extra": ["toeic-grammar-data.js", "toeic-tools.js"] },
+  "toeic-study-plan": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-error-review": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-resources": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-registration": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-speaking-writing": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toeic-mindset": { "part": 3, "extra": ["toeic-tools.js"] }
 };

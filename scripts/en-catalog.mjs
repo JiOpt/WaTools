@@ -17,6 +17,7 @@ export const EN_CATEGORIES = {
   symbols: 'Symbols',
   culture: 'Culture',
   spiritual: 'Spiritual',
+  toeic: 'TOEIC',
 };
 
 /** @type {Record<string, { title: string, desc: string }>} */
@@ -254,4 +255,18 @@ export const EN_TOOLS = {
   'enneagram': { title: 'Enneagram', desc: 'Nine personality types quiz.' },
   'chakra': { title: 'Seven chakras', desc: 'Chakra alignment quiz.' },
   'hawkins': { title: 'Hawkins consciousness levels', desc: 'Map of consciousness scale.' },
+
+  'toeic-intro': { title: 'TOEIC overview', desc: 'Timing, Parts 1–7 structure, and scoring at a glance.' },
+  'toeic-mock-tests': { title: 'Free practice tests', desc: 'Official and quality free mock links for self-checks.' },
+  'toeic-score-levels': { title: 'Score band guide', desc: 'Compare 600 / 750 / 860 targets and next steps.' },
+  'toeic-vocab': { title: 'TOEIC vocabulary', desc: '15 business topics × 60 words with synonyms and examples.' },
+  'toeic-listening': { title: 'Listening tips', desc: 'Parts 1–4 traps, four accents, and photo preview timing.' },
+  'toeic-reading': { title: 'Reading strategies', desc: 'Parts 5–7 order, pacing, and 60 short drills.' },
+  'toeic-grammar': { title: 'Grammar crash course', desc: 'Part 5/6 favorites with 60 concise items.' },
+  'toeic-study-plan': { title: 'Study schedules', desc: '1-month sprint and 3-month solid plans.' },
+  'toeic-error-review': { title: 'Error review toolkit', desc: 'Log mistakes and avoid common review pitfalls.' },
+  'toeic-resources': { title: 'Study resources', desc: 'Books, courses, apps, and channel starting points.' },
+  'toeic-registration': { title: 'Registration & test day', desc: 'Online signup, photo rules, and exam-day checklist.' },
+  'toeic-speaking-writing': { title: 'Speaking & Writing', desc: 'When you need S&W and what the tasks look like.' },
+  'toeic-mindset': { title: 'Mindset & plateaus', desc: 'Break score stalls and calm test anxiety.' },
 };

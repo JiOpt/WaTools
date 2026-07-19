@@ -21,6 +21,7 @@
     viral: 'bi-graph-up-arrow',
     japan: 'bi-geo-alt',
     world: 'bi-globe-asia-australia',
+    toeic: 'bi-mortarboard',
   };
 
   function sitemapIconBox(biClass, variant) {
