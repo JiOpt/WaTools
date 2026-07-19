@@ -4,7 +4,8 @@
 (function (global) {
   'use strict';
 
-  var TOEFL_CSS_VER = '0.6.40';
+  var TOEFL_CSS_VER = '0.6.43';
+  var TOEFL_L2_VER = '0.6.42';
 
   function toeflCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -465,109 +466,359 @@
     ]);
   }
 
+  function loadScriptOnce(src) {
+    return new Promise(function (resolve, reject) {
+      var existing = document.querySelector('script[data-wa-src="' + src + '"]');
+      if (existing) {
+        if (existing.dataset.ready === '1') resolve();
+        else existing.addEventListener('load', function () { resolve(); });
+        existing.addEventListener('error', reject);
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = src;
+      s.defer = true;
+      s.dataset.waSrc = src;
+      s.onload = function () {
+        s.dataset.ready = '1';
+        resolve();
+      };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function toeflVocabL2Href() {
+    if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
+      return global.WA_TOOL_URLS.absolutePageHref('assets/js/toefl-vocab-l2-data.js') + '?v=' + TOEFL_L2_VER;
+    }
+    var path = String(location.pathname || '').replace(/\\/g, '/');
+    if (/\/(en\/)?toefl(\/|$)/i.test(path)) {
+      return (path.indexOf('/en/') >= 0 ? '../../' : '../') + 'assets/js/toefl-vocab-l2-data.js?v=' + TOEFL_L2_VER;
+    }
+    return 'assets/js/toefl-vocab-l2-data.js?v=' + TOEFL_L2_VER;
+  }
+
   function mountVocab(app) {
-    const data = global.WA_TOEFL_VOCAB;
-    if (!data || !data.scenarios) {
+    const l1 = global.WA_TOEFL_VOCAB;
+    if (!l1 || !l1.scenarios) {
       shell(app, '學術單字工具', '資料載入失敗，請重新整理。', [p('缺少 WA_TOEFL_VOCAB。')]);
       return;
     }
 
+    const PAGE_SIZE = 24;
     const fam = createFamApi('wa-toefl-vocab-fam', 'toefl');
+    const FAM_FILTER_LABEL = { all: '全部', known: '很熟', mid: '中等', fuzzy: '模糊' };
+    const DEFAULT_SCENARIO = { 1: 'biology', 2: 'awl' };
+
+    let level = 1;
+    let activeScenarioId = DEFAULT_SCENARIO[1];
+    let page = 1;
     let famMap = fam.load();
+    let l2Ready = Boolean(global.WA_TOEFL_VOCAB_L2 && global.WA_TOEFL_VOCAB_L2.scenarios);
+    let l2Loading = false;
+
+    const levelBar = el('div', { className: 'toefl-level-bar', role: 'tablist', 'aria-label': '單字等級' });
+    const btnL1 = el('button', {
+      type: 'button',
+      className: 'toefl-level-btn is-on',
+      role: 'tab',
+      'aria-selected': 'true',
+      textContent: 'Level 1｜學術基礎（約 80–100）',
+    });
+    const btnL2 = el('button', {
+      type: 'button',
+      className: 'toefl-level-btn',
+      role: 'tab',
+      'aria-selected': 'false',
+      textContent: 'Level 2｜AWL＋學科進階（110–120）',
+    });
+    levelBar.appendChild(btnL1);
+    levelBar.appendChild(btnL2);
+
+    const levelHint = el('p', {
+      className: 'toefl-muted',
+      textContent: l1.label || 'Level 1｜學術基礎高頻（約 80–100）',
+    });
+    const scenarioBar = el('div', { className: 'toefl-scenario-bar', 'aria-label': '學術主題' });
+    const famSel = fam.makeSel();
+    const search = el('input', {
+      type: 'search',
+      className: 'toefl-input',
+      placeholder: '搜尋目前主題內的英文／中文／同義詞…',
+      'aria-label': '搜尋單字',
+    });
+    const grid = el('div', { className: 'toefl-vocab-grid' });
+    const meta = el('p', { className: 'toefl-muted' });
+    const pager = el('div', { className: 'toefl-pager' });
+    const empty = el('p', {
+      className: 'toefl-tip',
+      textContent: '請點選上方學術主題，才會載入該分類單字（分頁顯示）。',
+    });
 
     function wordKey(scenarioId, word) {
       return scenarioId + ':' + String(word || '').toLowerCase();
     }
 
-    const search = el('input', {
-      type: 'search',
-      className: 'toefl-input',
-      placeholder: '搜尋英文／中文／同義詞…',
-      'aria-label': '搜尋單字',
-    });
-    const scenarioSel = el('select', { className: 'toefl-select', 'aria-label': '學術主題' }, [
-      el('option', { value: 'all', textContent: '全部 15 主題' }),
-      ...data.scenarios.map((s) => el('option', { value: s.id, textContent: s.name + ' · ' + s.nameEn })),
-    ]);
-    const famSel = fam.makeSel();
-    const grid = el('div', { className: 'toefl-vocab-grid' });
-    const meta = el('p', { className: 'toefl-muted' });
+    function currentPack() {
+      if (level === 2) return global.WA_TOEFL_VOCAB_L2 || null;
+      return l1;
+    }
+
+    function scenariosOf() {
+      const pack = currentPack();
+      return (pack && pack.scenarios) || [];
+    }
+
+    function activeScenario() {
+      return scenariosOf().find((s) => s.id === activeScenarioId) || null;
+    }
+
+    function pickDefaultScenario() {
+      const preferred = DEFAULT_SCENARIO[level];
+      const list = scenariosOf();
+      if (preferred && list.some((s) => s.id === preferred)) return preferred;
+      return (list[0] && list[0].id) || '';
+    }
+
+    function rebuildScenarioBar() {
+      scenarioBar.innerHTML = '';
+      scenariosOf().forEach((s) => {
+        const count = (s.words && s.words.length) || 0;
+        scenarioBar.appendChild(
+          el('button', {
+            type: 'button',
+            className: 'toefl-scenario-chip' + (s.id === activeScenarioId ? ' is-on' : ''),
+            textContent: s.name + '（' + count + '）',
+            title: s.nameEn || s.name,
+            onclick: () => {
+              activeScenarioId = s.id;
+              page = 1;
+              rebuildScenarioBar();
+              paint();
+            },
+          })
+        );
+      });
+    }
+
+    function filteredWords(scenario) {
+      if (!scenario || !scenario.words) return [];
+      const q = (search.value || '').trim().toLowerCase();
+      const famFilter = famSel.value;
+      famMap = fam.load();
+      return scenario.words.filter((w) => {
+        const f = fam.get(famMap, wordKey(scenario.id, w.w));
+        if (famFilter !== 'all' && f !== famFilter) return false;
+        if (!q) return true;
+        return [w.w, w.zh, w.syn, w.ex, w.exZh].join(' ').toLowerCase().indexOf(q) >= 0;
+      });
+    }
+
+    function paintPager(total) {
+      pager.innerHTML = '';
+      const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (page > pages) page = pages;
+      const prev = el('button', {
+        type: 'button',
+        className: 'toefl-chip-btn',
+        textContent: '上一頁',
+        onclick: () => {
+          if (page > 1) {
+            page -= 1;
+            paint();
+          }
+        },
+      });
+      const next = el('button', {
+        type: 'button',
+        className: 'toefl-chip-btn',
+        textContent: '下一頁',
+        onclick: () => {
+          if (page < pages) {
+            page += 1;
+            paint();
+          }
+        },
+      });
+      if (page <= 1) prev.setAttribute('disabled', 'disabled');
+      else prev.removeAttribute('disabled');
+      if (page >= pages) next.setAttribute('disabled', 'disabled');
+      else next.removeAttribute('disabled');
+      pager.appendChild(prev);
+      pager.appendChild(
+        el('span', {
+          className: 'toefl-muted',
+          textContent: '第 ' + page + '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
+        })
+      );
+      pager.appendChild(next);
+    }
 
     function paint() {
       famMap = fam.load();
-      const q = (search.value || '').trim().toLowerCase();
-      const sid = scenarioSel.value;
-      const famFilter = famSel.value;
       grid.innerHTML = '';
-      let n = 0;
+      empty.hidden = true;
+      pager.hidden = false;
 
-      data.scenarios.forEach((s) => {
-        if (sid !== 'all' && s.id !== sid) return;
-        (s.words || []).forEach((w) => {
-          const id = wordKey(s.id, w.w);
-          const level = fam.get(famMap, id);
-          if (famFilter !== 'all' && level !== famFilter) return;
-          const blob = [w.w, w.zh, w.syn, w.ex, w.exZh].join(' ').toLowerCase();
-          if (q && blob.indexOf(q) < 0) return;
-          n += 1;
+      if (level === 2 && l2Loading) {
+        meta.textContent = '正在載入 Level 2 AWL／學科進階字庫…';
+        empty.hidden = false;
+        empty.textContent = '載入進階字庫中，請稍候。';
+        pager.hidden = true;
+        return;
+      }
 
-          const speakBtn = el('button', {
-            type: 'button',
-            className: 'toefl-speak-btn',
-            title: '朗讀單字',
-            'aria-label': '朗讀 ' + w.w,
-            textContent: '🔊',
-            onclick: () => speakEn(w.w),
-          });
-          const speakExBtn = el('button', {
-            type: 'button',
-            className: 'toefl-speak-btn toefl-speak-btn-sm',
-            title: '朗讀例句',
-            'aria-label': '朗讀例句',
-            textContent: '朗讀例句',
-            onclick: () => speakEn(w.ex),
-          });
+      const scenario = activeScenario();
+      if (!scenario) {
+        meta.textContent =
+          (currentPack() && currentPack().label ? currentPack().label + '｜' : '') +
+          '共 ' +
+          scenariosOf().length +
+          ' 個主題 — 請點選分類後再顯示單字';
+        empty.hidden = false;
+        empty.textContent = '請點選上方學術主題，才會載入該分類單字（分頁顯示）。';
+        pager.hidden = true;
+        return;
+      }
 
-          grid.appendChild(
-            el('article', { className: 'toefl-vocab-card' + (level ? ' fam-' + level : '') }, [
-              el('div', { className: 'toefl-vocab-head' }, [
-                el('div', { className: 'toefl-vocab-word' }, [
-                  el('strong', { textContent: w.w }),
-                  speakBtn,
+      const words = filteredWords(scenario);
+      const total = words.length;
+      const start = (page - 1) * PAGE_SIZE;
+      const slice = words.slice(start, start + PAGE_SIZE);
+
+      slice.forEach((w) => {
+        const id = wordKey(scenario.id, w.w);
+        const famLevel = fam.get(famMap, id);
+        grid.appendChild(
+          el('article', { className: 'toefl-vocab-card' + (famLevel ? ' fam-' + famLevel : '') }, [
+            el('div', { className: 'toefl-vocab-head' }, [
+              el('div', { className: 'toefl-vocab-word' }, [
+                el('strong', { textContent: w.w }),
+                el('div', { className: 'toefl-vocab-meta' }, [
+                  el('button', {
+                    type: 'button',
+                    className: 'toefl-speak-btn',
+                    title: '朗讀單字',
+                    'aria-label': '朗讀 ' + w.w,
+                    textContent: '🔊',
+                    onclick: () => speakEn(w.w),
+                  }),
                   el('span', { className: 'toefl-chip', textContent: w.pos || '' }),
+                  el('span', {
+                    className: 'toefl-chip toefl-chip-level',
+                    textContent: 'L' + (w.level || level),
+                  }),
                 ]),
-                fam.makeBtn(level, () => {
-                  fam.cycle(famMap, id);
-                  paint();
-                }),
               ]),
-              el('p', { className: 'toefl-p', textContent: w.zh }),
-              el('p', { className: 'toefl-syn', textContent: '同義／替換：' + (w.syn || '—') }),
-              el('p', { className: 'toefl-ex', textContent: w.ex }),
-              el('div', { className: 'toefl-vocab-actions' }, [speakExBtn]),
-              el('p', { className: 'toefl-exzh', textContent: w.exZh }),
-              el('p', { className: 'toefl-muted', textContent: s.name }),
-            ])
-          );
-        });
+              fam.makeBtn(famLevel, () => {
+                fam.cycle(famMap, id);
+                paint();
+              }),
+            ]),
+            el('p', { className: 'toefl-p', textContent: w.zh }),
+            el('p', { className: 'toefl-syn', textContent: '同義／替換：' + (w.syn || '—') }),
+            el('p', { className: 'toefl-ex', textContent: w.ex }),
+            el('div', { className: 'toefl-vocab-actions' }, [
+              el('button', {
+                type: 'button',
+                className: 'toefl-speak-btn toefl-speak-btn-sm',
+                title: '朗讀例句',
+                textContent: '朗讀例句',
+                onclick: () => speakEn(w.ex),
+              }),
+            ]),
+            el('p', { className: 'toefl-exzh', textContent: w.exZh }),
+            el('p', {
+              className: 'toefl-muted',
+              textContent: scenario.name + ' · ' + (scenario.tag || ''),
+            }),
+          ])
+        );
       });
-      meta.textContent = fam.metaText(n, famMap);
+
+      meta.textContent =
+        scenario.name +
+        '｜符合 ' +
+        total +
+        ' 字｜本頁 ' +
+        slice.length +
+        '｜' +
+        fam.metaText(0, famMap).replace(/^顯示 0 筆｜/, '');
+      paintPager(total);
+      if (!total) {
+        empty.hidden = false;
+        empty.textContent =
+          '此主題目前沒有符合篩選的單字（熟悉度：' +
+          (FAM_FILTER_LABEL[famSel.value] || famSel.value) +
+          '）。';
+      }
     }
 
-    search.addEventListener('input', paint);
-    scenarioSel.addEventListener('change', paint);
-    famSel.addEventListener('change', paint);
+    async function setLevel(next) {
+      level = next;
+      page = 1;
+      btnL1.classList.toggle('is-on', level === 1);
+      btnL2.classList.toggle('is-on', level === 2);
+      btnL1.setAttribute('aria-selected', level === 1 ? 'true' : 'false');
+      btnL2.setAttribute('aria-selected', level === 2 ? 'true' : 'false');
+
+      if (level === 2 && !l2Ready) {
+        activeScenarioId = DEFAULT_SCENARIO[2];
+        l2Loading = true;
+        levelHint.textContent = '載入 Level 2 AWL／學科進階字庫…';
+        rebuildScenarioBar();
+        paint();
+        try {
+          await loadScriptOnce(toeflVocabL2Href());
+          l2Ready = Boolean(global.WA_TOEFL_VOCAB_L2 && global.WA_TOEFL_VOCAB_L2.scenarios);
+        } catch (e) {
+          levelHint.textContent = 'Level 2 字庫載入失敗，請重新整理再試。';
+          l2Loading = false;
+          paint();
+          return;
+        }
+        l2Loading = false;
+      }
+
+      activeScenarioId = pickDefaultScenario();
+      const pack = currentPack();
+      levelHint.textContent = (pack && pack.label) || (level === 1 ? 'Level 1' : 'Level 2');
+      rebuildScenarioBar();
+      paint();
+    }
+
+    btnL1.addEventListener('click', () => setLevel(1));
+    btnL2.addEventListener('click', () => setLevel(2));
+    famSel.addEventListener('change', () => {
+      page = 1;
+      paint();
+    });
+    search.addEventListener('input', () => {
+      page = 1;
+      paint();
+    });
+
+    rebuildScenarioBar();
     paint();
 
-    shell(app, '學術單字工具', '15 大學術主題×60 高頻字。可朗讀、標記熟悉度（本機），再依熟悉度複習。', [
-      card('怎麼記', [
+    shell(app, '學術單字工具', 'Level 1 學術基礎打底；Level 2 為 AWL＋學科進階（衝 110–120）。約萬字級，點主題分頁載入。', [
+      card('等級與主題', [levelBar, levelHint, scenarioBar]),
+      card('怎麼用', [
         ul([
-          '點 🔊 聽發音；右側 ＋ 循環：模糊 → 中等 → 很熟。',
-          '熟悉度可只篩「模糊」單字繼續複習。',
-          '先主題＋同義詞，再背例句；閱讀詞義題幾乎都是換字。',
+          '先選 Level，再開啟一個學術主題（不會一次渲染全部單字）。',
+          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍。',
+          'Level 2 含 AWL 核心、研究方法與生物／天文／歷史等進階學科字。',
+          '🔊 朗讀；＋ 標記模糊／中等／很熟（本機保存）。',
         ]),
       ]),
-      card('字庫', [el('div', { className: 'toefl-toolbar' }, [scenarioSel, famSel, search]), meta, grid]),
+      card('字庫', [
+        el('div', { className: 'toefl-toolbar' }, [famSel, search]),
+        meta,
+        empty,
+        grid,
+        pager,
+      ]),
     ]);
   }
 

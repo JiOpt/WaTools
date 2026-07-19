@@ -189,13 +189,20 @@
   align-items: flex-start;
   margin-bottom: 0.2rem;
 }
-.wa-toefl .toefl-vocab-head strong { font-size: 1.05rem; }
+.wa-toefl .toefl-vocab-head strong { font-size: 1.05rem; line-height: 1.35; }
 .wa-toefl .toefl-vocab-word {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  min-width: 0;
+  flex: 1;
+}
+.wa-toefl .toefl-vocab-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
-  min-width: 0;
 }
 .wa-toefl .toefl-speak-btn,
 .wa-toefl .toefl-fam-btn {
@@ -250,6 +257,63 @@
   align-items: center;
 }
 .wa-toefl .toefl-toolbar .toefl-select { max-width: 240px; }
+.wa-toefl .toefl-level-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.65rem;
+}
+.wa-toefl .toefl-level-btn {
+  border: 1px solid var(--toefl-line);
+  background: #fff;
+  color: var(--toefl-ink);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wa-toefl .toefl-level-btn.is-on {
+  background: var(--toefl-accent);
+  border-color: var(--toefl-accent);
+  color: #fff;
+}
+.wa-toefl .toefl-scenario-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+  max-height: 9.5rem;
+  overflow: auto;
+  padding-bottom: 0.2rem;
+}
+.wa-toefl .toefl-scenario-chip {
+  border: 1px solid var(--toefl-line);
+  background: var(--toefl-soft);
+  color: var(--toefl-accent);
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wa-toefl .toefl-scenario-chip.is-on {
+  background: var(--toefl-accent);
+  border-color: var(--toefl-accent);
+  color: #fff;
+}
+.wa-toefl .toefl-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+.wa-toefl .toefl-chip-level {
+  background: #fff;
+  font-size: 0.72rem;
+}
 .wa-toefl .toefl-syn { color: var(--toefl-accent); font-size: 0.88rem; }
 .wa-toefl .toefl-ex { font-style: italic; color: #334155; }
 .wa-toefl .toefl-exzh { color: var(--toefl-muted); font-size: 0.88rem; }

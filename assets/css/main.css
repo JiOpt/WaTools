@@ -8434,6 +8434,19 @@ html[data-reduced-motion="true"] [data-aos] {
   margin-bottom: 0;
 }
 
+.legal-trademark-note {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legal-trademark-note small {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
+}
+
 .contact-topic-list {
   margin: 0;
   padding-left: 1.25rem;

@@ -35,10 +35,10 @@ window.WA_TOOLS_CATALOG = [
         "slug": "toeic-vocab",
         "title": "單字記憶工具",
         "icon": "bi-card-text",
-        "desc": "15 大商業情境×60 高頻字，附同義詞與例句。",
-        "seoTitle": "多益單字｜15 商業情境高頻字與同義詞 | Kawatool",
-        "seoDescription": "依財務、人事、差旅等 15 情境整理多益高頻單字，含同義詞替換與精簡例句，方便記憶與刷題。",
-        "seoKeywords": "多益單字,TOEIC vocabulary,商業英文,同義詞"
+        "desc": "約 7000 字：Level 1 高頻打底＋Level 2 十六專業情境（含銀行／旅宿），分頁載入。",
+        "seoTitle": "多益單字｜Level1／Level2 約7000字金色證書 | Kawatool",
+        "seoDescription": "多益單字約 7000：Level 1（550–750）與 Level 2（860+ 十六專業情境含銀行、旅宿），依情境分頁載入，含同義詞、朗讀與熟悉度。",
+        "seoKeywords": "多益單字,TOEIC vocabulary,金色證書,860分,商業英文"
       },
       {
         "slug": "toeic-listening",
@@ -159,10 +159,10 @@ window.WA_TOOLS_CATALOG = [
         "slug": "toefl-vocab",
         "title": "學術單字工具",
         "icon": "bi-card-text",
-        "desc": "15 大學術主題×60 高頻字，附同義詞與例句。",
-        "seoTitle": "托福單字｜15 學術主題高頻字與同義詞 | Kawatool",
-        "seoDescription": "依生物、歷史、心理等 15 主題整理托福學術高頻字，含同義改寫與精簡例句。",
-        "seoKeywords": "托福單字,TOEFL vocabulary,學術英文"
+        "desc": "約萬字：Level 1 學術基礎＋Level 2 AWL／學科進階，分頁載入。",
+        "seoTitle": "托福單字｜Level1／Level2 AWL約萬字衝120 | Kawatool",
+        "seoDescription": "托福學術單字約萬字：Level 1（80–100）與 Level 2（AWL＋生物天文歷史等進階），依主題分頁載入，含同義詞、朗讀與熟悉度。",
+        "seoKeywords": "托福單字,TOEFL vocabulary,AWL,學術英文,托福120"
       },
       {
         "slug": "toefl-listening",

@@ -1,0 +1,3039 @@
+/** TOEFL L2 chemistry-adv pool (506 entries) */
+export const chemistryAdv = [
+  [
+    "ab initio calculation",
+    "n.",
+    "從頭算計算",
+    "first-principles calculation"
+  ],
+  [
+    "activation energy",
+    "n.",
+    "活化能",
+    "Ea"
+  ],
+  [
+    "activation entropy",
+    "n.",
+    "活化熵",
+    "entropy of activation"
+  ],
+  [
+    "activation enthalpy",
+    "n.",
+    "活化焓",
+    "enthalpy of activation"
+  ],
+  [
+    "Arrhenius equation",
+    "n.",
+    "阿瑞尼斯方程式",
+    "rate constant equation"
+  ],
+  [
+    "Eyring equation",
+    "n.",
+    "艾林方程式",
+    "transition state equation"
+  ],
+  [
+    "transition state theory",
+    "n.",
+    "過渡態理論",
+    "TST"
+  ],
+  [
+    "collision theory",
+    "n.",
+    "碰撞理論",
+    "molecular collision model"
+  ],
+  [
+    "reaction coordinate",
+    "n.",
+    "反應座標",
+    "reaction pathway"
+  ],
+  [
+    "potential energy surface",
+    "n.",
+    "位能面",
+    "PES"
+  ],
+  [
+    "Gibbs free energy",
+    "n.",
+    "吉布斯自由能",
+    "G"
+  ],
+  [
+    "Helmholtz free energy",
+    "n.",
+    "亥姆霍茲自由能",
+    "A"
+  ],
+  [
+    "enthalpy of formation",
+    "n.",
+    "生成焓",
+    "heat of formation"
+  ],
+  [
+    "standard enthalpy",
+    "n.",
+    "標準焓",
+    "standard heat"
+  ],
+  [
+    "entropy change",
+    "n.",
+    "熵變",
+    "delta S"
+  ],
+  [
+    "chemical potential",
+    "n.",
+    "化學勢",
+    "mu"
+  ],
+  [
+    "fugacity",
+    "n.",
+    "逸度",
+    "effective pressure"
+  ],
+  [
+    "activity coefficient",
+    "n.",
+    "活性係數",
+    "non-ideality factor"
+  ],
+  [
+    "Raoult's law",
+    "n.",
+    "拉烏爾定律",
+    "vapor pressure law"
+  ],
+  [
+    "Henry's law",
+    "n.",
+    "亨利定律",
+    "gas solubility law"
+  ],
+  [
+    "van't Hoff equation",
+    "n.",
+    "范特霍夫方程式",
+    "equilibrium temperature relation"
+  ],
+  [
+    "Le Chatelier's principle",
+    "n.",
+    "勒夏特列原理",
+    "equilibrium shift"
+  ],
+  [
+    "thermodynamic equilibrium",
+    "n.",
+    "熱力學平衡",
+    "equilibrium state"
+  ],
+  [
+    "phase equilibrium",
+    "n.",
+    "相平衡",
+    "phase coexistence"
+  ],
+  [
+    "phase diagram",
+    "n.",
+    "相圖",
+    "phase map"
+  ],
+  [
+    "triple point",
+    "n.",
+    "三相點",
+    "three-phase point"
+  ],
+  [
+    "critical point",
+    "n.",
+    "臨界點",
+    "critical temperature point"
+  ],
+  [
+    "supercritical fluid",
+    "n.",
+    "超臨界流體",
+    "SCF"
+  ],
+  [
+    "colligative property",
+    "n.",
+    "依數性",
+    "concentration property"
+  ],
+  [
+    "osmotic pressure",
+    "n.",
+    "滲透壓",
+    "colligative pressure"
+  ],
+  [
+    "boiling point elevation",
+    "n.",
+    "沸點上升",
+    "BP elevation"
+  ],
+  [
+    "freezing point depression",
+    "n.",
+    "凝固點下降",
+    "FP depression"
+  ],
+  [
+    "partition coefficient",
+    "n.",
+    "分配係數",
+    "Kow"
+  ],
+  [
+    "distribution coefficient",
+    "n.",
+    "分布係數",
+    "distribution ratio"
+  ],
+  [
+    "solubility product",
+    "n.",
+    "溶度積",
+    "Ksp"
+  ],
+  [
+    "common ion effect",
+    "n.",
+    "同離子效應",
+    "shared ion suppression"
+  ],
+  [
+    "buffer capacity",
+    "n.",
+    "緩衝容量",
+    "buffer strength"
+  ],
+  [
+    "Henderson-Hasselbalch equation",
+    "n.",
+    "亨德森-哈塞爾巴赫方程式",
+    "buffer pH equation"
+  ],
+  [
+    "acid dissociation constant",
+    "n.",
+    "酸解離常數",
+    "Ka"
+  ],
+  [
+    "base dissociation constant",
+    "n.",
+    "鹼解離常數",
+    "Kb"
+  ],
+  [
+    "pKa",
+    "n.",
+    "酸度常數",
+    "log Ka"
+  ],
+  [
+    "pKb",
+    "n.",
+    "鹼度常數",
+    "log Kb"
+  ],
+  [
+    "isoelectric point",
+    "n.",
+    "等電點",
+    "pI"
+  ],
+  [
+    "zwitterion",
+    "n.",
+    "兩性離子",
+    "dipolar ion"
+  ],
+  [
+    "amphoteric",
+    "adj.",
+    "兩性的",
+    "amphiprotic"
+  ],
+  [
+    "conjugate acid-base pair",
+    "n.",
+    "共軛酸鹼對",
+    "conjugate pair"
+  ],
+  [
+    "Lewis acid",
+    "n.",
+    "路易斯酸",
+    "electron acceptor"
+  ],
+  [
+    "Lewis base",
+    "n.",
+    "路易斯鹼",
+    "electron donor"
+  ],
+  [
+    "Brønsted-Lowry acid",
+    "n.",
+    "布洛sted酸",
+    "proton donor"
+  ],
+  [
+    "Brønsted-Lowry base",
+    "n.",
+    "布洛sted鹼",
+    "proton acceptor"
+  ],
+  [
+    "hard-soft acid-base theory",
+    "n.",
+    "硬軟酸鹼理論",
+    "HSAB theory"
+  ],
+  [
+    "electronegativity",
+    "n.",
+    "電負度",
+    "electron attraction"
+  ],
+  [
+    "electropositivity",
+    "n.",
+    "電正度",
+    "electron donation tendency"
+  ],
+  [
+    "ionic bond",
+    "n.",
+    "離子鍵",
+    "electrostatic bond"
+  ],
+  [
+    "covalent bond",
+    "n.",
+    "共價鍵",
+    "shared electron bond"
+  ],
+  [
+    "metallic bond",
+    "n.",
+    "金屬鍵",
+    "delocalized electron bond"
+  ],
+  [
+    "coordinate bond",
+    "n.",
+    "配位鍵",
+    "dative bond"
+  ],
+  [
+    "hybridization",
+    "n.",
+    "混成",
+    "orbital hybridization"
+  ],
+  [
+    "sp3 hybridization",
+    "n.",
+    "sp3混成",
+    "tetrahedral hybridization"
+  ],
+  [
+    "sp2 hybridization",
+    "n.",
+    "sp2混成",
+    "trigonal hybridization"
+  ],
+  [
+    "sp hybridization",
+    "n.",
+    "sp混成",
+    "linear hybridization"
+  ],
+  [
+    "molecular orbital theory",
+    "n.",
+    "分子軌域理論",
+    "MO theory"
+  ],
+  [
+    "bond order",
+    "n.",
+    "鍵級",
+    "bond strength index"
+  ],
+  [
+    "antibonding orbital",
+    "n.",
+    "反鍵軌域",
+    "antibonding MO"
+  ],
+  [
+    "bonding orbital",
+    "n.",
+    "成鍵軌域",
+    "bonding MO"
+  ],
+  [
+    "Hückel theory",
+    "n.",
+    "休克尔理論",
+    "pi electron theory"
+  ],
+  [
+    "aromaticity",
+    "n.",
+    "芳香性",
+    "aromatic stability"
+  ],
+  [
+    "Hückel's rule",
+    "n.",
+    "休克尔規則",
+    "4n+2 rule"
+  ],
+  [
+    "resonance structure",
+    "n.",
+    "共振結構",
+    "mesomeric form"
+  ],
+  [
+    "mesomerism",
+    "n.",
+    "中介現象",
+    "resonance"
+  ],
+  [
+    "hyperconjugation",
+    "n.",
+    "超共軛",
+    "sigma-pi delocalization"
+  ],
+  [
+    "inductive effect",
+    "n.",
+    "誘導效應",
+    "through-bond polarization"
+  ],
+  [
+    "mesomeric effect",
+    "n.",
+    "共軛效應",
+    "resonance effect"
+  ],
+  [
+    "steric effect",
+    "n.",
+    "立體效應",
+    "spatial hindrance"
+  ],
+  [
+    "steric hindrance",
+    "n.",
+    "位阻",
+    "crowding effect"
+  ],
+  [
+    "tautomerism",
+    "n.",
+    "互變異構",
+    "tautomer equilibrium"
+  ],
+  [
+    "keto-enol tautomerism",
+    "n.",
+    "酮烯醇互變",
+    "keto-enol shift"
+  ],
+  [
+    "conformational analysis",
+    "n.",
+    "構象分析",
+    "conformer study"
+  ],
+  [
+    "conformer",
+    "n.",
+    "構象異構體",
+    "conformational isomer"
+  ],
+  [
+    "staggered conformation",
+    "n.",
+    "交叉構象",
+    "staggered form"
+  ],
+  [
+    "eclipsed conformation",
+    "n.",
+    "重疊構象",
+    "eclipsed form"
+  ],
+  [
+    "chair conformation",
+    "n.",
+    "椅型構象",
+    "cyclohexane chair"
+  ],
+  [
+    "boat conformation",
+    "n.",
+    "船型構象",
+    "cyclohexane boat"
+  ],
+  [
+    "axial position",
+    "n.",
+    "軸位",
+    "axial substituent"
+  ],
+  [
+    "equatorial position",
+    "n.",
+    " equatorial位",
+    "equatorial substituent"
+  ],
+  [
+    "chirality",
+    "n.",
+    "手性",
+    "handedness"
+  ],
+  [
+    "chiral center",
+    "n.",
+    "手性中心",
+    "stereocenter"
+  ],
+  [
+    "enantiomer",
+    "n.",
+    "對映異構體",
+    "mirror isomer"
+  ],
+  [
+    "diastereomer",
+    "n.",
+    "非對映異構體",
+    "non-mirror stereoisomer"
+  ],
+  [
+    "racemic mixture",
+    "n.",
+    "外消旋混合物",
+    "racemate"
+  ],
+  [
+    "optical activity",
+    "n.",
+    "旋光性",
+    "light rotation"
+  ],
+  [
+    "specific rotation",
+    "n.",
+    "比旋光度",
+    "optical rotation value"
+  ],
+  [
+    "R/S configuration",
+    "n.",
+    "R/S組態",
+    "CIP notation"
+  ],
+  [
+    "E/Z isomerism",
+    "n.",
+    "E/Z異構",
+    "geometric isomerism"
+  ],
+  [
+    "cis-trans isomerism",
+    "n.",
+    "順反異構",
+    "geometric isomerism"
+  ],
+  [
+    "conformational isomerism",
+    "n.",
+    "構象異構",
+    "conformational isomerism"
+  ],
+  [
+    "stereochemistry",
+    "n.",
+    "立體化學",
+    "3D chemistry"
+  ],
+  [
+    "stereoselectivity",
+    "n.",
+    "立體選擇性",
+    "stereo preference"
+  ],
+  [
+    "stereospecificity",
+    "n.",
+    "立體專一性",
+    "stereo-determined outcome"
+  ],
+  [
+    "regioselectivity",
+    "n.",
+    "區域選擇性",
+    "site preference"
+  ],
+  [
+    "chemoselectivity",
+    "n.",
+    "化學選擇性",
+    "functional group preference"
+  ],
+  [
+    "enantioselectivity",
+    "n.",
+    "對映選擇性",
+    "enantiomer preference"
+  ],
+  [
+    "diastereoselectivity",
+    "n.",
+    "非對映選擇性",
+    "diastereomer preference"
+  ],
+  [
+    "asymmetric synthesis",
+    "n.",
+    "不對稱合成",
+    "chiral synthesis"
+  ],
+  [
+    "chiral catalyst",
+    "n.",
+    "手性催化劑",
+    "asymmetric catalyst"
+  ],
+  [
+    "chiral auxiliary",
+    "n.",
+    "手性輔助基",
+    "chiral helper group"
+  ],
+  [
+    "organocatalysis",
+    "n.",
+    "有机催化",
+    "organic catalysis"
+  ],
+  [
+    "organometallic chemistry",
+    "n.",
+    "有机金屬化學",
+    "metal-carbon chemistry"
+  ],
+  [
+    "Grignard reagent",
+    "n.",
+    "格氏試劑",
+    "RMgX"
+  ],
+  [
+    "transition metal catalyst",
+    "n.",
+    "過渡金屬催化劑",
+    "TM catalyst"
+  ],
+  [
+    "cross-coupling reaction",
+    "n.",
+    "交叉偶聯反應",
+    "C-C coupling"
+  ],
+  [
+    "Suzuki coupling",
+    "n.",
+    "鈴木偶聯",
+    "Suzuki reaction"
+  ],
+  [
+    "Heck reaction",
+    "n.",
+    "Heck反應",
+    "olefin arylation"
+  ],
+  [
+    "Sonogashira coupling",
+    "n.",
+    "Sonogashira偶聯",
+    "alkyne coupling"
+  ],
+  [
+    "metathesis",
+    "n.",
+    "互換反應",
+    "olefin metathesis"
+  ],
+  [
+    "hydrogenation",
+    "n.",
+    "氫化",
+    "H2 addition"
+  ],
+  [
+    "dehydrogenation",
+    "n.",
+    "脫氫",
+    "H2 removal"
+  ],
+  [
+    "oxidation",
+    "n.",
+    "氧化",
+    "electron loss"
+  ],
+  [
+    "reduction",
+    "n.",
+    "還原",
+    "electron gain"
+  ],
+  [
+    "redox reaction",
+    "n.",
+    "氧化還原反應",
+    "electron transfer"
+  ],
+  [
+    "oxidizing agent",
+    "n.",
+    "氧化劑",
+    "oxidant"
+  ],
+  [
+    "reducing agent",
+    "n.",
+    "還原劑",
+    "reductant"
+  ],
+  [
+    "electrochemical cell",
+    "n.",
+    "電化學電池",
+    "galvanic cell"
+  ],
+  [
+    "electrolytic cell",
+    "n.",
+    "電解池",
+    "electrolysis cell"
+  ],
+  [
+    "Nernst equation",
+    "n.",
+    "能斯特方程式",
+    "electrode potential equation"
+  ],
+  [
+    "standard electrode potential",
+    "n.",
+    "標準電極電位",
+    "E0"
+  ],
+  [
+    "overpotential",
+    "n.",
+    "過電位",
+    "extra potential"
+  ],
+  [
+    "Butler-Volmer equation",
+    "n.",
+    "Butler-Volmer方程式",
+    "electrode kinetics"
+  ],
+  [
+    "corrosion",
+    "n.",
+    "腐蝕",
+    "electrochemical degradation"
+  ],
+  [
+    "passivation",
+    "n.",
+    "鈍化",
+    "surface passivation"
+  ],
+  [
+    "cyclic voltammetry",
+    "n.",
+    "循環伏安法",
+    "CV"
+  ],
+  [
+    "potentiometry",
+    "n.",
+    "電位法",
+    "potential measurement"
+  ],
+  [
+    "conductometry",
+    "n.",
+    "電導法",
+    "conductivity measurement"
+  ],
+  [
+    "amperometry",
+    "n.",
+    "安培法",
+    "current measurement"
+  ],
+  [
+    "coulometry",
+    "n.",
+    "電量法",
+    "charge measurement"
+  ],
+  [
+    "electrogravimetry",
+    "n.",
+    "電重量法",
+    "electrolytic gravimetry"
+  ],
+  [
+    "ion selective electrode",
+    "n.",
+    "離子選擇電極",
+    "ISE"
+  ],
+  [
+    "reference electrode",
+    "n.",
+    "參考電極",
+    "reference half-cell"
+  ],
+  [
+    "working electrode",
+    "n.",
+    "工作電極",
+    "analytical electrode"
+  ],
+  [
+    "spectroscopy",
+    "n.",
+    "光譜學",
+    "spectral analysis"
+  ],
+  [
+    "UV-Vis spectroscopy",
+    "n.",
+    "紫外可見光譜",
+    "electronic spectroscopy"
+  ],
+  [
+    "infrared spectroscopy",
+    "n.",
+    "紅外光譜",
+    "IR spectroscopy"
+  ],
+  [
+    "Raman spectroscopy",
+    "n.",
+    "拉曼光譜",
+    "vibrational spectroscopy"
+  ],
+  [
+    "nuclear magnetic resonance",
+    "n.",
+    "核磁共振",
+    "NMR"
+  ],
+  [
+    "chemical shift",
+    "n.",
+    "化學位移",
+    "NMR shift"
+  ],
+  [
+    "spin-spin coupling",
+    "n.",
+    "自旋偶合",
+    "J coupling"
+  ],
+  [
+    "mass spectrometry",
+    "n.",
+    "質譜",
+    "MS"
+  ],
+  [
+    "electron ionization",
+    "n.",
+    "電子游離",
+    "EI"
+  ],
+  [
+    "electrospray ionization",
+    "n.",
+    "電噴游離",
+    "ESI"
+  ],
+  [
+    "matrix-assisted laser desorption",
+    "n.",
+    "基質輔助雷射脫附",
+    "MALDI"
+  ],
+  [
+    "tandem mass spectrometry",
+    "n.",
+    "串聯質譜",
+    "MS/MS"
+  ],
+  [
+    "chromatography",
+    "n.",
+    "層析法",
+    "separation technique"
+  ],
+  [
+    "gas chromatography",
+    "n.",
+    "氣相層析",
+    "GC"
+  ],
+  [
+    "liquid chromatography",
+    "n.",
+    "液相層析",
+    "LC"
+  ],
+  [
+    "high-performance liquid chromatography",
+    "n.",
+    "高效液相層析",
+    "HPLC"
+  ],
+  [
+    "thin-layer chromatography",
+    "n.",
+    "薄層層析",
+    "TLC"
+  ],
+  [
+    "ion chromatography",
+    "n.",
+    "離子層析",
+    "IC"
+  ],
+  [
+    "size exclusion chromatography",
+    "n.",
+    "尺寸排阻層析",
+    "SEC"
+  ],
+  [
+    "affinity chromatography",
+    "n.",
+    "親和層析",
+    "affinity separation"
+  ],
+  [
+    "retention time",
+    "n.",
+    "滯留時間",
+    "elution time"
+  ],
+  [
+    "mobile phase",
+    "n.",
+    "流動相",
+    "eluent"
+  ],
+  [
+    "stationary phase",
+    "n.",
+    "固定相",
+    "column phase"
+  ],
+  [
+    "calibration curve",
+    "n.",
+    "檢量線",
+    "standard curve"
+  ],
+  [
+    "Beer-Lambert law",
+    "n.",
+    "Beer-Lambert定律",
+    "absorbance law"
+  ],
+  [
+    "molar absorptivity",
+    "n.",
+    "莫耳吸光係數",
+    "extinction coefficient"
+  ],
+  [
+    "limit of detection",
+    "n.",
+    "偵測極限",
+    "LOD"
+  ],
+  [
+    "limit of quantification",
+    "n.",
+    "定量極限",
+    "LOQ"
+  ],
+  [
+    "signal-to-noise ratio",
+    "n.",
+    "訊雜比",
+    "SNR"
+  ],
+  [
+    "internal standard",
+    "n.",
+    "內標準品",
+    "IS"
+  ],
+  [
+    "external standard",
+    "n.",
+    "外標準品",
+    "ES"
+  ],
+  [
+    "isotope dilution",
+    "n.",
+    "同位素稀釋",
+    "isotopic dilution"
+  ],
+  [
+    "gravimetric analysis",
+    "n.",
+    "重量分析",
+    "mass-based analysis"
+  ],
+  [
+    "volumetric analysis",
+    "n.",
+    "容量分析",
+    "titration analysis"
+  ],
+  [
+    "titrimetry",
+    "n.",
+    "滴定分析",
+    "titration method"
+  ],
+  [
+    "equivalence point",
+    "n.",
+    "當量點",
+    "stoichiometric point"
+  ],
+  [
+    "endpoint",
+    "n.",
+    "終點",
+    "indicator point"
+  ],
+  [
+    "indicator",
+    "n.",
+    "指示劑",
+    "titration indicator"
+  ],
+  [
+    "complexometric titration",
+    "n.",
+    "配位滴定",
+    "complexation titration"
+  ],
+  [
+    "redox titration",
+    "n.",
+    "氧化還原滴定",
+    "redox titration"
+  ],
+  [
+    "precipitation titration",
+    "n.",
+    "沉澱滴定",
+    "precipitation titration"
+  ],
+  [
+    "kinetic analysis",
+    "n.",
+    "動力學分析",
+    "rate study"
+  ],
+  [
+    "reaction rate",
+    "n.",
+    "反應速率",
+    "rate of reaction"
+  ],
+  [
+    "rate constant",
+    "n.",
+    "速率常數",
+    "k"
+  ],
+  [
+    "rate law",
+    "n.",
+    "速率定律",
+    "rate equation"
+  ],
+  [
+    "order of reaction",
+    "n.",
+    "反應級數",
+    "reaction order"
+  ],
+  [
+    "half-life",
+    "n.",
+    "半衰期",
+    "t1/2"
+  ],
+  [
+    "catalysis",
+    "n.",
+    "催化",
+    "catalyst action"
+  ],
+  [
+    "heterogeneous catalysis",
+    "n.",
+    "多相催化",
+    "surface catalysis"
+  ],
+  [
+    "homogeneous catalysis",
+    "n.",
+    "均相催化",
+    "solution catalysis"
+  ],
+  [
+    "enzyme catalysis",
+    "n.",
+    "酶催化",
+    "biocatalysis"
+  ],
+  [
+    "autocatalysis",
+    "n.",
+    "自催化",
+    "self-catalysis"
+  ],
+  [
+    "inhibitor",
+    "n.",
+    "抑制劑",
+    "reaction inhibitor"
+  ],
+  [
+    "competitive inhibition",
+    "n.",
+    "競爭性抑制",
+    "competitive inhibitor"
+  ],
+  [
+    "noncompetitive inhibition",
+    "n.",
+    "非競爭性抑制",
+    "noncompetitive inhibitor"
+  ],
+  [
+    "Michaelis-Menten kinetics",
+    "n.",
+    "Michaelis-Menten動力學",
+    "enzyme kinetics"
+  ],
+  [
+    "steady state approximation",
+    "n.",
+    "穩態近似",
+    "steady state"
+  ],
+  [
+    "chain reaction",
+    "n.",
+    "連鎖反應",
+    "radical chain"
+  ],
+  [
+    "free radical",
+    "n.",
+    "自由基",
+    "radical species"
+  ],
+  [
+    "radical initiator",
+    "n.",
+    "自由基起始劑",
+    "initiator"
+  ],
+  [
+    "polymerization",
+    "n.",
+    "聚合",
+    "polymer formation"
+  ],
+  [
+    "addition polymerization",
+    "n.",
+    "加成聚合",
+    "chain growth"
+  ],
+  [
+    "condensation polymerization",
+    "n.",
+    "縮合聚合",
+    "step growth"
+  ],
+  [
+    "copolymerization",
+    "n.",
+    "共聚合",
+    "multi-monomer polymerization"
+  ],
+  [
+    "degree of polymerization",
+    "n.",
+    "聚合度",
+    "DP"
+  ],
+  [
+    "monomer",
+    "n.",
+    "單體",
+    "repeat unit precursor"
+  ],
+  [
+    "oligomer",
+    "n.",
+    "寡聚物",
+    "short polymer"
+  ],
+  [
+    "macromolecule",
+    "n.",
+    "巨分子",
+    "large molecule"
+  ],
+  [
+    "biopolymer",
+    "n.",
+    "生物高分子",
+    "biological polymer"
+  ],
+  [
+    "protein folding",
+    "n.",
+    "蛋白質摺疊",
+    "tertiary structure formation"
+  ],
+  [
+    "denaturation",
+    "n.",
+    "變性",
+    "structure unfolding"
+  ],
+  [
+    "colloid",
+    "n.",
+    "膠體",
+    "dispersed system"
+  ],
+  [
+    "emulsion",
+    "n.",
+    "乳濁液",
+    "liquid dispersion"
+  ],
+  [
+    "micelle",
+    "n.",
+    "微胞",
+    "surfactant aggregate"
+  ],
+  [
+    "surface tension",
+    "n.",
+    "表面張力",
+    "interfacial tension"
+  ],
+  [
+    "surfactant",
+    "n.",
+    "界面活性劑",
+    "surface-active agent"
+  ],
+  [
+    "adsorption",
+    "n.",
+    "吸附",
+    "surface accumulation"
+  ],
+  [
+    "desorption",
+    "n.",
+    "脫附",
+    "surface release"
+  ],
+  [
+    "Langmuir isotherm",
+    "n.",
+    "Langmuir等溫線",
+    "monolayer adsorption"
+  ],
+  [
+    "BET isotherm",
+    "n.",
+    "BET等溫線",
+    "multilayer adsorption"
+  ],
+  [
+    "catalytic surface",
+    "n.",
+    "催化表面",
+    "active surface"
+  ],
+  [
+    "nanoparticle",
+    "n.",
+    "奈米粒子",
+    "nanoscale particle"
+  ],
+  [
+    "nanomaterial",
+    "n.",
+    "奈米材料",
+    "nano-scale material"
+  ],
+  [
+    "quantum dot",
+    "n.",
+    "量子點",
+    "semiconductor nanocrystal"
+  ],
+  [
+    "photochemistry",
+    "n.",
+    "光化學",
+    "light-driven chemistry"
+  ],
+  [
+    "photolysis",
+    "n.",
+    "光解",
+    "light decomposition"
+  ],
+  [
+    "fluorescence",
+    "n.",
+    "螢光",
+    "light emission"
+  ],
+  [
+    "phosphorescence",
+    "n.",
+    "磷光",
+    "delayed emission"
+  ],
+  [
+    "chemiluminescence",
+    "n.",
+    "化學發光",
+    "reaction luminescence"
+  ],
+  [
+    "quenching",
+    "n.",
+    "猝滅",
+    "fluorescence suppression"
+  ],
+  [
+    "Franck-Condon principle",
+    "n.",
+    "Franck-Condon原理",
+    "vibronic transition"
+  ],
+  [
+    "Jablonski diagram",
+    "n.",
+    "Jablonski圖",
+    "excited state diagram"
+  ],
+  [
+    "intersystem crossing",
+    "n.",
+    "系間窜越",
+    "ISC"
+  ],
+  [
+    "singlet state",
+    "n.",
+    "單重態",
+    "S state"
+  ],
+  [
+    "triplet state",
+    "n.",
+    "三重態",
+    "T state"
+  ],
+  [
+    "electrocyclic reaction",
+    "n.",
+    "電環化反應",
+    "pericyclic reaction"
+  ],
+  [
+    "cycloaddition",
+    "n.",
+    "環加成",
+    "pericyclic cyclization"
+  ],
+  [
+    "Diels-Alder reaction",
+    "n.",
+    "Diels-Alder反應",
+    "cycloaddition reaction"
+  ],
+  [
+    "sigmatropic rearrangement",
+    "n.",
+    "σ遷移重排",
+    "sigmatropic shift"
+  ],
+  [
+    "pericyclic reaction",
+    "n.",
+    "周環反應",
+    "concerted cyclic reaction"
+  ],
+  [
+    "frontier molecular orbital",
+    "n.",
+    "邊界分子軌域",
+    "FMO"
+  ],
+  [
+    "Woodward-Hoffmann rules",
+    "n.",
+    "Woodward-Hoffmann規則",
+    "symmetry rules"
+  ],
+  [
+    "SN1 mechanism",
+    "n.",
+    "SN1機制",
+    "unimolecular substitution"
+  ],
+  [
+    "SN2 mechanism",
+    "n.",
+    "SN2機制",
+    "bimolecular substitution"
+  ],
+  [
+    "E1 mechanism",
+    "n.",
+    "E1機制",
+    "unimolecular elimination"
+  ],
+  [
+    "E2 mechanism",
+    "n.",
+    "E2機制",
+    "bimolecular elimination"
+  ],
+  [
+    "nucleophile",
+    "n.",
+    "親核試劑",
+    "electron donor reagent"
+  ],
+  [
+    "electrophile",
+    "n.",
+    "親電試劑",
+    "electron acceptor reagent"
+  ],
+  [
+    "leaving group",
+    "n.",
+    "離去基",
+    "departing group"
+  ],
+  [
+    "carbocation",
+    "n.",
+    "碳正離子",
+    "carbon cation"
+  ],
+  [
+    "carbanion",
+    "n.",
+    "碳負離子",
+    "carbon anion"
+  ],
+  [
+    "carbene",
+    "n.",
+    "卡賓",
+    "divalent carbon"
+  ],
+  [
+    "nitrene",
+    "n.",
+    "氮烯",
+    "monovalent nitrogen"
+  ],
+  [
+    "ylide",
+    "n.",
+    "ylide",
+    "charge-separated species"
+  ],
+  [
+    "Wittig reaction",
+    "n.",
+    "Wittig反應",
+    "olefin synthesis"
+  ],
+  [
+    "Aldol reaction",
+    "n.",
+    "羥醛反應",
+    "aldol condensation"
+  ],
+  [
+    "Claisen condensation",
+    "n.",
+    "Claisen縮合",
+    "ester condensation"
+  ],
+  [
+    "Friedel-Crafts alkylation",
+    "n.",
+    "Friedel-Crafts烷化",
+    "aromatic alkylation"
+  ],
+  [
+    "Friedel-Crafts acylation",
+    "n.",
+    "Friedel-Crafts醯化",
+    "aromatic acylation"
+  ],
+  [
+    "electrophilic aromatic substitution",
+    "n.",
+    "親電芳香取代",
+    "EAS"
+  ],
+  [
+    "nucleophilic aromatic substitution",
+    "n.",
+    "親核芳香取代",
+    "NAS"
+  ],
+  [
+    "acylation",
+    "n.",
+    "醯化",
+    "acyl addition"
+  ],
+  [
+    "alkylation",
+    "n.",
+    "烷化",
+    "alkyl addition"
+  ],
+  [
+    "halogenation",
+    "n.",
+    "鹵化",
+    "halogen addition"
+  ],
+  [
+    "nitration",
+    "n.",
+    "硝化",
+    "nitro group addition"
+  ],
+  [
+    "sulfonation",
+    "n.",
+    "磺化",
+    "sulfonic group addition"
+  ],
+  [
+    "hydration",
+    "n.",
+    "水合",
+    "water addition"
+  ],
+  [
+    "dehydration",
+    "n.",
+    "脫水",
+    "water elimination"
+  ],
+  [
+    "hydrolysis",
+    "n.",
+    "水解",
+    "water cleavage"
+  ],
+  [
+    "saponification",
+    "n.",
+    "皂化",
+    "base hydrolysis of ester"
+  ],
+  [
+    "esterification",
+    "n.",
+    "酯化",
+    "ester formation"
+  ],
+  [
+    "transesterification",
+    "n.",
+    "酯交換",
+    "ester exchange"
+  ],
+  [
+    "amidation",
+    "n.",
+    "醯胺化",
+    "amide formation"
+  ],
+  [
+    "decarboxylation",
+    "n.",
+    "脫羧",
+    "CO2 elimination"
+  ],
+  [
+    "carboxylation",
+    "n.",
+    "羧化",
+    "CO2 addition"
+  ],
+  [
+    "isomerization",
+    "n.",
+    "異構化",
+    "isomer conversion"
+  ],
+  [
+    "rearrangement",
+    "n.",
+    "重排",
+    "structural rearrangement"
+  ],
+  [
+    "pinacol rearrangement",
+    "n.",
+    "Pinacol重排",
+    "diol rearrangement"
+  ],
+  [
+    "Beckmann rearrangement",
+    "n.",
+    "Beckmann重排",
+    "oxime rearrangement"
+  ],
+  [
+    "Baeyer-Villiger oxidation",
+    "n.",
+    "Baeyer-Villiger氧化",
+    "ketone oxidation"
+  ],
+  [
+    "Cannizzaro reaction",
+    "n.",
+    "Cannizzaro反應",
+    "disproportionation"
+  ],
+  [
+    "Grignard addition",
+    "n.",
+    "格氏加成",
+    "nucleophilic addition"
+  ],
+  [
+    "aldol condensation",
+    "n.",
+    "羥醛縮合",
+    "carbonyl condensation"
+  ],
+  [
+    "Michael addition",
+    "n.",
+    "Michael加成",
+    "conjugate addition"
+  ],
+  [
+    "Robinson annulation",
+    "n.",
+    "Robinson環化",
+    "ring formation"
+  ],
+  [
+    "protecting group",
+    "n.",
+    "保護基",
+    "functional group protection"
+  ],
+  [
+    "deprotection",
+    "n.",
+    "去保護",
+    "protecting group removal"
+  ],
+  [
+    "green chemistry",
+    "n.",
+    "綠色化學",
+    "sustainable chemistry"
+  ],
+  [
+    "atom economy",
+    "n.",
+    "原子經濟",
+    "atom utilization"
+  ],
+  [
+    "E-factor",
+    "n.",
+    "E因子",
+    "waste metric"
+  ],
+  [
+    "solvent-free synthesis",
+    "n.",
+    "無溶劑合成",
+    "neat synthesis"
+  ],
+  [
+    "ionic liquid",
+    "n.",
+    "離子液體",
+    "molten salt solvent"
+  ],
+  [
+    "supercritical CO2",
+    "n.",
+    "超臨界二氧化碳",
+    "scCO2 solvent"
+  ],
+  [
+    "flow chemistry",
+    "n.",
+    "連續流化學",
+    "continuous flow synthesis"
+  ],
+  [
+    "microreactor",
+    "n.",
+    "微反應器",
+    "microscale reactor"
+  ],
+  [
+    "process chemistry",
+    "n.",
+    "製程化學",
+    "scale-up chemistry"
+  ],
+  [
+    "yield",
+    "n.",
+    "產率",
+    "reaction yield"
+  ],
+  [
+    "selectivity",
+    "n.",
+    "選擇性",
+    "product preference"
+  ],
+  [
+    "conversion",
+    "n.",
+    "轉化率",
+    "reactant conversion"
+  ],
+  [
+    "turnover frequency",
+    "n.",
+    "轉換頻率",
+    "TOF"
+  ],
+  [
+    "turnover number",
+    "n.",
+    "轉換數",
+    "TON"
+  ],
+  [
+    "coordination chemistry",
+    "n.",
+    "配位化學",
+    "complex chemistry"
+  ],
+  [
+    "ligand",
+    "n.",
+    "配體",
+    "coordinating molecule"
+  ],
+  [
+    "chelating agent",
+    "n.",
+    "螯合劑",
+    "multidentate ligand"
+  ],
+  [
+    "coordination number",
+    "n.",
+    "配位數",
+    "CN"
+  ],
+  [
+    "crystal field theory",
+    "n.",
+    "晶場理論",
+    "CFT"
+  ],
+  [
+    "ligand field theory",
+    "n.",
+    "配體場理論",
+    "LFT"
+  ],
+  [
+    "spectrochemical series",
+    "n.",
+    "光譜化序",
+    "ligand field strength"
+  ],
+  [
+    "high-spin complex",
+    "n.",
+    "高自旋錯合物",
+    "weak field complex"
+  ],
+  [
+    "low-spin complex",
+    "n.",
+    "低自旋錯合物",
+    "strong field complex"
+  ],
+  [
+    "magnetic susceptibility",
+    "n.",
+    "磁化率",
+    "magnetic response"
+  ],
+  [
+    "paramagnetism",
+    "n.",
+    "順磁性",
+    "unpaired electron magnetism"
+  ],
+  [
+    "diamagnetism",
+    "n.",
+    "抗磁性",
+    "paired electron magnetism"
+  ],
+  [
+    "spectroscopic selection rule",
+    "n.",
+    "光譜選擇定則",
+    "transition rule"
+  ],
+  [
+    "Laporte rule",
+    "n.",
+    "Laporte定則",
+    "parity selection rule"
+  ],
+  [
+    "spin selection rule",
+    "n.",
+    "自旋選擇定則",
+    "spin conservation"
+  ],
+  [
+    "inorganic chemistry",
+    "n.",
+    "無機化學",
+    "non-organic chemistry"
+  ],
+  [
+    "organometallic compound",
+    "n.",
+    "有机金屬化合物",
+    "metal-carbon compound"
+  ],
+  [
+    "cluster compound",
+    "n.",
+    "叢集化合物",
+    "metal cluster"
+  ],
+  [
+    "bioinorganic chemistry",
+    "n.",
+    "生物無機化學",
+    "metals in biology"
+  ],
+  [
+    "solid state chemistry",
+    "n.",
+    "固態化學",
+    "solid materials chemistry"
+  ],
+  [
+    "crystallography",
+    "n.",
+    "晶體學",
+    "crystal structure study"
+  ],
+  [
+    "unit cell",
+    "n.",
+    "單位晶格",
+    "crystal unit"
+  ],
+  [
+    "space group",
+    "n.",
+    "空間群",
+    "symmetry group"
+  ],
+  [
+    "Bragg's law",
+    "n.",
+    "布拉格定律",
+    "diffraction law"
+  ],
+  [
+    "X-ray diffraction",
+    "n.",
+    "X射線繞射",
+    "XRD"
+  ],
+  [
+    "powder diffraction",
+    "n.",
+    "粉末繞射",
+    "PXRD"
+  ],
+  [
+    "single crystal diffraction",
+    "n.",
+    "單晶繞射",
+    "SCXRD"
+  ],
+  [
+    "amorphous solid",
+    "n.",
+    "非晶質固體",
+    "non-crystalline solid"
+  ],
+  [
+    "polymorph",
+    "n.",
+    "多晶型",
+    "crystal form variant"
+  ],
+  [
+    "hydrate",
+    "n.",
+    "水合物",
+    "water-containing crystal"
+  ],
+  [
+    "solvate",
+    "n.",
+    "溶劑合物",
+    "solvent-containing crystal"
+  ],
+  [
+    "eutectic mixture",
+    "n.",
+    "共晶混合物",
+    "eutectic composition"
+  ],
+  [
+    "phase transition",
+    "n.",
+    "相變",
+    "phase change"
+  ],
+  [
+    "glass transition",
+    "n.",
+    "玻璃轉化",
+    "Tg"
+  ],
+  [
+    "calorimetry",
+    "n.",
+    "量熱法",
+    "heat measurement"
+  ],
+  [
+    "differential scanning calorimetry",
+    "n.",
+    "差示掃描量熱",
+    "DSC"
+  ],
+  [
+    "thermogravimetric analysis",
+    "n.",
+    "熱重分析",
+    "TGA"
+  ],
+  [
+    "isothermal titration calorimetry",
+    "n.",
+    "等溫滴定量熱",
+    "ITC"
+  ],
+  [
+    "computational chemistry",
+    "n.",
+    "計算化學",
+    "computer modeling"
+  ],
+  [
+    "density functional theory",
+    "n.",
+    "密度泛函理論",
+    "DFT"
+  ],
+  [
+    "Hartree-Fock method",
+    "n.",
+    "Hartree-Fock方法",
+    "HF method"
+  ],
+  [
+    "molecular dynamics",
+    "n.",
+    "分子動力學",
+    "MD simulation"
+  ],
+  [
+    "Monte Carlo simulation",
+    "n.",
+    "蒙地卡羅模擬",
+    "MC simulation"
+  ],
+  [
+    "quantum chemistry",
+    "n.",
+    "量子化學",
+    "quantum mechanical chemistry"
+  ],
+  [
+    "wave function",
+    "n.",
+    "波函數",
+    "quantum state"
+  ],
+  [
+    "Schrödinger equation",
+    "n.",
+    "薛丁格方程式",
+    "quantum equation"
+  ],
+  [
+    "Born-Oppenheimer approximation",
+    "n.",
+    "Born-Oppenheimer近似",
+    "BO approximation"
+  ],
+  [
+    "perturbation theory",
+    "n.",
+    "微擾理論",
+    "quantum perturbation"
+  ],
+  [
+    "variational principle",
+    "n.",
+    "變分原理",
+    "energy minimization"
+  ],
+  [
+    "basis set",
+    "n.",
+    "基組",
+    "atomic orbital set"
+  ],
+  [
+    "electron correlation",
+    "n.",
+    "電子相關",
+    "electron interaction"
+  ],
+  [
+    "exchange interaction",
+    "n.",
+    "交換作用",
+    "electron exchange"
+  ],
+  [
+    "van der Waals force",
+    "n.",
+    "范德華力",
+    "intermolecular force"
+  ],
+  [
+    "hydrogen bonding",
+    "n.",
+    "氫鍵",
+    "H-bond"
+  ],
+  [
+    "London dispersion force",
+    "n.",
+    "倫敦色散力",
+    "dispersion force"
+  ],
+  [
+    "dipole-dipole interaction",
+    "n.",
+    "偶極-偶極作用",
+    "dipolar interaction"
+  ],
+  [
+    "intermolecular force",
+    "n.",
+    "分子間作用力",
+    "IMF"
+  ],
+  [
+    "ionic strength",
+    "n.",
+    "離子強度",
+    "solution ionic strength"
+  ],
+  [
+    "Debye-Hückel theory",
+    "n.",
+    "Debye-Hückel理論",
+    "electrolyte theory"
+  ],
+  [
+    "activity",
+    "n.",
+    "活性",
+    "thermodynamic activity"
+  ],
+  [
+    "ideal solution",
+    "n.",
+    "理想溶液",
+    "Raoult ideal solution"
+  ],
+  [
+    "nonideal solution",
+    "n.",
+    "非理想溶液",
+    "real solution"
+  ],
+  [
+    "azeotrope",
+    "n.",
+    "共沸物",
+    "constant-boiling mixture"
+  ],
+  [
+    "distillation",
+    "n.",
+    "蒸餾",
+    "separation by boiling"
+  ],
+  [
+    "fractional distillation",
+    "n.",
+    "分餾",
+    "multi-stage distillation"
+  ],
+  [
+    "extraction",
+    "n.",
+    "萃取",
+    "liquid-liquid extraction"
+  ],
+  [
+    "recrystallization",
+    "n.",
+    "再結晶",
+    "purification by crystallization"
+  ],
+  [
+    "sublimation",
+    "n.",
+    "昇華",
+    "solid to gas"
+  ],
+  [
+    "lyophilization",
+    "n.",
+    "冷凍乾燥",
+    "freeze drying"
+  ],
+  [
+    "electrophoresis",
+    "n.",
+    "電泳",
+    "charged particle separation"
+  ],
+  [
+    "centrifugation",
+    "n.",
+    "離心",
+    "density separation"
+  ],
+  [
+    "ultracentrifugation",
+    "n.",
+    "超離心",
+    "high-speed centrifugation"
+  ],
+  [
+    "mass balance",
+    "n.",
+    "質量平衡",
+    "material balance"
+  ],
+  [
+    "stoichiometry",
+    "n.",
+    "化學計量",
+    "reaction proportions"
+  ],
+  [
+    "limiting reagent",
+    "n.",
+    "限制試劑",
+    "limiting reactant"
+  ],
+  [
+    "excess reagent",
+    "n.",
+    "過量試劑",
+    "excess reactant"
+  ],
+  [
+    "theoretical yield",
+    "n.",
+    "理論產量",
+    "calculated yield"
+  ],
+  [
+    "percent yield",
+    "n.",
+    "百分產率",
+    "actual/theoretical yield"
+  ],
+  [
+    "mole fraction",
+    "n.",
+    "莫耳分率",
+    "molar fraction"
+  ],
+  [
+    "molality",
+    "n.",
+    "重量莫耳濃度",
+    "mol/kg"
+  ],
+  [
+    "molarity",
+    "n.",
+    "體積莫耳濃度",
+    "mol/L"
+  ],
+  [
+    "normality",
+    "n.",
+    "當量濃度",
+    "equivalents per liter"
+  ],
+  [
+    "parts per million",
+    "n.",
+    "百萬分率",
+    "ppm"
+  ],
+  [
+    "standard solution",
+    "n.",
+    "標準溶液",
+    "known concentration solution"
+  ],
+  [
+    "primary standard",
+    "n.",
+    "一級標準品",
+    "high purity standard"
+  ],
+  [
+    "secondary standard",
+    "n.",
+    "二級標準品",
+    "calibrated standard"
+  ],
+  [
+    "blank correction",
+    "n.",
+    "空白校正",
+    "blank subtraction"
+  ],
+  [
+    "systematic error",
+    "n.",
+    "系統誤差",
+    "bias error"
+  ],
+  [
+    "random error",
+    "n.",
+    "隨機誤差",
+    "precision error"
+  ],
+  [
+    "precision",
+    "n.",
+    "精密度",
+    "repeatability"
+  ],
+  [
+    "accuracy",
+    "n.",
+    "準確度",
+    "correctness"
+  ],
+  [
+    "confidence interval",
+    "n.",
+    "信賴區間",
+    "CI"
+  ],
+  [
+    "standard deviation",
+    "n.",
+    "標準差",
+    "SD"
+  ],
+  [
+    "relative standard deviation",
+    "n.",
+    "相對標準差",
+    "RSD"
+  ],
+  [
+    "quality control",
+    "n.",
+    "品質管制",
+    "QC"
+  ],
+  [
+    "method validation",
+    "n.",
+    "方法驗證",
+    "analytical validation"
+  ],
+  [
+    "robustness",
+    "n.",
+    "耐用性",
+    "method robustness"
+  ],
+  [
+    "ruggedness",
+    "n.",
+    " ruggedness",
+    "inter-lab reproducibility"
+  ],
+  [
+    "speciation analysis",
+    "n.",
+    "物種分析",
+    "chemical form analysis"
+  ],
+  [
+    "trace analysis",
+    "n.",
+    "痕量分析",
+    "ultra-trace measurement"
+  ],
+  [
+    "environmental chemistry",
+    "n.",
+    "環境化學",
+    "environmental analysis"
+  ],
+  [
+    "atmospheric chemistry",
+    "n.",
+    "大氣化學",
+    "air chemistry"
+  ],
+  [
+    "aquatic chemistry",
+    "n.",
+    "水化學",
+    "water chemistry"
+  ],
+  [
+    "soil chemistry",
+    "n.",
+    "土壤化學",
+    "soil analysis"
+  ],
+  [
+    "geochemistry",
+    "n.",
+    "地球化學",
+    "earth chemistry"
+  ],
+  [
+    "radiochemistry",
+    "n.",
+    "放射化學",
+    "radioactive chemistry"
+  ],
+  [
+    "isotope",
+    "n.",
+    "同位素",
+    "isotopic variant"
+  ],
+  [
+    "radioactive decay",
+    "n.",
+    "放射性衰變",
+    "nuclear decay"
+  ],
+  [
+    "half-life radioactive",
+    "n.",
+    "放射性半衰期",
+    "decay half-life"
+  ],
+  [
+    "radiometric dating",
+    "n.",
+    "放射定年",
+    "isotopic dating"
+  ],
+  [
+    "mass spectrometry imaging",
+    "n.",
+    "質譜成像",
+    "MSI"
+  ],
+  [
+    "electrospray",
+    "n.",
+    "電噴",
+    "ESI source"
+  ],
+  [
+    "atmospheric pressure ionization",
+    "n.",
+    "大氣壓游離",
+    "API"
+  ],
+  [
+    "collision-induced dissociation",
+    "n.",
+    "碰撞誘導解離",
+    "CID"
+  ],
+  [
+    "electron capture dissociation",
+    "n.",
+    "電子捕獲解離",
+    "ECD"
+  ],
+  [
+    "infrared spectroscopy imaging",
+    "n.",
+    "紅外成像",
+    "IR imaging"
+  ],
+  [
+    "Raman mapping",
+    "n.",
+    "拉曼映射",
+    "Raman imaging"
+  ],
+  [
+    "chemometrics",
+    "n.",
+    "化學計量學",
+    "multivariate analysis"
+  ],
+  [
+    "principal component analysis",
+    "n.",
+    "主成分分析",
+    "PCA"
+  ],
+  [
+    "partial least squares",
+    "n.",
+    "偏最小平方",
+    "PLS"
+  ],
+  [
+    "multivariate calibration",
+    "n.",
+    "多變量校正",
+    "MVC"
+  ],
+  [
+    "sensor",
+    "n.",
+    "感測器",
+    "chemical sensor"
+  ],
+  [
+    "biosensor",
+    "n.",
+    "生物感測器",
+    "biological sensor"
+  ],
+  [
+    "electrochemical sensor",
+    "n.",
+    "電化學感測器",
+    "EC sensor"
+  ],
+  [
+    "lab-on-a-chip",
+    "n.",
+    "晶片實驗室",
+    "microfluidic device"
+  ],
+  [
+    "microfluidics",
+    "n.",
+    "微流控",
+    "microscale fluidics"
+  ],
+  [
+    "supramolecular chemistry",
+    "n.",
+    "超分子化學",
+    "non-covalent assembly"
+  ],
+  [
+    "host-guest chemistry",
+    "n.",
+    "主客化學",
+    "inclusion chemistry"
+  ],
+  [
+    "molecular recognition",
+    "n.",
+    "分子辨識",
+    "selective binding"
+  ],
+  [
+    "self-assembly",
+    "n.",
+    "自組裝",
+    "spontaneous organization"
+  ],
+  [
+    "crystal engineering",
+    "n.",
+    "晶體工程",
+    "designed crystals"
+  ],
+  [
+    "reticular chemistry",
+    "n.",
+    "網狀化學",
+    "framework chemistry"
+  ],
+  [
+    "metal-organic framework",
+    "n.",
+    "金屬有机框架",
+    "MOF"
+  ],
+  [
+    "covalent organic framework",
+    "n.",
+    "共價有机框架",
+    "COF"
+  ],
+  [
+    "porous material",
+    "n.",
+    "多孔材料",
+    "porous solid"
+  ],
+  [
+    "zeolite",
+    "n.",
+    "沸石",
+    "microporous aluminosilicate"
+  ],
+  [
+    "mesoporous material",
+    "n.",
+    "介孔材料",
+    "mesoporous solid"
+  ],
+  [
+    "photocatalyst",
+    "n.",
+    "光催化劑",
+    "light-activated catalyst"
+  ],
+  [
+    "electrocatalyst",
+    "n.",
+    "電催化劑",
+    "electrode catalyst"
+  ],
+  [
+    "fuel cell chemistry",
+    "n.",
+    "燃料電池化學",
+    "FC chemistry"
+  ],
+  [
+    "battery chemistry",
+    "n.",
+    "電池化學",
+    "electrochemical storage"
+  ],
+  [
+    "lithium-ion battery",
+    "n.",
+    "鋰離子電池",
+    "Li-ion battery"
+  ],
+  [
+    "solid electrolyte",
+    "n.",
+    "固態電解質",
+    "solid-state electrolyte"
+  ],
+  [
+    "corrosion inhibitor",
+    "n.",
+    "腐蝕抑制劑",
+    "anti-corrosion agent"
+  ],
+  [
+    "electroplating",
+    "n.",
+    "電鍍",
+    "electrodeposition"
+  ],
+  [
+    "anodization",
+    "n.",
+    "陽極氧化",
+    "anodic oxidation"
+  ],
+  [
+    "semiconductor chemistry",
+    "n.",
+    "半導體化學",
+    "semiconductor materials"
+  ],
+  [
+    "doping",
+    "n.",
+    "摻雜",
+    "impurity addition"
+  ],
+  [
+    "band gap",
+    "n.",
+    "能帶隙",
+    "energy gap"
+  ],
+  [
+    "photovoltaic material",
+    "n.",
+    "光伏材料",
+    "solar cell material"
+  ],
+  [
+    "perovskite solar cell",
+    "n.",
+    "鈣鈦礦太陽能電池",
+    "perovskite PV"
+  ],
+  [
+    "electrochromism",
+    "n.",
+    "電致變色",
+    "electrochromic effect"
+  ],
+  [
+    "thermochromism",
+    "n.",
+    "熱致變色",
+    "heat-induced color change"
+  ],
+  [
+    "piezochromism",
+    "n.",
+    "壓致變色",
+    "pressure color change"
+  ],
+  [
+    "spin crossover",
+    "n.",
+    "自旋交叉",
+    "spin state transition"
+  ],
+  [
+    "magnetic material",
+    "n.",
+    "磁性材料",
+    "magnet material"
+  ],
+  [
+    "ferromagnetism",
+    "n.",
+    "鐵磁性",
+    "strong magnetism"
+  ],
+  [
+    "antiferromagnetism",
+    "n.",
+    "反鐵磁性",
+    "opposed spin alignment"
+  ],
+  [
+    "superconductivity",
+    "n.",
+    "超導性",
+    "zero resistance"
+  ],
+  [
+    "high-temperature superconductor",
+    "n.",
+    "高溫超導體",
+    "HTS"
+  ],
+  [
+    "materials chemistry",
+    "n.",
+    "材料化學",
+    "materials science chemistry"
+  ],
+  [
+    "polymer chemistry",
+    "n.",
+    "高分子化學",
+    "polymer science"
+  ],
+  [
+    "block copolymer",
+    "n.",
+    "嵌段共聚合物",
+    "segmented polymer"
+  ],
+  [
+    "graft copolymer",
+    "n.",
+    "接枝共聚合物",
+    "side-chain polymer"
+  ],
+  [
+    "cross-linking",
+    "n.",
+    "交聯",
+    "network formation"
+  ],
+  [
+    "thermoplastic",
+    "n.",
+    "熱塑性塑料",
+    "heat-softening polymer"
+  ],
+  [
+    "thermoset",
+    "n.",
+    "熱固性塑料",
+    "cured polymer"
+  ],
+  [
+    "elastomer",
+    "n.",
+    "彈性體",
+    "rubber-like polymer"
+  ],
+  [
+    "viscoelasticity",
+    "n.",
+    "黏彈性",
+    "viscoelastic behavior"
+  ],
+  [
+    "rheology",
+    "n.",
+    "流變學",
+    "flow behavior study"
+  ],
+  [
+    "gel permeation chromatography",
+    "n.",
+    "凝膠滲透層析",
+    "GPC"
+  ],
+  [
+    "molecular weight distribution",
+    "n.",
+    "分子量分布",
+    "MWD"
+  ],
+  [
+    "number average molecular weight",
+    "n.",
+    "數平均分子量",
+    "Mn"
+  ],
+  [
+    "weight average molecular weight",
+    "n.",
+    "重平均分子量",
+    "Mw"
+  ],
+  [
+    "polydispersity index",
+    "n.",
+    "多分散性指數",
+    "PDI"
+  ],
+  [
+    "combustion analysis",
+    "n.",
+    "燃燒分析",
+    "elemental combustion"
+  ],
+  [
+    "elemental analysis",
+    "n.",
+    "元素分析",
+    "CHN analysis"
+  ],
+  [
+    "combustion calorimetry",
+    "n.",
+    "燃燒量熱",
+    "bomb calorimetry"
+  ],
+  [
+    "heat of combustion",
+    "n.",
+    "燃燒熱",
+    "combustion enthalpy"
+  ],
+  [
+    "heat capacity",
+    "n.",
+    "熱容量",
+    "Cp Cv"
+  ],
+  [
+    "specific heat",
+    "n.",
+    "比熱",
+    "heat per mass"
+  ],
+  [
+    "latent heat",
+    "n.",
+    "潛熱",
+    "phase change heat"
+  ],
+  [
+    "enthalpy",
+    "n.",
+    "焓",
+    "heat content"
+  ],
+  [
+    "entropy",
+    "n.",
+    "熵",
+    "disorder measure"
+  ],
+  [
+    "Gibbs energy change",
+    "n.",
+    "吉布斯能變",
+    "delta G"
+  ],
+  [
+    "spontaneity",
+    "n.",
+    "自發性",
+    "thermodynamic spontaneity"
+  ],
+  [
+    "reversible process",
+    "n.",
+    "可逆過程",
+    "equilibrium process"
+  ],
+  [
+    "irreversible process",
+    "n.",
+    "不可逆過程",
+    "non-equilibrium process"
+  ],
+  [
+    "adiabatic process",
+    "n.",
+    "絕熱過程",
+    "no heat exchange"
+  ],
+  [
+    "isothermal process",
+    "n.",
+    "等溫過程",
+    "constant temperature"
+  ],
+  [
+    "isobaric process",
+    "n.",
+    "等壓過程",
+    "constant pressure"
+  ],
+  [
+    "isochoric process",
+    "n.",
+    "等容過程",
+    "constant volume"
+  ],
+  [
+    "Carnot cycle",
+    "n.",
+    "卡諾循環",
+    "ideal heat engine"
+  ],
+  [
+    "Maxwell relations",
+    "n.",
+    "Maxwell關係式",
+    "thermodynamic relations"
+  ],
+  [
+    "partition function",
+    "n.",
+    "配分函數",
+    "statistical sum"
+  ],
+  [
+    "Boltzmann distribution",
+    "n.",
+    "波茲曼分布",
+    "energy distribution"
+  ],
+  [
+    "statistical mechanics",
+    "n.",
+    "統計力學",
+    "molecular statistics"
+  ],
+  [
+    "transition metal chemistry",
+    "n.",
+    "過渡金屬化學",
+    "d-block chemistry"
+  ],
+  [
+    "lanthanide chemistry",
+    "n.",
+    "鑭系化學",
+    "f-block chemistry"
+  ],
+  [
+    "actinide chemistry",
+    "n.",
+    "錒系化學",
+    "actinide elements"
+  ],
+  [
+    "main group chemistry",
+    "n.",
+    "主族化學",
+    "s- and p-block chemistry"
+  ],
+  [
+    "periodic trend",
+    "n.",
+    "週期趨勢",
+    "periodic property trend"
+  ],
+  [
+    "electrochemical series",
+    "n.",
+    "電化序",
+    "reduction potential series"
+  ],
+  [
+    "Latimer diagram",
+    "n.",
+    "Latimer圖",
+    "oxidation state diagram"
+  ],
+  [
+    "Frost diagram",
+    "n.",
+    "Frost圖",
+    "free energy diagram"
+  ],
+  [
+    "Pourbaix diagram",
+    "n.",
+    "Pourbaix圖",
+    "Eh-pH diagram"
+  ]
+];

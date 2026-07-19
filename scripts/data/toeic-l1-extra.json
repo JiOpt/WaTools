@@ -1,0 +1,4712 @@
+{
+  "office": [
+    [
+      "stationery",
+      "n.",
+      "文具",
+      "supplies"
+    ],
+    [
+      "clipboard",
+      "n.",
+      "寫字板",
+      "board"
+    ],
+    [
+      "stapler",
+      "n.",
+      "釘書機",
+      "fastener"
+    ],
+    [
+      "paperclip",
+      "n.",
+      "迴紋針",
+      "clip"
+    ],
+    [
+      "binder",
+      "n.",
+      "活頁夾",
+      "folder"
+    ],
+    [
+      "filing",
+      "n.",
+      "歸檔",
+      "storage"
+    ],
+    [
+      "cabinet",
+      "n.",
+      "櫃子",
+      "storage unit"
+    ],
+    [
+      "cubicle",
+      "n.",
+      "隔間",
+      "partition"
+    ],
+    [
+      "desk",
+      "n.",
+      "書桌",
+      "table"
+    ],
+    [
+      "calendar",
+      "n.",
+      "月曆",
+      "schedule"
+    ],
+    [
+      "appointment",
+      "n.",
+      "約會",
+      "meeting"
+    ],
+    [
+      "correspondence",
+      "n.",
+      "書信往來",
+      "mail"
+    ],
+    [
+      "envelope",
+      "n.",
+      "信封",
+      "cover"
+    ],
+    [
+      "postage",
+      "n.",
+      "郵資",
+      "mailing cost"
+    ],
+    [
+      "mailbox",
+      "n.",
+      "信箱",
+      "post box"
+    ],
+    [
+      "outgoing",
+      "adj.",
+      "寄出的",
+      "departing"
+    ],
+    [
+      "incoming",
+      "adj.",
+      "收到的",
+      "arriving"
+    ],
+    [
+      "attachment",
+      "n.",
+      "附件",
+      "file"
+    ],
+    [
+      "subject",
+      "n.",
+      "主旨",
+      "topic"
+    ],
+    [
+      "recipient",
+      "n.",
+      "收件人",
+      "receiver"
+    ],
+    [
+      "sender",
+      "n.",
+      "寄件人",
+      "originator"
+    ],
+    [
+      "reply",
+      "v.",
+      "回覆",
+      "respond"
+    ],
+    [
+      "forward",
+      "v.",
+      "轉寄",
+      "send on"
+    ],
+    [
+      "delete",
+      "v.",
+      "刪除",
+      "remove"
+    ],
+    [
+      "save",
+      "v.",
+      "儲存",
+      "store"
+    ],
+    [
+      "print",
+      "v.",
+      "列印",
+      "output"
+    ],
+    [
+      "scan",
+      "v.",
+      "掃描",
+      "digitize"
+    ],
+    [
+      "copy",
+      "v.",
+      "影印",
+      "duplicate"
+    ],
+    [
+      "fax",
+      "n.",
+      "傳真",
+      "facsimile"
+    ],
+    [
+      "copier",
+      "n.",
+      "影印機",
+      "duplicator"
+    ],
+    [
+      "toner",
+      "n.",
+      "碳粉",
+      "ink powder"
+    ],
+    [
+      "cartridge",
+      "n.",
+      "墨水匣",
+      "refill unit"
+    ],
+    [
+      "malfunction",
+      "n.",
+      "故障",
+      "breakdown"
+    ],
+    [
+      "repair",
+      "v.",
+      "修理",
+      "fix"
+    ],
+    [
+      "maintenance",
+      "n.",
+      "維護",
+      "upkeep"
+    ],
+    [
+      "janitor",
+      "n.",
+      "清潔人員",
+      "cleaner"
+    ],
+    [
+      "restroom",
+      "n.",
+      "洗手間",
+      "bathroom"
+    ],
+    [
+      "cafeteria",
+      "n.",
+      "員工餐廳",
+      "canteen"
+    ],
+    [
+      "photocopy",
+      "n.",
+      "影印本",
+      "duplicate"
+    ],
+    [
+      "laminate",
+      "v.",
+      "護貝",
+      "seal"
+    ],
+    [
+      "label",
+      "v.",
+      "貼標籤",
+      "tag"
+    ],
+    [
+      "organize",
+      "v.",
+      "整理",
+      "arrange"
+    ],
+    [
+      "sort",
+      "v.",
+      "分類",
+      "classify"
+    ],
+    [
+      "prioritize",
+      "v.",
+      "排定優先",
+      "rank"
+    ],
+    [
+      "delegate",
+      "v.",
+      "委派",
+      "assign"
+    ],
+    [
+      "collaborate",
+      "v.",
+      "合作",
+      "cooperate"
+    ],
+    [
+      "coordinate",
+      "v.",
+      "協調",
+      "organize"
+    ],
+    [
+      "multitask",
+      "v.",
+      "多工處理",
+      "juggle"
+    ],
+    [
+      "punctual",
+      "adj.",
+      "準時的",
+      "on time"
+    ],
+    [
+      "efficient",
+      "adj.",
+      "有效率的",
+      "productive"
+    ],
+    [
+      "productive",
+      "adj.",
+      "有產能的",
+      "efficient"
+    ],
+    [
+      "workload",
+      "n.",
+      "工作量",
+      "tasks"
+    ],
+    [
+      "backlog",
+      "n.",
+      "待辦積壓",
+      "pending work"
+    ],
+    [
+      "downtime",
+      "n.",
+      "停機時間",
+      "idle time"
+    ],
+    [
+      "troubleshoot",
+      "v.",
+      "排除故障",
+      "diagnose"
+    ],
+    [
+      "workstation",
+      "n.",
+      "工作站",
+      "desk setup"
+    ],
+    [
+      "layout",
+      "n.",
+      "配置",
+      "arrangement"
+    ],
+    [
+      "seating",
+      "n.",
+      "座位安排",
+      "placement"
+    ],
+    [
+      "relocation",
+      "n.",
+      "搬遷",
+      "move"
+    ],
+    [
+      "handbook",
+      "n.",
+      "員工手冊",
+      "guide"
+    ],
+    [
+      "regulation",
+      "n.",
+      "規章",
+      "rule"
+    ],
+    [
+      "compliance",
+      "n.",
+      "合規",
+      "adherence"
+    ],
+    [
+      "misconduct",
+      "n.",
+      "不當行為",
+      "wrongdoing"
+    ],
+    [
+      "grievance",
+      "n.",
+      "申訴",
+      "complaint"
+    ],
+    [
+      "ergonomic",
+      "adj.",
+      "符合人體工學的",
+      "comfortable design"
+    ],
+    [
+      "adjustable",
+      "adj.",
+      "可調整的",
+      "flexible"
+    ],
+    [
+      "bulletin",
+      "n.",
+      "公告",
+      "notice"
+    ],
+    [
+      "announcement",
+      "n.",
+      "公告",
+      "notice"
+    ],
+    [
+      "intranet",
+      "n.",
+      "內部網路",
+      "internal web"
+    ],
+    [
+      "portal",
+      "n.",
+      "入口網站",
+      "gateway"
+    ],
+    [
+      "template",
+      "n.",
+      "範本",
+      "model"
+    ],
+    [
+      "spreadsheet",
+      "n.",
+      "試算表",
+      "worksheet"
+    ],
+    [
+      "notepad",
+      "n.",
+      "記事本",
+      "pad"
+    ],
+    [
+      "pencil",
+      "n.",
+      "鉛筆",
+      "writing tool"
+    ],
+    [
+      "highlighter",
+      "n.",
+      "螢光筆",
+      "marker pen"
+    ],
+    [
+      "scissors",
+      "n.",
+      "剪刀",
+      "cutting tool"
+    ],
+    [
+      "drawer",
+      "n.",
+      "抽屜",
+      "compartment"
+    ],
+    [
+      "locker",
+      "n.",
+      "置物櫃",
+      "storage locker"
+    ],
+    [
+      "roster",
+      "n.",
+      "值勤表",
+      "duty list"
+    ],
+    [
+      "directory",
+      "n.",
+      "通訊錄",
+      "contact list"
+    ],
+    [
+      "telephone",
+      "n.",
+      "電話",
+      "phone"
+    ],
+    [
+      "receptionist",
+      "n.",
+      "接待人員",
+      "front desk staff"
+    ],
+    [
+      "visitor",
+      "n.",
+      "訪客",
+      "guest"
+    ],
+    [
+      "guest",
+      "n.",
+      "來賓",
+      "visitor"
+    ],
+    [
+      "lobby",
+      "n.",
+      "大廳",
+      "entrance hall"
+    ],
+    [
+      "corridor",
+      "n.",
+      "走廊",
+      "hallway"
+    ],
+    [
+      "signage",
+      "n.",
+      "標示",
+      "signs"
+    ],
+    [
+      "desktop",
+      "n.",
+      "桌上型電腦",
+      "PC"
+    ],
+    [
+      "laptop",
+      "n.",
+      "筆記型電腦",
+      "notebook"
+    ],
+    [
+      "monitor",
+      "n.",
+      "螢幕",
+      "display"
+    ],
+    [
+      "keyboard",
+      "n.",
+      "鍵盤",
+      "input device"
+    ],
+    [
+      "mouse",
+      "n.",
+      "滑鼠",
+      "pointer device"
+    ],
+    [
+      "charger",
+      "n.",
+      "充電器",
+      "power adapter"
+    ],
+    [
+      "hold",
+      "v.",
+      "保留通話",
+      "wait on line"
+    ],
+    [
+      "redirect",
+      "v.",
+      "轉接",
+      "route"
+    ],
+    [
+      "nameplate",
+      "n.",
+      "名牌",
+      "name tag"
+    ],
+    [
+      "hallway",
+      "n.",
+      "走道",
+      "passage"
+    ],
+    [
+      "break room",
+      "n.",
+      "休息室",
+      "lounge"
+    ],
+    [
+      "outage",
+      "n.",
+      "停電",
+      "power failure"
+    ],
+    [
+      "thermostat",
+      "n.",
+      "溫控器",
+      "temperature control"
+    ]
+  ],
+  "meetings": [
+    [
+      "session",
+      "n.",
+      "場次",
+      "meeting period"
+    ],
+    [
+      "forum",
+      "n.",
+      "論壇",
+      "discussion event"
+    ],
+    [
+      "symposium",
+      "n.",
+      "專題研討",
+      "conference"
+    ],
+    [
+      "workshop",
+      "n.",
+      "工作坊",
+      "training session"
+    ],
+    [
+      "briefing",
+      "n.",
+      "簡報會",
+      "information session"
+    ],
+    [
+      "town hall",
+      "n.",
+      "全員大會",
+      "company meeting"
+    ],
+    [
+      "stand-up",
+      "n.",
+      "站立會議",
+      "quick meeting"
+    ],
+    [
+      "kickoff",
+      "n.",
+      "啟動會",
+      "opening meeting"
+    ],
+    [
+      "wrap-up",
+      "n.",
+      "收尾會",
+      "closing meeting"
+    ],
+    [
+      "roll call",
+      "n.",
+      "點名",
+      "attendance check"
+    ],
+    [
+      "attendance",
+      "n.",
+      "出席人數",
+      "presence"
+    ],
+    [
+      "proxy",
+      "n.",
+      "代理人",
+      "representative"
+    ],
+    [
+      "resolution",
+      "n.",
+      "決議",
+      "decision"
+    ],
+    [
+      "unanimous",
+      "adj.",
+      "一致同意的",
+      "agreed by all"
+    ],
+    [
+      "abstain",
+      "v.",
+      "棄權",
+      "not vote"
+    ],
+    [
+      "table",
+      "v.",
+      "擱置",
+      "postpone discussion"
+    ],
+    [
+      "refer",
+      "v.",
+      "交付討論",
+      "send to committee"
+    ],
+    [
+      "second",
+      "v.",
+      "附議",
+      "support motion"
+    ],
+    [
+      "agenda item",
+      "n.",
+      "議程項目",
+      "topic"
+    ],
+    [
+      "timekeeper",
+      "n.",
+      "計時員",
+      "timer"
+    ],
+    [
+      "note-taker",
+      "n.",
+      "記錄員",
+      "recorder"
+    ],
+    [
+      "speaking order",
+      "n.",
+      "發言順序",
+      "turn order"
+    ],
+    [
+      "turn",
+      "n.",
+      "輪次",
+      "round"
+    ],
+    [
+      "intermission",
+      "n.",
+      "中場休息",
+      "break"
+    ],
+    [
+      "networking",
+      "n.",
+      "交流",
+      "socializing"
+    ],
+    [
+      "icebreaker",
+      "n.",
+      "破冰活動",
+      "warm-up"
+    ],
+    [
+      "registration",
+      "n.",
+      "報到",
+      "sign-in"
+    ],
+    [
+      "nametag",
+      "n.",
+      "名牌",
+      "badge"
+    ],
+    [
+      "lanyard",
+      "n.",
+      "掛繩",
+      "neck strap"
+    ],
+    [
+      "podium",
+      "n.",
+      "講台",
+      "lectern"
+    ],
+    [
+      "lectern",
+      "n.",
+      "演講台",
+      "stand"
+    ],
+    [
+      "stage",
+      "n.",
+      "舞台",
+      "platform"
+    ],
+    [
+      "spotlight",
+      "n.",
+      "聚光燈",
+      "focus light"
+    ],
+    [
+      "soundcheck",
+      "n.",
+      "音響測試",
+      "audio test"
+    ],
+    [
+      "livestream",
+      "n.",
+      "直播",
+      "online broadcast"
+    ],
+    [
+      "recording",
+      "n.",
+      "錄影",
+      "video capture"
+    ],
+    [
+      "playback",
+      "n.",
+      "重播",
+      "replay"
+    ],
+    [
+      "caption",
+      "n.",
+      "字幕",
+      "subtitle"
+    ],
+    [
+      "poll",
+      "n.",
+      "投票調查",
+      "survey vote"
+    ],
+    [
+      "brainstorm",
+      "v.",
+      "腦力激盪",
+      "generate ideas"
+    ],
+    [
+      "prioritize",
+      "v.",
+      "排定優先",
+      "rank tasks"
+    ],
+    [
+      "timeline",
+      "n.",
+      "時程",
+      "schedule"
+    ],
+    [
+      "milestone",
+      "n.",
+      "里程碑",
+      "key stage"
+    ],
+    [
+      "deliverable",
+      "n.",
+      "交付成果",
+      "output"
+    ],
+    [
+      "stakeholder",
+      "n.",
+      "利害關係人",
+      "interested party"
+    ],
+    [
+      "sponsor",
+      "n.",
+      "贊助方",
+      "supporter"
+    ],
+    [
+      "host",
+      "n.",
+      "主辦方",
+      "organizer"
+    ],
+    [
+      "co-host",
+      "v.",
+      "共同主持",
+      "share hosting"
+    ],
+    [
+      "introduce",
+      "v.",
+      "介紹",
+      "present"
+    ],
+    [
+      "convene",
+      "v.",
+      "召開",
+      "call together"
+    ],
+    [
+      "reconvene",
+      "v.",
+      "復會",
+      "meet again"
+    ],
+    [
+      "proceed",
+      "v.",
+      "繼續進行",
+      "go ahead"
+    ],
+    [
+      "pause",
+      "v.",
+      "暫停",
+      "stop briefly"
+    ],
+    [
+      "resume",
+      "v.",
+      "恢復",
+      "continue"
+    ],
+    [
+      "overrun",
+      "v.",
+      "超時",
+      "exceed time"
+    ],
+    [
+      "time slot",
+      "n.",
+      "時段",
+      "period"
+    ],
+    [
+      "back-to-back",
+      "adj.",
+      "連續的",
+      "consecutive"
+    ],
+    [
+      "RSVP",
+      "v.",
+      "回覆是否出席",
+      "respond"
+    ],
+    [
+      "no-show",
+      "n.",
+      "未出席者",
+      "absentee"
+    ],
+    [
+      "walk-in",
+      "n.",
+      "臨時與會者",
+      "unregistered attendee"
+    ],
+    [
+      "talking point",
+      "n.",
+      "談話重點",
+      "key message"
+    ],
+    [
+      "talk track",
+      "n.",
+      "發言稿",
+      "script outline"
+    ],
+    [
+      "demo",
+      "n.",
+      "示範",
+      "demonstration"
+    ],
+    [
+      "prototype",
+      "n.",
+      "原型",
+      "model"
+    ],
+    [
+      "feedback form",
+      "n.",
+      "回饋表",
+      "survey sheet"
+    ],
+    [
+      "evaluation",
+      "n.",
+      "評估",
+      "assessment"
+    ],
+    [
+      "debrief",
+      "v.",
+      "檢討",
+      "review meeting"
+    ],
+    [
+      "recap",
+      "n.",
+      "重點回顧",
+      "summary"
+    ],
+    [
+      "next steps",
+      "n.",
+      "後續步驟",
+      "follow-up actions"
+    ],
+    [
+      "ownership",
+      "n.",
+      "負責歸屬",
+      "responsibility"
+    ],
+    [
+      "accountability",
+      "n.",
+      "問責",
+      "answerability"
+    ],
+    [
+      "consensus-building",
+      "n.",
+      "建立共識",
+      "agreement process"
+    ],
+    [
+      "parliamentary",
+      "adj.",
+      "議事程序的",
+      "procedural"
+    ],
+    [
+      "decision-making",
+      "n.",
+      "決策",
+      "judgment process"
+    ],
+    [
+      "executive summary",
+      "n.",
+      "執行摘要",
+      "brief overview"
+    ],
+    [
+      "talking stick",
+      "n.",
+      "發言權",
+      "turn to speak"
+    ],
+    [
+      "raise hand",
+      "v.",
+      "舉手",
+      "signal to speak"
+    ],
+    [
+      "unmute",
+      "v.",
+      "解除靜音",
+      "turn sound on"
+    ],
+    [
+      "screen share",
+      "v.",
+      "分享畫面",
+      "show display"
+    ],
+    [
+      "breakout room",
+      "n.",
+      "分組會議室",
+      "small group room"
+    ]
+  ],
+  "finance": [
+    [
+      "income",
+      "n.",
+      "收入",
+      "earnings"
+    ],
+    [
+      "earnings",
+      "n.",
+      "收益",
+      "profits"
+    ],
+    [
+      "turnover",
+      "n.",
+      "營業額",
+      "sales volume"
+    ],
+    [
+      "gross",
+      "adj.",
+      "總的",
+      "total before deductions"
+    ],
+    [
+      "net",
+      "adj.",
+      "淨的",
+      "after deductions"
+    ],
+    [
+      "margin",
+      "n.",
+      "利潤率",
+      "profit rate"
+    ],
+    [
+      "overhead",
+      "n.",
+      "間接成本",
+      "indirect cost"
+    ],
+    [
+      "operating",
+      "adj.",
+      "營運的",
+      "business-related"
+    ],
+    [
+      "fixed cost",
+      "n.",
+      "固定成本",
+      "unchanging cost"
+    ],
+    [
+      "variable cost",
+      "n.",
+      "變動成本",
+      "changing cost"
+    ],
+    [
+      "break-even",
+      "n.",
+      "損益兩平",
+      "no profit or loss"
+    ],
+    [
+      "cash flow",
+      "n.",
+      "現金流",
+      "money movement"
+    ],
+    [
+      "working capital",
+      "n.",
+      "營運資金",
+      "operating funds"
+    ],
+    [
+      "liquidity",
+      "n.",
+      "流動性",
+      "cash availability"
+    ],
+    [
+      "solvency",
+      "n.",
+      "償債能力",
+      "debt payment ability"
+    ],
+    [
+      "creditworthiness",
+      "n.",
+      "信用度",
+      "trust to repay"
+    ],
+    [
+      "collateral",
+      "n.",
+      "抵押品",
+      "security asset"
+    ],
+    [
+      "principal",
+      "n.",
+      "本金",
+      "original amount"
+    ],
+    [
+      "installment",
+      "n.",
+      "分期付款",
+      "payment part"
+    ],
+    [
+      "amortization",
+      "n.",
+      "攤還",
+      "gradual repayment"
+    ],
+    [
+      "depreciation",
+      "n.",
+      "折舊",
+      "value decline"
+    ],
+    [
+      "accrual",
+      "n.",
+      "應計",
+      "accumulated amount"
+    ],
+    [
+      "prepaid",
+      "adj.",
+      "預付的",
+      "paid in advance"
+    ],
+    [
+      "deferred",
+      "adj.",
+      "遞延的",
+      "postponed"
+    ],
+    [
+      "write-off",
+      "n.",
+      "銷帳",
+      "remove from books"
+    ],
+    [
+      "bad debt",
+      "n.",
+      "呆帳",
+      "uncollectible debt"
+    ],
+    [
+      "provision",
+      "n.",
+      "提列",
+      "reserve amount"
+    ],
+    [
+      "reserve",
+      "n.",
+      "準備金",
+      "saved funds"
+    ],
+    [
+      "surplus",
+      "n.",
+      "盈餘",
+      "extra amount"
+    ],
+    [
+      "deficit",
+      "n.",
+      "赤字",
+      "shortfall"
+    ],
+    [
+      "subsidy",
+      "n.",
+      "補貼",
+      "government aid"
+    ],
+    [
+      "grant",
+      "n.",
+      "補助金",
+      "funding award"
+    ],
+    [
+      "rebate",
+      "n.",
+      "退稅款",
+      "partial refund"
+    ],
+    [
+      "withholding",
+      "n.",
+      "扣繳",
+      "deduction at source"
+    ],
+    [
+      "payroll tax",
+      "n.",
+      "薪資稅",
+      "employment tax"
+    ],
+    [
+      "sales tax",
+      "n.",
+      "銷售稅",
+      "consumption tax"
+    ],
+    [
+      "VAT",
+      "n.",
+      "加值稅",
+      "value-added tax"
+    ],
+    [
+      "exemption",
+      "n.",
+      "免稅",
+      "tax relief"
+    ],
+    [
+      "deduction",
+      "n.",
+      "扣抵",
+      "subtraction"
+    ],
+    [
+      "filing",
+      "n.",
+      "申報",
+      "submission"
+    ],
+    [
+      "return",
+      "n.",
+      "報稅表",
+      "tax form"
+    ],
+    [
+      "assessment",
+      "n.",
+      "評估",
+      "evaluation"
+    ],
+    [
+      "levy",
+      "v.",
+      "課徵",
+      "impose tax"
+    ],
+    [
+      "tariff",
+      "n.",
+      "關稅",
+      "import duty"
+    ],
+    [
+      "duty",
+      "n.",
+      "稅",
+      "tax fee"
+    ],
+    [
+      "broker",
+      "n.",
+      "經紀人",
+      "agent"
+    ],
+    [
+      "trader",
+      "n.",
+      "交易員",
+      "dealer"
+    ],
+    [
+      "investor",
+      "n.",
+      "投資人",
+      "funder"
+    ],
+    [
+      "mutual fund",
+      "n.",
+      "共同基金",
+      "pooled investment"
+    ],
+    [
+      "ETF",
+      "n.",
+      "指數股票型基金",
+      "exchange fund"
+    ],
+    [
+      "IPO",
+      "n.",
+      "首次公開發行",
+      "initial listing"
+    ],
+    [
+      "market cap",
+      "n.",
+      "市值",
+      "company value"
+    ],
+    [
+      "P/E ratio",
+      "n.",
+      "本益比",
+      "price-earnings ratio"
+    ],
+    [
+      "yield",
+      "n.",
+      "殖利率",
+      "return rate"
+    ],
+    [
+      "coupon rate",
+      "n.",
+      "票面利率",
+      "bond interest"
+    ],
+    [
+      "maturity",
+      "n.",
+      "到期日",
+      "due date"
+    ],
+    [
+      "treasury",
+      "n.",
+      "國庫",
+      "government funds"
+    ],
+    [
+      "audit trail",
+      "n.",
+      "稽核軌跡",
+      "record path"
+    ],
+    [
+      "internal control",
+      "n.",
+      "內控",
+      "safeguard system"
+    ],
+    [
+      "segregation",
+      "n.",
+      "職責分工",
+      "duty separation"
+    ],
+    [
+      "reconciliation",
+      "n.",
+      "對帳",
+      "matching records"
+    ],
+    [
+      "variance",
+      "n.",
+      "差異",
+      "difference"
+    ],
+    [
+      "adjustment",
+      "n.",
+      "調整",
+      "correction"
+    ],
+    [
+      "journal entry",
+      "n.",
+      "分錄",
+      "account record"
+    ],
+    [
+      "general ledger",
+      "n.",
+      "總帳",
+      "master record"
+    ],
+    [
+      "trial balance",
+      "n.",
+      "試算表",
+      "balance check"
+    ],
+    [
+      "balance sheet",
+      "n.",
+      "資產負債表",
+      "financial statement"
+    ],
+    [
+      "income statement",
+      "n.",
+      "損益表",
+      "profit report"
+    ],
+    [
+      "cash statement",
+      "n.",
+      "現金流量表",
+      "cash report"
+    ],
+    [
+      "footnote",
+      "n.",
+      "附註",
+      "disclosure note"
+    ],
+    [
+      "disclosure",
+      "n.",
+      "揭露",
+      "public report"
+    ],
+    [
+      "GAAP",
+      "n.",
+      "一般公認會計原則",
+      "accounting standards"
+    ],
+    [
+      "IFRS",
+      "n.",
+      "國際財報準則",
+      "global standards"
+    ],
+    [
+      "auditor",
+      "n.",
+      "稽核師",
+      "inspector"
+    ],
+    [
+      "controller",
+      "n.",
+      "財務長",
+      "finance head"
+    ],
+    [
+      "CFO",
+      "n.",
+      "財務長",
+      "chief finance officer"
+    ],
+    [
+      "treasurer",
+      "n.",
+      "司庫",
+      "cash manager"
+    ],
+    [
+      "bookkeeper",
+      "n.",
+      "記帳員",
+      "record keeper"
+    ],
+    [
+      "payables",
+      "n.",
+      "應付款",
+      "amounts owed"
+    ],
+    [
+      "receivables",
+      "n.",
+      "應收款",
+      "amounts due"
+    ],
+    [
+      "billing",
+      "n.",
+      "開帳",
+      "invoicing"
+    ],
+    [
+      "collections",
+      "n.",
+      "催收",
+      "payment recovery"
+    ],
+    [
+      "dunning",
+      "n.",
+      "催款",
+      "payment reminder"
+    ],
+    [
+      "credit limit",
+      "n.",
+      "信用額度",
+      "max borrowing"
+    ],
+    [
+      "line of credit",
+      "n.",
+      "信用額度",
+      "revolving credit"
+    ],
+    [
+      "overdraft",
+      "n.",
+      "透支",
+      "negative balance"
+    ],
+    [
+      "NSF",
+      "n.",
+      "不足額",
+      "insufficient funds"
+    ],
+    [
+      "wire transfer",
+      "n.",
+      "電匯",
+      "bank transfer"
+    ],
+    [
+      "ACH",
+      "n.",
+      "自動清算",
+      "electronic payment"
+    ],
+    [
+      "petty cash",
+      "n.",
+      "零用金",
+      "small fund"
+    ]
+  ],
+  "hr": [
+    [
+      "headhunter",
+      "n.",
+      "獵頭",
+      "recruiter"
+    ],
+    [
+      "job fair",
+      "n.",
+      "徵才博覽會",
+      "career expo"
+    ],
+    [
+      "campus recruiting",
+      "n.",
+      "校園招募",
+      "university hiring"
+    ],
+    [
+      "job description",
+      "n.",
+      "職務說明",
+      "role summary"
+    ],
+    [
+      "job title",
+      "n.",
+      "職稱",
+      "position name"
+    ],
+    [
+      "opening",
+      "n.",
+      "職缺",
+      "vacancy"
+    ],
+    [
+      "hiring manager",
+      "n.",
+      "用人主管",
+      "recruiting boss"
+    ],
+    [
+      "talent pool",
+      "n.",
+      "人才庫",
+      "candidate list"
+    ],
+    [
+      "pipeline",
+      "n.",
+      "招募管道",
+      "hiring flow"
+    ],
+    [
+      "screening",
+      "n.",
+      "篩選",
+      "initial review"
+    ],
+    [
+      "phone screen",
+      "n.",
+      "電話初篩",
+      "phone interview"
+    ],
+    [
+      "panel interview",
+      "n.",
+      "小組面試",
+      "group interview"
+    ],
+    [
+      "behavioral",
+      "adj.",
+      "行為面的",
+      "conduct-based"
+    ],
+    [
+      "technical interview",
+      "n.",
+      "技術面試",
+      "skill interview"
+    ],
+    [
+      "case interview",
+      "n.",
+      "案例面試",
+      "problem interview"
+    ],
+    [
+      "offer letter",
+      "n.",
+      "錄取函",
+      "job offer doc"
+    ],
+    [
+      "counteroffer",
+      "n.",
+      "還價",
+      "salary reply"
+    ],
+    [
+      "sign-on bonus",
+      "n.",
+      "簽約獎金",
+      "joining bonus"
+    ],
+    [
+      "severance",
+      "n.",
+      "資遣費",
+      "exit pay"
+    ],
+    [
+      "notice period",
+      "n.",
+      "預告期",
+      "advance warning"
+    ],
+    [
+      "exit interview",
+      "n.",
+      "離職面談",
+      "departure talk"
+    ],
+    [
+      "turnover",
+      "n.",
+      "離職率",
+      "staff change"
+    ],
+    [
+      "retention rate",
+      "n.",
+      "留任率",
+      "keeping rate"
+    ],
+    [
+      "engagement",
+      "n.",
+      "投入度",
+      "involvement"
+    ],
+    [
+      "morale",
+      "n.",
+      "士氣",
+      "team spirit"
+    ],
+    [
+      "culture fit",
+      "n.",
+      "文化契合",
+      "value match"
+    ],
+    [
+      "employer brand",
+      "n.",
+      "雇主品牌",
+      "company image"
+    ],
+    [
+      "job posting",
+      "n.",
+      "職缺刊登",
+      "vacancy ad"
+    ],
+    [
+      "referral bonus",
+      "n.",
+      "內推獎金",
+      "recommend reward"
+    ],
+    [
+      "employee referral",
+      "n.",
+      "員工推薦",
+      "internal refer"
+    ],
+    [
+      "background check",
+      "n.",
+      "背景調查",
+      "history review"
+    ],
+    [
+      "drug test",
+      "n.",
+      "藥檢",
+      "substance screening"
+    ],
+    [
+      "work authorization",
+      "n.",
+      "工作許可",
+      "legal work right"
+    ],
+    [
+      "visa sponsorship",
+      "n.",
+      "簽證贊助",
+      "immigration support"
+    ],
+    [
+      "relocation package",
+      "n.",
+      "搬遷補助",
+      "move support"
+    ],
+    [
+      "housing allowance",
+      "n.",
+      "住房津貼",
+      "rent aid"
+    ],
+    [
+      "meal allowance",
+      "n.",
+      "餐費津貼",
+      "food stipend"
+    ],
+    [
+      "overtime pay",
+      "n.",
+      "加班費",
+      "extra hour pay"
+    ],
+    [
+      "hourly wage",
+      "n.",
+      "時薪",
+      "per hour pay"
+    ],
+    [
+      "annual salary",
+      "n.",
+      "年薪",
+      "yearly pay"
+    ],
+    [
+      "pay scale",
+      "n.",
+      "薪級",
+      "salary grade"
+    ],
+    [
+      "pay raise",
+      "n.",
+      "加薪",
+      "salary increase"
+    ],
+    [
+      "merit increase",
+      "n.",
+      "績效調薪",
+      "performance raise"
+    ],
+    [
+      "COLA",
+      "n.",
+      "生活費調整",
+      "cost adjustment"
+    ],
+    [
+      "equity grant",
+      "n.",
+      "股權授予",
+      "stock award"
+    ],
+    [
+      "stock option",
+      "n.",
+      "股票選擇權",
+      "share option"
+    ],
+    [
+      "vesting",
+      "n.",
+      "歸屬",
+      "earning rights"
+    ],
+    [
+      "cliff",
+      "n.",
+      "等待期",
+      "initial wait"
+    ],
+    [
+      "401(k)",
+      "n.",
+      "退休帳戶",
+      "retirement plan"
+    ],
+    [
+      "match",
+      "n.",
+      "雇主配比",
+      "company contribution"
+    ],
+    [
+      "FMLA",
+      "n.",
+      "家庭醫療假",
+      "family leave law"
+    ],
+    [
+      "PTO",
+      "n.",
+      "有薪假",
+      "paid time off"
+    ],
+    [
+      "sick leave",
+      "n.",
+      "病假",
+      "illness absence"
+    ],
+    [
+      "personal day",
+      "n.",
+      "事假",
+      "private day off"
+    ],
+    [
+      "bereavement leave",
+      "n.",
+      "喪假",
+      "funeral leave"
+    ],
+    [
+      "jury duty",
+      "n.",
+      "陪審義務",
+      "court service"
+    ],
+    [
+      "time tracking",
+      "n.",
+      "工時記錄",
+      "hour logging"
+    ],
+    [
+      "timesheet",
+      "n.",
+      "工時表",
+      "hour sheet"
+    ],
+    [
+      "clock in",
+      "v.",
+      "打卡上班",
+      "start work"
+    ],
+    [
+      "clock out",
+      "v.",
+      "打卡下班",
+      "end work"
+    ],
+    [
+      "shift swap",
+      "n.",
+      "換班",
+      "schedule trade"
+    ],
+    [
+      "on-call",
+      "adj.",
+      "待命",
+      "available if needed"
+    ],
+    [
+      "overstaffed",
+      "adj.",
+      "人力過剩",
+      "too many staff"
+    ],
+    [
+      "understaffed",
+      "adj.",
+      "人力不足",
+      "too few staff"
+    ],
+    [
+      "headcount",
+      "n.",
+      "編制人數",
+      "staff number"
+    ],
+    [
+      "workforce planning",
+      "n.",
+      "人力規劃",
+      "staff planning"
+    ],
+    [
+      "succession planning",
+      "n.",
+      "接班規劃",
+      "leader pipeline"
+    ],
+    [
+      "talent review",
+      "n.",
+      "人才檢討",
+      "staff assessment"
+    ],
+    [
+      "nine-box",
+      "n.",
+      "九宮格評估",
+      "performance grid"
+    ],
+    [
+      "PIP",
+      "n.",
+      "績效改善計畫",
+      "improvement plan"
+    ]
+  ],
+  "sales": [
+    [
+      "account",
+      "n.",
+      "客戶帳戶",
+      "client record"
+    ],
+    [
+      "key account",
+      "n.",
+      "重要客戶",
+      "major client"
+    ],
+    [
+      "territory",
+      "n.",
+      "業務轄區",
+      "sales region"
+    ],
+    [
+      "sales rep",
+      "n.",
+      "業務代表",
+      "salesperson"
+    ],
+    [
+      "inside sales",
+      "n.",
+      "內勤業務",
+      "phone sales"
+    ],
+    [
+      "field sales",
+      "n.",
+      "外勤業務",
+      "on-site sales"
+    ],
+    [
+      "cold call",
+      "n.",
+      "陌生開發",
+      "unsolicited call"
+    ],
+    [
+      "warm lead",
+      "n.",
+      "溫熱名單",
+      "interested lead"
+    ],
+    [
+      "conversion",
+      "n.",
+      "轉換",
+      "turn into sale"
+    ],
+    [
+      "conversion rate",
+      "n.",
+      "轉換率",
+      "success rate"
+    ],
+    [
+      "win rate",
+      "n.",
+      "成交率",
+      "close rate"
+    ],
+    [
+      "deal size",
+      "n.",
+      "單筆金額",
+      "transaction value"
+    ],
+    [
+      "sales cycle",
+      "n.",
+      "銷售週期",
+      "deal timeline"
+    ],
+    [
+      "funnel",
+      "n.",
+      "漏斗",
+      "pipeline stages"
+    ],
+    [
+      "top of funnel",
+      "n.",
+      "漏斗頂端",
+      "awareness stage"
+    ],
+    [
+      "bottom of funnel",
+      "n.",
+      "漏斗底端",
+      "decision stage"
+    ],
+    [
+      "prospecting",
+      "n.",
+      "開發客戶",
+      "finding leads"
+    ],
+    [
+      "qualify",
+      "v.",
+      "資格確認",
+      "assess fit"
+    ],
+    [
+      "discovery call",
+      "n.",
+      "需求訪談",
+      "needs call"
+    ],
+    [
+      "needs analysis",
+      "n.",
+      "需求分析",
+      "requirement study"
+    ],
+    [
+      "value proposition",
+      "n.",
+      "價值主張",
+      "core benefit"
+    ],
+    [
+      "pricing",
+      "n.",
+      "定價",
+      "price setting"
+    ],
+    [
+      "list price",
+      "n.",
+      "牌價",
+      "standard price"
+    ],
+    [
+      "discount rate",
+      "n.",
+      "折扣率",
+      "price cut"
+    ],
+    [
+      "volume discount",
+      "n.",
+      "量價折扣",
+      "bulk discount"
+    ],
+    [
+      "price match",
+      "n.",
+      "比價",
+      "match competitor"
+    ],
+    [
+      "negotiation",
+      "n.",
+      "議價",
+      "bargaining"
+    ],
+    [
+      "closing",
+      "n.",
+      "成交",
+      "deal finish"
+    ],
+    [
+      "objection",
+      "n.",
+      "異議",
+      "customer concern"
+    ],
+    [
+      "handle objection",
+      "v.",
+      "處理異議",
+      "address concern"
+    ],
+    [
+      "follow-up call",
+      "n.",
+      "追蹤電話",
+      "check-in call"
+    ],
+    [
+      "demo account",
+      "n.",
+      "試用帳號",
+      "trial access"
+    ],
+    [
+      "free trial",
+      "n.",
+      "免費試用",
+      "trial period"
+    ],
+    [
+      "proof of concept",
+      "n.",
+      "概念驗證",
+      "pilot test"
+    ],
+    [
+      "pilot",
+      "n.",
+      "試點",
+      "trial run"
+    ],
+    [
+      "case study",
+      "n.",
+      "案例研究",
+      "success story"
+    ],
+    [
+      "testimonial",
+      "n.",
+      "見證",
+      "customer praise"
+    ],
+    [
+      "reference customer",
+      "n.",
+      "參考客戶",
+      "example client"
+    ],
+    [
+      "RFP",
+      "n.",
+      "提案邀請",
+      "bid request"
+    ],
+    [
+      "RFQ",
+      "n.",
+      "報價邀請",
+      "quote request"
+    ],
+    [
+      "proposal deadline",
+      "n.",
+      "提案截止",
+      "bid due date"
+    ],
+    [
+      "bid defense",
+      "n.",
+      "提案答辯",
+      "client Q&A"
+    ],
+    [
+      "market share",
+      "n.",
+      "市占率",
+      "sales portion"
+    ],
+    [
+      "segment",
+      "n.",
+      "市場區隔",
+      "customer group"
+    ],
+    [
+      "niche",
+      "n.",
+      "利基市場",
+      "specialty market"
+    ],
+    [
+      "positioning",
+      "n.",
+      "定位",
+      "market place"
+    ],
+    [
+      "differentiation",
+      "n.",
+      "差異化",
+      "unique trait"
+    ],
+    [
+      "unique selling point",
+      "n.",
+      "獨賣點",
+      "key advantage"
+    ],
+    [
+      "go-to-market",
+      "n.",
+      "上市策略",
+      "launch plan"
+    ],
+    [
+      "channel partner",
+      "n.",
+      "通路夥伴",
+      "reseller"
+    ],
+    [
+      "distributor",
+      "n.",
+      "經銷商",
+      "wholesaler"
+    ],
+    [
+      "dealer",
+      "n.",
+      "經銷商",
+      "seller"
+    ],
+    [
+      "reseller",
+      "n.",
+      "轉售商",
+      "middle seller"
+    ],
+    [
+      "OEM",
+      "n.",
+      "原始設備製造",
+      "brand maker"
+    ],
+    [
+      "after-sales",
+      "adj.",
+      "售後的",
+      "post-purchase"
+    ],
+    [
+      "service contract",
+      "n.",
+      "服務合約",
+      "support deal"
+    ],
+    [
+      "maintenance plan",
+      "n.",
+      "維護方案",
+      "upkeep plan"
+    ],
+    [
+      "renewal rate",
+      "n.",
+      "續約率",
+      "extension rate"
+    ],
+    [
+      "upselling",
+      "n.",
+      "加購推銷",
+      "upgrade sale"
+    ],
+    [
+      "cross-selling",
+      "n.",
+      "交叉銷售",
+      "add-on sale"
+    ],
+    [
+      "add-on",
+      "n.",
+      "加購項目",
+      "extra item"
+    ],
+    [
+      "bundle pricing",
+      "n.",
+      "搭售定價",
+      "package price"
+    ],
+    [
+      "promotional",
+      "adj.",
+      "促銷的",
+      "marketing-related"
+    ],
+    [
+      "trade show",
+      "n.",
+      "商展",
+      "exhibition"
+    ],
+    [
+      "lead generation",
+      "n.",
+      "名單開發",
+      "finding contacts"
+    ],
+    [
+      "CRM",
+      "n.",
+      "客戶關係管理",
+      "contact system"
+    ],
+    [
+      "sales forecast",
+      "n.",
+      "銷售預測",
+      "revenue projection"
+    ],
+    [
+      "quota attainment",
+      "n.",
+      "達成率",
+      "target achievement"
+    ],
+    [
+      "spiff",
+      "n.",
+      "短期獎金",
+      "quick bonus"
+    ],
+    [
+      "SPIF",
+      "n.",
+      "銷售激勵",
+      "sales incentive"
+    ]
+  ],
+  "purchasing": [
+    [
+      "buyer",
+      "n.",
+      "採購員",
+      "purchasing agent"
+    ],
+    [
+      "procurement",
+      "n.",
+      "採購",
+      "buying process"
+    ],
+    [
+      "RFI",
+      "n.",
+      "資訊邀請",
+      "info request"
+    ],
+    [
+      "RFP",
+      "n.",
+      "提案邀請",
+      "bid request"
+    ],
+    [
+      "RFQ",
+      "n.",
+      "報價邀請",
+      "quote request"
+    ],
+    [
+      "sole source",
+      "n.",
+      "唯一來源",
+      "single supplier"
+    ],
+    [
+      "dual sourcing",
+      "n.",
+      "雙來源",
+      "two suppliers"
+    ],
+    [
+      "multi sourcing",
+      "n.",
+      "多來源",
+      "many suppliers"
+    ],
+    [
+      "preferred vendor",
+      "n.",
+      "優先供應商",
+      "top supplier"
+    ],
+    [
+      "approved vendor list",
+      "n.",
+      "合格供應商名單",
+      "AVL"
+    ],
+    [
+      "vendor scorecard",
+      "n.",
+      "供應商評分卡",
+      "performance grade"
+    ],
+    [
+      "onboarding vendor",
+      "n.",
+      "供應商 onboarding",
+      "supplier setup"
+    ],
+    [
+      "master agreement",
+      "n.",
+      "主約",
+      "framework contract"
+    ],
+    [
+      "MSA",
+      "n.",
+      "主服務協議",
+      "main service deal"
+    ],
+    [
+      "SOW",
+      "n.",
+      "工作說明書",
+      "scope doc"
+    ],
+    [
+      "change order",
+      "n.",
+      "變更單",
+      "modification request"
+    ],
+    [
+      "scope creep",
+      "n.",
+      "範圍擴張",
+      "extra work"
+    ],
+    [
+      "fixed price",
+      "n.",
+      "固定價",
+      "set cost"
+    ],
+    [
+      "time and materials",
+      "n.",
+      "工時材料計價",
+      "hourly billing"
+    ],
+    [
+      "cost-plus",
+      "n.",
+      "成本加成",
+      "cost markup"
+    ],
+    [
+      "payment terms",
+      "n.",
+      "付款條件",
+      "pay rules"
+    ],
+    [
+      "net 30",
+      "phr.",
+      "淨三十天付款",
+      "pay in 30 days"
+    ],
+    [
+      "net 60",
+      "phr.",
+      "淨六十天付款",
+      "pay in 60 days"
+    ],
+    [
+      "early payment discount",
+      "n.",
+      "早付折扣",
+      "prompt pay cut"
+    ],
+    [
+      "late fee",
+      "n.",
+      "滯納金",
+      "delay charge"
+    ],
+    [
+      "retention",
+      "n.",
+      "保留款",
+      "held payment"
+    ],
+    [
+      "escrow",
+      "n.",
+      "託管",
+      "held funds"
+    ],
+    [
+      "purchase requisition",
+      "n.",
+      "請購",
+      "buy request"
+    ],
+    [
+      "PO number",
+      "n.",
+      "採購單號",
+      "order ID"
+    ],
+    [
+      "blanket PO",
+      "n.",
+      "框架採購單",
+      "standing order"
+    ],
+    [
+      "release order",
+      "n.",
+      "放行訂單",
+      "call-off order"
+    ],
+    [
+      "three-way match",
+      "n.",
+      "三向匹配",
+      "PO-invoice-receipt"
+    ],
+    [
+      "goods receipt",
+      "n.",
+      "收貨",
+      "delivery acceptance"
+    ],
+    [
+      "inspection report",
+      "n.",
+      "驗收報告",
+      "quality check"
+    ],
+    [
+      "nonconformance",
+      "n.",
+      "不符合",
+      "quality failure"
+    ],
+    [
+      "corrective action",
+      "n.",
+      "矯正措施",
+      "fix step"
+    ],
+    [
+      "return merchandise",
+      "n.",
+      "退貨",
+      "send back goods"
+    ],
+    [
+      "RMA",
+      "n.",
+      "退貨授權",
+      "return approval"
+    ],
+    [
+      "warranty claim",
+      "n.",
+      "保固申請",
+      "guarantee request"
+    ],
+    [
+      "price escalation",
+      "n.",
+      "價格調漲",
+      "cost increase"
+    ],
+    [
+      "index pricing",
+      "n.",
+      "指數定價",
+      "linked pricing"
+    ],
+    [
+      "commodity",
+      "n.",
+      "大宗商品",
+      "raw material market"
+    ],
+    [
+      "spot buy",
+      "n.",
+      "現貨採購",
+      "immediate purchase"
+    ],
+    [
+      "strategic sourcing",
+      "n.",
+      "策略採購",
+      "planned buying"
+    ],
+    [
+      "category management",
+      "n.",
+      "品類管理",
+      "group buying"
+    ],
+    [
+      "total cost of ownership",
+      "n.",
+      "總持有成本",
+      "TCO"
+    ],
+    [
+      "should-cost",
+      "n.",
+      "應有成本",
+      "target cost"
+    ],
+    [
+      "benchmark price",
+      "n.",
+      "基準價",
+      "reference price"
+    ],
+    [
+      "incoterms",
+      "n.",
+      "貿易條件",
+      "shipping terms"
+    ],
+    [
+      "FOB",
+      "n.",
+      "離岸價",
+      "free on board"
+    ]
+  ],
+  "logistics": [
+    [
+      "supply chain",
+      "n.",
+      "供應鏈",
+      "material flow"
+    ],
+    [
+      "procurement lead time",
+      "n.",
+      "採購交期",
+      "buying delay"
+    ],
+    [
+      "production lead time",
+      "n.",
+      "生產交期",
+      "make time"
+    ],
+    [
+      "order fulfillment",
+      "n.",
+      "訂單履行",
+      "complete orders"
+    ],
+    [
+      "pick and pack",
+      "n.",
+      "揀貨包裝",
+      "warehouse task"
+    ],
+    [
+      "cross-docking",
+      "n.",
+      "越庫作業",
+      "direct transfer"
+    ],
+    [
+      "last mile",
+      "n.",
+      "最後一哩",
+      "final delivery"
+    ],
+    [
+      "third-party logistics",
+      "n.",
+      "第三方物流",
+      "3PL"
+    ],
+    [
+      "freight forwarder",
+      "n.",
+      "貨運代理",
+      "shipping agent"
+    ],
+    [
+      "bill of lading",
+      "n.",
+      "提單",
+      "shipping document"
+    ],
+    [
+      "packing list",
+      "n.",
+      "裝箱單",
+      "contents list"
+    ],
+    [
+      "commercial invoice",
+      "n.",
+      "商業發票",
+      "trade bill"
+    ],
+    [
+      "customs broker",
+      "n.",
+      "報關行",
+      "clearance agent"
+    ],
+    [
+      "clearance",
+      "n.",
+      "通關",
+      "border approval"
+    ],
+    [
+      "duty paid",
+      "adj.",
+      "已完稅",
+      "tax settled"
+    ],
+    [
+      "consignment",
+      "n.",
+      "寄售",
+      "goods held for sale"
+    ],
+    [
+      "drop ship",
+      "v.",
+      "代發",
+      "direct from supplier"
+    ],
+    [
+      "reverse logistics",
+      "n.",
+      "逆向物流",
+      "returns flow"
+    ],
+    [
+      "cold chain",
+      "n.",
+      "冷鏈",
+      "temperature control"
+    ],
+    [
+      "hazmat",
+      "n.",
+      "危險品",
+      "hazardous material"
+    ],
+    [
+      "DG goods",
+      "n.",
+      "危險貨物",
+      "dangerous cargo"
+    ],
+    [
+      "container",
+      "n.",
+      "貨櫃",
+      "shipping box"
+    ],
+    [
+      "TEU",
+      "n.",
+      "標箱",
+      "container unit"
+    ],
+    [
+      "LCL",
+      "n.",
+      "併櫃",
+      "less than container"
+    ],
+    [
+      "FCL",
+      "n.",
+      "整櫃",
+      "full container"
+    ],
+    [
+      "intermodal",
+      "adj.",
+      "多式聯運",
+      "multi-transport"
+    ],
+    [
+      "transshipment",
+      "n.",
+      "轉運",
+      "transfer shipment"
+    ],
+    [
+      "demurrage",
+      "n.",
+      "延滞費",
+      "port delay fee"
+    ],
+    [
+      "detention",
+      "n.",
+      "留箱費",
+      "container hold fee"
+    ],
+    [
+      "consignee",
+      "n.",
+      "收貨人",
+      "receiver"
+    ],
+    [
+      "shipper",
+      "n.",
+      "發貨人",
+      "sender"
+    ],
+    [
+      "waybill",
+      "n.",
+      "運單",
+      "shipping receipt"
+    ],
+    [
+      "tracking number",
+      "n.",
+      "追蹤號碼",
+      "shipment ID"
+    ],
+    [
+      "proof of delivery",
+      "n.",
+      "送達證明",
+      "POD"
+    ],
+    [
+      "signature required",
+      "phr.",
+      "需簽收",
+      "sign on delivery"
+    ],
+    [
+      "delivery window",
+      "n.",
+      "配送時段",
+      "time slot"
+    ],
+    [
+      "route optimization",
+      "n.",
+      "路線優化",
+      "path planning"
+    ],
+    [
+      "GPS tracking",
+      "n.",
+      "GPS 追蹤",
+      "location monitor"
+    ],
+    [
+      "geofencing",
+      "n.",
+      "地理圍欄",
+      "area alert"
+    ],
+    [
+      "safety stock",
+      "n.",
+      "安全庫存",
+      "buffer stock"
+    ],
+    [
+      "reorder point",
+      "n.",
+      "再訂購點",
+      "restock level"
+    ],
+    [
+      "EOQ",
+      "n.",
+      "經濟訂購量",
+      "optimal order size"
+    ],
+    [
+      "cycle count",
+      "n.",
+      "循環盤點",
+      "partial inventory check"
+    ],
+    [
+      "physical inventory",
+      "n.",
+      "實地盤點",
+      "full count"
+    ],
+    [
+      "shrinkage",
+      "n.",
+      "耗損",
+      "loss rate"
+    ],
+    [
+      "obsolete stock",
+      "n.",
+      "呆滯庫存",
+      "outdated goods"
+    ],
+    [
+      "FIFO",
+      "n.",
+      "先進先出",
+      "first in first out"
+    ],
+    [
+      "LIFO",
+      "n.",
+      "後進先出",
+      "last in first out"
+    ],
+    [
+      "WMS",
+      "n.",
+      "倉儲管理系統",
+      "warehouse software"
+    ],
+    [
+      "TMS",
+      "n.",
+      "運輸管理系統",
+      "transport software"
+    ]
+  ],
+  "it": [
+    [
+      "IT support",
+      "n.",
+      "資訊支援",
+      "tech help"
+    ],
+    [
+      "service desk",
+      "n.",
+      "服務台",
+      "help center"
+    ],
+    [
+      "incident",
+      "n.",
+      "事件",
+      "problem report"
+    ],
+    [
+      "ticket queue",
+      "n.",
+      "工單佇列",
+      "request line"
+    ],
+    [
+      "escalation",
+      "n.",
+      "升級處理",
+      "raise level"
+    ],
+    [
+      "SLA",
+      "n.",
+      "服務水準協議",
+      "response promise"
+    ],
+    [
+      "uptime",
+      "n.",
+      "正常運轉時間",
+      "online time"
+    ],
+    [
+      "downtime",
+      "n.",
+      "停機時間",
+      "offline time"
+    ],
+    [
+      "maintenance window",
+      "n.",
+      "維護時段",
+      "service pause"
+    ],
+    [
+      "system admin",
+      "n.",
+      "系統管理員",
+      "sysadmin"
+    ],
+    [
+      "network admin",
+      "n.",
+      "網管",
+      "network manager"
+    ],
+    [
+      "endpoint",
+      "n.",
+      "端點",
+      "user device"
+    ],
+    [
+      "workstation image",
+      "n.",
+      "電腦映像",
+      "PC setup"
+    ],
+    [
+      "deployment",
+      "n.",
+      "部署",
+      "rollout"
+    ],
+    [
+      "rollout",
+      "n.",
+      "推廣上線",
+      "launch"
+    ],
+    [
+      "legacy system",
+      "n.",
+      "舊系統",
+      "old software"
+    ],
+    [
+      "migration",
+      "n.",
+      "移轉",
+      "data move"
+    ],
+    [
+      "cutover",
+      "n.",
+      "切換",
+      "go-live switch"
+    ],
+    [
+      "backup restore",
+      "n.",
+      "備份還原",
+      "recovery"
+    ],
+    [
+      "disaster recovery",
+      "n.",
+      "災難復原",
+      "DR plan"
+    ],
+    [
+      "failover",
+      "n.",
+      "故障轉移",
+      "backup switch"
+    ],
+    [
+      "redundancy",
+      "n.",
+      "冗餘",
+      "duplicate system"
+    ],
+    [
+      "load balancer",
+      "n.",
+      "負載平衡器",
+      "traffic splitter"
+    ],
+    [
+      "data center",
+      "n.",
+      "資料中心",
+      "server facility"
+    ],
+    [
+      "on-premises",
+      "adj.",
+      "地端",
+      "local install"
+    ],
+    [
+      "hybrid cloud",
+      "n.",
+      "混合雲",
+      "mixed hosting"
+    ],
+    [
+      "SaaS",
+      "n.",
+      "軟體即服務",
+      "cloud app"
+    ],
+    [
+      "PaaS",
+      "n.",
+      "平台即服務",
+      "dev platform"
+    ],
+    [
+      "IaaS",
+      "n.",
+      "基礎架構即服務",
+      "cloud servers"
+    ],
+    [
+      "virtual machine",
+      "n.",
+      "虛擬機",
+      "VM"
+    ],
+    [
+      "containerization",
+      "n.",
+      "容器化",
+      "app packaging"
+    ],
+    [
+      "API",
+      "n.",
+      "應用程式介面",
+      "app interface"
+    ],
+    [
+      "integration",
+      "n.",
+      "整合",
+      "connection"
+    ],
+    [
+      "middleware",
+      "n.",
+      "中介軟體",
+      "connect layer"
+    ],
+    [
+      "ERP",
+      "n.",
+      "企業資源規劃",
+      "business system"
+    ],
+    [
+      "CRM system",
+      "n.",
+      "客戶管理系統",
+      "sales software"
+    ],
+    [
+      "single sign-on",
+      "n.",
+      "單一登入",
+      "SSO"
+    ],
+    [
+      "multi-factor",
+      "adj.",
+      "多因素",
+      "extra verification"
+    ],
+    [
+      "authentication",
+      "n.",
+      "驗證",
+      "identity check"
+    ],
+    [
+      "authorization",
+      "n.",
+      "授權",
+      "access grant"
+    ],
+    [
+      "role-based access",
+      "n.",
+      "角色權限",
+      "RBAC"
+    ],
+    [
+      "least privilege",
+      "n.",
+      "最小權限",
+      "minimal access"
+    ],
+    [
+      "vulnerability",
+      "n.",
+      "漏洞",
+      "security flaw"
+    ],
+    [
+      "patch management",
+      "n.",
+      "修補管理",
+      "update control"
+    ],
+    [
+      "antivirus",
+      "n.",
+      "防毒軟體",
+      "virus protection"
+    ],
+    [
+      "ransomware",
+      "n.",
+      "勒索軟體",
+      "lock-up malware"
+    ],
+    [
+      "data breach",
+      "n.",
+      "資料外洩",
+      "security leak"
+    ],
+    [
+      "incident response",
+      "n.",
+      "事件應變",
+      "crisis handling"
+    ],
+    [
+      "encryption key",
+      "n.",
+      "加密金鑰",
+      "secret code"
+    ],
+    [
+      "SSL certificate",
+      "n.",
+      "SSL 憑證",
+      "secure cert"
+    ]
+  ],
+  "travel": [
+    [
+      "business trip",
+      "n.",
+      "出差",
+      "work travel"
+    ],
+    [
+      "itinerary change",
+      "n.",
+      "行程變更",
+      "schedule update"
+    ],
+    [
+      "e-ticket",
+      "n.",
+      "電子機票",
+      "digital ticket"
+    ],
+    [
+      "boarding pass",
+      "n.",
+      "登機證",
+      "gate pass"
+    ],
+    [
+      "check-in counter",
+      "n.",
+      "報到櫃台",
+      "airline desk"
+    ],
+    [
+      "security screening",
+      "n.",
+      "安檢",
+      "security check"
+    ],
+    [
+      "TSA PreCheck",
+      "n.",
+      "快速安檢",
+      "expedited screening"
+    ],
+    [
+      "priority boarding",
+      "n.",
+      "優先登機",
+      "early boarding"
+    ],
+    [
+      "overhead bin",
+      "n.",
+      "上方行李艙",
+      "cabin storage"
+    ],
+    [
+      "seat assignment",
+      "n.",
+      "座位分配",
+      "seat choice"
+    ],
+    [
+      "aisle seat",
+      "n.",
+      "走道位",
+      "side seat"
+    ],
+    [
+      "window seat",
+      "n.",
+      "靠窗位",
+      "view seat"
+    ],
+    [
+      "red-eye flight",
+      "n.",
+      "紅眼航班",
+      "overnight flight"
+    ],
+    [
+      "connecting flight",
+      "n.",
+      "轉機航班",
+      "transfer flight"
+    ],
+    [
+      "missed connection",
+      "n.",
+      "錯過轉機",
+      "lost transfer"
+    ],
+    [
+      "standby",
+      "n.",
+      "後補",
+      "wait list"
+    ],
+    [
+      "upgrade request",
+      "n.",
+      "升等申請",
+      "class raise"
+    ],
+    [
+      "frequent flyer",
+      "n.",
+      "常客",
+      "loyalty member"
+    ],
+    [
+      "mileage program",
+      "n.",
+      "里程計畫",
+      "points plan"
+    ],
+    [
+      "loyalty points",
+      "n.",
+      "積點",
+      "reward points"
+    ],
+    [
+      "airport lounge",
+      "n.",
+      "機場貴賓室",
+      "VIP room"
+    ],
+    [
+      "ground transportation",
+      "n.",
+      "地面交通",
+      "local transit"
+    ],
+    [
+      "rideshare",
+      "n.",
+      "共乘",
+      "app taxi"
+    ],
+    [
+      "rental car",
+      "n.",
+      "租車",
+      "hired car"
+    ],
+    [
+      "GPS navigation",
+      "n.",
+      "GPS 導航",
+      "route guide"
+    ],
+    [
+      "toll road",
+      "n.",
+      "收費道路",
+      "pay highway"
+    ],
+    [
+      "parking garage",
+      "n.",
+      "停車場",
+      "car park"
+    ],
+    [
+      "hotel reservation",
+      "n.",
+      "飯店預訂",
+      "room booking"
+    ],
+    [
+      "no-smoking room",
+      "n.",
+      "禁菸房",
+      "non-smoking room"
+    ],
+    [
+      "late checkout",
+      "n.",
+      "延遲退房",
+      "extended stay"
+    ],
+    [
+      "early check-in",
+      "n.",
+      "提早入住",
+      "before noon arrival"
+    ],
+    [
+      "room service",
+      "n.",
+      "客房服務",
+      "in-room dining"
+    ],
+    [
+      "wake-up call",
+      "n.",
+      "叫醒服務",
+      "morning call"
+    ],
+    [
+      "laundry service",
+      "n.",
+      "洗衣服務",
+      "clothes cleaning"
+    ],
+    [
+      "minibar",
+      "n.",
+      "迷你吧",
+      "room fridge"
+    ],
+    [
+      "incidental charges",
+      "n.",
+      "雜費",
+      "extra fees"
+    ],
+    [
+      "corporate rate",
+      "n.",
+      "公司協議價",
+      "business discount"
+    ],
+    [
+      "travel policy",
+      "n.",
+      "差旅政策",
+      "trip rules"
+    ],
+    [
+      "travel agent",
+      "n.",
+      "旅行社",
+      "booking agent"
+    ],
+    [
+      "GDS",
+      "n.",
+      "全球分銷系統",
+      "booking system"
+    ],
+    [
+      "consolidator",
+      "n.",
+      "票務整合商",
+      "fare bundler"
+    ],
+    [
+      "nonrefundable",
+      "adj.",
+      "不可退",
+      "no refund"
+    ],
+    [
+      "change fee",
+      "n.",
+      "改票費",
+      "reschedule charge"
+    ],
+    [
+      "baggage allowance",
+      "n.",
+      "行李限額",
+      "bag limit"
+    ],
+    [
+      "overweight baggage",
+      "n.",
+      "超重行李",
+      "extra weight bag"
+    ],
+    [
+      "lost luggage",
+      "n.",
+      "行李遺失",
+      "missing bag"
+    ],
+    [
+      "travel insurance",
+      "n.",
+      "旅遊保險",
+      "trip coverage"
+    ],
+    [
+      "medical evacuation",
+      "n.",
+      "醫療後送",
+      "emergency transport"
+    ],
+    [
+      "visa application",
+      "n.",
+      "簽證申請",
+      "entry permit"
+    ],
+    [
+      "embassy",
+      "n.",
+      "大使館",
+      "diplomatic office"
+    ]
+  ],
+  "insurance": [
+    [
+      "policyholder",
+      "n.",
+      "保戶",
+      "insured person"
+    ],
+    [
+      "insurer",
+      "n.",
+      "保險公司",
+      "insurance firm"
+    ],
+    [
+      "underwriting",
+      "n.",
+      "核保",
+      "risk assessment"
+    ],
+    [
+      "actuarial",
+      "adj.",
+      "精算的",
+      "risk math"
+    ],
+    [
+      "risk pool",
+      "n.",
+      "風險池",
+      "shared risk"
+    ],
+    [
+      "premium payment",
+      "n.",
+      "保費繳納",
+      "policy fee"
+    ],
+    [
+      "grace period",
+      "n.",
+      "寬限期",
+      "extra pay time"
+    ],
+    [
+      "lapse notice",
+      "n.",
+      "失效通知",
+      "coverage end alert"
+    ],
+    [
+      "reinstatement",
+      "n.",
+      "復效",
+      "restore policy"
+    ],
+    [
+      "rider",
+      "n.",
+      "附加條款",
+      "add-on clause"
+    ],
+    [
+      "endorsement",
+      "n.",
+      "批單",
+      "policy change"
+    ],
+    [
+      "certificate of insurance",
+      "n.",
+      "保險證明",
+      "coverage proof"
+    ],
+    [
+      "general liability",
+      "n.",
+      "一般責任險",
+      "business liability"
+    ],
+    [
+      "professional liability",
+      "n.",
+      "專業責任險",
+      "errors coverage"
+    ],
+    [
+      "product liability",
+      "n.",
+      "產品責任險",
+      "goods risk"
+    ],
+    [
+      "workers compensation",
+      "n.",
+      "勞工補償險",
+      "work injury cover"
+    ],
+    [
+      "property insurance",
+      "n.",
+      "財產險",
+      "asset cover"
+    ],
+    [
+      "business interruption",
+      "n.",
+      "營業中斷險",
+      "income loss cover"
+    ],
+    [
+      "deductible amount",
+      "n.",
+      "自負額",
+      "out-of-pocket start"
+    ],
+    [
+      "out-of-pocket max",
+      "n.",
+      "自付上限",
+      "max personal cost"
+    ],
+    [
+      "copayment",
+      "n.",
+      "共付額",
+      "shared cost"
+    ],
+    [
+      "coinsurance rate",
+      "n.",
+      "共同保險比例",
+      "shared percentage"
+    ],
+    [
+      "in-network provider",
+      "n.",
+      "網內醫療",
+      "approved doctor"
+    ],
+    [
+      "out-of-network",
+      "adj.",
+      "網外",
+      "non-approved provider"
+    ],
+    [
+      "preauthorization",
+      "n.",
+      "事前授權",
+      "prior approval"
+    ],
+    [
+      "formulary",
+      "n.",
+      "藥品表",
+      "approved drugs"
+    ],
+    [
+      "generic drug",
+      "n.",
+      "學名藥",
+      "non-brand medicine"
+    ],
+    [
+      "brand-name drug",
+      "n.",
+      "品牌藥",
+      "patented medicine"
+    ],
+    [
+      "prior authorization",
+      "n.",
+      "事前核准",
+      "pre-approval"
+    ],
+    [
+      "claim form",
+      "n.",
+      "理賠申請表",
+      "benefit request"
+    ],
+    [
+      "claim denial",
+      "n.",
+      "理賠拒絕",
+      "benefit reject"
+    ],
+    [
+      "appeal process",
+      "n.",
+      "申訴流程",
+      "review request"
+    ],
+    [
+      "adjuster",
+      "n.",
+      "理賠調查員",
+      "claim inspector"
+    ],
+    [
+      "settlement offer",
+      "n.",
+      "和解方案",
+      "payout proposal"
+    ],
+    [
+      "subrogation",
+      "n.",
+      "代位求償",
+      "insurer recovery"
+    ],
+    [
+      "loss ratio",
+      "n.",
+      "損失率",
+      "claims vs premium"
+    ],
+    [
+      "underinsured",
+      "adj.",
+      "保額不足",
+      "low coverage"
+    ],
+    [
+      "overinsured",
+      "adj.",
+      "保額過高",
+      "excess coverage"
+    ],
+    [
+      "risk assessment",
+      "n.",
+      "風險評估",
+      "danger review"
+    ],
+    [
+      "wellness program",
+      "n.",
+      "健康計畫",
+      "health promotion"
+    ]
+  ],
+  "dining": [
+    [
+      "table reservation",
+      "n.",
+      "訂位",
+      "book table"
+    ],
+    [
+      "party size",
+      "n.",
+      "用餐人數",
+      "group number"
+    ],
+    [
+      "prix fixe",
+      "n.",
+      "套餐",
+      "fixed menu"
+    ],
+    [
+      "chef special",
+      "n.",
+      "主廚推薦",
+      "daily dish"
+    ],
+    [
+      "daily special",
+      "n.",
+      "今日特餐",
+      "today dish"
+    ],
+    [
+      "side dish",
+      "n.",
+      "配菜",
+      "extra plate"
+    ],
+    [
+      "main course",
+      "n.",
+      "主菜",
+      "primary dish"
+    ],
+    [
+      "starter",
+      "n.",
+      "前菜",
+      "first course"
+    ],
+    [
+      "dessert menu",
+      "n.",
+      "甜點菜單",
+      "sweet list"
+    ],
+    [
+      "wine list",
+      "n.",
+      "酒單",
+      "drink menu"
+    ],
+    [
+      "non-alcoholic",
+      "adj.",
+      "無酒精",
+      "soft drink"
+    ],
+    [
+      "bottled water",
+      "n.",
+      "瓶裝水",
+      "sealed water"
+    ],
+    [
+      "food allergy",
+      "n.",
+      "食物過敏",
+      "allergy alert"
+    ],
+    [
+      "gluten-free option",
+      "n.",
+      "無麩質選項",
+      "no gluten choice"
+    ],
+    [
+      "dairy-free",
+      "adj.",
+      "無乳製品",
+      "no milk"
+    ],
+    [
+      "spice level",
+      "n.",
+      "辣度",
+      "heat level"
+    ],
+    [
+      "medium rare",
+      "phr.",
+      "三分熟",
+      "partially cooked"
+    ],
+    [
+      "well done",
+      "phr.",
+      "全熟",
+      "fully cooked"
+    ],
+    [
+      "doggy bag",
+      "n.",
+      "外帶盒",
+      "leftover box"
+    ],
+    [
+      "split check",
+      "v.",
+      "分開結帳",
+      "separate bill"
+    ],
+    [
+      "bill please",
+      "phr.",
+      "請結帳",
+      "request check"
+    ],
+    [
+      "service charge",
+      "n.",
+      "服務費",
+      "added fee"
+    ],
+    [
+      "included tip",
+      "n.",
+      "含小費",
+      "gratuity included"
+    ],
+    [
+      "round up",
+      "v.",
+      "湊整",
+      "add small amount"
+    ],
+    [
+      "business lunch",
+      "n.",
+      "商務午餐",
+      "work meal"
+    ],
+    [
+      "working dinner",
+      "n.",
+      "工作晚餐",
+      "evening meeting meal"
+    ],
+    [
+      "catered meal",
+      "n.",
+      "外燴餐點",
+      "provided food"
+    ],
+    [
+      "buffet line",
+      "n.",
+      "自助餐台",
+      "self-serve line"
+    ],
+    [
+      "carving station",
+      "n.",
+      "切肉台",
+      "meat station"
+    ],
+    [
+      "live cooking",
+      "n.",
+      "現場料理",
+      "on-site prep"
+    ]
+  ],
+  "housing": [
+    [
+      "rental agreement",
+      "n.",
+      "租賃合約",
+      "lease contract"
+    ],
+    [
+      "security deposit",
+      "n.",
+      "押金",
+      "refundable deposit"
+    ],
+    [
+      "move-in date",
+      "n.",
+      "入住日",
+      "start date"
+    ],
+    [
+      "move-out inspection",
+      "n.",
+      "退租檢查",
+      "exit check"
+    ],
+    [
+      "rent increase",
+      "n.",
+      "租金調漲",
+      "higher rent"
+    ],
+    [
+      "rent control",
+      "n.",
+      "租金管制",
+      "price limit law"
+    ],
+    [
+      "co-signer",
+      "n.",
+      "連帶保證人",
+      "guarantor"
+    ],
+    [
+      "credit check",
+      "n.",
+      "信用查核",
+      "score review"
+    ],
+    [
+      "income verification",
+      "n.",
+      "收入證明",
+      "pay proof"
+    ],
+    [
+      "floor plan",
+      "n.",
+      "平面圖",
+      "layout map"
+    ],
+    [
+      "square meters",
+      "n.",
+      "平方公尺",
+      "area size"
+    ],
+    [
+      "open layout",
+      "n.",
+      "開放式格局",
+      "open plan"
+    ],
+    [
+      "hardwood floor",
+      "n.",
+      "硬木地板",
+      "wood surface"
+    ],
+    [
+      "carpet",
+      "n.",
+      "地毯",
+      "floor cover"
+    ],
+    [
+      "air conditioning",
+      "n.",
+      "冷氣",
+      "cooling system"
+    ],
+    [
+      "heating system",
+      "n.",
+      "暖氣",
+      "heat system"
+    ],
+    [
+      "water heater",
+      "n.",
+      "熱水器",
+      "hot water unit"
+    ],
+    [
+      "maintenance request",
+      "n.",
+      "報修",
+      "repair request"
+    ],
+    [
+      "landlord notice",
+      "n.",
+      "房東通知",
+      "owner alert"
+    ],
+    [
+      "tenant rights",
+      "n.",
+      "房客權益",
+      "renter rights"
+    ],
+    [
+      "noise complaint",
+      "n.",
+      "噪音申訴",
+      "sound issue"
+    ],
+    [
+      "pet policy",
+      "n.",
+      "寵物規定",
+      "animal rule"
+    ],
+    [
+      "no-pets rule",
+      "n.",
+      "禁寵規定",
+      "no animals"
+    ],
+    [
+      "parking spot",
+      "n.",
+      "停車位",
+      "car space"
+    ],
+    [
+      "storage unit",
+      "n.",
+      "儲藏室",
+      "extra room"
+    ],
+    [
+      "laundry room",
+      "n.",
+      "洗衣間",
+      "wash area"
+    ],
+    [
+      "shared kitchen",
+      "n.",
+      "共用廚房",
+      "common kitchen"
+    ],
+    [
+      "real estate agent",
+      "n.",
+      "房仲",
+      "property broker"
+    ],
+    [
+      "listing price",
+      "n.",
+      "開價",
+      "asking price"
+    ],
+    [
+      "counteroffer",
+      "n.",
+      "還價",
+      "price reply"
+    ]
+  ],
+  "retail": [
+    [
+      "point of sale",
+      "n.",
+      "銷售點",
+      "POS"
+    ],
+    [
+      "sales associate",
+      "n.",
+      "店員",
+      "floor staff"
+    ],
+    [
+      "store manager",
+      "n.",
+      "店長",
+      "shop leader"
+    ],
+    [
+      "opening shift",
+      "n.",
+      "早班",
+      "start shift"
+    ],
+    [
+      "closing shift",
+      "n.",
+      "晚班",
+      "end shift"
+    ],
+    [
+      "cash drawer",
+      "n.",
+      "錢櫃",
+      "till"
+    ],
+    [
+      "price tag",
+      "n.",
+      "價格標籤",
+      "cost label"
+    ],
+    [
+      "shelf label",
+      "n.",
+      "貨架標籤",
+      "shelf sign"
+    ],
+    [
+      "planogram",
+      "n.",
+      "陳列圖",
+      "display plan"
+    ],
+    [
+      "visual merchandising",
+      "n.",
+      "視覺陳列",
+      "display design"
+    ],
+    [
+      "window display",
+      "n.",
+      "櫥窗展示",
+      "front showcase"
+    ],
+    [
+      "endcap",
+      "n.",
+      "端架",
+      "aisle end display"
+    ],
+    [
+      "loss prevention",
+      "n.",
+      "防損",
+      "theft control"
+    ],
+    [
+      "shrink",
+      "n.",
+      "耗損",
+      "inventory loss"
+    ],
+    [
+      "shoplifting",
+      "n.",
+      "入店行竊",
+      "store theft"
+    ],
+    [
+      "mystery shopper",
+      "n.",
+      "神秘客",
+      "secret customer"
+    ],
+    [
+      "customer service desk",
+      "n.",
+      "客服台",
+      "help desk"
+    ],
+    [
+      "returns desk",
+      "n.",
+      "退貨櫃台",
+      "refund counter"
+    ],
+    [
+      "gift receipt",
+      "n.",
+      "禮品收據",
+      "no-price receipt"
+    ],
+    [
+      "store credit",
+      "n.",
+      "商店信用",
+      "shop voucher"
+    ],
+    [
+      "rain check",
+      "n.",
+      "延期供貨券",
+      "later voucher"
+    ],
+    [
+      "BOGO",
+      "n.",
+      "買一送一",
+      "buy one get one"
+    ],
+    [
+      "flash sale",
+      "n.",
+      "限時特賣",
+      "short sale"
+    ],
+    [
+      "doorbuster",
+      "n.",
+      "開門優惠",
+      "early deal"
+    ],
+    [
+      "loyalty card",
+      "n.",
+      "會員卡",
+      "reward card"
+    ],
+    [
+      "email signup",
+      "n.",
+      "電子報訂閱",
+      "mail list join"
+    ],
+    [
+      "SMS alert",
+      "n.",
+      "簡訊通知",
+      "text alert"
+    ],
+    [
+      "inventory count",
+      "n.",
+      "盤點",
+      "stock check"
+    ],
+    [
+      "stockroom",
+      "n.",
+      "後倉",
+      "storage room"
+    ],
+    [
+      "backorder notice",
+      "n.",
+      "缺貨通知",
+      "delay alert"
+    ]
+  ],
+  "media": [
+    [
+      "press release",
+      "n.",
+      "新聞稿",
+      "official announcement"
+    ],
+    [
+      "media kit",
+      "n.",
+      "媒體資料包",
+      "promo pack"
+    ],
+    [
+      "pitch email",
+      "n.",
+      "提案信",
+      "story pitch"
+    ],
+    [
+      "editorial calendar",
+      "n.",
+      "編輯排程",
+      "content plan"
+    ],
+    [
+      "deadline extension",
+      "n.",
+      "截稿延期",
+      "later due date"
+    ],
+    [
+      "byline",
+      "n.",
+      "署名",
+      "author name"
+    ],
+    [
+      "lead paragraph",
+      "n.",
+      "導言段",
+      "opening paragraph"
+    ],
+    [
+      "feature story",
+      "n.",
+      "專題報導",
+      "in-depth article"
+    ],
+    [
+      "breaking news",
+      "n.",
+      "突發新聞",
+      "urgent report"
+    ],
+    [
+      "live broadcast",
+      "n.",
+      "現場直播",
+      "real-time show"
+    ],
+    [
+      "rerun",
+      "n.",
+      "重播",
+      "repeat airing"
+    ],
+    [
+      "prime time",
+      "n.",
+      "黃金時段",
+      "peak viewing"
+    ],
+    [
+      "audience rating",
+      "n.",
+      "收視率",
+      "view score"
+    ],
+    [
+      "share of voice",
+      "n.",
+      "聲量占比",
+      "media presence"
+    ],
+    [
+      "ad slot",
+      "n.",
+      "廣告時段",
+      "commercial spot"
+    ],
+    [
+      "sponsorship package",
+      "n.",
+      "贊助方案",
+      "support plan"
+    ],
+    [
+      "brand mention",
+      "n.",
+      "品牌提及",
+      "name reference"
+    ],
+    [
+      "product placement",
+      "n.",
+      "置入性行銷",
+      "in-show ad"
+    ],
+    [
+      "social media post",
+      "n.",
+      "社群貼文",
+      "online update"
+    ],
+    [
+      "hashtag campaign",
+      "n.",
+      "標籤活動",
+      "tag drive"
+    ]
+  ],
+  "training": [
+    [
+      "learning objective",
+      "n.",
+      "學習目標",
+      "training goal"
+    ],
+    [
+      "training manual",
+      "n.",
+      "訓練手冊",
+      "guidebook"
+    ],
+    [
+      "job aid",
+      "n.",
+      "工作輔助",
+      "quick guide"
+    ],
+    [
+      "blended learning",
+      "n.",
+      "混合學習",
+      "mixed format"
+    ],
+    [
+      "microlearning",
+      "n.",
+      "微學習",
+      "short lesson"
+    ],
+    [
+      "knowledge check",
+      "n.",
+      "知識檢核",
+      "quick quiz"
+    ],
+    [
+      "passing score",
+      "n.",
+      "及格分數",
+      "minimum grade"
+    ],
+    [
+      "certification exam",
+      "n.",
+      "證照考試",
+      "qualification test"
+    ],
+    [
+      "renewal training",
+      "n.",
+      "複訓",
+      "update course"
+    ],
+    [
+      "trainer notes",
+      "n.",
+      "講師備註",
+      "instructor guide"
+    ],
+    [
+      "participant guide",
+      "n.",
+      "學員手冊",
+      "learner book"
+    ],
+    [
+      "icebreaker activity",
+      "n.",
+      "破冰活動",
+      "warm-up game"
+    ],
+    [
+      "group exercise",
+      "n.",
+      "小組練習",
+      "team task"
+    ],
+    [
+      "case discussion",
+      "n.",
+      "案例討論",
+      "example talk"
+    ],
+    [
+      "skill drill",
+      "n.",
+      "技能演練",
+      "practice drill"
+    ],
+    [
+      "competency gap",
+      "n.",
+      "能力缺口",
+      "skill lack"
+    ],
+    [
+      "development plan",
+      "n.",
+      "發展計畫",
+      "growth plan"
+    ],
+    [
+      "coaching session",
+      "n.",
+      "輔導會談",
+      "guidance meeting"
+    ],
+    [
+      "mentoring program",
+      "n.",
+      "導師計畫",
+      "mentor scheme"
+    ],
+    [
+      "train-the-trainer",
+      "n.",
+      "培訓培訓師",
+      "trainer course"
+    ]
+  ]
+}

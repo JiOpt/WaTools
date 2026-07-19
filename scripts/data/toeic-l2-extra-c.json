@@ -1,0 +1,8534 @@
+{
+  "real-estate": [
+    [
+      "capital stack",
+      "n.",
+      "資本結構",
+      "capital structure"
+    ],
+    [
+      "senior mortgage loan",
+      "n.",
+      "優先抵押貸款",
+      "senior loan"
+    ],
+    [
+      "mezzanine debt",
+      "n.",
+      "夾層債務",
+      "mezz loan"
+    ],
+    [
+      "preferred equity investment",
+      "n.",
+      "優先股權投資",
+      "pref equity"
+    ],
+    [
+      "common equity investment",
+      "n.",
+      "普通股權投資",
+      "common equity"
+    ],
+    [
+      "joint venture agreement",
+      "n.",
+      "合資協議",
+      "JV agreement"
+    ],
+    [
+      "promote structure",
+      "n.",
+      "超額報酬結構",
+      "promote waterfall"
+    ],
+    [
+      "waterfall distribution",
+      "n.",
+      "瀑布式分配",
+      "cash waterfall"
+    ],
+    [
+      "preferred return",
+      "n.",
+      "優先報酬",
+      "pref return"
+    ],
+    [
+      "IRR hurdle",
+      "n.",
+      "IRR 門檻",
+      "return hurdle"
+    ],
+    [
+      "equity multiple target",
+      "n.",
+      "股權倍數目標",
+      "equity multiple"
+    ],
+    [
+      "sponsor equity contribution",
+      "n.",
+      "發起人股權出資",
+      "sponsor equity"
+    ],
+    [
+      "LP equity commitment",
+      "n.",
+      "LP 股權承諾",
+      "LP commitment"
+    ],
+    [
+      "capital call notice",
+      "n.",
+      "資本催繳通知",
+      "capital call"
+    ],
+    [
+      "distribution notice",
+      "n.",
+      "分配通知",
+      "distribution notice"
+    ],
+    [
+      "return of capital",
+      "n.",
+      "資本返還",
+      "ROC distribution"
+    ],
+    [
+      "profit split",
+      "n.",
+      "利潤分配",
+      "profit share"
+    ],
+    [
+      "catch-up provision",
+      "n.",
+      "追趕條款",
+      "GP catch-up"
+    ],
+    [
+      "clawback provision real estate",
+      "n.",
+      "追回條款",
+      "GP clawback"
+    ],
+    [
+      "acquisition fee",
+      "n.",
+      "收購費",
+      "acquisition fee"
+    ],
+    [
+      "asset management fee",
+      "n.",
+      "資產管理費",
+      "AM fee"
+    ],
+    [
+      "property management fee",
+      "n.",
+      "物業管理費",
+      "PM fee"
+    ],
+    [
+      "leasing commission",
+      "n.",
+      "租賃佣金",
+      "leasing fee"
+    ],
+    [
+      "disposition fee",
+      "n.",
+      "出售費",
+      "disposition fee"
+    ],
+    [
+      "development fee",
+      "n.",
+      "開發費",
+      "dev fee"
+    ],
+    [
+      "construction management fee",
+      "n.",
+      "營建管理費",
+      "CM fee"
+    ],
+    [
+      "financing fee",
+      "n.",
+      "融資費",
+      "financing fee"
+    ],
+    [
+      "loan origination fee",
+      "n.",
+      "貸款起始費",
+      "origination fee"
+    ],
+    [
+      "extension fee loan",
+      "n.",
+      "展期費",
+      "extension fee"
+    ],
+    [
+      "exit fee loan",
+      "n.",
+      "退出費",
+      "exit fee"
+    ],
+    [
+      "prepayment penalty loan",
+      "n.",
+      "提前還款罰金",
+      "prepay penalty"
+    ],
+    [
+      "defeasance cost",
+      "n.",
+      "代位清偿成本",
+      "defeasance"
+    ],
+    [
+      "yield maintenance premium",
+      "n.",
+      "殖利率維持溢價",
+      "yield maintenance"
+    ],
+    [
+      "interest rate cap purchase",
+      "n.",
+      "利率上限購買",
+      "cap purchase"
+    ],
+    [
+      "interest rate swap hedge",
+      "n.",
+      "利率掉期避險",
+      "swap hedge"
+    ],
+    [
+      "construction loan",
+      "n.",
+      "建築融資",
+      "construction financing"
+    ],
+    [
+      "mini-perm loan",
+      "n.",
+      "短期永久貸款",
+      "mini-perm"
+    ],
+    [
+      "permanent takeout loan",
+      "n.",
+      "永久承接貸款",
+      "takeout loan"
+    ],
+    [
+      "bridge-to-perm strategy",
+      "n.",
+      "過橋轉永久策略",
+      "bridge to perm"
+    ],
+    [
+      "loan-to-cost ratio",
+      "n.",
+      "貸款成本比",
+      "LTC"
+    ],
+    [
+      "as-stabilized valuation",
+      "n.",
+      "穩定後估值",
+      "stabilized value"
+    ],
+    [
+      "as-is valuation",
+      "n.",
+      "現況估值",
+      "as-is value"
+    ],
+    [
+      "highest and best use",
+      "n.",
+      "最高最佳使用",
+      "HBU analysis"
+    ],
+    [
+      "comparable sales approach",
+      "n.",
+      "比較銷售法",
+      "sales comp approach"
+    ],
+    [
+      "income capitalization approach",
+      "n.",
+      "收益資本化法",
+      "income approach"
+    ],
+    [
+      "discounted cash flow analysis real estate",
+      "n.",
+      "不動產 DCF 分析",
+      "real estate DCF"
+    ],
+    [
+      "terminal capitalization rate",
+      "n.",
+      "終值資本化率",
+      "terminal cap rate"
+    ],
+    [
+      "going-in cap rate",
+      "n.",
+      "進場資本化率",
+      "going-in cap"
+    ],
+    [
+      "exit cap rate assumption",
+      "n.",
+      "退出資本化率假設",
+      "exit cap assumption"
+    ],
+    [
+      "reversion value",
+      "n.",
+      "回復價值",
+      "residual value"
+    ],
+    [
+      "replacement cost approach",
+      "n.",
+      "重置成本法",
+      "cost approach"
+    ],
+    [
+      "highest and best use study",
+      "n.",
+      "最高最佳使用研究",
+      "HBU study"
+    ],
+    [
+      "market study retail",
+      "n.",
+      "零售市場研究",
+      "retail market study"
+    ],
+    [
+      "demographic analysis trade area",
+      "n.",
+      "商圈人口分析",
+      "demographic study"
+    ],
+    [
+      "trade area mapping",
+      "n.",
+      "商圈地圖",
+      "trade area map"
+    ],
+    [
+      "primary trade area",
+      "n.",
+      "主要商圈",
+      "primary trade area"
+    ],
+    [
+      "secondary trade area",
+      "n.",
+      "次要商圈",
+      "secondary trade area"
+    ],
+    [
+      "capture rate analysis",
+      "n.",
+      "客群 Capture 率分析",
+      "capture rate"
+    ],
+    [
+      "tenant sales report",
+      "n.",
+      "租戶銷售報告",
+      "sales report"
+    ],
+    [
+      "co-tenancy clause",
+      "n.",
+      "同店條款",
+      "co-tenancy"
+    ],
+    [
+      "exclusive use clause",
+      "n.",
+      "專用條款",
+      "exclusive use"
+    ],
+    [
+      "radius restriction clause",
+      "n.",
+      "半徑限制條款",
+      "radius restriction"
+    ],
+    [
+      "go-dark clause",
+      "n.",
+      "停業條款",
+      "go-dark provision"
+    ],
+    [
+      "continuous operation clause",
+      "n.",
+      "持續營運條款",
+      "continuous ops"
+    ],
+    [
+      "kick-out clause",
+      "n.",
+      "驅逐條款",
+      "kick-out clause"
+    ],
+    [
+      "recapture clause",
+      "n.",
+      "回收條款",
+      "recapture clause"
+    ],
+    [
+      "sales kick-out",
+      "n.",
+      "銷售未達驅逐",
+      "sales kick-out"
+    ],
+    [
+      "percentage rent breakpoint",
+      "n.",
+      "百分比租金 breakpoint",
+      "natural breakpoint"
+    ],
+    [
+      "artificial breakpoint",
+      "n.",
+      "人工 breakpoint",
+      "artificial breakpoint"
+    ],
+    [
+      "CAM reconciliation",
+      "n.",
+      "公共區費用對帳",
+      "CAM true-up"
+    ],
+    [
+      "CAM cap",
+      "n.",
+      "公共區費用上限",
+      "CAM cap"
+    ],
+    [
+      "controllable CAM",
+      "n.",
+      "可控公共區費用",
+      "controllable CAM"
+    ],
+    [
+      "non-controllable CAM",
+      "n.",
+      "不可控公共區費用",
+      "non-controllable CAM"
+    ],
+    [
+      "tax pass-through",
+      "n.",
+      "稅費轉嫁",
+      "tax pass-through"
+    ],
+    [
+      "insurance pass-through",
+      "n.",
+      "保險費轉嫁",
+      "insurance pass-through"
+    ],
+    [
+      "utility pass-through",
+      "n.",
+      "水電費轉嫁",
+      "utility pass-through"
+    ],
+    [
+      "base year stop",
+      "n.",
+      "基準年 stop",
+      "base year expense stop"
+    ],
+    [
+      "expense stop lease",
+      "n.",
+      "費用 stop",
+      "expense stop"
+    ],
+    [
+      "gross-up provision",
+      "n.",
+      " gross-up 條款",
+      "gross-up clause"
+    ],
+    [
+      "proportionate share clause",
+      "n.",
+      "比例分擔條款",
+      "pro-rata share"
+    ],
+    [
+      "demising wall",
+      "n.",
+      "分隔牆",
+      "demising wall"
+    ],
+    [
+      "party wall agreement",
+      "n.",
+      "共用牆協議",
+      "party wall agreement"
+    ],
+    [
+      "building standard work letter",
+      "n.",
+      "建築標準工作說明",
+      "work letter"
+    ],
+    [
+      "tenant work letter",
+      "n.",
+      "租戶工作說明",
+      "TI work letter"
+    ],
+    [
+      "landlord work",
+      "n.",
+      "房東工程",
+      "landlord delivery"
+    ],
+    [
+      "tenant work",
+      "n.",
+      "租戶工程",
+      "tenant improvements"
+    ],
+    [
+      "TI allowance per square foot",
+      "n.",
+      "每坪裝修補貼",
+      "TI allowance PSF"
+    ],
+    [
+      "free rent period",
+      "n.",
+      "免租期",
+      "rent abatement"
+    ],
+    [
+      "rent concession",
+      "n.",
+      "租金讓步",
+      "rent concession"
+    ],
+    [
+      "tenant improvement amortization",
+      "n.",
+      "裝修攤銷",
+      "TI amortization"
+    ],
+    [
+      "effective rent calculation",
+      "n.",
+      "有效租金計算",
+      "effective rent"
+    ],
+    [
+      "face rent",
+      "n.",
+      "票面租金",
+      "face rent"
+    ],
+    [
+      "net effective rent",
+      "n.",
+      "淨有效租金",
+      "NER"
+    ],
+    [
+      "lease term sheet",
+      "n.",
+      "租約條款書",
+      "lease term sheet"
+    ],
+    [
+      "letter of intent lease",
+      "n.",
+      "租約意向書",
+      "lease LOI"
+    ],
+    [
+      "lease execution",
+      "n.",
+      "租約簽署",
+      "lease signing"
+    ],
+    [
+      "lease commencement date",
+      "n.",
+      "租約起算日",
+      "commencement date"
+    ],
+    [
+      "rent commencement date",
+      "n.",
+      "租金起算日",
+      "rent start date"
+    ],
+    [
+      "delivery condition",
+      "n.",
+      "交付狀況",
+      "delivery condition"
+    ],
+    [
+      "warm shell delivery",
+      "n.",
+      " warm shell 交付",
+      "warm shell"
+    ],
+    [
+      "cold shell delivery",
+      "n.",
+      " cold shell 交付",
+      "cold shell"
+    ],
+    [
+      "vanilla box delivery",
+      "n.",
+      " vanilla box 交付",
+      "vanilla box"
+    ],
+    [
+      "white box delivery",
+      "n.",
+      " white box 交付",
+      "white box"
+    ],
+    [
+      "as-is delivery",
+      "n.",
+      "現況交付",
+      "as-is delivery"
+    ],
+    [
+      "punch list completion",
+      "n.",
+      "缺失改善完成",
+      "punch list closeout"
+    ],
+    [
+      "certificate of substantial completion",
+      "n.",
+      "實質完工證明",
+      "substantial completion"
+    ],
+    [
+      "landlord lien waiver",
+      "n.",
+      "房東留置權放棄",
+      "landlord waiver"
+    ],
+    [
+      "SNDA agreement",
+      "n.",
+      "SNDA 協議",
+      "subordination non-disturbance"
+    ],
+    [
+      "estoppel certificate tenant",
+      "n.",
+      "租戶 estoppel 證明",
+      "tenant estoppel"
+    ],
+    [
+      "tenant estoppel reliance",
+      "n.",
+      " estoppel 依賴",
+      "estoppel reliance"
+    ],
+    [
+      "rent roll audit",
+      "n.",
+      "租金清單稽核",
+      "rent roll audit"
+    ],
+    [
+      "lease abstract update",
+      "n.",
+      "租約摘要更新",
+      "abstract update"
+    ],
+    [
+      "critical date calendar",
+      "n.",
+      "關鍵日期行事曆",
+      "critical dates"
+    ],
+    [
+      "option exercise notice",
+      "n.",
+      "選擇權行使通知",
+      "option notice"
+    ],
+    [
+      "renewal option notice",
+      "n.",
+      "續約通知",
+      "renewal notice"
+    ],
+    [
+      "expansion option",
+      "n.",
+      "擴租選擇權",
+      "expansion option"
+    ],
+    [
+      "contraction option",
+      "n.",
+      "縮租選擇權",
+      "contraction option"
+    ],
+    [
+      "termination option tenant",
+      "n.",
+      "租戶終止選擇權",
+      "termination option"
+    ],
+    [
+      "relocation clause",
+      "n.",
+      " relocation 條款",
+      "relocation clause"
+    ],
+    [
+      "demolition clause",
+      "n.",
+      "拆除條款",
+      "demolition clause"
+    ],
+    [
+      "holdover rent premium",
+      "n.",
+      "逾期占用租金溢價",
+      "holdover premium"
+    ],
+    [
+      "subordination agreement lease",
+      "n.",
+      "租約次順位協議",
+      "lease subordination"
+    ],
+    [
+      "non-disturbance agreement",
+      "n.",
+      "不干扰協議",
+      "non-disturbance"
+    ],
+    [
+      "attornment agreement",
+      "n.",
+      "承認租約協議",
+      "attornment"
+    ],
+    [
+      "lease assignment approval",
+      "n.",
+      "租約轉讓核准",
+      "assignment approval"
+    ],
+    [
+      "sublease consent",
+      "n.",
+      "轉租同意",
+      "sublease consent"
+    ],
+    [
+      "recapture on assignment",
+      "n.",
+      "轉讓回收權",
+      "recapture right"
+    ],
+    [
+      "profit sharing on sublease",
+      "n.",
+      "轉租利益分享",
+      "sublease profit share"
+    ],
+    [
+      "use clause restriction",
+      "n.",
+      "用途限制條款",
+      "use restriction"
+    ],
+    [
+      "hours of operation clause",
+      "n.",
+      "營業時間條款",
+      "operating hours"
+    ],
+    [
+      "parking ratio requirement",
+      "n.",
+      "停車比例要求",
+      "parking ratio"
+    ],
+    [
+      "reserved parking spaces",
+      "n.",
+      "保留車位",
+      "reserved parking"
+    ],
+    [
+      "signage rights lease",
+      "n.",
+      "招牌權利",
+      "signage rights"
+    ],
+    [
+      "pylon sign rights",
+      "n.",
+      "立柱招牌權",
+      "pylon sign"
+    ],
+    [
+      "monument sign rights",
+      "n.",
+      "地標招牌權",
+      "monument sign"
+    ],
+    [
+      "HVAC hours clause",
+      "n.",
+      "空調時段條款",
+      "HVAC hours"
+    ],
+    [
+      "after-hours HVAC charge",
+      "n.",
+      "延長空調費",
+      "after-hours HVAC"
+    ],
+    [
+      "electricity submetering",
+      "n.",
+      "電力分表",
+      "electric submeter"
+    ],
+    [
+      "water submetering",
+      "n.",
+      "用水分表",
+      "water submeter"
+    ],
+    [
+      "rubbish removal charge",
+      "n.",
+      "垃圾清運費",
+      "trash removal"
+    ],
+    [
+      "janitorial service charge",
+      "n.",
+      "清潔服務費",
+      "janitorial charge"
+    ],
+    [
+      "security service charge",
+      "n.",
+      "保全服務費",
+      "security charge"
+    ],
+    [
+      "management fee pass-through",
+      "n.",
+      "管理費轉嫁",
+      "mgmt fee pass-through"
+    ],
+    [
+      "admin fee markup",
+      "n.",
+      "行政費加成",
+      "admin fee"
+    ],
+    [
+      "gross lease escalation",
+      "n.",
+      "全包租約調升",
+      "gross escalation"
+    ],
+    [
+      " CPI escalation clause",
+      "n.",
+      "CPI 調升條款",
+      "CPI escalation"
+    ],
+    [
+      "fixed escalation schedule",
+      "n.",
+      "固定調升表",
+      "fixed bumps"
+    ],
+    [
+      "fair market rent reset",
+      "n.",
+      "公平市場租金重設",
+      "FMR reset"
+    ],
+    [
+      "arbitration rent dispute",
+      "n.",
+      "租金爭議仲裁",
+      "rent arbitration"
+    ],
+    [
+      "comparative market analysis lease",
+      "n.",
+      "租賃 CMA",
+      "lease CMA"
+    ],
+    [
+      "dark store valuation",
+      "n.",
+      "暗店估值",
+      "dark store value"
+    ],
+    [
+      "going concern value retail",
+      "n.",
+      "零售持續經營價值",
+      "going concern value"
+    ],
+    [
+      "store closure analysis",
+      "n.",
+      "關店分析",
+      "closure analysis"
+    ],
+    [
+      "shadow anchor",
+      "n.",
+      "影子主力店",
+      "shadow anchor"
+    ],
+    [
+      "inline tenant",
+      "n.",
+      " inline 租戶",
+      "inline tenant"
+    ],
+    [
+      "outparcel development",
+      "n.",
+      "外parcel 開發",
+      "outparcel"
+    ],
+    [
+      "pad site lease",
+      "n.",
+      " pad 租賃",
+      "pad lease"
+    ],
+    [
+      "ground lease rent reset",
+      "n.",
+      "土地租約租金重設",
+      "ground rent reset"
+    ],
+    [
+      "fee simple ownership",
+      "n.",
+      "完全產權",
+      "fee simple"
+    ],
+    [
+      "leasehold interest",
+      "n.",
+      "租賃權益",
+      "leasehold estate"
+    ],
+    [
+      "leased fee interest",
+      "n.",
+      "出租人權益",
+      "leased fee"
+    ],
+    [
+      "air rights transfer",
+      "n.",
+      "空中權轉讓",
+      "air rights sale"
+    ],
+    [
+      "development rights transfer",
+      "n.",
+      "開發權轉讓",
+      "TDR transfer"
+    ],
+    [
+      "transferable development rights",
+      "n.",
+      "可轉讓開發權",
+      "TDR"
+    ],
+    [
+      "zoning variance application",
+      "n.",
+      "分區變異申請",
+      "variance application"
+    ],
+    [
+      "conditional use permit",
+      "n.",
+      " conditional use 許可",
+      "CUP"
+    ],
+    [
+      "site plan approval",
+      "n.",
+      "基地計畫核准",
+      "site plan approval"
+    ],
+    [
+      "entitlement process",
+      "n.",
+      "開發權取得流程",
+      "entitlement process"
+    ],
+    [
+      " rezoning petition",
+      "n.",
+      "重新分區請願",
+      "rezoning"
+    ],
+    [
+      "public hearing zoning",
+      "n.",
+      "分區公聽會",
+      "zoning hearing"
+    ],
+    [
+      "community benefit agreement development",
+      "n.",
+      "開發社區利益協議",
+      "CBA development"
+    ],
+    [
+      "impact fee assessment",
+      "n.",
+      "影響費評估",
+      "impact fee"
+    ],
+    [
+      "infrastructure improvement district",
+      "n.",
+      "基礎設施改善區",
+      "IID"
+    ],
+    [
+      "tax increment financing",
+      "n.",
+      "稅增量融資",
+      "TIF"
+    ],
+    [
+      "special assessment district",
+      "n.",
+      "特別評估區",
+      "SAD"
+    ],
+    [
+      "opportunity zone investment",
+      "n.",
+      "機會區投資",
+      "OZ investment"
+    ],
+    [
+      "qualified opportunity fund",
+      "n.",
+      "合格機會基金",
+      "QOF"
+    ],
+    [
+      "1031 exchange",
+      "n.",
+      "1031 交換",
+      "like-kind exchange"
+    ],
+    [
+      "qualified intermediary",
+      "n.",
+      "合格 intermediary",
+      "QI exchange"
+    ],
+    [
+      "exchange accommodation titleholder",
+      "n.",
+      "交換 accommodation 持有人",
+      "EAT"
+    ],
+    [
+      "reverse exchange",
+      "n.",
+      "反向交換",
+      "reverse 1031"
+    ],
+    [
+      "boot taxable gain",
+      "n.",
+      " taxable boot",
+      "boot gain"
+    ],
+    [
+      "cost segregation study",
+      "n.",
+      "成本分離研究",
+      "cost seg study"
+    ],
+    [
+      "bonus depreciation real estate",
+      "n.",
+      " bonus 折舊",
+      "bonus depreciation"
+    ],
+    [
+      "Section 179 deduction property",
+      "n.",
+      "179 扣除",
+      "Section 179"
+    ],
+    [
+      "passive activity loss rules",
+      "n.",
+      "被動活動損失規則",
+      "PAL rules"
+    ],
+    [
+      "real estate professional status",
+      "n.",
+      "不動產專業人士身分",
+      "RE professional"
+    ],
+    [
+      "depreciation recapture",
+      "n.",
+      "折舊追回",
+      "depreciation recapture"
+    ],
+    [
+      "capital gain on sale property",
+      "n.",
+      "不動產出售資本利得",
+      "property capital gain"
+    ],
+    [
+      "installment sale treatment",
+      "n.",
+      "分期出售處理",
+      "installment sale"
+    ],
+    [
+      "seller financing real estate",
+      "n.",
+      "賣方融資",
+      "seller carryback"
+    ],
+    [
+      "wraparound mortgage",
+      "n.",
+      " wraparound 抵押",
+      "wrap mortgage"
+    ],
+    [
+      "assumable mortgage",
+      "n.",
+      "可承接抵押",
+      "assumable loan"
+    ],
+    [
+      "due-on-sale clause",
+      "n.",
+      "出售 due-on 條款",
+      "due-on-sale"
+    ],
+    [
+      "title commitment",
+      "n.",
+      "產權承諾書",
+      "title commitment"
+    ],
+    [
+      "title exception",
+      "n.",
+      "產權例外",
+      "title exception"
+    ],
+    [
+      "survey exception title",
+      "n.",
+      "測量例外",
+      "survey exception"
+    ],
+    [
+      "mechanics lien waiver",
+      "n.",
+      "工程留置權放棄",
+      "lien waiver"
+    ],
+    [
+      "partial lien waiver",
+      "n.",
+      "部分留置權放棄",
+      "partial waiver"
+    ],
+    [
+      "unconditional lien waiver",
+      "n.",
+      "無條件留置權放棄",
+      "unconditional waiver"
+    ],
+    [
+      "ALTA survey",
+      "n.",
+      "ALTA 測量",
+      "ALTA survey"
+    ],
+    [
+      "boundary dispute resolution",
+      "n.",
+      "地界爭議解決",
+      "boundary dispute"
+    ],
+    [
+      "encroachment agreement",
+      "n.",
+      "侵占協議",
+      "encroachment agreement"
+    ],
+    [
+      "access easement",
+      "n.",
+      "通行地役權",
+      "access easement"
+    ],
+    [
+      "utility easement",
+      "n.",
+      "管線地役權",
+      "utility easement"
+    ],
+    [
+      "conservation easement",
+      "n.",
+      "保育地役權",
+      "conservation easement"
+    ],
+    [
+      "environmental indemnity agreement",
+      "n.",
+      "環境賠償協議",
+      "environmental indemnity"
+    ],
+    [
+      "Phase I ESA",
+      "n.",
+      "第一期環境評估",
+      "Phase I assessment"
+    ],
+    [
+      "Phase II ESA",
+      "n.",
+      "第二期環境評估",
+      "Phase II assessment"
+    ],
+    [
+      "recognized environmental condition",
+      "n.",
+      "Recognized 環境狀況",
+      "REC"
+    ],
+    [
+      "brownfield remediation",
+      "n.",
+      "棕地整治",
+      "brownfield cleanup"
+    ],
+    [
+      " vapor intrusion assessment",
+      "n.",
+      " vapor 入侵評估",
+      "vapor intrusion"
+    ],
+    [
+      " asbestos survey",
+      "n.",
+      "石綿調查",
+      "asbestos survey"
+    ],
+    [
+      "lead-based paint disclosure",
+      "n.",
+      "含鉛油漆揭露",
+      "LBP disclosure"
+    ],
+    [
+      " mold assessment",
+      "n.",
+      " mold 評估",
+      "mold assessment"
+    ],
+    [
+      " radon testing",
+      "n.",
+      " radon 檢測",
+      "radon test"
+    ],
+    [
+      " wetlands delineation",
+      "n.",
+      "濕地劃定",
+      "wetlands delineation"
+    ],
+    [
+      " flood zone determination",
+      "n.",
+      "洪氾區判定",
+      "flood zone"
+    ],
+    [
+      " FEMA flood map",
+      "n.",
+      "FEMA 洪氾圖",
+      "flood map"
+    ],
+    [
+      " flood insurance requirement",
+      "n.",
+      "洪災保險要求",
+      "flood insurance"
+    ],
+    [
+      " seismic risk assessment",
+      "n.",
+      "地震風險評估",
+      "seismic assessment"
+    ],
+    [
+      " geotechnical report",
+      "n.",
+      "地工報告",
+      "geotech report"
+    ],
+    [
+      " soil bearing capacity",
+      "n.",
+      "土壤承載力",
+      "bearing capacity"
+    ],
+    [
+      " groundwater study",
+      "n.",
+      "地下水研究",
+      "groundwater study"
+    ],
+    [
+      " traffic impact study",
+      "n.",
+      "交通影響研究",
+      "TIS"
+    ],
+    [
+      " parking study requirement",
+      "n.",
+      "停車研究要求",
+      "parking study"
+    ],
+    [
+      " shadow study development",
+      "n.",
+      " shadow 研究",
+      "shadow study"
+    ],
+    [
+      " view corridor protection",
+      "n.",
+      "視野走廊保護",
+      "view protection"
+    ],
+    [
+      " historic preservation review",
+      "n.",
+      "歷史保存審查",
+      "historic review"
+    ],
+    [
+      " landmark designation impact",
+      "n.",
+      "地標指定影響",
+      "landmark impact"
+    ],
+    [
+      " adaptive reuse project",
+      "n.",
+      "適應性再利用",
+      "adaptive reuse"
+    ],
+    [
+      " historic tax credit",
+      "n.",
+      "歷史 tax credit",
+      "HTC"
+    ],
+    [
+      " new markets tax credit",
+      "n.",
+      "新 markets tax credit",
+      "NMTC"
+    ],
+    [
+      " low-income housing tax credit",
+      "n.",
+      "低收入住宅 tax credit",
+      "LIHTC"
+    ],
+    [
+      " affordable housing covenant",
+      "n.",
+      " affordable housing 約束",
+      "affordable covenant"
+    ],
+    [
+      " inclusionary zoning requirement",
+      "n.",
+      " inclusionary zoning",
+      "inclusionary zoning"
+    ],
+    [
+      " density bonus program",
+      "n.",
+      "密度獎勵計畫",
+      "density bonus"
+    ],
+    [
+      " height limit restriction",
+      "n.",
+      "高度限制",
+      "height limit"
+    ],
+    [
+      " floor area ratio limit",
+      "n.",
+      "容積率上限",
+      "FAR limit"
+    ],
+    [
+      " setback requirement",
+      "n.",
+      "退縮要求",
+      "setback rule"
+    ],
+    [
+      " open space requirement",
+      "n.",
+      "開放空間要求",
+      "open space req"
+    ],
+    [
+      " parking minimum code",
+      "n.",
+      "最低停車規定",
+      "parking minimum"
+    ],
+    [
+      " transit-oriented development",
+      "n.",
+      " transit-oriented 開發",
+      "TOD"
+    ],
+    [
+      " infill development site",
+      "n.",
+      " infill 開發",
+      "infill site"
+    ],
+    [
+      " horizontal development",
+      "n.",
+      " horizontal 開發",
+      "horizontal dev"
+    ],
+    [
+      " vertical development",
+      "n.",
+      " vertical 開發",
+      "vertical dev"
+    ],
+    [
+      " master planned community",
+      "n.",
+      " master planned 社區",
+      "MPC"
+    ],
+    [
+      " phased development plan",
+      "n.",
+      "分期開發計畫",
+      "phased plan"
+    ],
+    [
+      " lot subdivision approval",
+      "n.",
+      "地塊分割核准",
+      "subdivision approval"
+    ],
+    [
+      " plat approval",
+      "n.",
+      "地籍圖核准",
+      "plat approval"
+    ],
+    [
+      " off-site improvement agreement",
+      "n.",
+      " off-site 改善協議",
+      "off-site agreement"
+    ],
+    [
+      " dedication of land",
+      "n.",
+      "土地捐獻",
+      "land dedication"
+    ],
+    [
+      " right-of-way dedication",
+      "n.",
+      "路權捐獻",
+      "ROW dedication"
+    ],
+    [
+      " construction hard cost budget",
+      "n.",
+      "建築 hard cost 預算",
+      "hard cost budget"
+    ],
+    [
+      " soft cost budget",
+      "n.",
+      " soft cost 預算",
+      "soft cost budget"
+    ],
+    [
+      " contingency reserve construction",
+      "n.",
+      "工程 contingency",
+      "construction contingency"
+    ],
+    [
+      " general conditions cost",
+      "n.",
+      " general conditions 成本",
+      "GC costs"
+    ],
+    [
+      " contractor GMP contract",
+      "n.",
+      "GMP 合約",
+      "guaranteed max price"
+    ],
+    [
+      " cost-plus contract construction",
+      "n.",
+      " cost-plus 合約",
+      "cost plus contract"
+    ],
+    [
+      " lump sum contract construction",
+      "n.",
+      " lump sum 合約",
+      "lump sum contract"
+    ],
+    [
+      " bid leveling sheet",
+      "n.",
+      "標單 leveling",
+      "bid leveling"
+    ],
+    [
+      " scope gap analysis construction",
+      "n.",
+      " scope gap 分析",
+      "scope gap"
+    ],
+    [
+      " value engineering session",
+      "n.",
+      " value engineering",
+      "VE session"
+    ],
+    [
+      " constructability review",
+      "n.",
+      "可施工性審查",
+      "constructability review"
+    ],
+    [
+      " schedule of values",
+      "n.",
+      " value  schedule",
+      "SOV"
+    ],
+    [
+      " draw request approval",
+      "n.",
+      " draw 請款核准",
+      "draw approval"
+    ],
+    [
+      " lien waiver collection draw",
+      "n.",
+      " draw lien waiver",
+      "draw lien waiver"
+    ],
+    [
+      " retainage release",
+      "n.",
+      " retainage 釋放",
+      "retainage release"
+    ],
+    [
+      " completion guarantee",
+      "n.",
+      "完工保證",
+      "completion guaranty"
+    ],
+    [
+      " payment bond requirement",
+      "n.",
+      " payment bond 要求",
+      "payment bond"
+    ],
+    [
+      " performance bond requirement",
+      "n.",
+      " performance bond 要求",
+      "performance bond"
+    ],
+    [
+      " subguard program",
+      "n.",
+      " subguard 計畫",
+      "subcontractor default insurance"
+    ],
+    [
+      " OCIP insurance program",
+      "n.",
+      "OCIP 保險",
+      "owner controlled insurance"
+    ],
+    [
+      " CCIP insurance program",
+      "n.",
+      "CCIP 保險",
+      "contractor controlled insurance"
+    ],
+    [
+      " builder risk policy",
+      "n.",
+      " builder risk 保單",
+      "course of construction"
+    ],
+    [
+      " soft cost coverage insurance",
+      "n.",
+      " soft cost 保險",
+      "soft cost coverage"
+    ],
+    [
+      " delay in opening coverage",
+      "n.",
+      "開幕延遲保險",
+      "delay coverage"
+    ],
+    [
+      " stabilization period leasing",
+      "n.",
+      "穩定期 leasing",
+      "lease-up period"
+    ],
+    [
+      " absorption analysis",
+      "n.",
+      " absorption 分析",
+      "absorption study"
+    ],
+    [
+      " lease-up schedule",
+      "n.",
+      " lease-up 時程",
+      "lease-up schedule"
+    ]
+  ],
+  "insurance-benefits": [
+    [
+      "self-insured retention level",
+      "n.",
+      "自付保留額層級",
+      "SIR level"
+    ],
+    [
+      "specific stop-loss deductible",
+      "n.",
+      "特定超額賠款自負額",
+      "specific deductible"
+    ],
+    [
+      "aggregate stop-loss attachment point",
+      "n.",
+      "總體超額賠款起賠點",
+      "aggregate attachment"
+    ],
+    [
+      "aggregate stop-loss reimbursement",
+      "n.",
+      "總體超額賠款 reimbursement",
+      "aggregate reimbursement"
+    ],
+    [
+      "laser provision high claimant",
+      "n.",
+      "Laser 條款",
+      "laser provision"
+    ],
+    [
+      "terminal liability coverage",
+      "n.",
+      "終止責任保障",
+      "terminal liability"
+    ],
+    [
+      "run-out period stop-loss",
+      "n.",
+      "Run-out 期間",
+      "run-out period"
+    ],
+    [
+      "extended reporting period stop-loss",
+      "n.",
+      "延長申報期",
+      "extended reporting"
+    ],
+    [
+      "claims lag assumption",
+      "n.",
+      "理賠延滞假設",
+      "claims lag"
+    ],
+    [
+      "incurred but not reported reserve",
+      "n.",
+      "已發生未報理賠準備",
+      "IBNR reserve"
+    ],
+    [
+      "paid claims trend analysis",
+      "n.",
+      "已付理賠趨勢分析",
+      "paid claims trend"
+    ],
+    [
+      "incurred claims trend analysis",
+      "n.",
+      "已發生理賠趨勢分析",
+      "incurred claims trend"
+    ],
+    [
+      "medical cost trend assumption",
+      "n.",
+      "醫療成本趨勢假設",
+      "medical trend"
+    ],
+    [
+      "pharmacy cost trend assumption",
+      "n.",
+      "藥局成本趨勢假設",
+      "Rx trend"
+    ],
+    [
+      "large claimant report",
+      "n.",
+      "大額理賠報告",
+      "large claimant report"
+    ],
+    [
+      "high-cost claimant management",
+      "n.",
+      "高成本理賠人管理",
+      "high-cost claimant mgmt"
+    ],
+    [
+      "disease management program",
+      "n.",
+      "疾病管理計畫",
+      "DM program"
+    ],
+    [
+      "diabetes management program",
+      "n.",
+      "糖尿病管理計畫",
+      "diabetes program"
+    ],
+    [
+      "hypertension management program",
+      "n.",
+      "高血壓管理計畫",
+      "hypertension program"
+    ],
+    [
+      "cardiac care management",
+      "n.",
+      "心臟照護管理",
+      "cardiac care mgmt"
+    ],
+    [
+      "oncology case management",
+      "n.",
+      "腫瘤個案管理",
+      "oncology case mgmt"
+    ],
+    [
+      "transplant case management",
+      "n.",
+      "器官移植個案管理",
+      "transplant case mgmt"
+    ],
+    [
+      "NICU case management",
+      "n.",
+      "NICU 個案管理",
+      "NICU case mgmt"
+    ],
+    [
+      " musculoskeletal program",
+      "n.",
+      "肌肉骨骼計畫",
+      "MSK program"
+    ],
+    [
+      "pain management program",
+      "n.",
+      "疼痛管理計畫",
+      "pain management program"
+    ],
+    [
+      "substance use disorder program",
+      "n.",
+      "物質使用障礙計畫",
+      "SUD program"
+    ],
+    [
+      "opioid management program",
+      "n.",
+      "鴉片類管理計畫",
+      "opioid program"
+    ],
+    [
+      "behavioral health integration",
+      "n.",
+      "行為健康整合",
+      "BH integration"
+    ],
+    [
+      "employee mental health program",
+      "n.",
+      "員工心理健康計畫",
+      "mental health program"
+    ],
+    [
+      "resilience coaching benefit",
+      "n.",
+      "韌性教練福利",
+      "resilience coaching"
+    ],
+    [
+      "digital therapeutics benefit",
+      "n.",
+      "數位療法福利",
+      "digital therapeutics"
+    ],
+    [
+      "virtual behavioral health visit",
+      "n.",
+      "虛擬行為健康就診",
+      "virtual BH visit"
+    ],
+    [
+      "psychiatric prior authorization",
+      "n.",
+      "精神科事前授權",
+      "psych PA"
+    ],
+    [
+      "step therapy protocol pharmacy",
+      "n.",
+      "藥局 step therapy",
+      "step therapy"
+    ],
+    [
+      "fail-first policy pharmacy",
+      "n.",
+      "藥局 fail-first 政策",
+      "fail-first policy"
+    ],
+    [
+      "quantity limit override",
+      "n.",
+      "數量限制 override",
+      "quantity limit override"
+    ],
+    [
+      "prior authorization turnaround time",
+      "n.",
+      "事前授權處理時間",
+      "PA turnaround"
+    ],
+    [
+      "peer-to-peer review pharmacy",
+      "n.",
+      "藥局 peer-to-peer 審查",
+      "P2P review Rx"
+    ],
+    [
+      "medical necessity criteria",
+      "n.",
+      "醫療必要性標準",
+      "medical necessity"
+    ],
+    [
+      "clinical guideline adherence",
+      "n.",
+      "臨床指引遵循",
+      "guideline adherence"
+    ],
+    [
+      "evidence-based coverage policy",
+      "n.",
+      "實證給付政策",
+      "EB coverage policy"
+    ],
+    [
+      "experimental treatment exclusion",
+      "n.",
+      "實驗性治療除外",
+      "experimental exclusion"
+    ],
+    [
+      "investigational drug policy",
+      "n.",
+      "試驗用藥政策",
+      "investigational drug policy"
+    ],
+    [
+      "off-label use coverage policy",
+      "n.",
+      " off-label 使用給付政策",
+      "off-label policy"
+    ],
+    [
+      "compassionate use request",
+      "n.",
+      "同情用藥申請",
+      "compassionate use"
+    ],
+    [
+      "clinical trial coverage policy",
+      "n.",
+      "臨床試驗給付政策",
+      "trial coverage policy"
+    ],
+    [
+      "second opinion benefit",
+      "n.",
+      "第二意見福利",
+      "second opinion benefit"
+    ],
+    [
+      "centers of excellence network",
+      "n.",
+      "卓越中心網絡",
+      "COE network"
+    ],
+    [
+      "travel benefit for surgery",
+      "n.",
+      "手術差旅福利",
+      "surgery travel benefit"
+    ],
+    [
+      " bundled payment arrangement",
+      "n.",
+      " bundled payment 安排",
+      "bundled payment"
+    ],
+    [
+      " episode of care payment",
+      "n.",
+      " care episode 給付",
+      "episode payment"
+    ],
+    [
+      " reference-based pricing",
+      "n.",
+      "參考定價",
+      "RBP"
+    ],
+    [
+      " Medicare reference pricing",
+      "n.",
+      "Medicare 參考定價",
+      "Medicare RBP"
+    ],
+    [
+      " direct contracting provider",
+      "n.",
+      "直接簽約醫療機構",
+      "direct contracting"
+    ],
+    [
+      " narrow network plan design",
+      "n.",
+      "窄網絡方案設計",
+      "narrow network"
+    ],
+    [
+      " tiered network benefit design",
+      "n.",
+      "分級網絡福利設計",
+      "tiered network"
+    ],
+    [
+      " center of excellence tier",
+      "n.",
+      "卓越中心層級",
+      "COE tier"
+    ],
+    [
+      " out-of-network benefit reduction",
+      "n.",
+      "網外給付減少",
+      "OON benefit reduction"
+    ],
+    [
+      " out-of-network claims repricing",
+      "n.",
+      "網外理賠重定價",
+      "OON repricing"
+    ],
+    [
+      " usual customary reasonable fee",
+      "n.",
+      " usual and customary 費用",
+      "UCR fee"
+    ],
+    [
+      " allowed amount determination",
+      "n.",
+      "給付金額判定",
+      "allowed amount"
+    ],
+    [
+      " provider contract fee schedule",
+      "n.",
+      "醫療機構合約費率表",
+      "fee schedule"
+    ],
+    [
+      " chargemaster discount negotiation",
+      "n.",
+      "價目表折扣協商",
+      "chargemaster discount"
+    ],
+    [
+      " hospital transparency rule compliance",
+      "n.",
+      "醫院透明度規則法遵",
+      "price transparency rule"
+    ],
+    [
+      " machine-readable file posting",
+      "n.",
+      "機讀檔案公開",
+      "MRF posting"
+    ],
+    [
+      " surprise billing protection act",
+      "n.",
+      "意外帳單保護法",
+      "NSA compliance"
+    ],
+    [
+      " independent dispute resolution process",
+      "n.",
+      "獨立爭議解決程序",
+      "IDR process"
+    ],
+    [
+      " qualifying payment amount",
+      "n.",
+      "合格支付金額",
+      "QPA"
+    ],
+    [
+      " air ambulance billing dispute",
+      "n.",
+      "空中救護帳單爭議",
+      "air ambulance dispute"
+    ],
+    [
+      " ground ambulance billing dispute",
+      "n.",
+      "地面救護帳單爭議",
+      "ground ambulance dispute"
+    ],
+    [
+      " emergency room facility fee",
+      "n.",
+      "急診設施費",
+      "ER facility fee"
+    ],
+    [
+      " observation stay billing",
+      "n.",
+      "觀察住院計費",
+      "observation billing"
+    ],
+    [
+      " inpatient admission criteria",
+      "n.",
+      "住院准入標準",
+      "inpatient criteria"
+    ],
+    [
+      " outpatient surgery benefit",
+      "n.",
+      "門診手術給付",
+      "outpatient surgery benefit"
+    ],
+    [
+      " ambulatory surgery center rate",
+      "n.",
+      "門診手術中心費率",
+      "ASC rate"
+    ],
+    [
+      " skilled nursing facility benefit",
+      "n.",
+      " skilled nursing 給付",
+      "SNF benefit"
+    ],
+    [
+      " home health care benefit",
+      "n.",
+      "居家醫療給付",
+      "home health benefit"
+    ],
+    [
+      " hospice care benefit",
+      "n.",
+      "安寧照護給付",
+      "hospice benefit"
+    ],
+    [
+      " durable medical equipment benefit",
+      "n.",
+      " durable medical equipment 給付",
+      "DME benefit"
+    ],
+    [
+      " prosthetics and orthotics benefit",
+      "n.",
+      "義肢矯具給付",
+      "P&O benefit"
+    ],
+    [
+      " hearing aid benefit adult",
+      "n.",
+      "成人助聽器給付",
+      "hearing aid adult"
+    ],
+    [
+      " infertility treatment benefit",
+      "n.",
+      "不孕治療給付",
+      "infertility benefit"
+    ],
+    [
+      " fertility preservation benefit",
+      "n.",
+      "生育保存給付",
+      "fertility preservation"
+    ],
+    [
+      " gender-affirming care benefit",
+      "n.",
+      "性別肯定照護給付",
+      "gender-affirming care"
+    ],
+    [
+      " bariatric surgery benefit",
+      "n.",
+      "減重手術給付",
+      "bariatric benefit"
+    ],
+    [
+      " sleep study coverage policy",
+      "n.",
+      "睡眠研究給付政策",
+      "sleep study policy"
+    ],
+    [
+      " CPAP supply coverage",
+      "n.",
+      "CPAP 耗材給付",
+      "CPAP coverage"
+    ],
+    [
+      " chiropractic visit limit",
+      "n.",
+      "脊骨神經調整次數限制",
+      "chiro visit limit"
+    ],
+    [
+      " acupuncture visit limit",
+      "n.",
+      "針灸次數限制",
+      "acupuncture limit"
+    ],
+    [
+      " physical therapy visit limit",
+      "n.",
+      "物理治療次數限制",
+      "PT visit limit"
+    ],
+    [
+      " occupational therapy visit limit",
+      "n.",
+      "職能治療次數限制",
+      "OT visit limit"
+    ],
+    [
+      " speech therapy visit limit",
+      "n.",
+      "語言治療次數限制",
+      "ST visit limit"
+    ],
+    [
+      " habilitative services coverage",
+      "n.",
+      "復健性服務給付",
+      "habilitative coverage"
+    ],
+    [
+      " rehabilitative services coverage",
+      "n.",
+      " rehabilitative 服務給付",
+      "rehab coverage"
+    ],
+    [
+      " applied behavior analysis benefit",
+      "n.",
+      "ABA 給付",
+      "ABA benefit"
+    ],
+    [
+      " autism spectrum disorder benefit",
+      "n.",
+      "自閉症譜系給付",
+      "ASD benefit"
+    ],
+    [
+      " pediatric dental embedded benefit",
+      "n.",
+      "兒童牙科 embedded 給付",
+      "pediatric dental embedded"
+    ],
+    [
+      " pediatric vision embedded benefit",
+      "n.",
+      "兒童視力 embedded 給付",
+      "pediatric vision embedded"
+    ],
+    [
+      " adult dental buy-up option",
+      "n.",
+      "成人牙科加購選項",
+      "adult dental buy-up"
+    ],
+    [
+      " adult vision buy-up option",
+      "n.",
+      "成人視力加購選項",
+      "adult vision buy-up"
+    ],
+    [
+      " orthodontic lifetime maximum",
+      "n.",
+      "矯正終身上限",
+      "ortho lifetime max"
+    ],
+    [
+      " frame allowance frequency",
+      "n.",
+      "鏡框補助頻率",
+      "frame allowance frequency"
+    ],
+    [
+      " contact lens allowance",
+      "n.",
+      "隱形眼鏡補助",
+      "contact lens allowance"
+    ],
+    [
+      " laser vision correction discount",
+      "n.",
+      "雷射視力矯正折扣",
+      "LASIK discount"
+    ],
+    [
+      " critical illness insurance rider",
+      "n.",
+      "重大疾病附加險",
+      "critical illness rider"
+    ],
+    [
+      " hospital indemnity plan",
+      "n.",
+      "住院補償保險",
+      "hospital indemnity"
+    ],
+    [
+      " accident insurance plan",
+      "n.",
+      "意外保險方案",
+      "accident plan"
+    ],
+    [
+      " cancer insurance plan",
+      "n.",
+      "癌症保險方案",
+      "cancer plan"
+    ],
+    [
+      " pet insurance voluntary benefit",
+      "n.",
+      "寵物保險自選福利",
+      "pet insurance benefit"
+    ],
+    [
+      " identity theft protection benefit",
+      "n.",
+      "身分盜用防護福利",
+      "ID theft benefit"
+    ],
+    [
+      " legal services benefit",
+      "n.",
+      "法律服務福利",
+      "legal benefit"
+    ],
+    [
+      " financial wellness program",
+      "n.",
+      "財務 wellness 計畫",
+      "financial wellness"
+    ],
+    [
+      " student loan repayment benefit",
+      "n.",
+      "學贷 repayment 福利",
+      "student loan benefit"
+    ],
+    [
+      " childcare subsidy program",
+      "n.",
+      "托育補助計畫",
+      "childcare subsidy"
+    ],
+    [
+      " backup childcare benefit",
+      "n.",
+      " backup 托育福利",
+      "backup childcare"
+    ],
+    [
+      " elder care support benefit",
+      "n.",
+      "長者照護支援福利",
+      "elder care benefit"
+    ],
+    [
+      " caregiver leave benefit",
+      "n.",
+      "照護假福利",
+      "caregiver leave"
+    ],
+    [
+      " parental leave policy enhanced",
+      "n.",
+      "強化育嬰假政策",
+      "enhanced parental leave"
+    ],
+    [
+      " paid family leave integration",
+      "n.",
+      "有薪家庭假整合",
+      "paid family leave integration"
+    ],
+    [
+      " short-term leave bank",
+      "n.",
+      "短期假共享池",
+      "leave bank"
+    ],
+    [
+      " donation of leave program",
+      "n.",
+      "假別捐赠計畫",
+      "leave donation"
+    ],
+    [
+      " floating holiday policy",
+      "n.",
+      " floating holiday 政策",
+      "floating holiday"
+    ],
+    [
+      " volunteer time off benefit",
+      "n.",
+      "志工假福利",
+      "VTO benefit"
+    ],
+    [
+      " civic duty leave benefit",
+      "n.",
+      "公民義務假福利",
+      "civic duty leave"
+    ],
+    [
+      " military leave benefit enhanced",
+      "n.",
+      "強化兵役假福利",
+      "military leave benefit"
+    ],
+    [
+      " domestic violence leave benefit",
+      "n.",
+      "家暴假福利",
+      "DV leave benefit"
+    ],
+    [
+      " safe leave policy",
+      "n.",
+      "安全假政策",
+      "safe leave policy"
+    ],
+    [
+      " phased return to work program",
+      "n.",
+      "漸進式復工計畫",
+      "phased RTW"
+    ],
+    [
+      " accommodation request process",
+      "n.",
+      "合理便利申請流程",
+      "accommodation process"
+    ],
+    [
+      " ADA interactive process",
+      "n.",
+      "ADA 互動流程",
+      "ADA interactive process"
+    ],
+    [
+      " leave of absence administration",
+      "n.",
+      "留職停薪管理",
+      "LOA administration"
+    ],
+    [
+      " FMLA eligibility determination",
+      "n.",
+      "FMLA 資格判定",
+      "FMLA eligibility"
+    ],
+    [
+      " FMLA certification form review",
+      "n.",
+      "FMLA 證明表審查",
+      "FMLA certification review"
+    ],
+    [
+      " intermittent FMLA tracking",
+      "n.",
+      "間歇 FMLA 追蹤",
+      "intermittent FMLA"
+    ],
+    [
+      " reduced schedule FMLA",
+      "n.",
+      "減時 FMLA",
+      "reduced schedule FMLA"
+    ],
+    [
+      " state paid leave coordination",
+      "n.",
+      "州有薪假協調",
+      "state paid leave coordination"
+    ],
+    [
+      " PFML integration",
+      "n.",
+      "PFML 整合",
+      "paid family medical leave integration"
+    ],
+    [
+      " leave vendor integration",
+      "n.",
+      "假別 vendor 整合",
+      "leave vendor integration"
+    ],
+    [
+      " absence management platform",
+      "n.",
+      "缺勤管理平台",
+      "absence management platform"
+    ],
+    [
+      " time and attendance integration benefits",
+      "n.",
+      "考勤整合福利",
+      "T&A integration benefits"
+    ],
+    [
+      " payroll deduction setup benefits",
+      "n.",
+      "福利 payroll 扣款設定",
+      "payroll deduction setup"
+    ],
+    [
+      " section 125 cafeteria plan",
+      "n.",
+      "125 條款自助方案",
+      "cafeteria plan"
+    ],
+    [
+      " premium only plan",
+      "n.",
+      "保費專用方案",
+      "POP plan"
+    ],
+    [
+      " flexible benefit account plan document",
+      "n.",
+      "彈性福利帳戶計畫文件",
+      "flex plan document"
+    ],
+    [
+      " plan amendment adoption",
+      "n.",
+      "計畫修正採納",
+      "plan amendment"
+    ],
+    [
+      " board resolution plan amendment",
+      "n.",
+      "董事會決議修正計畫",
+      "board resolution amendment"
+    ],
+    [
+      " IRS determination letter",
+      "n.",
+      "IRS 核定函",
+      "determination letter"
+    ],
+    [
+      " Form 5500 filing",
+      "n.",
+      "5500 表申報",
+      "Form 5500"
+    ],
+    [
+      " Schedule A service provider fees",
+      "n.",
+      "Schedule A 服務費",
+      "Schedule A fees"
+    ],
+    [
+      " Schedule C service provider exemption",
+      "n.",
+      "Schedule C 服務提供者",
+      "Schedule C"
+    ],
+    [
+      " summary annual report distribution",
+      "n.",
+      "年度摘要報告分發",
+      "SAR distribution"
+    ],
+    [
+      " summary material modification notice",
+      "n.",
+      "重大修正摘要通知",
+      "SMM notice"
+    ],
+    [
+      " automatic enrollment feature 401k",
+      "n.",
+      "401(k) 自動加入",
+      "auto enrollment 401k"
+    ],
+    [
+      " default deferral rate",
+      "n.",
+      "預設提撥率",
+      "default deferral rate"
+    ],
+    [
+      " auto escalation feature",
+      "n.",
+      "自動調升功能",
+      "auto escalation"
+    ],
+    [
+      " qualified default investment alternative",
+      "n.",
+      "合格預設投資選項",
+      "QDIA"
+    ],
+    [
+      " target date fund QDIA",
+      "n.",
+      "目標日期基金 QDIA",
+      "TDF QDIA"
+    ],
+    [
+      " managed account QDIA",
+      "n.",
+      "管理帳戶 QDIA",
+      "managed account QDIA"
+    ],
+    [
+      " stable value fund option",
+      "n.",
+      "穩定值基金選項",
+      "stable value fund"
+    ],
+    [
+      " brokerage window option",
+      "n.",
+      " brokerage window 選項",
+      "brokerage window"
+    ],
+    [
+      " company stock fund limit",
+      "n.",
+      "公司股票基金上限",
+      "company stock limit"
+    ],
+    [
+      " diversification notice requirement",
+      "n.",
+      "分散投資通知要求",
+      "diversification notice"
+    ],
+    [
+      " blackout period notice 401k",
+      "n.",
+      "401(k) blackout 通知",
+      "blackout notice 401k"
+    ],
+    [
+      " participant fee disclosure 404a5",
+      "n.",
+      "404(a)(5) 費用揭露",
+      "404a5 disclosure"
+    ],
+    [
+      " participant investment disclosure 404a5",
+      "n.",
+      "404(a)(5) 投資揭露",
+      "investment disclosure 404a5"
+    ],
+    [
+      " plan level fee disclosure 408b2",
+      "n.",
+      "408(b)(2) 計畫層費用揭露",
+      "408b2 disclosure"
+    ],
+    [
+      " revenue sharing disclosure",
+      "n.",
+      " revenue sharing 揭露",
+      "revenue sharing disclosure"
+    ],
+    [
+      " recordkeeper platform selection",
+      "n.",
+      " recordkeeper 平台選型",
+      "recordkeeper selection"
+    ],
+    [
+      " third party administrator retirement",
+      "n.",
+      "退休 TPA",
+      "retirement TPA"
+    ],
+    [
+      " investment advisor fiduciary",
+      "n.",
+      "投資顧問受託人",
+      "investment advisor fiduciary"
+    ],
+    [
+      " 3(16) administrator service",
+      "n.",
+      "3(16) 管理服務",
+      "316 administrator"
+    ],
+    [
+      " 3(21) investment advisor",
+      "n.",
+      "3(21) 投資顧問",
+      "321 advisor"
+    ],
+    [
+      " 3(38) investment manager",
+      "n.",
+      "3(38) 投資經理",
+      "338 manager"
+    ],
+    [
+      " fiduciary status acknowledgment",
+      "n.",
+      "受託身分確認",
+      "fiduciary acknowledgment"
+    ],
+    [
+      " investment policy statement retirement",
+      "n.",
+      "退休投資政策聲明",
+      "IPS retirement"
+    ],
+    [
+      " glide path design QDIA",
+      "n.",
+      "QDIA glide path 設計",
+      "glide path design"
+    ],
+    [
+      " re-enrollment campaign 401k",
+      "n.",
+      "401(k) 重新加入活動",
+      "re-enrollment campaign"
+    ],
+    [
+      " financial wellness coaching 401k",
+      "n.",
+      "401(k) 財務 wellness 教練",
+      "financial coaching 401k"
+    ],
+    [
+      " loan provision 401k plan",
+      "n.",
+      "401(k) 貸款條款",
+      "401k loan provision"
+    ],
+    [
+      " loan repayment payroll deduction",
+      "n.",
+      "貸款 payroll 扣款",
+      "loan repayment payroll"
+    ],
+    [
+      " loan default treatment 401k",
+      "n.",
+      "401(k) 貸款違約處理",
+      "loan default 401k"
+    ],
+    [
+      " deemed distribution loan",
+      "n.",
+      "視同分配貸款",
+      "deemed distribution"
+    ],
+    [
+      " in-service withdrawal age 59 half",
+      "n.",
+      "59.5 歲在職提領",
+      "in-service withdrawal"
+    ],
+    [
+      " required minimum distribution",
+      "n.",
+      "最低必要提领",
+      "RMD"
+    ],
+    [
+      " still working exception RMD",
+      "n.",
+      "仍在職 RMD 例外",
+      "still working exception"
+    ],
+    [
+      " qualified domestic relations order",
+      "n.",
+      "合格 domestic relations 命令",
+      "QDRO"
+    ],
+    [
+      " plan termination process",
+      "n.",
+      "計畫終止流程",
+      "plan termination"
+    ],
+    [
+      " plan merger due diligence",
+      "n.",
+      "計畫合併盡調",
+      "plan merger DD"
+    ],
+    [
+      " successor plan adoption agreement",
+      "n.",
+      "後繼計畫採用協議",
+      "successor plan adoption"
+    ],
+    [
+      " blackout period plan merger",
+      "n.",
+      "計畫合併 blackout",
+      "merger blackout"
+    ],
+    [
+      " missing participant program",
+      "n.",
+      "失聯參與者計畫",
+      "missing participant program"
+    ],
+    [
+      " automatic rollover to IRA",
+      "n.",
+      "自動 rollover 至 IRA",
+      "auto rollover IRA"
+    ],
+    [
+      " cash out limit automatic rollover",
+      "n.",
+      "自動 rollover 現金化上限",
+      "cash out limit"
+    ],
+    [
+      " uncashed distribution check",
+      "n.",
+      "未兌現分配支票",
+      "uncashed check"
+    ],
+    [
+      " escheated retirement benefit",
+      "n.",
+      " retirement  benefit escheatment",
+      "escheated benefit"
+    ],
+    [
+      " participant communication campaign benefits",
+      "n.",
+      "福利參與者溝通活動",
+      "participant comms campaign"
+    ],
+    [
+      " benefits fair enrollment event",
+      "n.",
+      "福利博覽會",
+      "benefits fair"
+    ],
+    [
+      " decision support tool enrollment",
+      "n.",
+      "加保決策支援工具",
+      "decision support tool"
+    ],
+    [
+      " benefits call center staffing",
+      "n.",
+      "福利客服 staffing",
+      "benefits call center"
+    ],
+    [
+      " chatbot benefits support",
+      "n.",
+      "福利 chatbot 支援",
+      "benefits chatbot"
+    ],
+    [
+      " multilingual benefits materials",
+      "n.",
+      "多語福利材料",
+      "multilingual benefits"
+    ],
+    [
+      " plain language summary benefit",
+      "n.",
+      " plain language 摘要",
+      "plain language summary"
+    ],
+    [
+      " benefits guide digital portal",
+      "n.",
+      "福利指南數位入口",
+      "benefits guide portal"
+    ],
+    [
+      " total rewards portal",
+      "n.",
+      "總報酬入口",
+      "total rewards portal"
+    ],
+    [
+      " compensation benchmarking survey participation",
+      "n.",
+      "薪酬基準調查參與",
+      "comp benchmarking survey"
+    ],
+    [
+      " benefits benchmarking survey participation",
+      "n.",
+      "福利基準調查參與",
+      "benefits benchmarking survey"
+    ],
+    [
+      " peer group benefits comparison",
+      "n.",
+      "同業福利比較",
+      "peer group comparison"
+    ],
+    [
+      " benefits philosophy statement",
+      "n.",
+      "福利理念聲明",
+      "benefits philosophy"
+    ],
+    [
+      " benefits strategy refresh",
+      "n.",
+      "福利策略更新",
+      "benefits strategy refresh"
+    ],
+    [
+      " annual benefits review executive",
+      "n.",
+      "年度福利高層審查",
+      "annual benefits review exec"
+    ],
+    [
+      " benefits cost containment strategy",
+      "n.",
+      "福利成本控制策略",
+      "cost containment strategy"
+    ],
+    [
+      " plan design change impact analysis",
+      "n.",
+      "方案設計變更影響分析",
+      "plan design impact analysis"
+    ],
+    [
+      " employee contribution increase proposal",
+      "n.",
+      "員工自付調升提案",
+      "employee contribution increase"
+    ],
+    [
+      " employer subsidy reduction proposal",
+      "n.",
+      "雇主補貼削減提案",
+      "subsidy reduction proposal"
+    ],
+    [
+      " spousal surcharge implementation",
+      "n.",
+      "配偶附加費實施",
+      "spousal surcharge"
+    ],
+    [
+      " tobacco surcharge program",
+      "n.",
+      "菸品附加費計畫",
+      "tobacco surcharge"
+    ],
+    [
+      " wellness incentive program design",
+      "n.",
+      "健康激勵計畫設計",
+      "wellness incentive design"
+    ],
+    [
+      " biometric screening incentive",
+      "n.",
+      "生物識別健檢激勵",
+      "biometric incentive"
+    ],
+    [
+      " health risk assessment incentive",
+      "n.",
+      "健康風險評估激勵",
+      "HRA incentive"
+    ],
+    [
+      " activity tracking incentive",
+      "n.",
+      "活動追蹤激勵",
+      "activity incentive"
+    ],
+    [
+      " premium differential wellness",
+      "n.",
+      "健康保費差異",
+      "premium differential wellness"
+    ],
+    [
+      " penalty vs reward wellness design",
+      "n.",
+      "懲罰 vs 獎勵 wellness 設計",
+      "penalty reward wellness"
+    ],
+    [
+      " HIPAA wellness program compliance",
+      "n.",
+      "HIPAA wellness 法遵",
+      "HIPAA wellness compliance"
+    ],
+    [
+      " reasonable alternative standard wellness",
+      "n.",
+      "合理替代標準 wellness",
+      "reasonable alternative standard"
+    ],
+    [
+      " ADA wellness accommodation",
+      "n.",
+      "ADA wellness 便利",
+      "ADA wellness accommodation"
+    ],
+    [
+      " GINA wellness compliance",
+      "n.",
+      "GINA wellness 法遵",
+      "GINA wellness compliance"
+    ],
+    [
+      " incentive cap wellness ACA",
+      "n.",
+      "ACA wellness 激勵上限",
+      "incentive cap ACA"
+    ],
+    [
+      " claims data analytics benefits",
+      "n.",
+      "福利理賠資料分析",
+      "claims analytics benefits"
+    ],
+    [
+      " predictive modeling high cost claimants",
+      "n.",
+      "高成本理賠預測模型",
+      "predictive modeling claims"
+    ],
+    [
+      " population health management strategy",
+      "n.",
+      "族群健康管理策略",
+      "population health strategy"
+    ],
+    [
+      " social determinants of health initiative",
+      "n.",
+      "健康社會決定因素倡議",
+      "SDOH initiative"
+    ],
+    [
+      " food insecurity benefit program",
+      "n.",
+      "糧食不安全福利計畫",
+      "food insecurity program"
+    ],
+    [
+      " transportation benefit health",
+      "n.",
+      "健康交通福利",
+      "transportation benefit health"
+    ],
+    [
+      " housing support benefit",
+      "n.",
+      "住房支援福利",
+      "housing support benefit"
+    ],
+    [
+      " health equity initiative benefits",
+      "n.",
+      "健康公平倡議福利",
+      "health equity initiative"
+    ],
+    [
+      " culturally competent care network",
+      "n.",
+      "文化能力照護網絡",
+      "culturally competent network"
+    ],
+    [
+      " language assistance services benefit",
+      "n.",
+      "語言協助服務福利",
+      "language assistance benefit"
+    ],
+    [
+      " interpreter services coverage",
+      "n.",
+      "口譯服務給付",
+      "interpreter services coverage"
+    ],
+    [
+      " telephonic nurse line",
+      "n.",
+      "電話護理專線",
+      "nurse line"
+    ],
+    [
+      " second nurse triage program",
+      "n.",
+      "二次護理 triage",
+      "nurse triage program"
+    ],
+    [
+      " care navigation service",
+      "n.",
+      " care navigation 服務",
+      "care navigation"
+    ],
+    [
+      " concierge medicine benefit executive",
+      "n.",
+      "高管禮賓醫療福利",
+      "concierge medicine exec"
+    ],
+    [
+      " onsite clinic employer",
+      "n.",
+      "雇主 onsite 診所",
+      "onsite clinic"
+    ],
+    [
+      " near-site clinic partnership",
+      "n.",
+      "近-site 診所合作",
+      "near-site clinic"
+    ],
+    [
+      " direct primary care benefit",
+      "n.",
+      " direct primary care 福利",
+      "DPC benefit"
+    ],
+    [
+      " virtual primary care benefit",
+      "n.",
+      " virtual primary care 福利",
+      "virtual primary care"
+    ],
+    [
+      " urgent care telehealth benefit",
+      "n.",
+      "急診 telehealth 福利",
+      "urgent care telehealth"
+    ],
+    [
+      " dermatology telehealth benefit",
+      "n.",
+      "皮膚科 telehealth 福利",
+      "derm telehealth benefit"
+    ],
+    [
+      " musculoskeletal virtual therapy",
+      "n.",
+      "肌肉骨骼 virtual 治療",
+      "MSK virtual therapy"
+    ],
+    [
+      " physical therapy telehealth benefit",
+      "n.",
+      "物理治療 telehealth 福利",
+      "PT telehealth benefit"
+    ],
+    [
+      " fertility telehealth benefit",
+      "n.",
+      "不孕 telehealth 福利",
+      "fertility telehealth benefit"
+    ],
+    [
+      " smoking cessation program benefit",
+      "n.",
+      "戒菸計畫福利",
+      "smoking cessation benefit"
+    ],
+    [
+      " weight management program benefit",
+      "n.",
+      "體重管理計畫福利",
+      "weight management benefit"
+    ],
+    [
+      " diabetes prevention program CDC",
+      "n.",
+      "CDC 糖尿病預防計畫",
+      "DPP CDC"
+    ],
+    [
+      " metabolic syndrome program",
+      "n.",
+      "代謝症候群計畫",
+      "metabolic syndrome program"
+    ],
+    [
+      " sleep health program benefit",
+      "n.",
+      "睡眠健康計畫福利",
+      "sleep health program"
+    ],
+    [
+      " migraine management program",
+      "n.",
+      "偏頭痛管理計畫",
+      "migraine program"
+    ],
+    [
+      " autoimmune support program",
+      "n.",
+      "自體免疫支援計畫",
+      "autoimmune support program"
+    ],
+    [
+      " kidney disease management program",
+      "n.",
+      "腎病管理計畫",
+      "kidney disease program"
+    ],
+    [
+      " heart failure management program",
+      "n.",
+      "心衰竭管理計畫",
+      "heart failure program"
+    ],
+    [
+      " COPD management program",
+      "n.",
+      "COPD 管理計畫",
+      "COPD program"
+    ],
+    [
+      " asthma management program",
+      "n.",
+      "氣喘管理計畫",
+      "asthma program"
+    ],
+    [
+      " maternity care management",
+      "n.",
+      "產科照護管理",
+      "maternity care mgmt"
+    ],
+    [
+      " high-risk pregnancy program",
+      "n.",
+      "高風險妊娠計畫",
+      "high-risk pregnancy program"
+    ],
+    [
+      " lactation support benefit",
+      "n.",
+      "哺乳支援福利",
+      "lactation support benefit"
+    ],
+    [
+      " breast pump coverage ACA",
+      "n.",
+      "ACA 吸乳器給付",
+      "breast pump ACA"
+    ],
+    [
+      " doula benefit coverage",
+      "n.",
+      " doula 給付",
+      "doula benefit"
+    ],
+    [
+      " midwife coverage policy",
+      "n.",
+      "助產師給付政策",
+      "midwife coverage policy"
+    ],
+    [
+      " home birth coverage policy",
+      "n.",
+      " home birth 給付政策",
+      "home birth policy"
+    ],
+    [
+      " newborn intensive care benefit",
+      "n.",
+      "新生兒加護給付",
+      "NICU benefit"
+    ],
+    [
+      " pediatric complex care program",
+      "n.",
+      "兒童複雜照護計畫",
+      "pediatric complex care"
+    ],
+    [
+      " dependent age limit policy",
+      "n.",
+      "眷屬年齡上限政策",
+      "dependent age limit"
+    ],
+    [
+      " full-time student exception dependent",
+      "n.",
+      "全日制學生眷屬例外",
+      "student dependent exception"
+    ],
+    [
+      " disabled dependent continuation",
+      "n.",
+      " disabled 眷屬延續",
+      "disabled dependent continuation"
+    ],
+    [
+      " domestic partner eligibility policy",
+      "n.",
+      " domestic partner 資格政策",
+      "domestic partner policy"
+    ],
+    [
+      " same-sex spouse coverage parity",
+      "n.",
+      "同婚配偶給付同等",
+      "same-sex spouse parity"
+    ],
+    [
+      " Medicare primary payer rules employer",
+      "n.",
+      "雇主 Medicare  primary payer 規則",
+      "Medicare primary payer employer"
+    ],
+    [
+      " Medicare secondary payer reporting",
+      "n.",
+      "Medicare secondary payer 申報",
+      "MSP reporting"
+    ],
+    [
+      " Section 111 reporting compliance",
+      "n.",
+      "Section 111 申報法遵",
+      "Section 111 compliance"
+    ],
+    [
+      " retiree medical plan design",
+      "n.",
+      "退休醫療方案設計",
+      "retiree medical design"
+    ]
+  ],
+  "rnd": [
+    [
+      "research pipeline",
+      "n.",
+      "研究管線",
+      "research funnel"
+    ],
+    [
+      "innovation funnel",
+      "n.",
+      "創新漏斗",
+      "innovation pipeline"
+    ],
+    [
+      "ideation workshop",
+      "n.",
+      "發想工作坊",
+      "ideation session"
+    ],
+    [
+      "concept feasibility study",
+      "n.",
+      "概念可行性研究",
+      "concept feasibility"
+    ],
+    [
+      "technical feasibility assessment",
+      "n.",
+      "技術可行性評估",
+      "technical feasibility"
+    ],
+    [
+      "commercial feasibility assessment",
+      "n.",
+      "商業可行性評估",
+      "commercial feasibility"
+    ],
+    [
+      "make-buy analysis engineering",
+      "n.",
+      "自製外購分析",
+      "make or buy"
+    ],
+    [
+      "technology scouting",
+      "n.",
+      "技術 scouting",
+      "tech scouting"
+    ],
+    [
+      "technology landscape mapping",
+      "n.",
+      "技術地圖绘制",
+      "tech landscape"
+    ],
+    [
+      "competitive technology benchmark",
+      "n.",
+      "競品技術基準",
+      "tech benchmark"
+    ],
+    [
+      "patent landscape analysis",
+      "n.",
+      "專利地圖分析",
+      "patent landscape"
+    ],
+    [
+      "white space analysis innovation",
+      "n.",
+      "空白機會分析",
+      "white space analysis"
+    ],
+    [
+      "voice of customer research",
+      "n.",
+      "客戶之聲研究",
+      "VoC research"
+    ],
+    [
+      "jobs-to-be-done framework",
+      "n.",
+      "待辦任務框架",
+      "JTBD framework"
+    ],
+    [
+      "use case definition",
+      "n.",
+      "使用案例定義",
+      "use case spec"
+    ],
+    [
+      "product requirement document",
+      "n.",
+      "產品需求文件",
+      "PRD"
+    ],
+    [
+      "market requirements document",
+      "n.",
+      "市場需求文件",
+      "MRD"
+    ],
+    [
+      "functional requirement specification",
+      "n.",
+      "功能需求規格",
+      "FRS"
+    ],
+    [
+      "non-functional requirement",
+      "n.",
+      "非功能需求",
+      "NFR"
+    ],
+    [
+      "system requirement specification",
+      "n.",
+      "系統需求規格",
+      "SRS"
+    ],
+    [
+      "interface control document",
+      "n.",
+      "介面控制文件",
+      "ICD"
+    ],
+    [
+      "configuration management plan",
+      "n.",
+      "組態管理計畫",
+      "CM plan"
+    ],
+    [
+      "configuration item identification",
+      "n.",
+      "組態項目識別",
+      "CI identification"
+    ],
+    [
+      "baseline release management",
+      "n.",
+      "基線釋出管理",
+      "baseline management"
+    ],
+    [
+      "change control board engineering",
+      "n.",
+      "工程變更控制委員會",
+      "ECCB"
+    ],
+    [
+      "engineering change order",
+      "n.",
+      "工程變更令",
+      "ECO"
+    ],
+    [
+      "engineering change request",
+      "n.",
+      "工程變更申請",
+      "ECR"
+    ],
+    [
+      "deviation permit",
+      "n.",
+      "偏差許可",
+      "deviation authorization"
+    ],
+    [
+      "waiver approval engineering",
+      "n.",
+      "豁免核准",
+      "engineering waiver"
+    ],
+    [
+      "part number revision control",
+      "n.",
+      "料號版次控制",
+      "part revision"
+    ],
+    [
+      "drawing release workflow",
+      "n.",
+      "圖面釋出流程",
+      "drawing release"
+    ],
+    [
+      "CAD model release",
+      "n.",
+      "CAD 模型釋出",
+      "CAD release"
+    ],
+    [
+      "BOM release approval",
+      "n.",
+      "BOM 釋出核准",
+      "BOM approval"
+    ],
+    [
+      "effectivity date change",
+      "n.",
+      "生效日期變更",
+      "effectivity date"
+    ],
+    [
+      "serial effectivity",
+      "n.",
+      "序號生效範圍",
+      "serial effectivity"
+    ],
+    [
+      "lot effectivity",
+      "n.",
+      "批號生效範圍",
+      "lot effectivity"
+    ],
+    [
+      "as-built configuration record",
+      "n.",
+      "竣工組態紀錄",
+      "as-built record"
+    ],
+    [
+      "as-designed configuration",
+      "n.",
+      "設計組態",
+      "as-designed config"
+    ],
+    [
+      "traceability matrix requirements",
+      "n.",
+      "需求追溯矩陣",
+      "RTM"
+    ],
+    [
+      "verification plan",
+      "n.",
+      "驗證計畫",
+      "verification plan"
+    ],
+    [
+      "validation plan",
+      "n.",
+      "確認計畫",
+      "validation plan"
+    ],
+    [
+      "verification test procedure",
+      "n.",
+      "驗證測試程序",
+      "VTP"
+    ],
+    [
+      "validation test procedure",
+      "n.",
+      "確認測試程序",
+      "val test procedure"
+    ],
+    [
+      "test protocol approval",
+      "n.",
+      "測試方案核准",
+      "test protocol approval"
+    ],
+    [
+      "test report summary",
+      "n.",
+      "測試報告摘要",
+      "test report"
+    ],
+    [
+      "test anomaly report",
+      "n.",
+      "測試異常報告",
+      "anomaly report"
+    ],
+    [
+      "nonconformance report engineering",
+      "n.",
+      "工程不符合報告",
+      "NCR engineering"
+    ],
+    [
+      "corrective action engineering",
+      "n.",
+      "工程矯正措施",
+      "CA engineering"
+    ],
+    [
+      "root cause corrective action",
+      "n.",
+      "根本原因矯正措施",
+      "RCCA"
+    ],
+    [
+      "failure analysis report",
+      "n.",
+      "失效分析報告",
+      "FA report"
+    ],
+    [
+      "fault tree analysis",
+      "n.",
+      "故障樹分析",
+      "FTA"
+    ],
+    [
+      "event tree analysis",
+      "n.",
+      "事件樹分析",
+      "ETA"
+    ],
+    [
+      "hazard analysis",
+      "n.",
+      "危害分析",
+      "HAZ"
+    ],
+    [
+      "preliminary hazard analysis",
+      "n.",
+      "初步危害分析",
+      "PHA"
+    ],
+    [
+      "system hazard analysis",
+      "n.",
+      "系統危害分析",
+      "SHA"
+    ],
+    [
+      "operating hazard analysis",
+      "n.",
+      "操作危害分析",
+      "OHA"
+    ],
+    [
+      "design FMEA session",
+      "n.",
+      "設計 FMEA 會議",
+      "DFMEA session"
+    ],
+    [
+      "process FMEA session",
+      "n.",
+      "製程 FMEA 會議",
+      "PFMEA session"
+    ],
+    [
+      "control plan development",
+      "n.",
+      "管制計畫制定",
+      "control plan dev"
+    ],
+    [
+      "critical to quality characteristic",
+      "n.",
+      "關鍵品質特性",
+      "CTQ"
+    ],
+    [
+      "critical to safety characteristic",
+      "n.",
+      "關鍵安全特性",
+      "CTS"
+    ],
+    [
+      "design of experiments plan",
+      "n.",
+      "實驗設計計畫",
+      "DOE plan"
+    ],
+    [
+      "factorial experiment design",
+      "n.",
+      "因子實驗設計",
+      "factorial DOE"
+    ],
+    [
+      "response surface methodology",
+      "n.",
+      "反應曲面方法",
+      "RSM"
+    ],
+    [
+      "Taguchi method application",
+      "n.",
+      "田口方法應用",
+      "Taguchi method"
+    ],
+    [
+      "robust design methodology",
+      "n.",
+      "穩健設計方法",
+      "robust design"
+    ],
+    [
+      "tolerance analysis stack-up",
+      "n.",
+      "公差堆疊分析",
+      "tolerance stack-up"
+    ],
+    [
+      "Monte Carlo tolerance simulation",
+      "n.",
+      "蒙地卡羅公差模擬",
+      "Monte Carlo tolerance"
+    ],
+    [
+      "worst-case tolerance analysis",
+      "n.",
+      "最壞情況公差分析",
+      "worst-case tolerance"
+    ],
+    [
+      "geometric dimensioning and tolerancing",
+      "n.",
+      "幾何尺寸與公差",
+      "GD&T"
+    ],
+    [
+      "datum reference frame",
+      "n.",
+      "基準參考框架",
+      "DRF"
+    ],
+    [
+      "surface finish specification",
+      "n.",
+      "表面粗糙度規格",
+      "surface finish spec"
+    ],
+    [
+      "material specification callout",
+      "n.",
+      "材料規格標註",
+      "material spec callout"
+    ],
+    [
+      "material qualification testing",
+      "n.",
+      "材料 qualification 測試",
+      "material qual test"
+    ],
+    [
+      "supplier material certification",
+      "n.",
+      "供應商材料證明",
+      "material cert"
+    ],
+    [
+      "first article test report",
+      "n.",
+      "首件測試報告",
+      "FAT report"
+    ],
+    [
+      "qualification test report",
+      "n.",
+      "qualification 測試報告",
+      "qual test report"
+    ],
+    [
+      "reliability test plan",
+      "n.",
+      "可靠度測試計畫",
+      "reliability test plan"
+    ],
+    [
+      "HALT testing",
+      "n.",
+      "HALT 測試",
+      "highly accelerated life test"
+    ],
+    [
+      "HASS testing",
+      "n.",
+      "HASS 測試",
+      "highly accelerated stress screen"
+    ],
+    [
+      "highly accelerated stress screening",
+      "n.",
+      "高加速應力篩選",
+      "HASS screening"
+    ],
+    [
+      "burn-in test protocol",
+      "n.",
+      " burn-in 測試程序",
+      "burn-in protocol"
+    ],
+    [
+      "thermal cycling test",
+      "n.",
+      "溫度循環測試",
+      "thermal cycle test"
+    ],
+    [
+      "humidity exposure test",
+      "n.",
+      "濕度暴露測試",
+      "humidity test"
+    ],
+    [
+      "salt spray corrosion test",
+      "n.",
+      "鹽霧腐蝕測試",
+      "salt spray test"
+    ],
+    [
+      "vibration test profile",
+      "n.",
+      "振動測試剖面",
+      "vibration profile"
+    ],
+    [
+      "shock test profile",
+      "n.",
+      "衝擊測試剖面",
+      "shock profile"
+    ],
+    [
+      "drop test protocol consumer",
+      "n.",
+      "跌落測試程序",
+      "drop test protocol"
+    ],
+    [
+      "ingress protection rating test",
+      "n.",
+      "IP 等級測試",
+      "IP rating test"
+    ],
+    [
+      "ESD immunity test",
+      "n.",
+      "靜電放電抗擾測試",
+      "ESD test"
+    ],
+    [
+      "EFT burst test",
+      "n.",
+      "快速暫態抗擾測試",
+      "EFT test"
+    ],
+    [
+      "surge immunity test",
+      "n.",
+      "突波抗擾測試",
+      "surge test"
+    ],
+    [
+      "conducted emissions test",
+      "n.",
+      "傳導發射測試",
+      "conducted emissions"
+    ],
+    [
+      "radiated emissions test",
+      "n.",
+      "輻射發射測試",
+      "radiated emissions"
+    ],
+    [
+      "immunity test suite",
+      "n.",
+      "抗擾測試套件",
+      "immunity suite"
+    ],
+    [
+      "safety standard compliance testing",
+      "n.",
+      "安全標準合規測試",
+      "safety compliance test"
+    ],
+    [
+      "IEC 62368 testing",
+      "n.",
+      "IEC 62368 測試",
+      "62368 testing"
+    ],
+    [
+      "ISO 26262 functional safety",
+      "n.",
+      "ISO 26262 功能安全",
+      "automotive functional safety"
+    ],
+    [
+      "ASIL rating determination",
+      "n.",
+      "ASIL 等級判定",
+      "ASIL determination"
+    ],
+    [
+      "safety integrity level",
+      "n.",
+      "安全完整性等級",
+      "SIL"
+    ],
+    [
+      " hazard and risk assessment",
+      "n.",
+      "危害與風險評估",
+      "HARA"
+    ],
+    [
+      "safety case documentation",
+      "n.",
+      "安全案例文件",
+      "safety case"
+    ],
+    [
+      "independent safety assessor",
+      "n.",
+      "獨立安全評估者",
+      "ISA review"
+    ],
+    [
+      "cybersecurity engineering",
+      "n.",
+      "網安工程",
+      "cybersecurity engineering"
+    ],
+    [
+      "threat modeling session",
+      "n.",
+      "威脅建模會議",
+      "threat modeling"
+    ],
+    [
+      "secure development lifecycle",
+      "n.",
+      "安全開發生命週期",
+      "SDL"
+    ],
+    [
+      "penetration test report product",
+      "n.",
+      "產品滲透測試報告",
+      "pen test report"
+    ],
+    [
+      "vulnerability disclosure policy product",
+      "n.",
+      "產品漏洞揭露政策",
+      "VDP product"
+    ],
+    [
+      "software bill of materials",
+      "n.",
+      "軟體物料清單",
+      "SBOM"
+    ],
+    [
+      "hardware bill of materials",
+      "n.",
+      "硬體物料清單",
+      "HBOM"
+    ],
+    [
+      "component obsolescence management",
+      "n.",
+      "元件停產管理",
+      "obsolescence management"
+    ],
+    [
+      "last time buy decision",
+      "n.",
+      "最後採購決策",
+      "LTB decision"
+    ],
+    [
+      "alternative component qualification",
+      "n.",
+      "替代元件 qualification",
+      "alternate qual"
+    ],
+    [
+      "second source qualification",
+      "n.",
+      "第二來源 qualification",
+      "second source qual"
+    ],
+    [
+      "approved vendor list component",
+      "n.",
+      "元件 AVL",
+      "component AVL"
+    ],
+    [
+      "supplier quality agreement component",
+      "n.",
+      "元件供應商品質協議",
+      "SQA component"
+    ],
+    [
+      "incoming quality control component",
+      "n.",
+      "元件 IQC",
+      "incoming QC"
+    ],
+    [
+      "component traceability requirement",
+      "n.",
+      "元件追溯要求",
+      "component traceability"
+    ],
+    [
+      "counterfeit part mitigation",
+      "n.",
+      " counterfeit 零件防範",
+      "counterfeit mitigation"
+    ],
+    [
+      "authorized distributor requirement",
+      "n.",
+      "授權經銷商要求",
+      "authorized distributor"
+    ],
+    [
+      "long lead item tracking",
+      "n.",
+      "長交期料件追蹤",
+      "long lead tracking"
+    ],
+    [
+      "critical path component",
+      "n.",
+      "關鍵路徑元件",
+      "critical component"
+    ],
+    [
+      "single source component risk",
+      "n.",
+      "單一來源元件風險",
+      "single source risk"
+    ],
+    [
+      "design for supply chain",
+      "n.",
+      "供應鏈導向設計",
+      "DFSC"
+    ],
+    [
+      "design for cost",
+      "n.",
+      "成本導向設計",
+      "DFC"
+    ],
+    [
+      "design for assembly",
+      "n.",
+      "組裝導向設計",
+      "DFA"
+    ],
+    [
+      "design for reliability",
+      "n.",
+      "可靠度導向設計",
+      "DFR"
+    ],
+    [
+      "design for maintainability",
+      "n.",
+      "可維護性設計",
+      "DFM maintainability"
+    ],
+    [
+      "design for serviceability",
+      "n.",
+      "可服務性設計",
+      "design for service"
+    ],
+    [
+      "modular architecture design",
+      "n.",
+      "模組化架構設計",
+      "modular architecture"
+    ],
+    [
+      "platform architecture strategy",
+      "n.",
+      "平台架構策略",
+      "platform strategy"
+    ],
+    [
+      "product family architecture",
+      "n.",
+      "產品族架構",
+      "product family arch"
+    ],
+    [
+      "core platform reuse",
+      "n.",
+      "核心平台重用",
+      "platform reuse"
+    ],
+    [
+      "derivative product development",
+      "n.",
+      "衍生產品開發",
+      "derivative product"
+    ],
+    [
+      "roadmap prioritization framework",
+      "n.",
+      "路線圖優先框架",
+      "roadmap prioritization"
+    ],
+    [
+      "stage gate review criteria",
+      "n.",
+      "階段關卡審查標準",
+      "gate criteria"
+    ],
+    [
+      "gate zero decision",
+      "n.",
+      "Gate 0 決策",
+      "gate zero"
+    ],
+    [
+      "concept gate approval",
+      "n.",
+      "概念關卡核准",
+      "concept gate"
+    ],
+    [
+      "development gate approval",
+      "n.",
+      "開發關卡核准",
+      "development gate"
+    ],
+    [
+      "validation gate approval",
+      "n.",
+      "確認關卡核准",
+      "validation gate"
+    ],
+    [
+      "launch gate approval",
+      "n.",
+      "上市關卡核准",
+      "launch gate"
+    ],
+    [
+      "post-launch review",
+      "n.",
+      "上市後檢討",
+      "post-launch review"
+    ],
+    [
+      "lessons learned database",
+      "n.",
+      " lessons learned 資料庫",
+      "LL database"
+    ],
+    [
+      "post-mortem engineering review",
+      "n.",
+      "工程 post-mortem",
+      "engineering post-mortem"
+    ],
+    [
+      "NPI program management",
+      "n.",
+      "NPI 專案管理",
+      "new product introduction"
+    ],
+    [
+      "NPI cross-functional team",
+      "n.",
+      "NPI 跨功能團隊",
+      "NPI team"
+    ],
+    [
+      "program milestone tracking",
+      "n.",
+      "專案里程碑追蹤",
+      "milestone tracking"
+    ],
+    [
+      "critical path schedule engineering",
+      "n.",
+      "工程 critical path",
+      "critical path schedule"
+    ],
+    [
+      "resource loading plan R&D",
+      "n.",
+      "研發資源負載計畫",
+      "resource loading"
+    ],
+    [
+      "R&D budget allocation",
+      "n.",
+      "研發預算配置",
+      "R&D budget allocation"
+    ],
+    [
+      "capitalized development cost",
+      "n.",
+      "資本化開發成本",
+      "capitalized R&D"
+    ],
+    [
+      "expensed research cost",
+      "n.",
+      "費用化研究成本",
+      "expensed research"
+    ],
+    [
+      "R&D tax credit claim",
+      "n.",
+      "研發抵稅申請",
+      "R&D tax credit"
+    ],
+    [
+      "grant funding application R&D",
+      "n.",
+      "研發補助申請",
+      "grant application"
+    ],
+    [
+      "SBIR grant program",
+      "n.",
+      "SBIR 補助",
+      "SBIR grant"
+    ],
+    [
+      "university collaboration agreement R&D",
+      "n.",
+      "大學合作協議",
+      "university collaboration"
+    ],
+    [
+      "joint development agreement",
+      "n.",
+      "聯合開發協議",
+      "JDA"
+    ],
+    [
+      "co-development partnership",
+      "n.",
+      "共同開發夥伴",
+      "co-development"
+    ],
+    [
+      "licensing-in technology",
+      "n.",
+      "技術引進授權",
+      "in-licensing"
+    ],
+    [
+      "licensing-out technology",
+      "n.",
+      "技術對外授權",
+      "out-licensing"
+    ],
+    [
+      "cross-license agreement engineering",
+      "n.",
+      "交叉授權協議",
+      "cross-license"
+    ],
+    [
+      "patent prosecution strategy",
+      "n.",
+      "專利申請策略",
+      "prosecution strategy"
+    ],
+    [
+      "patent filing decision gate",
+      "n.",
+      "專利申請決策關卡",
+      "filing decision gate"
+    ],
+    [
+      "provisional application strategy",
+      "n.",
+      "臨時申請策略",
+      "provisional strategy"
+    ],
+    [
+      "PCT international filing",
+      "n.",
+      "PCT 國際申請",
+      "PCT filing"
+    ],
+    [
+      "national phase entry",
+      "n.",
+      "國家階段進入",
+      "national phase"
+    ],
+    [
+      "patent maintenance fee schedule",
+      "n.",
+      "專利年費時程",
+      "maintenance fee schedule"
+    ],
+    [
+      "patent annuity payment",
+      "n.",
+      "專利年費",
+      "patent annuity"
+    ],
+    [
+      "patent abandonment decision",
+      "n.",
+      "專利放棄決策",
+      "patent abandonment"
+    ],
+    [
+      "patent monetization strategy",
+      "n.",
+      "專利變現策略",
+      "patent monetization"
+    ],
+    [
+      "defensive publication strategy",
+      "n.",
+      "防禦性公開策略",
+      "defensive publication"
+    ],
+    [
+      "trade secret protection program",
+      "n.",
+      "營業秘密保護計畫",
+      "trade secret program"
+    ],
+    [
+      "invention assignment agreement",
+      "n.",
+      "發明讓與協議",
+      "invention assignment"
+    ],
+    [
+      "employee invention disclosure form",
+      "n.",
+      "員工發明揭露表",
+      "invention disclosure form"
+    ],
+    [
+      "inventor recognition program",
+      "n.",
+      "發明人獎勵計畫",
+      "inventor recognition"
+    ],
+    [
+      "IP committee review",
+      "n.",
+      "智財委員會審查",
+      "IP committee"
+    ],
+    [
+      "freedom-to-operate opinion",
+      "n.",
+      "FTO 法律意見",
+      "FTO opinion"
+    ],
+    [
+      "invalidity search report",
+      "n.",
+      "無效检索報告",
+      "invalidity search"
+    ],
+    [
+      "claim chart preparation",
+      "n.",
+      "請求項對照表",
+      "claim chart"
+    ],
+    [
+      "evidence of use investigation",
+      "n.",
+      "使用證據調查",
+      "EOU investigation"
+    ],
+    [
+      "standard essential patent policy",
+      "n.",
+      "標準必要專利政策",
+      "SEP policy"
+    ],
+    [
+      "FRAND licensing commitment",
+      "n.",
+      "FRAND 授權承諾",
+      "FRAND commitment"
+    ],
+    [
+      "patent pool participation",
+      "n.",
+      "專利池參與",
+      "patent pool"
+    ],
+    [
+      "open source compliance review",
+      "n.",
+      "開源合規審查",
+      "OSS compliance review"
+    ],
+    [
+      "license compatibility analysis",
+      "n.",
+      "授權相容性分析",
+      "license compatibility"
+    ],
+    [
+      "copyleft risk assessment",
+      "n.",
+      "copyleft 風險評估",
+      "copyleft risk"
+    ],
+    [
+      "third-party code audit",
+      "n.",
+      "第三方程式碼稽核",
+      "third-party code audit"
+    ],
+    [
+      "software composition analysis",
+      "n.",
+      "軟體成分分析",
+      "SCA scan"
+    ],
+    [
+      "embedded software architecture",
+      "n.",
+      "嵌入式軟體架構",
+      "embedded architecture"
+    ],
+    [
+      "real-time operating system selection",
+      "n.",
+      "RTOS 選型",
+      "RTOS selection"
+    ],
+    [
+      "bare-metal firmware design",
+      "n.",
+      "裸機韌體設計",
+      "bare-metal firmware"
+    ],
+    [
+      "bootloader development",
+      "n.",
+      "bootloader 開發",
+      "bootloader dev"
+    ],
+    [
+      "over-the-air update architecture",
+      "n.",
+      "OTA 更新架構",
+      "OTA architecture"
+    ],
+    [
+      "secure boot implementation",
+      "n.",
+      "安全開機實作",
+      "secure boot"
+    ],
+    [
+      "firmware signing process",
+      "n.",
+      "韌體簽章流程",
+      "firmware signing"
+    ],
+    [
+      "device driver development",
+      "n.",
+      "裝置驅動開發",
+      "driver development"
+    ],
+    [
+      "hardware abstraction layer design",
+      "n.",
+      "硬體抽象層設計",
+      "HAL design"
+    ],
+    [
+      "board support package development",
+      "n.",
+      "BSP 開發",
+      "BSP development"
+    ],
+    [
+      "reference design platform",
+      "n.",
+      "參考設計平台",
+      "reference design"
+    ],
+    [
+      "evaluation kit release",
+      "n.",
+      "評估套件釋出",
+      "EVK release"
+    ],
+    [
+      "development kit documentation",
+      "n.",
+      "開發套件文件",
+      "dev kit docs"
+    ],
+    [
+      "SDK release management",
+      "n.",
+      "SDK 釋出管理",
+      "SDK release"
+    ],
+    [
+      "API versioning policy",
+      "n.",
+      "API 版次政策",
+      "API versioning"
+    ],
+    [
+      "backward compatibility requirement",
+      "n.",
+      "向後相容要求",
+      "backward compatibility"
+    ],
+    [
+      "deprecation notice policy",
+      "n.",
+      "淘汰通知政策",
+      "deprecation policy"
+    ],
+    [
+      "microservices architecture design",
+      "n.",
+      "微服務架構設計",
+      "microservices design"
+    ],
+    [
+      "service mesh implementation",
+      "n.",
+      "服務網格實作",
+      "service mesh"
+    ],
+    [
+      "container orchestration platform",
+      "n.",
+      "容器編排平台",
+      "Kubernetes platform"
+    ],
+    [
+      "serverless architecture pattern",
+      "n.",
+      "無伺服器架構模式",
+      "serverless pattern"
+    ],
+    [
+      "event-driven architecture",
+      "n.",
+      "事件驅動架構",
+      "EDA"
+    ],
+    [
+      "message queue integration",
+      "n.",
+      "訊息佇列整合",
+      "MQ integration"
+    ],
+    [
+      "stream processing pipeline",
+      "n.",
+      "串流處理管線",
+      "stream pipeline"
+    ],
+    [
+      "batch processing pipeline",
+      "n.",
+      "批次處理管線",
+      "batch pipeline"
+    ],
+    [
+      "data lake architecture",
+      "n.",
+      "資料湖架構",
+      "data lake"
+    ],
+    [
+      "data warehouse modeling",
+      "n.",
+      "資料倉儲建模",
+      "data warehouse modeling"
+    ],
+    [
+      "ETL pipeline design",
+      "n.",
+      "ETL 管線設計",
+      "ETL design"
+    ],
+    [
+      "feature store architecture",
+      "n.",
+      "特徵庫架構",
+      "feature store"
+    ],
+    [
+      "model training pipeline",
+      "n.",
+      "模型訓練管線",
+      "training pipeline"
+    ],
+    [
+      "model deployment pipeline",
+      "n.",
+      "模型部署管線",
+      "deployment pipeline"
+    ],
+    [
+      "MLOps platform",
+      "n.",
+      "MLOps 平台",
+      "MLOps"
+    ],
+    [
+      "model monitoring dashboard",
+      "n.",
+      "模型監控儀表板",
+      "model monitoring"
+    ],
+    [
+      "model drift detection",
+      "n.",
+      "模型漂移偵測",
+      "model drift"
+    ],
+    [
+      "data drift detection",
+      "n.",
+      "資料漂移偵測",
+      "data drift"
+    ],
+    [
+      "A/B test experiment platform",
+      "n.",
+      "A/B 實驗平台",
+      "experiment platform"
+    ],
+    [
+      "experimentation framework product",
+      "n.",
+      "產品實驗框架",
+      "experimentation framework"
+    ],
+    [
+      "telemetry instrumentation design",
+      "n.",
+      "遙測 instrumentation 設計",
+      "telemetry design"
+    ],
+    [
+      "observability stack design",
+      "n.",
+      "可觀測性堆疊設計",
+      "observability stack"
+    ],
+    [
+      "distributed tracing implementation",
+      "n.",
+      "分散式追蹤實作",
+      "distributed tracing"
+    ],
+    [
+      "log aggregation architecture",
+      "n.",
+      "日誌聚合架構",
+      "log aggregation"
+    ],
+    [
+      "metrics collection pipeline",
+      "n.",
+      "指標蒐集管線",
+      "metrics pipeline"
+    ],
+    [
+      "SLO definition engineering",
+      "n.",
+      "SLO 定義",
+      "SLO definition"
+    ],
+    [
+      "error budget policy",
+      "n.",
+      "錯誤預算政策",
+      "error budget"
+    ],
+    [
+      "incident response runbook",
+      "n.",
+      "事件應變 runbook",
+      "incident runbook"
+    ],
+    [
+      "post-incident review engineering",
+      "n.",
+      "工程事件檢討",
+      "PIR engineering"
+    ],
+    [
+      "chaos engineering experiment",
+      "n.",
+      "混沌工程實驗",
+      "chaos experiment"
+    ],
+    [
+      "resilience testing program",
+      "n.",
+      "韌性測試計畫",
+      "resilience testing"
+    ],
+    [
+      "load testing scenario",
+      "n.",
+      "負載測試情境",
+      "load test scenario"
+    ],
+    [
+      "stress testing scenario",
+      "n.",
+      "壓力測試情境",
+      "stress test scenario"
+    ],
+    [
+      "soak testing protocol",
+      "n.",
+      " soak 測試程序",
+      "soak test"
+    ],
+    [
+      "spike testing protocol",
+      "n.",
+      " spike 測試程序",
+      "spike test"
+    ]
+  ],
+  "governance": [
+    [
+      "committee charter",
+      "n.",
+      "委員會章程",
+      "committee mandate"
+    ],
+    [
+      "audit committee charter",
+      "n.",
+      "審計委員會章程",
+      "AC charter"
+    ],
+    [
+      "nominating and governance committee",
+      "n.",
+      "提名治理委員會",
+      "NGC"
+    ],
+    [
+      "executive compensation disclosure",
+      "n.",
+      "高管薪酬揭露",
+      "pay disclosure"
+    ],
+    [
+      "pay ratio disclosure",
+      "n.",
+      "薪酬倍數揭露",
+      "CEO pay ratio"
+    ],
+    [
+      "clawback policy",
+      "n.",
+      "追回政策",
+      "recoupment policy"
+    ],
+    [
+      "insider trading policy",
+      "n.",
+      "內線交易政策",
+      "trading policy"
+    ],
+    [
+      "blackout period",
+      "n.",
+      "禁售期",
+      "trading blackout"
+    ],
+    [
+      "pre-clearance requirement",
+      "n.",
+      "事前核准要求",
+      "trade pre-clearance"
+    ],
+    [
+      "Rule 10b5-1 plan",
+      "n.",
+      "10b5-1 計畫",
+      "insider trading plan"
+    ],
+    [
+      "Form 4 filing",
+      "n.",
+      "Form 4 申報",
+      "insider filing"
+    ],
+    [
+      "Section 16 officer",
+      "n.",
+      "Section 16 高管",
+      "reporting person"
+    ],
+    [
+      "beneficial ownership report",
+      "n.",
+      "實益所有權申報",
+      "ownership report"
+    ],
+    [
+      "Schedule 13D",
+      "n.",
+      "13D 申報",
+      "activist filing"
+    ],
+    [
+      "Schedule 13G",
+      "n.",
+      "13G 申報",
+      "passive holder filing"
+    ],
+    [
+      "activist campaign",
+      "n.",
+      "行動主義運動",
+      "proxy fight"
+    ],
+    [
+      "proxy contest",
+      "n.",
+      "委託書競爭",
+      "board fight"
+    ],
+    [
+      "board refreshment policy",
+      "n.",
+      "董事會換血政策",
+      "refresh policy"
+    ],
+    [
+      "director independence standards",
+      "n.",
+      "董事獨立性標準",
+      "independence criteria"
+    ],
+    [
+      "NYSE listing standards",
+      "n.",
+      "紐交所上市標準",
+      "exchange rules"
+    ],
+    [
+      "Nasdaq listing standards",
+      "n.",
+      "那斯達克上市標準",
+      "Nasdaq rules"
+    ],
+    [
+      "corporate governance code",
+      "n.",
+      "公司治理守則",
+      "governance code"
+    ],
+    [
+      "ethics hotline",
+      "n.",
+      "倫理檢舉專線",
+      "compliance hotline"
+    ],
+    [
+      "whistleblower hotline",
+      "n.",
+      "吹哨專線",
+      "reporting line"
+    ],
+    [
+      "related party policy",
+      "n.",
+      "關係人政策",
+      "RPT policy"
+    ],
+    [
+      "independent auditor rotation",
+      "n.",
+      "獨立稽核師輪替",
+      "auditor rotation"
+    ],
+    [
+      "audit partner rotation",
+      "n.",
+      "稽核合夥人輪替",
+      "partner rotation"
+    ],
+    [
+      "non-audit fee cap",
+      "n.",
+      "非稽核費用上限",
+      "NAS fee cap"
+    ],
+    [
+      "audit committee pre-approval",
+      "n.",
+      "審計委員會事前核准",
+      "AC pre-approval"
+    ],
+    [
+      "financial expert designation",
+      "n.",
+      "財務專家資格",
+      "audit expert"
+    ],
+    [
+      "ACFE qualification",
+      "n.",
+      "審計委員會財務專家資格",
+      "financial expert"
+    ],
+    [
+      "executive session minutes",
+      "n.",
+      "閉門會議紀錄",
+      "private session notes"
+    ],
+    [
+      "board meeting minutes",
+      "n.",
+      "董事會會議紀錄",
+      "director minutes"
+    ],
+    [
+      "consent agenda",
+      "n.",
+      "同意議程",
+      "consent calendar"
+    ],
+    [
+      "action by unanimous written consent",
+      "n.",
+      "一致書面決議",
+      "UWOC"
+    ],
+    [
+      "special meeting notice",
+      "n.",
+      "特別會議通知",
+      "special notice"
+    ],
+    [
+      "annual meeting notice",
+      "n.",
+      "股東常會通知",
+      "AGM notice"
+    ],
+    [
+      "quorum requirement",
+      "n.",
+      "法定人數要求",
+      "quorum rule"
+    ],
+    [
+      "voting standard",
+      "n.",
+      "表決標準",
+      "voting rule"
+    ],
+    [
+      "plurality voting",
+      "n.",
+      "相對多數投票",
+      "plurality standard"
+    ],
+    [
+      "director resignation policy",
+      "n.",
+      "董事辭職政策",
+      "resignation policy"
+    ],
+    [
+      "overboarding policy",
+      "n.",
+      "兼任過多政策",
+      "directorship limit"
+    ],
+    [
+      "board size policy",
+      "n.",
+      "董事會規模政策",
+      "board size guideline"
+    ],
+    [
+      "director tenure policy",
+      "n.",
+      "董事任期政策",
+      "tenure guideline"
+    ],
+    [
+      "mandatory retirement age",
+      "n.",
+      "強制退休年齡",
+      "retirement age"
+    ],
+    [
+      "board skills matrix",
+      "n.",
+      "董事技能矩陣",
+      "skills matrix"
+    ],
+    [
+      "director onboarding program",
+      "n.",
+      "董事 onboarding 計畫",
+      "director orientation"
+    ],
+    [
+      "continuing director education",
+      "n.",
+      "董事持續進修",
+      "director training"
+    ],
+    [
+      "board portal",
+      "n.",
+      "董事會入口平台",
+      "board software"
+    ],
+    [
+      "D&O questionnaire",
+      "n.",
+      "董事問卷",
+      "director D&O form"
+    ],
+    [
+      "conflicts questionnaire",
+      "n.",
+      "利益衝突問卷",
+      "COI questionnaire"
+    ],
+    [
+      "related party transaction policy",
+      "n.",
+      "關係人交易政策",
+      "RPT policy"
+    ],
+    [
+      "related party approval",
+      "n.",
+      "關係人交易核准",
+      "RPT approval"
+    ],
+    [
+      "fairness committee review",
+      "n.",
+      "公平性委員會審查",
+      "fairness review"
+    ],
+    [
+      "special litigation committee",
+      "n.",
+      "特別訴訟委員會",
+      "SLC"
+    ],
+    [
+      "investigation committee",
+      "n.",
+      "調查委員會",
+      "special committee"
+    ],
+    [
+      "board oversight of cybersecurity",
+      "n.",
+      "董事會網安監督",
+      "cyber oversight"
+    ],
+    [
+      "cybersecurity disclosure",
+      "n.",
+      "網安揭露",
+      "cyber risk report"
+    ],
+    [
+      "human capital disclosure",
+      "n.",
+      "人力資本揭露",
+      "HC metrics"
+    ],
+    [
+      "climate oversight",
+      "n.",
+      "氣候監督",
+      "climate governance"
+    ],
+    [
+      "sustainability oversight committee",
+      "n.",
+      "永續監督委員會",
+      "ESG committee"
+    ],
+    [
+      "enterprise risk appetite",
+      "n.",
+      "企業風險偏好",
+      "risk appetite"
+    ],
+    [
+      "risk tolerance statement",
+      "n.",
+      "風險容忍聲明",
+      "risk tolerance"
+    ],
+    [
+      "risk register",
+      "n.",
+      "風險登錄表",
+      "risk inventory"
+    ],
+    [
+      "three lines of defense",
+      "n.",
+      "三道防線",
+      "risk governance model"
+    ],
+    [
+      "internal audit charter",
+      "n.",
+      "內部稽核章程",
+      "IA charter"
+    ],
+    [
+      "chief audit executive",
+      "n.",
+      "首席稽核長",
+      "CAE"
+    ],
+    [
+      "audit plan",
+      "n.",
+      "稽核計畫",
+      "internal audit plan"
+    ],
+    [
+      "SOX certification",
+      "n.",
+      "SOX 認證",
+      "302 certification"
+    ],
+    [
+      "ICFR assessment",
+      "n.",
+      "內控財報評估",
+      "404 assessment"
+    ],
+    [
+      "control environment",
+      "n.",
+      "控制環境",
+      "control climate"
+    ],
+    [
+      "tone at the top",
+      "n.",
+      "高層基調",
+      "leadership tone"
+    ],
+    [
+      "fraud risk oversight",
+      "n.",
+      "舞弊風險監督",
+      "fraud governance"
+    ],
+    [
+      "anti-corruption program",
+      "n.",
+      "反貪腐計畫",
+      "ABC program"
+    ],
+    [
+      "anti-bribery training",
+      "n.",
+      "反賄賂訓練",
+      "FCPA training"
+    ],
+    [
+      "gift and entertainment policy",
+      "n.",
+      "饋贈招待政策",
+      "G&E policy"
+    ],
+    [
+      "political contribution policy",
+      "n.",
+      "政治捐獻政策",
+      "political giving policy"
+    ],
+    [
+      "lobbying disclosure",
+      "n.",
+      "遊說揭露",
+      "lobbying report"
+    ],
+    [
+      "trade association membership",
+      "n.",
+      "貿易協會會員",
+      "industry association"
+    ],
+    [
+      "shareholder engagement policy",
+      "n.",
+      "股東溝通政策",
+      "investor outreach"
+    ],
+    [
+      "investor day",
+      "n.",
+      "投資人日",
+      "capital markets day"
+    ],
+    [
+      "analyst briefing",
+      "n.",
+      "分析師簡報",
+      "analyst call"
+    ],
+    [
+      "guidance policy",
+      "n.",
+      "財測政策",
+      "earnings guidance policy"
+    ],
+    [
+      "selective disclosure policy",
+      "n.",
+      "選擇性揭露政策",
+      "Reg FD policy"
+    ],
+    [
+      "Reg FD compliance",
+      "n.",
+      "公平披露法遵",
+      "fair disclosure"
+    ],
+    [
+      "disclosure controls",
+      "n.",
+      "揭露控制",
+      "DC&P"
+    ],
+    [
+      "disclosure committee",
+      "n.",
+      "揭露委員會",
+      "disclosure panel"
+    ],
+    [
+      "8-K filing",
+      "n.",
+      "8-K 申報",
+      "current report"
+    ],
+    [
+      "10-Q filing",
+      "n.",
+      "10-Q 申報",
+      "quarterly report"
+    ],
+    [
+      "proxy season",
+      "n.",
+      "委託書季",
+      "proxy cycle"
+    ],
+    [
+      "annual meeting script",
+      "n.",
+      "股東常會腳本",
+      "AGM script"
+    ],
+    [
+      "virtual annual meeting",
+      "n.",
+      "線上股東常會",
+      "virtual AGM"
+    ],
+    [
+      "hybrid annual meeting",
+      "n.",
+      "混合股東常會",
+      "hybrid AGM"
+    ],
+    [
+      "shareholder question period",
+      "n.",
+      "股東問答時間",
+      "Q&A session"
+    ],
+    [
+      "majority vote standard",
+      "n.",
+      "過半數當選標準",
+      "majority vote"
+    ],
+    [
+      "withheld vote",
+      "n.",
+      "反對票",
+      "withhold vote"
+    ],
+    [
+      "broker non-vote",
+      "n.",
+      "券商無指示票",
+      "non-vote"
+    ],
+    [
+      "abstention vote",
+      "n.",
+      "棄權票",
+      "abstain"
+    ],
+    [
+      "quorum call",
+      "n.",
+      "法定人數確認",
+      "quorum check"
+    ],
+    [
+      "adjournment motion",
+      "n.",
+      "延會動議",
+      "meeting adjournment"
+    ],
+    [
+      "shareholder rights plan",
+      "n.",
+      "股東權利計畫",
+      "poison pill plan"
+    ],
+    [
+      "dead hand pill",
+      "n.",
+      "死手毒丸",
+      "dead-hand provision"
+    ],
+    [
+      "no action letter",
+      "n.",
+      "不採取行動函",
+      "SEC no-action"
+    ],
+    [
+      "shareholder proposal exclusion",
+      "n.",
+      "股東提案排除",
+      "proposal exclusion"
+    ],
+    [
+      "Rule 14a-8",
+      "n.",
+      "14a-8 規則",
+      "shareholder proposal rule"
+    ],
+    [
+      "say-on-frequency vote",
+      "n.",
+      "薪酬投票頻率",
+      "frequency vote"
+    ],
+    [
+      "advisory vote result",
+      "n.",
+      "諮詢投票結果",
+      "advisory outcome"
+    ],
+    [
+      "compensation discussion and analysis",
+      "n.",
+      "薪酬討論與分析",
+      "CD&A"
+    ],
+    [
+      "peer group benchmarking",
+      "n.",
+      "同業薪酬基準",
+      "comp peer group"
+    ],
+    [
+      "pay-for-performance alignment",
+      "n.",
+      "績效薪酬連動",
+      "PFP alignment"
+    ],
+    [
+      "long-term incentive plan",
+      "n.",
+      "長期激勵計畫",
+      "LTIP"
+    ],
+    [
+      "short-term incentive plan",
+      "n.",
+      "短期激勵計畫",
+      "STIP"
+    ],
+    [
+      "performance share unit",
+      "n.",
+      "績效股份單位",
+      "PSU"
+    ],
+    [
+      "time-based vesting",
+      "n.",
+      "時間歸屬",
+      "cliff vesting"
+    ],
+    [
+      "performance vesting",
+      "n.",
+      "績效歸屬",
+      "performance vesting"
+    ],
+    [
+      "double-trigger acceleration",
+      "n.",
+      "雙重觸發加速",
+      "CoC acceleration"
+    ],
+    [
+      "single-trigger acceleration",
+      "n.",
+      "單一觸發加速",
+      "single trigger"
+    ],
+    [
+      "severance policy",
+      "n.",
+      "資遣政策",
+      "severance guideline"
+    ],
+    [
+      "change-in-control agreement",
+      "n.",
+      "控制權變更協議",
+      "CIC agreement"
+    ],
+    [
+      "employment agreement",
+      "n.",
+      "雇用協議",
+      "executive contract"
+    ],
+    [
+      "indemnification policy",
+      "n.",
+      "賠償政策",
+      "indemnity policy"
+    ],
+    [
+      "advancement of expenses",
+      "n.",
+      "費用預付",
+      "expense advancement"
+    ],
+    [
+      "derivative litigation",
+      "n.",
+      "衍生訴訟",
+      "shareholder derivative suit"
+    ],
+    [
+      "demand refusal",
+      "n.",
+      "請求拒絕",
+      "demand rejection"
+    ],
+    [
+      "business judgment rule",
+      "n.",
+      "商業判斷法則",
+      "BJR"
+    ],
+    [
+      "entire fairness standard",
+      "n.",
+      "完全公平標準",
+      "entire fairness"
+    ],
+    [
+      "Revlon duty",
+      "n.",
+      "Revlon 義務",
+      "sale process duty"
+    ],
+    [
+      "Unocal standard",
+      "n.",
+      "Unocal 標準",
+      "defensive review"
+    ],
+    [
+      "enhanced scrutiny",
+      "n.",
+      "加強審查",
+      "enhanced review"
+    ],
+    [
+      "independent committee process",
+      "n.",
+      "獨立委員會程序",
+      "special committee sale"
+    ],
+    [
+      "fair process",
+      "n.",
+      "公平程序",
+      "fair sale process"
+    ],
+    [
+      "board delegation",
+      "n.",
+      "董事會授權",
+      "committee delegation"
+    ],
+    [
+      "reserved powers",
+      "n.",
+      "保留權力",
+      "board reserved matters"
+    ],
+    [
+      "management authority matrix",
+      "n.",
+      "管理授權矩陣",
+      "delegation matrix"
+    ],
+    [
+      "corporate opportunity doctrine",
+      "n.",
+      "公司機會原則",
+      "corporate opportunity"
+    ],
+    [
+      "interlocking directorate",
+      "n.",
+      "交叉董事",
+      "interlocking board"
+    ],
+    [
+      "classified board",
+      "n.",
+      "分類董事會",
+      "staggered board"
+    ],
+    [
+      "declassified board",
+      "n.",
+      "非分類董事會",
+      "declassified board"
+    ],
+    [
+      "proxy access bylaw",
+      "n.",
+      "委託書提名細則",
+      "proxy access"
+    ],
+    [
+      "universal proxy card",
+      "n.",
+      "通用委託書",
+      "universal proxy"
+    ],
+    [
+      "majority director election",
+      "n.",
+      "董事過半當選",
+      "director majority vote"
+    ],
+    [
+      "director resignation policy majority",
+      "n.",
+      "未過半辭職政策",
+      "director resignation standard"
+    ],
+    [
+      "shareholder approval threshold",
+      "n.",
+      "股東核准門檻",
+      "approval threshold"
+    ],
+    [
+      "written consent solicitation",
+      "n.",
+      "書面同意徵求",
+      "written consent campaign"
+    ],
+    [
+      "consent solicitation",
+      "n.",
+      "同意書徵求",
+      "consent drive"
+    ],
+    [
+      "record holder list",
+      "n.",
+      "股東名冊",
+      "shareholder list"
+    ],
+    [
+      "beneficial holder verification",
+      "n.",
+      "實益持有人驗證",
+      "holder verification"
+    ],
+    [
+      "inspector of election",
+      "n.",
+      "選舉監票人",
+      "vote inspector"
+    ],
+    [
+      "independent tabulator",
+      "n.",
+      "獨立計票機構",
+      "vote tabulator"
+    ],
+    [
+      "electronic voting platform",
+      "n.",
+      "電子投票平台",
+      "e-voting"
+    ],
+    [
+      "vote reconciliation",
+      "n.",
+      "投票對帳",
+      "vote reconciliation"
+    ],
+    [
+      "overvote prevention",
+      "n.",
+      "超額投票防範",
+      "overvote control"
+    ],
+    [
+      "broker discretionary voting",
+      "n.",
+      "券商裁量投票",
+      "broker discretion"
+    ],
+    [
+      "routine vs non-routine proposal",
+      "n.",
+      "例行與非例行提案",
+      "routine proposal"
+    ],
+    [
+      "ISS recommendation",
+      "n.",
+      "ISS 建議",
+      "proxy advisor rec"
+    ],
+    [
+      "Glass Lewis recommendation",
+      "n.",
+      "Glass Lewis 建議",
+      "GL recommendation"
+    ],
+    [
+      "proxy advisor engagement",
+      "n.",
+      "委託書顧問溝通",
+      "advisor outreach"
+    ],
+    [
+      "shareholder outreach program",
+      "n.",
+      "股東 outreach 計畫",
+      "investor engagement"
+    ],
+    [
+      "governance scorecard",
+      "n.",
+      "治理評分卡",
+      "governance score"
+    ],
+    [
+      "board diversity disclosure",
+      "n.",
+      "董事會多元揭露",
+      "diversity report"
+    ],
+    [
+      "board tenure disclosure",
+      "n.",
+      "董事任期揭露",
+      "tenure disclosure"
+    ],
+    [
+      "independent chair",
+      "n.",
+      "獨立董事長",
+      "independent chairperson"
+    ],
+    [
+      "executive chair",
+      "n.",
+      "執行董事長",
+      "executive chair"
+    ],
+    [
+      "presiding director",
+      "n.",
+      "主持董事",
+      "presiding independent director"
+    ],
+    [
+      "lead director role",
+      "n.",
+      "首席董事角色",
+      "lead independent role"
+    ],
+    [
+      "CEO succession disclosure",
+      "n.",
+      "CEO 接班揭露",
+      "succession disclosure"
+    ],
+    [
+      "emergency succession plan",
+      "n.",
+      "緊急接班計畫",
+      "emergency succession"
+    ],
+    [
+      "board calendar",
+      "n.",
+      "董事會行事曆",
+      "board schedule"
+    ],
+    [
+      "committee meeting cadence",
+      "n.",
+      "委員會開會頻率",
+      "meeting cadence"
+    ],
+    [
+      "standing committee",
+      "n.",
+      "常設委員會",
+      "permanent committee"
+    ],
+    [
+      "ad hoc committee",
+      "n.",
+      "特設委員會",
+      "temporary committee"
+    ],
+    [
+      "executive compensation consultant",
+      "n.",
+      "薪酬顧問",
+      "comp consultant"
+    ],
+    [
+      "independent compensation consultant",
+      "n.",
+      "獨立薪酬顧問",
+      "independent comp advisor"
+    ],
+    [
+      "management access to board",
+      "n.",
+      "管理層接觸董事會",
+      "mgmt board access"
+    ],
+    [
+      "executive sessions with auditors",
+      "n.",
+      "與稽核師閉門會",
+      "AC executive session"
+    ],
+    [
+      "private session with CAE",
+      "n.",
+      "與內稽長閉門會",
+      "CAE session"
+    ],
+    [
+      "whistleblower investigation protocol",
+      "n.",
+      "吹哨調查程序",
+      "investigation protocol"
+    ],
+    [
+      "retaliation prohibition",
+      "n.",
+      "禁止報復",
+      "anti-retaliation"
+    ],
+    [
+      "anonymous reporting channel",
+      "n.",
+      "匿名通報管道",
+      "anonymous hotline"
+    ],
+    [
+      "culture assessment",
+      "n.",
+      "文化評估",
+      "culture survey"
+    ],
+    [
+      "ethics and compliance program",
+      "n.",
+      "倫理法遵計畫",
+      "E&C program"
+    ],
+    [
+      "compliance risk assessment",
+      "n.",
+      "法遵風險評估",
+      "compliance RA"
+    ],
+    [
+      "third-party due diligence",
+      "n.",
+      "第三方盡調",
+      "TPDD"
+    ],
+    [
+      "board risk report",
+      "n.",
+      "董事會風險報告",
+      "risk dashboard"
+    ],
+    [
+      "key risk indicator",
+      "n.",
+      "關鍵風險指標",
+      "KRI"
+    ],
+    [
+      "emerging risk monitoring",
+      "n.",
+      "新興風險監測",
+      "emerging risk"
+    ],
+    [
+      "crisis management oversight",
+      "n.",
+      "危機管理監督",
+      "crisis oversight"
+    ],
+    [
+      "business continuity oversight",
+      "n.",
+      "營運持續監督",
+      "BCP oversight"
+    ],
+    [
+      "regulatory change monitoring",
+      "n.",
+      "法規變動監測",
+      "regulatory tracking"
+    ],
+    [
+      "government affairs oversight",
+      "n.",
+      "政府事務監督",
+      "public affairs oversight"
+    ],
+    [
+      "reputation risk governance",
+      "n.",
+      "聲譽風險治理",
+      "reputation governance"
+    ],
+    [
+      "data privacy oversight",
+      "n.",
+      "資料隱私監督",
+      "privacy oversight"
+    ],
+    [
+      "AI governance",
+      "n.",
+      "AI 治理",
+      "AI oversight"
+    ],
+    [
+      "algorithmic accountability",
+      "n.",
+      "演算法問責",
+      "AI accountability"
+    ],
+    [
+      "board information pack",
+      "n.",
+      "董事會資料包",
+      "board book"
+    ],
+    [
+      "pre-read materials",
+      "n.",
+      "事前閱讀資料",
+      "pre-read pack"
+    ],
+    [
+      "action item tracker",
+      "n.",
+      "行動項目追蹤",
+      "action log"
+    ],
+    [
+      "board decision log",
+      "n.",
+      "董事會決策紀錄",
+      "decision register"
+    ],
+    [
+      "meeting effectiveness survey",
+      "n.",
+      "會議效能調查",
+      "board survey"
+    ],
+    [
+      "peer board evaluation",
+      "n.",
+      "同儕董事評鑑",
+      "peer evaluation"
+    ],
+    [
+      "facilitated board retreat",
+      "n.",
+      "董事會 retreat",
+      "board offsite"
+    ],
+    [
+      "strategic planning session",
+      "n.",
+      "策略規劃會議",
+      "strategy session"
+    ],
+    [
+      "capital allocation framework",
+      "n.",
+      "資本配置框架",
+      "capital framework"
+    ],
+    [
+      "dividend policy review",
+      "n.",
+      "股息政策審查",
+      "payout policy"
+    ],
+    [
+      "share repurchase authorization",
+      "n.",
+      "庫藏股授權",
+      "buyback authorization"
+    ],
+    [
+      "poison pill renewal",
+      "n.",
+      "毒丸續期",
+      "rights plan renewal"
+    ],
+    [
+      "bylaw amendment",
+      "n.",
+      "細則修訂",
+      "bylaw change"
+    ],
+    [
+      "charter amendment",
+      "n.",
+      "章程修訂",
+      "charter change"
+    ],
+    [
+      "dual-class sunset provision",
+      "n.",
+      "雙重股權日落條款",
+      "sunset provision"
+    ],
+    [
+      "one share one vote",
+      "n.",
+      "一股一權",
+      "equal voting rights"
+    ],
+    [
+      "majority independent board",
+      "n.",
+      "多數獨立董事會",
+      "independent majority"
+    ],
+    [
+      "board independence determination",
+      "n.",
+      "獨立性判定",
+      "independence determination"
+    ],
+    [
+      "material relationship test",
+      "n.",
+      "重大關係測試",
+      "material relationship"
+    ],
+    [
+      "safe harbor independence",
+      "n.",
+      "安全港獨立性",
+      "independence safe harbor"
+    ],
+    [
+      "director stock ownership guideline",
+      "n.",
+      "董事持股指引",
+      "ownership guideline"
+    ],
+    [
+      "executive stock ownership guideline",
+      "n.",
+      "高管持股指引",
+      "exec ownership rule"
+    ],
+    [
+      "hedging prohibition",
+      "n.",
+      "避險禁止",
+      "anti-hedging policy"
+    ],
+    [
+      "pledging prohibition",
+      "n.",
+      "質押禁止",
+      "anti-pledging policy"
+    ],
+    [
+      "insider trading training",
+      "n.",
+      "內線交易訓練",
+      "insider training"
+    ],
+    [
+      "corporate governance statement",
+      "n.",
+      "公司治理聲明",
+      "governance statement"
+    ]
+  ],
+  "ma": [
+    [
+      "asset purchase agreement",
+      "n.",
+      "資產購買協議",
+      "APA"
+    ],
+    [
+      "stock purchase agreement",
+      "n.",
+      "股權購買協議",
+      "SPA"
+    ],
+    [
+      "merger agreement",
+      "n.",
+      "合併協議",
+      "combination agreement"
+    ],
+    [
+      "purchase agreement",
+      "n.",
+      "收購協議",
+      "acquisition contract"
+    ],
+    [
+      "indemnity cap",
+      "n.",
+      "賠償上限",
+      "liability cap"
+    ],
+    [
+      "indemnity basket",
+      "n.",
+      "賠償起賠額",
+      "deductible basket"
+    ],
+    [
+      "tipping basket",
+      "n.",
+      "累加起賠籃",
+      "tipping deductible"
+    ],
+    [
+      "sandbagging",
+      "n.",
+      "知情後索賠",
+      "pro-sandbagging"
+    ],
+    [
+      "anti-sandbagging",
+      "n.",
+      "禁止知情索賠",
+      "anti-sandbagging clause"
+    ],
+    [
+      "representation and warranty insurance",
+      "n.",
+      "陳述與保證保險",
+      "RWI"
+    ],
+    [
+      "locked-box mechanism",
+      "n.",
+      "鎖箱機制",
+      "fixed price deal"
+    ],
+    [
+      "locked-box date",
+      "n.",
+      "鎖箱基準日",
+      "reference date"
+    ],
+    [
+      "completion accounts",
+      "n.",
+      "交割帳目",
+      "closing accounts"
+    ],
+    [
+      "closing adjustment",
+      "n.",
+      "交割調整",
+      "purchase price adjustment"
+    ],
+    [
+      "net debt adjustment",
+      "n.",
+      "淨負債調整",
+      "debt true-up"
+    ],
+    [
+      "normalized EBITDA",
+      "n.",
+      "正常化 EBITDA",
+      "adjusted EBITDA"
+    ],
+    [
+      "run-rate EBITDA",
+      "n.",
+      "年化 EBITDA",
+      "annualized EBITDA"
+    ],
+    [
+      "synergy capture",
+      "n.",
+      "綜效實現",
+      "synergy realization"
+    ],
+    [
+      "integration playbook",
+      "n.",
+      "整合手冊",
+      "integration plan"
+    ],
+    [
+      "Day One readiness",
+      "n.",
+      "首日就緒",
+      "launch readiness"
+    ],
+    [
+      "100-day plan",
+      "n.",
+      "百日計畫",
+      "post-close plan"
+    ],
+    [
+      "deal rationale",
+      "n.",
+      "交易理由",
+      "investment thesis"
+    ],
+    [
+      "strategic rationale",
+      "n.",
+      "策略理由",
+      "strategic logic"
+    ],
+    [
+      "accretive acquisition",
+      "n.",
+      "增厚型收購",
+      "EPS-accretive deal"
+    ],
+    [
+      "dilutive acquisition",
+      "n.",
+      "稀釋型收購",
+      "EPS-dilutive deal"
+    ],
+    [
+      "purchase price",
+      "n.",
+      "購買價格",
+      "acquisition price"
+    ],
+    [
+      "enterprise value",
+      "n.",
+      "企業價值",
+      "EV"
+    ],
+    [
+      "equity value",
+      "n.",
+      "股權價值",
+      "market cap value"
+    ],
+    [
+      "transaction multiple",
+      "n.",
+      "交易倍數",
+      "deal multiple"
+    ],
+    [
+      "EV/EBITDA multiple",
+      "n.",
+      "企業價值倍數",
+      "valuation multiple"
+    ],
+    [
+      "revenue multiple",
+      "n.",
+      "營收倍數",
+      "sales multiple"
+    ],
+    [
+      "control premium",
+      "n.",
+      "控制權溢價",
+      "premium for control"
+    ],
+    [
+      "minority discount",
+      "n.",
+      "少數股權折價",
+      "minority interest discount"
+    ],
+    [
+      "collar mechanism",
+      "n.",
+      "區間調整機制",
+      "price collar"
+    ],
+    [
+      "earn-out dispute",
+      "n.",
+      "績效對價爭議",
+      "contingent payment dispute"
+    ],
+    [
+      "working capital peg",
+      "n.",
+      "營運資金標準",
+      "WC target"
+    ],
+    [
+      "working capital true-up",
+      "n.",
+      "營運資金調整",
+      "WC adjustment"
+    ],
+    [
+      "quality of earnings",
+      "n.",
+      "盈餘品質",
+      "QoE review"
+    ],
+    [
+      "QoE report",
+      "n.",
+      "盈餘品質報告",
+      "earnings quality study"
+    ],
+    [
+      "sell-side advisor",
+      "n.",
+      "賣方顧問",
+      "vendor advisor"
+    ],
+    [
+      "buy-side advisor",
+      "n.",
+      "買方顧問",
+      "acquirer advisor"
+    ],
+    [
+      "sell-side process",
+      "n.",
+      "賣方流程",
+      "auction sale"
+    ],
+    [
+      "dual-track process",
+      "n.",
+      "雙軌流程",
+      "IPO or sale"
+    ],
+    [
+      "preemptive bid",
+      "n.",
+      "搶先出價",
+      "preemptive offer"
+    ],
+    [
+      "binding offer",
+      "n.",
+      "具約束力要約",
+      "firm bid"
+    ],
+    [
+      "non-binding indication",
+      "n.",
+      "非約束意向",
+      "IOI"
+    ],
+    [
+      "indication of interest",
+      "n.",
+      "意向書",
+      "IOI"
+    ],
+    [
+      "management presentation",
+      "n.",
+      "管理層簡報",
+      "mgmt pitch"
+    ],
+    [
+      "site visit",
+      "n.",
+      "實地查訪",
+      "due diligence visit"
+    ],
+    [
+      "confirmatory diligence",
+      "n.",
+      "確認性盡調",
+      "confirmatory DD"
+    ],
+    [
+      "red flag report",
+      "n.",
+      "警示報告",
+      "issue log"
+    ],
+    [
+      "deal breaker",
+      "n.",
+      "交易阻礙",
+      "showstopper"
+    ],
+    [
+      "walk-away price",
+      "n.",
+      "放棄價格",
+      "reservation price"
+    ],
+    [
+      "break fee",
+      "n.",
+      "解約費",
+      "termination payment"
+    ],
+    [
+      "reverse break fee",
+      "n.",
+      "反向解約費",
+      "buyer break fee"
+    ],
+    [
+      "no-shop clause",
+      "n.",
+      "禁尋條款",
+      "exclusivity clause"
+    ],
+    [
+      "fiduciary out",
+      "n.",
+      "受託例外條款",
+      "superior proposal clause"
+    ],
+    [
+      "superior proposal",
+      "n.",
+      "更優提案",
+      "better offer"
+    ],
+    [
+      "matching right",
+      "n.",
+      "匹配權",
+      "right to match"
+    ],
+    [
+      "go-shop period",
+      "n.",
+      "尋購期",
+      "post-signing shop"
+    ],
+    [
+      "sign and close",
+      "n.",
+      "簽署即交割",
+      "simultaneous closing"
+    ],
+    [
+      "sign-to-close period",
+      "n.",
+      "簽署至交割期",
+      "interim period"
+    ],
+    [
+      "HSR filing",
+      "n.",
+      "HSR 申報",
+      "antitrust filing"
+    ],
+    [
+      "waiting period",
+      "n.",
+      "等候期",
+      "regulatory waiting"
+    ],
+    [
+      "second request",
+      "n.",
+      "第二件要求",
+      "antitrust second request"
+    ],
+    [
+      "remedy package",
+      "n.",
+      "救濟方案",
+      "divestiture remedy"
+    ],
+    [
+      "hold separate agreement",
+      "n.",
+      "分別持有協議",
+      "hold separate order"
+    ],
+    [
+      "gun-jumping",
+      "n.",
+      "搶跑",
+      "premature integration"
+    ],
+    [
+      "clean team agreement",
+      "n.",
+      "潔淨團隊協議",
+      "clean room protocol"
+    ],
+    [
+      "confidentiality agreement",
+      "n.",
+      "保密協議",
+      "NDA"
+    ],
+    [
+      "standstill agreement",
+      "n.",
+      "暫停協議",
+      "standstill pact"
+    ],
+    [
+      "voting agreement",
+      "n.",
+      "投票協議",
+      "support agreement"
+    ],
+    [
+      "tender support agreement",
+      "n.",
+      "公開收購支持協議",
+      "tender support"
+    ],
+    [
+      "shareholder approval",
+      "n.",
+      "股東核准",
+      "stockholder vote"
+    ],
+    [
+      "fairness opinion letter",
+      "n.",
+      "公平性意見書",
+      "fairness memo"
+    ],
+    [
+      "solvency opinion",
+      "n.",
+      "償付能力意見",
+      "solvency certificate"
+    ],
+    [
+      "financing commitment letter",
+      "n.",
+      "融資承諾函",
+      "commitment letter"
+    ],
+    [
+      "financing out",
+      "n.",
+      "融資除外條款",
+      "financing condition"
+    ],
+    [
+      "material contract consent",
+      "n.",
+      "重大合約同意",
+      "third-party consent"
+    ],
+    [
+      "change-of-control consent",
+      "n.",
+      "控制權變更同意",
+      "CoC consent"
+    ],
+    [
+      "assignment consent",
+      "n.",
+      "轉讓同意",
+      "assignment approval"
+    ],
+    [
+      "release of claims",
+      "n.",
+      "Claims 免除",
+      "general release"
+    ],
+    [
+      "basket deductible",
+      "n.",
+      "起賠扣減",
+      "threshold amount"
+    ],
+    [
+      "survival period",
+      "n.",
+      "條款存續期",
+      "R&W survival"
+    ],
+    [
+      "fundamental representation",
+      "n.",
+      "基本陳述",
+      "fundamental rep"
+    ],
+    [
+      "knowledge qualifier",
+      "n.",
+      "知情限定",
+      "to the knowledge of"
+    ],
+    [
+      "materiality qualifier",
+      "n.",
+      "重大性限定",
+      "materiality scrape"
+    ],
+    [
+      "materiality scrape",
+      "n.",
+      "重大性剔除",
+      "MAE scrape"
+    ],
+    [
+      "interim operating covenant",
+      "n.",
+      "過渡期營運承諾",
+      "interim covenant"
+    ],
+    [
+      "ordinary course covenant",
+      "n.",
+      "正常營運承諾",
+      "ordinary course"
+    ],
+    [
+      "negative covenant",
+      "n.",
+      "限制條款",
+      "restrictive covenant"
+    ],
+    [
+      "affirmative covenant",
+      "n.",
+      "積極承諾",
+      "positive covenant"
+    ],
+    [
+      "purchase price escrow",
+      "n.",
+      "價金託管",
+      "escrow holdback"
+    ],
+    [
+      "indemnity escrow",
+      "n.",
+      "賠償託管",
+      "R&W escrow"
+    ],
+    [
+      "holdback amount",
+      "n.",
+      "保留款",
+      "retention amount"
+    ],
+    [
+      "set-off right",
+      "n.",
+      "抵銷權",
+      "right of setoff"
+    ],
+    [
+      "tax indemnity",
+      "n.",
+      "稅務賠償",
+      "tax indemnification"
+    ],
+    [
+      "special indemnity",
+      "n.",
+      "特別賠償",
+      "specific indemnity"
+    ],
+    [
+      "general indemnity",
+      "n.",
+      "一般賠償",
+      "broad indemnity"
+    ],
+    [
+      "cap and basket",
+      "n.",
+      "上限與起賠",
+      "liability limits"
+    ],
+    [
+      "exclusive remedy",
+      "n.",
+      "專屬救濟",
+      "sole remedy"
+    ],
+    [
+      "purchase accounting",
+      "n.",
+      "收購會計",
+      "acquisition accounting"
+    ],
+    [
+      "pushdown accounting",
+      "n.",
+      "下推會計",
+      "pushdown entries"
+    ],
+    [
+      "bargain purchase",
+      "n.",
+      "廉價收購",
+      "negative goodwill"
+    ],
+    [
+      "bargain purchase gain",
+      "n.",
+      "廉價收購利益",
+      "bargain gain"
+    ],
+    [
+      "contingent consideration",
+      "n.",
+      "或有對價",
+      "earn-out liability"
+    ],
+    [
+      "measurement period adjustment",
+      "n.",
+      "衡量期調整",
+      "PPA adjustment"
+    ],
+    [
+      "identifiable intangible asset",
+      "n.",
+      "可辨認無形資產",
+      "intangible asset"
+    ],
+    [
+      "customer relationship intangible",
+      "n.",
+      "客戶關係無形資產",
+      "customer list"
+    ],
+    [
+      "technology intangible",
+      "n.",
+      "技術無形資產",
+      "developed technology"
+    ],
+    [
+      "trade name intangible",
+      "n.",
+      "商號無形資產",
+      "brand intangible"
+    ],
+    [
+      "assembled workforce",
+      "n.",
+      "組裝人力",
+      "workforce asset"
+    ],
+    [
+      "deferred tax liability",
+      "n.",
+      "遞延所得稅負債",
+      "DTL"
+    ],
+    [
+      "step-up basis",
+      "n.",
+      "基礎墊高",
+      "tax basis step-up"
+    ],
+    [
+      "338 election",
+      "n.",
+      "338 選擇",
+      "asset treatment election"
+    ],
+    [
+      "tax-free reorganization",
+      "n.",
+      "免稅重組",
+      "tax-free deal"
+    ],
+    [
+      "reverse triangular merger",
+      "n.",
+      "反向三角合併",
+      "subsidiary merger"
+    ],
+    [
+      "forward triangular merger",
+      "n.",
+      "正向三角合併",
+      "forward merger"
+    ],
+    [
+      "statutory merger",
+      "n.",
+      "法定合併",
+      "statutory combination"
+    ],
+    [
+      "short-form merger",
+      "n.",
+      "簡式合併",
+      "short-form stat merger"
+    ],
+    [
+      "squeeze-out merger",
+      "n.",
+      "擠出合併",
+      "minority squeeze-out"
+    ],
+    [
+      "upstream merger",
+      "n.",
+      "上游合併",
+      "upstream combination"
+    ],
+    [
+      "downstream merger",
+      "n.",
+      "下游合併",
+      "downstream combination"
+    ],
+    [
+      "merger sub",
+      "n.",
+      "合併子公司",
+      "acquisition sub"
+    ],
+    [
+      "surviving entity",
+      "n.",
+      "存續公司",
+      "survivor"
+    ],
+    [
+      "dissolving entity",
+      "n.",
+      "解散公司",
+      "merged-out entity"
+    ],
+    [
+      "certificate of merger",
+      "n.",
+      "合併證書",
+      "merger certificate"
+    ],
+    [
+      "plan of merger",
+      "n.",
+      "合併計畫",
+      "merger plan"
+    ],
+    [
+      "appraisal rights",
+      "n.",
+      "評價權",
+      "dissenter rights"
+    ],
+    [
+      "dissenter rights",
+      "n.",
+      "異議股東權",
+      "appraisal remedy"
+    ],
+    [
+      "fair value proceeding",
+      "n.",
+      "公允價值程序",
+      "appraisal proceeding"
+    ],
+    [
+      "book value acquisition",
+      "n.",
+      "帳面價值收購",
+      "asset deal"
+    ],
+    [
+      "asset deal",
+      "n.",
+      "資產交易",
+      "asset purchase"
+    ],
+    [
+      "stock deal",
+      "n.",
+      "股權交易",
+      "share purchase"
+    ],
+    [
+      "mixed consideration",
+      "n.",
+      "混合對價",
+      "cash and stock"
+    ],
+    [
+      "stock consideration",
+      "n.",
+      "股票對價",
+      "equity consideration"
+    ],
+    [
+      "cash consideration",
+      "n.",
+      "現金對價",
+      "cash payment"
+    ],
+    [
+      "rollover equity",
+      "n.",
+      "滾存股權",
+      "reinvested equity"
+    ],
+    [
+      "seller note",
+      "n.",
+      "賣方票據",
+      "vendor note"
+    ],
+    [
+      "seller financing",
+      "n.",
+      "賣方融資",
+      "vendor financing"
+    ],
+    [
+      "deferred purchase price",
+      "n.",
+      "遞延購買價",
+      "deferred payment"
+    ],
+    [
+      "closing payment",
+      "n.",
+      "交割付款",
+      "closing cash"
+    ],
+    [
+      "adjustment payment",
+      "n.",
+      "調整付款",
+      "true-up payment"
+    ],
+    [
+      "working capital deficit",
+      "n.",
+      "營運資金不足",
+      "WC shortfall"
+    ],
+    [
+      "working capital surplus",
+      "n.",
+      "營運資金盈餘",
+      "WC excess"
+    ],
+    [
+      "closing balance sheet",
+      "n.",
+      "交割資產負債表",
+      "closing BS"
+    ],
+    [
+      "reference balance sheet",
+      "n.",
+      "基準資產負債表",
+      "reference BS"
+    ],
+    [
+      "target working capital",
+      "n.",
+      "目標營運資金",
+      "target WC"
+    ],
+    [
+      "cash-free debt-free",
+      "adj.",
+      "無現金無負債的",
+      "CFDF"
+    ],
+    [
+      "normalized working capital",
+      "n.",
+      "正常化營運資金",
+      "normalized WC"
+    ],
+    [
+      "net working capital",
+      "n.",
+      "淨營運資金",
+      "NWC"
+    ],
+    [
+      "transaction expenses",
+      "n.",
+      "交易費用",
+      "deal costs"
+    ],
+    [
+      "broken deal costs",
+      "n.",
+      "流標成本",
+      "aborted deal costs"
+    ],
+    [
+      "retention pool",
+      "n.",
+      "留任池",
+      "stay pool"
+    ],
+    [
+      "management rollover",
+      "n.",
+      "管理層滾存",
+      "mgmt reinvestment"
+    ],
+    [
+      "employee retention plan",
+      "n.",
+      "員工留任計畫",
+      "ERP"
+    ],
+    [
+      "transaction bonus pool",
+      "n.",
+      "交易獎金池",
+      "deal bonus"
+    ],
+    [
+      "integration budget",
+      "n.",
+      "整合預算",
+      "integration cost"
+    ],
+    [
+      "synergy target",
+      "n.",
+      "綜效目標",
+      "synergy goal"
+    ],
+    [
+      "cost synergy",
+      "n.",
+      "成本綜效",
+      "expense synergy"
+    ],
+    [
+      "revenue synergy",
+      "n.",
+      "營收綜效",
+      "top-line synergy"
+    ],
+    [
+      "run-rate savings",
+      "n.",
+      "年化節省",
+      "annualized savings"
+    ],
+    [
+      "integration milestone",
+      "n.",
+      "整合里程碑",
+      "integration KPI"
+    ],
+    [
+      "TSA exit plan",
+      "n.",
+      "過渡服務退出計畫",
+      "TSA wind-down"
+    ],
+    [
+      "Day One operating model",
+      "n.",
+      "首日營運模式",
+      "operating model"
+    ],
+    [
+      "legal entity rationalization",
+      "n.",
+      "法人整併",
+      "entity cleanup"
+    ],
+    [
+      "IT carve-out",
+      "n.",
+      "IT 分拆",
+      "systems separation"
+    ],
+    [
+      "reverse integration",
+      "n.",
+      "反向整合",
+      "reverse merger integration"
+    ],
+    [
+      "best owner analysis",
+      "n.",
+      "最佳持有人分析",
+      "portfolio review"
+    ],
+    [
+      "portfolio optimization",
+      "n.",
+      "投資組合優化",
+      "portfolio shaping"
+    ],
+    [
+      "corporate divestiture",
+      "n.",
+      "企業剝離",
+      "business sale"
+    ],
+    [
+      "non-core asset sale",
+      "n.",
+      "非核心資產出售",
+      "peripheral sale"
+    ],
+    [
+      "strategic review",
+      "n.",
+      "策略檢討",
+      "strategic alternatives"
+    ],
+    [
+      "formal sale process",
+      "n.",
+      "正式出售流程",
+      "structured sale"
+    ],
+    [
+      "limited auction",
+      "n.",
+      "有限競標",
+      "targeted auction"
+    ],
+    [
+      "broad auction",
+      "n.",
+      "廣泛競標",
+      "wide auction"
+    ],
+    [
+      "two-round auction",
+      "n.",
+      "兩輪競標",
+      "two-stage process"
+    ],
+    [
+      "first-round bid",
+      "n.",
+      "第一輪出價",
+      "round one bid"
+    ],
+    [
+      "second-round bid",
+      "n.",
+      "第二輪出價",
+      "final round bid"
+    ],
+    [
+      "mark-up draft",
+      "n.",
+      "標記稿",
+      "redline draft"
+    ],
+    [
+      "definitive agreement",
+      "n.",
+      "最終協議",
+      "definitive docs"
+    ],
+    [
+      "disclosure letter",
+      "n.",
+      "揭露函",
+      "disclosure schedules"
+    ],
+    [
+      "schedule of exceptions",
+      "n.",
+      "例外附表",
+      "exception schedule"
+    ],
+    [
+      "bring-down condition",
+      "n.",
+      "重述條件",
+      "bring-down closing condition"
+    ],
+    [
+      "R&W bring-down",
+      "n.",
+      "陳述重述",
+      "rep bring-down"
+    ],
+    [
+      "closing certificate",
+      "n.",
+      "交割證明",
+      "officer certificate"
+    ],
+    [
+      "secretary certificate",
+      "n.",
+      "公司秘書證明",
+      "secretary cert"
+    ],
+    [
+      "good standing certificate",
+      "n.",
+      "良好存續證明",
+      "certificate of good standing"
+    ],
+    [
+      "legal opinion",
+      "n.",
+      "法律意見書",
+      "closing opinion"
+    ],
+    [
+      "closing checklist",
+      "n.",
+      "交割清單",
+      "closing checklist"
+    ],
+    [
+      "conditions precedent",
+      "n.",
+      "先決條件",
+      "CPs"
+    ],
+    [
+      "condition satisfaction",
+      "n.",
+      "條件成就",
+      "CP satisfaction"
+    ],
+    [
+      "long-stop date",
+      "n.",
+      "最終截止日",
+      "outside date"
+    ],
+    [
+      "extension of outside date",
+      "n.",
+      "延長最終日",
+      "date extension"
+    ],
+    [
+      "specific performance remedy",
+      "n.",
+      "強制履行救濟",
+      "equitable remedy"
+    ],
+    [
+      "deal certainty",
+      "n.",
+      "交易確定性",
+      "closing certainty"
+    ],
+    [
+      "financing risk",
+      "n.",
+      "融資風險",
+      "funding risk"
+    ],
+    [
+      "regulatory risk",
+      "n.",
+      "監管風險",
+      "approval risk"
+    ],
+    [
+      "integration risk",
+      "n.",
+      "整合風險",
+      "post-merger risk"
+    ],
+    [
+      "cultural integration",
+      "n.",
+      "文化整合",
+      "culture merge"
+    ]
+  ],
+  "esg": [
+    [
+      "emissions inventory",
+      "n.",
+      "排放盤查",
+      "GHG inventory"
+    ],
+    [
+      "GHG protocol",
+      "n.",
+      "溫室氣體議定書",
+      "GHG standard"
+    ],
+    [
+      "market-based emissions",
+      "n.",
+      "市場基礎排放",
+      "location vs market"
+    ],
+    [
+      "location-based emissions",
+      "n.",
+      "位置基礎排放",
+      "grid average method"
+    ],
+    [
+      "emissions factor",
+      "n.",
+      "排放係數",
+      "conversion factor"
+    ],
+    [
+      "carbon intensity",
+      "n.",
+      "碳強度",
+      "emissions intensity"
+    ],
+    [
+      "decarbonization roadmap",
+      "n.",
+      "脫碳路線圖",
+      "net-zero pathway"
+    ],
+    [
+      "interim climate target",
+      "n.",
+      "中期氣候目標",
+      "2030 target"
+    ],
+    [
+      "near-term target",
+      "n.",
+      "近期目標",
+      "SBTi near-term"
+    ],
+    [
+      "long-term net-zero target",
+      "n.",
+      "長期淨零目標",
+      "2050 target"
+    ],
+    [
+      "flag target",
+      "n.",
+      "森林土地農業目標",
+      "SBTi FLAG"
+    ],
+    [
+      "renewable electricity target",
+      "n.",
+      "再生電力目標",
+      "RE100 commitment"
+    ],
+    [
+      "energy attribute certificate",
+      "n.",
+      "能源屬性憑證",
+      "EAC"
+    ],
+    [
+      "virtual power purchase agreement",
+      "n.",
+      "虛擬購電協議",
+      "VPPA"
+    ],
+    [
+      "onsite renewable generation",
+      "n.",
+      "場內再生能源",
+      "rooftop solar"
+    ],
+    [
+      "scope 3 category",
+      "n.",
+      "範疇三類別",
+      "value chain category"
+    ],
+    [
+      "purchased goods emissions",
+      "n.",
+      "採購商品排放",
+      "category 1 emissions"
+    ],
+    [
+      "business travel emissions",
+      "n.",
+      "商務旅行排放",
+      "category 6 emissions"
+    ],
+    [
+      "employee commuting emissions",
+      "n.",
+      "員工通勤排放",
+      "category 7 emissions"
+    ],
+    [
+      "use-phase emissions",
+      "n.",
+      "使用階段排放",
+      "downstream use"
+    ],
+    [
+      "end-of-life emissions",
+      "n.",
+      "終止生命排放",
+      "disposal emissions"
+    ],
+    [
+      "supplier engagement program",
+      "n.",
+      "供應商 engagement 計畫",
+      "supplier climate program"
+    ],
+    [
+      "supplier decarbonization",
+      "n.",
+      "供應商脫碳",
+      "vendor decarbonization"
+    ],
+    [
+      "climate transition plan",
+      "n.",
+      "氣候轉型計畫",
+      "transition plan"
+    ],
+    [
+      "climate scenario analysis",
+      "n.",
+      "氣候情境分析",
+      "scenario testing"
+    ],
+    [
+      "NGFS scenarios",
+      "n.",
+      "NGFS 情境",
+      "climate scenarios"
+    ],
+    [
+      "physical risk modeling",
+      "n.",
+      "實體風險建模",
+      "physical risk model"
+    ],
+    [
+      "acute physical risk",
+      "n.",
+      "急性實體風險",
+      "extreme event risk"
+    ],
+    [
+      "chronic physical risk",
+      "n.",
+      "慢性實體風險",
+      "long-term climate risk"
+    ],
+    [
+      "stranded asset risk",
+      "n.",
+      "擱淺資產風險",
+      "asset stranding"
+    ],
+    [
+      "carbon border adjustment",
+      "n.",
+      "碳邊境調整",
+      "CBAM"
+    ],
+    [
+      "EU CBAM",
+      "n.",
+      "歐盟碳邊境機制",
+      "carbon border levy"
+    ],
+    [
+      "emissions trading system",
+      "n.",
+      "排放交易制度",
+      "ETS"
+    ],
+    [
+      "allowance allocation",
+      "n.",
+      "配額分配",
+      "carbon allowance"
+    ],
+    [
+      "carbon credit quality",
+      "n.",
+      "碳權品質",
+      "offset integrity"
+    ],
+    [
+      "nature-based solution",
+      "n.",
+      "自然解決方案",
+      "NbS"
+    ],
+    [
+      "blue carbon project",
+      "n.",
+      "藍碳計畫",
+      "coastal carbon"
+    ],
+    [
+      "reforestation project",
+      "n.",
+      "再造林計畫",
+      "afforestation"
+    ],
+    [
+      "carbon removal",
+      "n.",
+      "碳移除",
+      "CDR"
+    ],
+    [
+      "direct air capture",
+      "n.",
+      "直接空气捕碳",
+      "DAC"
+    ],
+    [
+      "carbon insetting",
+      "n.",
+      "碳內嵌",
+      "in-value-chain offset"
+    ],
+    [
+      "avoided emissions claim",
+      "n.",
+      "避免排放主張",
+      "avoided emissions"
+    ],
+    [
+      "renewable energy procurement",
+      "n.",
+      "再生能源採購",
+      "clean power buying"
+    ],
+    [
+      "additionality test",
+      "n.",
+      "額外性測試",
+      "additionality criteria"
+    ],
+    [
+      "double counting risk",
+      "n.",
+      "雙重計算風險",
+      "double counting"
+    ],
+    [
+      "green tariff program",
+      "n.",
+      "綠電費率方案",
+      "utility green program"
+    ],
+    [
+      "energy efficiency target",
+      "n.",
+      "能源效率目標",
+      "efficiency KPI"
+    ],
+    [
+      "science-based net-zero",
+      "n.",
+      "科學基礎淨零",
+      "SBTi net-zero"
+    ],
+    [
+      "climate KPI",
+      "n.",
+      "氣候 KPI",
+      "climate metric"
+    ],
+    [
+      "emissions baseline",
+      "n.",
+      "排放基準年",
+      "base year emissions"
+    ],
+    [
+      "recalculation policy",
+      "n.",
+      "重算政策",
+      "base year recalc"
+    ],
+    [
+      "organizational boundary",
+      "n.",
+      "組織邊界",
+      "reporting boundary"
+    ],
+    [
+      "operational control approach",
+      "n.",
+      "營運控制法",
+      "control approach"
+    ],
+    [
+      "equity share approach",
+      "n.",
+      "股權比例法",
+      "equity share"
+    ],
+    [
+      "GHG assurance statement",
+      "n.",
+      "溫室氣體保證聲明",
+      "limited assurance GHG"
+    ],
+    [
+      "reasonable assurance",
+      "n.",
+      "合理保證",
+      "high assurance"
+    ],
+    [
+      "limited assurance engagement",
+      "n.",
+      "有限保證 engagement",
+      "limited assurance"
+    ],
+    [
+      "ESG KPI assurance",
+      "n.",
+      "ESG KPI 保證",
+      "metric assurance"
+    ],
+    [
+      "sustainability reporting standard",
+      "n.",
+      "永續報導標準",
+      "reporting standard"
+    ],
+    [
+      "IFRS S1",
+      "n.",
+      "IFRS S1 準則",
+      "general sustainability"
+    ],
+    [
+      "IFRS S2",
+      "n.",
+      "IFRS S2 準則",
+      "climate disclosure"
+    ],
+    [
+      "ESRS",
+      "n.",
+      "歐洲永續報導準則",
+      "EU ESRS"
+    ],
+    [
+      "TNFD framework",
+      "n.",
+      "TNFD 框架",
+      "nature disclosure"
+    ],
+    [
+      "biodiversity footprint",
+      "n.",
+      "生物多樣性足跡",
+      "nature footprint"
+    ],
+    [
+      "nature-positive goal",
+      "n.",
+      "自然正向目標",
+      "nature positive"
+    ],
+    [
+      "ecosystem service valuation",
+      "n.",
+      "生態系服務評價",
+      "ecosystem valuation"
+    ],
+    [
+      "water footprint",
+      "n.",
+      "水足跡",
+      "water consumption metric"
+    ],
+    [
+      "water withdrawal",
+      "n.",
+      "取水量",
+      "water use"
+    ],
+    [
+      "water discharge",
+      "n.",
+      "排水量",
+      "effluent discharge"
+    ],
+    [
+      "water recycling rate",
+      "n.",
+      "水回收率",
+      "water reuse rate"
+    ],
+    [
+      "zero liquid discharge",
+      "n.",
+      "零液體排放",
+      "ZLD"
+    ],
+    [
+      "water stress region",
+      "n.",
+      "水壓力區域",
+      "water-stressed area"
+    ],
+    [
+      "WRI Aqueduct",
+      "n.",
+      "WRI 水風險工具",
+      "water risk tool"
+    ],
+    [
+      "circular design principle",
+      "n.",
+      "循環設計原則",
+      "design for circularity"
+    ],
+    [
+      "design for recyclability",
+      "n.",
+      "可回收設計",
+      "recyclable design"
+    ],
+    [
+      "post-consumer recycled content",
+      "n.",
+      "消費後再生含量",
+      "PCR content"
+    ],
+    [
+      "extended producer responsibility scheme",
+      "n.",
+      "延伸生產者責任制度",
+      "EPR scheme"
+    ],
+    [
+      "take-back program",
+      "n.",
+      "回收計畫",
+      "product take-back"
+    ],
+    [
+      "e-waste recycling",
+      "n.",
+      "電子廢棄物回收",
+      "WEEE recycling"
+    ],
+    [
+      "landfill diversion",
+      "n.",
+      "填埋分流",
+      "landfill avoidance"
+    ],
+    [
+      "hazardous substance restriction",
+      "n.",
+      "有害物質限制",
+      "RoHS compliance"
+    ],
+    [
+      "REACH compliance",
+      "n.",
+      "REACH 法遵",
+      "chemical regulation"
+    ],
+    [
+      "Safer chemicals policy",
+      "n.",
+      "更安全化學政策",
+      "chemical safety"
+    ],
+    [
+      "sustainable procurement policy",
+      "n.",
+      "永續採購政策",
+      "responsible purchasing"
+    ],
+    [
+      "supplier ESG assessment",
+      "n.",
+      "供應商 ESG 評估",
+      "vendor ESG score"
+    ],
+    [
+      "supplier audit program",
+      "n.",
+      "供應商稽核計畫",
+      "supply chain audit"
+    ],
+    [
+      "living wage audit",
+      "n.",
+      "生活工資稽核",
+      "wage audit"
+    ],
+    [
+      "forced labor risk",
+      "n.",
+      "強迫勞動風險",
+      "forced labor exposure"
+    ],
+    [
+      "child labor prohibition",
+      "n.",
+      "禁止童工",
+      "no child labor"
+    ],
+    [
+      "freedom of association",
+      "n.",
+      "結社自由",
+      "union rights"
+    ],
+    [
+      "collective bargaining coverage",
+      "n.",
+      "集體協商覆蓋率",
+      "CB coverage rate"
+    ],
+    [
+      "health and safety KPI",
+      "n.",
+      "健康安全 KPI",
+      "H&S metric"
+    ],
+    [
+      "lost time injury rate",
+      "n.",
+      "失能傷害率",
+      "LTIR"
+    ],
+    [
+      "total recordable incident rate",
+      "n.",
+      "可記錄事故率",
+      "TRIR"
+    ],
+    [
+      "fatality prevention program",
+      "n.",
+      "死亡事故防治計畫",
+      "fatality prevention"
+    ],
+    [
+      "human rights policy",
+      "n.",
+      "人權政策",
+      "HR policy"
+    ],
+    [
+      "salient human rights issue",
+      "n.",
+      "重大人權議題",
+      "salient HR issue"
+    ],
+    [
+      "grievance mechanism",
+      "n.",
+      "申訴機制",
+      "remedy mechanism"
+    ],
+    [
+      "remediation plan",
+      "n.",
+      "補救計畫",
+      "remedy plan"
+    ],
+    [
+      "Indigenous rights policy",
+      "n.",
+      "原住民權利政策",
+      "Indigenous rights"
+    ],
+    [
+      "community consent process",
+      "n.",
+      "社區同意程序",
+      "FPIC process"
+    ],
+    [
+      "social impact assessment",
+      "n.",
+      "社會影響評估",
+      "SIA"
+    ],
+    [
+      "community liaison officer",
+      "n.",
+      "社區聯絡官",
+      "community officer"
+    ],
+    [
+      "local hiring commitment",
+      "n.",
+      "在地雇用承諾",
+      "local employment"
+    ],
+    [
+      "inclusive hiring program",
+      "n.",
+      "包容性招聘計畫",
+      "inclusive recruitment"
+    ],
+    [
+      "gender pay equity analysis",
+      "n.",
+      "性別薪酬公平分析",
+      "pay equity study"
+    ],
+    [
+      "ethnic diversity target",
+      "n.",
+      "族裔多元目標",
+      "ethnic diversity goal"
+    ],
+    [
+      "disability inclusion program",
+      "n.",
+      "身心障礙包容計畫",
+      "disability inclusion"
+    ],
+    [
+      "employee resource group",
+      "n.",
+      "員工資源小組",
+      "ERG"
+    ],
+    [
+      "belonging survey",
+      "n.",
+      "歸屬感調查",
+      "inclusion survey"
+    ],
+    [
+      "psychological safety metric",
+      "n.",
+      "心理安全指標",
+      "psych safety KPI"
+    ],
+    [
+      "turnover diversity metric",
+      "n.",
+      "多元離職指標",
+      "diverse attrition"
+    ],
+    [
+      "training hours per employee",
+      "n.",
+      "人均訓練時數",
+      "training hours"
+    ],
+    [
+      "skills development program",
+      "n.",
+      "技能發展計畫",
+      "upskilling program"
+    ],
+    [
+      "fair wage assessment",
+      "n.",
+      "公平工資評估",
+      "fair wage study"
+    ],
+    [
+      "responsible marketing policy",
+      "n.",
+      "負責任行銷政策",
+      "ethical marketing"
+    ],
+    [
+      "product safety recall protocol",
+      "n.",
+      "產品安全召回程序",
+      "recall protocol"
+    ],
+    [
+      "customer privacy program",
+      "n.",
+      "客戶隱私計畫",
+      "privacy program"
+    ],
+    [
+      "data ethics framework",
+      "n.",
+      "資料倫理框架",
+      "data ethics"
+    ],
+    [
+      "AI ethics policy",
+      "n.",
+      "AI 倫理政策",
+      "responsible AI"
+    ],
+    [
+      "tax transparency report",
+      "n.",
+      "稅務透明報告",
+      "tax disclosure"
+    ],
+    [
+      "country-by-country reporting",
+      "n.",
+      "逐國報告",
+      "CbCR"
+    ],
+    [
+      "anti-corruption risk assessment",
+      "n.",
+      "反貪腐風險評估",
+      "ABC risk assessment"
+    ],
+    [
+      "political engagement policy",
+      "n.",
+      "政治參與政策",
+      "political engagement"
+    ],
+    [
+      "responsible lobbying",
+      "n.",
+      "負責任遊說",
+      "ethical lobbying"
+    ],
+    [
+      "trade association alignment review",
+      "n.",
+      "協會立場對齊審查",
+      "association review"
+    ],
+    [
+      "board ESG competency",
+      "n.",
+      "董事會 ESG 能力",
+      "ESG literacy"
+    ],
+    [
+      "ESG-linked compensation",
+      "n.",
+      "ESG 連結薪酬",
+      "sustainability-linked pay"
+    ],
+    [
+      "ESG performance modifier",
+      "n.",
+      "ESG 績效調整因子",
+      "ESG modifier"
+    ],
+    [
+      "sustainability governance structure",
+      "n.",
+      "永續治理架構",
+      "ESG governance"
+    ],
+    [
+      "ESG management system",
+      "n.",
+      "ESG 管理系統",
+      "ESG MS"
+    ],
+    [
+      "ESG data platform",
+      "n.",
+      "ESG 資料平台",
+      "ESG software"
+    ],
+    [
+      "ESG control environment",
+      "n.",
+      "ESG 控制環境",
+      "ESG internal control"
+    ],
+    [
+      "ESG internal audit",
+      "n.",
+      "ESG 內部稽核",
+      "sustainability audit"
+    ],
+    [
+      "green revenue disclosure",
+      "n.",
+      "綠色營收揭露",
+      "green revenue"
+    ],
+    [
+      "taxonomy-aligned revenue",
+      "n.",
+      "分類法對齊營收",
+      "aligned revenue"
+    ],
+    [
+      "taxonomy-eligible revenue",
+      "n.",
+      "分類法合格營收",
+      "eligible revenue"
+    ],
+    [
+      "CapEx alignment",
+      "n.",
+      "資本支出對齊",
+      "green CapEx"
+    ],
+    [
+      "OpEx alignment",
+      "n.",
+      "營運支出對齊",
+      "green OpEx"
+    ],
+    [
+      "transition finance",
+      "n.",
+      "轉型融資",
+      "transition funding"
+    ],
+    [
+      "use-of-proceeds bond",
+      "n.",
+      "用途限定債券",
+      "labeled bond"
+    ],
+    [
+      "blue bond",
+      "n.",
+      "藍色債券",
+      "ocean finance"
+    ],
+    [
+      "social bond",
+      "n.",
+      "社會債券",
+      "social finance"
+    ],
+    [
+      "sustainability bond framework",
+      "n.",
+      "永續債券框架",
+      "bond framework"
+    ],
+    [
+      "second-party opinion",
+      "n.",
+      "第二方意見",
+      "SPO"
+    ],
+    [
+      "impact reporting",
+      "n.",
+      "影響力報告",
+      "impact disclosure"
+    ],
+    [
+      "KPI sustainability performance target",
+      "n.",
+      "永續績效目標",
+      "SPT"
+    ],
+    [
+      "margin ratchet",
+      "n.",
+      "利率調升機制",
+      "coupon step-up"
+    ],
+    [
+      "ESG rating improvement target",
+      "n.",
+      "ESG 評等改善目標",
+      "rating target"
+    ],
+    [
+      "MSCI ESG rating",
+      "n.",
+      "MSCI ESG 評等",
+      "MSCI score"
+    ],
+    [
+      "Sustainalytics ESG risk",
+      "n.",
+      "Sustainalytics 風險",
+      "ESG risk rating"
+    ],
+    [
+      "CDP climate score",
+      "n.",
+      "CDP 氣候分數",
+      "CDP score"
+    ],
+    [
+      "DJSI inclusion",
+      "n.",
+      "DJSI 成分股",
+      "Dow Jones SI"
+    ],
+    [
+      "FTSE4Good index",
+      "n.",
+      "FTSE4Good 指數",
+      "FTSE4Good"
+    ],
+    [
+      "ESG index inclusion",
+      "n.",
+      "ESG 指數納入",
+      "index inclusion"
+    ],
+    [
+      "ESG controversy monitoring",
+      "n.",
+      "ESG 爭議監測",
+      "controversy screening"
+    ],
+    [
+      "norms-based screening",
+      "n.",
+      "規範基礎篩選",
+      "UNGC screening"
+    ],
+    [
+      "negative screening",
+      "n.",
+      "負面篩選",
+      "exclusion screening"
+    ],
+    [
+      "positive screening",
+      "n.",
+      "正面篩選",
+      "best-in-class"
+    ],
+    [
+      "ESG integration process",
+      "n.",
+      "ESG 整合流程",
+      "ESG investment process"
+    ],
+    [
+      "stewardship activity",
+      "n.",
+      "盡責治理活動",
+      "active ownership"
+    ],
+    [
+      "engagement meeting",
+      "n.",
+      " engagement 會議",
+      "investor engagement"
+    ],
+    [
+      "collaborative engagement initiative",
+      "n.",
+      "協作 engagement 倡議",
+      "collective engagement"
+    ],
+    [
+      "proxy voting record",
+      "n.",
+      "委託投票紀錄",
+      "voting record"
+    ],
+    [
+      "climate shareholder resolution",
+      "n.",
+      "氣候股東決議",
+      "climate resolution"
+    ],
+    [
+      "say-on-climate vote",
+      "n.",
+      "氣候諮詢投票",
+      "climate advisory vote"
+    ],
+    [
+      "net-zero asset owner alliance",
+      "n.",
+      "淨零資產所有者聯盟",
+      "asset owner alliance"
+    ],
+    [
+      "Paris-aligned portfolio",
+      "n.",
+      "巴黎協定對齊組合",
+      "Paris-aligned investing"
+    ],
+    [
+      "temperature score",
+      "n.",
+      "升溫分數",
+      "portfolio temperature"
+    ],
+    [
+      "implied temperature rise",
+      "n.",
+      "隱含升溫",
+      "ITR metric"
+    ],
+    [
+      "financed emissions",
+      "n.",
+      "融資排放",
+      "portfolio emissions"
+    ],
+    [
+      "PCAF methodology",
+      "n.",
+      "PCAF 方法",
+      "financed emissions method"
+    ],
+    [
+      "climate stress test",
+      "n.",
+      "氣候壓力測試",
+      "climate stress testing"
+    ],
+    [
+      "NGFS stress scenario",
+      "n.",
+      "NGFS 壓力情境",
+      "regulatory scenario"
+    ],
+    [
+      "transition plan credibility",
+      "n.",
+      "轉型計畫可信度",
+      "plan credibility"
+    ],
+    [
+      "greenwashing risk assessment",
+      "n.",
+      "漂綠風險評估",
+      "greenwashing risk"
+    ],
+    [
+      "substantiation of environmental claims",
+      "n.",
+      "環境主張舉證",
+      "claim substantiation"
+    ],
+    [
+      "comparative advertising standard",
+      "n.",
+      "比較廣告標準",
+      "comparative claim rule"
+    ],
+    [
+      "ESG marketing compliance",
+      "n.",
+      "ESG 行銷法遵",
+      "green marketing compliance"
+    ],
+    [
+      "sustainability narrative audit",
+      "n.",
+      "永續敘事稽核",
+      "narrative audit"
+    ],
+    [
+      "impact washing concern",
+      "n.",
+      "影響力漂洗疑慮",
+      "impact washing"
+    ],
+    [
+      "social washing concern",
+      "n.",
+      "社會漂洗疑慮",
+      "social washing"
+    ],
+    [
+      "integrity of offset portfolio",
+      "n.",
+      "抵消組合完整性",
+      "offset integrity"
+    ],
+    [
+      "permanence risk",
+      "n.",
+      "永久性風險",
+      "carbon permanence"
+    ],
+    [
+      "leakage risk",
+      "n.",
+      "漏排風險",
+      "carbon leakage"
+    ],
+    [
+      "monitoring reporting verification",
+      "n.",
+      "監測報告驗證",
+      "MRV"
+    ],
+    [
+      "Article 6 mechanism",
+      "n.",
+      "第六條機制",
+      "Paris Article 6"
+    ],
+    [
+      "corresponding adjustment",
+      "n.",
+      "對應調整",
+      "corresponding adjustment rule"
+    ],
+    [
+      "voluntary carbon market",
+      "n.",
+      "自願碳市場",
+      "VCM"
+    ],
+    [
+      "compliance carbon market",
+      "n.",
+      "強制碳市場",
+      "regulated market"
+    ],
+    [
+      "renewable energy certificate retirement",
+      "n.",
+      "再生能源憑證註銷",
+      "REC retirement"
+    ],
+    [
+      "additionality documentation",
+      "n.",
+      "額外性文件",
+      "additionality proof"
+    ],
+    [
+      "community benefit agreement",
+      "n.",
+      "社區利益協議",
+      "CBA"
+    ],
+    [
+      "free prior informed consent",
+      "n.",
+      "自由事先知情同意",
+      "FPIC"
+    ],
+    [
+      "Indigenous partnership",
+      "n.",
+      "原住民夥伴關係",
+      "Indigenous partnership"
+    ],
+    [
+      "climate justice lens",
+      "n.",
+      "氣候正義視角",
+      "climate justice"
+    ],
+    [
+      "equitable transition plan",
+      "n.",
+      "公平轉型計畫",
+      "equitable transition"
+    ],
+    [
+      "workforce retraining program",
+      "n.",
+      "勞動力再培訓計畫",
+      "reskilling for transition"
+    ],
+    [
+      "social dialogue on transition",
+      "n.",
+      "轉型社會對話",
+      "worker consultation"
+    ],
+    [
+      "climate adaptation investment",
+      "n.",
+      "氣候調適投資",
+      "adaptation capex"
+    ]
+  ]
+}

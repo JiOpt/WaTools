@@ -1,0 +1,2406 @@
+{
+  "banking": [
+    [
+      "commercial banking",
+      "n.",
+      "商業銀行業務",
+      "corporate banking"
+    ],
+    [
+      "investment banking",
+      "n.",
+      "投資銀行業務",
+      "IB division"
+    ],
+    [
+      "retail banking",
+      "n.",
+      "零售銀行業務",
+      "consumer banking"
+    ],
+    [
+      "wholesale banking",
+      "n.",
+      "批發銀行業務",
+      "wholesale bank"
+    ],
+    [
+      "universal bank model",
+      "n.",
+      "全能銀行模式",
+      "universal banking"
+    ],
+    [
+      "credit facility",
+      "n.",
+      "信貸額度",
+      "loan facility"
+    ],
+    [
+      "revolving credit facility",
+      "n.",
+      "循環信貸額度",
+      "revolver"
+    ],
+    [
+      "term loan facility",
+      "n.",
+      "定期貸款額度",
+      "term loan"
+    ],
+    [
+      "syndicated loan",
+      "n.",
+      "銀團貸款",
+      "syndicated credit"
+    ],
+    [
+      "club deal",
+      "n.",
+      "聯合貸款",
+      "club loan"
+    ],
+    [
+      "lead arranger",
+      "n.",
+      "主安排行",
+      "lead bank"
+    ],
+    [
+      "bookrunner",
+      "n.",
+      "帳簿管理人",
+      "book runner"
+    ],
+    [
+      "mandated lead arranger",
+      "n.",
+      "指定主安排行",
+      "MLA"
+    ],
+    [
+      "facility agreement",
+      "n.",
+      "融資協議",
+      "credit agreement"
+    ],
+    [
+      "intercreditor agreement",
+      "n.",
+      "債權人間協議",
+      "ICA"
+    ],
+    [
+      "security agreement",
+      "n.",
+      "擔保協議",
+      "collateral agreement"
+    ],
+    [
+      "pledge of assets",
+      "n.",
+      "資產質押",
+      "asset pledge"
+    ],
+    [
+      "floating charge",
+      "n.",
+      "浮動擔保",
+      "floating lien"
+    ],
+    [
+      "fixed charge",
+      "n.",
+      "固定擔保",
+      "fixed lien"
+    ],
+    [
+      "perfected security interest",
+      "n.",
+      "完善擔保權",
+      "perfected lien"
+    ],
+    [
+      "collateral coverage ratio",
+      "n.",
+      "擔保覆蓋率",
+      "collateral ratio"
+    ],
+    [
+      "loan-to-value ratio",
+      "n.",
+      "貸款價值比",
+      "LTV"
+    ],
+    [
+      "debt service coverage ratio",
+      "n.",
+      "債務覆蓋率",
+      "DSCR"
+    ],
+    [
+      "interest coverage ratio",
+      "n.",
+      "利息覆蓋率",
+      "ICR"
+    ],
+    [
+      "covenant breach",
+      "n.",
+      "契約違反",
+      "covenant violation"
+    ],
+    [
+      "covenant waiver",
+      "n.",
+      "契約豁免",
+      "waiver request"
+    ],
+    [
+      "covenant reset",
+      "n.",
+      "契約重設",
+      "covenant amendment"
+    ],
+    [
+      "financial covenant package",
+      "n.",
+      "財務契約組合",
+      "covenant package"
+    ],
+    [
+      "leverage covenant",
+      "n.",
+      "槓桿契約",
+      "leverage test"
+    ],
+    [
+      "fixed charge coverage",
+      "n.",
+      "固定_charge 覆蓋",
+      "FCCR"
+    ],
+    [
+      "minimum liquidity covenant",
+      "n.",
+      "最低流動性契約",
+      "liquidity covenant"
+    ],
+    [
+      "capital expenditure restriction",
+      "n.",
+      "資本支出限制",
+      "capex restriction"
+    ],
+    [
+      "restricted payment covenant",
+      "n.",
+      "限制支付契約",
+      "dividend restriction"
+    ],
+    [
+      "material adverse effect clause",
+      "n.",
+      "重大不利影響條款",
+      "MAE clause"
+    ],
+    [
+      "cross-default provision",
+      "n.",
+      "交叉違約條款",
+      "cross default"
+    ],
+    [
+      "acceleration clause",
+      "n.",
+      "加速到期條款",
+      "acceleration"
+    ],
+    [
+      "default interest rate",
+      "n.",
+      "違約利率",
+      "penalty rate"
+    ],
+    [
+      "forbearance agreement",
+      "n.",
+      "暫緩協議",
+      "forbearance"
+    ],
+    [
+      "debt restructuring",
+      "n.",
+      "債務重組",
+      "debt rework"
+    ],
+    [
+      "workout process",
+      "n.",
+      "債務協商流程",
+      "workout"
+    ],
+    [
+      "distressed debt exchange",
+      "n.",
+      "問題債交換",
+      "debt exchange"
+    ],
+    [
+      "loan trading desk",
+      "n.",
+      "貸款交易台",
+      "loan trading"
+    ],
+    [
+      "secondary loan market",
+      "n.",
+      "次級貸款市場",
+      "loan secondary market"
+    ],
+    [
+      "par loan trade",
+      "n.",
+      "面額貸款交易",
+      "par trade"
+    ],
+    [
+      "distressed loan trade",
+      "n.",
+      "問題貸款交易",
+      "distressed trade"
+    ],
+    [
+      "assignment and participation",
+      "n.",
+      "轉讓與參貸",
+      "loan assignment"
+    ],
+    [
+      "participation interest",
+      "n.",
+      "參貸權益",
+      "loan participation"
+    ],
+    [
+      "agent bank role",
+      "n.",
+      "代理行角色",
+      "facility agent role"
+    ],
+    [
+      "paying agent",
+      "n.",
+      "付款代理",
+      "payment agent"
+    ],
+    [
+      "security agent",
+      "n.",
+      "擔保代理",
+      "security trustee"
+    ],
+    [
+      "margin loan",
+      "n.",
+      "保證金貸款",
+      "securities-backed loan"
+    ],
+    [
+      "securities lending",
+      "n.",
+      "證券借貸",
+      "stock lending"
+    ],
+    [
+      "repo transaction",
+      "n.",
+      "附買回交易",
+      "repurchase agreement"
+    ],
+    [
+      "reverse repo",
+      "n.",
+      "反向附買回",
+      "reverse repurchase"
+    ],
+    [
+      "collateral haircut",
+      "n.",
+      "擔保折扣",
+      "valuation haircut"
+    ],
+    [
+      "tri-party repo",
+      "n.",
+      "三方附買回",
+      "tri-party repo"
+    ],
+    [
+      "money market fund",
+      "n.",
+      "貨幣市場基金",
+      "MMF"
+    ],
+    [
+      "commercial paper program",
+      "n.",
+      "商業本票計畫",
+      "CP program"
+    ],
+    [
+      "asset-backed commercial paper",
+      "n.",
+      "資產支持商業本票",
+      "ABCP"
+    ],
+    [
+      "certificate of deposit",
+      "n.",
+      "可轉讓定存",
+      "CD"
+    ],
+    [
+      "negotiable CD",
+      "n.",
+      "可轉讓定存單",
+      "NCD"
+    ],
+    [
+      "interbank offered rate",
+      "n.",
+      "銀行同業拆款利率",
+      "IBOR"
+    ],
+    [
+      "SOFR",
+      "n.",
+      "有擔保隔夜融資利率",
+      "secured overnight rate"
+    ],
+    [
+      "term SOFR",
+      "n.",
+      "期限 SOFR",
+      "term benchmark"
+    ],
+    [
+      "credit spread",
+      "n.",
+      "信用利差",
+      "spread over benchmark"
+    ],
+    [
+      "basis spread",
+      "n.",
+      "基差",
+      "basis risk spread"
+    ],
+    [
+      "swap spread",
+      "n.",
+      "掉期利差",
+      "swap vs treasury"
+    ],
+    [
+      "yield curve steepening",
+      "n.",
+      "殖利率曲線陡峭化",
+      "curve steepening"
+    ],
+    [
+      "yield curve inversion",
+      "n.",
+      "殖利率曲線倒掛",
+      "inverted curve"
+    ],
+    [
+      "duration risk",
+      "n.",
+      "存續期風險",
+      "interest rate duration"
+    ],
+    [
+      "convexity adjustment",
+      "n.",
+      "凸性調整",
+      "convexity"
+    ],
+    [
+      "mark-to-market valuation",
+      "n.",
+      "市值評價",
+      "MTM"
+    ],
+    [
+      "fair value hierarchy",
+      "n.",
+      "公允價值層級",
+      "Level 1 2 3"
+    ],
+    [
+      "counterparty credit risk",
+      "n.",
+      "交易對手信用風險",
+      "CCR"
+    ],
+    [
+      "credit valuation adjustment",
+      "n.",
+      "信用估值調整",
+      "CVA"
+    ],
+    [
+      "debit valuation adjustment",
+      "n.",
+      "Debit 估值調整",
+      "DVA"
+    ],
+    [
+      "wrong-way risk",
+      "n.",
+      "反向風險",
+      "wrong-way exposure"
+    ],
+    [
+      "netting agreement",
+      "n.",
+      "淨額結算協議",
+      "close-out netting"
+    ],
+    [
+      "ISDA master agreement",
+      "n.",
+      "ISDA 主協議",
+      "derivatives master"
+    ],
+    [
+      "credit support annex",
+      "n.",
+      "信用支持附件",
+      "CSA"
+    ],
+    [
+      "initial margin",
+      "n.",
+      "初始保證金",
+      "IM"
+    ],
+    [
+      "variation margin",
+      "n.",
+      "變動保證金",
+      "VM"
+    ],
+    [
+      "central clearing",
+      "n.",
+      "中央清算",
+      "CCP clearing"
+    ],
+    [
+      "OTC derivative",
+      "n.",
+      "場外衍生性商品",
+      "OTC swap"
+    ],
+    [
+      "interest rate swap",
+      "n.",
+      "利率掉期",
+      "IRS"
+    ],
+    [
+      "cross-currency swap",
+      "n.",
+      "跨貨幣掉期",
+      "CCS"
+    ],
+    [
+      "currency swap",
+      "n.",
+      "貨幣掉期",
+      "FX swap leg"
+    ],
+    [
+      "forward rate agreement",
+      "n.",
+      "遠期利率協定",
+      "FRA"
+    ],
+    [
+      "swaption",
+      "n.",
+      "利率選擇權",
+      "swap option"
+    ],
+    [
+      "cap and floor",
+      "n.",
+      "利率上限下限",
+      "interest rate cap"
+    ],
+    [
+      "collar structure",
+      "n.",
+      "區間結構",
+      "cap floor combo"
+    ],
+    [
+      "total return swap",
+      "n.",
+      "總報酬掉期",
+      "TRS"
+    ],
+    [
+      "credit default swap",
+      "n.",
+      "信用違約掉期",
+      "CDS"
+    ],
+    [
+      "single-name CDS",
+      "n.",
+      "單一名稱 CDS",
+      "single-name protection"
+    ],
+    [
+      "index CDS",
+      "n.",
+      "指數 CDS",
+      "credit index"
+    ],
+    [
+      "CDS spread widening",
+      "n.",
+      "CDS 利差擴大",
+      "spread widening"
+    ],
+    [
+      "recovery rate assumption",
+      "n.",
+      "回收率假設",
+      "recovery assumption"
+    ],
+    [
+      "reference entity",
+      "n.",
+      "參考實體",
+      "reference name"
+    ],
+    [
+      "credit event",
+      "n.",
+      "信用事件",
+      "default event"
+    ],
+    [
+      "physical settlement",
+      "n.",
+      "實物交割",
+      "physical CDS settle"
+    ],
+    [
+      "cash settlement",
+      "n.",
+      "現金交割",
+      "cash settle"
+    ],
+    [
+      "auction settlement",
+      "n.",
+      "拍賣交割",
+      "CDS auction"
+    ],
+    [
+      "structured credit product",
+      "n.",
+      "結構性信用商品",
+      "structured credit"
+    ],
+    [
+      "collateralized loan obligation",
+      "n.",
+      "貸款擔保債券",
+      "CLO"
+    ],
+    [
+      "collateralized debt obligation",
+      "n.",
+      "債務擔保債券",
+      "CDO"
+    ],
+    [
+      "tranche seniority",
+      "n.",
+      "分級優先順位",
+      "tranche ranking"
+    ],
+    [
+      "equity tranche",
+      "n.",
+      "股權級",
+      "first-loss piece"
+    ],
+    [
+      "mezzanine tranche",
+      "n.",
+      "夾層級",
+      "mezz tranche"
+    ],
+    [
+      "senior tranche",
+      "n.",
+      "優先級",
+      "senior piece"
+    ],
+    [
+      "waterfall payment",
+      "n.",
+      "瀑布式分配",
+      "cash waterfall"
+    ],
+    [
+      "overcollateralization test",
+      "n.",
+      "超額擔保測試",
+      "OC test"
+    ],
+    [
+      "interest coverage test",
+      "n.",
+      "利息覆蓋測試",
+      "IC test"
+    ],
+    [
+      "ramp-up period",
+      "n.",
+      "建倉期",
+      "ramp period"
+    ],
+    [
+      "reinvestment period",
+      "n.",
+      "再投資期",
+      "reinvestment window"
+    ],
+    [
+      "amortization period",
+      "n.",
+      "攤還期",
+      "paydown phase"
+    ],
+    [
+      "warehouse facility",
+      "n.",
+      "過渡融資",
+      "warehouse line"
+    ],
+    [
+      "securitization trust",
+      "n.",
+      "證券化信託",
+      "SPV trust"
+    ],
+    [
+      "special purpose vehicle",
+      "n.",
+      "特殊目的實體",
+      "SPV"
+    ],
+    [
+      "true sale opinion",
+      "n.",
+      "真實出售意見",
+      "true sale legal opinion"
+    ],
+    [
+      "bankruptcy remoteness",
+      "n.",
+      "破產隔離",
+      "remote from bankruptcy"
+    ],
+    [
+      "servicer role",
+      "n.",
+      "服務機構角色",
+      "loan servicer"
+    ],
+    [
+      "trustee role",
+      "n.",
+      "受託人角色",
+      "indenture trustee"
+    ],
+    [
+      "rating agency surveillance",
+      "n.",
+      "評等機構監控",
+      "agency surveillance"
+    ],
+    [
+      "external credit enhancement",
+      "n.",
+      "外部信用增強",
+      "credit wrap"
+    ],
+    [
+      "letter of credit facility",
+      "n.",
+      "信用狀額度",
+      "LC line"
+    ],
+    [
+      "standby letter of credit",
+      "n.",
+      "備用信用狀",
+      "SBLC"
+    ],
+    [
+      "documentary credit",
+      "n.",
+      "跟單信用狀",
+      "trade LC"
+    ],
+    [
+      "confirming bank",
+      "n.",
+      "確認銀行",
+      "confirming bank role"
+    ],
+    [
+      "advising bank",
+      "n.",
+      "通知銀行",
+      "advising bank role"
+    ],
+    [
+      "negotiating bank",
+      "n.",
+      "議付銀行",
+      "negotiating bank"
+    ],
+    [
+      "UCP 600",
+      "n.",
+      "UCP 600 規則",
+      "letter of credit rules"
+    ],
+    [
+      "discrepancy under LC",
+      "n.",
+      "信用狀不符点",
+      "LC discrepancy"
+    ],
+    [
+      "bill of exchange",
+      "n.",
+      "匯票",
+      "draft"
+    ],
+    [
+      "bank acceptance",
+      "n.",
+      "銀行承兌",
+      "BA"
+    ],
+    [
+      "trade receivables financing",
+      "n.",
+      "應收帳款融資",
+      "receivables finance"
+    ],
+    [
+      "supply chain finance platform",
+      "n.",
+      "供應鏈金融平台",
+      "SCF platform"
+    ],
+    [
+      "reverse factoring program",
+      "n.",
+      "反向保理計畫",
+      "payables finance"
+    ],
+    [
+      "dynamic discounting",
+      "n.",
+      "動態折扣",
+      "early payment discount"
+    ],
+    [
+      "forfaiting",
+      "n.",
+      "福費廷",
+      "without recourse discount"
+    ],
+    [
+      "export factoring",
+      "n.",
+      "出口保理",
+      "export factor"
+    ],
+    [
+      "bank guarantee",
+      "n.",
+      "銀行保證",
+      "guarantee instrument"
+    ],
+    [
+      "performance guarantee",
+      "n.",
+      "履約保證",
+      "performance BG"
+    ],
+    [
+      "bid bond guarantee",
+      "n.",
+      "投標保證",
+      "bid guarantee"
+    ],
+    [
+      "advance payment guarantee",
+      "n.",
+      "預付款保證",
+      "advance payment BG"
+    ],
+    [
+      "foreign exchange spot",
+      "n.",
+      "即期外匯",
+      "FX spot"
+    ],
+    [
+      "FX forward contract",
+      "n.",
+      "遠期外匯合約",
+      "forward FX"
+    ],
+    [
+      "non-deliverable forward",
+      "n.",
+      "無本金交割遠期",
+      "NDF"
+    ],
+    [
+      "FX option",
+      "n.",
+      "外匯選擇權",
+      "currency option"
+    ],
+    [
+      "cross-currency basis",
+      "n.",
+      "跨貨幣基差",
+      "CCS basis"
+    ],
+    [
+      "carry trade strategy",
+      "n.",
+      "利差交易策略",
+      "carry trade"
+    ],
+    [
+      "hedging policy",
+      "n.",
+      "避險政策",
+      "FX hedging policy"
+    ],
+    [
+      "natural hedge",
+      "n.",
+      "自然避險",
+      "operational hedge"
+    ],
+    [
+      "balance sheet hedging",
+      "n.",
+      "資產負債表避險",
+      "BS hedging"
+    ],
+    [
+      "translation exposure",
+      "n.",
+      "換算曝險",
+      "translation risk"
+    ],
+    [
+      "transaction exposure",
+      "n.",
+      "交易曝險",
+      "transaction FX risk"
+    ],
+    [
+      "economic exposure",
+      "n.",
+      "經濟曝險",
+      "operating FX risk"
+    ],
+    [
+      "value-at-risk model",
+      "n.",
+      "風險值模型",
+      "VaR"
+    ],
+    [
+      "expected shortfall",
+      "n.",
+      "期望短缺",
+      "CVaR"
+    ],
+    [
+      "stress testing program",
+      "n.",
+      "壓力測試計畫",
+      "stress test"
+    ],
+    [
+      "liquidity coverage ratio",
+      "n.",
+      "流動性覆蓋率",
+      "LCR"
+    ],
+    [
+      "net stable funding ratio",
+      "n.",
+      "淨穩定資金比率",
+      "NSFR"
+    ],
+    [
+      "Basel III framework",
+      "n.",
+      "巴塞爾 III 框架",
+      "Basel III"
+    ],
+    [
+      "risk-weighted assets",
+      "n.",
+      "風險加權資產",
+      "RWA"
+    ],
+    [
+      "common equity tier one",
+      "n.",
+      "普通股權一級資本",
+      "CET1"
+    ],
+    [
+      "tier one capital ratio",
+      "n.",
+      "一級資本比率",
+      "Tier 1 ratio"
+    ],
+    [
+      "total capital ratio",
+      "n.",
+      "總資本比率",
+      "capital adequacy"
+    ],
+    [
+      "leverage ratio requirement",
+      "n.",
+      "槓桿比率要求",
+      "leverage ratio rule"
+    ],
+    [
+      "countercyclical buffer",
+      "n.",
+      "逆周期資本緩衝",
+      "CCyB"
+    ],
+    [
+      "systemically important bank",
+      "n.",
+      "系統重要性銀行",
+      "G-SIB"
+    ],
+    [
+      "resolution planning",
+      "n.",
+      "處置計畫",
+      "living will"
+    ],
+    [
+      "bail-in instrument",
+      "n.",
+      "內部紓困工具",
+      "bail-in bond"
+    ],
+    [
+      "deposit insurance scheme",
+      "n.",
+      "存款保險制度",
+      "DIS"
+    ],
+    [
+      "know your customer program",
+      "n.",
+      "認識你的客戶計畫",
+      "KYC program"
+    ],
+    [
+      "anti-money laundering controls",
+      "n.",
+      "反洗錢控制",
+      "AML controls"
+    ],
+    [
+      "suspicious activity report",
+      "n.",
+      "可疑交易報告",
+      "SAR"
+    ],
+    [
+      "currency transaction report",
+      "n.",
+      "大額交易報告",
+      "CTR"
+    ],
+    [
+      "sanctions screening system",
+      "n.",
+      "制裁篩查系統",
+      "sanctions filter"
+    ],
+    [
+      "politically exposed person check",
+      "n.",
+      "政治公眾人物查核",
+      "PEP screening"
+    ],
+    [
+      "enhanced due diligence",
+      "n.",
+      "加強盡職調查",
+      "EDD"
+    ],
+    [
+      "transaction monitoring rule",
+      "n.",
+      "交易監控規則",
+      "monitoring rule"
+    ],
+    [
+      "trade surveillance alert",
+      "n.",
+      "交易監控警示",
+      "surveillance alert"
+    ],
+    [
+      "market abuse investigation",
+      "n.",
+      "市場濫用調查",
+      "market abuse probe"
+    ],
+    [
+      "insider dealing prohibition",
+      "n.",
+      "內線交易禁止",
+      "insider dealing ban"
+    ],
+    [
+      "best execution policy",
+      "n.",
+      "最佳執行政策",
+      "best execution"
+    ],
+    [
+      "order execution venue",
+      "n.",
+      "訂單執行場所",
+      "execution venue"
+    ],
+    [
+      "dark pool trading",
+      "n.",
+      "暗池交易",
+      "dark liquidity"
+    ],
+    [
+      "algorithmic trading strategy",
+      "n.",
+      "算法交易策略",
+      "algo trading"
+    ],
+    [
+      "high-frequency trading",
+      "n.",
+      "高頻交易",
+      "HFT"
+    ],
+    [
+      "market making obligation",
+      "n.",
+      "做市義務",
+      "market maker duty"
+    ],
+    [
+      "bid-ask spread management",
+      "n.",
+      "買賣價差管理",
+      "spread management"
+    ],
+    [
+      "primary dealer status",
+      "n.",
+      ".primary dealer 資格",
+      "primary dealer"
+    ],
+    [
+      "government bond auction",
+      "n.",
+      "公債標售",
+      "sovereign auction"
+    ],
+    [
+      "treasury bill issuance",
+      "n.",
+      "國庫券發行",
+      "T-bill issue"
+    ],
+    [
+      "sovereign yield curve",
+      "n.",
+      "主權債殖利率曲線",
+      "sovereign curve"
+    ],
+    [
+      "investment grade rating",
+      "n.",
+      "投資級評等",
+      "IG rating"
+    ],
+    [
+      "high yield bond market",
+      "n.",
+      "高收益債市場",
+      "HY market"
+    ],
+    [
+      "fallen angel bond",
+      "n.",
+      "堕落天使債",
+      "fallen angel"
+    ],
+    [
+      "rising star credit",
+      "n.",
+      "上升之星信用",
+      "rising star"
+    ],
+    [
+      "credit rating migration",
+      "n.",
+      "信用評等遷移",
+      "rating migration"
+    ],
+    [
+      "rating outlook revision",
+      "n.",
+      "評等展望修訂",
+      "outlook change"
+    ],
+    [
+      "watchlist placement",
+      "n.",
+      "观察名单",
+      "rating watch"
+    ],
+    [
+      "private placement bond",
+      "n.",
+      "私募債",
+      "private bond deal"
+    ],
+    [
+      "144A bond offering",
+      "n.",
+      "144A 債券發行",
+      "Rule 144A issue"
+    ],
+    [
+      "regulation S offering",
+      "n.",
+      "Reg S 發行",
+      "offshore bond issue"
+    ],
+    [
+      "global note program",
+      "n.",
+      "全球票據計畫",
+      "EMTN program"
+    ],
+    [
+      "medium-term note program",
+      "n.",
+      "中期票據計畫",
+      "MTN program"
+    ],
+    [
+      "callable bond feature",
+      "n.",
+      "可贖回債特性",
+      "call option bond"
+    ],
+    [
+      "puttable bond feature",
+      "n.",
+      "可賣回債特性",
+      "put option bond"
+    ],
+    [
+      "convertible bond arbitrage",
+      "n.",
+      "可轉債套利",
+      "CB arb"
+    ],
+    [
+      "mandatory convertible",
+      "n.",
+      "強制可轉債",
+      "mandatory CB"
+    ],
+    [
+      "perpetual bond",
+      "n.",
+      "永續債",
+      "perp bond"
+    ],
+    [
+      "subordinated debt instrument",
+      "n.",
+      "次順位債工具",
+      "sub debt"
+    ],
+    [
+      "additional tier one capital",
+      "n.",
+      "其他一級資本",
+      "AT1"
+    ],
+    [
+      "contingent convertible bond",
+      "n.",
+      "或有可轉債",
+      "CoCo bond"
+    ],
+    [
+      "trigger event for CoCo",
+      "n.",
+      "CoCo 觸發事件",
+      "CoCo trigger"
+    ],
+    [
+      "loss absorption mechanism",
+      "n.",
+      "損失吸收機制",
+      "loss absorption"
+    ],
+    [
+      "capital instrument eligibility",
+      "n.",
+      "資本工具合格性",
+      "capital eligibility"
+    ],
+    [
+      "regulatory capital planning",
+      "n.",
+      "監管資本規劃",
+      "capital planning"
+    ],
+    [
+      "internal capital adequacy assessment",
+      "n.",
+      "內部資本充足評估",
+      "ICAAP"
+    ],
+    [
+      "liquidity risk management framework",
+      "n.",
+      "流動性風險管理框架",
+      "LRM framework"
+    ]
+  ],
+  "hospitality": [
+    [
+      "hospitality industry",
+      "n.",
+      "餐旅 Hospitality 產業",
+      "lodging sector"
+    ],
+    [
+      "lodging operator",
+      "n.",
+      "住宿業者",
+      "hotel operator"
+    ],
+    [
+      "full-service hotel",
+      "n.",
+      "全服務飯店",
+      "full-service property"
+    ],
+    [
+      "limited-service hotel",
+      "n.",
+      "有限服務飯店",
+      "select-service hotel"
+    ],
+    [
+      "extended-stay hotel",
+      "n.",
+      "長住型飯店",
+      "extended stay"
+    ],
+    [
+      "boutique hotel",
+      "n.",
+      "精品飯店",
+      "boutique property"
+    ],
+    [
+      "resort property",
+      "n.",
+      "度假村",
+      "resort hotel"
+    ],
+    [
+      "convention hotel",
+      "n.",
+      "會議型飯店",
+      "convention property"
+    ],
+    [
+      "airport hotel",
+      "n.",
+      "機場飯店",
+      "airport property"
+    ],
+    [
+      "hotel flag",
+      "n.",
+      "飯店品牌",
+      "brand flag"
+    ],
+    [
+      "franchise agreement hotel",
+      "n.",
+      "飯店加盟協議",
+      "hotel franchise"
+    ],
+    [
+      "management contract hotel",
+      "n.",
+      "飯店管理合約",
+      "hotel management agreement"
+    ],
+    [
+      "revPAR",
+      "n.",
+      "每間可供出租客房收益",
+      "revenue per available room"
+    ],
+    [
+      "ADR",
+      "n.",
+      "平均日房價",
+      "average daily rate"
+    ],
+    [
+      "occupancy percentage",
+      "n.",
+      "住房率",
+      "occupancy rate"
+    ],
+    [
+      "RevPAG",
+      "n.",
+      "每可用平方英尺收益",
+      "revenue per available guest"
+    ],
+    [
+      "GOPPAR",
+      "n.",
+      "每間客房營運毛利",
+      "gross operating profit per room"
+    ],
+    [
+      "TRevPAR",
+      "n.",
+      "總客房相關收益",
+      "total RevPAR"
+    ],
+    [
+      "market penetration index",
+      "n.",
+      "市場滲透指數",
+      "MPI"
+    ],
+    [
+      "average rate index",
+      "n.",
+      "平均房價指數",
+      "ARI"
+    ],
+    [
+      "RevPAR index",
+      "n.",
+      "RevPAR 指數",
+      "RGI"
+    ],
+    [
+      "competitive set",
+      "n.",
+      "競爭組群",
+      "comp set"
+    ],
+    [
+      "STR report",
+      "n.",
+      "STR 報告",
+      "Smith Travel report"
+    ],
+    [
+      "pace report",
+      "n.",
+      "訂房進度報告",
+      "booking pace"
+    ],
+    [
+      "on-the-books revenue",
+      "n.",
+      "已訂收入",
+      "OTB revenue"
+    ],
+    [
+      "group booking block",
+      "n.",
+      "團體訂房區塊",
+      "room block"
+    ],
+    [
+      "cutoff date group",
+      "n.",
+      "團體截止日",
+      "block cutoff"
+    ],
+    [
+      "attrition clause",
+      "n.",
+      "房間未達條款",
+      "attrition penalty"
+    ],
+    [
+      "slippage room block",
+      "n.",
+      "區塊流失",
+      "room block slippage"
+    ],
+    [
+      "wash factor",
+      "n.",
+      "取消率因子",
+      "wash percentage"
+    ],
+    [
+      "shoulder night",
+      "n.",
+      "肩峰夜",
+      "shoulder date"
+    ],
+    [
+      "peak night",
+      "n.",
+      "高峰夜",
+      "peak date"
+    ],
+    [
+      "compression night",
+      "n.",
+      "壓縮夜",
+      "compression date"
+    ],
+    [
+      "citywide convention",
+      "n.",
+      "全市型會展",
+      "citywide event"
+    ],
+    [
+      "shoulder season pricing",
+      "n.",
+      "淡季定價",
+      "shoulder pricing"
+    ],
+    [
+      "dynamic pricing engine",
+      "n.",
+      "動態定價引擎",
+      "revenue management system"
+    ],
+    [
+      "yield management",
+      "n.",
+      "收益管理",
+      "yield strategy"
+    ],
+    [
+      "overbooking strategy",
+      "n.",
+      "超訂策略",
+      "overbooking policy"
+    ],
+    [
+      "walk policy",
+      "n.",
+      "Walk 政策",
+      "guest walk policy"
+    ],
+    [
+      "denied boarding compensation hotel",
+      "n.",
+      "Walk 補償",
+      "walk compensation"
+    ],
+    [
+      "no-show policy",
+      "n.",
+      "No-show 政策",
+      "no-show charge"
+    ],
+    [
+      "early departure fee",
+      "n.",
+      "提前退房費",
+      "early checkout fee"
+    ],
+    [
+      "minimum length of stay",
+      "n.",
+      "最短住宿天數",
+      "MinLOS"
+    ],
+    [
+      "maximum length of stay",
+      "n.",
+      "最長住宿天數",
+      "MaxLOS"
+    ],
+    [
+      "closed to arrival",
+      "n.",
+      "限制入住日",
+      "CTA restriction"
+    ],
+    [
+      "closed to departure",
+      "n.",
+      "限制退房日",
+      "CTD restriction"
+    ],
+    [
+      "rate fence",
+      "n.",
+      "價格圍籬",
+      "rate fence"
+    ],
+    [
+      "BAR rate",
+      "n.",
+      "最佳可得房價",
+      "best available rate"
+    ],
+    [
+      "rack rate",
+      "n.",
+      "牌價",
+      "published rate"
+    ],
+    [
+      "corporate negotiated rate",
+      "n.",
+      "企業協議價",
+      "corporate rate"
+    ],
+    [
+      "government per diem rate",
+      "n.",
+      "公務差旅日額",
+      "per diem rate"
+    ],
+    [
+      "consortia rate",
+      "n.",
+      "聯盟協議價",
+      "consortia program"
+    ],
+    [
+      "wholesale tour rate",
+      "n.",
+      "批發團體價",
+      "wholesale rate"
+    ],
+    [
+      "opaque channel rate",
+      "n.",
+      "不透明渠道房價",
+      "opaque pricing"
+    ],
+    [
+      "package rate",
+      "n.",
+      "套裝房價",
+      "package deal"
+    ],
+    [
+      "resort fee",
+      "n.",
+      "度假村費",
+      "destination fee"
+    ],
+    [
+      "destination fee disclosure",
+      "n.",
+      "目的地費揭露",
+      "resort fee disclosure"
+    ],
+    [
+      "ancillary revenue",
+      "n.",
+      "附加收益",
+      "ancillary income"
+    ],
+    [
+      "upsell at check-in",
+      "n.",
+      "入住加購",
+      "front desk upsell"
+    ],
+    [
+      "room upgrade offer",
+      "n.",
+      "房型升等方案",
+      "upgrade offer"
+    ],
+    [
+      "late checkout fee",
+      "n.",
+      "延遲退房費",
+      "late checkout charge"
+    ],
+    [
+      "early check-in fee",
+      "n.",
+      "提早入住費",
+      "early check-in charge"
+    ],
+    [
+      "guaranteed reservation",
+      "n.",
+      "保證訂房",
+      "guaranteed booking"
+    ],
+    [
+      "non-guaranteed reservation",
+      "n.",
+      "非保證訂房",
+      "non-guaranteed hold"
+    ],
+    [
+      "deposit requirement",
+      "n.",
+      "訂金要求",
+      "deposit policy"
+    ],
+    [
+      "cancellation window",
+      "n.",
+      "取消時限",
+      "cancel policy window"
+    ],
+    [
+      "channel manager",
+      "n.",
+      "渠道管理系統",
+      "distribution manager"
+    ],
+    [
+      "global distribution system",
+      "n.",
+      "全球分銷系統",
+      "GDS"
+    ],
+    [
+      "online travel agency",
+      "n.",
+      "線上旅行社",
+      "OTA"
+    ],
+    [
+      "direct booking incentive",
+      "n.",
+      "直訂誘因",
+      "book direct offer"
+    ],
+    [
+      "parity rate clause",
+      "n.",
+      "價格 parity 條款",
+      "rate parity"
+    ],
+    [
+      "commission structure OTA",
+      "n.",
+      "OTA 佣金結構",
+      "OTA commission"
+    ],
+    [
+      "net rate agreement",
+      "n.",
+      "淨價協議",
+      "net rate deal"
+    ],
+    [
+      "merchant model OTA",
+      "n.",
+      "OTA 商戶模式",
+      "merchant model"
+    ],
+    [
+      "agency model OTA",
+      "n.",
+      "OTA 代理模式",
+      "agency model"
+    ],
+    [
+      "property management system",
+      "n.",
+      "飯店管理系統",
+      "PMS"
+    ],
+    [
+      "central reservation system",
+      "n.",
+      "中央訂房系統",
+      "CRS"
+    ],
+    [
+      "booking engine",
+      "n.",
+      "訂房引擎",
+      "IBE"
+    ],
+    [
+      "revenue management system",
+      "n.",
+      "收益管理系統",
+      "RMS"
+    ],
+    [
+      "customer relationship management hotel",
+      "n.",
+      "飯店 CRM",
+      "hotel CRM"
+    ],
+    [
+      "guest profile",
+      "n.",
+      "旅客檔案",
+      "guest record"
+    ],
+    [
+      "loyalty program tier",
+      "n.",
+      "會員等級",
+      "loyalty tier"
+    ],
+    [
+      "points redemption stay",
+      "n.",
+      "點數兌換住宿",
+      "award night"
+    ],
+    [
+      "elite member benefit",
+      "n.",
+      " elite 會員禮遇",
+      "elite benefit"
+    ],
+    [
+      "complimentary upgrade policy",
+      "n.",
+      " complimentary 升等政策",
+      "upgrade policy"
+    ],
+    [
+      "brand standards compliance",
+      "n.",
+      "品牌標準遵循",
+      "brand compliance"
+    ],
+    [
+      "quality assurance inspection",
+      "n.",
+      "品質保證稽核",
+      "QA inspection"
+    ],
+    [
+      "mystery guest audit",
+      "n.",
+      "神秘客稽核",
+      "mystery guest"
+    ],
+    [
+      "LQA score",
+      "n.",
+      "LQA 分數",
+      "Leading Quality Assurance"
+    ],
+    [
+      "Forbes Travel Guide rating",
+      "n.",
+      "Forbes 評等",
+      "Forbes rating"
+    ],
+    [
+      "AAA diamond rating",
+      "n.",
+      "AAA 鑽石評等",
+      "AAA rating"
+    ],
+    [
+      "star rating hotel",
+      "n.",
+      "星級評等",
+      "hotel star class"
+    ],
+    [
+      "housekeeping inspection checklist",
+      "n.",
+      "房務稽核清單",
+      "HK checklist"
+    ],
+    [
+      "turn-down service",
+      "n.",
+      "夜床服務",
+      "turndown service"
+    ],
+    [
+      "minibar revenue",
+      "n.",
+      "迷你吧收入",
+      "minibar sales"
+    ],
+    [
+      "in-room dining",
+      "n.",
+      "客房送餐",
+      "room service"
+    ],
+    [
+      "grab-and-go market",
+      "n.",
+      "即取即走賣場",
+      "pantry market"
+    ],
+    [
+      "all-inclusive package",
+      "n.",
+      "全包式方案",
+      "all-inclusive plan"
+    ],
+    [
+      "half-board plan",
+      "n.",
+      "半膳方案",
+      "half board"
+    ],
+    [
+      "full-board plan",
+      "n.",
+      "全膳方案",
+      "full board"
+    ],
+    [
+      "banquet event order",
+      "n.",
+      "宴會活動單",
+      "BEO"
+    ],
+    [
+      "catering sales manager",
+      "n.",
+      "宴會業務經理",
+      "catering manager"
+    ],
+    [
+      "function space rental",
+      "n.",
+      "活動場地出租",
+      "meeting space rental"
+    ],
+    [
+      "meeting planner contract",
+      "n.",
+      "會議規劃合約",
+      "planner agreement"
+    ],
+    [
+      "audio-visual setup",
+      "n.",
+      "視聽設備配置",
+      "AV setup"
+    ],
+    [
+      "breakout room setup",
+      "n.",
+      "分組會議室配置",
+      "breakout setup"
+    ],
+    [
+      "theater style seating",
+      "n.",
+      "劇院式 seating",
+      "theater setup"
+    ],
+    [
+      "classroom style seating",
+      "n.",
+      "課桌式 seating",
+      "classroom setup"
+    ],
+    [
+      "u-shape seating",
+      "n.",
+      "U 型 seating",
+      "U-shape setup"
+    ],
+    [
+      "reception style event",
+      "n.",
+      "酒會式活動",
+      "reception event"
+    ],
+    [
+      "gala dinner service",
+      "n.",
+      "晚宴服務",
+      "gala service"
+    ],
+    [
+      "buffet service style",
+      "n.",
+      "自助餐服務",
+      "buffet service"
+    ],
+    [
+      "plated service style",
+      "n.",
+      "餐盤式服務",
+      "plated service"
+    ],
+    [
+      "French service style",
+      "n.",
+      "法式桌邊服務",
+      "French service"
+    ],
+    [
+      "banquet service charge",
+      "n.",
+      "宴會服務費",
+      "service charge"
+    ],
+    [
+      "gratuity policy banquet",
+      "n.",
+      "宴會小費政策",
+      "gratuity policy"
+    ],
+    [
+      "minimum spend requirement",
+      "n.",
+      "最低消費要求",
+      "minimum spend"
+    ],
+    [
+      "food and beverage outlet",
+      "n.",
+      "餐飲 outlet",
+      "F&B outlet"
+    ],
+    [
+      "cover count forecast",
+      "n.",
+      "用餐人數預測",
+      "cover forecast"
+    ],
+    [
+      "average check size",
+      "n.",
+      "平均客單價",
+      "average check"
+    ],
+    [
+      "menu engineering analysis",
+      "n.",
+      "菜單工程分析",
+      "menu engineering"
+    ],
+    [
+      "contribution margin dish",
+      "n.",
+      "菜品貢獻 margin",
+      "dish margin"
+    ],
+    [
+      "food cost percentage",
+      "n.",
+      "食材成本率",
+      "food cost ratio"
+    ],
+    [
+      "beverage cost percentage",
+      "n.",
+      "飲料成本率",
+      "beverage cost ratio"
+    ],
+    [
+      "pour cost control",
+      "n.",
+      "倒酒成本控制",
+      "pour cost"
+    ],
+    [
+      "inventory par level",
+      "n.",
+      "庫存標準量",
+      "par level"
+    ],
+    [
+      "vendor price negotiation F&B",
+      "n.",
+      "餐飲供應商議價",
+      "vendor negotiation"
+    ],
+    [
+      "kitchen prep schedule",
+      "n.",
+      "廚房備料排程",
+      "prep schedule"
+    ],
+    [
+      "sous vide preparation",
+      "n.",
+      "低溫舒肥",
+      "sous vide"
+    ],
+    [
+      "HACCP plan restaurant",
+      "n.",
+      "HACCP 計畫",
+      "food safety plan"
+    ],
+    [
+      "health department inspection",
+      "n.",
+      "衛生局稽查",
+      "health inspection"
+    ],
+    [
+      "allergen disclosure menu",
+      "n.",
+      "過敏原標示",
+      "allergen labeling"
+    ],
+    [
+      "gluten-free menu option",
+      "n.",
+      "無麩質選項",
+      "gluten-free option"
+    ],
+    [
+      "plant-based menu trend",
+      "n.",
+      "植物基菜單趨勢",
+      "plant-based trend"
+    ],
+    [
+      "farm-to-table sourcing",
+      "n.",
+      "產地直送採購",
+      "farm-to-table"
+    ],
+    [
+      "sommelier service",
+      "n.",
+      "侍酒師服務",
+      "wine service"
+    ],
+    [
+      "wine pairing recommendation",
+      "n.",
+      "餐酒搭配建議",
+      "wine pairing"
+    ],
+    [
+      "cocktail program",
+      "n.",
+      "調酒方案",
+      "cocktail menu"
+    ],
+    [
+      "mocktail menu",
+      "n.",
+      "無酒精調飲菜單",
+      "mocktail offering"
+    ],
+    [
+      "barista station",
+      "n.",
+      " barista 吧台",
+      "coffee station"
+    ],
+    [
+      "specialty coffee program",
+      "n.",
+      "精品咖啡方案",
+      "specialty coffee"
+    ],
+    [
+      "restaurant reservation system",
+      "n.",
+      "餐廳訂位系統",
+      "reservation system"
+    ],
+    [
+      "waitlist management",
+      "n.",
+      "候位管理",
+      "waitlist control"
+    ],
+    [
+      "table turn time",
+      "n.",
+      "翻桌時間",
+      "table turn"
+    ],
+    [
+      "seat utilization rate",
+      "n.",
+      "座位利用率",
+      "seat utilization"
+    ],
+    [
+      "host stand greeting",
+      "n.",
+      "接待台迎賓",
+      "host greeting"
+    ],
+    [
+      "maitre d service",
+      "n.",
+      "餐廳領班服務",
+      "maitre d"
+    ],
+    [
+      "captain station service",
+      "n.",
+      "餐桌領班服務",
+      "captain service"
+    ],
+    [
+      "busser support role",
+      "n.",
+      "收桌支援角色",
+      "busser role"
+    ],
+    [
+      "runner food delivery",
+      "n.",
+      "傳菜員",
+      "food runner"
+    ],
+    [
+      "expeditor kitchen",
+      "n.",
+      "出餐協調員",
+      "kitchen expeditor"
+    ],
+    [
+      "point-of-sale system restaurant",
+      "n.",
+      "餐飲 POS 系統",
+      "restaurant POS"
+    ],
+    [
+      "kitchen display system",
+      "n.",
+      "廚房顯示系統",
+      "KDS"
+    ],
+    [
+      "tip pooling policy",
+      "n.",
+      "小費 pooling 政策",
+      "tip pool"
+    ],
+    [
+      "service charge distribution",
+      "n.",
+      "服務費分配",
+      "service charge split"
+    ],
+    [
+      "front office manager",
+      "n.",
+      "前厅经理",
+      "FOM"
+    ],
+    [
+      "night audit process",
+      "n.",
+      "夜審流程",
+      "night audit"
+    ],
+    [
+      "folios reconciliation",
+      "n.",
+      "帳單對帳",
+      "folio reconciliation"
+    ],
+    [
+      "city ledger account",
+      "n.",
+      "城市掛帳",
+      "city ledger"
+    ],
+    [
+      "direct bill account",
+      "n.",
+      "直接記帳帳戶",
+      "direct bill"
+    ],
+    [
+      "master account billing",
+      "n.",
+      "主帳戶帳單",
+      "master folio"
+    ],
+    [
+      "incidental charge authorization",
+      "n.",
+      "雜費授權",
+      "incidental auth"
+    ],
+    [
+      "credit card authorization hold",
+      "n.",
+      "信用卡預授權",
+      "CC hold"
+    ],
+    [
+      "chargeback dispute hotel",
+      "n.",
+      "飯店退單爭議",
+      "chargeback dispute"
+    ],
+    [
+      "guest satisfaction survey",
+      "n.",
+      "旅客滿意度調查",
+      "guest survey"
+    ],
+    [
+      "comment card feedback",
+      "n.",
+      "意见卡反馈",
+      "comment card"
+    ],
+    [
+      "online review management",
+      "n.",
+      "線上評論管理",
+      "review management"
+    ],
+    [
+      "TripAdvisor ranking",
+      "n.",
+      "TripAdvisor 排名",
+      "TripAdvisor rank"
+    ],
+    [
+      "reputation score hotel",
+      "n.",
+      "飯店聲譽分數",
+      "reputation score"
+    ],
+    [
+      "service recovery protocol",
+      "n.",
+      "服務補救程序",
+      "service recovery"
+    ],
+    [
+      "compensation authority limit",
+      "n.",
+      "補償授權上限",
+      "comp limit"
+    ],
+    [
+      "VIP arrival protocol",
+      "n.",
+      "VIP 抵达流程",
+      "VIP protocol"
+    ],
+    [
+      "airline crew contract",
+      "n.",
+      "机组合约",
+      "crew contract"
+    ],
+    [
+      "airline layover hotel",
+      "n.",
+      "機組過境飯店",
+      "layover hotel"
+    ],
+    [
+      "airport codeshare lounge",
+      "n.",
+      "機場聯名貴賓室",
+      "codeshare lounge"
+    ],
+    [
+      "airline alliance lounge access",
+      "n.",
+      "航空聯盟貴賓室權益",
+      "alliance lounge"
+    ],
+    [
+      "priority boarding benefit hotel partner",
+      "n.",
+      "優先登機禮遇",
+      "boarding benefit"
+    ],
+    [
+      "frequent flyer partnership",
+      "n.",
+      "常旅客合作",
+      "FFP partnership"
+    ],
+    [
+      "mileage earning hotel stay",
+      "n.",
+      "住宿累积里程",
+      "mileage earn"
+    ],
+    [
+      "codeshare flight",
+      "n.",
+      "代碼共享航班",
+      "codeshare"
+    ]
+  ]
+}

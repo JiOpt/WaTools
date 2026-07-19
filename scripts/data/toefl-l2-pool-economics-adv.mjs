@@ -1,0 +1,3105 @@
+/** TOEFL L2 economics-adv pool (517 entries) */
+export const economicsAdv = [
+  [
+    "microeconomics",
+    "n.",
+    "個體經濟學",
+    "individual agent economics"
+  ],
+  [
+    "macroeconomics",
+    "n.",
+    "總體經濟學",
+    "aggregate economics"
+  ],
+  [
+    "econometrics",
+    "n.",
+    "計量經濟學",
+    "statistical economics"
+  ],
+  [
+    "behavioral economics",
+    "n.",
+    "行為經濟學",
+    "psychology-in-economics"
+  ],
+  [
+    "neoclassical economics",
+    "n.",
+    "新古典經濟學",
+    "mainstream economics"
+  ],
+  [
+    "Keynesian economics",
+    "n.",
+    "凱因斯經濟學",
+    "demand-management economics"
+  ],
+  [
+    "monetarism",
+    "n.",
+    "貨幣主義",
+    "money supply focus"
+  ],
+  [
+    "supply-side economics",
+    "n.",
+    "供給面經濟學",
+    "Laffer curve economics"
+  ],
+  [
+    "institutional economics",
+    "n.",
+    "制度經濟學",
+    "institutions in economy"
+  ],
+  [
+    "development economics",
+    "n.",
+    "發展經濟學",
+    "low-income economy study"
+  ],
+  [
+    "international economics",
+    "n.",
+    "國際經濟學",
+    "global trade and finance"
+  ],
+  [
+    "labor economics",
+    "n.",
+    "勞動經濟學",
+    "workforce economics"
+  ],
+  [
+    "public economics",
+    "n.",
+    "公共經濟學",
+    "government role economics"
+  ],
+  [
+    "environmental economics",
+    "n.",
+    "環境經濟學",
+    "ecology and economy"
+  ],
+  [
+    "health economics",
+    "n.",
+    "健康經濟學",
+    "healthcare economics"
+  ],
+  [
+    "industrial organization",
+    "n.",
+    "產業組織",
+    "market structure study"
+  ],
+  [
+    "game theory economics",
+    "n.",
+    "賽局理論",
+    "strategic interaction"
+  ],
+  [
+    "information economics",
+    "n.",
+    "資訊經濟學",
+    "asymmetric information"
+  ],
+  [
+    "welfare economics",
+    "n.",
+    "福利經濟學",
+    "social welfare analysis"
+  ],
+  [
+    "positive economics",
+    "n.",
+    "實證經濟學",
+    "what-is analysis"
+  ],
+  [
+    "normative economics",
+    "n.",
+    "規範經濟學",
+    "what-ought analysis"
+  ],
+  [
+    "opportunity cost",
+    "n.",
+    "機會成本",
+    "foregone alternative"
+  ],
+  [
+    "marginal cost",
+    "n.",
+    "邊際成本",
+    "MC"
+  ],
+  [
+    "marginal revenue",
+    "n.",
+    "邊際收益",
+    "MR"
+  ],
+  [
+    "marginal utility",
+    "n.",
+    "邊際效用",
+    "extra satisfaction"
+  ],
+  [
+    "diminishing returns",
+    "n.",
+    "報酬遞減",
+    "decreasing marginal product"
+  ],
+  [
+    "economies of scale",
+    "n.",
+    "規模經濟",
+    "scale efficiency"
+  ],
+  [
+    "diseconomies of scale",
+    "n.",
+    "規模不經濟",
+    "scale inefficiency"
+  ],
+  [
+    "economies of scope",
+    "n.",
+    "範疇經濟",
+    "multi-product efficiency"
+  ],
+  [
+    "comparative advantage",
+    "n.",
+    "比較優勢",
+    "relative efficiency"
+  ],
+  [
+    "absolute advantage",
+    "n.",
+    "絕對優勢",
+    "absolute efficiency"
+  ],
+  [
+    "specialization",
+    "n.",
+    "專業化",
+    "focused production"
+  ],
+  [
+    "division of labor",
+    "n.",
+    "分工",
+    "task specialization"
+  ],
+  [
+    "production possibility frontier",
+    "n.",
+    "生產可能曲線",
+    "PPF"
+  ],
+  [
+    "efficiency pareto",
+    "n.",
+    "帕累托效率",
+    "Pareto optimality"
+  ],
+  [
+    "Pareto improvement",
+    "n.",
+    "帕累托改善",
+    "no-loser improvement"
+  ],
+  [
+    "deadweight loss",
+    "n.",
+    "無謂損失",
+    "DWL"
+  ],
+  [
+    "consumer surplus",
+    "n.",
+    "消費者剩餘",
+    "buyer benefit"
+  ],
+  [
+    "producer surplus",
+    "n.",
+    "生產者剩餘",
+    "seller benefit"
+  ],
+  [
+    "total surplus",
+    "n.",
+    "總剩餘",
+    "social surplus"
+  ],
+  [
+    "price elasticity of demand",
+    "n.",
+    "需求價格彈性",
+    "Ed"
+  ],
+  [
+    "price elasticity of supply",
+    "n.",
+    "供給價格彈性",
+    "Es"
+  ],
+  [
+    "income elasticity",
+    "n.",
+    "所得彈性",
+    "income response"
+  ],
+  [
+    "cross-price elasticity",
+    "n.",
+    "交叉價格彈性",
+    "substitute response"
+  ],
+  [
+    "inelastic demand",
+    "n.",
+    "缺乏彈性需求",
+    "low responsiveness"
+  ],
+  [
+    "elastic demand",
+    "n.",
+    "富彈性需求",
+    "high responsiveness"
+  ],
+  [
+    "unit elastic",
+    "adj.",
+    "單位彈性",
+    "elasticity equals one"
+  ],
+  [
+    "substitution effect",
+    "n.",
+    "替代效果",
+    "relative price effect"
+  ],
+  [
+    "income effect",
+    "n.",
+    "所得效果",
+    "purchasing power effect"
+  ],
+  [
+    "Giffen good",
+    "n.",
+    "吉芬財",
+    "inferior upward-sloping demand"
+  ],
+  [
+    "Veblen good",
+    "n.",
+    "凡勃倫財",
+    "conspicuous consumption good"
+  ],
+  [
+    "normal good",
+    "n.",
+    "正常財",
+    "income-positive demand"
+  ],
+  [
+    "inferior good",
+    "n.",
+    "劣等財",
+    "income-negative demand"
+  ],
+  [
+    "luxury good",
+    "n.",
+    "奢侈品",
+    "high-income elastic good"
+  ],
+  [
+    "necessity good",
+    "n.",
+    "必需品",
+    "low-income elastic good"
+  ],
+  [
+    "complementary good",
+    "n.",
+    "互補財",
+    "joint demand good"
+  ],
+  [
+    "substitute good",
+    "n.",
+    "替代財",
+    "alternative good"
+  ],
+  [
+    "demand curve",
+    "n.",
+    "需求曲線",
+    "price-quantity demand"
+  ],
+  [
+    "supply curve",
+    "n.",
+    "供給曲線",
+    "price-quantity supply"
+  ],
+  [
+    "market equilibrium",
+    "n.",
+    "市場均衡",
+    "supply meets demand"
+  ],
+  [
+    "excess demand",
+    "n.",
+    "超額需求",
+    "shortage"
+  ],
+  [
+    "excess supply",
+    "n.",
+    "超額供給",
+    "surplus"
+  ],
+  [
+    "price ceiling",
+    "n.",
+    "價格上限",
+    "maximum price"
+  ],
+  [
+    "price floor",
+    "n.",
+    "價格下限",
+    "minimum price"
+  ],
+  [
+    "quota",
+    "n.",
+    "配額",
+    "quantity limit"
+  ],
+  [
+    "tariff",
+    "n.",
+    "關稅",
+    "import tax"
+  ],
+  [
+    "subsidy economics",
+    "n.",
+    "補貼",
+    "government payment"
+  ],
+  [
+    "tax incidence",
+    "n.",
+    "租稅归宿",
+    "tax burden sharing"
+  ],
+  [
+    "tax wedge",
+    "n.",
+    "稅楔",
+    "tax distortion gap"
+  ],
+  [
+    "lump-sum tax",
+    "n.",
+    "定額稅",
+    "fixed tax"
+  ],
+  [
+    "progressive tax",
+    "n.",
+    "累進稅",
+    "rising rate tax"
+  ],
+  [
+    "regressive tax",
+    "n.",
+    "累退稅",
+    "falling rate tax"
+  ],
+  [
+    "proportional tax",
+    "n.",
+    "比例稅",
+    "flat rate tax"
+  ],
+  [
+    "value-added tax",
+    "n.",
+    "加值稅",
+    "VAT"
+  ],
+  [
+    "excise tax",
+    "n.",
+    "貨物稅",
+    "specific commodity tax"
+  ],
+  [
+    "Pigouvian tax",
+    "n.",
+    "庇古稅",
+    "externality tax"
+  ],
+  [
+    "carbon tax",
+    "n.",
+    "碳稅",
+    "emissions tax"
+  ],
+  [
+    "cap and trade",
+    "n.",
+    "總量管制與交易",
+    "emissions trading"
+  ],
+  [
+    "externality economics",
+    "n.",
+    "外部性",
+    "spillover effect"
+  ],
+  [
+    "negative externality",
+    "n.",
+    "負外部性",
+    "social cost exceed private"
+  ],
+  [
+    "positive externality",
+    "n.",
+    "正外部性",
+    "social benefit exceed private"
+  ],
+  [
+    "internalization",
+    "n.",
+    "內部化",
+    "externality correction"
+  ],
+  [
+    "Coase theorem",
+    "n.",
+    "科斯定理",
+    "bargaining efficiency"
+  ],
+  [
+    "transaction cost",
+    "n.",
+    "交易成本",
+    "exchange cost"
+  ],
+  [
+    "property rights economics",
+    "n.",
+    "財產權",
+    "ownership rights"
+  ],
+  [
+    "public good economics",
+    "n.",
+    "公共財",
+    "non-excludable good"
+  ],
+  [
+    "common resource",
+    "n.",
+    "共有資源",
+    "rival non-excludable"
+  ],
+  [
+    "free rider problem",
+    "n.",
+    "搭便車問題",
+    "underprovision problem"
+  ],
+  [
+    "market failure",
+    "n.",
+    "市場失敗",
+    "inefficient market outcome"
+  ],
+  [
+    "government failure",
+    "n.",
+    "政府失敗",
+    "inefficient intervention"
+  ],
+  [
+    "information asymmetry",
+    "n.",
+    "資訊不對稱",
+    "unequal information"
+  ],
+  [
+    "adverse selection",
+    "n.",
+    "逆向選擇",
+    "hidden information problem"
+  ],
+  [
+    "moral hazard economics",
+    "n.",
+    "道德風險",
+    "hidden action problem"
+  ],
+  [
+    "signaling",
+    "n.",
+    "信號機制",
+    "credential signaling"
+  ],
+  [
+    "screening",
+    "n.",
+    "篩選",
+    "information revelation"
+  ],
+  [
+    "principal-agent theory",
+    "n.",
+    "委託代理理論",
+    "agency theory"
+  ],
+  [
+    "incentive compatibility",
+    "n.",
+    "誘因相容",
+    "truthful mechanism"
+  ],
+  [
+    "mechanism design",
+    "n.",
+    "機制設計",
+    "incentive design"
+  ],
+  [
+    "auction theory",
+    "n.",
+    "拍賣理論",
+    "bidding theory"
+  ],
+  [
+    "Nash equilibrium",
+    "n.",
+    "納許均衡",
+    "strategic equilibrium"
+  ],
+  [
+    "dominant strategy",
+    "n.",
+    "優勢策略",
+    "best regardless strategy"
+  ],
+  [
+    "prisoner's dilemma",
+    "n.",
+    "囚徒困境",
+    "cooperation failure game"
+  ],
+  [
+    "zero-sum game",
+    "n.",
+    "零和賽局",
+    "fixed total payoff"
+  ],
+  [
+    "non-zero-sum game",
+    "n.",
+    "非零和賽局",
+    "variable total payoff"
+  ],
+  [
+    "oligopoly",
+    "n.",
+    "寡占",
+    "few sellers market"
+  ],
+  [
+    "monopoly",
+    "n.",
+    "獨占",
+    "single seller market"
+  ],
+  [
+    "monopsony",
+    "n.",
+    "單買方獨占",
+    "single buyer market"
+  ],
+  [
+    "perfect competition",
+    "n.",
+    "完全競爭",
+    "ideal competitive market"
+  ],
+  [
+    "monopolistic competition",
+    "n.",
+    "壟斷性競爭",
+    "differentiated products"
+  ],
+  [
+    "barriers to entry",
+    "n.",
+    "進入障礙",
+    "entry restriction"
+  ],
+  [
+    "sunk cost",
+    "n.",
+    "沉沒成本",
+    "irrecoverable cost"
+  ],
+  [
+    "fixed cost",
+    "n.",
+    "固定成本",
+    "FC"
+  ],
+  [
+    "variable cost",
+    "n.",
+    "變動成本",
+    "VC"
+  ],
+  [
+    "average cost",
+    "n.",
+    "平均成本",
+    "AC"
+  ],
+  [
+    "total cost",
+    "n.",
+    "總成本",
+    "TC"
+  ],
+  [
+    "marginal product",
+    "n.",
+    "邊際產量",
+    "MP"
+  ],
+  [
+    "average product",
+    "n.",
+    "平均產量",
+    "AP"
+  ],
+  [
+    "isoquant",
+    "n.",
+    "等產量曲線",
+    "equal output curve"
+  ],
+  [
+    "isocost line",
+    "n.",
+    "等成本線",
+    "equal cost line"
+  ],
+  [
+    "cost minimization",
+    "n.",
+    "成本最小化",
+    "least-cost input mix"
+  ],
+  [
+    "profit maximization",
+    "n.",
+    "利潤最大化",
+    "max profit goal"
+  ],
+  [
+    "shutdown condition",
+    "n.",
+    "停產條件",
+    "operating vs exit"
+  ],
+  [
+    "break-even point",
+    "n.",
+    "損益兩平點",
+    "zero profit point"
+  ],
+  [
+    "return to scale",
+    "n.",
+    "規模報酬",
+    "output scaling effect"
+  ],
+  [
+    "increasing returns to scale",
+    "n.",
+    "規模報酬遞增",
+    "IRS"
+  ],
+  [
+    "constant returns to scale",
+    "n.",
+    "固定規模報酬",
+    "CRS"
+  ],
+  [
+    "decreasing returns to scale",
+    "n.",
+    "規模報酬遞減",
+    "DRS"
+  ],
+  [
+    "long run",
+    "n.",
+    "長期",
+    "all inputs variable"
+  ],
+  [
+    "short run",
+    "n.",
+    "短期",
+    "some inputs fixed"
+  ],
+  [
+    "market power",
+    "n.",
+    "市場力",
+    "price-setting ability"
+  ],
+  [
+    "price discrimination",
+    "n.",
+    "價格歧視",
+    "different prices same good"
+  ],
+  [
+    "first-degree price discrimination",
+    "n.",
+    "一級價格歧視",
+    "perfect discrimination"
+  ],
+  [
+    "second-degree price discrimination",
+    "n.",
+    "二級價格歧視",
+    "quantity-based pricing"
+  ],
+  [
+    "third-degree price discrimination",
+    "n.",
+    "三級價格歧視",
+    "group-based pricing"
+  ],
+  [
+    "bundling",
+    "n.",
+    "搭售",
+    "package pricing"
+  ],
+  [
+    "two-part tariff",
+    "n.",
+    "兩部式定價",
+    "fixed plus per-unit fee"
+  ],
+  [
+    "predatory pricing",
+    "n.",
+    "掠奪性定價",
+    "below-cost pricing"
+  ],
+  [
+    "limit pricing",
+    "n.",
+    "限制定價",
+    "entry deterrence pricing"
+  ],
+  [
+    "cartel",
+    "n.",
+    "卡特爾",
+    "price-fixing group"
+  ],
+  [
+    "collusion",
+    "n.",
+    "勾結",
+    "secret cooperation"
+  ],
+  [
+    "antitrust",
+    "n.",
+    "反托拉斯",
+    "competition law"
+  ],
+  [
+    "merger economics",
+    "n.",
+    "合併",
+    "firm combination"
+  ],
+  [
+    "horizontal merger",
+    "n.",
+    "水平合併",
+    "same-industry merger"
+  ],
+  [
+    "vertical merger",
+    "n.",
+    "垂直合併",
+    "supply chain merger"
+  ],
+  [
+    "conglomerate merger",
+    "n.",
+    "複合合併",
+    "unrelated merger"
+  ],
+  [
+    "Herfindahl-Hirschman Index",
+    "n.",
+    "赫芬達爾指數",
+    "HHI"
+  ],
+  [
+    "concentration ratio",
+    "n.",
+    "集中度",
+    "market share concentration"
+  ],
+  [
+    "natural monopoly",
+    "n.",
+    "自然獨占",
+    "scale-based monopoly"
+  ],
+  [
+    "regulation economics",
+    "n.",
+    "管制",
+    "government market control"
+  ],
+  [
+    "deregulation",
+    "n.",
+    "去管制",
+    "regulation removal"
+  ],
+  [
+    "privatization",
+    "n.",
+    "民營化",
+    "state to private"
+  ],
+  [
+    "nationalization",
+    "n.",
+    "國有化",
+    "private to state"
+  ],
+  [
+    "Gross Domestic Product",
+    "n.",
+    "國內生產毛額",
+    "GDP"
+  ],
+  [
+    "Gross National Product",
+    "n.",
+    "國民生產毛額",
+    "GNP"
+  ],
+  [
+    "nominal GDP",
+    "n.",
+    "名目 GDP",
+    "current-price GDP"
+  ],
+  [
+    "real GDP",
+    "n.",
+    "實質 GDP",
+    "inflation-adjusted GDP"
+  ],
+  [
+    "GDP deflator",
+    "n.",
+    "GDP 平減指數",
+    "price index for GDP"
+  ],
+  [
+    "Consumer Price Index",
+    "n.",
+    "消費者物價指數",
+    "CPI"
+  ],
+  [
+    "Producer Price Index",
+    "n.",
+    "生產者物價指數",
+    "PPI"
+  ],
+  [
+    "inflation",
+    "n.",
+    "通膨",
+    "general price rise"
+  ],
+  [
+    "deflation",
+    "n.",
+    "通縮",
+    "general price fall"
+  ],
+  [
+    "disinflation",
+    "n.",
+    "反通膨",
+    "slowing inflation"
+  ],
+  [
+    "hyperinflation",
+    "n.",
+    "惡性通膨",
+    "extreme inflation"
+  ],
+  [
+    "stagflation",
+    "n.",
+    "停滯性通膨",
+    "inflation plus stagnation"
+  ],
+  [
+    "Phillips curve",
+    "n.",
+    "菲利普斯曲線",
+    "inflation-unemployment tradeoff"
+  ],
+  [
+    "natural rate of unemployment",
+    "n.",
+    "自然失業率",
+    "NAIRU"
+  ],
+  [
+    "frictional unemployment",
+    "n.",
+    "摩擦性失業",
+    "job search unemployment"
+  ],
+  [
+    "structural unemployment",
+    "n.",
+    "結構性失業",
+    "skill mismatch unemployment"
+  ],
+  [
+    "cyclical unemployment",
+    "n.",
+    "循環性失業",
+    "recession unemployment"
+  ],
+  [
+    "Okun's law",
+    "n.",
+    "奧肯法則",
+    "GDP-unemployment relation"
+  ],
+  [
+    "business cycle",
+    "n.",
+    "景氣循環",
+    "economic fluctuation"
+  ],
+  [
+    "recession",
+    "n.",
+    "衰退",
+    "output decline"
+  ],
+  [
+    "depression economics",
+    "n.",
+    "蕭條",
+    "severe recession"
+  ],
+  [
+    "expansion",
+    "n.",
+    "擴張",
+    "growth phase"
+  ],
+  [
+    "peak economics",
+    "n.",
+    "高峰",
+    "cycle top"
+  ],
+  [
+    "trough economics",
+    "n.",
+    "谷底",
+    "cycle bottom"
+  ],
+  [
+    "leading indicator",
+    "n.",
+    "領先指標",
+    "future predictor"
+  ],
+  [
+    "lagging indicator",
+    "n.",
+    "落後指標",
+    "past reflector"
+  ],
+  [
+    "aggregate demand",
+    "n.",
+    "總需求",
+    "AD"
+  ],
+  [
+    "aggregate supply",
+    "n.",
+    "總供給",
+    "AS"
+  ],
+  [
+    "multiplier effect",
+    "n.",
+    "乘數效果",
+    "spending amplification"
+  ],
+  [
+    "fiscal multiplier",
+    "n.",
+    "財政乘數",
+    "government spending multiplier"
+  ],
+  [
+    "crowding out",
+    "n.",
+    "排擠效果",
+    "public displaces private"
+  ],
+  [
+    "crowding in",
+    "n.",
+    "帶入效果",
+    "public stimulates private"
+  ],
+  [
+    "automatic stabilizer",
+    "n.",
+    "自動穩定器",
+    "countercyclical mechanism"
+  ],
+  [
+    "discretionary fiscal policy",
+    "n.",
+    " discretionary 財政政策",
+    "active fiscal policy"
+  ],
+  [
+    "monetary policy rule",
+    "n.",
+    "貨幣政策規則",
+    "central bank rule"
+  ],
+  [
+    "Taylor rule",
+    "n.",
+    "泰勒法則",
+    "interest rate rule"
+  ],
+  [
+    "quantitative easing",
+    "n.",
+    "量化寬鬆",
+    "QE"
+  ],
+  [
+    "open market operation",
+    "n.",
+    "公開市場操作",
+    "OMO"
+  ],
+  [
+    "discount rate",
+    "n.",
+    "重貼現率",
+    "central bank lending rate"
+  ],
+  [
+    "reserve requirement",
+    "n.",
+    "存款準備率",
+    "required reserves"
+  ],
+  [
+    "money supply",
+    "n.",
+    "貨幣供給",
+    "M1 M2"
+  ],
+  [
+    "velocity of money",
+    "n.",
+    "貨幣流通速度",
+    "money turnover"
+  ],
+  [
+    "quantity theory of money",
+    "n.",
+    "貨幣數量論",
+    "MV=PY"
+  ],
+  [
+    "liquidity trap",
+    "n.",
+    "流動性陷阱",
+    "zero-rate trap"
+  ],
+  [
+    "interest rate",
+    "n.",
+    "利率",
+    "cost of borrowing"
+  ],
+  [
+    "real interest rate",
+    "n.",
+    "實質利率",
+    "inflation-adjusted rate"
+  ],
+  [
+    "nominal interest rate",
+    "n.",
+    "名目利率",
+    "stated rate"
+  ],
+  [
+    "yield curve",
+    "n.",
+    "殖利率曲線",
+    "term structure"
+  ],
+  [
+    "inverted yield curve",
+    "n.",
+    "倒掛殖利率曲線",
+    "recession signal"
+  ],
+  [
+    "bond market",
+    "n.",
+    "債券市場",
+    "debt securities market"
+  ],
+  [
+    "stock market",
+    "n.",
+    "股票市場",
+    "equity market"
+  ],
+  [
+    "capital market",
+    "n.",
+    "資本市場",
+    "long-term finance market"
+  ],
+  [
+    "money market",
+    "n.",
+    "貨幣市場",
+    "short-term finance market"
+  ],
+  [
+    "financial intermediary",
+    "n.",
+    "金融中介",
+    "bank-like institution"
+  ],
+  [
+    "commercial bank",
+    "n.",
+    "商業銀行",
+    "deposit-taking bank"
+  ],
+  [
+    "investment bank",
+    "n.",
+    "投資銀行",
+    "securities bank"
+  ],
+  [
+    "central bank",
+    "n.",
+    "中央銀行",
+    "monetary authority"
+  ],
+  [
+    "Federal Reserve",
+    "n.",
+    "聯邦準備系統",
+    "US central bank"
+  ],
+  [
+    "independence of central bank",
+    "n.",
+    "央行独立性",
+    "central bank autonomy"
+  ],
+  [
+    "inflation targeting",
+    "n.",
+    "通膨目標制",
+    "IT framework"
+  ],
+  [
+    "dual mandate",
+    "n.",
+    "雙重任務",
+    "price stability and employment"
+  ],
+  [
+    "exchange rate",
+    "n.",
+    "匯率",
+    "currency price"
+  ],
+  [
+    "floating exchange rate",
+    "n.",
+    "浮動匯率",
+    "market-determined rate"
+  ],
+  [
+    "fixed exchange rate",
+    "n.",
+    "固定匯率",
+    "pegged rate"
+  ],
+  [
+    "managed float",
+    "n.",
+    "管理式浮動",
+    "dirty float"
+  ],
+  [
+    "currency peg",
+    "n.",
+    "匯率盯住",
+    "fixed parity"
+  ],
+  [
+    "devaluation",
+    "n.",
+    "貶值",
+    "official currency cut"
+  ],
+  [
+    "appreciation currency",
+    "n.",
+    "升值",
+    "currency rise"
+  ],
+  [
+    "purchasing power parity",
+    "n.",
+    "購買力平價",
+    "PPP"
+  ],
+  [
+    "Big Mac Index",
+    "n.",
+    "大麥克指數",
+    "PPP informal index"
+  ],
+  [
+    "balance of payments",
+    "n.",
+    "國際收支",
+    "BOP"
+  ],
+  [
+    "current account",
+    "n.",
+    "經常帳",
+    "trade and income account"
+  ],
+  [
+    "capital account",
+    "n.",
+    "資本帳",
+    "investment flows account"
+  ],
+  [
+    "trade deficit",
+    "n.",
+    "貿易赤字",
+    "imports exceed exports"
+  ],
+  [
+    "trade surplus",
+    "n.",
+    "貿易順差",
+    "exports exceed imports"
+  ],
+  [
+    "terms of trade",
+    "n.",
+    "貿易條件",
+    "export-import price ratio"
+  ],
+  [
+    "J-curve effect",
+    "n.",
+    "J 曲線效果",
+    "devaluation trade effect"
+  ],
+  [
+    "Marshall-Lerner condition",
+    "n.",
+    "馬歇爾-勒納條件",
+    "devaluation improvement condition"
+  ],
+  [
+    "impossible trinity",
+    "n.",
+    "不可能三角",
+    "trilemma"
+  ],
+  [
+    "optimum currency area",
+    "n.",
+    "最適貨幣區",
+    "OCA theory"
+  ],
+  [
+    "currency union",
+    "n.",
+    "貨幣聯盟",
+    "shared currency area"
+  ],
+  [
+    "Eurozone",
+    "n.",
+    "歐元區",
+    "euro area"
+  ],
+  [
+    "foreign direct investment",
+    "n.",
+    "外商直接投資",
+    "FDI"
+  ],
+  [
+    "portfolio investment",
+    "n.",
+    "證券投資",
+    "financial asset investment"
+  ],
+  [
+    "capital flight",
+    "n.",
+    "資本外逃",
+    "rapid capital outflow"
+  ],
+  [
+    "sovereign debt",
+    "n.",
+    "主權債務",
+    "government debt"
+  ],
+  [
+    "debt sustainability",
+    "n.",
+    "債務永續性",
+    "manageable debt path"
+  ],
+  [
+    "default economics",
+    "n.",
+    "違約",
+    "debt default"
+  ],
+  [
+    "austerity economics",
+    "n.",
+    "緊縮政策",
+    "fiscal tightening"
+  ],
+  [
+    "structural adjustment",
+    "n.",
+    "結構調整",
+    "reform program"
+  ],
+  [
+    "Washington Consensus",
+    "n.",
+    "華盛頓共識",
+    "market reform package"
+  ],
+  [
+    "import substitution",
+    "n.",
+    "進口替代",
+    "domestic production policy"
+  ],
+  [
+    "export-oriented growth",
+    "n.",
+    "出口導向成長",
+    "export-led growth"
+  ],
+  [
+    "global value chain",
+    "n.",
+    "全球價值鏈",
+    "GVC"
+  ],
+  [
+    "offshoring",
+    "n.",
+    "離岸外包",
+    "production relocation"
+  ],
+  [
+    "reshoring",
+    "n.",
+    "回流",
+    "production return"
+  ],
+  [
+    "trade liberalization",
+    "n.",
+    "貿易自由化",
+    "barrier reduction"
+  ],
+  [
+    "protectionism economics",
+    "n.",
+    "保護主義",
+    "trade barriers"
+  ],
+  [
+    "most favored nation",
+    "n.",
+    "最惠國待遇",
+    "MFN"
+  ],
+  [
+    "World Trade Organization",
+    "n.",
+    "世界貿易組織",
+    "WTO"
+  ],
+  [
+    "regional trade agreement",
+    "n.",
+    "區域貿易協定",
+    "RTA"
+  ],
+  [
+    "customs union",
+    "n.",
+    "關稅同盟",
+    "common external tariff"
+  ],
+  [
+    "free trade area",
+    "n.",
+    "自由貿易區",
+    "FTA"
+  ],
+  [
+    "trade creation",
+    "n.",
+    "貿易創造",
+    "integration benefit"
+  ],
+  [
+    "trade diversion",
+    "n.",
+    "貿易移轉",
+    "integration cost"
+  ],
+  [
+    "infant industry argument",
+    "n.",
+    "幼稚產業論",
+    "temporary protection"
+  ],
+  [
+    "dumping economics",
+    "n.",
+    "傾銷",
+    "below-cost export"
+  ],
+  [
+    "anti-dumping duty",
+    "n.",
+    "反傾銷稅",
+    "dumping countermeasure"
+  ],
+  [
+    "safeguard measure",
+    "n.",
+    "保障措施",
+    "emergency import restriction"
+  ],
+  [
+    "non-tariff barrier",
+    "n.",
+    "非關稅障礙",
+    "NTB"
+  ],
+  [
+    "sanitary and phytosanitary measure",
+    "n.",
+    "檢疫措施",
+    "SPS measure"
+  ],
+  [
+    "technical barrier to trade",
+    "n.",
+    "技術性貿易障礙",
+    "TBT"
+  ],
+  [
+    "human capital",
+    "n.",
+    "人力資本",
+    "skills and education capital"
+  ],
+  [
+    "physical capital",
+    "n.",
+    "實體資本",
+    "machines and structures"
+  ],
+  [
+    "capital deepening",
+    "n.",
+    "資本深化",
+    "more capital per worker"
+  ],
+  [
+    "capital widening",
+    "n.",
+    "資本擴張",
+    "capital for new workers"
+  ],
+  [
+    "Solow growth model",
+    "n.",
+    "索羅成長模型",
+    "neoclassical growth"
+  ],
+  [
+    "total factor productivity",
+    "n.",
+    "全要素生產力",
+    "TFP"
+  ],
+  [
+    "endogenous growth theory",
+    "n.",
+    "內生成長理論",
+    "Romer model"
+  ],
+  [
+    "convergence hypothesis",
+    "n.",
+    "收斂假說",
+    "poor catch-up rich"
+  ],
+  [
+    "middle-income trap",
+    "n.",
+    "中等收入陷阱",
+    "growth plateau"
+  ],
+  [
+    "poverty trap",
+    "n.",
+    "貧窮陷阱",
+    "persistent poverty"
+  ],
+  [
+    "Lorenz curve",
+    "n.",
+    "洛倫茲曲線",
+    "inequality curve"
+  ],
+  [
+    "Gini coefficient",
+    "n.",
+    "基尼係數",
+    "inequality index"
+  ],
+  [
+    "income inequality",
+    "n.",
+    "所得不均",
+    "income disparity"
+  ],
+  [
+    "wealth inequality",
+    "n.",
+    "財富不均",
+    "wealth disparity"
+  ],
+  [
+    "Kuznets curve",
+    "n.",
+    "庫茲涅茨曲線",
+    "inequality-development curve"
+  ],
+  [
+    "poverty line",
+    "n.",
+    "貧窮線",
+    "poverty threshold"
+  ],
+  [
+    "absolute poverty",
+    "n.",
+    "絕對貧窮",
+    "subsistence poverty"
+  ],
+  [
+    "relative poverty",
+    "n.",
+    "相對貧窮",
+    "comparative poverty"
+  ],
+  [
+    "poverty reduction",
+    "n.",
+    "減貧",
+    "poverty alleviation"
+  ],
+  [
+    "inclusive growth",
+    "n.",
+    "包容性成長",
+    "broad-based growth"
+  ],
+  [
+    "sustainable development",
+    "n.",
+    "永續發展",
+    "SDG-aligned growth"
+  ],
+  [
+    "green growth",
+    "n.",
+    "綠色成長",
+    "environment-friendly growth"
+  ],
+  [
+    "circular economy",
+    "n.",
+    "循環經濟",
+    "reuse economy"
+  ],
+  [
+    "natural resource curse",
+    "n.",
+    "資源詛咒",
+    "resource paradox"
+  ],
+  [
+    "Dutch disease",
+    "n.",
+    "荷蘭病",
+    "resource boom distortion"
+  ],
+  [
+    "microfinance",
+    "n.",
+    "微型金融",
+    "small-scale lending"
+  ],
+  [
+    "remittance",
+    "n.",
+    "匯款",
+    "migrant money transfer"
+  ],
+  [
+    "foreign aid",
+    "n.",
+    "外援",
+    "development assistance"
+  ],
+  [
+    "conditionality",
+    "n.",
+    "條件性",
+    "aid conditions"
+  ],
+  [
+    "debt relief",
+    "n.",
+    "債務減免",
+    "debt forgiveness"
+  ],
+  [
+    "purchasing power",
+    "n.",
+    "購買力",
+    "real buying ability"
+  ],
+  [
+    "standard of living",
+    "n.",
+    "生活水準",
+    "living quality"
+  ],
+  [
+    "cost of living",
+    "n.",
+    "生活成本",
+    "expense level"
+  ],
+  [
+    "household consumption",
+    "n.",
+    "家戶消費",
+    "consumer spending"
+  ],
+  [
+    "savings rate",
+    "n.",
+    "儲蓄率",
+    "saving proportion"
+  ],
+  [
+    "investment rate",
+    "n.",
+    "投資率",
+    "investment proportion"
+  ],
+  [
+    "consumption function",
+    "n.",
+    "消費函數",
+    "income-consumption relation"
+  ],
+  [
+    "permanent income hypothesis",
+    "n.",
+    "永久所得假說",
+    "Friedman hypothesis"
+  ],
+  [
+    "life-cycle hypothesis",
+    "n.",
+    "生命週期假說",
+    "Modigliani hypothesis"
+  ],
+  [
+    "rational expectations",
+    "n.",
+    "理性預期",
+    "forward-looking expectations"
+  ],
+  [
+    "adaptive expectations",
+    "n.",
+    "適應性預期",
+    "backward-looking expectations"
+  ],
+  [
+    "time inconsistency",
+    "n.",
+    "時間不一致",
+    "policy credibility problem"
+  ],
+  [
+    "credibility economics",
+    "n.",
+    "可信度",
+    "policy trust"
+  ],
+  [
+    "reputation economics",
+    "n.",
+    "聲譽",
+    "repeated game reputation"
+  ],
+  [
+    "social welfare function",
+    "n.",
+    "社會福利函數",
+    "SWF"
+  ],
+  [
+    "utilitarian welfare",
+    "n.",
+    "功利福利",
+    "sum of utilities"
+  ],
+  [
+    "Rawlsian welfare",
+    "n.",
+    "羅爾斯福利",
+    "maximin criterion"
+  ],
+  [
+    "cost-benefit analysis",
+    "n.",
+    "成本效益分析",
+    "CBA"
+  ],
+  [
+    "discount rate economics",
+    "n.",
+    "折現率",
+    "present value rate"
+  ],
+  [
+    "present value",
+    "n.",
+    "現值",
+    "PV"
+  ],
+  [
+    "net present value",
+    "n.",
+    "淨現值",
+    "NPV"
+  ],
+  [
+    "internal rate of return",
+    "n.",
+    "內部報酬率",
+    "IRR"
+  ],
+  [
+    "risk premium",
+    "n.",
+    "風險溢酬",
+    "extra return for risk"
+  ],
+  [
+    "systematic risk",
+    "n.",
+    "系統性風險",
+    "market-wide risk"
+  ],
+  [
+    "idiosyncratic risk",
+    "n.",
+    "非系統性風險",
+    "firm-specific risk"
+  ],
+  [
+    "diversification finance",
+    "n.",
+    "分散投資",
+    "portfolio diversification"
+  ],
+  [
+    "efficient market hypothesis",
+    "n.",
+    "有效市場假說",
+    "EMH"
+  ],
+  [
+    "behavioral finance",
+    "n.",
+    "行為金融",
+    "psychology in finance"
+  ],
+  [
+    "asset bubble",
+    "n.",
+    "資產泡沫",
+    "speculative bubble"
+  ],
+  [
+    "financial crisis",
+    "n.",
+    "金融危機",
+    "systemic crisis"
+  ],
+  [
+    "bank run",
+    "n.",
+    "擠兌",
+    "mass withdrawal"
+  ],
+  [
+    "moral hazard finance",
+    "n.",
+    "金融道德風險",
+    "bailout incentive"
+  ],
+  [
+    "too big to fail",
+    "n.",
+    "大到不能倒",
+    "systemic importance"
+  ],
+  [
+    "systemic risk",
+    "n.",
+    "系統性風險",
+    "contagion risk"
+  ],
+  [
+    "macroprudential regulation",
+    "n.",
+    "總體審慎監管",
+    "system stability policy"
+  ],
+  [
+    "Basel Accords",
+    "n.",
+    "巴塞爾協定",
+    "bank capital standards"
+  ],
+  [
+    "shadow banking",
+    "n.",
+    "影子銀行",
+    "nonbank intermediation"
+  ],
+  [
+    "securitization",
+    "n.",
+    "證券化",
+    "asset-backed securities"
+  ],
+  [
+    "derivative",
+    "n.",
+    "衍生性商品",
+    "options futures swaps"
+  ],
+  [
+    "hedge finance",
+    "n.",
+    "避險",
+    "risk offset"
+  ],
+  [
+    "speculation finance",
+    "n.",
+    "投機",
+    "risk-taking trade"
+  ],
+  [
+    "arbitrage",
+    "n.",
+    "套利",
+    "risk-free profit"
+  ],
+  [
+    "market efficiency",
+    "n.",
+    "市場效率",
+    "price reflects info"
+  ],
+  [
+    "information efficiency",
+    "n.",
+    "資訊效率",
+    "rapid price adjustment"
+  ],
+  [
+    "allocative efficiency",
+    "n.",
+    "配置效率",
+    "resource optimal allocation"
+  ],
+  [
+    "productive efficiency",
+    "n.",
+    "生產效率",
+    "least-cost production"
+  ],
+  [
+    "dynamic efficiency",
+    "n.",
+    "動態效率",
+    "innovation efficiency"
+  ],
+  [
+    "X-inefficiency",
+    "n.",
+    "X 無效率",
+    "organizational slack"
+  ],
+  [
+    "rent economics",
+    "n.",
+    "經濟租",
+    "above-normal profit"
+  ],
+  [
+    "economic rent",
+    "n.",
+    "經濟租金",
+    "surplus payment"
+  ],
+  [
+    "quasi-rent",
+    "n.",
+    "準租",
+    "temporary rent"
+  ],
+  [
+    "monopoly rent",
+    "n.",
+    "垄断租",
+    "market power profit"
+  ],
+  [
+    "labor supply",
+    "n.",
+    "勞動供給",
+    "work hours offered"
+  ],
+  [
+    "labor demand",
+    "n.",
+    "勞動需求",
+    "workers hired"
+  ],
+  [
+    "wage rate",
+    "n.",
+    "工資率",
+    "pay per hour"
+  ],
+  [
+    "minimum wage",
+    "n.",
+    "最低工資",
+    "wage floor"
+  ],
+  [
+    "union economics",
+    "n.",
+    "工會",
+    "collective bargaining body"
+  ],
+  [
+    "collective bargaining",
+    "n.",
+    "團體協商",
+    "union-employer negotiation"
+  ],
+  [
+    "strike economics",
+    "n.",
+    "罷工",
+    "work stoppage"
+  ],
+  [
+    "monopsony labor",
+    "n.",
+    "勞動市場單買方",
+    "employer power"
+  ],
+  [
+    "efficiency wage",
+    "n.",
+    "效率工資",
+    "above-market wage"
+  ],
+  [
+    "search and matching",
+    "n.",
+    "搜尋配對",
+    "labor market matching"
+  ],
+  [
+    "human capital investment",
+    "n.",
+    "人力資本投資",
+    "education investment"
+  ],
+  [
+    "signaling education",
+    "n.",
+    "教育信號",
+    "degree as signal"
+  ],
+  [
+    "skill-biased technological change",
+    "n.",
+    "技能偏向技術變革",
+    "SBTC"
+  ],
+  [
+    "gender wage gap",
+    "n.",
+    "性別薪資差距",
+    "pay disparity"
+  ],
+  [
+    "discrimination economics",
+    "n.",
+    "經濟歧視",
+    "taste-based statistical discrimination"
+  ],
+  [
+    "migration economics",
+    "n.",
+    "移民經濟學",
+    "labor migration"
+  ],
+  [
+    "brain drain",
+    "n.",
+    "人才外流",
+    "skilled emigration"
+  ],
+  [
+    "remittance economics",
+    "n.",
+    "匯款經濟",
+    "diaspora transfers"
+  ],
+  [
+    "urbanization economics",
+    "n.",
+    "都市化經濟",
+    "city growth economics"
+  ],
+  [
+    "agglomeration economy",
+    "n.",
+    "聚集經濟",
+    "cluster benefit"
+  ],
+  [
+    "network externality",
+    "n.",
+    "網路外部性",
+    "network effect"
+  ],
+  [
+    "platform economy",
+    "n.",
+    "平台經濟",
+    "two-sided market"
+  ],
+  [
+    "sharing economy",
+    "n.",
+    "共享經濟",
+    "peer-to-peer economy"
+  ],
+  [
+    "gig economy",
+    "n.",
+    "零工經濟",
+    "freelance economy"
+  ],
+  [
+    "digital economy",
+    "n.",
+    "數位經濟",
+    "internet-based economy"
+  ],
+  [
+    "knowledge economy",
+    "n.",
+    "知識經濟",
+    "intangible-driven economy"
+  ],
+  [
+    "creative destruction",
+    "n.",
+    "創造性破壊",
+    "Schumpeter innovation"
+  ],
+  [
+    "innovation economics",
+    "n.",
+    "創新經濟學",
+    "R&D economics"
+  ],
+  [
+    "patent economics",
+    "n.",
+    "專利經濟學",
+    "IP incentive"
+  ],
+  [
+    "R&D spillover",
+    "n.",
+    "研發外溢",
+    "innovation externality"
+  ],
+  [
+    "industrial policy economics",
+    "n.",
+    "產業政策",
+    "sector targeting"
+  ],
+  [
+    "cluster policy",
+    "n.",
+    "群聚政策",
+    "regional cluster support"
+  ],
+  [
+    "competition policy",
+    "n.",
+    "競爭政策",
+    "antitrust policy"
+  ],
+  [
+    "market design economics",
+    "n.",
+    "市場設計",
+    "auction market design"
+  ],
+  [
+    "public choice theory",
+    "n.",
+    "公共選擇理論",
+    "political economy of government"
+  ],
+  [
+    "rent-seeking economics",
+    "n.",
+    "尋租行為",
+    "privilege pursuit"
+  ],
+  [
+    "regulatory economics",
+    "n.",
+    "監管經濟學",
+    "regulation analysis"
+  ],
+  [
+    "cost of regulation",
+    "n.",
+    "監管成本",
+    "compliance burden"
+  ],
+  [
+    "benefit-cost ratio",
+    "n.",
+    "效益成本比",
+    "BCR"
+  ],
+  [
+    "shadow price",
+    "n.",
+    "影子價格",
+    "social opportunity price"
+  ],
+  [
+    "social discount rate",
+    "n.",
+    "社會折現率",
+    "public project discount"
+  ],
+  [
+    "intergenerational equity",
+    "n.",
+    "代際公平",
+    "future generation fairness"
+  ],
+  [
+    "sustainability economics",
+    "n.",
+    "永續經濟學",
+    "long-run resource economics"
+  ],
+  [
+    "ecosystem services valuation",
+    "n.",
+    "生態系統服務評價",
+    "nature valuation"
+  ],
+  [
+    "tragedy of commons economics",
+    "n.",
+    "公地悲劇經濟學",
+    "commons overuse"
+  ],
+  [
+    "property rights theory",
+    "n.",
+    "財產權理論",
+    "Coase property rights"
+  ],
+  [
+    "institutional quality",
+    "n.",
+    "制度品質",
+    "governance quality index"
+  ],
+  [
+    "rule of law economics",
+    "n.",
+    "法治經濟",
+    "legal institution effect"
+  ],
+  [
+    "corruption economics",
+    "n.",
+    "腐敗經濟學",
+    "graft economic cost"
+  ],
+  [
+    "political economy",
+    "n.",
+    "政治經濟學",
+    "politics and economy"
+  ],
+  [
+    "voting model",
+    "n.",
+    "投票模型",
+    "electoral economics"
+  ],
+  [
+    "median voter theorem",
+    "n.",
+    "中位數投票者定理",
+    "centrist policy"
+  ],
+  [
+    "special interest group",
+    "n.",
+    "特殊利益團體",
+    "lobby group"
+  ],
+  [
+    "logrolling",
+    "n.",
+    "互投贊成",
+    "vote trading"
+  ],
+  [
+    "fiscal federalism",
+    "n.",
+    "財政聯邦主義",
+    "multi-level finance"
+  ],
+  [
+    "tax competition",
+    "n.",
+    "租稅競爭",
+    "jurisdiction tax rivalry"
+  ],
+  [
+    "transfer payment",
+    "n.",
+    "移轉性支付",
+    "redistribution payment"
+  ],
+  [
+    "social insurance",
+    "n.",
+    "社會保險",
+    "risk pooling program"
+  ],
+  [
+    "unemployment insurance",
+    "n.",
+    "失業保險",
+    "jobless benefit"
+  ],
+  [
+    "pension economics",
+    "n.",
+    "年金經濟學",
+    "retirement finance"
+  ],
+  [
+    "health insurance economics",
+    "n.",
+    "健康保險經濟",
+    "medical coverage economics"
+  ],
+  [
+    "moral hazard health",
+    "n.",
+    "健康道德風險",
+    "overuse with insurance"
+  ],
+  [
+    "adverse selection insurance",
+    "n.",
+    "保險逆向選擇",
+    "risk pool selection"
+  ],
+  [
+    "single-payer system",
+    "n.",
+    "單一支付者制度",
+    "government health payer"
+  ],
+  [
+    "multi-payer system",
+    "n.",
+    "多元支付者制度",
+    "multiple insurers"
+  ],
+  [
+    "fee-for-service",
+    "n.",
+    "按服務付費",
+    "FFS payment"
+  ],
+  [
+    "capitation",
+    "n.",
+    "論人頭計酬",
+    "per-patient payment"
+  ],
+  [
+    "diagnosis-related group",
+    "n.",
+    "診斷關聯群",
+    "DRG payment"
+  ],
+  [
+    "pharmaceutical economics",
+    "n.",
+    "藥品經濟學",
+    "drug market economics"
+  ],
+  [
+    "generic drug economics",
+    "n.",
+    "學名藥經濟",
+    "off-patent drug market"
+  ],
+  [
+    "intellectual property economics",
+    "n.",
+    "智慧財產經濟",
+    "IP economics"
+  ],
+  [
+    "data economics",
+    "n.",
+    "資料經濟學",
+    "data as asset"
+  ],
+  [
+    "privacy economics",
+    "n.",
+    "隱私經濟學",
+    "privacy tradeoff"
+  ],
+  [
+    "algorithmic pricing",
+    "n.",
+    "演法定價",
+    "AI-based pricing"
+  ],
+  [
+    "dynamic pricing",
+    "n.",
+    "動態定價",
+    "time-varying price"
+  ],
+  [
+    "price gouging",
+    "n.",
+    "哄抬價格",
+    "crisis price spike"
+  ],
+  [
+    "market manipulation",
+    "n.",
+    "市場操縱",
+    "artificial price influence"
+  ],
+  [
+    "insider trading",
+    "n.",
+    "內線交易",
+    "nonpublic info trading"
+  ],
+  [
+    "market microstructure",
+    "n.",
+    "市場微結構",
+    "trading mechanism study"
+  ],
+  [
+    "bid-ask spread",
+    "n.",
+    "買賣價差",
+    "market maker spread"
+  ],
+  [
+    "liquidity economics",
+    "n.",
+    "流動性",
+    "asset tradability"
+  ],
+  [
+    "market depth",
+    "n.",
+    "市場深度",
+    "order book depth"
+  ],
+  [
+    "volatility economics",
+    "n.",
+    "波動性",
+    "price variability"
+  ],
+  [
+    "Value at Risk",
+    "n.",
+    "風險值",
+    "VaR"
+  ],
+  [
+    "stress testing finance",
+    "n.",
+    "壓力測試",
+    "adverse scenario test"
+  ],
+  [
+    "sovereign wealth fund",
+    "n.",
+    "主權财富基金",
+    "SWF"
+  ],
+  [
+    "pension fund economics",
+    "n.",
+    "养老基金",
+    "retirement fund"
+  ],
+  [
+    "hedge fund economics",
+    "n.",
+    "避險基金",
+    "alternative investment fund"
+  ],
+  [
+    "private equity economics",
+    "n.",
+    "私募股權",
+    "PE investment"
+  ],
+  [
+    "venture capital economics",
+    "n.",
+    "創投",
+    "startup finance"
+  ],
+  [
+    "initial public offering",
+    "n.",
+    "首次公開發行",
+    "IPO"
+  ],
+  [
+    "market capitalization",
+    "n.",
+    "市值",
+    "market cap"
+  ],
+  [
+    "price-to-earnings ratio",
+    "n.",
+    "本益比",
+    "P/E ratio"
+  ],
+  [
+    " dividend policy",
+    "n.",
+    "股利政策",
+    "payout policy"
+  ],
+  [
+    "capital structure",
+    "n.",
+    "資本結構",
+    "debt-equity mix"
+  ],
+  [
+    "Modigliani-Miller theorem",
+    "n.",
+    "莫迪利亞尼-米勒定理",
+    "capital structure irrelevance"
+  ],
+  [
+    "weighted average cost of capital",
+    "n.",
+    "加權平均資金成本",
+    "WACC"
+  ],
+  [
+    "cost of equity",
+    "n.",
+    "股權成本",
+    "required return equity"
+  ],
+  [
+    "cost of debt",
+    "n.",
+    "負債成本",
+    "borrowing cost"
+  ],
+  [
+    "leverage finance",
+    "n.",
+    "槓桿",
+    "debt usage"
+  ],
+  [
+    "deleveraging",
+    "n.",
+    "去槓桿",
+    "debt reduction"
+  ],
+  [
+    "credit rationing",
+    "n.",
+    "信用配給",
+    "loan limit despite demand"
+  ],
+  [
+    "credit crunch",
+    "n.",
+    "信用緊縮",
+    "lending contraction"
+  ],
+  [
+    "financial accelerator",
+    "n.",
+    "金融加速器",
+    "Bernanke accelerator"
+  ],
+  [
+    "leverage cycle",
+    "n.",
+    "槓桿循環",
+    "Geanakoplos cycle"
+  ],
+  [
+    "debt overhang",
+    "n.",
+    "債務懸置",
+    "underinvestment from debt"
+  ],
+  [
+    "debt deflation",
+    "n.",
+    "債務通縮",
+    "Fisher debt deflation"
+  ],
+  [
+    "balance sheet recession",
+    "n.",
+    "資產負債表衰退",
+    "Koo recession"
+  ],
+  [
+    "liquidity preference",
+    "n.",
+    "流動性偏好",
+    "Keynes liquidity demand"
+  ],
+  [
+    "precautionary motive",
+    "n.",
+    "預防動機",
+    "saving for uncertainty"
+  ],
+  [
+    "speculative motive",
+    "n.",
+    "投機動機",
+    "money demand speculation"
+  ],
+  [
+    "transaction motive",
+    "n.",
+    "交易動機",
+    "money for transactions"
+  ],
+  [
+    "IS-LM model",
+    "n.",
+    "IS-LM 模型",
+    "Hicks-Hansen model"
+  ],
+  [
+    "AS-AD model",
+    "n.",
+    "總供給總需求模型",
+    "macro equilibrium model"
+  ],
+  [
+    "New Keynesian model",
+    "n.",
+    "新凱因斯模型",
+    "sticky price macro"
+  ],
+  [
+    "Real Business Cycle",
+    "n.",
+    "實質景氣循環",
+    "RBC theory"
+  ],
+  [
+    "DSGE model",
+    "n.",
+    "動態隨機一般均衡模型",
+    "macro modeling"
+  ],
+  [
+    "vector autoregression",
+    "n.",
+    "向量自我迴歸",
+    "VAR"
+  ],
+  [
+    "instrumental variable",
+    "n.",
+    "工具變數",
+    "IV estimation"
+  ],
+  [
+    "regression discontinuity",
+    "n.",
+    "迴歸不連續",
+    "RDD"
+  ],
+  [
+    "difference-in-differences",
+    "n.",
+    "差異中的差異",
+    "DiD"
+  ],
+  [
+    "randomized controlled trial economics",
+    "n.",
+    "隨機對照試驗",
+    "RCT in economics"
+  ],
+  [
+    "natural experiment",
+    "n.",
+    "自然實驗",
+    "quasi-experiment"
+  ],
+  [
+    "identification strategy",
+    "n.",
+    "識別策略",
+    "causal identification"
+  ],
+  [
+    "endogeneity",
+    "n.",
+    "內生性",
+    "simultaneity bias"
+  ],
+  [
+    "omitted variable bias",
+    "n.",
+    "遺漏變數偏誤",
+    "OVB"
+  ],
+  [
+    "selection bias",
+    "n.",
+    "選擇偏誤",
+    "non-random sample"
+  ],
+  [
+    "heteroskedasticity",
+    "n.",
+    "異質變異數",
+    "non-constant variance"
+  ],
+  [
+    "autocorrelation",
+    "n.",
+    "自我相關",
+    "serial correlation"
+  ],
+  [
+    "multicollinearity",
+    "n.",
+    "多重共線性",
+    "correlated regressors"
+  ],
+  [
+    "stationarity",
+    "n.",
+    "定態性",
+    "time series stability"
+  ],
+  [
+    "cointegration",
+    "n.",
+    "共整合",
+    "long-run relation"
+  ],
+  [
+    "unit root",
+    "n.",
+    "單根",
+    "non-stationary series"
+  ],
+  [
+    "Granger causality",
+    "n.",
+    "格蘭傑因果",
+    "predictive causality"
+  ],
+  [
+    "panel data",
+    "n.",
+    "面板資料",
+    "longitudinal data"
+  ],
+  [
+    "fixed effects model",
+    "n.",
+    "固定效果模型",
+    "entity fixed effects"
+  ],
+  [
+    "random effects model",
+    "n.",
+    "隨機效果模型",
+    "RE model"
+  ],
+  [
+    "time series analysis",
+    "n.",
+    "時間序列分析",
+    "temporal econometrics"
+  ],
+  [
+    "forecast accuracy",
+    "n.",
+    "預測準確度",
+    "prediction error"
+  ],
+  [
+    "nowcasting",
+    "n.",
+    "即時預測",
+    "real-time forecast"
+  ],
+  [
+    "leading economic index",
+    "n.",
+    "領先經濟指標",
+    "LEI"
+  ],
+  [
+    "Purchasing Managers Index",
+    "n.",
+    "採購經理人指數",
+    "PMI"
+  ],
+  [
+    "consumer confidence index",
+    "n.",
+    "消費者信心指數",
+    "CCI"
+  ],
+  [
+    "business confidence",
+    "n.",
+    "企業信心",
+    "business sentiment"
+  ],
+  [
+    "sentiment economics",
+    "n.",
+    "情緒經濟學",
+    "sentiment-driven behavior"
+  ],
+  [
+    "loss aversion",
+    "n.",
+    "損失厭惡",
+    "Kahneman loss aversion"
+  ],
+  [
+    "prospect theory",
+    "n.",
+    "展望理論",
+    "Kahneman-Tversky"
+  ],
+  [
+    "anchoring bias",
+    "n.",
+    "錨定偏誤",
+    "reference point bias"
+  ],
+  [
+    "availability heuristic",
+    "n.",
+    "可得性捷思",
+    "ease-of-recall bias"
+  ],
+  [
+    "framing effect economics",
+    "n.",
+    "框架效果",
+    "presentation bias"
+  ],
+  [
+    "nudge economics",
+    "n.",
+    "助推",
+    "choice architecture"
+  ],
+  [
+    "default option economics",
+    "n.",
+    "預設選項",
+    "opt-in vs opt-out"
+  ],
+  [
+    "hyperbolic discounting",
+    "n.",
+    "雙曲貼現",
+    "present bias"
+  ],
+  [
+    "time preference",
+    "n.",
+    "時間偏好",
+    "patience rate"
+  ],
+  [
+    "intertemporal choice",
+    "n.",
+    "跨期選擇",
+    "consumption over time"
+  ],
+  [
+    "social preferences",
+    "n.",
+    "社會偏好",
+    "fairness altruism"
+  ],
+  [
+    "trust economics",
+    "n.",
+    "信任經濟",
+    "trust in transactions"
+  ],
+  [
+    "social norms economics",
+    "n.",
+    "社會規範",
+    "norm compliance"
+  ],
+  [
+    "reciprocity economics",
+    "n.",
+    "互惠",
+    "gift exchange behavior"
+  ],
+  [
+    "fairness economics",
+    "n.",
+    "公平偏好",
+    "inequity aversion"
+  ],
+  [
+    "bounded rationality",
+    "n.",
+    "有限理性",
+    "Simon bounded rationality"
+  ],
+  [
+    " satisficing",
+    "n.",
+    "滿意解",
+    "good-enough choice"
+  ],
+  [
+    "heuristic decision",
+    "n.",
+    "捷思決策",
+    "rule-of-thumb decision"
+  ],
+  [
+    "experimental economics",
+    "n.",
+    "實驗經濟學",
+    "lab field experiments"
+  ],
+  [
+    "field experiment economics",
+    "n.",
+    "田野實驗",
+    "real-world experiment"
+  ],
+  [
+    "lab experiment economics",
+    "n.",
+    "實驗室實驗",
+    "controlled experiment"
+  ],
+  [
+    "stated preference",
+    "n.",
+    "陳述性偏好",
+    "survey-based valuation"
+  ],
+  [
+    "revealed preference",
+    "n.",
+    "顯示性偏好",
+    "choice-revealed preference"
+  ],
+  [
+    "contingent valuation",
+    "n.",
+    "條件評估法",
+    "hypothetical WTP"
+  ],
+  [
+    "willingness to pay",
+    "n.",
+    "支付意願",
+    "WTP"
+  ],
+  [
+    "willingness to accept",
+    "n.",
+    "接受意願",
+    "WTA"
+  ]
+];

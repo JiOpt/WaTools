@@ -4,7 +4,7 @@
 (function (global) {
   'use strict';
 
-  var TOEIC_CSS_VER = '0.6.40';
+  var TOEIC_CSS_VER = '0.6.43';
 
   function toeicCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -438,13 +438,46 @@
     ]);
   }
 
+  function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-wa-src="' + src + '"]');
+      if (existing) {
+        if (existing.dataset.ready === '1') resolve();
+        else existing.addEventListener('load', () => resolve(), { once: true });
+        return;
+      }
+      const s = document.createElement('script');
+      s.src = src;
+      s.defer = true;
+      s.dataset.waSrc = src;
+      s.onload = () => {
+        s.dataset.ready = '1';
+        resolve();
+      };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function toeicVocabL2Href() {
+    if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
+      return global.WA_TOOL_URLS.absolutePageHref('assets/js/toeic-vocab-l2-data.js') + '?v=0.6.42';
+    }
+    var path = String(location.pathname || '').replace(/\\/g, '/');
+    if (/\/(en\/)?toeic(\/|$)/i.test(path)) {
+      return (path.indexOf('/en/') >= 0 ? '../../' : '../') + 'assets/js/toeic-vocab-l2-data.js?v=0.6.42';
+    }
+    return 'assets/js/toeic-vocab-l2-data.js?v=0.6.42';
+  }
+
   function mountVocab(app) {
-    const data = global.WA_TOEIC_VOCAB;
-    if (!data || !data.scenarios) {
+    const l1 = global.WA_TOEIC_VOCAB;
+    if (!l1 || !l1.scenarios) {
       shell(app, '單字記憶工具', '資料載入中或失敗，請重新整理。', [p('缺少 WA_TOEIC_VOCAB。')]);
       return;
     }
 
+    const PAGE_SIZE = 24;
     const FAM_KEY = 'wa-toeic-vocab-fam';
     const FAM_ORDER = ['', 'fuzzy', 'mid', 'known'];
     const FAM_LABEL = { '': '＋', fuzzy: '模糊', mid: '中等', known: '很熟' };
@@ -462,7 +495,7 @@
       try {
         localStorage.setItem(FAM_KEY, JSON.stringify(map));
       } catch (e) {
-        /* ignore quota */
+        /* ignore */
       }
     }
     function wordKey(scenarioId, word) {
@@ -474,139 +507,333 @@
     function cycleFam(map, scenarioId, word) {
       const k = wordKey(scenarioId, word);
       const cur = map[k] || '';
-      const idx = FAM_ORDER.indexOf(cur);
-      const next = FAM_ORDER[(idx + 1) % FAM_ORDER.length];
+      const next = FAM_ORDER[(FAM_ORDER.indexOf(cur) + 1) % FAM_ORDER.length];
       if (!next) delete map[k];
       else map[k] = next;
       saveFam(map);
       return next;
     }
 
-    function speakWord(text) {
-      speakEn(text);
-    }
+    const DEFAULT_SCENARIO = { 1: 'office', 2: 'ma' };
 
+    let level = 1;
+    let activeScenarioId = DEFAULT_SCENARIO[1];
+    let page = 1;
     let famMap = loadFam();
-    const search = el('input', {
-      type: 'search',
-      className: 'toeic-input',
-      placeholder: '搜尋英文／中文／同義詞…',
-      'aria-label': '搜尋單字',
+    let l2Ready = Boolean(global.WA_TOEIC_VOCAB_L2 && global.WA_TOEIC_VOCAB_L2.scenarios);
+    let l2Loading = false;
+
+    const levelBar = el('div', { className: 'toeic-level-bar', role: 'tablist', 'aria-label': '單字等級' });
+    const btnL1 = el('button', {
+      type: 'button',
+      className: 'toeic-level-btn is-on',
+      role: 'tab',
+      'aria-selected': 'true',
+      textContent: 'Level 1｜基礎高頻（550–750）',
     });
-    const scenarioSel = el('select', { className: 'toeic-select', 'aria-label': '商業情境' }, [
-      el('option', { value: 'all', textContent: '全部 15 情境' }),
-      ...data.scenarios.map((s) => el('option', { value: s.id, textContent: s.name + ' · ' + s.nameEn })),
-    ]);
+    const btnL2 = el('button', {
+      type: 'button',
+      className: 'toeic-level-btn',
+      role: 'tab',
+      'aria-selected': 'false',
+      textContent: 'Level 2｜金色證書特攻（860+）',
+    });
+    levelBar.appendChild(btnL1);
+    levelBar.appendChild(btnL2);
+
+    const levelHint = el('p', {
+      className: 'toeic-muted',
+      textContent: l1.label || 'Level 1｜基礎高頻字（550–750）',
+    });
+    const scenarioBar = el('div', { className: 'toeic-scenario-bar', 'aria-label': '商業情境' });
     const famSel = el('select', { className: 'toeic-select', 'aria-label': '熟悉度' }, [
       el('option', { value: 'all', textContent: '熟悉度：全部' }),
       el('option', { value: 'known', textContent: '熟悉度：很熟' }),
       el('option', { value: 'mid', textContent: '熟悉度：中等' }),
       el('option', { value: 'fuzzy', textContent: '熟悉度：模糊' }),
     ]);
+    const search = el('input', {
+      type: 'search',
+      className: 'toeic-input',
+      placeholder: '搜尋目前情境內的英文／中文／同義詞…',
+      'aria-label': '搜尋單字',
+    });
     const grid = el('div', { className: 'toeic-vocab-grid' });
     const meta = el('p', { className: 'toeic-muted' });
+    const pager = el('div', { className: 'toeic-pager' });
+    const empty = el('p', {
+      className: 'toeic-tip',
+      textContent: '請先點選上方一個商業情境，才會載入該分類單字（分頁顯示，較不卡頓）。',
+    });
+
+    function currentPack() {
+      if (level === 2) return global.WA_TOEIC_VOCAB_L2 || null;
+      return l1;
+    }
+
+    function scenariosOf() {
+      const pack = currentPack();
+      return (pack && pack.scenarios) || [];
+    }
+
+    function activeScenario() {
+      return scenariosOf().find((s) => s.id === activeScenarioId) || null;
+    }
+
+    function rebuildScenarioBar() {
+      scenarioBar.innerHTML = '';
+      const list = scenariosOf();
+      list.forEach((s) => {
+        const count = (s.words && s.words.length) || 0;
+        const btn = el('button', {
+          type: 'button',
+          className: 'toeic-scenario-chip' + (s.id === activeScenarioId ? ' is-on' : ''),
+          textContent: s.name + '（' + count + '）',
+          title: s.nameEn || s.name,
+          onclick: () => {
+            activeScenarioId = s.id;
+            page = 1;
+            rebuildScenarioBar();
+            paint();
+          },
+        });
+        scenarioBar.appendChild(btn);
+      });
+    }
+
+    function filteredWords(scenario) {
+      if (!scenario || !scenario.words) return [];
+      const q = (search.value || '').trim().toLowerCase();
+      const famFilter = famSel.value;
+      famMap = loadFam();
+      return scenario.words.filter((w) => {
+        const fam = getFam(famMap, scenario.id, w.w);
+        if (famFilter !== 'all' && fam !== famFilter) return false;
+        if (!q) return true;
+        const blob = [w.w, w.zh, w.syn, w.ex, w.exZh].join(' ').toLowerCase();
+        return blob.indexOf(q) >= 0;
+      });
+    }
+
+    function paintPager(total) {
+      pager.innerHTML = '';
+      const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (page > pages) page = pages;
+      const info = el('span', {
+        className: 'toeic-muted',
+        textContent: '第 ' + page + '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
+      });
+      const prev = el('button', {
+        type: 'button',
+        className: 'toeic-btn toeic-btn-ghost',
+        textContent: '上一頁',
+        disabled: page <= 1 ? '' : null,
+        onclick: () => {
+          if (page > 1) {
+            page -= 1;
+            paint();
+          }
+        },
+      });
+      const next = el('button', {
+        type: 'button',
+        className: 'toeic-btn toeic-btn-ghost',
+        textContent: '下一頁',
+        disabled: page >= pages ? '' : null,
+        onclick: () => {
+          if (page < pages) {
+            page += 1;
+            paint();
+          }
+        },
+      });
+      if (page <= 1) prev.setAttribute('disabled', 'disabled');
+      else prev.removeAttribute('disabled');
+      if (page >= pages) next.setAttribute('disabled', 'disabled');
+      else next.removeAttribute('disabled');
+      pager.appendChild(prev);
+      pager.appendChild(info);
+      pager.appendChild(next);
+    }
 
     function paint() {
       famMap = loadFam();
-      const q = (search.value || '').trim().toLowerCase();
-      const sid = scenarioSel.value;
-      const famFilter = famSel.value;
       grid.innerHTML = '';
-      let n = 0;
+      empty.hidden = true;
+      pager.hidden = false;
+
+      if (level === 2 && l2Loading) {
+        meta.textContent = '正在載入 Level 2 金色證書字庫…';
+        empty.hidden = false;
+        empty.textContent = '載入進階字庫中，請稍候。';
+        pager.hidden = true;
+        return;
+      }
+
+      const scenario = activeScenario();
+      if (!scenario) {
+        meta.textContent =
+          (currentPack() && currentPack().label ? currentPack().label + '｜' : '') +
+          '共 ' +
+          scenariosOf().length +
+          ' 個情境 — 請點選分類後再顯示單字';
+        empty.hidden = false;
+        empty.textContent = '請先點選上方一個商業情境，才會載入該分類單字（分頁顯示，較不卡頓）。';
+        pager.hidden = true;
+        return;
+      }
+
+      const words = filteredWords(scenario);
+      const total = words.length;
+      const start = (page - 1) * PAGE_SIZE;
+      const slice = words.slice(start, start + PAGE_SIZE);
       let marked = { known: 0, mid: 0, fuzzy: 0 };
       Object.keys(famMap).forEach((k) => {
-        const v = famMap[k];
-        if (marked[v] != null) marked[v] += 1;
+        if (marked[famMap[k]] != null) marked[famMap[k]] += 1;
       });
 
-      data.scenarios.forEach((s) => {
-        if (sid !== 'all' && s.id !== sid) return;
-        (s.words || []).forEach((w) => {
-          const level = getFam(famMap, s.id, w.w);
-          if (famFilter !== 'all' && level !== famFilter) return;
-          const blob = [w.w, w.zh, w.syn, w.ex, w.exZh].join(' ').toLowerCase();
-          if (q && blob.indexOf(q) < 0) return;
-          n += 1;
-
-          const famBtn = el('button', {
-            type: 'button',
-            className: 'toeic-fam-btn' + (level ? ' is-' + level : ''),
-            textContent: FAM_LABEL[level] || '＋',
-            title: '點擊切換熟悉度（＋→模糊→中等→很熟）',
-            'aria-label': '熟悉度 ' + (FAM_FILTER_LABEL[level] || '未標記'),
-          });
-          famBtn.addEventListener('click', () => {
-            cycleFam(famMap, s.id, w.w);
+      slice.forEach((w) => {
+        const famLevel = getFam(famMap, scenario.id, w.w);
+        const famBtn = el('button', {
+          type: 'button',
+          className: 'toeic-fam-btn' + (famLevel ? ' is-' + famLevel : ''),
+          textContent: FAM_LABEL[famLevel] || '＋',
+          title: '點擊切換熟悉度（＋→模糊→中等→很熟）',
+          'aria-label': '熟悉度 ' + (FAM_FILTER_LABEL[famLevel] || '未標記'),
+          onclick: () => {
+            cycleFam(famMap, scenario.id, w.w);
             paint();
-          });
-
-          const speakBtn = el('button', {
-            type: 'button',
-            className: 'toeic-speak-btn',
-            title: '朗讀單字',
-            'aria-label': '朗讀 ' + w.w,
-            textContent: '🔊',
-          });
-          speakBtn.addEventListener('click', () => speakWord(w.w));
-
-          const speakExBtn = el('button', {
-            type: 'button',
-            className: 'toeic-speak-btn toeic-speak-btn-sm',
-            title: '朗讀例句',
-            'aria-label': '朗讀例句',
-            textContent: '朗讀例句',
-          });
-          speakExBtn.addEventListener('click', () => speakWord(w.ex));
-
-          grid.appendChild(
-            el('article', { className: 'toeic-vocab-card' + (level ? ' fam-' + level : '') }, [
-              el('div', { className: 'toeic-vocab-head' }, [
-                el('div', { className: 'toeic-vocab-word' }, [
-                  el('strong', { textContent: w.w }),
+          },
+        });
+        const speakBtn = el('button', {
+          type: 'button',
+          className: 'toeic-speak-btn',
+          title: '朗讀單字',
+          'aria-label': '朗讀 ' + w.w,
+          textContent: '🔊',
+          onclick: () => speakEn(w.w),
+        });
+        const speakExBtn = el('button', {
+          type: 'button',
+          className: 'toeic-speak-btn toeic-speak-btn-sm',
+          title: '朗讀例句',
+          textContent: '朗讀例句',
+          onclick: () => speakEn(w.ex),
+        });
+        grid.appendChild(
+          el('article', { className: 'toeic-vocab-card' + (famLevel ? ' fam-' + famLevel : '') }, [
+            el('div', { className: 'toeic-vocab-head' }, [
+              el('div', { className: 'toeic-vocab-word' }, [
+                el('strong', { textContent: w.w }),
+                el('div', { className: 'toeic-vocab-meta' }, [
                   speakBtn,
                   el('span', { className: 'toeic-chip', textContent: w.pos || '' }),
+                  el('span', {
+                    className: 'toeic-chip toeic-chip-level',
+                    textContent: 'L' + (w.level || level),
+                  }),
                 ]),
-                famBtn,
               ]),
-              el('p', { className: 'toeic-p', textContent: w.zh }),
-              el('p', { className: 'toeic-syn', textContent: '同義／替換：' + (w.syn || '—') }),
-              el('p', { className: 'toeic-ex', textContent: w.ex }),
-              el('div', { className: 'toeic-vocab-actions' }, [speakExBtn]),
-              el('p', { className: 'toeic-exzh', textContent: w.exZh }),
-              el('p', { className: 'toeic-muted', textContent: s.name }),
-            ])
-          );
-        });
+              famBtn,
+            ]),
+            el('p', { className: 'toeic-p', textContent: w.zh }),
+            el('p', { className: 'toeic-syn', textContent: '同義／替換：' + (w.syn || '—') }),
+            el('p', { className: 'toeic-ex', textContent: w.ex }),
+            el('div', { className: 'toeic-vocab-actions' }, [speakExBtn]),
+            el('p', { className: 'toeic-exzh', textContent: w.exZh }),
+            el('p', { className: 'toeic-muted', textContent: scenario.name + ' · ' + (scenario.tag || '') }),
+          ])
+        );
       });
+
       meta.textContent =
-        '顯示 ' +
-        n +
-        ' 筆｜本機標記：模糊 ' +
+        scenario.name +
+        '｜符合 ' +
+        total +
+        ' 字｜本頁 ' +
+        slice.length +
+        '｜標記 模糊 ' +
         marked.fuzzy +
-        '、中等 ' +
+        '／中等 ' +
         marked.mid +
-        '、很熟 ' +
-        marked.known +
-        '（僅此瀏覽器）';
+        '／很熟 ' +
+        marked.known;
+      paintPager(total);
+      if (!total) {
+        empty.hidden = false;
+        empty.textContent = '此情境目前沒有符合篩選的單字。';
+      }
     }
 
-    search.addEventListener('input', paint);
-    scenarioSel.addEventListener('change', paint);
-    famSel.addEventListener('change', paint);
+    function pickDefaultScenario() {
+      const preferred = DEFAULT_SCENARIO[level];
+      const list = scenariosOf();
+      if (preferred && list.some((s) => s.id === preferred)) return preferred;
+      return (list[0] && list[0].id) || '';
+    }
+
+    async function setLevel(next) {
+      level = next;
+      page = 1;
+      btnL1.classList.toggle('is-on', level === 1);
+      btnL2.classList.toggle('is-on', level === 2);
+      btnL1.setAttribute('aria-selected', level === 1 ? 'true' : 'false');
+      btnL2.setAttribute('aria-selected', level === 2 ? 'true' : 'false');
+
+      if (level === 2 && !l2Ready) {
+        activeScenarioId = DEFAULT_SCENARIO[2];
+        l2Loading = true;
+        levelHint.textContent = '載入 Level 2 金色證書字庫…';
+        rebuildScenarioBar();
+        paint();
+        try {
+          await loadScriptOnce(toeicVocabL2Href());
+          l2Ready = Boolean(global.WA_TOEIC_VOCAB_L2 && global.WA_TOEIC_VOCAB_L2.scenarios);
+        } catch (e) {
+          levelHint.textContent = 'Level 2 字庫載入失敗，請重新整理再試。';
+          l2Loading = false;
+          paint();
+          return;
+        }
+        l2Loading = false;
+      }
+
+      activeScenarioId = pickDefaultScenario();
+      const pack = currentPack();
+      levelHint.textContent = (pack && pack.label) || (level === 1 ? 'Level 1' : 'Level 2');
+      rebuildScenarioBar();
+      paint();
+    }
+
+    btnL1.addEventListener('click', () => setLevel(1));
+    btnL2.addEventListener('click', () => setLevel(2));
+    famSel.addEventListener('change', () => {
+      page = 1;
+      paint();
+    });
+    search.addEventListener('input', () => {
+      page = 1;
+      paint();
+    });
+
+    rebuildScenarioBar();
     paint();
 
-    shell(app, '單字記憶工具', '15 大商業情境×60 高頻字。可朗讀、用＋標記熟悉度（本機保存），再依熟悉度複習。', [
-      card('怎麼記', [
+    shell(app, '單字記憶工具', 'Level 1 基礎高頻打底；Level 2 金色證書專業情境（含銀行／旅宿）。點情境分頁顯示，約 7000 字。', [
+      card('等級與情境', [levelBar, levelHint, scenarioBar]),
+      card('怎麼用', [
         ul([
-          '點 🔊 聽發音；點右側 ＋ 循環：模糊 → 中等 → 很熟（再點清除）。',
-          '熟悉度篩選可只看「模糊」單字繼續複習。',
-          '先背「情境＋同義詞」再背例句；聽力常把單字換成同義說法。',
+          '先選 Level，再點一個商業情境（不會一次渲染全部單字）。',
+          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍。',
+          '🔊 朗讀；＋ 標記模糊／中等／很熟（本機保存）。',
         ]),
       ]),
       card('字庫', [
-        el('div', { className: 'toeic-toolbar' }, [scenarioSel, famSel, search]),
+        el('div', { className: 'toeic-toolbar' }, [famSel, search]),
         meta,
+        empty,
         grid,
+        pager,
       ]),
     ]);
   }

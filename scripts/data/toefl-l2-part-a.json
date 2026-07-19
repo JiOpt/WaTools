@@ -1,0 +1,9908 @@
+{
+  "awl": [
+    [
+      "analyze",
+      "v.",
+      "分析",
+      "examine"
+    ],
+    [
+      "approach",
+      "n.",
+      "方法；途徑",
+      "method"
+    ],
+    [
+      "assessment",
+      "n.",
+      "評估",
+      "evaluation"
+    ],
+    [
+      "assume",
+      "v.",
+      "假設",
+      "presume"
+    ],
+    [
+      "authority",
+      "n.",
+      "權威；主管機關",
+      "jurisdiction"
+    ],
+    [
+      "available",
+      "adj.",
+      "可取得的",
+      "accessible"
+    ],
+    [
+      "benefit",
+      "n.",
+      "利益",
+      "advantage"
+    ],
+    [
+      "concept",
+      "n.",
+      "概念",
+      "notion"
+    ],
+    [
+      "consistent",
+      "adj.",
+      "一致的",
+      "coherent"
+    ],
+    [
+      "constitutional",
+      "adj.",
+      "憲法的",
+      "charter-based"
+    ],
+    [
+      "context",
+      "n.",
+      "脈絡",
+      "setting"
+    ],
+    [
+      "contract",
+      "n.",
+      "合約",
+      "agreement"
+    ],
+    [
+      "create",
+      "v.",
+      "建立",
+      "establish"
+    ],
+    [
+      "data",
+      "n.",
+      "資料",
+      "information"
+    ],
+    [
+      "define",
+      "v.",
+      "定義",
+      "specify"
+    ],
+    [
+      "derive",
+      "v.",
+      "衍生",
+      "obtain"
+    ],
+    [
+      "distribute",
+      "v.",
+      "分配",
+      "spread"
+    ],
+    [
+      "economy",
+      "n.",
+      "經濟",
+      "economic system"
+    ],
+    [
+      "environment",
+      "n.",
+      "環境",
+      "surroundings"
+    ],
+    [
+      "establish",
+      "v.",
+      "確立",
+      "found"
+    ],
+    [
+      "estimate",
+      "v.",
+      "估計",
+      "approximate"
+    ],
+    [
+      "evident",
+      "adj.",
+      "明顯的",
+      "apparent"
+    ],
+    [
+      "factor",
+      "n.",
+      "因素",
+      "element"
+    ],
+    [
+      "finance",
+      "n.",
+      "金融",
+      "funding"
+    ],
+    [
+      "formula",
+      "n.",
+      "公式",
+      "equation"
+    ],
+    [
+      "function",
+      "n.",
+      "功能",
+      "role"
+    ],
+    [
+      "identify",
+      "v.",
+      "識別",
+      "recognize"
+    ],
+    [
+      "income",
+      "n.",
+      "收入",
+      "revenue"
+    ],
+    [
+      "indicate",
+      "v.",
+      "指出",
+      "show"
+    ],
+    [
+      "individual",
+      "n.",
+      "個人",
+      "person"
+    ],
+    [
+      "interpret",
+      "v.",
+      "詮釋",
+      "explain"
+    ],
+    [
+      "involve",
+      "v.",
+      "涉及",
+      "include"
+    ],
+    [
+      "issue",
+      "n.",
+      "議題",
+      "matter"
+    ],
+    [
+      "labour",
+      "n.",
+      "勞動",
+      "workforce"
+    ],
+    [
+      "legal",
+      "adj.",
+      "法律的",
+      "lawful"
+    ],
+    [
+      "legislate",
+      "v.",
+      "立法",
+      "enact laws"
+    ],
+    [
+      "major",
+      "adj.",
+      "主要的",
+      "primary"
+    ],
+    [
+      "method",
+      "n.",
+      "方法",
+      "technique"
+    ],
+    [
+      "occur",
+      "v.",
+      "發生",
+      "happen"
+    ],
+    [
+      "percent",
+      "n.",
+      "百分比",
+      "percentage"
+    ],
+    [
+      "period",
+      "n.",
+      "期間",
+      "interval"
+    ],
+    [
+      "policy",
+      "n.",
+      "政策",
+      "regulation"
+    ],
+    [
+      "principle",
+      "n.",
+      "原則",
+      "tenet"
+    ],
+    [
+      "proceed",
+      "v.",
+      "進行",
+      "advance"
+    ],
+    [
+      "process",
+      "n.",
+      "過程",
+      "procedure"
+    ],
+    [
+      "require",
+      "v.",
+      "需要",
+      "demand"
+    ],
+    [
+      "research",
+      "n.",
+      "研究",
+      "investigation"
+    ],
+    [
+      "respond",
+      "v.",
+      "回應",
+      "reply"
+    ],
+    [
+      "role",
+      "n.",
+      "角色",
+      "function"
+    ],
+    [
+      "section",
+      "n.",
+      "部分",
+      "segment"
+    ],
+    [
+      "sector",
+      "n.",
+      "部門",
+      "industry"
+    ],
+    [
+      "significant",
+      "adj.",
+      "顯著的",
+      "notable"
+    ],
+    [
+      "similar",
+      "adj.",
+      "相似的",
+      "comparable"
+    ],
+    [
+      "source",
+      "n.",
+      "來源",
+      "origin"
+    ],
+    [
+      "specific",
+      "adj.",
+      "特定的",
+      "particular"
+    ],
+    [
+      "structure",
+      "n.",
+      "結構",
+      "framework"
+    ],
+    [
+      "theory",
+      "n.",
+      "理論",
+      "hypothesis"
+    ],
+    [
+      "vary",
+      "v.",
+      "變化",
+      "differ"
+    ],
+    [
+      "variable",
+      "n.",
+      "變項",
+      "factor"
+    ],
+    [
+      "consist",
+      "v.",
+      "由…組成",
+      "comprise"
+    ],
+    [
+      "constitute",
+      "v.",
+      "構成",
+      "form"
+    ],
+    [
+      "abstract",
+      "adj.",
+      "抽象的",
+      "conceptual"
+    ],
+    [
+      "academic",
+      "adj.",
+      "學術的",
+      "scholarly"
+    ],
+    [
+      "accept",
+      "v.",
+      "接受",
+      "acknowledge"
+    ],
+    [
+      "access",
+      "n.",
+      "取得；途徑",
+      "entry"
+    ],
+    [
+      "accompany",
+      "v.",
+      "伴隨",
+      "go with"
+    ],
+    [
+      "accurate",
+      "adj.",
+      "準確的",
+      "precise"
+    ],
+    [
+      "achieve",
+      "v.",
+      "達成",
+      "accomplish"
+    ],
+    [
+      "acquire",
+      "v.",
+      "取得",
+      "obtain"
+    ],
+    [
+      "adapt",
+      "v.",
+      "適應",
+      "adjust"
+    ],
+    [
+      "adequate",
+      "adj.",
+      "足夠的",
+      "sufficient"
+    ],
+    [
+      "adjacent",
+      "adj.",
+      "鄰近的",
+      "neighboring"
+    ],
+    [
+      "adjust",
+      "v.",
+      "調整",
+      "modify"
+    ],
+    [
+      "administration",
+      "n.",
+      "管理",
+      "governance"
+    ],
+    [
+      "advocate",
+      "v.",
+      "倡議",
+      "support"
+    ],
+    [
+      "affect",
+      "v.",
+      "影響",
+      "influence"
+    ],
+    [
+      "aggregate",
+      "n.",
+      "總計",
+      "total"
+    ],
+    [
+      "aid",
+      "n.",
+      "援助",
+      "assistance"
+    ],
+    [
+      "alternative",
+      "n.",
+      "替代方案",
+      "option"
+    ],
+    [
+      "ambiguous",
+      "adj.",
+      "模稜兩可的",
+      "unclear"
+    ],
+    [
+      "amend",
+      "v.",
+      "修正",
+      "revise"
+    ],
+    [
+      "analogy",
+      "n.",
+      "類比",
+      "comparison"
+    ],
+    [
+      "annual",
+      "adj.",
+      "年度的",
+      "yearly"
+    ],
+    [
+      "anticipate",
+      "v.",
+      "預期",
+      "expect"
+    ],
+    [
+      "apparent",
+      "adj.",
+      "明顯的",
+      "obvious"
+    ],
+    [
+      "append",
+      "v.",
+      "附加",
+      "attach"
+    ],
+    [
+      "appreciate",
+      "v.",
+      "理解",
+      "value"
+    ],
+    [
+      "appropriate",
+      "adj.",
+      "適當的",
+      "suitable"
+    ],
+    [
+      "approximate",
+      "adj.",
+      "近似的",
+      "rough"
+    ],
+    [
+      "arbitrary",
+      "adj.",
+      "任意的",
+      "random"
+    ],
+    [
+      "aspect",
+      "n.",
+      "面向",
+      "facet"
+    ],
+    [
+      "assemble",
+      "v.",
+      "組裝",
+      "gather"
+    ],
+    [
+      "assert",
+      "v.",
+      "斷言",
+      "claim"
+    ],
+    [
+      "assess",
+      "v.",
+      "評估",
+      "evaluate"
+    ],
+    [
+      "assign",
+      "v.",
+      "分配",
+      "allocate"
+    ],
+    [
+      "assist",
+      "v.",
+      "協助",
+      "help"
+    ],
+    [
+      "assure",
+      "v.",
+      "保證",
+      "guarantee"
+    ],
+    [
+      "attach",
+      "v.",
+      "附加",
+      "connect"
+    ],
+    [
+      "attain",
+      "v.",
+      "達到",
+      "reach"
+    ],
+    [
+      "attribute",
+      "n.",
+      "屬性",
+      "characteristic"
+    ],
+    [
+      "automate",
+      "v.",
+      "自動化",
+      "mechanize"
+    ],
+    [
+      "behalf",
+      "n.",
+      "代表",
+      "representation"
+    ],
+    [
+      "bias",
+      "n.",
+      "偏見",
+      "prejudice"
+    ],
+    [
+      "bond",
+      "n.",
+      "連結",
+      "link"
+    ],
+    [
+      "brief",
+      "adj.",
+      "簡短的",
+      "concise"
+    ],
+    [
+      "bulk",
+      "n.",
+      "大量",
+      "mass"
+    ],
+    [
+      "capable",
+      "adj.",
+      "有能力的",
+      "able"
+    ],
+    [
+      "capacity",
+      "n.",
+      "容量",
+      "capability"
+    ],
+    [
+      "category",
+      "n.",
+      "類別",
+      "class"
+    ],
+    [
+      "cease",
+      "v.",
+      "停止",
+      "stop"
+    ],
+    [
+      "challenge",
+      "n.",
+      "挑戰",
+      "difficulty"
+    ],
+    [
+      "channel",
+      "n.",
+      "管道",
+      "pathway"
+    ],
+    [
+      "chapter",
+      "n.",
+      "章節",
+      "section"
+    ],
+    [
+      "chart",
+      "n.",
+      "圖表",
+      "graph"
+    ],
+    [
+      "circumstance",
+      "n.",
+      "情況",
+      "condition"
+    ],
+    [
+      "cite",
+      "v.",
+      "引用",
+      "reference"
+    ],
+    [
+      "clarify",
+      "v.",
+      "澄清",
+      "explain"
+    ],
+    [
+      "classic",
+      "adj.",
+      "經典的",
+      "traditional"
+    ],
+    [
+      "clause",
+      "n.",
+      "條款",
+      "provision"
+    ],
+    [
+      "code",
+      "n.",
+      "法規",
+      "regulation"
+    ],
+    [
+      "coherent",
+      "adj.",
+      "連貫的",
+      "logical"
+    ],
+    [
+      "coincide",
+      "v.",
+      "一致",
+      "correspond"
+    ],
+    [
+      "collapse",
+      "v.",
+      "崩潰",
+      "fail"
+    ],
+    [
+      "colleague",
+      "n.",
+      "同事",
+      "coworker"
+    ],
+    [
+      "commence",
+      "v.",
+      "開始",
+      "begin"
+    ],
+    [
+      "comment",
+      "n.",
+      "評論",
+      "remark"
+    ],
+    [
+      "commission",
+      "n.",
+      "委員會",
+      "committee"
+    ],
+    [
+      "commit",
+      "v.",
+      "承諾",
+      "pledge"
+    ],
+    [
+      "commodity",
+      "n.",
+      "商品",
+      "goods"
+    ],
+    [
+      "communicate",
+      "v.",
+      "溝通",
+      "convey"
+    ],
+    [
+      "community",
+      "n.",
+      "社群",
+      "group"
+    ],
+    [
+      "compatible",
+      "adj.",
+      "相容的",
+      "consistent"
+    ],
+    [
+      "compensate",
+      "v.",
+      "補償",
+      "reimburse"
+    ],
+    [
+      "compile",
+      "v.",
+      "編纂",
+      "assemble"
+    ],
+    [
+      "complement",
+      "v.",
+      "補充",
+      "supplement"
+    ],
+    [
+      "complex",
+      "adj.",
+      "複雜的",
+      "intricate"
+    ],
+    [
+      "component",
+      "n.",
+      "組成部分",
+      "element"
+    ],
+    [
+      "compound",
+      "n.",
+      "化合物",
+      "mixture"
+    ],
+    [
+      "comprehensive",
+      "adj.",
+      "全面的",
+      "thorough"
+    ],
+    [
+      "comprise",
+      "v.",
+      "包含",
+      "consist of"
+    ],
+    [
+      "compute",
+      "v.",
+      "計算",
+      "calculate"
+    ],
+    [
+      "conceive",
+      "v.",
+      "構想",
+      "imagine"
+    ],
+    [
+      "concentrate",
+      "v.",
+      "集中",
+      "focus"
+    ],
+    [
+      "conceptual",
+      "adj.",
+      "概念上的",
+      "theoretical"
+    ],
+    [
+      "conclude",
+      "v.",
+      "推論",
+      "infer"
+    ],
+    [
+      "concurrent",
+      "adj.",
+      "同時的",
+      "simultaneous"
+    ],
+    [
+      "conduct",
+      "v.",
+      "進行",
+      "carry out"
+    ],
+    [
+      "confer",
+      "v.",
+      "授予",
+      "grant"
+    ],
+    [
+      "confine",
+      "v.",
+      "限制",
+      "restrict"
+    ],
+    [
+      "confirm",
+      "v.",
+      "確認",
+      "verify"
+    ],
+    [
+      "conflict",
+      "n.",
+      "衝突",
+      "clash"
+    ],
+    [
+      "conform",
+      "v.",
+      "符合",
+      "comply"
+    ],
+    [
+      "consent",
+      "n.",
+      "同意",
+      "agreement"
+    ],
+    [
+      "consequent",
+      "adj.",
+      "隨之而來的",
+      "resulting"
+    ],
+    [
+      "considerable",
+      "adj.",
+      "相當大的",
+      "substantial"
+    ],
+    [
+      "constant",
+      "adj.",
+      "恆定的",
+      "steady"
+    ],
+    [
+      "constraint",
+      "n.",
+      "限制",
+      "restriction"
+    ],
+    [
+      "construct",
+      "v.",
+      "建構",
+      "build"
+    ],
+    [
+      "consult",
+      "v.",
+      "諮詢",
+      "advise"
+    ],
+    [
+      "consume",
+      "v.",
+      "消耗",
+      "use up"
+    ],
+    [
+      "contact",
+      "n.",
+      "聯繫",
+      "communication"
+    ],
+    [
+      "contemporary",
+      "adj.",
+      "當代的",
+      "modern"
+    ],
+    [
+      "contextual",
+      "adj.",
+      "脈絡的",
+      "situational"
+    ],
+    [
+      "contradict",
+      "v.",
+      "矛盾",
+      "oppose"
+    ],
+    [
+      "contrary",
+      "adj.",
+      "相反的",
+      "opposite"
+    ],
+    [
+      "contrast",
+      "n.",
+      "對比",
+      "difference"
+    ],
+    [
+      "contribute",
+      "v.",
+      "貢獻",
+      "donate"
+    ],
+    [
+      "controversy",
+      "n.",
+      "爭議",
+      "debate"
+    ],
+    [
+      "convene",
+      "v.",
+      "召集",
+      "assemble"
+    ],
+    [
+      "convert",
+      "v.",
+      "轉換",
+      "transform"
+    ],
+    [
+      "convince",
+      "v.",
+      "說服",
+      "persuade"
+    ],
+    [
+      "cooperate",
+      "v.",
+      "合作",
+      "collaborate"
+    ],
+    [
+      "coordinate",
+      "v.",
+      "協調",
+      "organize"
+    ],
+    [
+      "core",
+      "n.",
+      "核心",
+      "center"
+    ],
+    [
+      "corporate",
+      "adj.",
+      "企業的",
+      "organizational"
+    ],
+    [
+      "correspond",
+      "v.",
+      "對應",
+      "match"
+    ],
+    [
+      "couple",
+      "n.",
+      "一對",
+      "pair"
+    ],
+    [
+      "criterion",
+      "n.",
+      "標準",
+      "standard"
+    ],
+    [
+      "crucial",
+      "adj.",
+      "關鍵的",
+      "critical"
+    ],
+    [
+      "culture",
+      "n.",
+      "文化",
+      "civilization"
+    ],
+    [
+      "currency",
+      "n.",
+      "貨幣",
+      "money"
+    ],
+    [
+      "cycle",
+      "n.",
+      "循環",
+      "rotation"
+    ],
+    [
+      "debate",
+      "n.",
+      "辯論",
+      "discussion"
+    ],
+    [
+      "decade",
+      "n.",
+      "十年",
+      "ten years"
+    ],
+    [
+      "decline",
+      "v.",
+      "下降",
+      "decrease"
+    ],
+    [
+      "deduce",
+      "v.",
+      "推論",
+      "infer"
+    ],
+    [
+      "definite",
+      "adj.",
+      "明確的",
+      "clear"
+    ],
+    [
+      "demonstrate",
+      "v.",
+      "證明",
+      "show"
+    ],
+    [
+      "denote",
+      "v.",
+      "表示",
+      "indicate"
+    ],
+    [
+      "deny",
+      "v.",
+      "否認",
+      "refute"
+    ],
+    [
+      "depict",
+      "v.",
+      "描繪",
+      "portray"
+    ],
+    [
+      "depress",
+      "v.",
+      "壓抑",
+      "lower"
+    ],
+    [
+      "design",
+      "n.",
+      "設計",
+      "plan"
+    ],
+    [
+      "despite",
+      "prep.",
+      "儘管",
+      "in spite of"
+    ],
+    [
+      "detect",
+      "v.",
+      "偵測",
+      "discover"
+    ],
+    [
+      "deviate",
+      "v.",
+      "偏離",
+      "diverge"
+    ],
+    [
+      "device",
+      "n.",
+      "裝置",
+      "apparatus"
+    ],
+    [
+      "devote",
+      "v.",
+      "致力",
+      "dedicate"
+    ],
+    [
+      "differentiate",
+      "v.",
+      "區分",
+      "distinguish"
+    ],
+    [
+      "dimension",
+      "n.",
+      "維度",
+      "aspect"
+    ],
+    [
+      "diminish",
+      "v.",
+      "減少",
+      "reduce"
+    ],
+    [
+      "discrete",
+      "adj.",
+      "離散的",
+      "separate"
+    ],
+    [
+      "discriminate",
+      "v.",
+      "區別",
+      "distinguish"
+    ],
+    [
+      "displace",
+      "v.",
+      "取代",
+      "replace"
+    ],
+    [
+      "display",
+      "v.",
+      "展示",
+      "exhibit"
+    ],
+    [
+      "dispose",
+      "v.",
+      "處置",
+      "discard"
+    ],
+    [
+      "distinct",
+      "adj.",
+      "獨特的",
+      "unique"
+    ],
+    [
+      "distort",
+      "v.",
+      "扭曲",
+      "warp"
+    ],
+    [
+      "diverse",
+      "adj.",
+      "多樣的",
+      "varied"
+    ],
+    [
+      "document",
+      "n.",
+      "文件",
+      "record"
+    ],
+    [
+      "domain",
+      "n.",
+      "領域",
+      "field"
+    ],
+    [
+      "domestic",
+      "adj.",
+      "國內的",
+      "internal"
+    ],
+    [
+      "dominate",
+      "v.",
+      "主導",
+      "control"
+    ],
+    [
+      "draft",
+      "n.",
+      "草稿",
+      "outline"
+    ],
+    [
+      "dramatic",
+      "adj.",
+      "劇烈的",
+      "striking"
+    ],
+    [
+      "duration",
+      "n.",
+      "持續時間",
+      "period"
+    ],
+    [
+      "dynamic",
+      "adj.",
+      "動態的",
+      "changing"
+    ],
+    [
+      "economical",
+      "adj.",
+      "節約的",
+      "efficient"
+    ],
+    [
+      "edit",
+      "v.",
+      "編輯",
+      "revise"
+    ],
+    [
+      "element",
+      "n.",
+      "元素",
+      "component"
+    ],
+    [
+      "eliminate",
+      "v.",
+      "消除",
+      "remove"
+    ],
+    [
+      "emerge",
+      "v.",
+      "浮現",
+      "appear"
+    ],
+    [
+      "emphasis",
+      "n.",
+      "強調",
+      "stress"
+    ],
+    [
+      "empirical",
+      "adj.",
+      "實證的",
+      "observational"
+    ],
+    [
+      "enable",
+      "v.",
+      "使能夠",
+      "allow"
+    ],
+    [
+      "encounter",
+      "v.",
+      "遭遇",
+      "meet"
+    ],
+    [
+      "energy",
+      "n.",
+      "能量",
+      "power"
+    ],
+    [
+      "enforce",
+      "v.",
+      "執行",
+      "implement"
+    ],
+    [
+      "enhance",
+      "v.",
+      "強化",
+      "improve"
+    ],
+    [
+      "enormous",
+      "adj.",
+      "巨大的",
+      "immense"
+    ],
+    [
+      "ensure",
+      "v.",
+      "確保",
+      "guarantee"
+    ],
+    [
+      "entity",
+      "n.",
+      "實體",
+      "unit"
+    ],
+    [
+      "environmental",
+      "adj.",
+      "環境的",
+      "ecological"
+    ],
+    [
+      "equate",
+      "v.",
+      "等同",
+      "equalize"
+    ],
+    [
+      "equivalent",
+      "adj.",
+      "等價的",
+      "comparable"
+    ],
+    [
+      "error",
+      "n.",
+      "誤差",
+      "mistake"
+    ],
+    [
+      "estate",
+      "n.",
+      "財產",
+      "property"
+    ],
+    [
+      "ethic",
+      "n.",
+      "倫理",
+      "morality"
+    ],
+    [
+      "evaluate",
+      "v.",
+      "評價",
+      "assess"
+    ],
+    [
+      "eventually",
+      "adv.",
+      "最終",
+      "finally"
+    ],
+    [
+      "evolve",
+      "v.",
+      "演進",
+      "develop"
+    ],
+    [
+      "exceed",
+      "v.",
+      "超過",
+      "surpass"
+    ],
+    [
+      "exclude",
+      "v.",
+      "排除",
+      "omit"
+    ],
+    [
+      "exhibit",
+      "v.",
+      "展示",
+      "display"
+    ],
+    [
+      "expand",
+      "v.",
+      "擴展",
+      "enlarge"
+    ],
+    [
+      "expert",
+      "n.",
+      "專家",
+      "specialist"
+    ],
+    [
+      "explicit",
+      "adj.",
+      "明確的",
+      "clear"
+    ],
+    [
+      "exploit",
+      "v.",
+      "利用",
+      "utilize"
+    ],
+    [
+      "expose",
+      "v.",
+      "暴露",
+      "reveal"
+    ],
+    [
+      "external",
+      "adj.",
+      "外部的",
+      "outside"
+    ],
+    [
+      "extract",
+      "v.",
+      "提取",
+      "remove"
+    ],
+    [
+      "facilitate",
+      "v.",
+      "促進",
+      "enable"
+    ],
+    [
+      "feature",
+      "n.",
+      "特徵",
+      "attribute"
+    ],
+    [
+      "federal",
+      "adj.",
+      "聯邦的",
+      "national"
+    ],
+    [
+      "fee",
+      "n.",
+      "費用",
+      "charge"
+    ],
+    [
+      "file",
+      "n.",
+      "檔案",
+      "document"
+    ],
+    [
+      "final",
+      "adj.",
+      "最終的",
+      "ultimate"
+    ],
+    [
+      "finite",
+      "adj.",
+      "有限的",
+      "limited"
+    ],
+    [
+      "flexible",
+      "adj.",
+      "彈性的",
+      "adaptable"
+    ],
+    [
+      "fluctuate",
+      "v.",
+      "波動",
+      "vary"
+    ],
+    [
+      "focus",
+      "v.",
+      "聚焦",
+      "concentrate"
+    ],
+    [
+      "format",
+      "n.",
+      "格式",
+      "layout"
+    ],
+    [
+      "forthcoming",
+      "adj.",
+      "即將到來的",
+      "upcoming"
+    ],
+    [
+      "foundation",
+      "n.",
+      "基礎",
+      "basis"
+    ],
+    [
+      "framework",
+      "n.",
+      "框架",
+      "structure"
+    ],
+    [
+      "fund",
+      "n.",
+      "資金",
+      "capital"
+    ],
+    [
+      "fundamental",
+      "adj.",
+      "基本的",
+      "basic"
+    ],
+    [
+      "furthermore",
+      "adv.",
+      "此外",
+      "moreover"
+    ],
+    [
+      "gender",
+      "n.",
+      "性別",
+      "sex"
+    ],
+    [
+      "generate",
+      "v.",
+      "產生",
+      "produce"
+    ],
+    [
+      "generation",
+      "n.",
+      "世代",
+      "cohort"
+    ],
+    [
+      "globe",
+      "n.",
+      "全球",
+      "world"
+    ],
+    [
+      "goal",
+      "n.",
+      "目標",
+      "objective"
+    ],
+    [
+      "grade",
+      "n.",
+      "等級",
+      "level"
+    ],
+    [
+      "grant",
+      "v.",
+      "授予",
+      "award"
+    ],
+    [
+      "guarantee",
+      "v.",
+      "保證",
+      "ensure"
+    ],
+    [
+      "guideline",
+      "n.",
+      "指引",
+      "directive"
+    ],
+    [
+      "hence",
+      "adv.",
+      "因此",
+      "thus"
+    ],
+    [
+      "hierarchy",
+      "n.",
+      "階層",
+      "ranking"
+    ],
+    [
+      "highlight",
+      "v.",
+      "強調",
+      "emphasize"
+    ],
+    [
+      "hypothesis",
+      "n.",
+      "假說",
+      "theory"
+    ],
+    [
+      "identical",
+      "adj.",
+      "相同的",
+      "same"
+    ],
+    [
+      "ideology",
+      "n.",
+      "意識形態",
+      "doctrine"
+    ],
+    [
+      "ignorance",
+      "n.",
+      "無知",
+      "unawareness"
+    ],
+    [
+      "illustrate",
+      "v.",
+      "說明",
+      "demonstrate"
+    ],
+    [
+      "image",
+      "n.",
+      "影像",
+      "picture"
+    ],
+    [
+      "immigrate",
+      "v.",
+      "移民",
+      "relocate"
+    ],
+    [
+      "impact",
+      "n.",
+      "影響",
+      "effect"
+    ],
+    [
+      "implement",
+      "v.",
+      "實施",
+      "execute"
+    ],
+    [
+      "implicate",
+      "v.",
+      "牽連",
+      "involve"
+    ],
+    [
+      "implicit",
+      "adj.",
+      "隱含的",
+      "implied"
+    ],
+    [
+      "imply",
+      "v.",
+      "暗示",
+      "suggest"
+    ],
+    [
+      "impose",
+      "v.",
+      "強加",
+      "enforce"
+    ],
+    [
+      "incentive",
+      "n.",
+      "誘因",
+      "motivation"
+    ],
+    [
+      "incidence",
+      "n.",
+      "發生率",
+      "frequency"
+    ],
+    [
+      "incline",
+      "v.",
+      "傾向",
+      "tend"
+    ],
+    [
+      "incorporate",
+      "v.",
+      "納入",
+      "integrate"
+    ],
+    [
+      "index",
+      "n.",
+      "指數",
+      "indicator"
+    ],
+    [
+      "induce",
+      "v.",
+      "誘導",
+      "cause"
+    ],
+    [
+      "inevitable",
+      "adj.",
+      "不可避免的",
+      "unavoidable"
+    ],
+    [
+      "infer",
+      "v.",
+      "推論",
+      "deduce"
+    ],
+    [
+      "infrastructure",
+      "n.",
+      "基礎建設",
+      "framework"
+    ],
+    [
+      "inherent",
+      "adj.",
+      "固有的",
+      "intrinsic"
+    ],
+    [
+      "inhibit",
+      "v.",
+      "抑制",
+      "restrain"
+    ],
+    [
+      "initial",
+      "adj.",
+      "初始的",
+      "primary"
+    ],
+    [
+      "initiate",
+      "v.",
+      "發起",
+      "begin"
+    ],
+    [
+      "innovate",
+      "v.",
+      "創新",
+      "invent"
+    ],
+    [
+      "input",
+      "n.",
+      "輸入",
+      "contribution"
+    ],
+    [
+      "insert",
+      "v.",
+      "插入",
+      "embed"
+    ],
+    [
+      "insight",
+      "n.",
+      "洞見",
+      "understanding"
+    ],
+    [
+      "inspect",
+      "v.",
+      "檢查",
+      "examine"
+    ],
+    [
+      "instance",
+      "n.",
+      "實例",
+      "example"
+    ],
+    [
+      "institute",
+      "n.",
+      "機構",
+      "organization"
+    ],
+    [
+      "instruct",
+      "v.",
+      "指導",
+      "teach"
+    ],
+    [
+      "integral",
+      "adj.",
+      "不可或缺的",
+      "essential"
+    ],
+    [
+      "integrate",
+      "v.",
+      "整合",
+      "combine"
+    ],
+    [
+      "integrity",
+      "n.",
+      "誠信",
+      "honesty"
+    ],
+    [
+      "intelligence",
+      "n.",
+      "智力",
+      "intellect"
+    ],
+    [
+      "intense",
+      "adj.",
+      "強烈的",
+      "extreme"
+    ],
+    [
+      "interact",
+      "v.",
+      "互動",
+      "engage"
+    ],
+    [
+      "intermediate",
+      "adj.",
+      "中間的",
+      "mid-level"
+    ],
+    [
+      "internal",
+      "adj.",
+      "內部的",
+      "inner"
+    ],
+    [
+      "interval",
+      "n.",
+      "間隔",
+      "gap"
+    ],
+    [
+      "intervene",
+      "v.",
+      "介入",
+      "intercede"
+    ],
+    [
+      "intrinsic",
+      "adj.",
+      "內在的",
+      "inherent"
+    ],
+    [
+      "invest",
+      "v.",
+      "投資",
+      "fund"
+    ],
+    [
+      "investigate",
+      "v.",
+      "調查",
+      "examine"
+    ],
+    [
+      "invoke",
+      "v.",
+      "援引",
+      "call upon"
+    ],
+    [
+      "isolate",
+      "v.",
+      "隔離",
+      "separate"
+    ],
+    [
+      "item",
+      "n.",
+      "項目",
+      "element"
+    ],
+    [
+      "journal",
+      "n.",
+      "期刊",
+      "periodical"
+    ],
+    [
+      "justify",
+      "v.",
+      "正當化",
+      "validate"
+    ],
+    [
+      "label",
+      "n.",
+      "標籤",
+      "tag"
+    ],
+    [
+      "layer",
+      "n.",
+      "層",
+      "stratum"
+    ],
+    [
+      "lecture",
+      "n.",
+      "講座",
+      "talk"
+    ],
+    [
+      "levy",
+      "v.",
+      "徵收",
+      "impose"
+    ],
+    [
+      "liberal",
+      "adj.",
+      "自由的",
+      "progressive"
+    ],
+    [
+      "license",
+      "n.",
+      "執照",
+      "permit"
+    ],
+    [
+      "likewise",
+      "adv.",
+      "同樣地",
+      "similarly"
+    ],
+    [
+      "link",
+      "v.",
+      "連結",
+      "connect"
+    ],
+    [
+      "locate",
+      "v.",
+      "定位",
+      "situate"
+    ],
+    [
+      "logic",
+      "n.",
+      "邏輯",
+      "reasoning"
+    ],
+    [
+      "maintain",
+      "v.",
+      "維持",
+      "preserve"
+    ],
+    [
+      "manifest",
+      "v.",
+      "顯現",
+      "show"
+    ],
+    [
+      "manual",
+      "adj.",
+      "手動的",
+      "hand-operated"
+    ],
+    [
+      "margin",
+      "n.",
+      "邊際",
+      "edge"
+    ],
+    [
+      "mature",
+      "adj.",
+      "成熟的",
+      "developed"
+    ],
+    [
+      "maximize",
+      "v.",
+      "最大化",
+      "optimize"
+    ],
+    [
+      "mechanism",
+      "n.",
+      "機制",
+      "process"
+    ],
+    [
+      "mediate",
+      "v.",
+      "調解",
+      "arbitrate"
+    ],
+    [
+      "medium",
+      "n.",
+      "媒介",
+      "channel"
+    ],
+    [
+      "mental",
+      "adj.",
+      "心理的",
+      "cognitive"
+    ],
+    [
+      "methodology",
+      "n.",
+      "方法論",
+      "approach"
+    ],
+    [
+      "migrate",
+      "v.",
+      "遷移",
+      "relocate"
+    ],
+    [
+      "minimal",
+      "adj.",
+      "最小的",
+      "least"
+    ],
+    [
+      "minimize",
+      "v.",
+      "最小化",
+      "reduce"
+    ],
+    [
+      "minimum",
+      "n.",
+      "最小值",
+      "floor"
+    ],
+    [
+      "ministry",
+      "n.",
+      "部會",
+      "department"
+    ],
+    [
+      "minor",
+      "adj.",
+      "次要的",
+      "secondary"
+    ],
+    [
+      "mode",
+      "n.",
+      "模式",
+      "manner"
+    ],
+    [
+      "modify",
+      "v.",
+      "修改",
+      "alter"
+    ],
+    [
+      "monitor",
+      "v.",
+      "監控",
+      "track"
+    ],
+    [
+      "motive",
+      "n.",
+      "動機",
+      "incentive"
+    ],
+    [
+      "mutual",
+      "adj.",
+      "相互的",
+      "reciprocal"
+    ],
+    [
+      "negate",
+      "v.",
+      "否定",
+      "deny"
+    ],
+    [
+      "network",
+      "n.",
+      "網絡",
+      "system"
+    ],
+    [
+      "neutral",
+      "adj.",
+      "中立的",
+      "impartial"
+    ],
+    [
+      "nevertheless",
+      "adv.",
+      "儘管如此",
+      "nonetheless"
+    ],
+    [
+      "nonetheless",
+      "adv.",
+      "儘管如此",
+      "however"
+    ],
+    [
+      "norm",
+      "n.",
+      "規範",
+      "standard"
+    ],
+    [
+      "normal",
+      "adj.",
+      "正常的",
+      "typical"
+    ],
+    [
+      "notion",
+      "n.",
+      "觀念",
+      "idea"
+    ],
+    [
+      "notwithstanding",
+      "prep.",
+      "儘管",
+      "despite"
+    ],
+    [
+      "nuclear",
+      "adj.",
+      "核子的",
+      "atomic"
+    ],
+    [
+      "objective",
+      "n.",
+      "目標",
+      "aim"
+    ],
+    [
+      "oblige",
+      "v.",
+      "迫使",
+      "compel"
+    ],
+    [
+      "obtain",
+      "v.",
+      "取得",
+      "acquire"
+    ],
+    [
+      "obvious",
+      "adj.",
+      "明顯的",
+      "clear"
+    ],
+    [
+      "occupy",
+      "v.",
+      "佔據",
+      "inhabit"
+    ],
+    [
+      "offset",
+      "v.",
+      "抵消",
+      "counterbalance"
+    ],
+    [
+      "ongoing",
+      "adj.",
+      "持續的",
+      "continuing"
+    ],
+    [
+      "option",
+      "n.",
+      "選項",
+      "choice"
+    ],
+    [
+      "orient",
+      "v.",
+      "導向",
+      "align"
+    ],
+    [
+      "outcome",
+      "n.",
+      "結果",
+      "result"
+    ],
+    [
+      "output",
+      "n.",
+      "產出",
+      "product"
+    ],
+    [
+      "overall",
+      "adj.",
+      "整體的",
+      "total"
+    ],
+    [
+      "overlap",
+      "v.",
+      "重疊",
+      "coincide"
+    ],
+    [
+      "overseas",
+      "adj.",
+      "海外的",
+      "foreign"
+    ],
+    [
+      "panel",
+      "n.",
+      "小組",
+      "committee"
+    ],
+    [
+      "paradigm",
+      "n.",
+      "典範",
+      "model"
+    ],
+    [
+      "paragraph",
+      "n.",
+      "段落",
+      "section"
+    ],
+    [
+      "parallel",
+      "adj.",
+      "平行的",
+      "analogous"
+    ],
+    [
+      "parameter",
+      "n.",
+      "參數",
+      "variable"
+    ],
+    [
+      "participate",
+      "v.",
+      "參與",
+      "engage"
+    ],
+    [
+      "partner",
+      "n.",
+      "夥伴",
+      "associate"
+    ],
+    [
+      "passive",
+      "adj.",
+      "被動的",
+      "inactive"
+    ],
+    [
+      "peak",
+      "n.",
+      "高峰",
+      "summit"
+    ],
+    [
+      "perceive",
+      "v.",
+      "感知",
+      "notice"
+    ],
+    [
+      "persist",
+      "v.",
+      "持續",
+      "continue"
+    ],
+    [
+      "perspective",
+      "n.",
+      "觀點",
+      "viewpoint"
+    ],
+    [
+      "phase",
+      "n.",
+      "階段",
+      "stage"
+    ],
+    [
+      "phenomenon",
+      "n.",
+      "現象",
+      "occurrence"
+    ],
+    [
+      "philosophy",
+      "n.",
+      "哲學",
+      "worldview"
+    ],
+    [
+      "physical",
+      "adj.",
+      "物理的",
+      "material"
+    ],
+    [
+      "plus",
+      "prep.",
+      "加上",
+      "in addition to"
+    ],
+    [
+      "portion",
+      "n.",
+      "部分",
+      "share"
+    ],
+    [
+      "pose",
+      "v.",
+      "造成",
+      "present"
+    ],
+    [
+      "positive",
+      "adj.",
+      "正面的",
+      "affirmative"
+    ],
+    [
+      "potential",
+      "n.",
+      "潛力",
+      "capability"
+    ],
+    [
+      "practitioner",
+      "n.",
+      "從業人員",
+      "professional"
+    ],
+    [
+      "precede",
+      "v.",
+      "先於",
+      "come before"
+    ],
+    [
+      "precise",
+      "adj.",
+      "精確的",
+      "exact"
+    ],
+    [
+      "predict",
+      "v.",
+      "預測",
+      "forecast"
+    ],
+    [
+      "predominant",
+      "adj.",
+      "占主導的",
+      "dominant"
+    ],
+    [
+      "preliminary",
+      "adj.",
+      "初步的",
+      "initial"
+    ],
+    [
+      "presume",
+      "v.",
+      "推定",
+      "assume"
+    ],
+    [
+      "prevail",
+      "v.",
+      "盛行",
+      "dominate"
+    ],
+    [
+      "primary",
+      "adj.",
+      "主要的",
+      "chief"
+    ],
+    [
+      "prime",
+      "adj.",
+      "首要的",
+      "principal"
+    ],
+    [
+      "principal",
+      "adj.",
+      "主要的",
+      "main"
+    ],
+    [
+      "prior",
+      "adj.",
+      "先前的",
+      "earlier"
+    ],
+    [
+      "priority",
+      "n.",
+      "優先順序",
+      "precedence"
+    ],
+    [
+      "prohibit",
+      "v.",
+      "禁止",
+      "forbid"
+    ],
+    [
+      "project",
+      "n.",
+      "專案",
+      "undertaking"
+    ],
+    [
+      "promote",
+      "v.",
+      "促進",
+      "advance"
+    ],
+    [
+      "proportion",
+      "n.",
+      "比例",
+      "ratio"
+    ],
+    [
+      "propose",
+      "v.",
+      "提議",
+      "suggest"
+    ],
+    [
+      "prospect",
+      "n.",
+      "前景",
+      "outlook"
+    ],
+    [
+      "protocol",
+      "n.",
+      "協定",
+      "procedure"
+    ],
+    [
+      "psychology",
+      "n.",
+      "心理學",
+      "mind science"
+    ],
+    [
+      "publication",
+      "n.",
+      "出版物",
+      "release"
+    ],
+    [
+      "publish",
+      "v.",
+      "出版",
+      "issue"
+    ],
+    [
+      "purchase",
+      "v.",
+      "購買",
+      "buy"
+    ],
+    [
+      "pursue",
+      "v.",
+      "追求",
+      "follow"
+    ],
+    [
+      "qualify",
+      "v.",
+      "使具資格",
+      "certify"
+    ],
+    [
+      "qualitative",
+      "adj.",
+      "質性的",
+      "descriptive"
+    ],
+    [
+      "quantify",
+      "v.",
+      "量化",
+      "measure"
+    ],
+    [
+      "quantitative",
+      "adj.",
+      "量化的",
+      "numerical"
+    ],
+    [
+      "quote",
+      "v.",
+      "引用",
+      "cite"
+    ],
+    [
+      "radical",
+      "adj.",
+      "根本的",
+      "fundamental"
+    ],
+    [
+      "random",
+      "adj.",
+      "隨機的",
+      "arbitrary"
+    ],
+    [
+      "range",
+      "n.",
+      "範圍",
+      "scope"
+    ],
+    [
+      "ratio",
+      "n.",
+      "比率",
+      "proportion"
+    ],
+    [
+      "rational",
+      "adj.",
+      "理性的",
+      "logical"
+    ],
+    [
+      "react",
+      "v.",
+      "反應",
+      "respond"
+    ],
+    [
+      "recover",
+      "v.",
+      "恢復",
+      "regain"
+    ],
+    [
+      "refine",
+      "v.",
+      "精煉",
+      "improve"
+    ],
+    [
+      "reflect",
+      "v.",
+      "反映",
+      "mirror"
+    ],
+    [
+      "reform",
+      "n.",
+      "改革",
+      "revision"
+    ],
+    [
+      "regime",
+      "n.",
+      "制度",
+      "system"
+    ],
+    [
+      "region",
+      "n.",
+      "區域",
+      "area"
+    ],
+    [
+      "register",
+      "v.",
+      "登記",
+      "record"
+    ],
+    [
+      "regulate",
+      "v.",
+      "規範",
+      "control"
+    ],
+    [
+      "reinforce",
+      "v.",
+      "強化",
+      "strengthen"
+    ],
+    [
+      "reject",
+      "v.",
+      "拒絕",
+      "decline"
+    ],
+    [
+      "relate",
+      "v.",
+      "關聯",
+      "connect"
+    ],
+    [
+      "relax",
+      "v.",
+      "緩和",
+      "ease"
+    ],
+    [
+      "release",
+      "v.",
+      "釋放",
+      "publish"
+    ],
+    [
+      "relevant",
+      "adj.",
+      "相關的",
+      "pertinent"
+    ],
+    [
+      "reliable",
+      "adj.",
+      "可靠的",
+      "dependable"
+    ],
+    [
+      "reluctance",
+      "n.",
+      "不情願",
+      "hesitation"
+    ],
+    [
+      "rely",
+      "v.",
+      "依賴",
+      "depend"
+    ],
+    [
+      "remain",
+      "v.",
+      "保持",
+      "stay"
+    ],
+    [
+      "remark",
+      "n.",
+      "評論",
+      "comment"
+    ],
+    [
+      "removal",
+      "n.",
+      "移除",
+      "elimination"
+    ],
+    [
+      "render",
+      "v.",
+      "使成為",
+      "make"
+    ],
+    [
+      "replace",
+      "v.",
+      "取代",
+      "substitute"
+    ],
+    [
+      "report",
+      "v.",
+      "報告",
+      "document"
+    ],
+    [
+      "represent",
+      "v.",
+      "代表",
+      "symbolize"
+    ],
+    [
+      "reputation",
+      "n.",
+      "聲譽",
+      "standing"
+    ],
+    [
+      "resolve",
+      "v.",
+      "解決",
+      "settle"
+    ],
+    [
+      "resource",
+      "n.",
+      "資源",
+      "asset"
+    ],
+    [
+      "restore",
+      "v.",
+      "恢復",
+      "renew"
+    ],
+    [
+      "restrain",
+      "v.",
+      "限制",
+      "restrict"
+    ],
+    [
+      "restrict",
+      "v.",
+      "限制",
+      "limit"
+    ],
+    [
+      "retain",
+      "v.",
+      "保留",
+      "keep"
+    ],
+    [
+      "reveal",
+      "v.",
+      "揭示",
+      "disclose"
+    ],
+    [
+      "revenue",
+      "n.",
+      "營收",
+      "income"
+    ],
+    [
+      "reverse",
+      "v.",
+      "反轉",
+      "invert"
+    ],
+    [
+      "revise",
+      "v.",
+      "修訂",
+      "amend"
+    ],
+    [
+      "revolution",
+      "n.",
+      "革命",
+      "upheaval"
+    ],
+    [
+      "rigid",
+      "adj.",
+      "僵硬的",
+      "inflexible"
+    ],
+    [
+      "route",
+      "n.",
+      "路線",
+      "path"
+    ],
+    [
+      "scenario",
+      "n.",
+      "情境",
+      "situation"
+    ],
+    [
+      "schedule",
+      "n.",
+      "時程",
+      "timetable"
+    ],
+    [
+      "scheme",
+      "n.",
+      "方案",
+      "plan"
+    ],
+    [
+      "scope",
+      "n.",
+      "範圍",
+      "extent"
+    ],
+    [
+      "secure",
+      "v.",
+      "確保",
+      "obtain"
+    ],
+    [
+      "seek",
+      "v.",
+      "尋求",
+      "pursue"
+    ],
+    [
+      "select",
+      "v.",
+      "選擇",
+      "choose"
+    ],
+    [
+      "sequence",
+      "n.",
+      "序列",
+      "order"
+    ],
+    [
+      "series",
+      "n.",
+      "系列",
+      "set"
+    ],
+    [
+      "shift",
+      "v.",
+      "轉移",
+      "move"
+    ],
+    [
+      "simulate",
+      "v.",
+      "模擬",
+      "model"
+    ],
+    [
+      "site",
+      "n.",
+      "地點",
+      "location"
+    ],
+    [
+      "so-called",
+      "adj.",
+      "所謂的",
+      "alleged"
+    ],
+    [
+      "sole",
+      "adj.",
+      "唯一的",
+      "only"
+    ],
+    [
+      "somewhat",
+      "adv.",
+      "有點",
+      "rather"
+    ],
+    [
+      "specify",
+      "v.",
+      "明確指出",
+      "state"
+    ],
+    [
+      "sphere",
+      "n.",
+      "領域",
+      "domain"
+    ],
+    [
+      "stable",
+      "adj.",
+      "穩定的",
+      "steady"
+    ],
+    [
+      "statistic",
+      "n.",
+      "統計數據",
+      "figure"
+    ],
+    [
+      "status",
+      "n.",
+      "地位",
+      "standing"
+    ],
+    [
+      "straightforward",
+      "adj.",
+      "直接的",
+      "simple"
+    ],
+    [
+      "strategy",
+      "n.",
+      "策略",
+      "plan"
+    ],
+    [
+      "stress",
+      "v.",
+      "強調",
+      "emphasize"
+    ],
+    [
+      "style",
+      "n.",
+      "風格",
+      "manner"
+    ],
+    [
+      "submit",
+      "v.",
+      "提交",
+      "present"
+    ],
+    [
+      "subsequent",
+      "adj.",
+      "隨後的",
+      "following"
+    ],
+    [
+      "subsidy",
+      "n.",
+      "補貼",
+      "grant"
+    ],
+    [
+      "substitute",
+      "n.",
+      "替代品",
+      "replacement"
+    ],
+    [
+      "successor",
+      "n.",
+      "繼任者",
+      "heir"
+    ],
+    [
+      "sufficient",
+      "adj.",
+      "足夠的",
+      "adequate"
+    ],
+    [
+      "sum",
+      "n.",
+      "總和",
+      "total"
+    ],
+    [
+      "summary",
+      "n.",
+      "摘要",
+      "abstract"
+    ],
+    [
+      "supplement",
+      "v.",
+      "補充",
+      "add to"
+    ],
+    [
+      "survey",
+      "n.",
+      "調查",
+      "poll"
+    ],
+    [
+      "survive",
+      "v.",
+      "存活",
+      "endure"
+    ],
+    [
+      "suspend",
+      "v.",
+      "暫停",
+      "halt"
+    ],
+    [
+      "sustain",
+      "v.",
+      "維持",
+      "maintain"
+    ],
+    [
+      "symbol",
+      "n.",
+      "符號",
+      "sign"
+    ],
+    [
+      "symposium",
+      "n.",
+      "研討會",
+      "conference"
+    ],
+    [
+      "synthesis",
+      "n.",
+      "綜合",
+      "integration"
+    ],
+    [
+      "systematic",
+      "adj.",
+      "系統性的",
+      "methodical"
+    ],
+    [
+      "target",
+      "n.",
+      "目標",
+      "objective"
+    ],
+    [
+      "task",
+      "n.",
+      "任務",
+      "assignment"
+    ],
+    [
+      "team",
+      "n.",
+      "團隊",
+      "group"
+    ],
+    [
+      "technical",
+      "adj.",
+      "技術的",
+      "specialized"
+    ],
+    [
+      "technique",
+      "n.",
+      "技巧",
+      "method"
+    ],
+    [
+      "technology",
+      "n.",
+      "科技",
+      "tech"
+    ],
+    [
+      "temporary",
+      "adj.",
+      "暫時的",
+      "transient"
+    ],
+    [
+      "terminate",
+      "v.",
+      "終止",
+      "end"
+    ],
+    [
+      "text",
+      "n.",
+      "文本",
+      "passage"
+    ],
+    [
+      "theme",
+      "n.",
+      "主題",
+      "topic"
+    ],
+    [
+      "theoretical",
+      "adj.",
+      "理論的",
+      "conceptual"
+    ],
+    [
+      "thereby",
+      "adv.",
+      "因此",
+      "thus"
+    ],
+    [
+      "thesis",
+      "n.",
+      "論文",
+      "dissertation"
+    ],
+    [
+      "topic",
+      "n.",
+      "主題",
+      "subject"
+    ],
+    [
+      "trace",
+      "v.",
+      "追溯",
+      "track"
+    ],
+    [
+      "tradition",
+      "n.",
+      "傳統",
+      "custom"
+    ],
+    [
+      "transfer",
+      "v.",
+      "轉移",
+      "move"
+    ],
+    [
+      "transform",
+      "v.",
+      "轉化",
+      "convert"
+    ],
+    [
+      "transit",
+      "n.",
+      "運輸",
+      "passage"
+    ],
+    [
+      "transmit",
+      "v.",
+      "傳輸",
+      "send"
+    ],
+    [
+      "transport",
+      "v.",
+      "運輸",
+      "carry"
+    ],
+    [
+      "trend",
+      "n.",
+      "趨勢",
+      "pattern"
+    ],
+    [
+      "trigger",
+      "v.",
+      "觸發",
+      "activate"
+    ],
+    [
+      "ultimate",
+      "adj.",
+      "終極的",
+      "final"
+    ],
+    [
+      "undergo",
+      "v.",
+      "經歷",
+      "experience"
+    ],
+    [
+      "underlie",
+      "v.",
+      "構成基礎",
+      "form basis"
+    ],
+    [
+      "undertake",
+      "v.",
+      "承擔",
+      "take on"
+    ],
+    [
+      "uniform",
+      "adj.",
+      "一致的",
+      "consistent"
+    ],
+    [
+      "unify",
+      "v.",
+      "統一",
+      "integrate"
+    ],
+    [
+      "unique",
+      "adj.",
+      "獨特的",
+      "distinct"
+    ],
+    [
+      "utilize",
+      "v.",
+      "利用",
+      "use"
+    ],
+    [
+      "valid",
+      "adj.",
+      "有效的",
+      "sound"
+    ],
+    [
+      "validity",
+      "n.",
+      "效度",
+      "soundness"
+    ],
+    [
+      "vehicle",
+      "n.",
+      "載具",
+      "conveyance"
+    ],
+    [
+      "version",
+      "n.",
+      "版本",
+      "edition"
+    ],
+    [
+      "via",
+      "prep.",
+      "經由",
+      "through"
+    ],
+    [
+      "violate",
+      "v.",
+      "違反",
+      "breach"
+    ],
+    [
+      "virtual",
+      "adj.",
+      "虛擬的",
+      "digital"
+    ],
+    [
+      "visible",
+      "adj.",
+      "可見的",
+      "apparent"
+    ],
+    [
+      "vision",
+      "n.",
+      "願景",
+      "sight"
+    ],
+    [
+      "visual",
+      "adj.",
+      "視覺的",
+      "optical"
+    ],
+    [
+      "volume",
+      "n.",
+      "體積",
+      "amount"
+    ],
+    [
+      "voluntary",
+      "adj.",
+      "自願的",
+      "optional"
+    ],
+    [
+      "welfare",
+      "n.",
+      "福利",
+      "well-being"
+    ],
+    [
+      "whereas",
+      "conj.",
+      "然而",
+      "while"
+    ],
+    [
+      "whereby",
+      "adv.",
+      "藉此",
+      "by which"
+    ],
+    [
+      "widespread",
+      "adj.",
+      "廣泛的",
+      "extensive"
+    ],
+    [
+      "withdraw",
+      "v.",
+      "撤回",
+      "retract"
+    ],
+    [
+      "witness",
+      "v.",
+      "見證",
+      "observe"
+    ],
+    [
+      "workshop",
+      "n.",
+      "工作坊",
+      "seminar"
+    ],
+    [
+      "anthropology",
+      "n.",
+      "人類學",
+      "human study"
+    ],
+    [
+      "archaeology",
+      "n.",
+      "考古學",
+      "excavation study"
+    ],
+    [
+      "astronomy",
+      "n.",
+      "天文學",
+      "celestial science"
+    ],
+    [
+      "biochemistry",
+      "n.",
+      "生物化學",
+      "molecular biology"
+    ],
+    [
+      "biodiversity",
+      "n.",
+      "生物多樣性",
+      "species diversity"
+    ],
+    [
+      "demography",
+      "n.",
+      "人口統計學",
+      "population study"
+    ],
+    [
+      "ecology",
+      "n.",
+      "生態學",
+      "environmental science"
+    ],
+    [
+      "econometrics",
+      "n.",
+      "計量經濟學",
+      "statistical economics"
+    ],
+    [
+      "epidemiology",
+      "n.",
+      "流行病學",
+      "disease study"
+    ],
+    [
+      "ethnography",
+      "n.",
+      "民族誌",
+      "cultural study"
+    ],
+    [
+      "geography",
+      "n.",
+      "地理學",
+      "spatial study"
+    ],
+    [
+      "geology",
+      "n.",
+      "地質學",
+      "earth science"
+    ],
+    [
+      "historiography",
+      "n.",
+      "史學方法",
+      "history writing"
+    ],
+    [
+      "linguistics",
+      "n.",
+      "語言學",
+      "language study"
+    ],
+    [
+      "macroeconomics",
+      "n.",
+      "總體經濟學",
+      "aggregate economics"
+    ],
+    [
+      "microeconomics",
+      "n.",
+      "個體經濟學",
+      "individual economics"
+    ],
+    [
+      "neuroscience",
+      "n.",
+      "神經科學",
+      "brain science"
+    ],
+    [
+      "paleontology",
+      "n.",
+      "古生物學",
+      "fossil study"
+    ],
+    [
+      "pathology",
+      "n.",
+      "病理學",
+      "disease mechanism"
+    ],
+    [
+      "pharmacology",
+      "n.",
+      "藥理學",
+      "drug science"
+    ],
+    [
+      "physiology",
+      "n.",
+      "生理學",
+      "body function study"
+    ],
+    [
+      "political economy",
+      "n.",
+      "政治經濟學",
+      "politico-economic study"
+    ],
+    [
+      "psychometrics",
+      "n.",
+      "心理計量學",
+      "measurement psychology"
+    ],
+    [
+      "semiotics",
+      "n.",
+      "符號學",
+      "sign study"
+    ],
+    [
+      "sociolinguistics",
+      "n.",
+      "社會語言學",
+      "language in society"
+    ],
+    [
+      "sociology",
+      "n.",
+      "社會學",
+      "social study"
+    ],
+    [
+      "taxonomy",
+      "n.",
+      "分類學",
+      "classification science"
+    ],
+    [
+      "virology",
+      "n.",
+      "病毒學",
+      "virus study"
+    ],
+    [
+      "zoology",
+      "n.",
+      "動物學",
+      "animal study"
+    ],
+    [
+      "academic framework",
+      "n.",
+      "學術框架",
+      "academic framework"
+    ],
+    [
+      "academic approach",
+      "n.",
+      "學術方法",
+      "academic approach"
+    ],
+    [
+      "academic methodology",
+      "n.",
+      "學術方法論",
+      "academic methodology"
+    ],
+    [
+      "academic inquiry",
+      "n.",
+      "學術探究",
+      "academic inquiry"
+    ],
+    [
+      "academic investigation",
+      "n.",
+      "學術調查",
+      "academic investigation"
+    ],
+    [
+      "academic study",
+      "n.",
+      "學術研究",
+      "academic study"
+    ],
+    [
+      "academic review",
+      "n.",
+      "學術回顧",
+      "academic review"
+    ],
+    [
+      "academic synthesis",
+      "n.",
+      "學術綜合",
+      "academic synthesis"
+    ],
+    [
+      "academic paradigm",
+      "n.",
+      "學術典範",
+      "academic paradigm"
+    ],
+    [
+      "academic perspective",
+      "n.",
+      "學術觀點",
+      "academic perspective"
+    ],
+    [
+      "academic model",
+      "n.",
+      "學術模型",
+      "academic model"
+    ],
+    [
+      "academic construct",
+      "n.",
+      "學術構念",
+      "academic construct"
+    ],
+    [
+      "academic variable",
+      "n.",
+      "學術變項",
+      "academic variable"
+    ],
+    [
+      "academic finding",
+      "n.",
+      "學術發現",
+      "academic finding"
+    ],
+    [
+      "academic conclusion",
+      "n.",
+      "學術結論",
+      "academic conclusion"
+    ],
+    [
+      "academic implication",
+      "n.",
+      "學術意涵",
+      "academic implication"
+    ],
+    [
+      "academic assumption",
+      "n.",
+      "學術假設",
+      "academic assumption"
+    ],
+    [
+      "academic premise",
+      "n.",
+      "學術前提",
+      "academic premise"
+    ],
+    [
+      "academic argument",
+      "n.",
+      "學術論證",
+      "academic argument"
+    ],
+    [
+      "academic debate",
+      "n.",
+      "學術辯論",
+      "academic debate"
+    ],
+    [
+      "academic discourse",
+      "n.",
+      "學術論述",
+      "academic discourse"
+    ],
+    [
+      "academic literature",
+      "n.",
+      "學術文獻",
+      "academic literature"
+    ],
+    [
+      "academic evidence",
+      "n.",
+      "學術證據",
+      "academic evidence"
+    ],
+    [
+      "academic data",
+      "n.",
+      "學術資料",
+      "academic data"
+    ],
+    [
+      "academic sample",
+      "n.",
+      "學術樣本",
+      "academic sample"
+    ],
+    [
+      "academic population",
+      "n.",
+      "學術母體",
+      "academic population"
+    ],
+    [
+      "academic hypothesis",
+      "n.",
+      "學術假說",
+      "academic hypothesis"
+    ],
+    [
+      "academic theory",
+      "n.",
+      "學術理論",
+      "academic theory"
+    ],
+    [
+      "academic principle",
+      "n.",
+      "學術原則",
+      "academic principle"
+    ],
+    [
+      "academic concept",
+      "n.",
+      "學術概念",
+      "academic concept"
+    ],
+    [
+      "academic context",
+      "n.",
+      "學術脈絡",
+      "academic context"
+    ],
+    [
+      "academic factor",
+      "n.",
+      "學術因素",
+      "academic factor"
+    ],
+    [
+      "academic relationship",
+      "n.",
+      "學術關係",
+      "academic relationship"
+    ],
+    [
+      "academic correlation",
+      "n.",
+      "學術相關",
+      "academic correlation"
+    ],
+    [
+      "academic validity",
+      "n.",
+      "學術效度",
+      "academic validity"
+    ],
+    [
+      "academic reliability",
+      "n.",
+      "學術信度",
+      "academic reliability"
+    ],
+    [
+      "academic significance",
+      "n.",
+      "學術顯著性",
+      "academic significance"
+    ],
+    [
+      "academic generalization",
+      "n.",
+      "學術推廣",
+      "academic generalization"
+    ],
+    [
+      "academic limitation",
+      "n.",
+      "學術限制",
+      "academic limitation"
+    ],
+    [
+      "academic analysis",
+      "n.",
+      "學術分析",
+      "academic analysis"
+    ],
+    [
+      "academic reasoning",
+      "n.",
+      "學術推理",
+      "academic reasoning"
+    ],
+    [
+      "academic interpretation",
+      "n.",
+      "學術詮釋",
+      "academic interpretation"
+    ],
+    [
+      "academic evaluation",
+      "n.",
+      "學術評估",
+      "academic evaluation"
+    ],
+    [
+      "academic assessment",
+      "n.",
+      "學術評量",
+      "academic assessment"
+    ],
+    [
+      "academic criterion",
+      "n.",
+      "學術標準",
+      "academic criterion"
+    ],
+    [
+      "academic indicator",
+      "n.",
+      "學術指標",
+      "academic indicator"
+    ],
+    [
+      "academic measure",
+      "n.",
+      "學術測量",
+      "academic measure"
+    ],
+    [
+      "academic metric",
+      "n.",
+      "學術度量",
+      "academic metric"
+    ],
+    [
+      "academic dimension",
+      "n.",
+      "學術維度",
+      "academic dimension"
+    ],
+    [
+      "academic category",
+      "n.",
+      "學術類別",
+      "academic category"
+    ],
+    [
+      "academic classification",
+      "n.",
+      "學術分類",
+      "academic classification"
+    ],
+    [
+      "academic taxonomy",
+      "n.",
+      "學術分類法",
+      "academic taxonomy"
+    ],
+    [
+      "academic terminology",
+      "n.",
+      "學術術語",
+      "academic terminology"
+    ],
+    [
+      "academic convention",
+      "n.",
+      "學術慣例",
+      "academic convention"
+    ],
+    [
+      "academic standard",
+      "n.",
+      "學術標準",
+      "academic standard"
+    ],
+    [
+      "academic protocol",
+      "n.",
+      "學術協定",
+      "academic protocol"
+    ],
+    [
+      "academic procedure",
+      "n.",
+      "學術程序",
+      "academic procedure"
+    ],
+    [
+      "academic process",
+      "n.",
+      "學術過程",
+      "academic process"
+    ],
+    [
+      "academic mechanism",
+      "n.",
+      "學術機制",
+      "academic mechanism"
+    ],
+    [
+      "academic structure",
+      "n.",
+      "學術結構",
+      "academic structure"
+    ],
+    [
+      "academic function",
+      "n.",
+      "學術功能",
+      "academic function"
+    ],
+    [
+      "academic role",
+      "n.",
+      "學術角色",
+      "academic role"
+    ],
+    [
+      "academic impact",
+      "n.",
+      "學術影響",
+      "academic impact"
+    ],
+    [
+      "academic outcome",
+      "n.",
+      "學術結果",
+      "academic outcome"
+    ],
+    [
+      "academic output",
+      "n.",
+      "學術產出",
+      "academic output"
+    ],
+    [
+      "academic input",
+      "n.",
+      "學術輸入",
+      "academic input"
+    ],
+    [
+      "academic resource",
+      "n.",
+      "學術資源",
+      "academic resource"
+    ],
+    [
+      "academic capacity",
+      "n.",
+      "學術能力",
+      "academic capacity"
+    ],
+    [
+      "academic constraint",
+      "n.",
+      "學術限制",
+      "academic constraint"
+    ],
+    [
+      "academic challenge",
+      "n.",
+      "學術挑戰",
+      "academic challenge"
+    ],
+    [
+      "academic opportunity",
+      "n.",
+      "學術機會",
+      "academic opportunity"
+    ],
+    [
+      "academic trend",
+      "n.",
+      "學術趨勢",
+      "academic trend"
+    ],
+    [
+      "academic pattern",
+      "n.",
+      "學術模式",
+      "academic pattern"
+    ],
+    [
+      "academic phenomenon",
+      "n.",
+      "學術現象",
+      "academic phenomenon"
+    ],
+    [
+      "academic issue",
+      "n.",
+      "學術議題",
+      "academic issue"
+    ],
+    [
+      "academic problem",
+      "n.",
+      "學術問題",
+      "academic problem"
+    ],
+    [
+      "academic question",
+      "n.",
+      "學術問題",
+      "academic question"
+    ],
+    [
+      "academic agenda",
+      "n.",
+      "學術議程",
+      "academic agenda"
+    ],
+    [
+      "academic priority",
+      "n.",
+      "學術優先",
+      "academic priority"
+    ],
+    [
+      "academic objective",
+      "n.",
+      "學術目標",
+      "academic objective"
+    ],
+    [
+      "academic goal",
+      "n.",
+      "學術目標",
+      "academic goal"
+    ],
+    [
+      "academic strategy",
+      "n.",
+      "學術策略",
+      "academic strategy"
+    ],
+    [
+      "academic policy",
+      "n.",
+      "學術政策",
+      "academic policy"
+    ],
+    [
+      "academic reform",
+      "n.",
+      "學術改革",
+      "academic reform"
+    ],
+    [
+      "academic innovation",
+      "n.",
+      "學術創新",
+      "academic innovation"
+    ],
+    [
+      "academic development",
+      "n.",
+      "學術發展",
+      "academic development"
+    ],
+    [
+      "academic progress",
+      "n.",
+      "學術進展",
+      "academic progress"
+    ],
+    [
+      "academic advance",
+      "n.",
+      "學術進展",
+      "academic advance"
+    ],
+    [
+      "academic change",
+      "n.",
+      "學術變化",
+      "academic change"
+    ],
+    [
+      "academic transformation",
+      "n.",
+      "學術轉型",
+      "academic transformation"
+    ],
+    [
+      "academic transition",
+      "n.",
+      "學術轉換",
+      "academic transition"
+    ],
+    [
+      "academic adaptation",
+      "n.",
+      "學術適應",
+      "academic adaptation"
+    ],
+    [
+      "academic integration",
+      "n.",
+      "學術整合",
+      "academic integration"
+    ],
+    [
+      "academic differentiation",
+      "n.",
+      "學術分化",
+      "academic differentiation"
+    ],
+    [
+      "academic specialization",
+      "n.",
+      "學術專門化",
+      "academic specialization"
+    ],
+    [
+      "academic diversification",
+      "n.",
+      "學術多元化",
+      "academic diversification"
+    ],
+    [
+      "academic consolidation",
+      "n.",
+      "學術整合",
+      "academic consolidation"
+    ]
+  ],
+  "research": [
+    [
+      "hypothesis",
+      "n.",
+      "假說",
+      "theory"
+    ],
+    [
+      "variable",
+      "n.",
+      "變項",
+      "factor"
+    ],
+    [
+      "longitudinal",
+      "adj.",
+      "縱向的",
+      "over time"
+    ],
+    [
+      "control group",
+      "n.",
+      "對照組",
+      "comparison group"
+    ],
+    [
+      "peer review",
+      "n.",
+      "同儕審查",
+      "referee process"
+    ],
+    [
+      "citation",
+      "n.",
+      "引用",
+      "reference"
+    ],
+    [
+      "abstract",
+      "n.",
+      "摘要",
+      "summary"
+    ],
+    [
+      "correlation",
+      "n.",
+      "相關",
+      "association"
+    ],
+    [
+      "causation",
+      "n.",
+      "因果關係",
+      "cause-effect"
+    ],
+    [
+      "sampling",
+      "n.",
+      "抽樣",
+      "sample selection"
+    ],
+    [
+      "validity",
+      "n.",
+      "效度",
+      "soundness"
+    ],
+    [
+      "reliability",
+      "n.",
+      "信度",
+      "consistency"
+    ],
+    [
+      "ethnography",
+      "n.",
+      "民族誌",
+      "field study"
+    ],
+    [
+      "meta-analysis",
+      "n.",
+      "後設分析",
+      "systematic review"
+    ],
+    [
+      "randomization",
+      "n.",
+      "隨機化",
+      "random assignment"
+    ],
+    [
+      "blinding",
+      "n.",
+      "盲法",
+      "masking"
+    ],
+    [
+      "placebo",
+      "n.",
+      "安慰劑",
+      "sham treatment"
+    ],
+    [
+      "confounder",
+      "n.",
+      "混淆因子",
+      "confounding variable"
+    ],
+    [
+      "operationalization",
+      "n.",
+      "操作化",
+      "measurement definition"
+    ],
+    [
+      "triangulation",
+      "n.",
+      "三角驗證",
+      "multi-method validation"
+    ],
+    [
+      "purposive sampling",
+      "n.",
+      "立意抽樣",
+      "targeted sampling"
+    ],
+    [
+      "snowball sampling",
+      "n.",
+      "滾雪球抽樣",
+      "chain referral"
+    ],
+    [
+      "stratified sampling",
+      "n.",
+      "分層抽樣",
+      "layered sampling"
+    ],
+    [
+      "cluster sampling",
+      "n.",
+      "叢集抽樣",
+      "group sampling"
+    ],
+    [
+      "systematic sampling",
+      "n.",
+      "系統抽樣",
+      "interval sampling"
+    ],
+    [
+      "convenience sampling",
+      "n.",
+      "便利抽樣",
+      "availability sampling"
+    ],
+    [
+      "probability sampling",
+      "n.",
+      "機率抽樣",
+      "random sampling"
+    ],
+    [
+      "nonprobability sampling",
+      "n.",
+      "非機率抽樣",
+      "non-random sampling"
+    ],
+    [
+      "representative sample",
+      "n.",
+      "代表性樣本",
+      "typical sample"
+    ],
+    [
+      "sample size",
+      "n.",
+      "樣本數",
+      "n count"
+    ],
+    [
+      "statistical power",
+      "n.",
+      "統計檢定力",
+      "power analysis"
+    ],
+    [
+      "effect size",
+      "n.",
+      "效果量",
+      "magnitude of effect"
+    ],
+    [
+      "p-value",
+      "n.",
+      "p 值",
+      "significance probability"
+    ],
+    [
+      "confidence interval",
+      "n.",
+      "信賴區間",
+      "CI"
+    ],
+    [
+      "standard deviation",
+      "n.",
+      "標準差",
+      "SD"
+    ],
+    [
+      "standard error",
+      "n.",
+      "標準誤",
+      "SE"
+    ],
+    [
+      "variance",
+      "n.",
+      "變異數",
+      "spread"
+    ],
+    [
+      "mean",
+      "n.",
+      "平均數",
+      "average"
+    ],
+    [
+      "median",
+      "n.",
+      "中位數",
+      "middle value"
+    ],
+    [
+      "mode",
+      "n.",
+      "眾數",
+      "most frequent"
+    ],
+    [
+      "regression",
+      "n.",
+      "迴歸",
+      "linear model"
+    ],
+    [
+      "multivariate analysis",
+      "n.",
+      "多變量分析",
+      "multivariable analysis"
+    ],
+    [
+      "factor analysis",
+      "n.",
+      "因子分析",
+      "dimension reduction"
+    ],
+    [
+      "principal component analysis",
+      "n.",
+      "主成分分析",
+      "PCA"
+    ],
+    [
+      "structural equation modeling",
+      "n.",
+      "結構方程模型",
+      "SEM"
+    ],
+    [
+      "ANOVA",
+      "n.",
+      "變異數分析",
+      "analysis of variance"
+    ],
+    [
+      "ANCOVA",
+      "n.",
+      "共變數分析",
+      "analysis of covariance"
+    ],
+    [
+      "MANOVA",
+      "n.",
+      "多變量變異數分析",
+      "multivariate ANOVA"
+    ],
+    [
+      "chi-square test",
+      "n.",
+      "卡方檢定",
+      "goodness of fit"
+    ],
+    [
+      "t-test",
+      "n.",
+      "t 檢定",
+      "mean comparison"
+    ],
+    [
+      "Mann-Whitney test",
+      "n.",
+      "曼惠特尼檢定",
+      "nonparametric test"
+    ],
+    [
+      "Wilcoxon test",
+      "n.",
+      "威爾科克森檢定",
+      "signed-rank test"
+    ],
+    [
+      "Kruskal-Wallis test",
+      "n.",
+      "克魯斯卡爾－瓦利斯檢定",
+      "nonparametric ANOVA"
+    ],
+    [
+      "logistic regression",
+      "n.",
+      "邏輯迴歸",
+      "binary outcome model"
+    ],
+    [
+      "Cox regression",
+      "n.",
+      "Cox 迴歸",
+      "survival analysis"
+    ],
+    [
+      "survival analysis",
+      "n.",
+      "存活分析",
+      "time-to-event analysis"
+    ],
+    [
+      "hazard ratio",
+      "n.",
+      "風險比",
+      "HR"
+    ],
+    [
+      "odds ratio",
+      "n.",
+      "勝算比",
+      "OR"
+    ],
+    [
+      "relative risk",
+      "n.",
+      "相對風險",
+      "RR"
+    ],
+    [
+      "incidence rate",
+      "n.",
+      "發生率",
+      "new case rate"
+    ],
+    [
+      "prevalence rate",
+      "n.",
+      "盛行率",
+      "existing case rate"
+    ],
+    [
+      "longitudinal cohort",
+      "n.",
+      "縱向世代",
+      "prospective cohort"
+    ],
+    [
+      "retrospective study",
+      "n.",
+      "回溯研究",
+      "backward-looking study"
+    ],
+    [
+      "prospective study",
+      "n.",
+      "前瞻研究",
+      "forward-looking study"
+    ],
+    [
+      "cross-sectional study",
+      "n.",
+      "橫斷面研究",
+      "snapshot study"
+    ],
+    [
+      "case-control study",
+      "n.",
+      "病例對照研究",
+      "case comparison"
+    ],
+    [
+      "cohort study",
+      "n.",
+      "世代研究",
+      "follow-up study"
+    ],
+    [
+      "randomized controlled trial",
+      "n.",
+      "隨機對照試驗",
+      "RCT"
+    ],
+    [
+      "quasi-experiment",
+      "n.",
+      "準實驗",
+      "non-random experiment"
+    ],
+    [
+      "natural experiment",
+      "n.",
+      "自然實驗",
+      "exogenous variation"
+    ],
+    [
+      "field experiment",
+      "n.",
+      "田野實驗",
+      "real-world trial"
+    ],
+    [
+      "laboratory experiment",
+      "n.",
+      "實驗室實驗",
+      "controlled lab study"
+    ],
+    [
+      "within-subjects design",
+      "n.",
+      "受試者內設計",
+      "repeated measures"
+    ],
+    [
+      "between-subjects design",
+      "n.",
+      "受試者間設計",
+      "independent groups"
+    ],
+    [
+      "mixed design",
+      "n.",
+      "混合設計",
+      "combined design"
+    ],
+    [
+      "counterbalanced design",
+      "n.",
+      "平衡設計",
+      "order control"
+    ],
+    [
+      "factorial design",
+      "n.",
+      "因子設計",
+      "multi-factor design"
+    ],
+    [
+      "repeated measures",
+      "n.",
+      "重複測量",
+      "within-subject"
+    ],
+    [
+      "independent variable",
+      "n.",
+      "自變項",
+      "predictor"
+    ],
+    [
+      "dependent variable",
+      "n.",
+      "依變項",
+      "outcome"
+    ],
+    [
+      "moderator variable",
+      "n.",
+      "調節變項",
+      "interaction variable"
+    ],
+    [
+      "mediator variable",
+      "n.",
+      "中介變項",
+      "intervening variable"
+    ],
+    [
+      "latent variable",
+      "n.",
+      "潛在變項",
+      "unobserved construct"
+    ],
+    [
+      "manifest variable",
+      "n.",
+      "顯在變項",
+      "observed variable"
+    ],
+    [
+      "dummy variable",
+      "n.",
+      "虛擬變項",
+      "indicator variable"
+    ],
+    [
+      "covariate",
+      "n.",
+      "共變項",
+      "control variable"
+    ],
+    [
+      "extraneous variable",
+      "n.",
+      "外來變項",
+      "nuisance variable"
+    ],
+    [
+      "internal validity",
+      "n.",
+      "內部效度",
+      "causal validity"
+    ],
+    [
+      "external validity",
+      "n.",
+      "外部效度",
+      "generalizability"
+    ],
+    [
+      "construct validity",
+      "n.",
+      "構念效度",
+      "measure validity"
+    ],
+    [
+      "face validity",
+      "n.",
+      "表面效度",
+      "apparent validity"
+    ],
+    [
+      "content validity",
+      "n.",
+      "內容效度",
+      "coverage validity"
+    ],
+    [
+      "criterion validity",
+      "n.",
+      "效標效度",
+      "predictive validity"
+    ],
+    [
+      "convergent validity",
+      "n.",
+      "聚合效度",
+      "converging evidence"
+    ],
+    [
+      "discriminant validity",
+      "n.",
+      "區辨效度",
+      "distinctiveness"
+    ],
+    [
+      "test-retest reliability",
+      "n.",
+      "再測信度",
+      "stability"
+    ],
+    [
+      "inter-rater reliability",
+      "n.",
+      "評分者信度",
+      "agreement"
+    ],
+    [
+      "Cronbach alpha",
+      "n.",
+      "Cronbach α",
+      "internal consistency"
+    ],
+    [
+      "measurement error",
+      "n.",
+      "測量誤差",
+      "observation error"
+    ],
+    [
+      "sampling error",
+      "n.",
+      "抽樣誤差",
+      "selection error"
+    ],
+    [
+      "response bias",
+      "n.",
+      "反應偏誤",
+      "answering bias"
+    ],
+    [
+      "selection bias",
+      "n.",
+      "選擇偏誤",
+      "non-random selection"
+    ],
+    [
+      "publication bias",
+      "n.",
+      "發表偏誤",
+      "reporting bias"
+    ],
+    [
+      "confirmation bias",
+      "n.",
+      "確認偏誤",
+      "seeking support"
+    ],
+    [
+      "recall bias",
+      "n.",
+      "回憶偏誤",
+      "memory distortion"
+    ],
+    [
+      "observer bias",
+      "n.",
+      "觀察者偏誤",
+      "expectancy effect"
+    ],
+    [
+      "Hawthorne effect",
+      "n.",
+      "霍桑效應",
+      "behavior change"
+    ],
+    [
+      "placebo effect",
+      "n.",
+      "安慰劑效應",
+      "expectancy effect"
+    ],
+    [
+      "demand characteristic",
+      "n.",
+      "需求特徵",
+      "cues to hypothesis"
+    ],
+    [
+      "experimenter bias",
+      "n.",
+      "實驗者偏誤",
+      "researcher effect"
+    ],
+    [
+      "social desirability bias",
+      "n.",
+      "社會期許偏誤",
+      "impression management"
+    ],
+    [
+      "ceiling effect",
+      "n.",
+      "天花板效應",
+      "upper bound"
+    ],
+    [
+      "floor effect",
+      "n.",
+      "地板效應",
+      "lower bound"
+    ],
+    [
+      "regression to the mean",
+      "n.",
+      "迴歸均值",
+      "statistical artifact"
+    ],
+    [
+      "Type I error",
+      "n.",
+      "第一型錯誤",
+      "false positive"
+    ],
+    [
+      "Type II error",
+      "n.",
+      "第二型錯誤",
+      "false negative"
+    ],
+    [
+      "null hypothesis",
+      "n.",
+      "虛無假說",
+      "H0"
+    ],
+    [
+      "alternative hypothesis",
+      "n.",
+      "對立假說",
+      "H1"
+    ],
+    [
+      "significance level",
+      "n.",
+      "顯著水準",
+      "alpha"
+    ],
+    [
+      "Bonferroni correction",
+      "n.",
+      "Bonferroni 校正",
+      "multiple comparison"
+    ],
+    [
+      "false discovery rate",
+      "n.",
+      "偽發現率",
+      "FDR"
+    ],
+    [
+      "multiple comparison",
+      "n.",
+      "多重比較",
+      "post-hoc test"
+    ],
+    [
+      "post-hoc test",
+      "n.",
+      "事後檢定",
+      "follow-up test"
+    ],
+    [
+      "Tukey test",
+      "n.",
+      "Tukey 檢定",
+      "HSD test"
+    ],
+    [
+      "Scheffe test",
+      "n.",
+      "Scheffe 檢定",
+      "omnibus follow-up"
+    ],
+    [
+      "literature review",
+      "n.",
+      "文獻回顧",
+      "scholarly review"
+    ],
+    [
+      "systematic review",
+      "n.",
+      "系統性回顧",
+      "evidence synthesis"
+    ],
+    [
+      "scoping review",
+      "n.",
+      "範疇評述",
+      "mapping review"
+    ],
+    [
+      "narrative review",
+      "n.",
+      "敘述性回顧",
+      "qualitative review"
+    ],
+    [
+      "PRISMA guideline",
+      "n.",
+      "PRISMA 指引",
+      "reporting standard"
+    ],
+    [
+      "Cochrane review",
+      "n.",
+      "Cochrane 回顧",
+      "evidence review"
+    ],
+    [
+      "research question",
+      "n.",
+      "研究問題",
+      "RQ"
+    ],
+    [
+      "research objective",
+      "n.",
+      "研究目標",
+      "study aim"
+    ],
+    [
+      "research design",
+      "n.",
+      "研究設計",
+      "study plan"
+    ],
+    [
+      "research protocol",
+      "n.",
+      "研究方案",
+      "study protocol"
+    ],
+    [
+      "research ethics",
+      "n.",
+      "研究倫理",
+      "ethical conduct"
+    ],
+    [
+      "informed consent",
+      "n.",
+      "知情同意",
+      "voluntary agreement"
+    ],
+    [
+      "institutional review board",
+      "n.",
+      "機構審查委員會",
+      "IRB"
+    ],
+    [
+      "debriefing",
+      "n.",
+      "事後說明",
+      "post-study explanation"
+    ],
+    [
+      "anonymization",
+      "n.",
+      "匿名化",
+      "identity removal"
+    ],
+    [
+      "confidentiality",
+      "n.",
+      "保密",
+      "privacy protection"
+    ],
+    [
+      "data management plan",
+      "n.",
+      "資料管理計畫",
+      "DMP"
+    ],
+    [
+      "reproducibility",
+      "n.",
+      "可重現性",
+      "replication"
+    ],
+    [
+      "replicability",
+      "n.",
+      "可複製性",
+      "repeatability"
+    ],
+    [
+      "open science",
+      "n.",
+      "開放科學",
+      "transparent research"
+    ],
+    [
+      "pre-registration",
+      "n.",
+      "預先登錄",
+      "study registration"
+    ],
+    [
+      "data repository",
+      "n.",
+      "資料庫",
+      "archive"
+    ],
+    [
+      "codebook",
+      "n.",
+      "編碼手冊",
+      "variable guide"
+    ],
+    [
+      "coding scheme",
+      "n.",
+      "編碼方案",
+      "classification system"
+    ],
+    [
+      "interview guide",
+      "n.",
+      "訪談指引",
+      "question protocol"
+    ],
+    [
+      "focus group",
+      "n.",
+      "焦點團體",
+      "group interview"
+    ],
+    [
+      "semi-structured interview",
+      "n.",
+      "半結構式訪談",
+      "guided interview"
+    ],
+    [
+      "structured interview",
+      "n.",
+      "結構式訪談",
+      "fixed questions"
+    ],
+    [
+      "unstructured interview",
+      "n.",
+      "非結構式訪談",
+      "open conversation"
+    ],
+    [
+      "participant observation",
+      "n.",
+      "參與觀察",
+      "field immersion"
+    ],
+    [
+      "grounded theory",
+      "n.",
+      "紮根理論",
+      "inductive theory"
+    ],
+    [
+      "phenomenology",
+      "n.",
+      "現象學",
+      "lived experience study"
+    ],
+    [
+      "case study method",
+      "n.",
+      "個案研究法",
+      "in-depth case"
+    ],
+    [
+      "action research",
+      "n.",
+      "行動研究",
+      "participatory inquiry"
+    ],
+    [
+      "mixed methods",
+      "n.",
+      "混合方法",
+      "qual-quant integration"
+    ],
+    [
+      "convergent design",
+      "n.",
+      "聚合設計",
+      "parallel mixed methods"
+    ],
+    [
+      "explanatory sequential design",
+      "n.",
+      "解釋性序列設計",
+      "quant then qual"
+    ],
+    [
+      "exploratory sequential design",
+      "n.",
+      "探索性序列設計",
+      "qual then quant"
+    ],
+    [
+      "embedded design",
+      "n.",
+      "嵌入設計",
+      "nested methods"
+    ],
+    [
+      "transformative framework",
+      "n.",
+      "轉化框架",
+      "advocacy lens"
+    ],
+    [
+      "deductive coding",
+      "n.",
+      "演繹式編碼",
+      "theory-driven coding"
+    ],
+    [
+      "inductive coding",
+      "n.",
+      "歸納式編碼",
+      "emergent coding"
+    ],
+    [
+      "thematic analysis",
+      "n.",
+      "主題分析",
+      "theme identification"
+    ],
+    [
+      "content analysis",
+      "n.",
+      "內容分析",
+      "text coding"
+    ],
+    [
+      "discourse analysis",
+      "n.",
+      "論述分析",
+      "language study"
+    ],
+    [
+      "narrative analysis",
+      "n.",
+      "敘事分析",
+      "story analysis"
+    ],
+    [
+      "conversation analysis",
+      "n.",
+      "會話分析",
+      "talk-in-interaction"
+    ],
+    [
+      "critical discourse analysis",
+      "n.",
+      "批判論述分析",
+      "CDA"
+    ],
+    [
+      "corpus linguistics",
+      "n.",
+      "語料庫語言學",
+      "text corpus study"
+    ],
+    [
+      "computer-assisted qualitative analysis",
+      "n.",
+      "電腦輔助質性分析",
+      "CAQDAS"
+    ],
+    [
+      "memo writing",
+      "n.",
+      "備忘錄撰寫",
+      "analytic memo"
+    ],
+    [
+      "saturation",
+      "n.",
+      "飽和",
+      "thematic saturation"
+    ],
+    [
+      "thick description",
+      "n.",
+      "厚描",
+      "rich account"
+    ],
+    [
+      "member checking",
+      "n.",
+      "成員檢核",
+      "participant validation"
+    ],
+    [
+      "audit trail",
+      "n.",
+      "稽核軌跡",
+      "decision record"
+    ],
+    [
+      "reflexivity",
+      "n.",
+      "反身性",
+      "researcher awareness"
+    ],
+    [
+      "positionality",
+      "n.",
+      "位置性",
+      "standpoint"
+    ],
+    [
+      "epistemology",
+      "n.",
+      "認識論",
+      "theory of knowledge"
+    ],
+    [
+      "ontology",
+      "n.",
+      "存在論",
+      "nature of reality"
+    ],
+    [
+      "positivism",
+      "n.",
+      "實證主義",
+      "objectivist paradigm"
+    ],
+    [
+      "interpretivism",
+      "n.",
+      "詮釋主義",
+      "subjectivist paradigm"
+    ],
+    [
+      "critical realism",
+      "n.",
+      "批判實在論",
+      "realist ontology"
+    ],
+    [
+      "pragmatism",
+      "n.",
+      "實用主義",
+      "problem-driven philosophy"
+    ],
+    [
+      "research paradigm",
+      "n.",
+      "研究典範",
+      "worldview"
+    ],
+    [
+      "methodological triangulation",
+      "n.",
+      "方法三角驗證",
+      "multi-method"
+    ],
+    [
+      "data triangulation",
+      "n.",
+      "資料三角驗證",
+      "multi-source"
+    ],
+    [
+      "investigator triangulation",
+      "n.",
+      "研究者三角驗證",
+      "multi-researcher"
+    ],
+    [
+      "theoretical triangulation",
+      "n.",
+      "理論三角驗證",
+      "multi-theory"
+    ],
+    [
+      "member validation",
+      "n.",
+      "成員驗證",
+      "participant feedback"
+    ],
+    [
+      "transferability",
+      "n.",
+      "可轉移性",
+      "applicability"
+    ],
+    [
+      "dependability",
+      "n.",
+      "可信賴性",
+      "consistency audit"
+    ],
+    [
+      "confirmability",
+      "n.",
+      "可確認性",
+      "neutrality check"
+    ],
+    [
+      "credibility",
+      "n.",
+      "可信度",
+      "trustworthiness"
+    ],
+    [
+      "authenticity",
+      "n.",
+      "真實性",
+      "genuine representation"
+    ],
+    [
+      "peer debriefing",
+      "n.",
+      "同儕反饋",
+      "colleague review"
+    ],
+    [
+      "negative case analysis",
+      "n.",
+      "反例分析",
+      "deviant case"
+    ],
+    [
+      "constant comparison",
+      "n.",
+      "持續比較",
+      "iterative coding"
+    ],
+    [
+      "axial coding",
+      "n.",
+      "主軸編碼",
+      "category linking"
+    ],
+    [
+      "selective coding",
+      "n.",
+      "選擇性編碼",
+      "core category"
+    ],
+    [
+      "open coding",
+      "n.",
+      "開放編碼",
+      "initial coding"
+    ],
+    [
+      "memoing",
+      "n.",
+      "備忘",
+      "analytic writing"
+    ],
+    [
+      "visualization",
+      "n.",
+      "視覺化",
+      "graphical display"
+    ],
+    [
+      "descriptive statistics",
+      "n.",
+      "描述統計",
+      "summary stats"
+    ],
+    [
+      "inferential statistics",
+      "n.",
+      "推論統計",
+      "hypothesis testing"
+    ],
+    [
+      "bivariate analysis",
+      "n.",
+      "雙變量分析",
+      "two-variable"
+    ],
+    [
+      "multicollinearity",
+      "n.",
+      "多重共線性",
+      "correlated predictors"
+    ],
+    [
+      "heteroskedasticity",
+      "n.",
+      "異質變異",
+      "unequal variance"
+    ],
+    [
+      "autocorrelation",
+      "n.",
+      "自我相關",
+      "serial correlation"
+    ],
+    [
+      "outlier",
+      "n.",
+      "離群值",
+      "extreme value"
+    ],
+    [
+      "missing data",
+      "n.",
+      "缺失資料",
+      "incomplete cases"
+    ],
+    [
+      "imputation",
+      "n.",
+      "插補",
+      "missing value fill"
+    ],
+    [
+      "listwise deletion",
+      "n.",
+      "列刪除",
+      "complete case"
+    ],
+    [
+      "pairwise deletion",
+      "n.",
+      "成對刪除",
+      "available case"
+    ],
+    [
+      "sensitivity analysis",
+      "n.",
+      "敏感度分析",
+      "robustness check"
+    ],
+    [
+      "robustness check",
+      "n.",
+      "穩健性檢驗",
+      "alternative spec"
+    ],
+    [
+      "specification",
+      "n.",
+      "模型設定",
+      "model form"
+    ],
+    [
+      "model fit",
+      "n.",
+      "模型配適",
+      "goodness of fit"
+    ],
+    [
+      "goodness of fit",
+      "n.",
+      "配適度",
+      "model adequacy"
+    ],
+    [
+      "Akaike information criterion",
+      "n.",
+      "Akaike 資訊準則",
+      "AIC"
+    ],
+    [
+      "Bayesian information criterion",
+      "n.",
+      "Bayesian 資訊準則",
+      "BIC"
+    ],
+    [
+      "cross-validation",
+      "n.",
+      "交叉驗證",
+      "holdout validation"
+    ],
+    [
+      "bootstrapping",
+      "n.",
+      "Bootstrap 法",
+      "resampling"
+    ],
+    [
+      "Monte Carlo simulation",
+      "n.",
+      "蒙地卡羅模擬",
+      "random simulation"
+    ],
+    [
+      "Bayesian inference",
+      "n.",
+      "貝氏推論",
+      "posterior updating"
+    ],
+    [
+      "prior distribution",
+      "n.",
+      "先驗分布",
+      "prior belief"
+    ],
+    [
+      "posterior distribution",
+      "n.",
+      "後驗分布",
+      "updated belief"
+    ],
+    [
+      "likelihood",
+      "n.",
+      "概似",
+      "probability function"
+    ],
+    [
+      "maximum likelihood estimation",
+      "n.",
+      "最大概似估計",
+      "MLE"
+    ],
+    [
+      "ordinary least squares",
+      "n.",
+      "普通最小平方法",
+      "OLS"
+    ],
+    [
+      "generalized linear model",
+      "n.",
+      "廣義線性模型",
+      "GLM"
+    ],
+    [
+      "generalized estimating equations",
+      "n.",
+      "廣義估計方程",
+      "GEE"
+    ],
+    [
+      "mixed-effects model",
+      "n.",
+      "混合效果模型",
+      "hierarchical model"
+    ],
+    [
+      "hierarchical linear modeling",
+      "n.",
+      "階層線性模型",
+      "HLM"
+    ],
+    [
+      "multilevel modeling",
+      "n.",
+      "多層次模型",
+      "nested data model"
+    ],
+    [
+      "time series analysis",
+      "n.",
+      "時間序列分析",
+      "temporal analysis"
+    ],
+    [
+      "panel data analysis",
+      "n.",
+      "面板資料分析",
+      "longitudinal data"
+    ],
+    [
+      "instrumental variable",
+      "n.",
+      "工具變項",
+      "IV"
+    ],
+    [
+      "propensity score matching",
+      "n.",
+      "傾向分數配對",
+      "PSM"
+    ],
+    [
+      "difference-in-differences",
+      "n.",
+      "差異中的差異",
+      "DiD"
+    ],
+    [
+      "regression discontinuity",
+      "n.",
+      "迴歸不連續",
+      "RDD"
+    ],
+    [
+      "natural language processing",
+      "n.",
+      "自然語言處理",
+      "NLP"
+    ],
+    [
+      "machine learning pipeline",
+      "n.",
+      "機器學習流程",
+      "ML workflow"
+    ],
+    [
+      "feature engineering",
+      "n.",
+      "特徵工程",
+      "variable creation"
+    ],
+    [
+      "training set",
+      "n.",
+      "訓練集",
+      "model training data"
+    ],
+    [
+      "validation set",
+      "n.",
+      "驗證集",
+      "tuning data"
+    ],
+    [
+      "test set",
+      "n.",
+      "測試集",
+      "evaluation data"
+    ],
+    [
+      "overfitting",
+      "n.",
+      "過度配適",
+      "model complexity"
+    ],
+    [
+      "underfitting",
+      "n.",
+      "配適不足",
+      "oversimplified model"
+    ],
+    [
+      "bias-variance tradeoff",
+      "n.",
+      "偏差變異權衡",
+      "model error tradeoff"
+    ],
+    [
+      "classification accuracy",
+      "n.",
+      "分類準確率",
+      "correct rate"
+    ],
+    [
+      "precision",
+      "n.",
+      "精確率",
+      "positive predictive value"
+    ],
+    [
+      "recall",
+      "n.",
+      "召回率",
+      "sensitivity"
+    ],
+    [
+      "F1 score",
+      "n.",
+      "F1 分數",
+      "harmonic mean"
+    ],
+    [
+      "ROC curve",
+      "n.",
+      "ROC 曲線",
+      "receiver operating characteristic"
+    ],
+    [
+      "AUC",
+      "n.",
+      "曲線下面積",
+      "area under curve"
+    ],
+    [
+      "confusion matrix",
+      "n.",
+      "混淆矩陣",
+      "error table"
+    ],
+    [
+      "k-fold cross-validation",
+      "n.",
+      "k 折交叉驗證",
+      "k-fold CV"
+    ],
+    [
+      "hyperparameter tuning",
+      "n.",
+      "超參數調整",
+      "model tuning"
+    ],
+    [
+      "random forest",
+      "n.",
+      "隨機森林",
+      "ensemble trees"
+    ],
+    [
+      "gradient boosting",
+      "n.",
+      "梯度提升",
+      "boosted trees"
+    ],
+    [
+      "support vector machine",
+      "n.",
+      "支持向量機",
+      "SVM"
+    ],
+    [
+      "neural network",
+      "n.",
+      "神經網路",
+      "deep learning model"
+    ],
+    [
+      "cluster analysis",
+      "n.",
+      "叢集分析",
+      "grouping method"
+    ],
+    [
+      "k-means clustering",
+      "n.",
+      "k 均值叢集",
+      "partition clustering"
+    ],
+    [
+      "hierarchical clustering",
+      "n.",
+      "階層叢集",
+      "tree clustering"
+    ],
+    [
+      "dimensionality reduction",
+      "n.",
+      "降維",
+      "feature reduction"
+    ],
+    [
+      "data visualization",
+      "n.",
+      "資料視覺化",
+      "graphical analysis"
+    ],
+    [
+      "box plot",
+      "n.",
+      "箱型圖",
+      "box-and-whisker"
+    ],
+    [
+      "scatter plot",
+      "n.",
+      "散佈圖",
+      "XY plot"
+    ],
+    [
+      "histogram",
+      "n.",
+      "直方圖",
+      "frequency chart"
+    ],
+    [
+      "heatmap",
+      "n.",
+      "熱圖",
+      "color matrix"
+    ],
+    [
+      "forest plot",
+      "n.",
+      "森林圖",
+      "effect size plot"
+    ],
+    [
+      "funnel plot",
+      "n.",
+      "漏斗圖",
+      "publication bias plot"
+    ],
+    [
+      "research instrument",
+      "n.",
+      "研究工具",
+      "measure tool"
+    ],
+    [
+      "Likert scale",
+      "n.",
+      "李克特量表",
+      "rating scale"
+    ],
+    [
+      "semantic differential",
+      "n.",
+      "語意差異法",
+      "bipolar scale"
+    ],
+    [
+      "questionnaire design",
+      "n.",
+      "問卷設計",
+      "survey design"
+    ],
+    [
+      "survey instrument",
+      "n.",
+      "調查工具",
+      "questionnaire"
+    ],
+    [
+      "pilot study",
+      "n.",
+      "試驗研究",
+      "preliminary study"
+    ],
+    [
+      "feasibility study",
+      "n.",
+      "可行性研究",
+      "viability assessment"
+    ],
+    [
+      "manipulation check",
+      "n.",
+      "操弄檢核",
+      "treatment verification"
+    ],
+    [
+      "attention check",
+      "n.",
+      "注意力檢核",
+      "quality filter"
+    ],
+    [
+      "inclusion criterion",
+      "n.",
+      "納入標準",
+      "eligibility rule"
+    ],
+    [
+      "exclusion criterion",
+      "n.",
+      "排除標準",
+      "disqualifier"
+    ],
+    [
+      "recruitment strategy",
+      "n.",
+      "招募策略",
+      "participant sourcing"
+    ],
+    [
+      "retention strategy",
+      "n.",
+      "留樣策略",
+      "follow-up plan"
+    ],
+    [
+      "attrition",
+      "n.",
+      "流失",
+      "dropout"
+    ],
+    [
+      "mortality bias",
+      "n.",
+      "流失偏誤",
+      "dropout bias"
+    ],
+    [
+      "generalizability",
+      "n.",
+      "可推廣性",
+      "external validity"
+    ],
+    [
+      "ecological validity",
+      "n.",
+      "生態效度",
+      "real-world relevance"
+    ],
+    [
+      "statistical conclusion validity",
+      "n.",
+      "統計結論效度",
+      "inference validity"
+    ],
+    [
+      "manipulation validity",
+      "n.",
+      "操弄效度",
+      "treatment validity"
+    ],
+    [
+      "history threat",
+      "n.",
+      "歷史威脅",
+      "external event"
+    ],
+    [
+      "maturation threat",
+      "n.",
+      "成熟威脅",
+      "natural change"
+    ],
+    [
+      "testing threat",
+      "n.",
+      "測驗威脅",
+      "practice effect"
+    ],
+    [
+      "instrumentation threat",
+      "n.",
+      "工具威脅",
+      "measure change"
+    ],
+    [
+      "regression threat",
+      "n.",
+      "迴歸威脅",
+      "mean reversion"
+    ],
+    [
+      "selection threat",
+      "n.",
+      "選取威脅",
+      "group difference"
+    ],
+    [
+      "mortality threat",
+      "n.",
+      "流失威脅",
+      "differential dropout"
+    ],
+    [
+      "interaction threat",
+      "n.",
+      "交互作用威脅",
+      "combined threats"
+    ],
+    [
+      "counterfactual",
+      "n.",
+      "反事實",
+      "what-if scenario"
+    ],
+    [
+      "naturalistic observation",
+      "n.",
+      "自然觀察",
+      "unobtrusive watch"
+    ],
+    [
+      "structured observation",
+      "n.",
+      "結構觀察",
+      "coded observation"
+    ],
+    [
+      "coding manual",
+      "n.",
+      "編碼手冊",
+      "observer guide"
+    ],
+    [
+      "intercoder reliability",
+      "n.",
+      "編碼者信度",
+      "agreement rate"
+    ],
+    [
+      "Kappa coefficient",
+      "n.",
+      "Kappa 係數",
+      "agreement index"
+    ],
+    [
+      "document analysis",
+      "n.",
+      "文件分析",
+      "record review"
+    ],
+    [
+      "archival research",
+      "n.",
+      "檔案研究",
+      "historical records"
+    ],
+    [
+      "bibliometric analysis",
+      "n.",
+      "書目計量分析",
+      "citation analysis"
+    ],
+    [
+      "citation network",
+      "n.",
+      "引用網絡",
+      "reference graph"
+    ],
+    [
+      "h-index",
+      "n.",
+      "h 指數",
+      "research impact index"
+    ],
+    [
+      "impact factor",
+      "n.",
+      "影響因子",
+      "journal metric"
+    ],
+    [
+      "open access",
+      "n.",
+      "開放取用",
+      "free publication"
+    ],
+    [
+      "preprint",
+      "n.",
+      "預印本",
+      "early manuscript"
+    ],
+    [
+      "postprint",
+      "n.",
+      "後印本",
+      "accepted manuscript"
+    ],
+    [
+      "retraction",
+      "n.",
+      "撤稿",
+      "paper withdrawal"
+    ],
+    [
+      "research integrity",
+      "n.",
+      "研究誠信",
+      "scholarly honesty"
+    ],
+    [
+      "plagiarism",
+      "n.",
+      "抄襲",
+      "intellectual theft"
+    ],
+    [
+      "data fabrication",
+      "n.",
+      "資料造假",
+      "falsification"
+    ],
+    [
+      "data falsification",
+      "n.",
+      "資料篡改",
+      "data manipulation"
+    ],
+    [
+      "authorship criteria",
+      "n.",
+      "作者資格",
+      "contributor standard"
+    ],
+    [
+      "corresponding author",
+      "n.",
+      "通訊作者",
+      "contact author"
+    ],
+    [
+      "co-authorship",
+      "n.",
+      "共同作者",
+      "shared authorship"
+    ],
+    [
+      "acknowledgment section",
+      "n.",
+      "致謝部分",
+      "credit section"
+    ],
+    [
+      "conflict of interest",
+      "n.",
+      "利益衝突",
+      "competing interest"
+    ],
+    [
+      "funding disclosure",
+      "n.",
+      "經費揭露",
+      "grant statement"
+    ],
+    [
+      "replication study",
+      "n.",
+      "複製研究",
+      "repeat experiment"
+    ],
+    [
+      "direct replication",
+      "n.",
+      "直接複製",
+      "exact repeat"
+    ],
+    [
+      "conceptual replication",
+      "n.",
+      "概念複製",
+      "theory test repeat"
+    ],
+    [
+      "registered report",
+      "n.",
+      "預登錄報告",
+      "stage-one acceptance"
+    ],
+    [
+      "data sharing policy",
+      "n.",
+      "資料分享政策",
+      "open data rule"
+    ],
+    [
+      "FAIR principles",
+      "n.",
+      "FAIR 原則",
+      "findable accessible data"
+    ],
+    [
+      "metadata standard",
+      "n.",
+      "詮釋資料標準",
+      "data description"
+    ],
+    [
+      "DOI",
+      "n.",
+      "數位物件識別碼",
+      "digital identifier"
+    ],
+    [
+      "ORCID",
+      "n.",
+      "ORCID 識別碼",
+      "researcher ID"
+    ],
+    [
+      "grant proposal",
+      "n.",
+      "計畫書",
+      "funding application"
+    ],
+    [
+      "research grant",
+      "n.",
+      "研究補助",
+      "funding award"
+    ],
+    [
+      "literature gap",
+      "n.",
+      "文獻缺口",
+      "research gap"
+    ],
+    [
+      "theoretical contribution",
+      "n.",
+      "理論貢獻",
+      "conceptual advance"
+    ],
+    [
+      "practical implication",
+      "n.",
+      "實務意涵",
+      "applied relevance"
+    ],
+    [
+      "policy implication",
+      "n.",
+      "政策意涵",
+      "policy relevance"
+    ],
+    [
+      "limitation section",
+      "n.",
+      "限制章節",
+      "study limits"
+    ],
+    [
+      "future research",
+      "n.",
+      "未來研究",
+      "next steps"
+    ],
+    [
+      "discussion section",
+      "n.",
+      "討論章節",
+      "interpretation section"
+    ],
+    [
+      "methods section",
+      "n.",
+      "方法章節",
+      "procedure section"
+    ],
+    [
+      "results section",
+      "n.",
+      "結果章節",
+      "findings section"
+    ],
+    [
+      "introduction section",
+      "n.",
+      "緒論章節",
+      "background section"
+    ],
+    [
+      "qualitative design",
+      "n.",
+      "質性設計",
+      "qualitative design"
+    ],
+    [
+      "qualitative framework",
+      "n.",
+      "質性框架",
+      "qualitative framework"
+    ],
+    [
+      "qualitative method",
+      "n.",
+      "質性方法",
+      "qualitative method"
+    ],
+    [
+      "qualitative approach",
+      "n.",
+      "質性取向",
+      "qualitative approach"
+    ],
+    [
+      "qualitative protocol",
+      "n.",
+      "質性方案",
+      "qualitative protocol"
+    ],
+    [
+      "qualitative procedure",
+      "n.",
+      "質性程序",
+      "qualitative procedure"
+    ],
+    [
+      "qualitative analysis",
+      "n.",
+      "質性分析",
+      "qualitative analysis"
+    ],
+    [
+      "qualitative inference",
+      "n.",
+      "質性推論",
+      "qualitative inference"
+    ],
+    [
+      "qualitative sampling strategy",
+      "n.",
+      "質性抽樣策略",
+      "qualitative sampling plan"
+    ],
+    [
+      "qualitative data collection",
+      "n.",
+      "質性資料蒐集",
+      "qualitative data gathering"
+    ],
+    [
+      "qualitative measurement model",
+      "n.",
+      "質性測量模型",
+      "qualitative measurement framework"
+    ],
+    [
+      "qualitative research report",
+      "n.",
+      "質性研究報告",
+      "qualitative study report"
+    ],
+    [
+      "qualitative evidence synthesis",
+      "n.",
+      "質性證據綜整",
+      "qualitative evidence review"
+    ],
+    [
+      "qualitative literature search",
+      "n.",
+      "質性文獻搜尋",
+      "qualitative database search"
+    ],
+    [
+      "qualitative coding process",
+      "n.",
+      "質性編碼流程",
+      "qualitative coding workflow"
+    ],
+    [
+      "qualitative validation strategy",
+      "n.",
+      "質性驗證策略",
+      "qualitative validation plan"
+    ],
+    [
+      "qualitative ethical review",
+      "n.",
+      "質性倫理審查",
+      "qualitative ethics review"
+    ],
+    [
+      "qualitative statistical model",
+      "n.",
+      "質性統計模型",
+      "qualitative stat model"
+    ],
+    [
+      "qualitative hypothesis test",
+      "n.",
+      "質性假說檢定",
+      "qualitative significance test"
+    ],
+    [
+      "qualitative effect estimation",
+      "n.",
+      "質性效果估計",
+      "qualitative effect estimate"
+    ],
+    [
+      "qualitative sensitivity test",
+      "n.",
+      "質性敏感度檢驗",
+      "qualitative robustness test"
+    ],
+    [
+      "qualitative replication plan",
+      "n.",
+      "質性複製計畫",
+      "qualitative replication design"
+    ],
+    [
+      "qualitative publication strategy",
+      "n.",
+      "質性發表策略",
+      "qualitative dissemination plan"
+    ],
+    [
+      "qualitative research agenda",
+      "n.",
+      "質性研究議程",
+      "qualitative research roadmap"
+    ],
+    [
+      "qualitative knowledge claim",
+      "n.",
+      "質性知識主張",
+      "qualitative epistemic claim"
+    ],
+    [
+      "qualitative finding interpretation",
+      "n.",
+      "質性發現詮釋",
+      "qualitative result reading"
+    ],
+    [
+      "qualitative variable definition",
+      "n.",
+      "質性變項定義",
+      "qualitative operational definition"
+    ],
+    [
+      "qualitative survey design",
+      "n.",
+      "質性調查設計",
+      "qualitative questionnaire plan"
+    ],
+    [
+      "qualitative interview protocol",
+      "n.",
+      "質性訪談方案",
+      "qualitative interview plan"
+    ],
+    [
+      "qualitative observation schedule",
+      "n.",
+      "質性觀察表",
+      "qualitative observation plan"
+    ],
+    [
+      "qualitative case selection",
+      "n.",
+      "質性個案選取",
+      "qualitative case sampling"
+    ],
+    [
+      "qualitative theoretical model",
+      "n.",
+      "質性理論模型",
+      "qualitative conceptual model"
+    ],
+    [
+      "qualitative research question",
+      "n.",
+      "質性研究問題",
+      "qualitative study question"
+    ],
+    [
+      "qualitative study limitation",
+      "n.",
+      "質性研究限制",
+      "qualitative design limitation"
+    ],
+    [
+      "qualitative data quality check",
+      "n.",
+      "質性資料品質檢核",
+      "qualitative data audit"
+    ],
+    [
+      "qualitative peer review process",
+      "n.",
+      "質性同儕審查流程",
+      "qualitative referee process"
+    ],
+    [
+      "qualitative meta-analytic review",
+      "n.",
+      "質性後設分析回顧",
+      "qualitative meta review"
+    ],
+    [
+      "qualitative causal inference",
+      "n.",
+      "質性因果推論",
+      "qualitative cause inference"
+    ],
+    [
+      "qualitative generalization claim",
+      "n.",
+      "質性推廣主張",
+      "qualitative generalization"
+    ],
+    [
+      "qualitative research collaboration",
+      "n.",
+      "質性研究合作",
+      "qualitative team science"
+    ],
+    [
+      "qualitative funding strategy",
+      "n.",
+      "質性經費策略",
+      "qualitative grant strategy"
+    ],
+    [
+      "quantitative design",
+      "n.",
+      "量化設計",
+      "quantitative design"
+    ],
+    [
+      "quantitative framework",
+      "n.",
+      "量化框架",
+      "quantitative framework"
+    ],
+    [
+      "quantitative method",
+      "n.",
+      "量化方法",
+      "quantitative method"
+    ],
+    [
+      "quantitative approach",
+      "n.",
+      "量化取向",
+      "quantitative approach"
+    ],
+    [
+      "quantitative protocol",
+      "n.",
+      "量化方案",
+      "quantitative protocol"
+    ],
+    [
+      "quantitative procedure",
+      "n.",
+      "量化程序",
+      "quantitative procedure"
+    ],
+    [
+      "quantitative analysis",
+      "n.",
+      "量化分析",
+      "quantitative analysis"
+    ],
+    [
+      "quantitative inference",
+      "n.",
+      "量化推論",
+      "quantitative inference"
+    ],
+    [
+      "quantitative sampling strategy",
+      "n.",
+      "量化抽樣策略",
+      "quantitative sampling plan"
+    ],
+    [
+      "quantitative data collection",
+      "n.",
+      "量化資料蒐集",
+      "quantitative data gathering"
+    ],
+    [
+      "quantitative measurement model",
+      "n.",
+      "量化測量模型",
+      "quantitative measurement framework"
+    ],
+    [
+      "quantitative research report",
+      "n.",
+      "量化研究報告",
+      "quantitative study report"
+    ],
+    [
+      "quantitative evidence synthesis",
+      "n.",
+      "量化證據綜整",
+      "quantitative evidence review"
+    ],
+    [
+      "quantitative literature search",
+      "n.",
+      "量化文獻搜尋",
+      "quantitative database search"
+    ],
+    [
+      "quantitative coding process",
+      "n.",
+      "量化編碼流程",
+      "quantitative coding workflow"
+    ],
+    [
+      "quantitative validation strategy",
+      "n.",
+      "量化驗證策略",
+      "quantitative validation plan"
+    ],
+    [
+      "quantitative ethical review",
+      "n.",
+      "量化倫理審查",
+      "quantitative ethics review"
+    ],
+    [
+      "quantitative statistical model",
+      "n.",
+      "量化統計模型",
+      "quantitative stat model"
+    ],
+    [
+      "quantitative hypothesis test",
+      "n.",
+      "量化假說檢定",
+      "quantitative significance test"
+    ],
+    [
+      "quantitative effect estimation",
+      "n.",
+      "量化效果估計",
+      "quantitative effect estimate"
+    ],
+    [
+      "quantitative sensitivity test",
+      "n.",
+      "量化敏感度檢驗",
+      "quantitative robustness test"
+    ],
+    [
+      "quantitative replication plan",
+      "n.",
+      "量化複製計畫",
+      "quantitative replication design"
+    ],
+    [
+      "quantitative publication strategy",
+      "n.",
+      "量化發表策略",
+      "quantitative dissemination plan"
+    ],
+    [
+      "quantitative research agenda",
+      "n.",
+      "量化研究議程",
+      "quantitative research roadmap"
+    ],
+    [
+      "quantitative knowledge claim",
+      "n.",
+      "量化知識主張",
+      "quantitative epistemic claim"
+    ],
+    [
+      "quantitative finding interpretation",
+      "n.",
+      "量化發現詮釋",
+      "quantitative result reading"
+    ],
+    [
+      "quantitative variable definition",
+      "n.",
+      "量化變項定義",
+      "quantitative operational definition"
+    ],
+    [
+      "quantitative survey design",
+      "n.",
+      "量化調查設計",
+      "quantitative questionnaire plan"
+    ],
+    [
+      "quantitative interview protocol",
+      "n.",
+      "量化訪談方案",
+      "quantitative interview plan"
+    ],
+    [
+      "quantitative observation schedule",
+      "n.",
+      "量化觀察表",
+      "quantitative observation plan"
+    ],
+    [
+      "quantitative case selection",
+      "n.",
+      "量化個案選取",
+      "quantitative case sampling"
+    ],
+    [
+      "quantitative theoretical model",
+      "n.",
+      "量化理論模型",
+      "quantitative conceptual model"
+    ],
+    [
+      "quantitative research question",
+      "n.",
+      "量化研究問題",
+      "quantitative study question"
+    ],
+    [
+      "quantitative study limitation",
+      "n.",
+      "量化研究限制",
+      "quantitative design limitation"
+    ],
+    [
+      "quantitative data quality check",
+      "n.",
+      "量化資料品質檢核",
+      "quantitative data audit"
+    ],
+    [
+      "quantitative peer review process",
+      "n.",
+      "量化同儕審查流程",
+      "quantitative referee process"
+    ],
+    [
+      "quantitative meta-analytic review",
+      "n.",
+      "量化後設分析回顧",
+      "quantitative meta review"
+    ],
+    [
+      "quantitative causal inference",
+      "n.",
+      "量化因果推論",
+      "quantitative cause inference"
+    ],
+    [
+      "quantitative generalization claim",
+      "n.",
+      "量化推廣主張",
+      "quantitative generalization"
+    ],
+    [
+      "quantitative research collaboration",
+      "n.",
+      "量化研究合作",
+      "quantitative team science"
+    ],
+    [
+      "quantitative funding strategy",
+      "n.",
+      "量化經費策略",
+      "quantitative grant strategy"
+    ],
+    [
+      "experimental design",
+      "n.",
+      "實驗設計",
+      "experimental design"
+    ],
+    [
+      "experimental framework",
+      "n.",
+      "實驗框架",
+      "experimental framework"
+    ],
+    [
+      "experimental method",
+      "n.",
+      "實驗方法",
+      "experimental method"
+    ],
+    [
+      "experimental approach",
+      "n.",
+      "實驗取向",
+      "experimental approach"
+    ],
+    [
+      "experimental protocol",
+      "n.",
+      "實驗方案",
+      "experimental protocol"
+    ],
+    [
+      "experimental procedure",
+      "n.",
+      "實驗程序",
+      "experimental procedure"
+    ],
+    [
+      "experimental analysis",
+      "n.",
+      "實驗分析",
+      "experimental analysis"
+    ],
+    [
+      "experimental inference",
+      "n.",
+      "實驗推論",
+      "experimental inference"
+    ],
+    [
+      "experimental sampling strategy",
+      "n.",
+      "實驗抽樣策略",
+      "experimental sampling plan"
+    ],
+    [
+      "experimental data collection",
+      "n.",
+      "實驗資料蒐集",
+      "experimental data gathering"
+    ],
+    [
+      "experimental measurement model",
+      "n.",
+      "實驗測量模型",
+      "experimental measurement framework"
+    ],
+    [
+      "experimental research report",
+      "n.",
+      "實驗研究報告",
+      "experimental study report"
+    ],
+    [
+      "experimental evidence synthesis",
+      "n.",
+      "實驗證據綜整",
+      "experimental evidence review"
+    ],
+    [
+      "experimental literature search",
+      "n.",
+      "實驗文獻搜尋",
+      "experimental database search"
+    ],
+    [
+      "experimental coding process",
+      "n.",
+      "實驗編碼流程",
+      "experimental coding workflow"
+    ],
+    [
+      "experimental validation strategy",
+      "n.",
+      "實驗驗證策略",
+      "experimental validation plan"
+    ],
+    [
+      "experimental ethical review",
+      "n.",
+      "實驗倫理審查",
+      "experimental ethics review"
+    ],
+    [
+      "experimental statistical model",
+      "n.",
+      "實驗統計模型",
+      "experimental stat model"
+    ],
+    [
+      "experimental hypothesis test",
+      "n.",
+      "實驗假說檢定",
+      "experimental significance test"
+    ],
+    [
+      "experimental effect estimation",
+      "n.",
+      "實驗效果估計",
+      "experimental effect estimate"
+    ],
+    [
+      "experimental sensitivity test",
+      "n.",
+      "實驗敏感度檢驗",
+      "experimental robustness test"
+    ],
+    [
+      "experimental replication plan",
+      "n.",
+      "實驗複製計畫",
+      "experimental replication design"
+    ],
+    [
+      "experimental publication strategy",
+      "n.",
+      "實驗發表策略",
+      "experimental dissemination plan"
+    ],
+    [
+      "experimental research agenda",
+      "n.",
+      "實驗研究議程",
+      "experimental research roadmap"
+    ],
+    [
+      "experimental knowledge claim",
+      "n.",
+      "實驗知識主張",
+      "experimental epistemic claim"
+    ],
+    [
+      "experimental finding interpretation",
+      "n.",
+      "實驗發現詮釋",
+      "experimental result reading"
+    ],
+    [
+      "experimental variable definition",
+      "n.",
+      "實驗變項定義",
+      "experimental operational definition"
+    ],
+    [
+      "experimental survey design",
+      "n.",
+      "實驗調查設計",
+      "experimental questionnaire plan"
+    ],
+    [
+      "experimental interview protocol",
+      "n.",
+      "實驗訪談方案",
+      "experimental interview plan"
+    ],
+    [
+      "experimental observation schedule",
+      "n.",
+      "實驗觀察表",
+      "experimental observation plan"
+    ],
+    [
+      "experimental case selection",
+      "n.",
+      "實驗個案選取",
+      "experimental case sampling"
+    ],
+    [
+      "experimental theoretical model",
+      "n.",
+      "實驗理論模型",
+      "experimental conceptual model"
+    ],
+    [
+      "experimental research question",
+      "n.",
+      "實驗研究問題",
+      "experimental study question"
+    ],
+    [
+      "experimental study limitation",
+      "n.",
+      "實驗研究限制",
+      "experimental design limitation"
+    ],
+    [
+      "experimental data quality check",
+      "n.",
+      "實驗資料品質檢核",
+      "experimental data audit"
+    ],
+    [
+      "experimental peer review process",
+      "n.",
+      "實驗同儕審查流程",
+      "experimental referee process"
+    ],
+    [
+      "experimental meta-analytic review",
+      "n.",
+      "實驗後設分析回顧",
+      "experimental meta review"
+    ],
+    [
+      "experimental causal inference",
+      "n.",
+      "實驗因果推論",
+      "experimental cause inference"
+    ],
+    [
+      "experimental generalization claim",
+      "n.",
+      "實驗推廣主張",
+      "experimental generalization"
+    ],
+    [
+      "experimental research collaboration",
+      "n.",
+      "實驗研究合作",
+      "experimental team science"
+    ],
+    [
+      "experimental funding strategy",
+      "n.",
+      "實驗經費策略",
+      "experimental grant strategy"
+    ],
+    [
+      "observational design",
+      "n.",
+      "觀察設計",
+      "observational design"
+    ],
+    [
+      "observational framework",
+      "n.",
+      "觀察框架",
+      "observational framework"
+    ],
+    [
+      "observational method",
+      "n.",
+      "觀察方法",
+      "observational method"
+    ],
+    [
+      "observational approach",
+      "n.",
+      "觀察取向",
+      "observational approach"
+    ],
+    [
+      "observational protocol",
+      "n.",
+      "觀察方案",
+      "observational protocol"
+    ],
+    [
+      "observational procedure",
+      "n.",
+      "觀察程序",
+      "observational procedure"
+    ],
+    [
+      "observational analysis",
+      "n.",
+      "觀察分析",
+      "observational analysis"
+    ],
+    [
+      "observational inference",
+      "n.",
+      "觀察推論",
+      "observational inference"
+    ],
+    [
+      "observational sampling strategy",
+      "n.",
+      "觀察抽樣策略",
+      "observational sampling plan"
+    ],
+    [
+      "observational data collection",
+      "n.",
+      "觀察資料蒐集",
+      "observational data gathering"
+    ],
+    [
+      "observational measurement model",
+      "n.",
+      "觀察測量模型",
+      "observational measurement framework"
+    ],
+    [
+      "observational research report",
+      "n.",
+      "觀察研究報告",
+      "observational study report"
+    ],
+    [
+      "observational evidence synthesis",
+      "n.",
+      "觀察證據綜整",
+      "observational evidence review"
+    ],
+    [
+      "observational literature search",
+      "n.",
+      "觀察文獻搜尋",
+      "observational database search"
+    ],
+    [
+      "observational coding process",
+      "n.",
+      "觀察編碼流程",
+      "observational coding workflow"
+    ],
+    [
+      "observational validation strategy",
+      "n.",
+      "觀察驗證策略",
+      "observational validation plan"
+    ],
+    [
+      "observational ethical review",
+      "n.",
+      "觀察倫理審查",
+      "observational ethics review"
+    ],
+    [
+      "observational statistical model",
+      "n.",
+      "觀察統計模型",
+      "observational stat model"
+    ],
+    [
+      "observational hypothesis test",
+      "n.",
+      "觀察假說檢定",
+      "observational significance test"
+    ],
+    [
+      "observational effect estimation",
+      "n.",
+      "觀察效果估計",
+      "observational effect estimate"
+    ],
+    [
+      "observational sensitivity test",
+      "n.",
+      "觀察敏感度檢驗",
+      "observational robustness test"
+    ],
+    [
+      "observational replication plan",
+      "n.",
+      "觀察複製計畫",
+      "observational replication design"
+    ],
+    [
+      "observational publication strategy",
+      "n.",
+      "觀察發表策略",
+      "observational dissemination plan"
+    ],
+    [
+      "observational research agenda",
+      "n.",
+      "觀察研究議程",
+      "observational research roadmap"
+    ],
+    [
+      "observational knowledge claim",
+      "n.",
+      "觀察知識主張",
+      "observational epistemic claim"
+    ]
+  ],
+  "biology-adv": [
+    [
+      "homeostasis",
+      "n.",
+      "恆定狀態",
+      "steady state"
+    ],
+    [
+      "mitosis",
+      "n.",
+      "有絲分裂",
+      "cell division"
+    ],
+    [
+      "meiosis",
+      "n.",
+      "減數分裂",
+      "gamete formation"
+    ],
+    [
+      "allele",
+      "n.",
+      "對偶基因",
+      "gene variant"
+    ],
+    [
+      "phenotype",
+      "n.",
+      "表型",
+      "observable trait"
+    ],
+    [
+      "genotype",
+      "n.",
+      "基因型",
+      "genetic makeup"
+    ],
+    [
+      "trophic level",
+      "n.",
+      "營養階層",
+      "feeding level"
+    ],
+    [
+      "carrying capacity",
+      "n.",
+      "環境容載量",
+      "K limit"
+    ],
+    [
+      "keystone species",
+      "n.",
+      "關鍵物種",
+      "ecosystem anchor"
+    ],
+    [
+      "ecosystem",
+      "n.",
+      "生態系",
+      "biotic community"
+    ],
+    [
+      "biome",
+      "n.",
+      "生物群系",
+      "major habitat"
+    ],
+    [
+      "biodiversity hotspot",
+      "n.",
+      "生物多樣性熱點",
+      "species-rich region"
+    ],
+    [
+      "niche partitioning",
+      "n.",
+      "生態位分割",
+      "resource division"
+    ],
+    [
+      "competitive exclusion",
+      "n.",
+      "競爭排除",
+      "Gause principle"
+    ],
+    [
+      "symbiosis",
+      "n.",
+      "共生",
+      "mutual relationship"
+    ],
+    [
+      "mutualism",
+      "n.",
+      "互利共生",
+      "beneficial symbiosis"
+    ],
+    [
+      "parasitism",
+      "n.",
+      "寄生",
+      "host exploitation"
+    ],
+    [
+      "commensalism",
+      "n.",
+      "偏利共生",
+      "one-sided benefit"
+    ],
+    [
+      "predation",
+      "n.",
+      "捕食",
+      "consumer-prey"
+    ],
+    [
+      "herbivory",
+      "n.",
+      "草食",
+      "plant consumption"
+    ],
+    [
+      "decomposition",
+      "n.",
+      "分解",
+      "organic breakdown"
+    ],
+    [
+      "nutrient cycling",
+      "n.",
+      "營養循環",
+      "biogeochemical cycle"
+    ],
+    [
+      "carbon cycle",
+      "n.",
+      "碳循環",
+      "C cycle"
+    ],
+    [
+      "nitrogen cycle",
+      "n.",
+      "氮循環",
+      "N cycle"
+    ],
+    [
+      "phosphorus cycle",
+      "n.",
+      "磷循環",
+      "P cycle"
+    ],
+    [
+      "primary productivity",
+      "n.",
+      "初級生產力",
+      "autotrophic output"
+    ],
+    [
+      "secondary productivity",
+      "n.",
+      "次級生產力",
+      "consumer biomass"
+    ],
+    [
+      "gross primary productivity",
+      "n.",
+      "總初級生產力",
+      "GPP"
+    ],
+    [
+      "net primary productivity",
+      "n.",
+      "淨初級生產力",
+      "NPP"
+    ],
+    [
+      "food web",
+      "n.",
+      "食物網",
+      "feeding network"
+    ],
+    [
+      "food chain",
+      "n.",
+      "食物鏈",
+      "linear feeding"
+    ],
+    [
+      "energy pyramid",
+      "n.",
+      "能量金字塔",
+      "trophic pyramid"
+    ],
+    [
+      "biomagnification",
+      "n.",
+      "生物放大",
+      "toxin accumulation"
+    ],
+    [
+      "bioaccumulation",
+      "n.",
+      "生物累積",
+      "substance buildup"
+    ],
+    [
+      "ecological succession",
+      "n.",
+      "生態演替",
+      "community change"
+    ],
+    [
+      "primary succession",
+      "n.",
+      "初演替",
+      "bare substrate"
+    ],
+    [
+      "secondary succession",
+      "n.",
+      "次演替",
+      "disturbed habitat"
+    ],
+    [
+      "climax community",
+      "n.",
+      "極相群落",
+      "stable endpoint"
+    ],
+    [
+      "pioneer species",
+      "n.",
+      "先驅物種",
+      "early colonizer"
+    ],
+    [
+      "invasive species",
+      "n.",
+      "入侵物種",
+      "non-native spread"
+    ],
+    [
+      "endemic species",
+      "n.",
+      "特有種",
+      "local native"
+    ],
+    [
+      "extinction rate",
+      "n.",
+      "滅絕率",
+      "species loss rate"
+    ],
+    [
+      "conservation biology",
+      "n.",
+      "保育生物學",
+      "biodiversity science"
+    ],
+    [
+      "habitat fragmentation",
+      "n.",
+      "棲地破碎化",
+      "habitat loss"
+    ],
+    [
+      "edge effect",
+      "n.",
+      "邊緣效應",
+      "boundary impact"
+    ],
+    [
+      "corridor ecology",
+      "n.",
+      "廊道生態",
+      "wildlife corridor"
+    ],
+    [
+      "metapopulation",
+      "n.",
+      "嵌套族群",
+      "patch network"
+    ],
+    [
+      "founder effect",
+      "n.",
+      "創始者效應",
+      "genetic drift"
+    ],
+    [
+      "bottleneck effect",
+      "n.",
+      "瓶頸效應",
+      "population shrink"
+    ],
+    [
+      "genetic drift",
+      "n.",
+      "遺傳漂變",
+      "random allele change"
+    ],
+    [
+      "gene flow",
+      "n.",
+      "基因流",
+      "migration of alleles"
+    ],
+    [
+      "natural selection",
+      "n.",
+      "天擇",
+      "differential survival"
+    ],
+    [
+      "sexual selection",
+      "n.",
+      "性擇",
+      "mate choice pressure"
+    ],
+    [
+      "directional selection",
+      "n.",
+      "方向性選擇",
+      "trait shift"
+    ],
+    [
+      "stabilizing selection",
+      "n.",
+      "穩定化選擇",
+      "trait maintenance"
+    ],
+    [
+      "disruptive selection",
+      "n.",
+      "分裂性選擇",
+      "trait divergence"
+    ],
+    [
+      "adaptation",
+      "n.",
+      "適應",
+      "evolutionary fit"
+    ],
+    [
+      "fitness",
+      "n.",
+      "適存度",
+      "reproductive success"
+    ],
+    [
+      "speciation",
+      "n.",
+      "物種形成",
+      "new species origin"
+    ],
+    [
+      "allopatric speciation",
+      "n.",
+      "異域物種形成",
+      "geographic isolation"
+    ],
+    [
+      "sympatric speciation",
+      "n.",
+      "同域物種形成",
+      "same-area divergence"
+    ],
+    [
+      "reproductive isolation",
+      "n.",
+      "生殖隔離",
+      "breeding barrier"
+    ],
+    [
+      "hybrid zone",
+      "n.",
+      "雜交帶",
+      "interbreeding area"
+    ],
+    [
+      "phylogeny",
+      "n.",
+      "系統發生",
+      "evolutionary tree"
+    ],
+    [
+      "cladistics",
+      "n.",
+      "支序分類",
+      "branch analysis"
+    ],
+    [
+      "molecular clock",
+      "n.",
+      "分子鐘",
+      "mutation rate dating"
+    ],
+    [
+      "convergent evolution",
+      "n.",
+      "趨同演化",
+      "similar trait evolution"
+    ],
+    [
+      "coevolution",
+      "n.",
+      "共同演化",
+      "reciprocal adaptation"
+    ],
+    [
+      "endosymbiosis",
+      "n.",
+      "內共生",
+      "organelle origin"
+    ],
+    [
+      "horizontal gene transfer",
+      "n.",
+      "水平基因轉移",
+      "lateral transfer"
+    ],
+    [
+      "CRISPR",
+      "n.",
+      "CRISPR 基因編輯",
+      "genome editing"
+    ],
+    [
+      "genome",
+      "n.",
+      "基因組",
+      "full DNA set"
+    ],
+    [
+      "chromosome",
+      "n.",
+      "染色體",
+      "DNA package"
+    ],
+    [
+      "chromatin",
+      "n.",
+      "染色質",
+      "DNA-protein complex"
+    ],
+    [
+      "nucleosome",
+      "n.",
+      "核小體",
+      "DNA wrap unit"
+    ],
+    [
+      "histone",
+      "n.",
+      "組蛋白",
+      "chromatin protein"
+    ],
+    [
+      "DNA replication",
+      "n.",
+      "DNA 複製",
+      "genome duplication"
+    ],
+    [
+      "transcription",
+      "n.",
+      "轉錄",
+      "RNA synthesis"
+    ],
+    [
+      "translation",
+      "n.",
+      "轉譯",
+      "protein synthesis"
+    ],
+    [
+      "messenger RNA",
+      "n.",
+      "信使 RNA",
+      "mRNA"
+    ],
+    [
+      "transfer RNA",
+      "n.",
+      "轉運 RNA",
+      "tRNA"
+    ],
+    [
+      "ribosome",
+      "n.",
+      "核糖體",
+      "protein factory"
+    ],
+    [
+      "codon",
+      "n.",
+      "密碼子",
+      "triplet code"
+    ],
+    [
+      "mutation",
+      "n.",
+      "突變",
+      "genetic change"
+    ],
+    [
+      "point mutation",
+      "n.",
+      "點突變",
+      "single base change"
+    ],
+    [
+      "frameshift mutation",
+      "n.",
+      "移碼突變",
+      "reading frame shift"
+    ],
+    [
+      "insertion mutation",
+      "n.",
+      "插入突變",
+      "added sequence"
+    ],
+    [
+      "deletion mutation",
+      "n.",
+      "缺失突變",
+      "lost sequence"
+    ],
+    [
+      "silent mutation",
+      "n.",
+      "同義突變",
+      "noncoding change"
+    ],
+    [
+      "missense mutation",
+      "n.",
+      "錯義突變",
+      "amino acid change"
+    ],
+    [
+      "nonsense mutation",
+      "n.",
+      "無義突變",
+      "stop codon"
+    ],
+    [
+      "dominant allele",
+      "n.",
+      "顯性對偶基因",
+      "dominant trait"
+    ],
+    [
+      "recessive allele",
+      "n.",
+      "隱性對偶基因",
+      "recessive trait"
+    ],
+    [
+      "homozygous",
+      "adj.",
+      "同型合子",
+      "same alleles"
+    ],
+    [
+      "heterozygous",
+      "adj.",
+      "異型合子",
+      "different alleles"
+    ],
+    [
+      "linkage",
+      "n.",
+      "連鎖",
+      "gene association"
+    ],
+    [
+      "crossing over",
+      "n.",
+      "交換",
+      "recombination"
+    ],
+    [
+      "recombination",
+      "n.",
+      "重組",
+      "genetic shuffle"
+    ],
+    [
+      "epistasis",
+      "n.",
+      "上位性",
+      "gene interaction"
+    ],
+    [
+      "pleiotropy",
+      "n.",
+      "多效性",
+      "multi-trait effect"
+    ],
+    [
+      "polygenic inheritance",
+      "n.",
+      "多基因遺傳",
+      "many-gene trait"
+    ],
+    [
+      "quantitative trait locus",
+      "n.",
+      "數量性狀基因座",
+      "QTL"
+    ],
+    [
+      "genetic marker",
+      "n.",
+      "遺傳標記",
+      "DNA marker"
+    ],
+    [
+      "SNP",
+      "n.",
+      "單核苷酸多型",
+      "single nucleotide polymorphism"
+    ],
+    [
+      "PCR",
+      "n.",
+      "聚合酶連鎖反應",
+      "DNA amplification"
+    ],
+    [
+      "gel electrophoresis",
+      "n.",
+      "膠電泳",
+      "DNA separation"
+    ],
+    [
+      "Western blot",
+      "n.",
+      "西方墨點法",
+      "protein detection"
+    ],
+    [
+      "Northern blot",
+      "n.",
+      "北方墨點法",
+      "RNA detection"
+    ],
+    [
+      "Southern blot",
+      "n.",
+      "南方墨點法",
+      "DNA detection"
+    ],
+    [
+      "DNA sequencing",
+      "n.",
+      "DNA 定序",
+      "base reading"
+    ],
+    [
+      "next-generation sequencing",
+      "n.",
+      "次世代定序",
+      "NGS"
+    ],
+    [
+      "bioinformatics",
+      "n.",
+      "生物資訊",
+      "computational biology"
+    ],
+    [
+      "proteomics",
+      "n.",
+      "蛋白質體學",
+      "protein study"
+    ],
+    [
+      "metabolomics",
+      "n.",
+      "代謝體學",
+      "metabolite study"
+    ],
+    [
+      "transcriptomics",
+      "n.",
+      "轉錄體學",
+      "RNA profile study"
+    ],
+    [
+      "genomics",
+      "n.",
+      "基因體學",
+      "genome study"
+    ],
+    [
+      "epigenetics",
+      "n.",
+      "表觀遺傳",
+      "gene regulation"
+    ],
+    [
+      "DNA methylation",
+      "n.",
+      "DNA 甲基化",
+      "gene silencing"
+    ],
+    [
+      "histone modification",
+      "n.",
+      "組蛋白修飾",
+      "chromatin change"
+    ],
+    [
+      "gene expression",
+      "n.",
+      "基因表現",
+      "protein production"
+    ],
+    [
+      "regulatory sequence",
+      "n.",
+      "調控序列",
+      "control region"
+    ],
+    [
+      "promoter region",
+      "n.",
+      "啟動子區",
+      "transcription start"
+    ],
+    [
+      "enhancer region",
+      "n.",
+      "增強子區",
+      "expression boost"
+    ],
+    [
+      "operator region",
+      "n.",
+      "操作子區",
+      "regulatory site"
+    ],
+    [
+      "operon",
+      "n.",
+      "操縱子",
+      "gene cluster"
+    ],
+    [
+      "lac operon",
+      "n.",
+      "乳糖操縱子",
+      "lactose genes"
+    ],
+    [
+      "repressor protein",
+      "n.",
+      "阻抑蛋白",
+      "gene blocker"
+    ],
+    [
+      "activator protein",
+      "n.",
+      "活化蛋白",
+      "gene enhancer"
+    ],
+    [
+      "signal transduction",
+      "n.",
+      "訊號傳導",
+      "cell signaling"
+    ],
+    [
+      "receptor protein",
+      "n.",
+      "受體蛋白",
+      "signal receiver"
+    ],
+    [
+      "ligand",
+      "n.",
+      "配體",
+      "binding molecule"
+    ],
+    [
+      "second messenger",
+      "n.",
+      "第二信使",
+      "intracellular signal"
+    ],
+    [
+      "kinase cascade",
+      "n.",
+      "激酶級聯",
+      "phosphorylation chain"
+    ],
+    [
+      "phosphorylation",
+      "n.",
+      "磷酸化",
+      "protein activation"
+    ],
+    [
+      "ATP synthase",
+      "n.",
+      "ATP 合成酶",
+      "energy enzyme"
+    ],
+    [
+      "cellular respiration",
+      "n.",
+      "細胞呼吸",
+      "energy release"
+    ],
+    [
+      "glycolysis",
+      "n.",
+      "糖解作用",
+      "glucose breakdown"
+    ],
+    [
+      "Krebs cycle",
+      "n.",
+      "克雷布斯循環",
+      "citric acid cycle"
+    ],
+    [
+      "electron transport chain",
+      "n.",
+      "電子傳遞鏈",
+      "ETC"
+    ],
+    [
+      "oxidative phosphorylation",
+      "n.",
+      "氧化磷酸化",
+      "ATP generation"
+    ],
+    [
+      "photosynthesis",
+      "n.",
+      "光合作用",
+      "light energy capture"
+    ],
+    [
+      "Calvin cycle",
+      "n.",
+      "卡爾文循環",
+      "carbon fixation"
+    ],
+    [
+      "light reaction",
+      "n.",
+      "光反應",
+      "photochemical stage"
+    ],
+    [
+      "chloroplast",
+      "n.",
+      "葉綠體",
+      "photosynthetic organelle"
+    ],
+    [
+      "mitochondrion",
+      "n.",
+      "粒線體",
+      "energy organelle"
+    ],
+    [
+      "endoplasmic reticulum",
+      "n.",
+      "內質網",
+      "protein transport"
+    ],
+    [
+      "Golgi apparatus",
+      "n.",
+      "高基氏體",
+      "protein packaging"
+    ],
+    [
+      "lysosome",
+      "n.",
+      "溶酶體",
+      "digestive organelle"
+    ],
+    [
+      "peroxisome",
+      "n.",
+      "過氧化物酶體",
+      "detox organelle"
+    ],
+    [
+      "cytoskeleton",
+      "n.",
+      "細胞骨架",
+      "cell structure"
+    ],
+    [
+      "microtubule",
+      "n.",
+      "微管",
+      "tubulin filament"
+    ],
+    [
+      "microfilament",
+      "n.",
+      "微絲",
+      "actin filament"
+    ],
+    [
+      "cell membrane",
+      "n.",
+      "細胞膜",
+      "plasma membrane"
+    ],
+    [
+      "phospholipid bilayer",
+      "n.",
+      "磷脂雙層",
+      "membrane layer"
+    ],
+    [
+      "osmosis",
+      "n.",
+      "滲透",
+      "water diffusion"
+    ],
+    [
+      "diffusion",
+      "n.",
+      "擴散",
+      "passive spread"
+    ],
+    [
+      "active transport",
+      "n.",
+      "主動運輸",
+      "energy-driven transport"
+    ],
+    [
+      "facilitated diffusion",
+      "n.",
+      "促進性擴散",
+      "carrier transport"
+    ],
+    [
+      "endocytosis",
+      "n.",
+      "胞吞",
+      "cell ingestion"
+    ],
+    [
+      "exocytosis",
+      "n.",
+      "胞吐",
+      "cell secretion"
+    ],
+    [
+      "membrane potential",
+      "n.",
+      "膜電位",
+      "voltage gradient"
+    ],
+    [
+      "action potential",
+      "n.",
+      "動作電位",
+      "nerve impulse"
+    ],
+    [
+      "synapse",
+      "n.",
+      "突觸",
+      "nerve junction"
+    ],
+    [
+      "neurotransmitter",
+      "n.",
+      "神經傳導物質",
+      "signal chemical"
+    ],
+    [
+      "hormone",
+      "n.",
+      "激素",
+      "endocrine signal"
+    ],
+    [
+      "endocrine gland",
+      "n.",
+      "內分泌腺",
+      "hormone gland"
+    ],
+    [
+      "feedback inhibition",
+      "n.",
+      "回饋抑制",
+      "regulatory loop"
+    ],
+    [
+      "negative feedback",
+      "n.",
+      "負回饋",
+      "stabilizing control"
+    ],
+    [
+      "positive feedback",
+      "n.",
+      "正回饋",
+      "amplifying control"
+    ],
+    [
+      "immune response",
+      "n.",
+      "免疫反應",
+      "defense reaction"
+    ],
+    [
+      "antibody",
+      "n.",
+      "抗體",
+      "immunoglobulin"
+    ],
+    [
+      "antigen",
+      "n.",
+      "抗原",
+      "immune trigger"
+    ],
+    [
+      "T cell",
+      "n.",
+      "T 細胞",
+      "cell-mediated immunity"
+    ],
+    [
+      "B cell",
+      "n.",
+      "B 細胞",
+      "antibody producer"
+    ],
+    [
+      "macrophage",
+      "n.",
+      "巨噬細胞",
+      "phagocyte"
+    ],
+    [
+      "inflammation",
+      "n.",
+      "發炎",
+      "immune response"
+    ],
+    [
+      "vaccination",
+      "n.",
+      "疫苗接種",
+      "immunization"
+    ],
+    [
+      "pathogen",
+      "n.",
+      "病原體",
+      "disease agent"
+    ],
+    [
+      "virulence",
+      "n.",
+      "毒力",
+      "pathogenic strength"
+    ],
+    [
+      "host-pathogen interaction",
+      "n.",
+      "宿主病原互作",
+      "infection dynamics"
+    ],
+    [
+      "zoonosis",
+      "n.",
+      "人畜共通传染病",
+      "animal-to-human disease"
+    ],
+    [
+      "epidemic",
+      "n.",
+      "流行病",
+      "outbreak"
+    ],
+    [
+      "pandemic",
+      "n.",
+      "全球大流行",
+      "worldwide outbreak"
+    ],
+    [
+      "population ecology",
+      "n.",
+      "族群生態",
+      "demography ecology"
+    ],
+    [
+      "population density",
+      "n.",
+      "族群密度",
+      "individuals per area"
+    ],
+    [
+      "population growth rate",
+      "n.",
+      "族群成長率",
+      "growth metric"
+    ],
+    [
+      "logistic growth",
+      "n.",
+      "邏輯斯谛生長",
+      "S-curve growth"
+    ],
+    [
+      "exponential growth",
+      "n.",
+      "指數生長",
+      "J-curve growth"
+    ],
+    [
+      "r-selected species",
+      "n.",
+      "r 選擇物種",
+      "fast reproducer"
+    ],
+    [
+      "K-selected species",
+      "n.",
+      "K 選擇物種",
+      "slow reproducer"
+    ],
+    [
+      "life history strategy",
+      "n.",
+      "生活史策略",
+      "reproductive strategy"
+    ],
+    [
+      "age structure",
+      "n.",
+      "年齡結構",
+      "population pyramid"
+    ],
+    [
+      "survivorship curve",
+      "n.",
+      "存活曲線",
+      "mortality pattern"
+    ],
+    [
+      "fecundity",
+      "n.",
+      "生育力",
+      "reproductive output"
+    ],
+    [
+      "mortality rate",
+      "n.",
+      "死亡率",
+      "death rate"
+    ],
+    [
+      "immigration rate",
+      "n.",
+      "移入率",
+      "inflow rate"
+    ],
+    [
+      "emigration rate",
+      "n.",
+      "移出率",
+      "outflow rate"
+    ],
+    [
+      "demographic transition",
+      "n.",
+      "人口轉型",
+      "population shift"
+    ],
+    [
+      "Allee effect",
+      "n.",
+      "Allee 效應",
+      "group threshold"
+    ],
+    [
+      "density-dependent factor",
+      "n.",
+      "密度依存因子",
+      "crowding effect"
+    ],
+    [
+      "density-independent factor",
+      "n.",
+      "密度獨立因子",
+      "environment shock"
+    ],
+    [
+      "limiting factor",
+      "n.",
+      "限制因子",
+      "growth constraint"
+    ],
+    [
+      "Liebig law of the minimum",
+      "n.",
+      "最低律",
+      "limiting nutrient"
+    ],
+    [
+      "ecological footprint",
+      "n.",
+      "生態足跡",
+      "resource demand"
+    ],
+    [
+      "sustainability",
+      "n.",
+      "永續性",
+      "long-term balance"
+    ],
+    [
+      "restoration ecology",
+      "n.",
+      "復育生態",
+      "habitat repair"
+    ],
+    [
+      "rewilding",
+      "n.",
+      "再野化",
+      "ecosystem restoration"
+    ],
+    [
+      "climate change ecology",
+      "n.",
+      "氣候變遷生態",
+      "warming impact"
+    ],
+    [
+      "phenological shift",
+      "n.",
+      "物候位移",
+      "timing change"
+    ],
+    [
+      "range shift",
+      "n.",
+      "分布位移",
+      "habitat migration"
+    ],
+    [
+      "ocean acidification",
+      "n.",
+      "海洋酸化",
+      "pH decline"
+    ],
+    [
+      "coral bleaching",
+      "n.",
+      "珊瑚白化",
+      "symbiont loss"
+    ],
+    [
+      "eutrophication",
+      "n.",
+      "優養化",
+      "nutrient overload"
+    ],
+    [
+      "hypoxia zone",
+      "n.",
+      "缺氧區",
+      "dead zone"
+    ],
+    [
+      "deforestation",
+      "n.",
+      "森林砍伐",
+      "forest loss"
+    ],
+    [
+      "desertification",
+      "n.",
+      "沙漠化",
+      "land degradation"
+    ],
+    [
+      "cellular mechanism",
+      "n.",
+      "細胞機制",
+      "cellular mechanism"
+    ],
+    [
+      "cellular pathway",
+      "n.",
+      "細胞途徑",
+      "cellular pathway"
+    ],
+    [
+      "cellular regulation",
+      "n.",
+      "細胞調控",
+      "cellular regulation"
+    ],
+    [
+      "cellular adaptation",
+      "n.",
+      "細胞適應",
+      "cellular adaptation"
+    ],
+    [
+      "cellular interaction",
+      "n.",
+      "細胞互作",
+      "cellular interaction"
+    ],
+    [
+      "cellular dynamics",
+      "n.",
+      "細胞動態",
+      "cellular dynamics"
+    ],
+    [
+      "cellular structure",
+      "n.",
+      "細胞結構",
+      "cellular structure"
+    ],
+    [
+      "cellular function",
+      "n.",
+      "細胞功能",
+      "cellular function"
+    ],
+    [
+      "cellular process",
+      "n.",
+      "細胞過程",
+      "cellular process"
+    ],
+    [
+      "cellular cycle",
+      "n.",
+      "細胞循環",
+      "cellular cycle"
+    ],
+    [
+      "cellular network",
+      "n.",
+      "細胞網絡",
+      "cellular network"
+    ],
+    [
+      "cellular system",
+      "n.",
+      "細胞系統",
+      "cellular system"
+    ],
+    [
+      "cellular response",
+      "n.",
+      "細胞反應",
+      "cellular response"
+    ],
+    [
+      "cellular stress",
+      "n.",
+      "細胞壓力",
+      "cellular stress"
+    ],
+    [
+      "cellular tolerance",
+      "n.",
+      "細胞耐受",
+      "cellular tolerance"
+    ],
+    [
+      "cellular diversity",
+      "n.",
+      "細胞多樣性",
+      "cellular diversity"
+    ],
+    [
+      "cellular distribution",
+      "n.",
+      "細胞分布",
+      "cellular distribution"
+    ],
+    [
+      "cellular productivity",
+      "n.",
+      "細胞生產力",
+      "cellular productivity"
+    ],
+    [
+      "cellular stability",
+      "n.",
+      "細胞穩定",
+      "cellular stability"
+    ],
+    [
+      "cellular resilience",
+      "n.",
+      "細胞韌性",
+      "cellular resilience"
+    ],
+    [
+      "cellular succession",
+      "n.",
+      "細胞演替",
+      "cellular succession"
+    ],
+    [
+      "cellular competition",
+      "n.",
+      "細胞競爭",
+      "cellular competition"
+    ],
+    [
+      "cellular symbiosis",
+      "n.",
+      "細胞共生",
+      "cellular symbiosis"
+    ],
+    [
+      "cellular selection pressure",
+      "n.",
+      "細胞選擇壓力",
+      "cellular selection force"
+    ],
+    [
+      "cellular genetic variation",
+      "n.",
+      "細胞遺傳變異",
+      "cellular allele diversity"
+    ],
+    [
+      "cellular expression pattern",
+      "n.",
+      "細胞表現模式",
+      "cellular expression profile"
+    ],
+    [
+      "cellular signaling cascade",
+      "n.",
+      "細胞訊號級聯",
+      "cellular signal chain"
+    ],
+    [
+      "cellular metabolic flux",
+      "n.",
+      "細胞代謝流",
+      "cellular metabolite flow"
+    ],
+    [
+      "cellular homeostatic control",
+      "n.",
+      "細胞恆定調控",
+      "cellular steady control"
+    ],
+    [
+      "cellular developmental stage",
+      "n.",
+      "細胞發育階段",
+      "cellular life stage"
+    ],
+    [
+      "cellular reproductive strategy",
+      "n.",
+      "細胞繁殖策略",
+      "cellular breeding plan"
+    ],
+    [
+      "cellular community structure",
+      "n.",
+      "細胞群落結構",
+      "cellular community pattern"
+    ],
+    [
+      "cellular trophic interaction",
+      "n.",
+      "細胞營養互作",
+      "cellular feeding link"
+    ],
+    [
+      "cellular habitat preference",
+      "n.",
+      "細胞棲地偏好",
+      "cellular site choice"
+    ],
+    [
+      "cellular conservation strategy",
+      "n.",
+      "細胞保育策略",
+      "cellular protection plan"
+    ],
+    [
+      "cellular climate response",
+      "n.",
+      "細胞氣候反應",
+      "cellular warming response"
+    ],
+    [
+      "cellular disease ecology",
+      "n.",
+      "細胞疾病生態",
+      "cellular infection ecology"
+    ],
+    [
+      "cellular immune defense",
+      "n.",
+      "細胞免疫防禦",
+      "cellular immune protection"
+    ],
+    [
+      "cellular energy budget",
+      "n.",
+      "細胞能量預算",
+      "cellular energy balance"
+    ],
+    [
+      "cellular nutrient limitation",
+      "n.",
+      "細胞營養限制",
+      "cellular nutrient constraint"
+    ],
+    [
+      "molecular mechanism",
+      "n.",
+      "分子機制",
+      "molecular mechanism"
+    ],
+    [
+      "molecular pathway",
+      "n.",
+      "分子途徑",
+      "molecular pathway"
+    ],
+    [
+      "molecular regulation",
+      "n.",
+      "分子調控",
+      "molecular regulation"
+    ],
+    [
+      "molecular adaptation",
+      "n.",
+      "分子適應",
+      "molecular adaptation"
+    ],
+    [
+      "molecular interaction",
+      "n.",
+      "分子互作",
+      "molecular interaction"
+    ],
+    [
+      "molecular dynamics",
+      "n.",
+      "分子動態",
+      "molecular dynamics"
+    ],
+    [
+      "molecular structure",
+      "n.",
+      "分子結構",
+      "molecular structure"
+    ],
+    [
+      "molecular function",
+      "n.",
+      "分子功能",
+      "molecular function"
+    ],
+    [
+      "molecular process",
+      "n.",
+      "分子過程",
+      "molecular process"
+    ],
+    [
+      "molecular cycle",
+      "n.",
+      "分子循環",
+      "molecular cycle"
+    ],
+    [
+      "molecular network",
+      "n.",
+      "分子網絡",
+      "molecular network"
+    ],
+    [
+      "molecular system",
+      "n.",
+      "分子系統",
+      "molecular system"
+    ],
+    [
+      "molecular response",
+      "n.",
+      "分子反應",
+      "molecular response"
+    ],
+    [
+      "molecular stress",
+      "n.",
+      "分子壓力",
+      "molecular stress"
+    ],
+    [
+      "molecular tolerance",
+      "n.",
+      "分子耐受",
+      "molecular tolerance"
+    ],
+    [
+      "molecular diversity",
+      "n.",
+      "分子多樣性",
+      "molecular diversity"
+    ],
+    [
+      "molecular distribution",
+      "n.",
+      "分子分布",
+      "molecular distribution"
+    ],
+    [
+      "molecular productivity",
+      "n.",
+      "分子生產力",
+      "molecular productivity"
+    ],
+    [
+      "molecular stability",
+      "n.",
+      "分子穩定",
+      "molecular stability"
+    ],
+    [
+      "molecular resilience",
+      "n.",
+      "分子韌性",
+      "molecular resilience"
+    ],
+    [
+      "molecular succession",
+      "n.",
+      "分子演替",
+      "molecular succession"
+    ],
+    [
+      "molecular competition",
+      "n.",
+      "分子競爭",
+      "molecular competition"
+    ],
+    [
+      "molecular symbiosis",
+      "n.",
+      "分子共生",
+      "molecular symbiosis"
+    ],
+    [
+      "molecular selection pressure",
+      "n.",
+      "分子選擇壓力",
+      "molecular selection force"
+    ],
+    [
+      "molecular genetic variation",
+      "n.",
+      "分子遺傳變異",
+      "molecular allele diversity"
+    ],
+    [
+      "molecular expression pattern",
+      "n.",
+      "分子表現模式",
+      "molecular expression profile"
+    ],
+    [
+      "molecular signaling cascade",
+      "n.",
+      "分子訊號級聯",
+      "molecular signal chain"
+    ],
+    [
+      "molecular metabolic flux",
+      "n.",
+      "分子代謝流",
+      "molecular metabolite flow"
+    ],
+    [
+      "molecular homeostatic control",
+      "n.",
+      "分子恆定調控",
+      "molecular steady control"
+    ],
+    [
+      "molecular developmental stage",
+      "n.",
+      "分子發育階段",
+      "molecular life stage"
+    ],
+    [
+      "molecular reproductive strategy",
+      "n.",
+      "分子繁殖策略",
+      "molecular breeding plan"
+    ],
+    [
+      "molecular community structure",
+      "n.",
+      "分子群落結構",
+      "molecular community pattern"
+    ],
+    [
+      "molecular trophic interaction",
+      "n.",
+      "分子營養互作",
+      "molecular feeding link"
+    ],
+    [
+      "molecular habitat preference",
+      "n.",
+      "分子棲地偏好",
+      "molecular site choice"
+    ],
+    [
+      "molecular conservation strategy",
+      "n.",
+      "分子保育策略",
+      "molecular protection plan"
+    ],
+    [
+      "molecular climate response",
+      "n.",
+      "分子氣候反應",
+      "molecular warming response"
+    ],
+    [
+      "molecular disease ecology",
+      "n.",
+      "分子疾病生態",
+      "molecular infection ecology"
+    ],
+    [
+      "molecular immune defense",
+      "n.",
+      "分子免疫防禦",
+      "molecular immune protection"
+    ],
+    [
+      "molecular energy budget",
+      "n.",
+      "分子能量預算",
+      "molecular energy balance"
+    ],
+    [
+      "molecular nutrient limitation",
+      "n.",
+      "分子營養限制",
+      "molecular nutrient constraint"
+    ],
+    [
+      "genetic mechanism",
+      "n.",
+      "遺傳機制",
+      "genetic mechanism"
+    ],
+    [
+      "genetic pathway",
+      "n.",
+      "遺傳途徑",
+      "genetic pathway"
+    ],
+    [
+      "genetic regulation",
+      "n.",
+      "遺傳調控",
+      "genetic regulation"
+    ],
+    [
+      "genetic adaptation",
+      "n.",
+      "遺傳適應",
+      "genetic adaptation"
+    ],
+    [
+      "genetic interaction",
+      "n.",
+      "遺傳互作",
+      "genetic interaction"
+    ],
+    [
+      "genetic dynamics",
+      "n.",
+      "遺傳動態",
+      "genetic dynamics"
+    ],
+    [
+      "genetic structure",
+      "n.",
+      "遺傳結構",
+      "genetic structure"
+    ],
+    [
+      "genetic function",
+      "n.",
+      "遺傳功能",
+      "genetic function"
+    ],
+    [
+      "genetic process",
+      "n.",
+      "遺傳過程",
+      "genetic process"
+    ],
+    [
+      "genetic cycle",
+      "n.",
+      "遺傳循環",
+      "genetic cycle"
+    ],
+    [
+      "genetic network",
+      "n.",
+      "遺傳網絡",
+      "genetic network"
+    ],
+    [
+      "genetic system",
+      "n.",
+      "遺傳系統",
+      "genetic system"
+    ],
+    [
+      "genetic response",
+      "n.",
+      "遺傳反應",
+      "genetic response"
+    ],
+    [
+      "genetic stress",
+      "n.",
+      "遺傳壓力",
+      "genetic stress"
+    ],
+    [
+      "genetic tolerance",
+      "n.",
+      "遺傳耐受",
+      "genetic tolerance"
+    ],
+    [
+      "genetic diversity",
+      "n.",
+      "遺傳多樣性",
+      "genetic diversity"
+    ],
+    [
+      "genetic distribution",
+      "n.",
+      "遺傳分布",
+      "genetic distribution"
+    ],
+    [
+      "genetic productivity",
+      "n.",
+      "遺傳生產力",
+      "genetic productivity"
+    ],
+    [
+      "genetic stability",
+      "n.",
+      "遺傳穩定",
+      "genetic stability"
+    ],
+    [
+      "genetic resilience",
+      "n.",
+      "遺傳韌性",
+      "genetic resilience"
+    ],
+    [
+      "genetic succession",
+      "n.",
+      "遺傳演替",
+      "genetic succession"
+    ],
+    [
+      "genetic competition",
+      "n.",
+      "遺傳競爭",
+      "genetic competition"
+    ],
+    [
+      "genetic symbiosis",
+      "n.",
+      "遺傳共生",
+      "genetic symbiosis"
+    ],
+    [
+      "genetic selection pressure",
+      "n.",
+      "遺傳選擇壓力",
+      "genetic selection force"
+    ],
+    [
+      "genetic genetic variation",
+      "n.",
+      "遺傳遺傳變異",
+      "genetic allele diversity"
+    ],
+    [
+      "genetic expression pattern",
+      "n.",
+      "遺傳表現模式",
+      "genetic expression profile"
+    ],
+    [
+      "genetic signaling cascade",
+      "n.",
+      "遺傳訊號級聯",
+      "genetic signal chain"
+    ],
+    [
+      "genetic metabolic flux",
+      "n.",
+      "遺傳代謝流",
+      "genetic metabolite flow"
+    ],
+    [
+      "genetic homeostatic control",
+      "n.",
+      "遺傳恆定調控",
+      "genetic steady control"
+    ],
+    [
+      "genetic developmental stage",
+      "n.",
+      "遺傳發育階段",
+      "genetic life stage"
+    ],
+    [
+      "genetic reproductive strategy",
+      "n.",
+      "遺傳繁殖策略",
+      "genetic breeding plan"
+    ],
+    [
+      "genetic community structure",
+      "n.",
+      "遺傳群落結構",
+      "genetic community pattern"
+    ],
+    [
+      "genetic trophic interaction",
+      "n.",
+      "遺傳營養互作",
+      "genetic feeding link"
+    ],
+    [
+      "genetic habitat preference",
+      "n.",
+      "遺傳棲地偏好",
+      "genetic site choice"
+    ],
+    [
+      "genetic conservation strategy",
+      "n.",
+      "遺傳保育策略",
+      "genetic protection plan"
+    ],
+    [
+      "genetic climate response",
+      "n.",
+      "遺傳氣候反應",
+      "genetic warming response"
+    ],
+    [
+      "genetic disease ecology",
+      "n.",
+      "遺傳疾病生態",
+      "genetic infection ecology"
+    ],
+    [
+      "genetic immune defense",
+      "n.",
+      "遺傳免疫防禦",
+      "genetic immune protection"
+    ],
+    [
+      "genetic energy budget",
+      "n.",
+      "遺傳能量預算",
+      "genetic energy balance"
+    ],
+    [
+      "genetic nutrient limitation",
+      "n.",
+      "遺傳營養限制",
+      "genetic nutrient constraint"
+    ],
+    [
+      "evolutionary mechanism",
+      "n.",
+      "演化機制",
+      "evolutionary mechanism"
+    ],
+    [
+      "evolutionary pathway",
+      "n.",
+      "演化途徑",
+      "evolutionary pathway"
+    ],
+    [
+      "evolutionary regulation",
+      "n.",
+      "演化調控",
+      "evolutionary regulation"
+    ],
+    [
+      "evolutionary adaptation",
+      "n.",
+      "演化適應",
+      "evolutionary adaptation"
+    ],
+    [
+      "evolutionary interaction",
+      "n.",
+      "演化互作",
+      "evolutionary interaction"
+    ],
+    [
+      "evolutionary dynamics",
+      "n.",
+      "演化動態",
+      "evolutionary dynamics"
+    ],
+    [
+      "evolutionary structure",
+      "n.",
+      "演化結構",
+      "evolutionary structure"
+    ],
+    [
+      "evolutionary function",
+      "n.",
+      "演化功能",
+      "evolutionary function"
+    ],
+    [
+      "evolutionary process",
+      "n.",
+      "演化過程",
+      "evolutionary process"
+    ],
+    [
+      "evolutionary cycle",
+      "n.",
+      "演化循環",
+      "evolutionary cycle"
+    ],
+    [
+      "evolutionary network",
+      "n.",
+      "演化網絡",
+      "evolutionary network"
+    ],
+    [
+      "evolutionary system",
+      "n.",
+      "演化系統",
+      "evolutionary system"
+    ],
+    [
+      "evolutionary response",
+      "n.",
+      "演化反應",
+      "evolutionary response"
+    ],
+    [
+      "evolutionary stress",
+      "n.",
+      "演化壓力",
+      "evolutionary stress"
+    ],
+    [
+      "evolutionary tolerance",
+      "n.",
+      "演化耐受",
+      "evolutionary tolerance"
+    ],
+    [
+      "evolutionary diversity",
+      "n.",
+      "演化多樣性",
+      "evolutionary diversity"
+    ],
+    [
+      "evolutionary distribution",
+      "n.",
+      "演化分布",
+      "evolutionary distribution"
+    ],
+    [
+      "evolutionary productivity",
+      "n.",
+      "演化生產力",
+      "evolutionary productivity"
+    ],
+    [
+      "evolutionary stability",
+      "n.",
+      "演化穩定",
+      "evolutionary stability"
+    ],
+    [
+      "evolutionary resilience",
+      "n.",
+      "演化韌性",
+      "evolutionary resilience"
+    ],
+    [
+      "evolutionary succession",
+      "n.",
+      "演化演替",
+      "evolutionary succession"
+    ],
+    [
+      "evolutionary competition",
+      "n.",
+      "演化競爭",
+      "evolutionary competition"
+    ],
+    [
+      "evolutionary symbiosis",
+      "n.",
+      "演化共生",
+      "evolutionary symbiosis"
+    ],
+    [
+      "evolutionary selection pressure",
+      "n.",
+      "演化選擇壓力",
+      "evolutionary selection force"
+    ],
+    [
+      "evolutionary genetic variation",
+      "n.",
+      "演化遺傳變異",
+      "evolutionary allele diversity"
+    ],
+    [
+      "evolutionary expression pattern",
+      "n.",
+      "演化表現模式",
+      "evolutionary expression profile"
+    ],
+    [
+      "evolutionary signaling cascade",
+      "n.",
+      "演化訊號級聯",
+      "evolutionary signal chain"
+    ],
+    [
+      "evolutionary metabolic flux",
+      "n.",
+      "演化代謝流",
+      "evolutionary metabolite flow"
+    ],
+    [
+      "evolutionary homeostatic control",
+      "n.",
+      "演化恆定調控",
+      "evolutionary steady control"
+    ],
+    [
+      "evolutionary developmental stage",
+      "n.",
+      "演化發育階段",
+      "evolutionary life stage"
+    ],
+    [
+      "evolutionary reproductive strategy",
+      "n.",
+      "演化繁殖策略",
+      "evolutionary breeding plan"
+    ],
+    [
+      "evolutionary community structure",
+      "n.",
+      "演化群落結構",
+      "evolutionary community pattern"
+    ],
+    [
+      "evolutionary trophic interaction",
+      "n.",
+      "演化營養互作",
+      "evolutionary feeding link"
+    ],
+    [
+      "evolutionary habitat preference",
+      "n.",
+      "演化棲地偏好",
+      "evolutionary site choice"
+    ],
+    [
+      "evolutionary conservation strategy",
+      "n.",
+      "演化保育策略",
+      "evolutionary protection plan"
+    ],
+    [
+      "evolutionary climate response",
+      "n.",
+      "演化氣候反應",
+      "evolutionary warming response"
+    ],
+    [
+      "evolutionary disease ecology",
+      "n.",
+      "演化疾病生態",
+      "evolutionary infection ecology"
+    ],
+    [
+      "evolutionary immune defense",
+      "n.",
+      "演化免疫防禦",
+      "evolutionary immune protection"
+    ],
+    [
+      "evolutionary energy budget",
+      "n.",
+      "演化能量預算",
+      "evolutionary energy balance"
+    ],
+    [
+      "evolutionary nutrient limitation",
+      "n.",
+      "演化營養限制",
+      "evolutionary nutrient constraint"
+    ],
+    [
+      "ecological mechanism",
+      "n.",
+      "生態機制",
+      "ecological mechanism"
+    ],
+    [
+      "ecological pathway",
+      "n.",
+      "生態途徑",
+      "ecological pathway"
+    ],
+    [
+      "ecological regulation",
+      "n.",
+      "生態調控",
+      "ecological regulation"
+    ],
+    [
+      "ecological adaptation",
+      "n.",
+      "生態適應",
+      "ecological adaptation"
+    ],
+    [
+      "ecological interaction",
+      "n.",
+      "生態互作",
+      "ecological interaction"
+    ],
+    [
+      "ecological dynamics",
+      "n.",
+      "生態動態",
+      "ecological dynamics"
+    ],
+    [
+      "ecological structure",
+      "n.",
+      "生態結構",
+      "ecological structure"
+    ],
+    [
+      "ecological function",
+      "n.",
+      "生態功能",
+      "ecological function"
+    ],
+    [
+      "ecological process",
+      "n.",
+      "生態過程",
+      "ecological process"
+    ],
+    [
+      "ecological cycle",
+      "n.",
+      "生態循環",
+      "ecological cycle"
+    ],
+    [
+      "ecological network",
+      "n.",
+      "生態網絡",
+      "ecological network"
+    ],
+    [
+      "ecological system",
+      "n.",
+      "生態系統",
+      "ecological system"
+    ],
+    [
+      "ecological response",
+      "n.",
+      "生態反應",
+      "ecological response"
+    ],
+    [
+      "ecological stress",
+      "n.",
+      "生態壓力",
+      "ecological stress"
+    ],
+    [
+      "ecological tolerance",
+      "n.",
+      "生態耐受",
+      "ecological tolerance"
+    ],
+    [
+      "ecological diversity",
+      "n.",
+      "生態多樣性",
+      "ecological diversity"
+    ],
+    [
+      "ecological distribution",
+      "n.",
+      "生態分布",
+      "ecological distribution"
+    ],
+    [
+      "ecological productivity",
+      "n.",
+      "生態生產力",
+      "ecological productivity"
+    ],
+    [
+      "ecological stability",
+      "n.",
+      "生態穩定",
+      "ecological stability"
+    ],
+    [
+      "ecological resilience",
+      "n.",
+      "生態韌性",
+      "ecological resilience"
+    ],
+    [
+      "ecological competition",
+      "n.",
+      "生態競爭",
+      "ecological competition"
+    ],
+    [
+      "ecological symbiosis",
+      "n.",
+      "生態共生",
+      "ecological symbiosis"
+    ],
+    [
+      "ecological selection pressure",
+      "n.",
+      "生態選擇壓力",
+      "ecological selection force"
+    ],
+    [
+      "ecological genetic variation",
+      "n.",
+      "生態遺傳變異",
+      "ecological allele diversity"
+    ],
+    [
+      "ecological expression pattern",
+      "n.",
+      "生態表現模式",
+      "ecological expression profile"
+    ],
+    [
+      "ecological signaling cascade",
+      "n.",
+      "生態訊號級聯",
+      "ecological signal chain"
+    ],
+    [
+      "ecological metabolic flux",
+      "n.",
+      "生態代謝流",
+      "ecological metabolite flow"
+    ],
+    [
+      "ecological homeostatic control",
+      "n.",
+      "生態恆定調控",
+      "ecological steady control"
+    ],
+    [
+      "ecological developmental stage",
+      "n.",
+      "生態發育階段",
+      "ecological life stage"
+    ],
+    [
+      "ecological reproductive strategy",
+      "n.",
+      "生態繁殖策略",
+      "ecological breeding plan"
+    ],
+    [
+      "ecological community structure",
+      "n.",
+      "生態群落結構",
+      "ecological community pattern"
+    ],
+    [
+      "ecological trophic interaction",
+      "n.",
+      "生態營養互作",
+      "ecological feeding link"
+    ],
+    [
+      "ecological habitat preference",
+      "n.",
+      "生態棲地偏好",
+      "ecological site choice"
+    ],
+    [
+      "ecological conservation strategy",
+      "n.",
+      "生態保育策略",
+      "ecological protection plan"
+    ],
+    [
+      "ecological climate response",
+      "n.",
+      "生態氣候反應",
+      "ecological warming response"
+    ],
+    [
+      "ecological disease ecology",
+      "n.",
+      "生態疾病生態",
+      "ecological infection ecology"
+    ],
+    [
+      "ecological immune defense",
+      "n.",
+      "生態免疫防禦",
+      "ecological immune protection"
+    ],
+    [
+      "ecological energy budget",
+      "n.",
+      "生態能量預算",
+      "ecological energy balance"
+    ],
+    [
+      "ecological nutrient limitation",
+      "n.",
+      "生態營養限制",
+      "ecological nutrient constraint"
+    ],
+    [
+      "physiological mechanism",
+      "n.",
+      "生理機制",
+      "physiological mechanism"
+    ],
+    [
+      "physiological pathway",
+      "n.",
+      "生理途徑",
+      "physiological pathway"
+    ],
+    [
+      "physiological regulation",
+      "n.",
+      "生理調控",
+      "physiological regulation"
+    ],
+    [
+      "physiological adaptation",
+      "n.",
+      "生理適應",
+      "physiological adaptation"
+    ],
+    [
+      "physiological interaction",
+      "n.",
+      "生理互作",
+      "physiological interaction"
+    ],
+    [
+      "physiological dynamics",
+      "n.",
+      "生理動態",
+      "physiological dynamics"
+    ],
+    [
+      "physiological structure",
+      "n.",
+      "生理結構",
+      "physiological structure"
+    ],
+    [
+      "physiological function",
+      "n.",
+      "生理功能",
+      "physiological function"
+    ],
+    [
+      "physiological process",
+      "n.",
+      "生理過程",
+      "physiological process"
+    ],
+    [
+      "physiological cycle",
+      "n.",
+      "生理循環",
+      "physiological cycle"
+    ],
+    [
+      "physiological network",
+      "n.",
+      "生理網絡",
+      "physiological network"
+    ],
+    [
+      "physiological system",
+      "n.",
+      "生理系統",
+      "physiological system"
+    ],
+    [
+      "physiological response",
+      "n.",
+      "生理反應",
+      "physiological response"
+    ],
+    [
+      "physiological stress",
+      "n.",
+      "生理壓力",
+      "physiological stress"
+    ],
+    [
+      "physiological tolerance",
+      "n.",
+      "生理耐受",
+      "physiological tolerance"
+    ],
+    [
+      "physiological diversity",
+      "n.",
+      "生理多樣性",
+      "physiological diversity"
+    ],
+    [
+      "physiological distribution",
+      "n.",
+      "生理分布",
+      "physiological distribution"
+    ],
+    [
+      "physiological productivity",
+      "n.",
+      "生理生產力",
+      "physiological productivity"
+    ],
+    [
+      "physiological stability",
+      "n.",
+      "生理穩定",
+      "physiological stability"
+    ],
+    [
+      "physiological resilience",
+      "n.",
+      "生理韌性",
+      "physiological resilience"
+    ],
+    [
+      "physiological succession",
+      "n.",
+      "生理演替",
+      "physiological succession"
+    ],
+    [
+      "physiological competition",
+      "n.",
+      "生理競爭",
+      "physiological competition"
+    ],
+    [
+      "physiological symbiosis",
+      "n.",
+      "生理共生",
+      "physiological symbiosis"
+    ],
+    [
+      "physiological selection pressure",
+      "n.",
+      "生理選擇壓力",
+      "physiological selection force"
+    ],
+    [
+      "physiological genetic variation",
+      "n.",
+      "生理遺傳變異",
+      "physiological allele diversity"
+    ],
+    [
+      "physiological expression pattern",
+      "n.",
+      "生理表現模式",
+      "physiological expression profile"
+    ],
+    [
+      "physiological signaling cascade",
+      "n.",
+      "生理訊號級聯",
+      "physiological signal chain"
+    ],
+    [
+      "physiological metabolic flux",
+      "n.",
+      "生理代謝流",
+      "physiological metabolite flow"
+    ],
+    [
+      "physiological homeostatic control",
+      "n.",
+      "生理恆定調控",
+      "physiological steady control"
+    ],
+    [
+      "physiological developmental stage",
+      "n.",
+      "生理發育階段",
+      "physiological life stage"
+    ],
+    [
+      "physiological reproductive strategy",
+      "n.",
+      "生理繁殖策略",
+      "physiological breeding plan"
+    ],
+    [
+      "physiological community structure",
+      "n.",
+      "生理群落結構",
+      "physiological community pattern"
+    ],
+    [
+      "physiological trophic interaction",
+      "n.",
+      "生理營養互作",
+      "physiological feeding link"
+    ],
+    [
+      "physiological habitat preference",
+      "n.",
+      "生理棲地偏好",
+      "physiological site choice"
+    ],
+    [
+      "physiological conservation strategy",
+      "n.",
+      "生理保育策略",
+      "physiological protection plan"
+    ]
+  ]
+}
