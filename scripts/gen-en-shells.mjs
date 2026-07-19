@@ -73,7 +73,7 @@ function shellHead({
   description,
   canonicalPath,
   zhPath,
-  keywords = 'Kawatool,online tools,free tools',
+  keywords = 'KaWaTool,online tools,free tools',
   jsonLd,
 }) {
   const ap = assetPrefix(depth);
@@ -100,7 +100,7 @@ function shellHead({
   <link rel="canonical" href="${SITE}${enPath}">
   ${hreflang(zh === '/' ? '/' : zh, enPath)}
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Kawatool">
+  <meta property="og:site_name" content="KaWaTool">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${SITE}${enPath}">
@@ -178,13 +178,13 @@ function commonScripts(depth, extra = []) {
 }
 
 function genIndex() {
-  const title = 'Kawatool - Free Online Tools';
+  const title = 'KaWaTool - Free Online Tools';
   const description = 'Mortgage calculators, creator tools, quizzes, and everyday utilities — open in the browser, no install.';
   const jsonLd = `<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Kawatool",
+    "name": "KaWaTool",
     "url": "${SITE}/en",
     "description": "${description}",
     "inLanguage": "en"
@@ -214,11 +214,11 @@ ${commonScripts(1, ['assets/js/scriptures-catalog.js', 'assets/js/catalog-render
 function genLegal(kind) {
   const isPrivacy = kind === 'privacy';
   const title = isPrivacy
-    ? 'Privacy Policy | Cookies & Ads | Kawatool'
-    : 'Disclaimer | Entertainment & Finance Tools | Kawatool';
+    ? 'Privacy Policy | Cookies & Ads | KaWaTool'
+    : 'Disclaimer | Entertainment & Finance Tools | KaWaTool';
   const description = isPrivacy
-    ? 'How Kawatool uses cookies, Google Analytics, AdSense, and data when you use tools on this site.'
-    : 'Kawatool fortune, spiritual, and finance calculators are for entertainment and reference only — not legal or professional advice.';
+    ? 'How KaWaTool uses cookies, Google Analytics, AdSense, and data when you use tools on this site.'
+    : 'KaWaTool fortune, spiritual, and finance calculators are for entertainment and reference only — not legal or professional advice.';
   const h1 = isPrivacy ? 'Privacy Policy' : 'Disclaimer';
   const lead = isPrivacy
     ? 'How this site uses cookies, analytics, and ads — and how you can manage preferences.'
@@ -230,7 +230,7 @@ function genLegal(kind) {
           <p class="text-muted">${'English legal text. If wording differs, the Chinese version remains authoritative.'}</p>
           <section class="legal-section">
             <h2>1. Purpose</h2>
-            <p>Kawatool provides free online tools and content. To operate the site, understand usage, and (if enabled) serve Google AdSense ads, we may use cookies and similar technologies. This page explains what we collect, why, and your choices.</p>
+            <p>KaWaTool provides free online tools and content. To operate the site, understand usage, and (if enabled) serve Google AdSense ads, we may use cookies and similar technologies. This page explains what we collect, why, and your choices.</p>
             <p>By using this site you acknowledge this policy. If you disagree, please stop using the site or disable cookies / ad personalization in your browser.</p>
           </section>
           <section class="legal-section">
@@ -260,7 +260,7 @@ function genLegal(kind) {
           <p class="text-muted">${'English legal text. If wording differs, the Chinese version remains authoritative.'}</p>
           <section class="legal-section">
             <h2>1. General</h2>
-            <p>Kawatool provides tools and content “as is”. We try to keep them accurate, but <strong>do not guarantee</strong> that any tool, number, rate, copy, or third-party data is always correct, timely, complete, or suitable for your purpose.</p>
+            <p>KaWaTool provides tools and content “as is”. We try to keep them accurate, but <strong>do not guarantee</strong> that any tool, number, rate, copy, or third-party data is always correct, timely, complete, or suitable for your purpose.</p>
             <p><strong>All calculations, quiz results, and entertainment content are for entertainment and general reference only. They have no legal effect and are not professional investment, tax, accounting, insurance, medical, religious, or legal advice.</strong> For important decisions, consult qualified professionals and rely on official notices, contracts, and financial institution terms.</p>
           </section>
           <section class="legal-section">
@@ -322,7 +322,7 @@ ${commonScripts(1)}
 }
 
 function genSettings() {
-  const title = 'Settings | Kawatool';
+  const title = 'Settings | KaWaTool';
   const description = 'Language, dark mode, font size, eye comfort, zoom, and accessibility preferences.';
   const html = `${shellHead({
     depth: 2,
@@ -330,7 +330,7 @@ function genSettings() {
     description,
     canonicalPath: '/en/utility/settings',
     zhPath: '/utility/settings',
-    keywords: 'settings,preferences,Kawatool',
+    keywords: 'settings,preferences,KaWaTool',
   })}
 <body class="tool-page">
 ${header(2)}
@@ -375,10 +375,16 @@ function genToolShell(catId, slug, en) {
   const titleEn = en?.title || slug;
   const descEn =
     en?.desc ||
-    `${titleEn} — free online tool on Kawatool. Runs in your browser; no install.`;
-  const pageTitle = `${titleEn} | Kawatool`;
-  const description = `${descEn} Free online tool — open in the browser, no install.`;
-  const keywords = `${titleEn},online tool,free,Kawatool`;
+    `${titleEn} — free online tool on KaWaTool. Runs in your browser; no install.`;
+  const pageTitle = `${titleEn} | KaWaTool`;
+  const description =
+    descEn.length >= 110
+      ? descEn.length > 160
+        ? `${descEn.slice(0, 159).trim()}…`
+        : descEn
+      : `${descEn} Free online tool — open in the browser, no install.`;
+  const keywords = en?.keywords || `${titleEn},online tool,free,KaWaTool`;
+  const seoLeadEn = en?.seoLead || descEn;
   const assetUp = '../../';
   const enPath = `/en/${catId}/${slug}`;
   const zhPath = `/${catId}/${slug}`;
@@ -444,7 +450,7 @@ function genToolShell(catId, slug, en) {
   // Inject OG / Twitter / JSON-LD when the zh source omits them (e.g. torch)
   if (!/property="og:title"/.test(src)) {
     const social = `  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Kawatool">
+  <meta property="og:site_name" content="KaWaTool">
   <meta property="og:title" content="${attrEsc(pageTitle)}">
   <meta property="og:description" content="${attrEsc(description)}">
   <meta property="og:url" content="${SITE}${enPath}">
@@ -464,7 +470,7 @@ ${JSON.stringify(
     description,
     url: `${SITE}${enPath}`,
     inLanguage: 'en',
-    isPartOf: { '@type': 'WebSite', name: 'Kawatool', url: `${SITE}/en` },
+    isPartOf: { '@type': 'WebSite', name: 'KaWaTool', url: `${SITE}/en` },
   },
   null,
   2
@@ -527,6 +533,12 @@ ${JSON.stringify(
     );
   } else {
     src = src.replace(/<h1>[^<]*<\/h1>/, `<h1>${titleEn}</h1>`);
+  }
+  if (/tool-seo-lead/.test(src)) {
+    src = src.replace(
+      /<p class="tool-seo-lead">[\s\S]*?<\/p>/,
+      `<p class="tool-seo-lead">${attrEsc(seoLeadEn)}</p>`
+    );
   }
   src = src.replace(
     /(<div class="page-title"[\s\S]*?<h1>[^<]*<\/h1>\s*<p class="mb-0">)[^<]*(<\/p>)/,

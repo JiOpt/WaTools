@@ -125,7 +125,7 @@
     const sorted = [...slugs].sort((a, b) => a.localeCompare(b, 'zh-Hant'));
     const ts = note || new Date().toISOString();
     return [
-      '# Kawatool 發布清單',
+      '# KaWaTool 發布清單',
       '# 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。',
       '# 以 # 開頭為註解；空行略過。一行一個 slug。',
       `# updated: ${ts}`,

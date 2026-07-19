@@ -54,7 +54,7 @@
 
     const iframe = document.createElement('iframe');
     iframe.src = embedUrl;
-    iframe.title = 'Kawatool 聯絡表單';
+    iframe.title = 'KaWaTool 聯絡表單';
     iframe.loading = 'lazy';
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('marginheight', '0');

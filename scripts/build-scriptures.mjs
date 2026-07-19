@@ -1119,7 +1119,7 @@ ${renderSeoMeta({
     description,
     path: pagePath,
     type: 'article',
-    keywords: `${book.title},藏經閣,國學,佛經,Kawatool`,
+    keywords: `${book.title},藏經閣,國學,佛經,KaWaTool`,
   })}
 ${renderArticleSchema({ headline: book.title, description, url: pagePath })}
 ${renderHeadCore({ depth: SCRIPTURE_DEPTH, includePrefsBoot: false, includeFontSizeBoot: false })}
@@ -1167,7 +1167,7 @@ async function fetchScripture(source) {
   const url = `${BASE}${source}`;
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'Kawatool-Builder/1.0',
+      'User-Agent': 'KaWaTool-Builder/1.0',
       Accept: 'text/html',
     },
   });

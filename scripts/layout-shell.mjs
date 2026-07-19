@@ -140,17 +140,20 @@ export function renderBodyScripts({ depth = 0, extraScripts = [], deferMain = fa
 }
 
 /** Tool page title bar — back button injected at runtime by tool-category-pager.js */
-export function renderToolPageBar(title) {
+export function renderToolPageBar(title, seoLead = '') {
+  const lead = seoLead
+    ? `\n          <p class="tool-seo-lead">${escapeHtml(seoLead)}</p>`
+    : '';
   return `        <header class="tool-page-bar" aria-label="工具頁標題">
-          <h1 class="tool-page-bar-title" id="tool-page-title">${escapeHtml(title)}</h1>
+          <h1 class="tool-page-bar-title" id="tool-page-title">${escapeHtml(title)}</h1>${lead}
         </header>`;
 }
 
-export function renderToolMain({ title, slug }) {
+export function renderToolMain({ title, slug, seoLead = '' }) {
   return `  <main class="main">
     <section class="tool-section section light-background" aria-labelledby="tool-page-title">
       <div class="container" data-aos="fade-up">
-${renderToolPageBar(title)}
+${renderToolPageBar(title, seoLead)}
         <div id="tool-app" class="tool-app" data-tool="${slug}"></div>
       </div>
     </section>

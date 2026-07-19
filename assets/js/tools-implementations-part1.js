@@ -1,5 +1,5 @@
 /**
- * Kawatool — Editor, Dev & Security tool implementations (part 1)
+ * KaWaTool — Editor, Dev & Security tool implementations (part 1)
  */
 (function () {
   'use strict';
@@ -441,7 +441,7 @@
     };
     mount(app, [
       hint('CSS 漸層文字，讓標題像彩虹糖一樣吸睛（也可能像廉價廣告）。'),
-      UI.input('文字', 'cf-text', 'text', 'Kawatool 漸層彩字'),
+      UI.input('文字', 'cf-text', 'text', 'KaWaTool 漸層彩字'),
       UI.row2(
         UI.input('起始色', 'cf-c1', 'color', '#ff6b6b'),
         UI.input('結束色', 'cf-c2', 'color', '#4ecdc4')
@@ -488,7 +488,7 @@
         { value: 'toU', label: '字元 → \\uXXXX' },
         { value: 'fromU', label: '\\uXXXX → 字元' },
       ]),
-      UI.textarea('輸入', 'uc-in', '你好 Kawatool', 4),
+      UI.textarea('輸入', 'uc-in', '你好 KaWaTool', 4),
       UI.btnGroup([
         UI.bindIO({
           input: 'uc-in',
@@ -775,7 +775,7 @@
     mount(app, [
       UI.alert('⚠️ 僅執行您自己輸入的程式碼。請勿貼上來路不明的 script！', 'warning'),
       hint('沙箱 iframe 預覽 HTML/CSS/JS，炸了再改，工程師日常。'),
-      UI.textarea('HTML', 'rc-html', '<h1>Hello</h1><p>Kawatool</p>', 4),
+      UI.textarea('HTML', 'rc-html', '<h1>Hello</h1><p>KaWaTool</p>', 4),
       UI.textarea('CSS', 'rc-css', 'body{font-family:sans-serif;padding:1rem}', 3),
       UI.textarea('JavaScript', 'rc-js', "document.body.insertAdjacentHTML('beforeend','<p>JS 已執行</p>');", 3),
       UI.btn('▶ 執行', 'btn btn-success tool-btn', () => {
@@ -1084,7 +1084,7 @@
           out.textContent = '檢測中…';
           out.textContent = await checkBasics(getVal('seo-domain'));
         }),
-        UI.btn('Kawatool 預設', 'btn btn-outline-secondary tool-btn', () => {
+        UI.btn('KaWaTool 預設', 'btn btn-outline-secondary tool-btn', () => {
           setVal('seo-domain', 'kawatool.com');
           renderLinks('kawatool.com');
         }),
@@ -1326,7 +1326,7 @@
           ]),
           UI.el('div', { className: 'pwd-tip-card' }, [
             UI.el('h4', {}, [UI.el('i', { className: 'bi bi-incognito pwd-tip-card-icon' }), ' 本地運算']),
-            UI.el('p', { className: 'text-muted small mb-0' }, '產生與檢測皆在你的裝置上完成，Kawatool 不會收集或儲存你輸入的密碼。'),
+            UI.el('p', { className: 'text-muted small mb-0' }, '產生與檢測皆在你的裝置上完成，KaWaTool 不會收集或儲存你輸入的密碼。'),
           ]),
         ]),
       ]),
@@ -1630,7 +1630,7 @@
         UI.el('div', { className: 'tool-field mb-0' }, [
           UI.el('label', { className: 'tool-label', for: 'te-pass' }, '密碼（金鑰）'),
           UI.el('div', { className: 'txenc-pass-wrap' }, [passInput, togglePassBtn]),
-          UI.el('p', { className: 'tool-hint text-muted small mb-0' }, '加密與解密必須使用相同密碼。密碼越長、越隨機，越難被猜中。Kawatool 不會儲存或上傳你的密碼與文字。'),
+          UI.el('p', { className: 'tool-hint text-muted small mb-0' }, '加密與解密必須使用相同密碼。密碼越長、越隨機，越難被猜中。KaWaTool 不會儲存或上傳你的密碼與文字。'),
         ]),
       ]),
       UI.panel('加密／解密', [
@@ -1678,7 +1678,7 @@
           ]),
           UI.el('div', { className: 'txenc-tip-card' }, [
             UI.el('h4', {}, [UI.el('i', { className: 'bi bi-incognito txenc-tip-icon' }), ' 本地運算']),
-            UI.el('p', { className: 'text-muted small mb-0' }, '加解密全在瀏覽器完成，文字不會送到 Kawatool 伺服器。關閉分頁後內容即消失。'),
+            UI.el('p', { className: 'text-muted small mb-0' }, '加解密全在瀏覽器完成，文字不會送到 KaWaTool 伺服器。關閉分頁後內容即消失。'),
           ]),
           UI.el('div', { className: 'txenc-tip-card' }, [
             UI.el('h4', {}, [UI.el('i', { className: 'bi bi-shield-lock txenc-tip-icon' }), ' 更安全的選擇']),

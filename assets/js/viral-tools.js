@@ -2320,7 +2320,7 @@
         '我測出 Threads 人格是「' + result.persona.title + '」！含金量 ' + result.gold + '%\n' +
         '→ @' + result.handle + '\n' +
         result.roasts.map(function (line, i) { return (i + 1) + '. ' + line; }).join('\n') + '\n' +
-        '你也來測：' + url + '\n#Threads #脆友人格 #Kawatool'
+        '你也來測：' + url + '\n#Threads #脆友人格 #KaWaTool'
       );
     }
 

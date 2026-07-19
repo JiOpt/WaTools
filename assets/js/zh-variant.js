@@ -169,7 +169,7 @@
         runConvert();
         startObserver();
       } catch (err) {
-        console.error('[Kawatool] zh-variant convert failed:', err);
+        console.error('[KaWaTool] zh-variant convert failed:', err);
         document.documentElement.setAttribute('data-zh-variant', 'trad');
         setLang('trad');
       }

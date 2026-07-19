@@ -47,7 +47,7 @@ async function fetchThumb(fileTitle, width = 720) {
   api.searchParams.set('origin', '*');
 
   const res = await fetch(api, {
-    headers: { 'User-Agent': 'KawatoolShrineBot/1.0 (educational; contact kawatool.com)' },
+    headers: { 'User-Agent': 'KaWaToolShrineBot/1.0 (educational; contact kawatool.com)' },
   });
   const text = await res.text();
   if (text.startsWith('You are')) throw new Error('rate-limited');
@@ -74,7 +74,7 @@ async function download(slug, fileTitle) {
   }
   await sleep(400);
   const imgRes = await fetch(url, {
-    headers: { 'User-Agent': 'KawatoolShrineBot/1.0 (educational; contact kawatool.com)' },
+    headers: { 'User-Agent': 'KaWaToolShrineBot/1.0 (educational; contact kawatool.com)' },
   });
   if (!imgRes.ok) {
     console.warn(`fail download ${slug}: ${imgRes.status}`);
@@ -85,7 +85,7 @@ async function download(slug, fileTitle) {
     await sleep(600);
     const smaller = await fetchThumb(fileTitle, 480);
     const r2 = await fetch(smaller, {
-      headers: { 'User-Agent': 'KawatoolShrineBot/1.0 (educational; contact kawatool.com)' },
+      headers: { 'User-Agent': 'KaWaToolShrineBot/1.0 (educational; contact kawatool.com)' },
     });
     buf = Buffer.from(await r2.arrayBuffer());
   }

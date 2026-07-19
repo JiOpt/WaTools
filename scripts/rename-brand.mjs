@@ -1,6 +1,6 @@
 /**
- * Rename Kawatool brand → Kawatool (display name & User-Agent).
- * Does not change kawatool.com URLs or localStorage / event keys (mytoolife-*).
+ * Rename brand display Kawatool → KaWaTool.
+ * Does not change kawatool.com URLs or localStorage / event keys.
  */
 import fs from 'fs';
 import path from 'path';
@@ -12,12 +12,8 @@ const root = path.join(__dirname, '..');
 const SKIP_DIRS = new Set(['node_modules', '.git', '.firebase', 'functions']);
 const EXT = new Set(['.html', '.js', '.mjs', '.css', '.md', '.txt', '.json']);
 
-/** Apply in order — longer / more specific patterns first. */
 const REPLACEMENTS = [
-  ['Kawatool', 'Kawatool'],
-  ['content="kawatool,', 'content="kawatool,'],
-  ['**kawatool**', '**kawatool**'],
-  ['免安裝 **kawatool**', '免安裝 **kawatool**'],
+  ['Kawatool', 'KaWaTool'],
 ];
 
 function shouldSkipDir(name) {
@@ -37,12 +33,12 @@ function walk(dir, files = []) {
     if (ent.isDirectory()) {
       if (shouldSkipDir(ent.name)) continue;
       walk(path.join(dir, ent.name), files);
-      continue;
+    } else {
+      const ext = path.extname(ent.name);
+      if (!EXT.has(ext)) continue;
+      if (ent.name === 'package-lock.json') continue;
+      files.push(path.join(dir, ent.name));
     }
-    const ext = path.extname(ent.name);
-    if (!EXT.has(ext)) continue;
-    if (ent.name === 'package-lock.json') continue;
-    files.push(path.join(dir, ent.name));
   }
   return files;
 }

@@ -33,7 +33,7 @@ const catalog = loadCatalog();
 
 const skipSlugs = new Set(['torch', 'scriptures']);
 
-function renderPage({ title, subtitle, slug, categoryId, categoryName, seoTitle, seoDescription, seoKeywords }) {
+function renderPage({ title, subtitle, slug, categoryId, categoryName, seoTitle, seoDescription, seoKeywords, seoLead }) {
   const selfHref = `${slug}.html`;
   const pagePath = `${categoryId}/${slug}.html`;
   const pageTitle = normalizePageTitle(seoTitle || title);
@@ -41,6 +41,10 @@ function renderPage({ title, subtitle, slug, categoryId, categoryName, seoTitle,
     ? buildPageDescription(seoDescription)
     : buildPageDescription(subtitle, [`${title}線上工具，${categoryName}分類。`]);
   const keywords = seoKeywords || buildToolKeywords(title, categoryName, slug);
+  const zhUrl = `https://kawatool.com/${categoryId}/${slug}`;
+  const enUrl = `https://kawatool.com/en/${categoryId}/${slug}`;
+  const enShell = path.join(root, 'en', categoryId, `${slug}.html`);
+  const hreflang = fs.existsSync(enShell) ? { zh: zhUrl, en: enUrl } : null;
 
   return `${renderHeadOpen()}
 ${renderHeadCore({ depth: PAGE_DEPTH })}
@@ -51,6 +55,7 @@ ${renderSeoMeta({
     path: pagePath,
     type: 'website',
     keywords,
+    hreflang,
   })}
 ${renderWebApplicationSchema({ name: title, description, url: pagePath })}
 </head>
@@ -62,7 +67,7 @@ ${renderHeader({
       { href: selfHref, label: title, active: true, ariaCurrent: true },
     ],
   })}
-${renderToolMain({ title, slug })}
+${renderToolMain({ title, slug, seoLead: seoLead || '' })}
 ${renderFooterShell()}
 ${renderPageChrome()}
 ${renderBodyScripts({ depth: PAGE_DEPTH, extraScripts: ['assets/js/tool-boot.js'] })}
@@ -114,6 +119,7 @@ for (const category of catalog) {
       seoTitle: tool.seoTitle,
       seoDescription: tool.seoDescription,
       seoKeywords: tool.seoKeywords,
+      seoLead: tool.seoLead,
     });
     fs.writeFileSync(file, html, 'utf8');
     const relTarget = `${category.id}/${tool.slug}.html`;

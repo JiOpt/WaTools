@@ -13,9 +13,9 @@ const BASE = 'https://www.ifreesite.com/24-solar-terms/';
 const IMG_DIR = path.join(ROOT, 'solar-terms-img');
 const OUT = path.join(ROOT, 'assets', 'js', 'solar-terms-data.js');
 const MAX_BYTES = 512 * 1024;
-const UA = 'Kawatool/1.0 (solar-terms fetch)';
+const UA = 'KaWaTool/1.0 (solar-terms fetch)';
 
-/** Kawatool 智慧補充：現代生活小提示 */
+/** KaWaTool 智慧補充：現代生活小提示 */
 const WAWA_TIPS = {
   立春: '春捂秋凍從這天起算——薄外套先別收，早晚溫差仍大。',
   雨水: '雨量漸增，檢查家裡排水與雨具；也是調整作息、多補水分的好時機。',
@@ -251,7 +251,7 @@ async function main() {
     ],
   };
 
-  const body = `/* Auto-generated — ifreesite 24-solar-terms + Kawatool tips */
+  const body = `/* Auto-generated — ifreesite 24-solar-terms + KaWaTool tips */
 window.WA_SOLAR_TERMS = ${JSON.stringify({
     updated: new Date().toISOString().slice(0, 10),
     sourcePage: INDEX_URL,

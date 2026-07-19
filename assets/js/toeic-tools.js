@@ -4,7 +4,7 @@
 (function (global) {
   'use strict';
 
-  var TOEIC_CSS_VER = '0.6.43';
+  var TOEIC_CSS_VER = '0.6.48';
 
   function toeicCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -359,7 +359,17 @@
             el('p', { className: 'toeic-point', textContent: t.trap }),
             el('p', { className: 'toeic-stem', textContent: t.ex }),
             el('p', { className: 'toeic-p', textContent: '易錯：' + t.wrong }),
-            el('p', { className: 'toeic-ex', textContent: '宜選／宜聽：' + t.right }),
+            el('div', { className: 'toeic-correct-row' }, [
+              el('p', { className: 'toeic-ex', textContent: '宜選／宜聽：' + t.right }),
+              el('button', {
+                type: 'button',
+                className: 'toeic-speak-btn toeic-speak-btn-sm',
+                title: '朗讀正確句子',
+                'aria-label': '朗讀正確句子',
+                textContent: '朗讀正確句',
+                onclick: () => speakEn(t.right),
+              }),
+            ]),
             el('p', { className: 'toeic-tip', textContent: t.tip }),
           ])
         );
@@ -398,6 +408,10 @@
       card('計分方式（精簡）', [
         p('聽力、閱讀各約 5–495，總分 10–990。原始答對題數經等化轉為量表分數；目標多用 600／750／860 當門檻參考。'),
         p('官方不公布「錯幾題扣多少」公式，刷題請搭配正式模擬看落點。'),
+      ]),
+      card('下一步：多益單字', [
+        p('字彙是聽力同義替換與 Part 5／7 的基礎。可先用本站多益單字記憶工具，依 Level 與商業情境分頁背誦。'),
+        linkRow([{ href: 'toeic-vocab.html', label: '多益單字記憶（約7000字）', note: 'Level1／Level2・金色證書情境' }]),
       ]),
     ]);
   }
@@ -479,6 +493,7 @@
 
     const PAGE_SIZE = 24;
     const FAM_KEY = 'wa-toeic-vocab-fam';
+    const SEEN_KEY = 'wa-toeic-vocab-seen';
     const FAM_ORDER = ['', 'fuzzy', 'mid', 'known'];
     const FAM_LABEL = { '': '＋', fuzzy: '模糊', mid: '中等', known: '很熟' };
     const FAM_FILTER_LABEL = { all: '全部', known: '很熟', mid: '中等', fuzzy: '模糊' };
@@ -498,6 +513,21 @@
         /* ignore */
       }
     }
+    function loadSeen() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(SEEN_KEY) || '{}');
+        return raw && typeof raw === 'object' ? raw : {};
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveSeen(map) {
+      try {
+        localStorage.setItem(SEEN_KEY, JSON.stringify(map));
+      } catch (e) {
+        /* ignore */
+      }
+    }
     function wordKey(scenarioId, word) {
       return scenarioId + ':' + String(word || '').toLowerCase();
     }
@@ -512,6 +542,38 @@
       else map[k] = next;
       saveFam(map);
       return next;
+    }
+    function markSeen(scenarioId, words) {
+      if (!scenarioId || !words || !words.length) return;
+      const seen = loadSeen();
+      let changed = false;
+      words.forEach((w) => {
+        const k = wordKey(scenarioId, w.w);
+        if (!seen[k]) {
+          seen[k] = 1;
+          changed = true;
+        }
+      });
+      if (changed) saveSeen(seen);
+    }
+    function scenarioProgress(scenario) {
+      const total = (scenario && scenario.words && scenario.words.length) || 0;
+      if (!total) return { total: 0, seen: 0, pct: 0, marked: 0 };
+      const seenMap = loadSeen();
+      famMap = loadFam();
+      let seen = 0;
+      let marked = 0;
+      (scenario.words || []).forEach((w) => {
+        const k = wordKey(scenario.id, w.w);
+        if (seenMap[k]) seen += 1;
+        if (famMap[k]) marked += 1;
+      });
+      return {
+        total: total,
+        seen: seen,
+        pct: Math.round((seen / total) * 100),
+        marked: marked,
+      };
     }
 
     const DEFAULT_SCENARIO = { 1: 'office', 2: 'ma' };
@@ -559,12 +621,51 @@
       'aria-label': '搜尋單字',
     });
     const grid = el('div', { className: 'toeic-vocab-grid' });
-    const meta = el('p', { className: 'toeic-muted' });
+    const meta = el('p', { className: 'toeic-muted toeic-vocab-anchor', id: 'toeic-vocab-top' });
     const pager = el('div', { className: 'toeic-pager' });
     const empty = el('p', {
       className: 'toeic-tip',
       textContent: '請先點選上方一個商業情境，才會載入該分類單字（分頁顯示，較不卡頓）。',
     });
+    const bankCard = card('字庫', [
+      el('div', { className: 'toeic-toolbar' }, [famSel, search]),
+      meta,
+      empty,
+      grid,
+      pager,
+    ]);
+    bankCard.id = 'toeic-vocab-bank';
+    bankCard.classList.add('toeic-vocab-bank');
+
+    function scrollToVocabTop() {
+      const target = bankCard || meta;
+      if (!target) return;
+      try {
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      } catch (e) {
+        /* ignore */
+      }
+      const run = () => {
+        const header = document.getElementById('header');
+        const offset = (header ? header.getBoundingClientRect().height : 72) + 12;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        try {
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        } catch (e) {
+          window.scrollTo(0, Math.max(0, top));
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(run));
+    }
+
+    function goToPage(nextPage, pages, doScroll) {
+      const n = Math.max(1, Math.min(pages, parseInt(nextPage, 10) || 1));
+      if (n !== page) {
+        page = n;
+        paint();
+      }
+      if (doScroll !== false) scrollToVocabTop();
+    }
 
     function currentPack() {
       if (level === 2) return global.WA_TOEIC_VOCAB_L2 || null;
@@ -584,12 +685,21 @@
       scenarioBar.innerHTML = '';
       const list = scenariosOf();
       list.forEach((s) => {
-        const count = (s.words && s.words.length) || 0;
+        const prog = scenarioProgress(s);
         const btn = el('button', {
           type: 'button',
           className: 'toeic-scenario-chip' + (s.id === activeScenarioId ? ' is-on' : ''),
-          textContent: s.name + '（' + count + '）',
-          title: s.nameEn || s.name,
+          title:
+            (s.nameEn || s.name) +
+            '｜已瀏覽 ' +
+            prog.pct +
+            '%（' +
+            prog.seen +
+            '/' +
+            prog.total +
+            '）｜標記 ' +
+            prog.marked +
+            ' 字',
           onclick: () => {
             activeScenarioId = s.id;
             page = 1;
@@ -597,6 +707,13 @@
             paint();
           },
         });
+        btn.appendChild(el('span', { className: 'toeic-scenario-chip-name', textContent: s.name }));
+        btn.appendChild(
+          el('span', {
+            className: 'toeic-scenario-chip-meta',
+            textContent: '已瀏覽 ' + prog.pct + '% · 標記 ' + prog.marked,
+          })
+        );
         scenarioBar.appendChild(btn);
       });
     }
@@ -619,40 +736,57 @@
       pager.innerHTML = '';
       const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
       if (page > pages) page = pages;
-      const info = el('span', {
-        className: 'toeic-muted',
-        textContent: '第 ' + page + '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
-      });
       const prev = el('button', {
         type: 'button',
         className: 'toeic-btn toeic-btn-ghost',
         textContent: '上一頁',
-        disabled: page <= 1 ? '' : null,
         onclick: () => {
-          if (page > 1) {
-            page -= 1;
-            paint();
-          }
+          if (page > 1) goToPage(page - 1, pages, true);
         },
       });
       const next = el('button', {
         type: 'button',
         className: 'toeic-btn toeic-btn-ghost',
         textContent: '下一頁',
-        disabled: page >= pages ? '' : null,
         onclick: () => {
-          if (page < pages) {
-            page += 1;
-            paint();
-          }
+          if (page < pages) goToPage(page + 1, pages, true);
         },
+      });
+      const jumpInput = el('input', {
+        type: 'number',
+        className: 'toeic-page-input',
+        min: '1',
+        max: String(pages),
+        value: String(page),
+        'aria-label': '跳至頁碼',
+        title: '輸入頁碼後按 Enter 或點跳轉',
+      });
+      const jumpBtn = el('button', {
+        type: 'button',
+        className: 'toeic-btn toeic-btn-ghost',
+        textContent: '跳轉',
+        onclick: () => goToPage(jumpInput.value, pages, true),
+      });
+      jumpInput.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          goToPage(jumpInput.value, pages, true);
+        }
       });
       if (page <= 1) prev.setAttribute('disabled', 'disabled');
       else prev.removeAttribute('disabled');
       if (page >= pages) next.setAttribute('disabled', 'disabled');
       else next.removeAttribute('disabled');
       pager.appendChild(prev);
-      pager.appendChild(info);
+      pager.appendChild(el('span', { className: 'toeic-muted', textContent: '第' }));
+      pager.appendChild(jumpInput);
+      pager.appendChild(
+        el('span', {
+          className: 'toeic-muted',
+          textContent: '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
+        })
+      );
+      pager.appendChild(jumpBtn);
       pager.appendChild(next);
     }
 
@@ -687,6 +821,9 @@
       const total = words.length;
       const start = (page - 1) * PAGE_SIZE;
       const slice = words.slice(start, start + PAGE_SIZE);
+      markSeen(scenario.id, slice);
+      rebuildScenarioBar();
+      const prog = scenarioProgress(scenario);
       let marked = { known: 0, mid: 0, fuzzy: 0 };
       Object.keys(famMap).forEach((k) => {
         if (marked[famMap[k]] != null) marked[famMap[k]] += 1;
@@ -752,7 +889,15 @@
         total +
         ' 字｜本頁 ' +
         slice.length +
-        '｜標記 模糊 ' +
+        '｜已瀏覽 ' +
+        prog.pct +
+        '%（' +
+        prog.seen +
+        '/' +
+        prog.total +
+        '）｜本情境標記 ' +
+        prog.marked +
+        '｜全庫 模糊 ' +
         marked.fuzzy +
         '／中等 ' +
         marked.mid +
@@ -824,22 +969,17 @@
       card('怎麼用', [
         ul([
           '先選 Level，再點一個商業情境（不會一次渲染全部單字）。',
-          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍。',
+          '情境顯示「已瀏覽 %」與「標記 n」：翻頁會累計瀏覽覆蓋率；＋ 標記熟悉度才算收藏複習。',
+          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍；翻頁會回到字庫頂部，也可輸入頁碼跳轉。',
           '🔊 朗讀；＋ 標記模糊／中等／很熟（本機保存）。',
         ]),
       ]),
-      card('字庫', [
-        el('div', { className: 'toeic-toolbar' }, [famSel, search]),
-        meta,
-        empty,
-        grid,
-        pager,
-      ]),
+      bankCard,
     ]);
   }
 
   function mountListening(app) {
-    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。下列 60 則可標記熟悉度複習。', [
+    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。下列 60 則可朗讀正確句、標記熟悉度複習。', [
       card('四國口音', [
         p('美、加、英、澳都會出現。重點不是「聽出哪國」，而是適應母音、r 音與語速差異；平時混聽四國播客／官方音檔。'),
         ul([

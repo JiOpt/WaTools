@@ -4,7 +4,7 @@
 (function (global) {
   'use strict';
 
-  var TOEFL_CSS_VER = '0.6.43';
+  var TOEFL_CSS_VER = '0.6.48';
   var TOEFL_L2_VER = '0.6.42';
 
   function toeflCssHref() {
@@ -331,6 +331,20 @@
     let famFilter = 'all';
     let famMap = fam ? fam.load() : {};
 
+    function speakRow(label, text) {
+      return el('div', { className: 'toefl-correct-row' }, [
+        el('p', { className: 'toefl-ex', textContent: (label ? label + '：' : '') + text }),
+        el('button', {
+          type: 'button',
+          className: 'toefl-speak-btn toefl-speak-btn-sm',
+          title: '朗讀正確句子',
+          'aria-label': '朗讀正確句子',
+          textContent: '朗讀正確句',
+          onclick: () => speakEn(text),
+        }),
+      ]);
+    }
+
     function paint() {
       if (fam) famMap = fam.load();
       list.innerHTML = '';
@@ -363,12 +377,12 @@
           if (it.point) kids.push(el('p', { className: 'toefl-point', textContent: it.point }));
           if (it.prompt) kids.push(el('p', { className: 'toefl-stem', textContent: it.prompt }));
           if (it.q) kids.push(el('p', { className: 'toefl-stem', textContent: it.q }));
-          if (it.ex) kids.push(el('p', { className: 'toefl-ex', textContent: it.ex }));
+          if (it.ex) kids.push(speakRow('宜聽／正確句', it.ex));
           if (it.skill) kids.push(el('p', { className: 'toefl-syn', textContent: '技能：' + it.skill }));
           if (Array.isArray(it.outline)) {
             kids.push(el('ul', { className: 'toefl-ul' }, it.outline.map((o) => el('li', { textContent: o }))));
           }
-          if (it.sample) kids.push(el('p', { className: 'toefl-ex', textContent: it.sample }));
+          if (it.sample) kids.push(speakRow('範例', it.sample));
           if (it.tip) kids.push(el('p', { className: 'toefl-tip', textContent: it.tip }));
           list.appendChild(el('article', { className: 'toefl-q' + (level ? ' fam-' + level : '') }, kids));
         });
@@ -427,6 +441,10 @@
       ]),
       card('計分', [
         p('各科約 0–30，總分 0–120。大學／研究所常見門檻約 80、90、100；研究所或高競爭科系常看 100+。'),
+      ]),
+      card('下一步：托福單字', [
+        p('學術單字與 AWL 是閱讀詞義題與聽力演講的關鍵。可先用本站托福單字記憶工具，依 Level 與學科主題分頁背誦。'),
+        linkRow([{ href: 'toefl-vocab.html', label: '托福單字記憶（約萬字）', note: 'Level1／Level2・AWL與學科進階' }]),
       ]),
     ]);
   }
@@ -508,6 +526,7 @@
 
     const PAGE_SIZE = 24;
     const fam = createFamApi('wa-toefl-vocab-fam', 'toefl');
+    const SEEN_KEY = 'wa-toefl-vocab-seen';
     const FAM_FILTER_LABEL = { all: '全部', known: '很熟', mid: '中等', fuzzy: '模糊' };
     const DEFAULT_SCENARIO = { 1: 'biology', 2: 'awl' };
 
@@ -517,6 +536,57 @@
     let famMap = fam.load();
     let l2Ready = Boolean(global.WA_TOEFL_VOCAB_L2 && global.WA_TOEFL_VOCAB_L2.scenarios);
     let l2Loading = false;
+
+    function loadSeen() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(SEEN_KEY) || '{}');
+        return raw && typeof raw === 'object' ? raw : {};
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveSeen(map) {
+      try {
+        localStorage.setItem(SEEN_KEY, JSON.stringify(map));
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    function wordKey(scenarioId, word) {
+      return scenarioId + ':' + String(word || '').toLowerCase();
+    }
+    function markSeen(scenarioId, words) {
+      if (!scenarioId || !words || !words.length) return;
+      const seen = loadSeen();
+      let changed = false;
+      words.forEach((w) => {
+        const k = wordKey(scenarioId, w.w);
+        if (!seen[k]) {
+          seen[k] = 1;
+          changed = true;
+        }
+      });
+      if (changed) saveSeen(seen);
+    }
+    function scenarioProgress(scenario) {
+      const total = (scenario && scenario.words && scenario.words.length) || 0;
+      if (!total) return { total: 0, seen: 0, pct: 0, marked: 0 };
+      const seenMap = loadSeen();
+      famMap = fam.load();
+      let seen = 0;
+      let marked = 0;
+      (scenario.words || []).forEach((w) => {
+        const k = wordKey(scenario.id, w.w);
+        if (seenMap[k]) seen += 1;
+        if (famMap[k]) marked += 1;
+      });
+      return {
+        total: total,
+        seen: seen,
+        pct: Math.round((seen / total) * 100),
+        marked: marked,
+      };
+    }
 
     const levelBar = el('div', { className: 'toefl-level-bar', role: 'tablist', 'aria-label': '單字等級' });
     const btnL1 = el('button', {
@@ -549,15 +619,50 @@
       'aria-label': '搜尋單字',
     });
     const grid = el('div', { className: 'toefl-vocab-grid' });
-    const meta = el('p', { className: 'toefl-muted' });
+    const meta = el('p', { className: 'toefl-muted toefl-vocab-anchor', id: 'toefl-vocab-top' });
     const pager = el('div', { className: 'toefl-pager' });
     const empty = el('p', {
       className: 'toefl-tip',
       textContent: '請點選上方學術主題，才會載入該分類單字（分頁顯示）。',
     });
+    const bankCard = card('字庫', [
+      el('div', { className: 'toefl-toolbar' }, [famSel, search]),
+      meta,
+      empty,
+      grid,
+      pager,
+    ]);
+    bankCard.id = 'toefl-vocab-bank';
+    bankCard.classList.add('toefl-vocab-bank');
 
-    function wordKey(scenarioId, word) {
-      return scenarioId + ':' + String(word || '').toLowerCase();
+    function scrollToVocabTop() {
+      const target = bankCard || meta;
+      if (!target) return;
+      try {
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      } catch (e) {
+        /* ignore */
+      }
+      const run = () => {
+        const header = document.getElementById('header');
+        const offset = (header ? header.getBoundingClientRect().height : 72) + 12;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        try {
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        } catch (e) {
+          window.scrollTo(0, Math.max(0, top));
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(run));
+    }
+
+    function goToPage(nextPage, pages, doScroll) {
+      const n = Math.max(1, Math.min(pages, parseInt(nextPage, 10) || 1));
+      if (n !== page) {
+        page = n;
+        paint();
+      }
+      if (doScroll !== false) scrollToVocabTop();
     }
 
     function currentPack() {
@@ -584,21 +689,36 @@
     function rebuildScenarioBar() {
       scenarioBar.innerHTML = '';
       scenariosOf().forEach((s) => {
-        const count = (s.words && s.words.length) || 0;
-        scenarioBar.appendChild(
-          el('button', {
-            type: 'button',
-            className: 'toefl-scenario-chip' + (s.id === activeScenarioId ? ' is-on' : ''),
-            textContent: s.name + '（' + count + '）',
-            title: s.nameEn || s.name,
-            onclick: () => {
-              activeScenarioId = s.id;
-              page = 1;
-              rebuildScenarioBar();
-              paint();
-            },
+        const prog = scenarioProgress(s);
+        const btn = el('button', {
+          type: 'button',
+          className: 'toefl-scenario-chip' + (s.id === activeScenarioId ? ' is-on' : ''),
+          title:
+            (s.nameEn || s.name) +
+            '｜已瀏覽 ' +
+            prog.pct +
+            '%（' +
+            prog.seen +
+            '/' +
+            prog.total +
+            '）｜標記 ' +
+            prog.marked +
+            ' 字',
+          onclick: () => {
+            activeScenarioId = s.id;
+            page = 1;
+            rebuildScenarioBar();
+            paint();
+          },
+        });
+        btn.appendChild(el('span', { className: 'toefl-scenario-chip-name', textContent: s.name }));
+        btn.appendChild(
+          el('span', {
+            className: 'toefl-scenario-chip-meta',
+            textContent: '已瀏覽 ' + prog.pct + '% · 標記 ' + prog.marked,
           })
         );
+        scenarioBar.appendChild(btn);
       });
     }
 
@@ -624,10 +744,7 @@
         className: 'toefl-chip-btn',
         textContent: '上一頁',
         onclick: () => {
-          if (page > 1) {
-            page -= 1;
-            paint();
-          }
+          if (page > 1) goToPage(page - 1, pages, true);
         },
       });
       const next = el('button', {
@@ -635,23 +752,44 @@
         className: 'toefl-chip-btn',
         textContent: '下一頁',
         onclick: () => {
-          if (page < pages) {
-            page += 1;
-            paint();
-          }
+          if (page < pages) goToPage(page + 1, pages, true);
         },
+      });
+      const jumpInput = el('input', {
+        type: 'number',
+        className: 'toefl-page-input',
+        min: '1',
+        max: String(pages),
+        value: String(page),
+        'aria-label': '跳至頁碼',
+        title: '輸入頁碼後按 Enter 或點跳轉',
+      });
+      const jumpBtn = el('button', {
+        type: 'button',
+        className: 'toefl-chip-btn',
+        textContent: '跳轉',
+        onclick: () => goToPage(jumpInput.value, pages, true),
+      });
+      jumpInput.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          goToPage(jumpInput.value, pages, true);
+        }
       });
       if (page <= 1) prev.setAttribute('disabled', 'disabled');
       else prev.removeAttribute('disabled');
       if (page >= pages) next.setAttribute('disabled', 'disabled');
       else next.removeAttribute('disabled');
       pager.appendChild(prev);
+      pager.appendChild(el('span', { className: 'toefl-muted', textContent: '第' }));
+      pager.appendChild(jumpInput);
       pager.appendChild(
         el('span', {
           className: 'toefl-muted',
-          textContent: '第 ' + page + '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
+          textContent: '／' + pages + ' 頁（每頁 ' + PAGE_SIZE + ' 字）',
         })
       );
+      pager.appendChild(jumpBtn);
       pager.appendChild(next);
     }
 
@@ -686,6 +824,9 @@
       const total = words.length;
       const start = (page - 1) * PAGE_SIZE;
       const slice = words.slice(start, start + PAGE_SIZE);
+      markSeen(scenario.id, slice);
+      rebuildScenarioBar();
+      const prog = scenarioProgress(scenario);
 
       slice.forEach((w) => {
         const id = wordKey(scenario.id, w.w);
@@ -743,6 +884,14 @@
         total +
         ' 字｜本頁 ' +
         slice.length +
+        '｜已瀏覽 ' +
+        prog.pct +
+        '%（' +
+        prog.seen +
+        '/' +
+        prog.total +
+        '）｜本主題標記 ' +
+        prog.marked +
         '｜' +
         fam.metaText(0, famMap).replace(/^顯示 0 筆｜/, '');
       paintPager(total);
@@ -807,25 +956,20 @@
       card('怎麼用', [
         ul([
           '先選 Level，再開啟一個學術主題（不會一次渲染全部單字）。',
-          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍。',
+          '主題顯示「已瀏覽 %」與「標記 n」：翻頁累計覆蓋率；＋ 標記熟悉度才算收藏複習。',
+          '每頁 ' + PAGE_SIZE + ' 字；可用熟悉度與搜尋縮小範圍；翻頁會回到字庫頂部，也可輸入頁碼跳轉。',
           'Level 2 含 AWL 核心、研究方法與生物／天文／歷史等進階學科字。',
           '🔊 朗讀；＋ 標記模糊／中等／很熟（本機保存）。',
         ]),
       ]),
-      card('字庫', [
-        el('div', { className: 'toefl-toolbar' }, [famSel, search]),
-        meta,
-        empty,
-        grid,
-        pager,
-      ]),
+      bankCard,
     ]);
   }
 
   function mountListening(app) {
     const data = global.WA_TOEFL_LISTENING;
     const items = (data && data.items) || [];
-    shell(app, '聽力答題技巧', data && data.focus ? data.focus : '對話與演講解題重點。', [
+    shell(app, '聽力答題技巧', (data && data.focus ? data.focus + ' ' : '') + '可朗讀正確句、標記熟悉度複習。', [
       card('解題重點', [
         ul([
           '先抓目的／主旨，再記例子與轉折（however、actually）。',

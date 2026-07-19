@@ -342,7 +342,7 @@
           },
         }, [L('reset', '恢復預設')]),
       ]),
-      el('p', { className: 'prefs-note text-muted', text: L('note', '設定會儲存在此瀏覽器，套用至 Kawatool 全站所有頁面。') }),
+      el('p', { className: 'prefs-note text-muted', text: L('note', '設定會儲存在此瀏覽器，套用至 KaWaTool 全站所有頁面。') }),
     ]);
 
     form.addEventListener('change', function (e) {

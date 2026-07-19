@@ -104,7 +104,7 @@
 
       setStatus('無法寫入 sitemap.txt — 請連結檔案或執行 npm run plan:serve', 'warn');
     } catch (err) {
-      console.error('[Kawatool] auto-save failed:', err);
+      console.error('[KaWaTool] auto-save failed:', err);
       setStatus('自動儲存失敗 — 請按「連結 sitemap.txt」或「儲存 sitemap.txt」', 'err');
     } finally {
       saving = false;

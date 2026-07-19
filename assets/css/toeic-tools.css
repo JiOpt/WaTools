@@ -1,3 +1,30 @@
+/* Page chrome: only「返回分類」; title lives in the white card */
+body.tool-page:has(#tool-app.wa-toeic) .tool-section {
+  padding-top: 14px;
+}
+body.tool-page:has(#tool-app.wa-toeic) .tool-page-bar,
+body.tool-page:has(#tool-app.wa-toeic) .tool-page-bar:has(.tool-seo-lead) {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  min-height: 34px;
+}
+body.tool-page:has(#tool-app.wa-toeic) .tool-page-bar-title,
+body.tool-page:has(#tool-app.wa-toeic) .tool-seo-lead {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+body.tool-page:has(#tool-app.wa-toeic) .tool-app {
+  padding-top: 24px;
+}
+
 /* TOEIC theme tools */
 .tool-app.wa-toeic {
   --toeic-accent: #0f4c81;
@@ -228,6 +255,22 @@
   margin-top: 0.15rem;
 }
 .wa-toeic .toeic-vocab-actions { margin: 0.15rem 0 0.25rem; }
+.wa-toeic .toeic-correct-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0.2rem 0 0.35rem;
+}
+.wa-toeic .toeic-correct-row .toeic-ex {
+  flex: 1;
+  min-width: 12rem;
+  margin: 0;
+}
+.wa-toeic .toeic-correct-row .toeic-speak-btn-sm {
+  margin-top: 0;
+  flex-shrink: 0;
+}
 .wa-toeic .toeic-fam-btn {
   flex-shrink: 0;
   font-size: 0.78rem;
@@ -286,12 +329,25 @@
   border: 1px solid var(--toeic-line);
   background: var(--toeic-soft);
   color: var(--toeic-accent);
-  border-radius: 999px;
-  padding: 0.28rem 0.7rem;
+  border-radius: 12px;
+  padding: 0.35rem 0.75rem;
   font: inherit;
   font-size: 0.86rem;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+  line-height: 1.25;
+}
+.wa-toeic .toeic-scenario-chip-name {
+  font-weight: 700;
+}
+.wa-toeic .toeic-scenario-chip-meta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.88;
 }
 .wa-toeic .toeic-scenario-chip.is-on {
   background: var(--toeic-accent);
@@ -304,6 +360,18 @@
   align-items: center;
   gap: 0.65rem;
   margin-top: 0.85rem;
+}
+.wa-toeic .toeic-page-input {
+  width: 4.2rem;
+  padding: 0.28rem 0.4rem;
+  border: 1px solid var(--toeic-line);
+  border-radius: 8px;
+  font: inherit;
+  text-align: center;
+}
+.wa-toeic .toeic-vocab-anchor,
+.wa-toeic .toeic-vocab-bank {
+  scroll-margin-top: calc(var(--header-offset, 72px) + 12px);
 }
 .wa-toeic .toeic-chip-level {
   background: #fff;

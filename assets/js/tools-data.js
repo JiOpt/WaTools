@@ -9,7 +9,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "多益測驗介紹",
         "icon": "bi-info-circle",
         "desc": "2.5 小時、聽力四題／閱讀三題結構與計分速覽。",
-        "seoTitle": "多益測驗介紹｜時間題型與計分｜TOEIC L&R | Kawatool",
+        "seoTitle": "多益測驗介紹｜時間題型與計分｜TOEIC L&R | KaWaTool",
         "seoDescription": "精簡介紹多益聽力與閱讀：考試時間、Parts 1–7 題型與分數區間，適合初次報考者快速建立全貌。",
         "seoKeywords": "多益,TOEIC,題型,計分,聽力,閱讀"
       },
@@ -18,7 +18,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "免費模擬測驗",
         "icon": "bi-clipboard2-check",
         "desc": "官方與優質免費試題連結，方便自我檢測。",
-        "seoTitle": "多益免費模擬測驗｜線上試題資源 | Kawatool",
+        "seoTitle": "多益免費模擬測驗｜線上試題資源 | KaWaTool",
         "seoDescription": "整理多益免費模擬與考古資源連結，幫你用正式題感做實力檢測與時間配速練習。",
         "seoKeywords": "多益模擬考,免費TOEIC,線上測驗"
       },
@@ -27,25 +27,26 @@ window.WA_TOOLS_CATALOG = [
         "title": "程度落點分析",
         "icon": "bi-bar-chart-steps",
         "desc": "600／750／860 分區間對照，看清目標差距。",
-        "seoTitle": "多益分數落點｜600 750 860 程度對照 | Kawatool",
+        "seoTitle": "多益分數落點｜600 750 860 程度對照 | KaWaTool",
         "seoDescription": "對照多益常見分數區間與能力描述，快速判斷目前落點與衝刺目標。",
         "seoKeywords": "多益分數,TOEIC等級,860分"
       },
       {
         "slug": "toeic-vocab",
-        "title": "單字記憶工具",
+        "title": "多益單字記憶",
         "icon": "bi-card-text",
-        "desc": "約 7000 字：Level 1 高頻打底＋Level 2 十六專業情境（含銀行／旅宿），分頁載入。",
-        "seoTitle": "多益單字｜Level1／Level2 約7000字金色證書 | Kawatool",
-        "seoDescription": "多益單字約 7000：Level 1（550–750）與 Level 2（860+ 十六專業情境含銀行、旅宿），依情境分頁載入，含同義詞、朗讀與熟悉度。",
-        "seoKeywords": "多益單字,TOEIC vocabulary,金色證書,860分,商業英文"
+        "desc": "約7000字多益單字：Level1高頻＋Level2金色證書情境，可朗讀複習。",
+        "seoTitle": "線上多益TOEIC單字背誦｜約7000字分級衝刺金色證書860分攻略",
+        "seoDescription": "免費多益單字背誦工具，收錄約7000字：Level1（550–750）高頻與Level2（860+金色證書）十六專業情境，可分類分頁學習，含同義詞、朗讀與熟悉度標記，協助背單字衝860分。",
+        "seoKeywords": "多益單字,多益單字背誦,多益單字本,TOEIC vocabulary,金色證書,860分,商業英文單字,多益單字app",
+        "seoLead": "免費線上多益單字庫約7000字，Level 1 高頻打底、Level 2 金色證書專業情境（含銀行／旅宿），支援朗讀、同義詞與熟悉度複習，協助衝刺860分。"
       },
       {
         "slug": "toeic-listening",
         "title": "聽力答題技巧",
         "icon": "bi-headphones",
         "desc": "Parts 1–4 陷阱、四國口音與圖片預讀重點。",
-        "seoTitle": "多益聽力技巧｜Parts 1–4 與口音陷阱 | Kawatool",
+        "seoTitle": "多益聽力技巧｜Parts 1–4 與口音陷阱 | KaWaTool",
         "seoDescription": "針對多益聽力四大題整理解題重點、美加英澳口音差異與 Part 1 圖片預讀節奏。",
         "seoKeywords": "多益聽力,TOEIC Listening,口音,Part1"
       },
@@ -54,7 +55,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "閱讀解題策略",
         "icon": "bi-book",
         "desc": "Parts 5–7 作答順序、時間分配與 60 練題。",
-        "seoTitle": "多益閱讀策略｜Parts 5–7 時間分配 | Kawatool",
+        "seoTitle": "多益閱讀策略｜Parts 5–7 時間分配 | KaWaTool",
         "seoDescription": "統整多益閱讀三大題作答順序與時間規劃，並提供精簡練習例題掌握常考點。",
         "seoKeywords": "多益閱讀,TOEIC Reading,Part7,時間分配"
       },
@@ -63,7 +64,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "文法速成指南",
         "icon": "bi-pencil-square",
         "desc": "Part 5／6 常客：詞性、介系詞、分詞、假設等。",
-        "seoTitle": "多益文法速成｜Part 5／6 常考點 60 例 | Kawatool",
+        "seoTitle": "多益文法速成｜Part 5／6 常考點 60 例 | KaWaTool",
         "seoDescription": "鎖定多益 Part 5、6 高頻文法：詞性、介系詞與連接詞、分詞形容詞、代名詞等，附精簡例題。",
         "seoKeywords": "多益文法,TOEIC grammar,Part5,介系詞"
       },
@@ -72,7 +73,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "備試時間規劃表",
         "icon": "bi-calendar-week",
         "desc": "1 個月衝刺與 3 個月扎實進度建議。",
-        "seoTitle": "多益讀書計畫｜1 個月／3 個月排程 | Kawatool",
+        "seoTitle": "多益讀書計畫｜1 個月／3 個月排程 | KaWaTool",
         "seoDescription": "依準備期長短提供多益每日學習節奏建議，兼顧單字、聽力、閱讀與模擬考。",
         "seoKeywords": "多益讀書計畫,TOEIC study plan"
       },
@@ -81,7 +82,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "刷題與檢討工具",
         "icon": "bi-journal-check",
         "desc": "錯題分類、常見誤區與有效複習流程。",
-        "seoTitle": "多益錯題檢討｜刷題方法與常見誤區 | Kawatool",
+        "seoTitle": "多益錯題檢討｜刷題方法與常見誤區 | KaWaTool",
         "seoDescription": "教你建立多益錯題本、區分知識型與粗心型錯誤，讓刷題真正轉成分數。",
         "seoKeywords": "多益錯題,刷題檢討,TOEIC review"
       },
@@ -90,7 +91,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "推薦學習資源",
         "icon": "bi-collection",
         "desc": "書籍、課程、APP 與 YouTube 精選入口。",
-        "seoTitle": "多益學習資源｜書籍課程 APP YouTube | Kawatool",
+        "seoTitle": "多益學習資源｜書籍課程 APP YouTube | KaWaTool",
         "seoDescription": "精選多益備考書籍、線上課程、實用 APP 與 YouTube 頻道，方便延伸學習。",
         "seoKeywords": "多益書籍,TOEIC APP,多益課程"
       },
@@ -99,7 +100,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "報名與考場須知",
         "icon": "bi-person-vcard",
         "desc": "線上報名流程、相片規格與當日注意事項。",
-        "seoTitle": "多益報名流程｜相片規格與考場實戰 | Kawatool",
+        "seoTitle": "多益報名流程｜相片規格與考場實戰 | KaWaTool",
         "seoDescription": "整理多益官方線上報名步驟、證件照規格、應攜帶物品與劃卡／時間配速提醒。",
         "seoKeywords": "多益報名,TOEIC報名,考場注意"
       },
@@ -108,7 +109,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "說寫測驗簡介",
         "icon": "bi-mic",
         "desc": "Speaking & Writing 題型與何時需要報考。",
-        "seoTitle": "多益口說寫作｜S&W 題型簡介 | Kawatool",
+        "seoTitle": "多益口說寫作｜S&W 題型簡介 | KaWaTool",
         "seoDescription": "補充多益口說與寫作測驗題型與適用情境，適合外商求職或升遷需求者快速了解。",
         "seoKeywords": "多益口說,TOEIC Speaking,Writing"
       },
@@ -117,7 +118,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "心態與撞牆突破",
         "icon": "bi-emoji-smile",
         "desc": "成績停滯解法與考試焦慮調適。",
-        "seoTitle": "多益撞牆期｜成績停滯與焦慮調適 | Kawatool",
+        "seoTitle": "多益撞牆期｜成績停滯與焦慮調適 | KaWaTool",
         "seoDescription": "針對多益準備常見成績停滯與考試焦慮，提供精簡可執行的調整策略。",
         "seoKeywords": "多益焦慮,成績停滯,備考心態"
       }
@@ -133,7 +134,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "托福測驗介紹",
         "icon": "bi-info-circle",
         "desc": "iBT 讀聽說寫結構、時間與 0–120 計分速覽。",
-        "seoTitle": "托福測驗介紹｜iBT 四科與計分 | Kawatool",
+        "seoTitle": "托福測驗介紹｜iBT 四科與計分 | KaWaTool",
         "seoDescription": "精簡介紹托福 iBT：閱讀、聽力、口說、寫作題型與分數門檻，適合初次報考者建立全貌。",
         "seoKeywords": "托福,TOEFL,iBT,題型,計分"
       },
@@ -142,7 +143,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "免費模擬測驗",
         "icon": "bi-clipboard2-check",
         "desc": "官方樣題與模擬資源，方便自我檢測。",
-        "seoTitle": "托福免費模擬｜ETS 樣題資源 | Kawatool",
+        "seoTitle": "托福免費模擬｜ETS 樣題資源 | KaWaTool",
         "seoDescription": "整理托福免費樣題與模擬入口，用正式題感做實力檢測與時間配速。",
         "seoKeywords": "托福模擬考,TOEFL practice,免費樣題"
       },
@@ -151,25 +152,26 @@ window.WA_TOOLS_CATALOG = [
         "title": "程度落點分析",
         "icon": "bi-bar-chart-steps",
         "desc": "80／90／100／110 分區間對照目標差距。",
-        "seoTitle": "托福分數落點｜80 90 100 程度對照 | Kawatool",
+        "seoTitle": "托福分數落點｜80 90 100 程度對照 | KaWaTool",
         "seoDescription": "對照托福常見總分門檻與能力描述，快速判斷落點與衝刺方向。",
         "seoKeywords": "托福分數,TOEFL 100,申請門檻"
       },
       {
         "slug": "toefl-vocab",
-        "title": "學術單字工具",
+        "title": "托福單字記憶",
         "icon": "bi-card-text",
-        "desc": "約萬字：Level 1 學術基礎＋Level 2 AWL／學科進階，分頁載入。",
-        "seoTitle": "托福單字｜Level1／Level2 AWL約萬字衝120 | Kawatool",
-        "seoDescription": "托福學術單字約萬字：Level 1（80–100）與 Level 2（AWL＋生物天文歷史等進階），依主題分頁載入，含同義詞、朗讀與熟悉度。",
-        "seoKeywords": "托福單字,TOEFL vocabulary,AWL,學術英文,托福120"
+        "desc": "約萬字托福單字：Level1學術基礎＋Level2 AWL／學科進階。",
+        "seoTitle": "免費線上托福TOEFL單字背誦練習｜AWL學術萬字衝刺托福120分攻略",
+        "seoDescription": "免費托福單字背誦工具，收錄約萬字：Level1學術基礎與Level2 AWL核心、研究方法及生物天文歷史等學科進階，可主題分頁學習，含同義詞、朗讀與熟悉度，協助背單字衝托福120。",
+        "seoKeywords": "托福單字,托福單字背誦,TOEFL vocabulary,AWL,Academic Word List,托福120,學術英文單字,托福單字本",
+        "seoLead": "免費線上托福學術單字庫約萬字，Level 1 打底、Level 2 含 AWL 與生物／天文／歷史等進階主題，支援朗讀、同義詞與熟悉度複習，協助衝刺110–120分。"
       },
       {
         "slug": "toefl-listening",
         "title": "聽力答題技巧",
         "icon": "bi-headphones",
         "desc": "對話／演講主旨細節態度，附 60 情境速記。",
-        "seoTitle": "托福聽力技巧｜對話演講 60 情境 | Kawatool",
+        "seoTitle": "托福聽力技巧｜對話演講 60 情境 | KaWaTool",
         "seoDescription": "針對托福聽力校園對話與課堂演講整理解題重點，並提供 60 則情境速記。",
         "seoKeywords": "托福聽力,TOEFL Listening"
       },
@@ -178,7 +180,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "閱讀解題策略",
         "icon": "bi-book",
         "desc": "細節推論詞義修辭，附 60 練題。",
-        "seoTitle": "托福閱讀策略｜題型與 60 練題 | Kawatool",
+        "seoTitle": "托福閱讀策略｜題型與 60 練題 | KaWaTool",
         "seoDescription": "統整托福閱讀常考題型與定位方法，並提供 60 題精簡練習。",
         "seoKeywords": "托福閱讀,TOEFL Reading"
       },
@@ -187,7 +189,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "文法速成指南",
         "icon": "bi-pencil-square",
         "desc": "長句從句與寫作高頻文法 60 例。",
-        "seoTitle": "托福文法速成｜從句一致 60 例 | Kawatool",
+        "seoTitle": "托福文法速成｜從句一致 60 例 | KaWaTool",
         "seoDescription": "鎖定托福閱讀與寫作高頻文法：主詞動詞一致、關係子句、分詞等，附 60 例題。",
         "seoKeywords": "托福文法,TOEFL grammar"
       },
@@ -196,7 +198,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "口說備考指南",
         "icon": "bi-mic",
         "desc": "Independent／Integrated 模板與 60 示範。",
-        "seoTitle": "托福口說｜題型模板與 60 示範 | Kawatool",
+        "seoTitle": "托福口說｜題型模板與 60 示範 | KaWaTool",
         "seoDescription": "托福口說 Independent 與 Integrated 精簡模板、大綱與 60 題示範回答。",
         "seoKeywords": "托福口說,TOEFL Speaking"
       },
@@ -205,7 +207,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "寫作備考指南",
         "icon": "bi-pen",
         "desc": "Integrated／討論帖結構與 60 示範。",
-        "seoTitle": "托福寫作｜Integrated 討論帖 60 範例 | Kawatool",
+        "seoTitle": "托福寫作｜Integrated 討論帖 60 範例 | KaWaTool",
         "seoDescription": "托福寫作 Integrated 與 Academic Discussion 結構要點，附 60 則精簡示範。",
         "seoKeywords": "托福寫作,TOEFL Writing"
       },
@@ -214,7 +216,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "備試時間規劃表",
         "icon": "bi-calendar-week",
         "desc": "1 個月衝刺與 3 個月扎實進度建議。",
-        "seoTitle": "托福讀書計畫｜1 個月／3 個月排程 | Kawatool",
+        "seoTitle": "托福讀書計畫｜1 個月／3 個月排程 | KaWaTool",
         "seoDescription": "依準備期長短提供托福每日學習節奏，兼顧四科與模考。",
         "seoKeywords": "托福讀書計畫,TOEFL study plan"
       },
@@ -223,7 +225,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "刷題與檢討工具",
         "icon": "bi-journal-check",
         "desc": "錯題分類與常見誤區，有效提升。",
-        "seoTitle": "托福錯題檢討｜刷題方法 | Kawatool",
+        "seoTitle": "托福錯題檢討｜刷題方法 | KaWaTool",
         "seoDescription": "建立托福錯題本、區分讀聽說寫誤區，讓練習真正轉成分數。",
         "seoKeywords": "托福錯題,TOEFL review"
       },
@@ -232,7 +234,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "推薦學習資源",
         "icon": "bi-collection",
         "desc": "官方樣題、書籍與線上資源入口。",
-        "seoTitle": "托福學習資源｜ETS 與備考材料 | Kawatool",
+        "seoTitle": "托福學習資源｜ETS 與備考材料 | KaWaTool",
         "seoDescription": "精選托福官方與延伸學習資源入口，方便備考延伸。",
         "seoKeywords": "托福資源,TOEFL ETS"
       },
@@ -241,7 +243,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "報名與考場須知",
         "icon": "bi-person-vcard",
         "desc": "ETS 報名流程與考試當天注意事項。",
-        "seoTitle": "托福報名｜ETS 流程與考場須知 | Kawatool",
+        "seoTitle": "托福報名｜ETS 流程與考場須知 | KaWaTool",
         "seoDescription": "整理托福報名概要、證件與考試當天注意事項，請以 ETS 最新簡章為準。",
         "seoKeywords": "托福報名,TOEFL registration"
       },
@@ -250,7 +252,7 @@ window.WA_TOOLS_CATALOG = [
         "title": "心態與撞牆突破",
         "icon": "bi-emoji-smile",
         "desc": "成績停滯解法與考試焦慮調適。",
-        "seoTitle": "托福撞牆期｜成績停滯與焦慮 | Kawatool",
+        "seoTitle": "托福撞牆期｜成績停滯與焦慮 | KaWaTool",
         "seoDescription": "針對托福準備常見成績停滯與焦慮，提供精簡可執行調整策略。",
         "seoKeywords": "托福焦慮,成績停滯"
       }
@@ -268,7 +270,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "幽默測驗產出社交人格與含金量，一鍵下載分享圖。",
         "seoTitle": "Threads 脆友社交人格與含金量分析｜幽默測驗分享卡",
         "seoDescription": "輸入 Threads 帳號、回答三題幽默選擇，產出社交人格稱號與毒舌評語，並以原生 Canvas 下載分享圖卡、複製貼文文字。",
-        "seoKeywords": "Threads,脆友,社交人格,含金量,分享圖卡,Kawatool"
+        "seoKeywords": "Threads,脆友,社交人格,含金量,分享圖卡,KaWaTool"
       },
       {
         "slug": "mortgage-calculator",
@@ -277,7 +279,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "2026 一般房貸與新青安分段利率，含寬限期本息攤還。",
         "seoTitle": "2026 房貸與新青安貸款試算｜寬限期本息攤還",
         "seoDescription": "輸入貸款萬元、20/30/40 年與寬限期，切換一般房貸或新青安分段利率，試算寬限期與攤還期月付並展開前十二期明細。",
-        "seoKeywords": "新青安,房貸試算,寬限期,本息攤還,2026房貸,Kawatool"
+        "seoKeywords": "新青安,房貸試算,寬限期,本息攤還,2026房貸,KaWaTool"
       },
       {
         "slug": "llm-api-cost-calculator",
@@ -286,7 +288,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "GPT／Claude／Gemini 用量換算月費美金與台幣。",
         "seoTitle": "AI 算力成本與 LLM API 價格換算｜2026 主流模型",
         "seoDescription": "輸入每月 Requests、平均 Input／Output Tokens 與匯率，比較 GPT-4o、Claude 3.5 Sonnet、Gemini 1.5 Pro 月費美金與台幣，由低到高排序預算。",
-        "seoKeywords": "LLM API,GPT-4o,Claude,Gemini,API成本,算力預算,Kawatool"
+        "seoKeywords": "LLM API,GPT-4o,Claude,Gemini,API成本,算力預算,KaWaTool"
       },
       {
         "slug": "invoice-checker",
@@ -295,7 +297,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "期別＋末三碼，開獎秒對，結果可截圖分享。",
         "seoTitle": "統一發票對獎｜期別末三碼線上對獎工具",
         "seoDescription": "選擇期別輸入發票末三碼，快速對獎並顯示中獎明細；純前端試算，示範資料請以財政部公告為準。",
-        "seoKeywords": "統一發票,對獎,發票號碼,末三碼,Kawatool"
+        "seoKeywords": "統一發票,對獎,發票號碼,末三碼,KaWaTool"
       },
       {
         "slug": "income-tax-estimator",
@@ -304,7 +306,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "所得級距稅額，報稅季參考試算。",
         "seoTitle": "個人綜所稅速算｜所得級距稅額試算工具",
         "seoDescription": "依綜合所得稅累進級距試算預估稅額，適合報稅季快速參考；僅供示意，非正式申報依據。",
-        "seoKeywords": "綜所稅,所得稅試算,報稅,級距,Kawatool"
+        "seoKeywords": "綜所稅,所得稅試算,報稅,級距,KaWaTool"
       },
       {
         "slug": "meeting-cost-calculator",
@@ -313,7 +315,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "人數×時薪×時長，會議燒多少錢。",
         "seoTitle": "會議成本計算機｜人數時薪時長成本試算",
         "seoDescription": "輸入參與人數、時薪與會議時長，即時計算會議成本並產出可分享結果卡，適合職場溝通與時間管理。",
-        "seoKeywords": "會議成本,時薪計算,職場工具,Kawatool"
+        "seoKeywords": "會議成本,時薪計算,職場工具,KaWaTool"
       },
       {
         "slug": "daily-fortune-card",
@@ -322,7 +324,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "生日出運勢，卡片直接發限動。",
         "seoTitle": "今日運勢分享卡｜宜忌幸運色運勢圖產生",
         "seoDescription": "輸入生日或姓名產生今日運勢、宜忌與幸運色，並匯出分享卡片，適合限動娛樂與日常回訪。",
-        "seoKeywords": "今日運勢,運勢卡,宜忌,幸運色,Kawatool"
+        "seoKeywords": "今日運勢,運勢卡,宜忌,幸運色,KaWaTool"
       },
       {
         "slug": "chat-screenshot-maker",
@@ -331,7 +333,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "仿 LINE／iMessage 對話框，匯出梗圖。",
         "seoTitle": "對話截圖產生器｜LINE iMessage 風格對話圖",
         "seoDescription": "編輯對話氣泡與角色，產生仿 LINE／iMessage 風格截圖並下載，適合迷因、二創與行銷素材。",
-        "seoKeywords": "對話截圖,LINE對話,迷因產生器,Kawatool"
+        "seoKeywords": "對話截圖,LINE對話,迷因產生器,KaWaTool"
       },
       {
         "slug": "ig-grid-splitter",
@@ -340,7 +342,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "一圖切九宮，限動貼文直接發。",
         "seoTitle": "IG 限動九宮格切割｜圖片切割下載工具",
         "seoDescription": "上傳圖片切成 1×2、2×2 或 3×3 九宮格，預覽後逐格下載，適合 IG 限動與貼文排版。",
-        "seoKeywords": "IG九宮格,限動切割,圖片切割,Kawatool"
+        "seoKeywords": "IG九宮格,限動切割,圖片切割,KaWaTool"
       },
       {
         "slug": "youtube-thumbnail-factory",
@@ -349,7 +351,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "大字底圖模板，1280×720 匯出。",
         "seoTitle": "YouTube 縮圖產生器｜1280x720 大字模板",
         "seoDescription": "輸入標題與底圖樣式，產生 1280×720 YouTube 縮圖並下載，協助提升影片點擊率視覺。",
-        "seoKeywords": "YouTube縮圖,影片封面,縮圖產生器,Kawatool"
+        "seoKeywords": "YouTube縮圖,影片封面,縮圖產生器,KaWaTool"
       },
       {
         "slug": "overtime-leave-calculator",
@@ -358,7 +360,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "工時年資，加班費與特休天數一目了然。",
         "seoTitle": "加班費／特休天數試算｜勞工權益線上計算",
         "seoDescription": "依月薪、加班時數與年資試算加班費與特別休假天數，協助快速理解勞動條件參考資訊。",
-        "seoKeywords": "加班費,特休,勞基法,年資,Kawatool"
+        "seoKeywords": "加班費,特休,勞基法,年資,KaWaTool"
       },
       {
         "slug": "labor-health-insurance",
@@ -367,7 +369,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "月薪對級距，投保金額與負擔概估。",
         "seoTitle": "勞保健保投保級距查詢｜月薪對應投保金額",
         "seoDescription": "輸入月薪查詢對應勞保／健保投保級距與負擔概估，適合調薪與算薪時快速對照參考。",
-        "seoKeywords": "勞保級距,健保級距,投保薪資,Kawatool"
+        "seoKeywords": "勞保級距,健保級距,投保薪資,KaWaTool"
       },
       {
         "slug": "avatar-safe-zone",
@@ -376,7 +378,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "圓框方框預覽，裁哪裡先看清楚。",
         "seoTitle": "大頭貼安全區預覽｜圓形方形頭像裁切",
         "seoDescription": "上傳照片預覽圓形與方形安全區，調整縮放後下載裁切圖，避免 LINE／IG／FB 頭像被裁壞。",
-        "seoKeywords": "大頭貼,頭像裁切,安全區,Kawatool"
+        "seoKeywords": "大頭貼,頭像裁切,安全區,KaWaTool"
       },
       {
         "slug": "resume-photo-spec",
@@ -385,7 +387,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "求職規格，藍白紅底一次到位。",
         "seoTitle": "履歷證件照規格裁切｜藍底白底證件照工具",
         "seoDescription": "依履歷證件照比例裁切並選擇藍／白／紅背景，預覽後下載，適合求職投遞與表單上傳。",
-        "seoKeywords": "證件照,履歷照片,求職,藍底,Kawatool"
+        "seoKeywords": "證件照,履歷照片,求職,藍底,KaWaTool"
       },
       {
         "slug": "hashtag-organizer",
@@ -394,7 +396,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "主題標籤分類，一鍵複製貼文。",
         "seoTitle": "Hashtag 產生整理｜IG Threads 標籤分類複製",
         "seoDescription": "依主題關鍵字整理熱門、長尾與品牌標籤，去重後一鍵複製，適合 IG／Threads 發文配套。",
-        "seoKeywords": "Hashtag,IG標籤,Threads,標籤產生,Kawatool"
+        "seoKeywords": "Hashtag,IG標籤,Threads,標籤產生,KaWaTool"
       },
       {
         "slug": "gpa-calculator",
@@ -403,7 +405,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "學分成績，學期加權平均一次算。",
         "seoTitle": "GPA 加權計算器｜學分成績平均計算工具",
         "seoDescription": "輸入科目學分與成績，計算加權 GPA，支援多列增刪，適合大學生學期成績自我掌握。",
-        "seoKeywords": "GPA,加權平均,學分計算,大學生,Kawatool"
+        "seoKeywords": "GPA,加權平均,學分計算,大學生,KaWaTool"
       },
       {
         "slug": "vehicle-loan-calculator",
@@ -412,7 +414,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "頭期期數利率，月付心裡有數。",
         "seoTitle": "車貸／機車貸款試算｜月付金與總利息計算",
         "seoDescription": "輸入車價、頭期款、利率與期數，試算每月還款與總利息，適合汽機車貸款方案比較參考。",
-        "seoKeywords": "車貸試算,機車貸款,月付金,Kawatool"
+        "seoKeywords": "車貸試算,機車貸款,月付金,KaWaTool"
       },
       {
         "slug": "speech-time-estimator",
@@ -421,7 +423,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "字數語速，報告幾分鐘先算好。",
         "seoTitle": "演講時間估算器｜字數語速報告分鐘試算",
         "seoDescription": "依講稿字數與語速估算演講分鐘數，並提供投影片頁數建議，適合報告與簡報前準備。",
-        "seoKeywords": "演講時間,報告計時,字數估算,Kawatool"
+        "seoKeywords": "演講時間,報告計時,字數估算,KaWaTool"
       },
       {
         "slug": "video-to-gif",
@@ -430,7 +432,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "本地影片選區間，預覽匯出動圖片段。",
         "seoTitle": "影片轉短片段｜本地選區間動圖預覽匯出",
         "seoDescription": "上傳本地影片選擇起迄時間，預覽後匯出短片段或畫面，適合社群動圖與素材製作，不上傳伺服器。",
-        "seoKeywords": "影片轉GIF,短片段,動圖,Kawatool"
+        "seoKeywords": "影片轉GIF,短片段,動圖,KaWaTool"
       },
       {
         "slug": "pdf-page-reorder",
@@ -439,7 +441,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "掃描頁圖片排序合併，隱私不離機。",
         "seoTitle": "PDF 頁面重排合併｜掃描圖片頁序整理下載",
         "seoDescription": "將 PDF 匯出圖片後上傳，調整頁序並下載整理後頁面，純前端處理，適合文書掃描檔重排。",
-        "seoKeywords": "PDF重排,頁面合併,掃描檔,Kawatool"
+        "seoKeywords": "PDF重排,頁面合併,掃描檔,KaWaTool"
       },
       {
         "slug": "audio-notes-summarizer",
@@ -448,7 +450,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "逐字稿整理成重點與待辦清單。",
         "seoTitle": "音檔重點筆記本｜逐字稿摘要與待辦整理",
         "seoDescription": "貼上逐字稿或語音輸入，整理成重點與待辦條列並可複製匯出，適合會議與 Podcast 筆記。",
-        "seoKeywords": "會議筆記,逐字稿摘要,語音筆記,Kawatool"
+        "seoKeywords": "會議筆記,逐字稿摘要,語音筆記,KaWaTool"
       },
       {
         "slug": "link-preview-card",
@@ -457,7 +459,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "自訂標題圖文，產出社群分享預覽卡。",
         "seoTitle": "連結預覽卡產生器｜社群 OG 風格分享圖",
         "seoDescription": "輸入標題、描述與圖片，產生社群連結預覽風格卡片並下載 PNG，適合行銷與自媒體分享素材。",
-        "seoKeywords": "連結預覽,OG卡片,社群分享圖,Kawatool"
+        "seoKeywords": "連結預覽,OG卡片,社群分享圖,KaWaTool"
       }
     ]
   },
@@ -473,7 +475,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "Unicode 藝術字一秒轉換，一鍵複製到 IG／Threads。",
         "seoTitle": "IG／Threads 特殊字體產生器｜Unicode 藝術字轉換",
         "seoDescription": "純前端 Unicode 藝術字轉換，一鍵複製 IG／Threads 特殊字體；不上傳、不呼叫後端，適合限動與貼文快速套用。",
-        "seoKeywords": "IG字體,特殊字體,Unicode,Threads,藝術字,Kawatool"
+        "seoKeywords": "IG字體,特殊字體,Unicode,Threads,藝術字,KaWaTool"
       },
       {
         "slug": "image-compressor",
@@ -482,7 +484,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "Canvas 本地壓縮 JPEG／WebP，不佔伺服器頻寬。",
         "seoTitle": "純前端圖片壓縮工具｜Canvas JPEG／WebP 壓縮",
         "seoDescription": "HTML5 Canvas 本地壓縮 JPEG／WebP，不上傳伺服器；可調品質與尺寸，省頻寬、護隱私，適合社群上傳前快速瘦身。",
-        "seoKeywords": "圖片壓縮,Canvas,WebP,JPEG,前端壓縮,Kawatool"
+        "seoKeywords": "圖片壓縮,Canvas,WebP,JPEG,前端壓縮,KaWaTool"
       },
       {
         "slug": "labor-retirement-calculator",
@@ -491,7 +493,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "投保薪資與年資試算勞退／勞保示意圖表。",
         "seoTitle": "勞退金／勞保退休金試算器｜投保薪資年資圖表預估",
         "seoDescription": "輸入投保薪資、年資與提繳比例，以 Canvas 圖表呈現預估勞退與勞保老年給付，協助快速理解退休金概況。",
-        "seoKeywords": "勞退,勞保,退休金試算,老年給付,Kawatool"
+        "seoKeywords": "勞退,勞保,退休金試算,老年給付,KaWaTool"
       },
       {
         "slug": "instagram-caption-formatter",
@@ -500,7 +502,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "換行轉社群空白字元，避免 IG 貼文跑版。",
         "seoTitle": "IG／Threads 貼文排版空白字｜換行不跑版工具",
         "seoDescription": "自動將換行轉為社群專用空白字元，避免 IG／Threads 貼文排版跑版；純前端轉換、複製即貼，適合長文與限動文案。",
-        "seoKeywords": "IG排版,空白字,Threads,貼文,換行,Kawatool"
+        "seoKeywords": "IG排版,空白字,Threads,貼文,換行,KaWaTool"
       },
       {
         "slug": "meme-caption-generator",
@@ -509,7 +511,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "經典底圖加上下排文字，Canvas 即時下載。",
         "seoTitle": "微迷因梗圖產生器｜經典底圖上下排文字下載",
         "seoDescription": "預載經典迷因底圖，上下排文字以 Canvas 即時渲染並下載；純前端處理不上傳，快速做出社群梗圖素材。",
-        "seoKeywords": "迷因,梗圖,meme,Canvas,Kawatool"
+        "seoKeywords": "迷因,梗圖,meme,Canvas,KaWaTool"
       },
       {
         "slug": "line-image-preview-cropper",
@@ -518,7 +520,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "調整 1:1 等安全比例，聊天室預覽不被去頭去尾。",
         "seoTitle": "LINE 傳圖防裁切預覽｜1:1 安全比例裁切",
         "seoDescription": "將圖片調整為 1:1 或安全比例，即時預覽 LINE 聊天室裁切效果，避免去頭去尾；純前端裁切後再傳送更安心。",
-        "seoKeywords": "LINE,圖片裁切,1:1,防裁切,Kawatool"
+        "seoKeywords": "LINE,圖片裁切,1:1,防裁切,KaWaTool"
       },
       {
         "slug": "markdown-to-html-cleaner",
@@ -527,7 +529,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "轉乾淨語意 HTML，無 inline CSS，方便貼網誌。",
         "seoTitle": "乾淨 HTML 語意格式轉換｜Markdown 轉網誌",
         "seoDescription": "Markdown 轉乾淨語意 HTML，無 inline CSS，適合網誌與 CMS 貼上；純前端轉換，輸出可直接複製使用。",
-        "seoKeywords": "Markdown,HTML,網誌,語意HTML,Kawatool"
+        "seoKeywords": "Markdown,HTML,網誌,語意HTML,KaWaTool"
       },
       {
         "slug": "password-generator-pro",
@@ -536,7 +538,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "crypto.getRandomValues 密碼學安全隨機密碼。",
         "seoTitle": "高強度密碼產生器｜crypto 安全隨機密碼工具",
         "seoDescription": "使用 window.crypto.getRandomValues 產生密碼學安全隨機密碼，可調長度與字元集；純前端產生，不經伺服器。",
-        "seoKeywords": "密碼產生器,隨機密碼,crypto,高強度密碼,Kawatool"
+        "seoKeywords": "密碼產生器,隨機密碼,crypto,高強度密碼,KaWaTool"
       },
       {
         "slug": "speech-to-text-notebook",
@@ -545,7 +547,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "Web Speech API 即時記錄靈感，可複製匯出。",
         "seoTitle": "即時語音轉文字筆記本｜Web Speech 靈感記錄",
         "seoDescription": "以 Web Speech API 即時語音轉文字記錄靈感，支援複製與匯出；純瀏覽器運作，適合會議筆記與創意草稿。",
-        "seoKeywords": "語音轉文字,筆記本,Web Speech,口述筆記,Kawatool"
+        "seoKeywords": "語音轉文字,筆記本,Web Speech,口述筆記,KaWaTool"
       },
       {
         "slug": "qr-code-beautifier",
@@ -554,7 +556,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "免外鏈套件，Canvas 漸層圓角 QR Code。",
         "seoTitle": "高質感 QR Code 漸層美化｜純 Canvas 圓角產生",
         "seoDescription": "免外鏈 JS，純 Canvas 生成漸層圓角 QR Code；可調顏色與樣式，適合名片、海報與社群素材下載使用。",
-        "seoKeywords": "QR Code,漸層,美化,Canvas,二維碼,Kawatool"
+        "seoKeywords": "QR Code,漸層,美化,Canvas,二維碼,KaWaTool"
       }
     ]
   },
@@ -1318,7 +1320,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "依地區分類日本神社：主祭神、專屬強項、參拜禮儀與御守知識；點卡片看詳細介紹。",
         "seoTitle": "日本神社｜主祭神・專屬強項・參拜禮儀圖鑑",
         "seoDescription": "依日本地區分類神社，標示主祭神與專屬強項（結緣、求財、學業），並解說鳥居、手水舍、二禮二拍手一禮與御守繪馬。",
-        "seoKeywords": "日本神社,主祭神,結緣神社,參拜禮儀,二禮二拍手一禮,御守,出雲大社,明治神宮,伏見稻荷,Kawatool"
+        "seoKeywords": "日本神社,主祭神,結緣神社,參拜禮儀,二禮二拍手一禮,御守,出雲大社,明治神宮,伏見稻荷,KaWaTool"
       },
       {
         "slug": "anime-hometown",
@@ -1327,7 +1329,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "柯南、灌籃高手、你的名字、蠟筆小新、鬼太郎等聖地：特色與必訪景點介紹。",
         "seoTitle": "日本動漫故鄉｜柯南灌籃高手新海誠聖地巡禮",
         "seoDescription": "整理北榮町柯南小鎮、鎌倉湘南平交道、飛驒你的名字取景、春日部蠟筆小新與境港鬼太郎必訪景點與特色。",
-        "seoKeywords": "日本動漫故鄉,聖地巡禮,柯南小鎮,鎌倉高校前,你的名字,飛驒,春日部,境港鬼太郎,Kawatool"
+        "seoKeywords": "日本動漫故鄉,聖地巡禮,柯南小鎮,鎌倉高校前,你的名字,飛驒,春日部,境港鬼太郎,KaWaTool"
       },
       {
         "slug": "retro",
@@ -1336,7 +1338,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "暖橘木質復古氛圍，時光滑桿對照現代東京與昭和街景。",
         "seoTitle": "昭和大正復古漫遊｜時光滑桿對照東京街景",
         "seoDescription": "以時光滑桿對比現代東京與昭和街景，感受暖橘木質色調與復古膠片顆粒的懷舊浪漫氛圍，沉浸線上漫遊體驗。",
-        "seoKeywords": "昭和復古,大正浪漫,東京街景,純喫茶,時光滑桿,Kawatool"
+        "seoKeywords": "昭和復古,大正浪漫,東京街景,純喫茶,時光滑桿,KaWaTool"
       },
       {
         "slug": "yokai",
@@ -1345,7 +1347,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "手電筒聚光探索隱藏妖怪圖形，沉浸日本都市傳說氣氛。",
         "seoTitle": "妖怪百鬼夜行圖鑑｜手電筒聚光探索都市傳說",
         "seoDescription": "以手電筒聚光效果探索隱藏妖怪圖形，沉浸式體驗日本都市傳說與百鬼夜行氛圍，適合夜間氣氛瀏覽與分享。",
-        "seoKeywords": "妖怪,百鬼夜行,都市傳說,日本怪談,手電筒,Kawatool"
+        "seoKeywords": "妖怪,百鬼夜行,都市傳說,日本怪談,手電筒,KaWaTool"
       },
       {
         "slug": "yokocho",
@@ -1354,7 +1356,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "燈籠暖光與居酒屋音景：雨聲、鐵板滋滋與杯盞碰撞一鍵切換。",
         "seoTitle": "深夜橫丁居酒屋音景｜雨聲鐵板杯盞一鍵切換",
         "seoDescription": "暖燈籠光與手繪菜單氛圍，切換雨聲、鐵板滋滋與杯盞碰撞，沉浸深夜橫丁居酒屋療癒音景，放鬆心情即開即用。",
-        "seoKeywords": "橫丁,居酒屋,環境音,日本巷弄,白噪音,Kawatool"
+        "seoKeywords": "橫丁,居酒屋,環境音,日本巷弄,白噪音,KaWaTool"
       },
       {
         "slug": "gourmet",
@@ -1363,7 +1365,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "依地區與預算篩選手羽先、博多拉麵、章魚燒等庶民傳奇美食。",
         "seoTitle": "在地 B 級美食地圖｜手羽先拉麵章魚燒篩選",
         "seoDescription": "依地區與預算篩選名古屋手羽先、博多拉麵、大阪章魚燒等庶民傳奇，晴黃高對比美食卡一目了然，規劃小吃路線。",
-        "seoKeywords": "B級美食,手羽先,博多拉麵,章魚燒,日本美食,Kawatool"
+        "seoKeywords": "B級美食,手羽先,博多拉麵,章魚燒,日本美食,KaWaTool"
       },
       {
         "slug": "stay",
@@ -1372,7 +1374,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "町家、旅館與秘境木屋導覽，日夜氛圍預覽感受侘寂旅宿。",
         "seoTitle": "隱世溫泉與町家旅宿｜日夜氛圍預覽侘寂住宿",
         "seoDescription": "侘寂質感導覽京都町家、歷史旅館與秘境木屋；卡片支援日夜氛圍預覽與分類平滑捲動，挑選心動旅宿靈感。",
-        "seoKeywords": "町家,溫泉旅館,秘境住宿,京都民宿,侘寂,Kawatool"
+        "seoKeywords": "町家,溫泉旅館,秘境住宿,京都民宿,侘寂,KaWaTool"
       },
       {
         "slug": "fuji-views",
@@ -1381,7 +1383,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "四季富士與雲海眺望點，季節滑桿展開圖鑑。",
         "seoTitle": "富士十二景｜四季眺望點與雲海圖鑑",
         "seoDescription": "整理河口湖、本栖湖等富士眺望名所，依春夏秋冬篩選景點與拍攝節奏，沉浸式圖文導覽日本地標風景。",
-        "seoKeywords": "富士山,河口湖,本栖湖,富士眺望,Kawatool"
+        "seoKeywords": "富士山,河口湖,本栖湖,富士眺望,KaWaTool"
       },
       {
         "slug": "sakura-front",
@@ -1390,7 +1392,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "早櫻滿開晚櫻，名所與花見禮儀一次看。",
         "seoTitle": "櫻前線圖鑑｜名所滿開節奏與花見導覽",
         "seoDescription": "沿著櫻前線整理早櫻、滿開與晚櫻名所，含京都哲學之道、上野與弘前等經典賞櫻地與禮儀提醒。",
-        "seoKeywords": "櫻花,櫻前線,花見,哲學之道,Kawatool"
+        "seoKeywords": "櫻花,櫻前線,花見,哲學之道,KaWaTool"
       },
       {
         "slug": "momiji-trail",
@@ -1399,7 +1401,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "日間層林與夜間點燈，關東關西紅葉對照。",
         "seoTitle": "紅葉巡禮｜日間層林與夜間點燈名所",
         "seoDescription": "高尾山、嵐山、永觀堂等紅葉名所圖文導覽，支援日夜氛圍切換，規劃關東關西賞楓路線。",
-        "seoKeywords": "紅葉,賞楓,嵐山,永觀堂,Kawatool"
+        "seoKeywords": "紅葉,賞楓,嵐山,永觀堂,KaWaTool"
       },
       {
         "slug": "matsuri-calendar",
@@ -1408,7 +1410,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "神轎花火太鼓，月份點選展開祭典卡片。",
         "seoTitle": "日本祭典一年曆｜神轎花火與觀禮攻略",
         "seoDescription": "以月份瀏覽祇園祭、睡魔祭、秩父夜祭等代表祭典，整理觀禮重點與旅行節奏，圖文並茂。",
-        "seoKeywords": "祭典,祇園祭,花火,日本節日,Kawatool"
+        "seoKeywords": "祭典,祇園祭,花火,日本節日,KaWaTool"
       },
       {
         "slug": "hanabi-guide",
@@ -1417,7 +1419,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "名場地席次與夜空氛圍，日夜模式切換。",
         "seoTitle": "花火大會圖鑑｜名場地席次與夜空導覽",
         "seoDescription": "隅田川、長岡、大曲等花火名所攻略，切換場地資訊與夜空沉浸模式，協助規劃夏夜行程。",
-        "seoKeywords": "花火大會,煙火,長岡花火,隅田川,Kawatool"
+        "seoKeywords": "花火大會,煙火,長岡花火,隅田川,KaWaTool"
       },
       {
         "slug": "torii-tunnel",
@@ -1426,7 +1428,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "朱色鳥居聚光探索，伏見稻荷式視覺迷宮。",
         "seoTitle": "千本鳥居隧道｜伏見稻荷聚光沉浸導覽",
         "seoDescription": "以聚光互動探索千本鳥居與參道細節，解說朱色鳥居、狐狸信仰與攝影禮儀，沉浸式圖文體驗。",
-        "seoKeywords": "千本鳥居,伏見稻荷,鳥居,京都,Kawatool"
+        "seoKeywords": "千本鳥居,伏見稻荷,鳥居,京都,KaWaTool"
       },
       {
         "slug": "karesansui",
@@ -1435,7 +1437,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "白砂苔石，砂紋石組與禪意構圖圖鑑。",
         "seoTitle": "枯山水庭園｜砂紋石組與禪意構圖圖鑑",
         "seoDescription": "龍安寺石庭等枯山水要素導覽，依砂紋、苔庭、石組篩選，讀懂留白與構圖的庭園美學。",
-        "seoKeywords": "枯山水,石庭,龍安寺,禪庭,Kawatool"
+        "seoKeywords": "枯山水,石庭,龍安寺,禪庭,KaWaTool"
       },
       {
         "slug": "kenrokuen",
@@ -1444,7 +1446,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "六勝庭園與茶屋街，四季雪吊風景。",
         "seoTitle": "兼六園與金澤｜四季庭園與茶屋街導覽",
         "seoDescription": "兼六園四季名所、雪吊與金澤茶屋街圖文導覽，理解六勝美學與城下町散步節奏。",
-        "seoKeywords": "兼六園,金澤,雪吊,茶屋街,Kawatool"
+        "seoKeywords": "兼六園,金澤,雪吊,茶屋街,KaWaTool"
       },
       {
         "slug": "otaru-canal",
@@ -1453,7 +1455,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "石造倉庫與運河燈火，日夜氛圍切換。",
         "seoTitle": "小樽運河｜倉庫街與運河夜景散步導覽",
         "seoDescription": "小樽運河石造倉庫、玻璃工藝與瓦斯燈夜景圖文導覽，支援日夜切換沉浸北海道港町氛圍。",
-        "seoKeywords": "小樽運河,倉庫街,北海道,夜景,Kawatool"
+        "seoKeywords": "小樽運河,倉庫街,北海道,夜景,KaWaTool"
       },
       {
         "slug": "nagoya-castle",
@@ -1462,7 +1464,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "金鯱傳說、御殿與城下町散步動線。",
         "seoTitle": "名古屋城金鯱｜城郭傳說與城下導覽",
         "seoDescription": "名古屋城天守金鯱、本丸御殿與城下町故事圖鑑，認識尾張中心象徵與周邊散步路線。",
-        "seoKeywords": "名古屋城,金鯱,尾張,城下町,Kawatool"
+        "seoKeywords": "名古屋城,金鯱,尾張,城下町,KaWaTool"
       },
       {
         "slug": "onsen-kyo",
@@ -1471,7 +1473,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "泉質篩選湯煙街景，入浴禮儀一次懂。",
         "seoTitle": "溫泉郷地圖｜泉質篩選與湯煙街景導覽",
         "seoDescription": "草津、箱根、由布院、銀山等溫泉郷依泉質與街景篩選，附入浴禮儀提醒，規劃下一趟泡湯旅行。",
-        "seoKeywords": "溫泉郷,草津,箱根,由布院,Kawatool"
+        "seoKeywords": "溫泉郷,草津,箱根,由布院,KaWaTool"
       },
       {
         "slug": "wagashi-scroll",
@@ -1480,7 +1482,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "練切羊羹季節繪卷，茶席搭配靈感。",
         "seoTitle": "和菓子四季繪卷｜練切羊羹與茶席靈感",
         "seoDescription": "依春夏秋冬欣賞櫻餅、水信玄餅、栗蒸羊羹等和菓子主題，圖文介紹茶席搭配與季節美學。",
-        "seoKeywords": "和菓子,練切,羊羹,茶道,Kawatool"
+        "seoKeywords": "和菓子,練切,羊羹,茶道,KaWaTool"
       },
       {
         "slug": "aizome-kimono",
@@ -1489,7 +1491,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "藍染紋樣色票，場合穿著文化圖鑑。",
         "seoTitle": "藍染與和服紋樣｜場合穿著文化圖鑑",
         "seoDescription": "認識藍染層次、青海波與麻の葉等紋樣寓意，以及訪問著、浴衣等場合穿著文化。",
-        "seoKeywords": "藍染,和服,紋樣,浴衣,Kawatool"
+        "seoKeywords": "藍染,和服,紋樣,浴衣,KaWaTool"
       },
       {
         "slug": "railway-views",
@@ -1498,7 +1500,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "海岸山岳都市車窗，名路線風景圖鑑。",
         "seoTitle": "鉄道風景色圖鑑｜名路線車窗風景導覽",
         "seoDescription": "伊豆急行、五能線、黑部峽谷等車窗風景分類導覽，讓鐵路旅程本身成為旅行目的。",
-        "seoKeywords": "鐵道風景,車窗,伊豆急行,五能線,Kawatool"
+        "seoKeywords": "鐵道風景,車窗,伊豆急行,五能線,KaWaTool"
       },
       {
         "slug": "ama-shima",
@@ -1507,7 +1509,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "海女真珠英虞灣，伊勢志摩海洋文化。",
         "seoTitle": "海女與伊勢志摩｜真珠與英虞灣文化導覽",
         "seoDescription": "海女文化、御木本真珠與英虞灣展望圖文導覽，認識伊勢志摩的海洋生計與風景。",
-        "seoKeywords": "海女,伊勢志摩,真珠,英虞灣,Kawatool"
+        "seoKeywords": "海女,伊勢志摩,真珠,英虞灣,KaWaTool"
       },
       {
         "slug": "ghost-stations",
@@ -1516,7 +1518,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "霧中月台廢線故事，安全倫理優先。",
         "seoTitle": "幽靈秘境駅｜霧中月台與攝影倫理導覽",
         "seoDescription": "秘境駅氛圍圖鑑與廢線故事，強調軌道安全與攝影倫理，欣賞浪漫同時尊重地方。",
-        "seoKeywords": "秘境駅,廢線,鐵道攝影,Kawatool"
+        "seoKeywords": "秘境駅,廢線,鐵道攝影,KaWaTool"
       },
       {
         "slug": "inari-fox",
@@ -1525,7 +1527,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "狐狸石像造型圖鑑，稻荷信仰圖像語言。",
         "seoTitle": "狐狸與稻荷信仰｜石像造型與社殿圖鑑",
         "seoDescription": "持鍵狐狸、親子狐與稻荷社圖像語言圖鑑，讀懂朱色信仰與民間供品文化。",
-        "seoKeywords": "稻荷,狐狸,伏見稻荷,信仰,Kawatool"
+        "seoKeywords": "稻荷,狐狸,伏見稻荷,信仰,KaWaTool"
       },
       {
         "slug": "samurai-armor",
@@ -1534,7 +1536,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "甲冑刀裝家紋，博物館熱點式拆解。",
         "seoTitle": "武士甲冑與刀裝｜家紋與博物館導覽",
         "seoDescription": "甲冑、盔飾、刀鍔與家紋分類圖鑑，把武士裝備的華麗與功能拆成好懂的圖文導覽。",
-        "seoKeywords": "甲冑,日本刀,家紋,武士,Kawatool"
+        "seoKeywords": "甲冑,日本刀,家紋,武士,KaWaTool"
       },
       {
         "slug": "ukiyo-e-now",
@@ -1543,7 +1545,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "古典畫與現代街景，滑桿古今疊合。",
         "seoTitle": "浮世繪名所對照｜古今街景滑桿導覽",
         "seoDescription": "以對照滑桿疊合浮世繪名所與現代街景意象，解說北齋廣重系譜與名所繪的旅行文化。",
-        "seoKeywords": "浮世繪,北齋,広重,名所繪,Kawatool"
+        "seoKeywords": "浮世繪,北齋,広重,名所繪,KaWaTool"
       },
       {
         "slug": "kabukicho-neon",
@@ -1552,7 +1554,7 @@ window.WA_TOOLS_CATALOG = [
         "desc": "新宿霓虹夜誌，導讀與安全提醒並重。",
         "seoTitle": "歌舞伎町霓虹｜新宿夜景與安全導覽",
         "seoDescription": "歌舞伎町霓虹縱谷圖文導覽，切換街區導讀與霓虹沉浸，並強調夜遊安全與消費清醒。",
-        "seoKeywords": "歌舞伎町,新宿,霓虹,夜景,Kawatool"
+        "seoKeywords": "歌舞伎町,新宿,霓虹,夜景,KaWaTool"
       }
     ]
   },

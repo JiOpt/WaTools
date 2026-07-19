@@ -7,7 +7,7 @@ async function fetchWikitext(title, lang = 'en') {
     format: 'json',
     origin: '*',
   })}`;
-  const res = await fetch(url, { headers: { 'User-Agent': 'Kawatool/1.0' } });
+  const res = await fetch(url, { headers: { 'User-Agent': 'KaWaTool/1.0' } });
   const data = await res.json();
   return data.parse?.wikitext?.['*'] || '';
 }

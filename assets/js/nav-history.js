@@ -92,8 +92,8 @@
   function shortNavTitle(raw) {
     let t = String(raw || '').trim();
     if (!t) return '';
-    t = t.replace(/\s*[|｜]\s*Kawatool\s*$/i, '').trim();
-    t = t.replace(/\s*[-–—]\s*Kawatool.*$/i, '').trim();
+    t = t.replace(/\s*[|｜]\s*KaWaTool\s*$/i, '').trim();
+    t = t.replace(/\s*[-–—]\s*KaWaTool.*$/i, '').trim();
     // Keep left segment before full-width/half-width pipe (SEO subtitle).
     const pipe = t.search(/\s*[|｜]\s*/);
     if (pipe > 0) t = t.slice(0, pipe).trim();

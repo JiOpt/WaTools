@@ -41,7 +41,7 @@
     const cfg = window.WA_SITE_FOOTER || {};
     const en = window.WA_LOCALE?.isEn?.() || document.documentElement.getAttribute('data-locale') === 'en';
     const t = (key, fallback) => (window.WA_LOCALE?.t ? window.WA_LOCALE.t(key, fallback) : fallback);
-    const siteName = cfg.siteName || 'Kawatool';
+    const siteName = cfg.siteName || 'KaWaTool';
     const tagline = en ? t('footer.tagline', cfg.taglineEn || 'Tools for everyday life.') : (cfg.tagline || '讓工具生活，簡化每一天。');
     const parts = [`© <strong class="sitename">${siteName}</strong> — ${tagline}`];
     parts.push(` · <span class="site-version">v${WA_SITE_VERSION}</span>`);

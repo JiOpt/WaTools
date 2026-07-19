@@ -2574,7 +2574,7 @@ body.torch-active .torch-visual i {
 }
 
 /*--------------------------------------------------------------
-# Kawatool Catalog & Tool Pages
+# KaWaTool Catalog & Tool Pages
 --------------------------------------------------------------*/
 .mytoolife-hero {
   padding: 100px 0 80px;
@@ -2764,6 +2764,25 @@ body.tool-page:has(#tool-app) .tool-section {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tool-seo-lead {
+  margin: 0.55rem 0 0;
+  max-width: 52rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+}
+
+.tool-page-bar:has(.tool-seo-lead) {
+  display: block;
+}
+
+.tool-page-bar:has(.tool-seo-lead) .tool-page-bar-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.35;
 }
 
 @media (max-width: 575px) {

@@ -41,7 +41,7 @@ function sleep(ms) {
 async function downloadLogo(filename, destBase) {
   const url = wikiFileUrl(filename);
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'Kawatool/1.0 (car-brand fetch)' },
+    headers: { 'User-Agent': 'KaWaTool/1.0 (car-brand fetch)' },
     redirect: 'follow',
   });
   if (!res.ok) {
@@ -62,7 +62,7 @@ async function downloadLogo(filename, destBase) {
 
 async function downloadFromSimpleIcons(slug, destBase) {
   const url = simpleIconUrl(slug);
-  const res = await fetch(url, { headers: { 'User-Agent': 'Kawatool/1.0' } });
+  const res = await fetch(url, { headers: { 'User-Agent': 'KaWaTool/1.0' } });
   if (!res.ok) return null;
   const dest = `${destBase}.svg`;
   fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));

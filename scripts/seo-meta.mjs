@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://kawatool.com';
-export const SITE_NAME = 'Kawatool';
+export const SITE_NAME = 'KaWaTool';
 export const OG_IMAGE = `${SITE_URL}/assets/img/logo.png`;
 
 export const TITLE_MIN = 45;
@@ -22,7 +22,7 @@ export function clampText(text, min, max) {
   return s;
 }
 
-/** Build a page title in the 45–60 character range:「頁面名稱 | Kawatool」. */
+/** Build a page title in the 45–60 character range:「頁面名稱 | KaWaTool」. */
 export function normalizePageTitle(rawTitle) {
   const suffix = ` | ${SITE_NAME}`;
   let core = String(rawTitle || '')
@@ -65,7 +65,7 @@ export function buildScripturePageTitle(bookTitle) {
   return normalizePageTitle(title.replace(new RegExp(`\\s*\\|\\s*${SITE_NAME}\\s*$`, 'i'), '').trim());
 }
 
-const SITE_DESC_PAD = 'Kawatool 是免費線上工具與藏經閣平台，無需註冊、免下載，支援電腦與手機，打開即用，資料保留在您的裝置中更安全。';
+const SITE_DESC_PAD = 'KaWaTool 是免費線上工具與藏經閣平台，無需註冊、免下載，支援電腦與手機，打開即用，資料保留在您的裝置中更安全。';
 const SITE_DESC_PAD_SHORT = '免安裝、免註冊，開啟瀏覽器即可使用，資料保留在本機更安心。';
 
 export function buildPageDescription(base, extras = []) {
@@ -94,14 +94,22 @@ export function renderSeoMeta({
   type = 'website',
   keywords = '',
   image = OG_IMAGE,
+  hreflang = null,
 }) {
   const safeTitle = escapeAttr(title);
   const safeDesc = escapeAttr(description);
   const url = pageUrl(path);
   const kw = keywords ? `\n  <meta name="keywords" content="${escapeAttr(keywords)}">` : '';
+  let alt = '';
+  if (hreflang && hreflang.zh && hreflang.en) {
+    alt =
+      `\n  <link rel="alternate" hreflang="zh-Hant" href="${hreflang.zh}">` +
+      `\n  <link rel="alternate" hreflang="en" href="${hreflang.en}">` +
+      `\n  <link rel="alternate" hreflang="x-default" href="${hreflang.zh}">`;
+  }
   return `  <meta name="description" content="${safeDesc}">${kw}
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="${url}">
+  <link rel="canonical" href="${url}">${alt}
   <meta property="og:type" content="${type}">
   <meta property="og:site_name" content="${SITE_NAME}">
   <meta property="og:title" content="${safeTitle}">

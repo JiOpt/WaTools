@@ -1,5 +1,5 @@
 /**
- * Kawatool implementations — utility & media (part 2)
+ * KaWaTool implementations — utility & media (part 2)
  * Registers on window.WA_TOOL_REGISTRY[slug](appElement)
  */
 (function () {

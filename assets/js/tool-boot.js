@@ -144,7 +144,7 @@
         }
         window.dispatchEvent(new CustomEvent('mytoolife:tool-ready', { detail: { slug } }));
       } catch (err) {
-        console.error('[Kawatool] Tool init failed:', slug, err);
+        console.error('[KaWaTool] Tool init failed:', slug, err);
         showFailure(app, '工具載入失敗，請重新整理頁面。');
       }
       return;
@@ -218,7 +218,7 @@
         }
       } catch (err) {
         if (isStaleBoot(generation, targetApp, targetSlug)) return;
-        console.error('[Kawatool] tool-boot failed:', targetSlug, err);
+        console.error('[KaWaTool] tool-boot failed:', targetSlug, err);
         showFailure(targetApp, '工具載入失敗，請重新整理。');
       }
     })();

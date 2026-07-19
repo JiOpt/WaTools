@@ -12,7 +12,7 @@
   }
 
   function pageTitleFromDocument() {
-    return document.title.replace(/\s*[-–—|]\s*Kawatool\s*$/i, '').trim() || document.title.trim();
+    return document.title.replace(/\s*[-–—|]\s*KaWaTool\s*$/i, '').trim() || document.title.trim();
   }
 
   function categoryBackHref(categoryId) {

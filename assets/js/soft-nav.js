@@ -533,7 +533,7 @@
         }
       }
     } catch (err) {
-      console.warn('[Kawatool] soft-nav failed, falling back to full load:', err);
+      console.warn('[KaWaTool] soft-nav failed, falling back to full load:', err);
       location.assign(targetUrl.href);
     } finally {
       setMainBusy(false);

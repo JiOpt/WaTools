@@ -114,7 +114,7 @@ async function main() {
     html = fs.readFileSync(local, 'utf8');
   } else {
     const res = await fetch(SOURCE_URL, {
-      headers: { 'User-Agent': 'Kawatool/1.0 (keyboard-symbols)' },
+      headers: { 'User-Agent': 'KaWaTool/1.0 (keyboard-symbols)' },
     });
     if (!res.ok) throw new Error(`Fetch failed ${res.status}`);
     html = await res.text();
