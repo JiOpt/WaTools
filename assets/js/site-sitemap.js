@@ -22,6 +22,7 @@
     japan: 'bi-geo-alt',
     world: 'bi-globe-asia-australia',
     toeic: 'bi-mortarboard',
+    toefl: 'bi-translate',
   };
 
   function sitemapIconBox(biClass, variant) {

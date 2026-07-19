@@ -124,6 +124,139 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
+    "id": "toefl",
+    "name": "托福 TOEFL",
+    "tagline": "iBT 四科、學術單字與說寫範例，精簡對焦常考點。",
+    "tools": [
+      {
+        "slug": "toefl-intro",
+        "title": "托福測驗介紹",
+        "icon": "bi-info-circle",
+        "desc": "iBT 讀聽說寫結構、時間與 0–120 計分速覽。",
+        "seoTitle": "托福測驗介紹｜iBT 四科與計分 | Kawatool",
+        "seoDescription": "精簡介紹托福 iBT：閱讀、聽力、口說、寫作題型與分數門檻，適合初次報考者建立全貌。",
+        "seoKeywords": "托福,TOEFL,iBT,題型,計分"
+      },
+      {
+        "slug": "toefl-mock-tests",
+        "title": "免費模擬測驗",
+        "icon": "bi-clipboard2-check",
+        "desc": "官方樣題與模擬資源，方便自我檢測。",
+        "seoTitle": "托福免費模擬｜ETS 樣題資源 | Kawatool",
+        "seoDescription": "整理托福免費樣題與模擬入口，用正式題感做實力檢測與時間配速。",
+        "seoKeywords": "托福模擬考,TOEFL practice,免費樣題"
+      },
+      {
+        "slug": "toefl-score-levels",
+        "title": "程度落點分析",
+        "icon": "bi-bar-chart-steps",
+        "desc": "80／90／100／110 分區間對照目標差距。",
+        "seoTitle": "托福分數落點｜80 90 100 程度對照 | Kawatool",
+        "seoDescription": "對照托福常見總分門檻與能力描述，快速判斷落點與衝刺方向。",
+        "seoKeywords": "托福分數,TOEFL 100,申請門檻"
+      },
+      {
+        "slug": "toefl-vocab",
+        "title": "學術單字工具",
+        "icon": "bi-card-text",
+        "desc": "15 大學術主題×60 高頻字，附同義詞與例句。",
+        "seoTitle": "托福單字｜15 學術主題高頻字與同義詞 | Kawatool",
+        "seoDescription": "依生物、歷史、心理等 15 主題整理托福學術高頻字，含同義改寫與精簡例句。",
+        "seoKeywords": "托福單字,TOEFL vocabulary,學術英文"
+      },
+      {
+        "slug": "toefl-listening",
+        "title": "聽力答題技巧",
+        "icon": "bi-headphones",
+        "desc": "對話／演講主旨細節態度，附 60 情境速記。",
+        "seoTitle": "托福聽力技巧｜對話演講 60 情境 | Kawatool",
+        "seoDescription": "針對托福聽力校園對話與課堂演講整理解題重點，並提供 60 則情境速記。",
+        "seoKeywords": "托福聽力,TOEFL Listening"
+      },
+      {
+        "slug": "toefl-reading",
+        "title": "閱讀解題策略",
+        "icon": "bi-book",
+        "desc": "細節推論詞義修辭，附 60 練題。",
+        "seoTitle": "托福閱讀策略｜題型與 60 練題 | Kawatool",
+        "seoDescription": "統整托福閱讀常考題型與定位方法，並提供 60 題精簡練習。",
+        "seoKeywords": "托福閱讀,TOEFL Reading"
+      },
+      {
+        "slug": "toefl-grammar",
+        "title": "文法速成指南",
+        "icon": "bi-pencil-square",
+        "desc": "長句從句與寫作高頻文法 60 例。",
+        "seoTitle": "托福文法速成｜從句一致 60 例 | Kawatool",
+        "seoDescription": "鎖定托福閱讀與寫作高頻文法：主詞動詞一致、關係子句、分詞等，附 60 例題。",
+        "seoKeywords": "托福文法,TOEFL grammar"
+      },
+      {
+        "slug": "toefl-speaking",
+        "title": "口說備考指南",
+        "icon": "bi-mic",
+        "desc": "Independent／Integrated 模板與 60 示範。",
+        "seoTitle": "托福口說｜題型模板與 60 示範 | Kawatool",
+        "seoDescription": "托福口說 Independent 與 Integrated 精簡模板、大綱與 60 題示範回答。",
+        "seoKeywords": "托福口說,TOEFL Speaking"
+      },
+      {
+        "slug": "toefl-writing",
+        "title": "寫作備考指南",
+        "icon": "bi-pen",
+        "desc": "Integrated／討論帖結構與 60 示範。",
+        "seoTitle": "托福寫作｜Integrated 討論帖 60 範例 | Kawatool",
+        "seoDescription": "托福寫作 Integrated 與 Academic Discussion 結構要點，附 60 則精簡示範。",
+        "seoKeywords": "托福寫作,TOEFL Writing"
+      },
+      {
+        "slug": "toefl-study-plan",
+        "title": "備試時間規劃表",
+        "icon": "bi-calendar-week",
+        "desc": "1 個月衝刺與 3 個月扎實進度建議。",
+        "seoTitle": "托福讀書計畫｜1 個月／3 個月排程 | Kawatool",
+        "seoDescription": "依準備期長短提供托福每日學習節奏，兼顧四科與模考。",
+        "seoKeywords": "托福讀書計畫,TOEFL study plan"
+      },
+      {
+        "slug": "toefl-error-review",
+        "title": "刷題與檢討工具",
+        "icon": "bi-journal-check",
+        "desc": "錯題分類與常見誤區，有效提升。",
+        "seoTitle": "托福錯題檢討｜刷題方法 | Kawatool",
+        "seoDescription": "建立托福錯題本、區分讀聽說寫誤區，讓練習真正轉成分數。",
+        "seoKeywords": "托福錯題,TOEFL review"
+      },
+      {
+        "slug": "toefl-resources",
+        "title": "推薦學習資源",
+        "icon": "bi-collection",
+        "desc": "官方樣題、書籍與線上資源入口。",
+        "seoTitle": "托福學習資源｜ETS 與備考材料 | Kawatool",
+        "seoDescription": "精選托福官方與延伸學習資源入口，方便備考延伸。",
+        "seoKeywords": "托福資源,TOEFL ETS"
+      },
+      {
+        "slug": "toefl-registration",
+        "title": "報名與考場須知",
+        "icon": "bi-person-vcard",
+        "desc": "ETS 報名流程與考試當天注意事項。",
+        "seoTitle": "托福報名｜ETS 流程與考場須知 | Kawatool",
+        "seoDescription": "整理托福報名概要、證件與考試當天注意事項，請以 ETS 最新簡章為準。",
+        "seoKeywords": "托福報名,TOEFL registration"
+      },
+      {
+        "slug": "toefl-mindset",
+        "title": "心態與撞牆突破",
+        "icon": "bi-emoji-smile",
+        "desc": "成績停滯解法與考試焦慮調適。",
+        "seoTitle": "托福撞牆期｜成績停滯與焦慮 | Kawatool",
+        "seoDescription": "針對托福準備常見成績停滯與焦慮，提供精簡可執行調整策略。",
+        "seoKeywords": "托福焦慮,成績停滯"
+      }
+    ]
+  },
+  {
     "id": "viral",
     "name": "熱搜剛需",
     "tagline": "房貸試算、Threads 人格、API 成本與發票對獎，搜得到也用得上。",

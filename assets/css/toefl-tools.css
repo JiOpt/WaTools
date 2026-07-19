@@ -1,0 +1,262 @@
+﻿/* toefl theme tools */
+.tool-app.wa-toefl {
+  --toefl-accent: #0f4c81;
+  --toefl-ink: #1e293b;
+  --toefl-muted: #64748b;
+  --toefl-line: rgba(15, 76, 129, 0.18);
+  --toefl-soft: #f1f7fc;
+  color: var(--toefl-ink);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+.wa-toefl .toefl-wrap { max-width: 920px; margin: 0 auto; }
+.wa-toefl .toefl-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--toefl-accent);
+  font-weight: 700;
+}
+.wa-toefl .toefl-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--toefl-ink);
+}
+.wa-toefl .toefl-lead {
+  margin: 0 0 1.25rem;
+  color: var(--toefl-muted);
+  line-height: 1.6;
+}
+.wa-toefl .toefl-card {
+  background: #fff;
+  border: 1px solid var(--toefl-line);
+  border-radius: 12px;
+  padding: 1rem 1.1rem 1.15rem;
+  margin-bottom: 0.9rem;
+}
+.wa-toefl .toefl-h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--toefl-accent);
+}
+.wa-toefl .toefl-p,
+.wa-toefl .toefl-point,
+.wa-toefl .toefl-stem,
+.wa-toefl .toefl-ex,
+.wa-toefl .toefl-exzh,
+.wa-toefl .toefl-syn,
+.wa-toefl .toefl-tip {
+  margin: 0.35rem 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+.wa-toefl .toefl-tip { color: var(--toefl-accent); }
+.wa-toefl .toefl-muted { color: var(--toefl-muted); font-size: 0.88rem; }
+.wa-toefl .toefl-ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.55;
+}
+.wa-toefl .toefl-ul li { margin: 0.28rem 0; }
+.wa-toefl .toefl-links {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+.wa-toefl .toefl-links li { margin: 0.4rem 0; }
+.wa-toefl .toefl-links a {
+  color: var(--toefl-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.wa-toefl .toefl-links a:hover { text-decoration: underline; }
+
+.wa-toefl .toefl-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+.wa-toefl .toefl-input,
+.wa-toefl .toefl-select,
+.wa-toefl .toefl-textarea {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--toefl-line);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+.wa-toefl .toefl-toolbar .toefl-select { max-width: 280px; }
+.wa-toefl .toefl-toolbar .toefl-input { flex: 1; min-width: 160px; }
+.wa-toefl .toefl-textarea { margin: 0.5rem 0; min-height: 4.5rem; }
+
+.wa-toefl .toefl-btn {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: var(--toefl-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+.wa-toefl .toefl-btn:hover { filter: brightness(1.05); }
+.wa-toefl .toefl-btn-ghost {
+  background: transparent;
+  color: var(--toefl-accent);
+  border: 1px solid var(--toefl-line);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+}
+
+.wa-toefl .toefl-chip,
+.wa-toefl .toefl-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--toefl-line);
+  background: var(--toefl-soft);
+  color: var(--toefl-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+}
+.wa-toefl .toefl-chip-btn {
+  cursor: pointer;
+  font: inherit;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+}
+.wa-toefl .toefl-chip-btn.is-on {
+  background: var(--toefl-accent);
+  color: #fff;
+  border-color: var(--toefl-accent);
+}
+.wa-toefl .toefl-filter { margin-bottom: 0.75rem; }
+
+.wa-toefl .toefl-q {
+  border-top: 1px solid var(--toefl-line);
+  padding: 0.85rem 0 0.35rem;
+}
+.wa-toefl .toefl-q:first-child { border-top: 0; padding-top: 0; }
+.wa-toefl .toefl-q-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.wa-toefl .toefl-choices {
+  margin: 0.35rem 0 0.2rem;
+  padding: 0;
+  list-style: none;
+}
+.wa-toefl .toefl-choices li {
+  margin: 0.2rem 0;
+  line-height: 1.45;
+}
+.wa-toefl .toefl-ans {
+  margin-top: 0.45rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--toefl-soft);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.wa-toefl .toefl-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+.wa-toefl .toefl-vocab-card {
+  border: 1px solid var(--toefl-line);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  background: #fff;
+}
+.wa-toefl .toefl-vocab-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  align-items: flex-start;
+  margin-bottom: 0.2rem;
+}
+.wa-toefl .toefl-vocab-head strong { font-size: 1.05rem; }
+.wa-toefl .toefl-vocab-word {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.wa-toefl .toefl-speak-btn,
+.wa-toefl .toefl-fam-btn {
+  border: 1px solid var(--toefl-line);
+  background: var(--toefl-soft);
+  color: var(--toefl-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  padding: 0.28rem 0.45rem;
+}
+.wa-toefl .toefl-speak-btn:hover,
+.wa-toefl .toefl-fam-btn:hover { filter: brightness(0.97); }
+.wa-toefl .toefl-speak-btn-sm {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.45rem;
+  margin-top: 0.15rem;
+}
+.wa-toefl .toefl-vocab-actions { margin: 0.15rem 0 0.25rem; }
+.wa-toefl .toefl-fam-btn {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 2.6rem;
+}
+.wa-toefl .toefl-fam-btn.is-fuzzy {
+  background: #fff7ed;
+  border-color: #fdba74;
+  color: #c2410c;
+}
+.wa-toefl .toefl-fam-btn.is-mid {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+.wa-toefl .toefl-fam-btn.is-known {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #047857;
+}
+.wa-toefl .toefl-vocab-card.fam-fuzzy,
+.wa-toefl .toefl-q.fam-fuzzy { border-color: rgba(194, 65, 12, 0.35); }
+.wa-toefl .toefl-vocab-card.fam-mid,
+.wa-toefl .toefl-q.fam-mid { border-color: rgba(29, 78, 216, 0.28); }
+.wa-toefl .toefl-vocab-card.fam-known,
+.wa-toefl .toefl-q.fam-known { border-color: rgba(4, 120, 87, 0.28); }
+.wa-toefl .toefl-q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+.wa-toefl .toefl-toolbar .toefl-select { max-width: 240px; }
+.wa-toefl .toefl-syn { color: var(--toefl-accent); font-size: 0.88rem; }
+.wa-toefl .toefl-ex { font-style: italic; color: #334155; }
+.wa-toefl .toefl-exzh { color: var(--toefl-muted); font-size: 0.88rem; }
+.wa-toefl .toefl-trap-list .toefl-q { margin-bottom: 0.25rem; }
+
+@media (max-width: 576px) {
+  .wa-toefl .toefl-title { font-size: 1.25rem; }
+  .wa-toefl .toefl-vocab-grid { grid-template-columns: 1fr; }
+}
+

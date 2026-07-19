@@ -905,5 +905,19 @@ window.WA_TOOL_CHUNKS = {
   "toeic-resources": { "part": 3, "extra": ["toeic-tools.js"] },
   "toeic-registration": { "part": 3, "extra": ["toeic-tools.js"] },
   "toeic-speaking-writing": { "part": 3, "extra": ["toeic-tools.js"] },
-  "toeic-mindset": { "part": 3, "extra": ["toeic-tools.js"] }
+  "toeic-mindset": { "part": 3, "extra": ["toeic-tools.js"] },
+  "toefl-intro": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-mock-tests": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-score-levels": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-vocab": { "part": 3, "extra": ["toefl-vocab-data.js", "toefl-tools.js"] },
+  "toefl-listening": { "part": 3, "extra": ["toefl-listening-data.js", "toefl-tools.js"] },
+  "toefl-reading": { "part": 3, "extra": ["toefl-reading-data.js", "toefl-tools.js"] },
+  "toefl-grammar": { "part": 3, "extra": ["toefl-grammar-data.js", "toefl-tools.js"] },
+  "toefl-speaking": { "part": 3, "extra": ["toefl-speaking-data.js", "toefl-tools.js"] },
+  "toefl-writing": { "part": 3, "extra": ["toefl-writing-data.js", "toefl-tools.js"] },
+  "toefl-study-plan": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-error-review": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-resources": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-registration": { "part": 3, "extra": ["toefl-tools.js"] },
+  "toefl-mindset": { "part": 3, "extra": ["toefl-tools.js"] }
 };

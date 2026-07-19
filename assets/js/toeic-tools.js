@@ -4,7 +4,7 @@
 (function (global) {
   'use strict';
 
-  var TOEIC_CSS_VER = '0.6.39';
+  var TOEIC_CSS_VER = '0.6.40';
 
   function toeicCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -112,21 +112,129 @@
     );
   }
 
+  function speakEn(text) {
+    const t = String(text || '').trim();
+    if (!t || !global.speechSynthesis) return;
+    try {
+      global.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = 'en-US';
+      u.rate = 0.92;
+      global.speechSynthesis.speak(u);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  function createFamApi(storageKey, cls) {
+    const FAM_ORDER = ['', 'fuzzy', 'mid', 'known'];
+    const FAM_LABEL = { '': '＋', fuzzy: '模糊', mid: '中等', known: '很熟' };
+    const prefix = cls || 'toeic';
+
+    function load() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        return raw && typeof raw === 'object' ? raw : {};
+      } catch (e) {
+        return {};
+      }
+    }
+    function save(map) {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(map));
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    function get(map, id) {
+      return map[String(id)] || '';
+    }
+    function cycle(map, id) {
+      const k = String(id);
+      const cur = map[k] || '';
+      const next = FAM_ORDER[(FAM_ORDER.indexOf(cur) + 1) % FAM_ORDER.length];
+      if (!next) delete map[k];
+      else map[k] = next;
+      save(map);
+      return next;
+    }
+    function count(map) {
+      const out = { known: 0, mid: 0, fuzzy: 0 };
+      Object.keys(map).forEach((k) => {
+        if (out[map[k]] != null) out[map[k]] += 1;
+      });
+      return out;
+    }
+    function makeSel() {
+      return el('select', { className: prefix + '-select', 'aria-label': '熟悉度' }, [
+        el('option', { value: 'all', textContent: '熟悉度：全部' }),
+        el('option', { value: 'known', textContent: '熟悉度：很熟' }),
+        el('option', { value: 'mid', textContent: '熟悉度：中等' }),
+        el('option', { value: 'fuzzy', textContent: '熟悉度：模糊' }),
+      ]);
+    }
+    function makeBtn(level, onClick) {
+      return el('button', {
+        type: 'button',
+        className: prefix + '-fam-btn' + (level ? ' is-' + level : ''),
+        textContent: FAM_LABEL[level] || '＋',
+        title: '點擊切換熟悉度（＋→模糊→中等→很熟）',
+        'aria-label': '熟悉度',
+        onclick: onClick,
+      });
+    }
+    function metaText(n, map) {
+      const c = count(map);
+      return (
+        '顯示 ' +
+        n +
+        ' 筆｜本機標記：模糊 ' +
+        c.fuzzy +
+        '、中等 ' +
+        c.mid +
+        '、很熟 ' +
+        c.known +
+        '（僅此瀏覽器）'
+      );
+    }
+    return { load, save, get, cycle, count, makeSel, makeBtn, metaText, FAM_LABEL };
+  }
+
   function quizBlock(items, opts) {
     const list = el('div', { className: 'toeic-quiz-list' });
     const filterBar = el('div', { className: 'toeic-filter' });
+    const toolbar = el('div', { className: 'toeic-toolbar' });
+    const meta = el('p', { className: 'toeic-muted' });
     const topics = Array.from(new Set(items.map((x) => x[opts.topicKey || 'topic'] || x.skill || x.part)));
+    const fam = opts.famKey ? createFamApi(opts.famKey, 'toeic') : null;
+    const famSel = fam ? fam.makeSel() : null;
     let active = 'all';
+    let famFilter = 'all';
+    let famMap = fam ? fam.load() : {};
+
+    function itemId(it) {
+      return opts.idOf ? opts.idOf(it) : String(it.id);
+    }
 
     function paint() {
+      if (fam) famMap = fam.load();
       list.innerHTML = '';
+      let n = 0;
       items
         .filter((it) => {
-          if (active === 'all') return true;
-          const key = it[opts.topicKey] != null ? it[opts.topicKey] : it.skill || it.part;
-          return String(key) === String(active);
+          if (active !== 'all') {
+            const key = it[opts.topicKey] != null ? it[opts.topicKey] : it.skill || it.part;
+            if (String(key) !== String(active)) return false;
+          }
+          if (fam && famFilter !== 'all') {
+            if (fam.get(famMap, itemId(it)) !== famFilter) return false;
+          }
+          return true;
         })
         .forEach((it) => {
+          n += 1;
+          const id = itemId(it);
+          const level = fam ? fam.get(famMap, id) : '';
           const ans = el('div', { className: 'toeic-ans', hidden: true }, [
             el('strong', { textContent: '答案 ' + it.ans + '　' }),
             document.createTextNode(it.why || ''),
@@ -139,15 +247,24 @@
               return el('li', { textContent: String.fromCharCode(65 + i) + '. ' + raw });
             })
           );
+          const metaRow = [
+            el('span', {
+              className: 'toeic-chip',
+              textContent: opts.meta ? opts.meta(it) : it.topic || 'Part ' + it.part,
+            }),
+            el('span', { className: 'toeic-muted', textContent: '#' + it.id }),
+          ];
+          if (fam) {
+            metaRow.push(
+              fam.makeBtn(level, () => {
+                fam.cycle(famMap, id);
+                paint();
+              })
+            );
+          }
           list.appendChild(
-            el('article', { className: 'toeic-q' }, [
-              el('div', { className: 'toeic-q-meta' }, [
-                el('span', {
-                  className: 'toeic-chip',
-                  textContent: opts.meta ? opts.meta(it) : it.topic || 'Part ' + it.part,
-                }),
-                el('span', { className: 'toeic-muted', textContent: '#' + it.id }),
-              ]),
+            el('article', { className: 'toeic-q' + (level ? ' fam-' + level : '') }, [
+              el('div', { className: 'toeic-q-meta' }, metaRow),
               it.point ? el('p', { className: 'toeic-point', textContent: it.point }) : null,
               el('p', { className: 'toeic-stem', textContent: it.q }),
               choices,
@@ -163,15 +280,16 @@
             ])
           );
         });
+      if (fam) meta.textContent = fam.metaText(n, famMap);
+      else meta.textContent = '顯示 ' + n + ' 筆';
     }
 
     filterBar.appendChild(
       el('button', {
         type: 'button',
         className: 'toeic-chip-btn is-on',
-        textContent: '全部',
-        dataset: { k: 'all' },
-        onclick: (e) => setFilter('all', e.currentTarget),
+        textContent: '題型：全部',
+        onclick: (e) => setTopic('all', e.currentTarget),
       })
     );
     topics.forEach((t) => {
@@ -180,21 +298,79 @@
           type: 'button',
           className: 'toeic-chip-btn',
           textContent: String(t),
-          dataset: { k: String(t) },
-          onclick: (e) => setFilter(String(t), e.currentTarget),
+          onclick: (e) => setTopic(String(t), e.currentTarget),
         })
       );
     });
 
-    function setFilter(k, btn) {
+    function setTopic(k, btn) {
       active = k;
       filterBar.querySelectorAll('.toeic-chip-btn').forEach((b) => b.classList.remove('is-on'));
       btn.classList.add('is-on');
       paint();
     }
 
+    if (famSel) {
+      famSel.addEventListener('change', () => {
+        famFilter = famSel.value;
+        paint();
+      });
+      toolbar.appendChild(famSel);
+    }
     paint();
-    return [filterBar, list];
+    return fam ? [toolbar, filterBar, meta, list] : [filterBar, list];
+  }
+
+  function trapListWithFam(traps, famKey) {
+    const fam = createFamApi(famKey, 'toeic');
+    const famSel = fam.makeSel();
+    const partSel = el('select', { className: 'toeic-select', 'aria-label': '題型' }, [
+      el('option', { value: 'all', textContent: '題型：全部' }),
+      ...Array.from(new Set(traps.map((t) => t.part))).map((p) =>
+        el('option', { value: p, textContent: p })
+      ),
+    ]);
+    const list = el('div', { className: 'toeic-trap-list' });
+    const meta = el('p', { className: 'toeic-muted' });
+    let famMap = fam.load();
+
+    function paint() {
+      famMap = fam.load();
+      const part = partSel.value;
+      const famFilter = famSel.value;
+      list.innerHTML = '';
+      let n = 0;
+      traps.forEach((t, i) => {
+        const id = 'trap-' + (i + 1);
+        const level = fam.get(famMap, id);
+        if (part !== 'all' && t.part !== part) return;
+        if (famFilter !== 'all' && level !== famFilter) return;
+        n += 1;
+        list.appendChild(
+          el('article', { className: 'toeic-q' + (level ? ' fam-' + level : '') }, [
+            el('div', { className: 'toeic-q-meta' }, [
+              el('span', { className: 'toeic-chip', textContent: t.part }),
+              el('span', { className: 'toeic-muted', textContent: '#' + (i + 1) }),
+              fam.makeBtn(level, () => {
+                fam.cycle(famMap, id);
+                paint();
+              }),
+            ]),
+            el('p', { className: 'toeic-point', textContent: t.trap }),
+            el('p', { className: 'toeic-stem', textContent: t.ex }),
+            el('p', { className: 'toeic-p', textContent: '易錯：' + t.wrong }),
+            el('p', { className: 'toeic-ex', textContent: '宜選／宜聽：' + t.right }),
+            el('p', { className: 'toeic-tip', textContent: t.tip }),
+          ])
+        );
+      });
+      meta.textContent = fam.metaText(n, famMap);
+    }
+
+    partSel.addEventListener('change', paint);
+    famSel.addEventListener('change', paint);
+    paint();
+    return [el('div', { className: 'toeic-toolbar' }, [partSel, famSel]), meta, list];
   }
 
   /* ——— pages ——— */
@@ -268,6 +444,49 @@
       shell(app, '單字記憶工具', '資料載入中或失敗，請重新整理。', [p('缺少 WA_TOEIC_VOCAB。')]);
       return;
     }
+
+    const FAM_KEY = 'wa-toeic-vocab-fam';
+    const FAM_ORDER = ['', 'fuzzy', 'mid', 'known'];
+    const FAM_LABEL = { '': '＋', fuzzy: '模糊', mid: '中等', known: '很熟' };
+    const FAM_FILTER_LABEL = { all: '全部', known: '很熟', mid: '中等', fuzzy: '模糊' };
+
+    function loadFam() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(FAM_KEY) || '{}');
+        return raw && typeof raw === 'object' ? raw : {};
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveFam(map) {
+      try {
+        localStorage.setItem(FAM_KEY, JSON.stringify(map));
+      } catch (e) {
+        /* ignore quota */
+      }
+    }
+    function wordKey(scenarioId, word) {
+      return scenarioId + ':' + String(word || '').toLowerCase();
+    }
+    function getFam(map, scenarioId, word) {
+      return map[wordKey(scenarioId, word)] || '';
+    }
+    function cycleFam(map, scenarioId, word) {
+      const k = wordKey(scenarioId, word);
+      const cur = map[k] || '';
+      const idx = FAM_ORDER.indexOf(cur);
+      const next = FAM_ORDER[(idx + 1) % FAM_ORDER.length];
+      if (!next) delete map[k];
+      else map[k] = next;
+      saveFam(map);
+      return next;
+    }
+
+    function speakWord(text) {
+      speakEn(text);
+    }
+
+    let famMap = loadFam();
     const search = el('input', {
       type: 'search',
       className: 'toeic-input',
@@ -278,56 +497,122 @@
       el('option', { value: 'all', textContent: '全部 15 情境' }),
       ...data.scenarios.map((s) => el('option', { value: s.id, textContent: s.name + ' · ' + s.nameEn })),
     ]);
+    const famSel = el('select', { className: 'toeic-select', 'aria-label': '熟悉度' }, [
+      el('option', { value: 'all', textContent: '熟悉度：全部' }),
+      el('option', { value: 'known', textContent: '熟悉度：很熟' }),
+      el('option', { value: 'mid', textContent: '熟悉度：中等' }),
+      el('option', { value: 'fuzzy', textContent: '熟悉度：模糊' }),
+    ]);
     const grid = el('div', { className: 'toeic-vocab-grid' });
     const meta = el('p', { className: 'toeic-muted' });
 
     function paint() {
+      famMap = loadFam();
       const q = (search.value || '').trim().toLowerCase();
       const sid = scenarioSel.value;
+      const famFilter = famSel.value;
       grid.innerHTML = '';
       let n = 0;
+      let marked = { known: 0, mid: 0, fuzzy: 0 };
+      Object.keys(famMap).forEach((k) => {
+        const v = famMap[k];
+        if (marked[v] != null) marked[v] += 1;
+      });
+
       data.scenarios.forEach((s) => {
         if (sid !== 'all' && s.id !== sid) return;
         (s.words || []).forEach((w) => {
+          const level = getFam(famMap, s.id, w.w);
+          if (famFilter !== 'all' && level !== famFilter) return;
           const blob = [w.w, w.zh, w.syn, w.ex, w.exZh].join(' ').toLowerCase();
           if (q && blob.indexOf(q) < 0) return;
           n += 1;
+
+          const famBtn = el('button', {
+            type: 'button',
+            className: 'toeic-fam-btn' + (level ? ' is-' + level : ''),
+            textContent: FAM_LABEL[level] || '＋',
+            title: '點擊切換熟悉度（＋→模糊→中等→很熟）',
+            'aria-label': '熟悉度 ' + (FAM_FILTER_LABEL[level] || '未標記'),
+          });
+          famBtn.addEventListener('click', () => {
+            cycleFam(famMap, s.id, w.w);
+            paint();
+          });
+
+          const speakBtn = el('button', {
+            type: 'button',
+            className: 'toeic-speak-btn',
+            title: '朗讀單字',
+            'aria-label': '朗讀 ' + w.w,
+            textContent: '🔊',
+          });
+          speakBtn.addEventListener('click', () => speakWord(w.w));
+
+          const speakExBtn = el('button', {
+            type: 'button',
+            className: 'toeic-speak-btn toeic-speak-btn-sm',
+            title: '朗讀例句',
+            'aria-label': '朗讀例句',
+            textContent: '朗讀例句',
+          });
+          speakExBtn.addEventListener('click', () => speakWord(w.ex));
+
           grid.appendChild(
-            el('article', { className: 'toeic-vocab-card' }, [
+            el('article', { className: 'toeic-vocab-card' + (level ? ' fam-' + level : '') }, [
               el('div', { className: 'toeic-vocab-head' }, [
-                el('strong', { textContent: w.w }),
-                el('span', { className: 'toeic-chip', textContent: w.pos || '' }),
+                el('div', { className: 'toeic-vocab-word' }, [
+                  el('strong', { textContent: w.w }),
+                  speakBtn,
+                  el('span', { className: 'toeic-chip', textContent: w.pos || '' }),
+                ]),
+                famBtn,
               ]),
               el('p', { className: 'toeic-p', textContent: w.zh }),
               el('p', { className: 'toeic-syn', textContent: '同義／替換：' + (w.syn || '—') }),
               el('p', { className: 'toeic-ex', textContent: w.ex }),
+              el('div', { className: 'toeic-vocab-actions' }, [speakExBtn]),
               el('p', { className: 'toeic-exzh', textContent: w.exZh }),
               el('p', { className: 'toeic-muted', textContent: s.name }),
             ])
           );
         });
       });
-      meta.textContent = '顯示 ' + n + ' 筆（每情境 60 字，含同義詞替換練習）';
+      meta.textContent =
+        '顯示 ' +
+        n +
+        ' 筆｜本機標記：模糊 ' +
+        marked.fuzzy +
+        '、中等 ' +
+        marked.mid +
+        '、很熟 ' +
+        marked.known +
+        '（僅此瀏覽器）';
     }
 
     search.addEventListener('input', paint);
     scenarioSel.addEventListener('change', paint);
+    famSel.addEventListener('change', paint);
     paint();
 
-    shell(app, '單字記憶工具', '15 大商業情境×60 高頻字。多益聽讀高分關鍵：同義詞替換（題目用 A，選項／文章用 B）。', [
+    shell(app, '單字記憶工具', '15 大商業情境×60 高頻字。可朗讀、用＋標記熟悉度（本機保存），再依熟悉度複習。', [
       card('怎麼記', [
         ul([
+          '點 🔊 聽發音；點右側 ＋ 循環：模糊 → 中等 → 很熟（再點清除）。',
+          '熟悉度篩選可只看「模糊」單字繼續複習。',
           '先背「情境＋同義詞」再背例句；聽力常把單字換成同義說法。',
-          '每情境一天 20 字：英→中、中→英、看 syn 說出原字。',
-          '錯題本只記「題目出現的替換對」，比再背整本單字書有效。',
         ]),
       ]),
-      card('字庫', [el('div', { className: 'toeic-toolbar' }, [scenarioSel, search]), meta, grid]),
+      card('字庫', [
+        el('div', { className: 'toeic-toolbar' }, [scenarioSel, famSel, search]),
+        meta,
+        grid,
+      ]),
     ]);
   }
 
   function mountListening(app) {
-    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。下列 60 則為常考陷阱速記。', [
+    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。下列 60 則可標記熟悉度複習。', [
       card('四國口音', [
         p('美、加、英、澳都會出現。重點不是「聽出哪國」，而是適應母音、r 音與語速差異；平時混聽四國播客／官方音檔。'),
         ul([
@@ -346,25 +631,7 @@
           '數字、專有名詞、轉折（however／actually）常出題。',
         ]),
       ]),
-      card('60 常考陷阱速記', [
-        el(
-          'div',
-          { className: 'toeic-trap-list' },
-          LISTENING_TRAPS.map((t, i) =>
-            el('article', { className: 'toeic-q' }, [
-              el('div', { className: 'toeic-q-meta' }, [
-                el('span', { className: 'toeic-chip', textContent: t.part }),
-                el('span', { className: 'toeic-muted', textContent: '#' + (i + 1) }),
-              ]),
-              el('p', { className: 'toeic-point', textContent: t.trap }),
-              el('p', { className: 'toeic-stem', textContent: t.ex }),
-              el('p', { className: 'toeic-p', textContent: '易錯：' + t.wrong }),
-              el('p', { className: 'toeic-ex', textContent: '宜選／宜聽：' + t.right }),
-              el('p', { className: 'toeic-tip', textContent: t.tip }),
-            ])
-          )
-        ),
-      ]),
+      card('60 常考陷阱速記', trapListWithFam(LISTENING_TRAPS, 'wa-toeic-listening-fam')),
     ]);
   }
 
@@ -383,7 +650,16 @@
       card('作答順序建議', [
         p('習慣「5 → 6 → 7 單篇易→難 → 雙／多篇」。Part 7 先讀題幹問什麼（細節／推論／同義），再回文定位。'),
       ]),
-      card('60 練題（精簡）', items.length ? quizBlock(items, { topicKey: 'part', meta: (it) => 'Part ' + it.part + ' · ' + it.skill }) : [p('資料未載入')]),
+      card(
+        '60 練題（精簡）',
+        items.length
+          ? quizBlock(items, {
+              topicKey: 'part',
+              meta: (it) => 'Part ' + it.part + ' · ' + it.skill,
+              famKey: 'wa-toeic-reading-fam',
+            })
+          : [p('資料未載入')]
+      ),
     ]);
   }
 
@@ -399,7 +675,12 @@
           '假設語氣、關係代名詞、分詞構句 — 見題再穩。',
         ]),
       ]),
-      card('60 例題', items.length ? quizBlock(items, { topicKey: 'topic' }) : [p('資料未載入')]),
+      card(
+        '60 例題',
+        items.length
+          ? quizBlock(items, { topicKey: 'topic', famKey: 'wa-toeic-grammar-fam' })
+          : [p('資料未載入')]
+      ),
     ]);
   }
 

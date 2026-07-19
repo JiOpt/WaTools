@@ -5480,4 +5480,32 @@
   R['toeic-speaking-writing'] = mountToeicTool('toeic-speaking-writing', '說寫測驗簡介');
   R['toeic-mindset'] = mountToeicTool('toeic-mindset', '心態與撞牆突破');
 
+  function mountToeflTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_TOEFL && window.WA_MOUNT_TOEFL[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '托福模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['toefl-intro'] = mountToeflTool('toefl-intro', '托福測驗介紹');
+  R['toefl-mock-tests'] = mountToeflTool('toefl-mock-tests', '免費模擬測驗');
+  R['toefl-score-levels'] = mountToeflTool('toefl-score-levels', '程度落點分析');
+  R['toefl-vocab'] = mountToeflTool('toefl-vocab', '學術單字工具');
+  R['toefl-listening'] = mountToeflTool('toefl-listening', '聽力答題技巧');
+  R['toefl-reading'] = mountToeflTool('toefl-reading', '閱讀解題策略');
+  R['toefl-grammar'] = mountToeflTool('toefl-grammar', '文法速成指南');
+  R['toefl-speaking'] = mountToeflTool('toefl-speaking', '口說備考指南');
+  R['toefl-writing'] = mountToeflTool('toefl-writing', '寫作備考指南');
+  R['toefl-study-plan'] = mountToeflTool('toefl-study-plan', '備試時間規劃表');
+  R['toefl-error-review'] = mountToeflTool('toefl-error-review', '刷題與檢討工具');
+  R['toefl-resources'] = mountToeflTool('toefl-resources', '推薦學習資源');
+  R['toefl-registration'] = mountToeflTool('toefl-registration', '報名與考場須知');
+  R['toefl-mindset'] = mountToeflTool('toefl-mindset', '心態與撞牆突破');
+
 })();

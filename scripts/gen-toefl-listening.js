@@ -1,0 +1,107 @@
+/* eslint-disable */
+const fs = require('fs');
+const path = require('path');
+
+function writeFile(filename, varName, obj) {
+  const lines = ['window.' + varName + ' = {'];
+  lines.push("  focus: '" + obj.focus.replace(/'/g, "\\'") + "',");
+  lines.push('  items: [');
+  obj.items.forEach(function (item, i) {
+    lines.push('    {');
+    Object.keys(item).forEach(function (k) {
+      const v = item[k];
+      if (Array.isArray(v)) {
+        lines.push('      ' + k + ': [' + v.map(function (x) { return "'" + String(x).replace(/'/g, "\\'") + "'"; }).join(', ') + '],');
+      } else if (typeof v === 'number') {
+        lines.push('      ' + k + ': ' + v + ',');
+      } else {
+        lines.push("      " + k + ": '" + String(v).replace(/'/g, "\\'") + "',");
+      }
+    });
+    lines.push('    }' + (i < obj.items.length - 1 ? ',' : ''));
+  });
+  lines.push('  ]');
+  lines.push('};');
+  lines.push('');
+  fs.writeFileSync(path.join(__dirname, '..', 'assets', 'js', filename), lines.join('\n'), 'utf8');
+}
+
+const skills = ['主旨', '細節', '態度', '功能', '組織', '推論'];
+const types = ['對話', '演講'];
+const scenarios = [
+  { type: '對話', skill: '主旨', point: 'Student visits office hour about assignment extension.', q: 'What is the conversation mainly about?', tip: '開頭通常點出問題；結尾看是否達成請求。', ex: 'Student asks whether a draft extension is possible after a lab conflict.' },
+  { type: '對話', skill: '細節', point: 'Campus dining plan change deadline.', q: 'By when must the student submit the form?', tip: '聽日期、時間、地點三要素；注意 after/before 改寫。', ex: 'Staff says forms are due Friday at 5 p.m. at the registrar desk.' },
+  { type: '對話', skill: '態度', point: 'Professor responds to a group project conflict.', q: 'How does the professor feel about the team\'s proposal?', tip: '語調詞：That makes sense / I\'m not convinced / That\'s risky。', ex: 'Professor says the timeline is tight but workable with milestones.' },
+  { type: '對話', skill: '功能', point: 'Librarian explains how to request an interlibrary loan.', q: 'Why does the librarian mention the online portal?', tip: '功能題問「為何提到」而非「提到什麼」。', ex: 'Portal speeds tracking; without it requests take two extra weeks.' },
+  { type: '對話', skill: '組織', point: 'Advisor outlines steps to declare a minor.', q: 'What does the advisor discuss immediately after prerequisites?', tip: '組織題追 signal words: first, next, finally。', ex: 'After prerequisites, advisor explains the approval signature chain.' },
+  { type: '對話', skill: '推論', point: 'Roommate discussion about quiet hours violation.', q: 'What can be inferred about the guest policy?', tip: '規定常不直說；從後果反推（warning, fine）。', ex: 'A third warning means losing guest privileges for a month.' },
+  { type: '演講', skill: '主旨', point: 'Lecture on urban heat islands.', q: 'What is the lecture mainly about?', tip: '教授常在前 30 秒給 thesis；例子服務主題。', ex: 'Professor explains why cities trap heat and what mitigations help.' },
+  { type: '演講', skill: '細節', point: 'Biology lecture on symbiosis examples.', q: 'According to the professor, what benefit do cleaner fish provide?', tip: '細節題答案幾乎都能在 lecture 找到同義改寫。', ex: 'Cleaner fish remove parasites from larger hosts.' },
+  { type: '演講', skill: '態度', point: 'Art history talk on restored frescoes.', q: 'What is the professor\'s attitude toward the restoration?', tip: ' cautious / skeptical / enthusiastic 常同現。', ex: 'Professor praises documentation but warns against overpainting.' },
+  { type: '演講', skill: '功能', point: 'Psychology lecture defines working memory.', q: 'Why does the professor mention a phone number example?', tip: '例子功能：定義、對比、反例。', ex: 'Example shows temporary storage before information fades.' },
+  { type: '演講', skill: '組織', point: 'Geology lecture: formation → erosion → human impact.', q: 'What topic follows the discussion of erosion?', tip: '大段結構題看 transition: moving on, turning to。', ex: 'After erosion, professor turns to mining and accelerated land loss.' },
+  { type: '演講', skill: '推論', point: 'Economics lecture on subsidy trade-offs.', q: 'What can be inferred about small farms if subsidies end?', tip: 'if X then Y 是推論常見模板。', ex: 'Professor notes many small farms may merge or exit.' },
+  { type: '對話', skill: '主旨', point: 'Student resolves a billing error for lab fees.', q: 'What problem are the speakers trying to solve?', tip: '對話主旨＝問題＋解法，不是單一細節。', ex: 'Student was charged twice for the same lab section.' },
+  { type: '對話', skill: '細節', point: 'Career center schedules a mock interview.', q: 'Where will the mock interview take place?', tip: '地點可能被 paraphrase：career office = placement center。', ex: 'Session is in the placement center, room 204.' },
+  { type: '對話', skill: '態度', point: 'Student proposes starting a study group.', q: 'How does the classmate respond to the idea?', tip: 'Listen for hedging: I guess / maybe / definitely。', ex: 'Classmate is enthusiastic but worried about time conflicts.' },
+  { type: '對話', skill: '功能', point: 'IT help desk explains two-factor authentication.', q: 'Why does the agent suggest using an app instead of SMS?', tip: '功能＝理由；because/so 後資訊是答案線索。', ex: 'Apps are harder to intercept than text messages.' },
+  { type: '對話', skill: '組織', point: 'Housing office explains maintenance request flow.', q: 'What step comes after submitting the online ticket?', tip: '流程題記順序詞與被動語態。', ex: 'After the ticket, a technician contacts the student within 24 hours.' },
+  { type: '對話', skill: '推論', point: 'Students debate attending a optional workshop.', q: 'What can be inferred about attendance?', tip: 'optional + exam next day → 可能低出席。', ex: 'One speaker expects low turnout because of an exam.' },
+  { type: '演講', skill: '主旨', point: 'Archaeology lecture on remote sensing.', q: 'What is the primary focus of the lecture?', tip: 'technology + research question 常構成主旨。', ex: 'How LiDAR reveals hidden structures under forest canopy.' },
+  { type: '演講', skill: '細節', point: 'Astronomy lecture on exoplanet detection.', q: 'Which method did the professor say detects dimming starlight?', tip: '專有名詞可能拼讀；抓 method/name。', ex: 'Transit method tracks periodic dimming as planets pass.' },
+  { type: '演講', skill: '態度', point: 'Literature lecture on unreliable narrators.', q: 'How does the professor view strict autobiographical reading?', tip: '態度題避免 extreme unless speaker is extreme。', ex: 'Professor finds it too narrow for complex fiction.' },
+  { type: '演講', skill: '功能', point: 'Environmental science compares two charts.', q: 'Why does the professor contrast the two charts?', tip: '對比功能：highlight change / disprove myth。', ex: 'Charts show emissions fell in one sector while transport rose.' },
+  { type: '演講', skill: '組織', point: 'History lecture uses case study then generalization.', q: 'What does the professor do after the case study?', tip: 'case → broader pattern 是常見結構。', ex: 'Professor generalizes patterns seen in other port cities.' },
+  { type: '演講', skill: '推論', point: 'Neuroscience lecture on sleep deprivation.', q: 'What can be inferred about drivers who sleep less than six hours?', tip: '數據題推論：風險上升 ≠ 必然事故。', ex: 'Reaction times slow similarly to mild alcohol impairment.' },
+  { type: '對話', skill: '主旨', point: 'Student asks to switch discussion sections.', q: 'What is the main reason for the visit?', tip: 'reason + requested action = 主旨。', ex: 'Schedule conflict with a required lab section.' },
+  { type: '對話', skill: '細節', point: 'Bookstore return policy for sealed software.', q: 'What condition is required for a refund?', tip: '條件題：only if / as long as / provided that。', ex: 'Seal must be unbroken and receipt shown within 14 days.' },
+  { type: '對話', skill: '態度', point: 'Coach feedback on practice performance.', q: 'What is the coach\'s overall tone?', tip: 'constructive criticism 常 mixed: good effort + fix X。', ex: 'Coach is supportive but insists on consistent footwork.' },
+  { type: '對話', skill: '功能', point: 'Registrar clarifies transcript notation.', q: 'Why does the staff explain the asterisk symbol?', tip: '符號/術語解釋幾乎必考其功能。', ex: 'Asterisk marks courses taken pass/fail, excluded from GPA.' },
+  { type: '對話', skill: '組織', point: 'Health center appointment triage questions.', q: 'What does the nurse ask about after symptoms began?', tip: '問診順序：symptoms → duration → medication。', ex: 'After onset, nurse asks about current medications and allergies.' },
+  { type: '對話', skill: '推論', point: 'Students plan a club fundraiser rain backup.', q: 'What can be inferred about the original plan?', tip: 'backup plan 暗示 outdoor event。', ex: 'They planned an outdoor booth but reserved indoor space.' },
+  { type: '演講', skill: '主旨', point: 'Anthropology lecture on tool-making traditions.', q: 'What is the lecture mainly about?', tip: '開場 thesis 常含 how/why 研究問題。', ex: 'Professor traces how stone-tool techniques spread across regions.' },
+  { type: '對話', skill: '細節', point: 'Parking permit upgrade for evening classes.', q: 'Which lot does the evening permit cover?', tip: '選項可能改寫 lot name：west garage = lot W。', ex: 'Evening permit covers the west garage only, not surface lots.' },
+  { type: '演講', skill: '細節', point: 'Chemistry demo on catalyst speed.', q: 'What did the professor say the catalyst affects?', tip: '細節動詞：speed up / slow down / unchanged。', ex: 'Catalyst lowers activation energy and speeds the reaction.' },
+  { type: '對話', skill: '態度', point: 'Peer review partner misses deadline.', q: 'How does the student feel about waiting?', tip: 'frustrated but understanding 是常見組合。', ex: 'Student is annoyed yet willing to review a late draft tonight.' },
+  { type: '演講', skill: '功能', point: 'Music theory lecture plays short clip.', q: 'Why does the professor play the audio sample?', tip: '聽辨 cadence / rhythm 例證抽象概念。', ex: 'Clip shows how syncopation disrupts expected beat patterns.' },
+  { type: '對話', skill: '組織', point: 'Scholarship office lists document order.', q: 'What must the student submit after the essay?', tip: '流程題記 after/then/next 順序。', ex: 'After the essay, two recommendation letters must be uploaded.' },
+  { type: '演講', skill: '推論', point: 'Climate lecture on glacier retreat photos.', q: 'What can be inferred about recent decades?', tip: '影像對比暗示 accelerated change。', ex: 'Photos imply melt rates rose sharply since the 1990s.' },
+  { type: '對話', skill: '主旨', point: 'Lab safety violation follow-up meeting.', q: 'Why does the student meet the coordinator?', tip: '主旨＝會面目的，不是細節處罰金額。', ex: 'Student must review goggles policy after a lab warning.' },
+  { type: '演講', skill: '態度', point: 'Philosophy talk on free will experiments.', q: 'What is the professor\'s stance on simplistic interpretations?', tip: 'skeptical of / wary of 常同現。', ex: 'Professor warns popular summaries oversimplify nuanced findings.' },
+  { type: '對話', skill: '功能', point: 'Writing center tutor explains reverse outline.', q: 'Why does the tutor suggest a reverse outline?', tip: '功能＝方法目的：check logic flow。', ex: 'Reverse outline reveals whether each paragraph supports the thesis.' },
+  { type: '演講', skill: '組織', point: 'Engineering case: bridge design failure analysis.', q: 'What does the professor discuss after wind-tunnel tests?', tip: 'case study 結構：test → redesign lesson。', ex: 'After wind tests, professor explains revised joint reinforcement.' },
+  { type: '對話', skill: '細節', point: 'Campus shuttle schedule change for break.', q: 'How often does the shuttle run during break?', tip: '頻率題：every hour / twice daily。', ex: 'Shuttle runs hourly instead of every fifteen minutes.' },
+  { type: '演講', skill: '細節', point: 'Linguistics lecture on code-switching.', q: 'According to the lecture, when do bilinguals code-switch most?', tip: 'most/often 對應最高頻情境。', ex: 'Switching peaks among peers in informal settings.' },
+  { type: '對話', skill: '推論', point: 'Group selects presentation order by lottery.', q: 'What can be inferred about fairness concerns?', tip: 'lottery 暗示先前爭論誰先講。', ex: 'Team used a draw because members disagreed on order.' },
+  { type: '演講', skill: '主旨', point: 'Marine biology on coral symbiont loss.', q: 'What is the primary focus of the lecture?', tip: 'bleaching + cause + consequence 構成主旨。', ex: 'Professor links symbiont loss to warming and reef decline.' },
+  { type: '對話', skill: '態度', point: 'Advisor reacts to study-abroad plan.', q: 'How does the advisor view the proposed timeline?', tip: 'supportive with conditions = partially positive。', ex: 'Advisor approves if language prerequisite finishes first.' },
+  { type: '演講', skill: '功能', point: 'Statistics lecture defines outlier with chart.', q: 'Why does the professor highlight one data point?', tip: 'highlight = show exception to trend。', ex: 'Point lies far from regression line, illustrating an outlier.' },
+  { type: '對話', skill: '組織', point: 'IT resets password and sets security questions.', q: 'What happens right after the password reset?', tip: 'immediate next step 是組織題核心。', ex: 'Student must enroll a two-factor app before leaving.' },
+  { type: '演講', skill: '推論', point: 'Archaeology lecture on trade bead distribution.', q: 'What can be inferred about the trading network?', tip: 'beads far from source → long-distance trade。', ex: 'Identical beads hundreds of miles apart imply extensive routes.' },
+  { type: '對話', skill: '主旨', point: 'Student negotiates incomplete group contribution.', q: 'What is the conversation mainly about?', tip: 'problem + proposed fix = 主旨。', ex: 'Team discusses dividing tasks after one member misses meetings.' },
+  { type: '演講', skill: '細節', point: 'Physics lecture on wave interference.', q: 'When do waves produce destructive interference?', tip: '定義句 often when/out of phase。', ex: 'Waves cancel when peaks align with troughs out of phase.' },
+  { type: '對話', skill: '細節', point: 'Theater box office exchanges ticket date.', q: 'What fee applies to the exchange?', tip: 'fee/waiver 是細節常考點。', ex: 'Exchange is free if done 48 hours before showtime.' },
+  { type: '演講', skill: '態度', point: 'Education policy talk on standardized tests.', q: 'How does the speaker view test-only accountability?', tip: 'critical but not absolute rejection 常見。', ex: 'Speaker finds test-only metrics narrow yet useful if paired with portfolios.' },
+  { type: '對話', skill: '功能', point: 'Resident assistant explains quiet-hour fines.', q: 'Why does the RA mention decibel meters?', tip: 'mention tool → objective enforcement。', ex: 'Meters provide evidence before issuing noise violations.' },
+  { type: '演講', skill: '組織', point: 'Geography lecture shifts from maps to GIS software.', q: 'What topic follows traditional map projections?', tip: 'transition phrase signals next section。', ex: 'Professor turns to GIS layers for real-time flood modeling.' },
+  { type: '對話', skill: '推論', point: 'Students compare internship offer deadlines.', q: 'What can be inferred about one student\'s priority?', tip: 'deadline choice 反映 preference。', ex: 'One student favors the research lab despite lower pay.' },
+  { type: '演講', skill: '主旨', point: 'Computer science talk on encryption basics.', q: 'What is the lecture mainly about?', tip: 'intro course lecture 主旨＝核心概念非歷史軼事。', ex: 'Professor explains symmetric vs asymmetric encryption roles.' },
+  { type: '對話', skill: '細節', point: 'Faculty mentor assigns weekly reflection posts.', q: 'Where should reflections be posted?', tip: 'platform 名稱可能被改寫。', ex: 'Posts go on the course forum by Sunday midnight.' },
+  { type: '演講', skill: '功能', point: 'History lecture quotes primary diary entry.', q: 'Why does the professor read the diary excerpt?', tip: 'primary source = illustrate daily experience。', ex: 'Diary humanizes statistics about wartime rationing.' },
+  { type: '對話', skill: '態度', point: 'Student reacts to unexpectedly low quiz score.', q: 'What is the professor\'s tone toward retakes?', tip: 'policy explanation tone：firm but fair。', ex: 'Professor allows one retake but caps the replacement score.' }
+];
+
+const bank = scenarios.slice(0, 60).map(function (s) {
+  return { type: s.type, skill: s.skill, point: s.point, q: s.q, tip: s.tip, ex: s.ex };
+});
+
+const items = bank.map(function (x, i) {
+  return { id: i + 1, type: x.type, skill: x.skill, point: x.point, q: x.q, tip: x.tip, ex: x.ex };
+});
+
+writeFile('toefl-listening-data.js', 'WA_TOEFL_LISTENING', {
+  focus: '課堂演講與校園對話：主旨、細節、態度、功能、組織、推論。',
+  items: items
+});
+
+console.log('listening:', items.length);

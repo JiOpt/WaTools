@@ -18,6 +18,7 @@ export const EN_CATEGORIES = {
   culture: 'Culture',
   spiritual: 'Spiritual',
   toeic: 'TOEIC',
+  toefl: 'TOEFL',
 };
 
 /** @type {Record<string, { title: string, desc: string }>} */
@@ -269,4 +270,19 @@ export const EN_TOOLS = {
   'toeic-registration': { title: 'Registration & test day', desc: 'Online signup, photo rules, and exam-day checklist.' },
   'toeic-speaking-writing': { title: 'Speaking & Writing', desc: 'When you need S&W and what the tasks look like.' },
   'toeic-mindset': { title: 'Mindset & plateaus', desc: 'Break score stalls and calm test anxiety.' },
+
+  'toefl-intro': { title: 'TOEFL overview', desc: 'iBT four sections, timing, and 0–120 scoring at a glance.' },
+  'toefl-mock-tests': { title: 'Free TOEFL practice', desc: 'Official sample and mock links for self-checks.' },
+  'toefl-score-levels': { title: 'TOEFL score bands', desc: 'Compare 80 / 90 / 100 / 110 targets and next steps.' },
+  'toefl-vocab': { title: 'Academic vocabulary', desc: '15 academic topics × 60 words with synonyms and examples.' },
+  'toefl-listening': { title: 'TOEFL listening tips', desc: 'Campus talks and lectures with 60 situation notes.' },
+  'toefl-reading': { title: 'TOEFL reading strategies', desc: 'Question types plus 60 short drills.' },
+  'toefl-grammar': { title: 'TOEFL grammar crash course', desc: 'Clauses and agreement with 60 concise items.' },
+  'toefl-speaking': { title: 'TOEFL speaking guide', desc: 'Independent/Integrated templates with 60 samples.' },
+  'toefl-writing': { title: 'TOEFL writing guide', desc: 'Integrated and discussion structures with 60 samples.' },
+  'toefl-study-plan': { title: 'TOEFL study schedules', desc: '1-month sprint and 3-month solid plans.' },
+  'toefl-error-review': { title: 'TOEFL error review', desc: 'Log mistakes across the four skills.' },
+  'toefl-resources': { title: 'TOEFL study resources', desc: 'ETS and trusted prep starting points.' },
+  'toefl-registration': { title: 'TOEFL registration & test day', desc: 'ETS signup overview and exam-day checklist.' },
+  'toefl-mindset': { title: 'TOEFL mindset & plateaus', desc: 'Break stalls and calm test anxiety.' },
 };

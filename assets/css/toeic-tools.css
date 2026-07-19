@@ -147,11 +147,14 @@
   padding: 0.85rem 0 0.35rem;
 }
 .wa-toeic .toeic-q:first-child { border-top: 0; padding-top: 0; }
+.wa-toeic .toeic-q.fam-fuzzy { border-left: 3px solid #c2410c; padding-left: 0.55rem; }
+.wa-toeic .toeic-q.fam-mid { border-left: 3px solid #1d4ed8; padding-left: 0.55rem; }
+.wa-toeic .toeic-q.fam-known { border-left: 3px solid #047857; padding-left: 0.55rem; }
 .wa-toeic .toeic-q-meta {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   align-items: center;
-  margin-bottom: 0.25rem;
 }
 .wa-toeic .toeic-choices {
   margin: 0.35rem 0 0.2rem;
@@ -186,10 +189,63 @@
   display: flex;
   justify-content: space-between;
   gap: 0.4rem;
-  align-items: baseline;
+  align-items: flex-start;
   margin-bottom: 0.2rem;
 }
 .wa-toeic .toeic-vocab-head strong { font-size: 1.05rem; }
+.wa-toeic .toeic-vocab-word {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.wa-toeic .toeic-speak-btn,
+.wa-toeic .toeic-fam-btn {
+  border: 1px solid var(--toeic-line);
+  background: var(--toeic-soft);
+  color: var(--toeic-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  padding: 0.28rem 0.45rem;
+}
+.wa-toeic .toeic-speak-btn:hover,
+.wa-toeic .toeic-fam-btn:hover {
+  filter: brightness(0.97);
+}
+.wa-toeic .toeic-speak-btn-sm {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.45rem;
+  margin-top: 0.15rem;
+}
+.wa-toeic .toeic-vocab-actions { margin: 0.15rem 0 0.25rem; }
+.wa-toeic .toeic-fam-btn {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 2.6rem;
+}
+.wa-toeic .toeic-fam-btn.is-fuzzy {
+  background: #fff7ed;
+  border-color: #fdba74;
+  color: #c2410c;
+}
+.wa-toeic .toeic-fam-btn.is-mid {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+.wa-toeic .toeic-fam-btn.is-known {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #047857;
+}
+.wa-toeic .toeic-vocab-card.fam-fuzzy { border-color: rgba(194, 65, 12, 0.35); }
+.wa-toeic .toeic-vocab-card.fam-mid { border-color: rgba(29, 78, 216, 0.28); }
+.wa-toeic .toeic-vocab-card.fam-known { border-color: rgba(4, 120, 87, 0.28); }
+.wa-toeic .toeic-toolbar .toeic-select { max-width: 240px; }
 .wa-toeic .toeic-syn { color: var(--toeic-accent); font-size: 0.88rem; }
 .wa-toeic .toeic-ex { font-style: italic; color: #334155; }
 .wa-toeic .toeic-exzh { color: var(--toeic-muted); font-size: 0.88rem; }
