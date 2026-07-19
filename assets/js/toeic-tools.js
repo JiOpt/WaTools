@@ -4,7 +4,7 @@
 (function (global) {
   'use strict';
 
-  var TOEIC_CSS_VER = '0.6.48';
+  var TOEIC_CSS_VER = '0.6.49';
 
   function toeicCssHref() {
     if (global.WA_TOOL_URLS && typeof global.WA_TOOL_URLS.absolutePageHref === 'function') {
@@ -1067,10 +1067,149 @@
     ]);
   }
 
+  function conceptChecklist(concepts, storageKey, groupKey) {
+    const list = Array.isArray(concepts) ? concepts.slice() : [];
+    if (!list.length) return [p('概念清單未載入')];
+    const famKey = storageKey || 'wa-toeic-concept';
+    let known = {};
+    try {
+      known = JSON.parse(localStorage.getItem(famKey) || '{}') || {};
+    } catch (e) {
+      known = {};
+    }
+    const wrap = el('div', { className: 'toeic-concept-wrap' });
+    const meta = el('p', { className: 'toeic-muted' });
+    const filterBar = el('div', { className: 'toeic-filter' });
+    let active = 'all';
+    let showLevel = 'all';
+
+    function saveKnown() {
+      try {
+        localStorage.setItem(famKey, JSON.stringify(known));
+      } catch (e) {
+        /* ignore */
+      }
+    }
+
+    function groups() {
+      return Array.from(new Set(list.map((c) => String(c[groupKey] || c.part || c.topic || '其他'))));
+    }
+
+    function paint() {
+      wrap.innerHTML = '';
+      let shown = 0;
+      let mastered = 0;
+      list.forEach((c) => {
+        const g = String(c[groupKey] || c.part || c.topic || '其他');
+        const lv = Number(c.level) === 2 ? 2 : 1;
+        if (active !== 'all' && g !== active) return;
+        if (showLevel === '1' && lv !== 1) return;
+        if (showLevel === '2' && lv !== 2) return;
+        shown += 1;
+        const id = c.id || g + '-' + c.title;
+        const on = !!known[id];
+        if (on) mastered += 1;
+        const row = el('button', {
+          type: 'button',
+          className: 'toeic-concept-item' + (on ? ' is-on' : ''),
+          onclick: () => {
+            if (known[id]) delete known[id];
+            else known[id] = 1;
+            saveKnown();
+            paint();
+          },
+        });
+        row.appendChild(el('span', { className: 'toeic-chip', textContent: g }));
+        row.appendChild(el('span', { className: 'toeic-chip', textContent: 'L' + lv }));
+        row.appendChild(el('strong', { textContent: c.title }));
+        row.appendChild(el('span', { className: 'toeic-muted', textContent: on ? '已掌握' : '點擊標記' }));
+        if (c.tip) row.appendChild(el('span', { className: 'toeic-concept-tip', textContent: c.tip }));
+        wrap.appendChild(row);
+      });
+      meta.textContent =
+        '顯示 ' + shown + ' 個概念｜已標記掌握 ' + mastered + '（本機保存，練完打勾再上考場）';
+    }
+
+    filterBar.appendChild(
+      el('button', {
+        type: 'button',
+        className: 'toeic-chip-btn is-on',
+        textContent: '全部',
+        onclick: (e) => {
+          active = 'all';
+          filterBar.querySelectorAll('[data-role="g"]').forEach((b) => b.classList.remove('is-on'));
+          e.currentTarget.classList.add('is-on');
+          paint();
+        },
+        dataset: { role: 'g' },
+      })
+    );
+    groups().forEach((g) => {
+      filterBar.appendChild(
+        el('button', {
+          type: 'button',
+          className: 'toeic-chip-btn',
+          textContent: g,
+          dataset: { role: 'g' },
+          onclick: (e) => {
+            active = g;
+            filterBar.querySelectorAll('[data-role="g"]').forEach((b) => b.classList.remove('is-on'));
+            e.currentTarget.classList.add('is-on');
+            paint();
+          },
+        })
+      );
+    });
+    const levelBar = el('div', { className: 'toeic-toolbar' }, [
+      el('button', {
+        type: 'button',
+        className: 'toeic-chip-btn is-on',
+        textContent: '等級：全部',
+        onclick: (e) => {
+          showLevel = 'all';
+          levelBar.querySelectorAll('.toeic-chip-btn').forEach((b) => b.classList.remove('is-on'));
+          e.currentTarget.classList.add('is-on');
+          paint();
+        },
+      }),
+      el('button', {
+        type: 'button',
+        className: 'toeic-chip-btn',
+        textContent: '僅 L1',
+        onclick: (e) => {
+          showLevel = '1';
+          levelBar.querySelectorAll('.toeic-chip-btn').forEach((b) => b.classList.remove('is-on'));
+          e.currentTarget.classList.add('is-on');
+          paint();
+        },
+      }),
+      el('button', {
+        type: 'button',
+        className: 'toeic-chip-btn',
+        textContent: '僅 L2',
+        onclick: (e) => {
+          showLevel = '2';
+          levelBar.querySelectorAll('.toeic-chip-btn').forEach((b) => b.classList.remove('is-on'));
+          e.currentTarget.classList.add('is-on');
+          paint();
+        },
+      }),
+    ]);
+    paint();
+    return [
+      p('先掃過必考概念並點擊標記「已掌握」，再做下方分級練題；概念＋題感齊了再進模擬考。'),
+      levelBar,
+      filterBar,
+      meta,
+      wrap,
+    ];
+  }
+
   function mountListening(app) {
     const data = global.WA_TOEIC_LISTENING;
     const traps = (data && data.items) || [];
-    shell(app, '聽力答題技巧', '四大題解法＋四國口音＋圖片預讀。Level 1／2 分級陷阱速記，可朗讀正確句、標記熟悉度。', [
+    const concepts = (data && data.concepts) || [];
+    shell(app, '聽力答題技巧', data && data.focus ? data.focus : '四大題解法＋完整必考概念。Level 1／2 分級，練完可上戰場。', [
       card('四國口音', [
         p('美、加、英、澳都會出現。重點不是「聽出哪國」，而是適應母音、r 音與語速差異；平時混聽四國播客／官方音檔。'),
         ul([
@@ -1089,8 +1228,9 @@
           '數字、專有名詞、轉折（however／actually）常出題。',
         ]),
       ]),
+      card('考場必考概念（完整）', conceptChecklist(concepts, 'wa-toeic-listen-concepts', 'part')),
       card(
-        '常考陷阱速記（分級）',
+        '陷阱速記練題（分級）',
         traps.length ? trapListWithFam(traps, 'wa-toeic-listening-fam') : [p('資料未載入')]
       ),
     ]);
@@ -1099,7 +1239,8 @@
   function mountReading(app) {
     const data = global.WA_TOEIC_READING;
     const items = (data && data.items) || [];
-    shell(app, '閱讀解題策略', data && data.focus ? data.focus : 'Parts 5–7 時間與順序。Level 1／2 分級練題。', [
+    const concepts = (data && data.concepts) || [];
+    shell(app, '閱讀解題策略', data && data.focus ? data.focus : 'Parts 5–7 完整概念＋分級練題，練完可上戰場。', [
       card('時間分配（75 分鐘）', [
         ul([
           'Part 5：約 10–12 分鐘（一題勿超過 30 秒）。',
@@ -1111,6 +1252,7 @@
       card('作答順序建議', [
         p('習慣「5 → 6 → 7 單篇易→難 → 雙／多篇」。Part 7 先讀題幹問什麼（細節／推論／同義），再回文定位。'),
       ]),
+      card('考場必考概念（完整）', conceptChecklist(concepts, 'wa-toeic-read-concepts', 'part')),
       card(
         '練題（Level 分級）',
         items.length
@@ -1127,15 +1269,17 @@
   function mountGrammar(app) {
     const data = global.WA_TOEIC_GRAMMAR;
     const items = (data && data.items) || [];
-    shell(app, '文法速成指南', data && data.focus ? data.focus : 'Part 5／6 常考點。Level 1／2 分級例題。', [
+    const concepts = (data && data.concepts) || [];
+    shell(app, '文法速成指南', data && data.focus ? data.focus : 'Part 5／6 完整文法概念＋分級例題，練完可上戰場。', [
       card('優先順序', [
         ul([
           '詞性轉換（名／動／形／副）— 出題量最大。',
           '介系詞與連接詞（含 on／in／at、although／despite）。',
           '分詞形容詞（interested／interesting）與代名詞指涉。',
-          '假設語氣、關係代名詞、分詞構句 — 見題再穩。',
+          '假設語氣、關係代名詞、分詞構句、倒裝與易混字 — 見題再穩。',
         ]),
       ]),
+      card('考場必考概念（完整）', conceptChecklist(concepts, 'wa-toeic-grammar-concepts', 'topic')),
       card(
         '例題（Level 分級）',
         items.length

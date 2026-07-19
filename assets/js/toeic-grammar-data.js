@@ -1,5 +1,5 @@
 window.WA_TOEIC_GRAMMAR = {
-  "focus": "鎖定 Part 5／6 常考：詞性、介系詞／連接詞、分詞等。Level 1 基礎高頻、Level 2 金色證書進階。",
+  "focus": "考場完整文法概念：詞性、介系詞、假設、關係、倒裝、易混字等。Level 分級例題，練完可上戰場。",
   "items": [
     {
       "id": 1,
@@ -1800,6 +1800,759 @@ window.WA_TOEIC_GRAMMAR = {
       "why": "second to none。",
       "level": 2,
       "id": 120
+    },
+    {
+      "topic": "冠詞",
+      "point": "不可數名詞前通常不加 a。",
+      "q": "We need ____ information about the shipment.",
+      "choices": [
+        "— (no article)",
+        "an",
+        "a",
+        "many"
+      ],
+      "ans": "A",
+      "why": "information 不可數，此處零冠詞。",
+      "level": 1,
+      "id": 121
+    },
+    {
+      "topic": "冠詞",
+      "point": "the＋最高級。",
+      "q": "This is ____ most efficient method we tested.",
+      "choices": [
+        "the",
+        "a",
+        "an",
+        "no"
+      ],
+      "ans": "A",
+      "why": "the most。",
+      "level": 1,
+      "id": 122
+    },
+    {
+      "topic": "語氣助動詞",
+      "point": "must not＝禁止；need not＝不必。",
+      "q": "You ____ enter the lab without goggles.",
+      "choices": [
+        "must not",
+        "must",
+        "need",
+        "can to"
+      ],
+      "ans": "A",
+      "why": "禁止 must not。",
+      "level": 1,
+      "id": 123
+    },
+    {
+      "topic": "語氣助動詞",
+      "point": "might／may 表推測。",
+      "q": "The package ____ arrive tomorrow.",
+      "choices": [
+        "may",
+        "must to",
+        "shoulds",
+        "cans"
+      ],
+      "ans": "A",
+      "why": "可能 may。",
+      "level": 1,
+      "id": 124
+    },
+    {
+      "topic": "可數不可數",
+      "point": "few／a few；little／a little。",
+      "q": "There is ____ time left before the deadline.",
+      "choices": [
+        "little",
+        "few",
+        "many",
+        "several"
+      ],
+      "ans": "A",
+      "why": "time 不可數用 little。",
+      "level": 1,
+      "id": 125
+    },
+    {
+      "topic": "可數不可數",
+      "point": "equipment 不可數。",
+      "q": "New ____ was installed last night.",
+      "choices": [
+        "equipment",
+        "equipments",
+        "equip",
+        "equipping"
+      ],
+      "ans": "A",
+      "why": "equipment 不可數。",
+      "level": 1,
+      "id": 126
+    },
+    {
+      "topic": "相關連接",
+      "point": "either…or 動詞靠近。",
+      "q": "Either the reports or the summary ____ missing.",
+      "choices": [
+        "is",
+        "are",
+        "be",
+        "were being"
+      ],
+      "ans": "A",
+      "why": "靠近 summary 用 is。",
+      "level": 2,
+      "id": 127
+    },
+    {
+      "topic": "相關連接",
+      "point": "not only…but also 倒裝可選。",
+      "q": "Not only the CEO but also the directors ____ present.",
+      "choices": [
+        "were",
+        "was",
+        "is",
+        "be"
+      ],
+      "ans": "A",
+      "why": "靠近 directors 用 were。",
+      "level": 2,
+      "id": 128
+    },
+    {
+      "topic": "相關連接",
+      "point": "both…and 複數動詞。",
+      "q": "Both design and QA ____ responsible.",
+      "choices": [
+        "are",
+        "is",
+        "was",
+        "be"
+      ],
+      "ans": "A",
+      "why": "both…and→複數。",
+      "level": 1,
+      "id": 129
+    },
+    {
+      "topic": "關係子句省略",
+      "point": "主動省略 who is→V-ing。",
+      "q": "Applicants ____ the form online will get a code.",
+      "choices": [
+        "submitting",
+        "submit",
+        "submitted who",
+        "submits"
+      ],
+      "ans": "A",
+      "why": "＝who submit→submitting。",
+      "level": 2,
+      "id": 130
+    },
+    {
+      "topic": "關係子句省略",
+      "point": "被動省略 which is→p.p.。",
+      "q": "Products ____ in Japan ship next week.",
+      "choices": [
+        "made",
+        "making",
+        "make",
+        "makes"
+      ],
+      "ans": "A",
+      "why": "＝which are made。",
+      "level": 2,
+      "id": 131
+    },
+    {
+      "topic": "易混動詞",
+      "point": "raise（及物）／rise（不及物）。",
+      "q": "The company will ____ prices next quarter.",
+      "choices": [
+        "raise",
+        "rise",
+        "arise",
+        "rose"
+      ],
+      "ans": "A",
+      "why": "raise＋受詞 prices。",
+      "level": 2,
+      "id": 132
+    },
+    {
+      "topic": "易混動詞",
+      "point": "lie（躺／位於）／lay（放置）。",
+      "q": "Please ____ the samples on the tray.",
+      "choices": [
+        "lay",
+        "lie",
+        "lain",
+        "lying as imperative"
+      ],
+      "ans": "A",
+      "why": "lay＋受詞。",
+      "level": 2,
+      "id": 133
+    },
+    {
+      "topic": "易混動詞",
+      "point": "borrow／lend。",
+      "q": "Could you ____ me your adaptor?",
+      "choices": [
+        "lend",
+        "borrow",
+        "lease as only",
+        "rent always"
+      ],
+      "ans": "A",
+      "why": "借出 lend。",
+      "level": 1,
+      "id": 134
+    },
+    {
+      "topic": "易混動詞",
+      "point": "remind／remember。",
+      "q": "Please ____ me to lock the lab.",
+      "choices": [
+        "remind",
+        "remember",
+        "reminisce",
+        "recall me wrongly"
+      ],
+      "ans": "A",
+      "why": "remind someone to。",
+      "level": 1,
+      "id": 135
+    },
+    {
+      "topic": "語態",
+      "point": "被動 by＋施事。",
+      "q": "The memo was written ____ the director.",
+      "choices": [
+        "by",
+        "from",
+        "with",
+        "of"
+      ],
+      "ans": "A",
+      "why": "by。",
+      "level": 1,
+      "id": 136
+    },
+    {
+      "topic": "語態",
+      "point": "get＋O＋p.p.。",
+      "q": "We got the contract ____ yesterday.",
+      "choices": [
+        "signed",
+        "sign",
+        "signing",
+        "to sign only"
+      ],
+      "ans": "A",
+      "why": "get O p.p.。",
+      "level": 2,
+      "id": 137
+    },
+    {
+      "topic": "比較",
+      "point": "as…as 同等比較。",
+      "q": "This model is as reliable ____ the previous one.",
+      "choices": [
+        "as",
+        "than",
+        "then",
+        "so"
+      ],
+      "ans": "A",
+      "why": "as…as。",
+      "level": 1,
+      "id": 138
+    },
+    {
+      "topic": "比較",
+      "point": "one of the＋最高級＋複數。",
+      "q": "It is one of the ____ plants in the region.",
+      "choices": [
+        "largest",
+        "larger",
+        "large",
+        "most large"
+      ],
+      "ans": "A",
+      "why": "one of the largest。",
+      "level": 1,
+      "id": 139
+    },
+    {
+      "topic": "時態",
+      "point": "現在簡單表事實／時刻表。",
+      "q": "The shuttle ____ every 20 minutes.",
+      "choices": [
+        "leaves",
+        "leave",
+        "leaving",
+        "left always"
+      ],
+      "ans": "A",
+      "why": "時刻表用現在簡單。",
+      "level": 1,
+      "id": 140
+    },
+    {
+      "topic": "時態",
+      "point": "過去進行＋when。",
+      "q": "I ____ when the alarm rang.",
+      "choices": [
+        "was working",
+        "worked",
+        "work",
+        "am working"
+      ],
+      "ans": "A",
+      "why": "過去進行。",
+      "level": 1,
+      "id": 141
+    },
+    {
+      "topic": "分詞形容詞",
+      "point": "excited／exciting。",
+      "q": "Staff were ____ about the bonus.",
+      "choices": [
+        "excited",
+        "exciting",
+        "excite",
+        "excitement"
+      ],
+      "ans": "A",
+      "why": "人用 excited。",
+      "level": 1,
+      "id": 142
+    },
+    {
+      "topic": "介系詞",
+      "point": "by＋期限；until＋持續到。",
+      "q": "Submit the form ____ Friday.",
+      "choices": [
+        "by",
+        "until as only ongoing",
+        "during",
+        "since"
+      ],
+      "ans": "A",
+      "why": "截止用 by。",
+      "level": 1,
+      "id": 143
+    },
+    {
+      "topic": "介系詞",
+      "point": "between／among。",
+      "q": "Negotiations between the two firms ended well. Among is for ____.",
+      "choices": [
+        "more than two typically",
+        "exactly two only always wrong",
+        "zero",
+        "verbs"
+      ],
+      "ans": "A",
+      "why": "among 多者之間。",
+      "level": 2,
+      "id": 144
+    },
+    {
+      "topic": "假設語氣",
+      "point": "If＋過去完成，would have＋p.p.。",
+      "q": "If we had left earlier, we ____ the traffic.",
+      "choices": [
+        "would have avoided",
+        "will avoid",
+        "avoid",
+        "avoided"
+      ],
+      "ans": "A",
+      "why": "與過去事實相反。",
+      "level": 1,
+      "id": 145
+    },
+    {
+      "topic": "關係代名詞",
+      "point": "where 表地點。",
+      "q": "This is the site ____ the factory will be built.",
+      "choices": [
+        "where",
+        "which",
+        "who",
+        "whose"
+      ],
+      "ans": "A",
+      "why": "where。",
+      "level": 1,
+      "id": 146
+    },
+    {
+      "topic": "關係代名詞",
+      "point": "when 表時間。",
+      "q": "I remember the day ____ we launched.",
+      "choices": [
+        "when",
+        "which",
+        "who",
+        "whom"
+      ],
+      "ans": "A",
+      "why": "when。",
+      "level": 1,
+      "id": 147
+    },
+    {
+      "topic": "不定詞／動名詞",
+      "point": "stop to V／V-ing。",
+      "q": "She stopped ____ coffee before the meeting. (停下來去喝)",
+      "choices": [
+        "to drink",
+        "drinking",
+        "drink",
+        "drank"
+      ],
+      "ans": "A",
+      "why": "stop to V＝停下來去做。",
+      "level": 2,
+      "id": 148
+    },
+    {
+      "topic": "倒裝",
+      "point": "Seldom／Rarely 倒裝。",
+      "q": "Rarely ____ such strong demand.",
+      "choices": [
+        "do we see",
+        "we see",
+        "we does see",
+        "sees we"
+      ],
+      "ans": "A",
+      "why": "否定副詞倒裝。",
+      "level": 2,
+      "id": 149
+    },
+    {
+      "topic": "進階結構",
+      "point": "would rather＋過去（寧願他人）。",
+      "q": "I’d rather you ____ the draft tonight.",
+      "choices": [
+        "finished",
+        "finish",
+        "finishing",
+        "to finish"
+      ],
+      "ans": "A",
+      "why": "would rather＋主詞＋過去式。",
+      "level": 2,
+      "id": 150
+    }
+  ],
+  "concepts": [
+    {
+      "id": "g-pos",
+      "topic": "詞性",
+      "title": "四大詞性轉換",
+      "tip": "修飾對象決定名動形副。",
+      "level": 1
+    },
+    {
+      "id": "g-pos2",
+      "topic": "詞性",
+      "title": "易混形副／經貿字",
+      "tip": "economic／economical；historic／historical。",
+      "level": 2
+    },
+    {
+      "id": "g-prep",
+      "topic": "介系詞",
+      "title": "高頻固定搭配",
+      "tip": "on／in／at；depend on；by＋時間。",
+      "level": 1
+    },
+    {
+      "id": "g-prep2",
+      "topic": "介系詞",
+      "title": "進階片語介系詞",
+      "tip": "in accordance with；on behalf of；in lieu of。",
+      "level": 2
+    },
+    {
+      "id": "g-conj",
+      "topic": "連接詞",
+      "title": "對等／從屬連接",
+      "tip": "and／but／although／despite＋N。",
+      "level": 1
+    },
+    {
+      "id": "g-conj2",
+      "topic": "連接詞",
+      "title": "進階連接",
+      "tip": "whereas；provided that；lest；notwithstanding。",
+      "level": 2
+    },
+    {
+      "id": "g-partadj",
+      "topic": "分詞形容詞",
+      "title": "interested／interesting",
+      "tip": "人多用 -ed；物／事多用 -ing。",
+      "level": 1
+    },
+    {
+      "id": "g-pron",
+      "topic": "代名詞",
+      "title": "格與指涉",
+      "tip": "主格受格；one…the other。",
+      "level": 1
+    },
+    {
+      "id": "g-cond",
+      "topic": "假設語氣",
+      "title": "If 三種基本",
+      "tip": "現在／過去／過去完成虛擬。",
+      "level": 1
+    },
+    {
+      "id": "g-cond2",
+      "topic": "假設語氣",
+      "title": "wish／as if／It’s time／but for",
+      "tip": "進階虛擬句型。",
+      "level": 2
+    },
+    {
+      "id": "g-rel",
+      "topic": "關係代名詞",
+      "title": "who／which／that／whose",
+      "tip": "人事物與所有格。",
+      "level": 1
+    },
+    {
+      "id": "g-rel2",
+      "topic": "關係代名詞",
+      "title": "介系詞＋which／what／whereby",
+      "tip": "進階關係結構。",
+      "level": 2
+    },
+    {
+      "id": "g-participle",
+      "topic": "分詞構句",
+      "title": "V-ing／p.p. 構句",
+      "tip": "主詞一致；Having＋p.p.。",
+      "level": 1
+    },
+    {
+      "id": "g-tense",
+      "topic": "時態",
+      "title": "常見時態一致",
+      "tip": "現在完成、過去完成、未來。",
+      "level": 1
+    },
+    {
+      "id": "g-tense2",
+      "topic": "時態",
+      "title": "完成進行",
+      "tip": "have been V-ing；had been V-ing。",
+      "level": 2
+    },
+    {
+      "id": "g-voice",
+      "topic": "語態",
+      "title": "被動與使役",
+      "tip": "be＋p.p.；have／get＋O＋p.p.。",
+      "level": 2
+    },
+    {
+      "id": "g-compare",
+      "topic": "比較",
+      "title": "比較級最高級",
+      "tip": "than；the…the…；superior to。",
+      "level": 1
+    },
+    {
+      "id": "g-toing",
+      "topic": "不定詞／動名詞",
+      "title": "to V vs V-ing",
+      "tip": "decide to；enjoy V-ing；remember 差異。",
+      "level": 1
+    },
+    {
+      "id": "g-agree",
+      "topic": "主詞一致",
+      "title": "一致規則",
+      "tip": "along with；a series of；either…or。",
+      "level": 2
+    },
+    {
+      "id": "g-inv",
+      "topic": "倒裝",
+      "title": "否定／Only 倒裝",
+      "tip": "Not until；Only after；No sooner。",
+      "level": 2
+    },
+    {
+      "id": "g-confuse",
+      "topic": "易混字",
+      "title": "affect／effect 等",
+      "tip": "principal／principle；imply／infer。",
+      "level": 2
+    },
+    {
+      "id": "g-adv",
+      "topic": "進階結構",
+      "title": "too／enough／so…as to",
+      "tip": "程度結構。",
+      "level": 2
+    },
+    {
+      "id": "g-art",
+      "topic": "冠詞",
+      "title": "a／an／the／零冠詞",
+      "tip": "可數首次；特指；物質／抽象常零冠詞。",
+      "level": 1
+    },
+    {
+      "id": "g-modal",
+      "topic": "語氣助動詞",
+      "title": "can／must／should／may",
+      "tip": "義務、推測、許可。",
+      "level": 1
+    },
+    {
+      "id": "g-count",
+      "topic": "可數不可數",
+      "title": "much／many／little／few",
+      "tip": "advice／information 不可數。",
+      "level": 1
+    },
+    {
+      "id": "g-corr",
+      "topic": "相關連接",
+      "title": "both…and／either…or／not only…but also",
+      "tip": "結構平行。",
+      "level": 2
+    },
+    {
+      "id": "g-reduce",
+      "topic": "關係子句省略",
+      "title": "省略 be＋分詞",
+      "tip": "the man sitting…＝who is sitting。",
+      "level": 2
+    },
+    {
+      "id": "g-lie",
+      "topic": "易混動詞",
+      "title": "rise／raise；lie／lay",
+      "tip": "及物不及物分清。",
+      "level": 2
+    },
+    {
+      "id": "g-art2",
+      "topic": "冠詞",
+      "title": "the+最高級／序數",
+      "tip": "the most；the first。",
+      "level": 1
+    },
+    {
+      "id": "g-modal2",
+      "topic": "語氣助動詞",
+      "title": "must not vs need not",
+      "tip": "禁止 vs 不必。",
+      "level": 1
+    },
+    {
+      "id": "g-modal3",
+      "topic": "語氣助動詞",
+      "title": "should have+p.p.",
+      "tip": "過去該做未做。",
+      "level": 2
+    },
+    {
+      "id": "g-count2",
+      "topic": "可數不可數",
+      "title": "a few/few；a little/little",
+      "tip": "肯定／否定意味。",
+      "level": 1
+    },
+    {
+      "id": "g-corr2",
+      "topic": "相關連接",
+      "title": "either…or 靠近一致",
+      "tip": "動詞跟靠近的主詞。",
+      "level": 2
+    },
+    {
+      "id": "g-where",
+      "topic": "關係代名詞",
+      "title": "where/when/why",
+      "tip": "地點時間原因關係副詞。",
+      "level": 1
+    },
+    {
+      "id": "g-stop",
+      "topic": "不定詞／動名詞",
+      "title": "stop to V vs V-ing",
+      "tip": "停下來去做 vs 停止做。",
+      "level": 2
+    },
+    {
+      "id": "g-as",
+      "topic": "比較",
+      "title": "as…as 同等比較",
+      "tip": "as reliable as。",
+      "level": 1
+    },
+    {
+      "id": "g-one",
+      "topic": "比較",
+      "title": "one of the+最高級+複數",
+      "tip": "one of the largest…",
+      "level": 1
+    },
+    {
+      "id": "g-by",
+      "topic": "介系詞",
+      "title": "by 期限 vs until 持續",
+      "tip": "截止用 by。",
+      "level": 1
+    },
+    {
+      "id": "g-among",
+      "topic": "介系詞",
+      "title": "between vs among",
+      "tip": "兩者／多者。",
+      "level": 2
+    },
+    {
+      "id": "g-rarely",
+      "topic": "倒裝",
+      "title": "Rarely/Seldom 倒裝",
+      "tip": "否定副詞置句首。",
+      "level": 2
+    },
+    {
+      "id": "g-rather",
+      "topic": "進階結構",
+      "title": "would rather+過去",
+      "tip": "寧願他人做…",
+      "level": 2
+    },
+    {
+      "id": "g-pass",
+      "topic": "語態",
+      "title": "被動 by+施事",
+      "tip": "was written by…",
+      "level": 1
+    },
+    {
+      "id": "g-excited",
+      "topic": "分詞形容詞",
+      "title": "excited vs exciting",
+      "tip": "人 -ed；事物 -ing。",
+      "level": 1
     }
   ]
 };

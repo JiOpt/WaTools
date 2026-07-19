@@ -45,28 +45,28 @@ window.WA_TOOLS_CATALOG = [
         "slug": "toeic-listening",
         "title": "聽力答題技巧",
         "icon": "bi-headphones",
-        "desc": "聽力陷阱分級學習約120則，可朗讀收藏複習、回訪進度。",
-        "seoTitle": "多益聽力線上學習｜分級陷阱收藏複習約120則",
-        "seoDescription": "多益聽力線上學習：四國口音與圖片預讀，Level1／2約120則陷阱可朗讀正確句、標記熟悉度收藏，分頁瀏覽方便反覆複習加分。",
-        "seoKeywords": "多益聽力,多益聽力學習,TOEIC Listening,聽力技巧,收藏複習,線上學習"
+        "desc": "聽力完整必考概念＋分級陷阱約150則，可標記掌握後上考場。",
+        "seoTitle": "多益聽力線上學習｜完整概念＋分級陷阱收藏約150則",
+        "seoDescription": "多益聽力考場完整概念清單＋Level1／2約150則陷阱速記，可標記掌握、朗讀正確句與熟悉度收藏，練完即可上戰場。",
+        "seoKeywords": "多益聽力,多益聽力學習,聽力技巧,完整概念,TOEIC Listening,收藏複習,線上學習"
       },
       {
         "slug": "toeic-reading",
         "title": "閱讀解題策略",
         "icon": "bi-book",
-        "desc": "閱讀策略＋分級練題約120題，標記收藏方便回訪學習。",
-        "seoTitle": "多益閱讀線上學習｜分級練題收藏複習約120題",
-        "seoDescription": "多益閱讀線上學習：Parts 5–7時間與順序＋Level1／2約120題可標記熟悉度收藏，分級瀏覽練題，適合反覆回訪衝刺金色證書。",
-        "seoKeywords": "多益閱讀,多益閱讀學習,TOEIC Reading,閱讀練題,收藏複習,線上學習"
+        "desc": "閱讀完整必考概念＋分級練題約150題，標記掌握後上考場。",
+        "seoTitle": "多益閱讀線上學習｜完整概念＋分級練題收藏約150題",
+        "seoDescription": "多益閱讀考場完整概念（Parts5–7）＋Level1／2約150題，可標記掌握與熟悉度收藏，分級瀏覽練題，練完即可上戰場。",
+        "seoKeywords": "多益閱讀,多益閱讀學習,閱讀練題,完整概念,TOEIC Reading,收藏複習,線上學習"
       },
       {
         "slug": "toeic-grammar",
         "title": "文法速成指南",
         "icon": "bi-pencil-square",
-        "desc": "多益文法線上學習約120例，可收藏標記、分級回訪複習。",
-        "seoTitle": "多益文法線上學習｜Part5／6文法收藏練題約120例",
-        "seoDescription": "多益文法線上學習：Part 5／6詞性、介系詞與假設等，Level1／2約120例可標記熟悉度收藏，分級瀏覽練題，反覆複習打穩基礎。",
-        "seoKeywords": "多益文法,多益文法學習,TOEIC grammar,文法練習,收藏文法,Part5,線上學習"
+        "desc": "文法完整必考概念＋分級約150例，標記掌握後上考場。",
+        "seoTitle": "多益文法線上學習｜完整概念＋Part5／6收藏約150例",
+        "seoDescription": "多益文法考場完整概念（詞性、假設、倒裝、易混字等）＋Level1／2約150例，可標記掌握與熟悉度收藏，練完即可上戰場。",
+        "seoKeywords": "多益文法,多益文法學習,文法練習,完整概念,TOEIC grammar,收藏文法,線上學習"
       },
       {
         "slug": "toeic-study-plan",

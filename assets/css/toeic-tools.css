@@ -382,7 +382,55 @@ body.tool-page:has(#tool-app.wa-toeic) .tool-app {
 .wa-toeic .toeic-exzh { color: var(--toeic-muted); font-size: 0.88rem; }
 .wa-toeic .toeic-trap-list .toeic-q { margin-bottom: 0.25rem; }
 
+.wa-toeic .toeic-concept-wrap {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+.wa-toeic .toeic-concept-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-areas:
+    "chip lv title mark"
+    "tip tip tip tip";
+  gap: 0.35rem 0.5rem;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--toeic-line);
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.wa-toeic .toeic-concept-item > .toeic-chip:first-child { grid-area: chip; }
+.wa-toeic .toeic-concept-item > .toeic-chip:nth-child(2) { grid-area: lv; }
+.wa-toeic .toeic-concept-item > strong { grid-area: title; font-size: 0.95rem; }
+.wa-toeic .toeic-concept-item > .toeic-muted { grid-area: mark; font-size: 0.78rem; }
+.wa-toeic .toeic-concept-tip {
+  grid-area: tip;
+  font-size: 0.86rem;
+  color: var(--toeic-muted);
+  line-height: 1.45;
+}
+.wa-toeic .toeic-concept-item.is-on {
+  border-color: rgba(4, 120, 87, 0.35);
+  background: #f0fdf4;
+}
+.wa-toeic .toeic-concept-item:hover {
+  filter: brightness(0.99);
+}
+
 @media (max-width: 576px) {
   .wa-toeic .toeic-title { font-size: 1.25rem; }
   .wa-toeic .toeic-vocab-grid { grid-template-columns: 1fr; }
+  .wa-toeic .toeic-concept-item {
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+      "chip lv mark"
+      "title title title"
+      "tip tip tip";
+  }
 }

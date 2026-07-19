@@ -1,5 +1,5 @@
 window.WA_TOEIC_READING = {
-  "focus": "Parts 5–7：填空語感、段落邏輯、單雙篇定位。Level 1 基礎高頻、Level 2 金色證書進階。",
+  "focus": "考場完整概念＋Parts 5–7：詞性／連貫／雙多篇／圖表。Level 分級練題，練完可上戰場。",
   "items": [
     {
       "id": 1,
@@ -1920,6 +1920,803 @@ window.WA_TOEIC_READING = {
       "why": "未含稅另計。",
       "level": 2,
       "id": 120
+    },
+    {
+      "part": 5,
+      "skill": "冠詞",
+      "point": "a／an 依母音發音；the 表特指。",
+      "q": "She submitted ____ unusual proposal to the board.",
+      "choices": [
+        "a",
+        "an",
+        "the only wrong always",
+        "no article required wrongly"
+      ],
+      "ans": "B",
+      "why": "unusual 母音開頭用 an。",
+      "level": 1,
+      "id": 121
+    },
+    {
+      "part": 5,
+      "skill": "冠詞",
+      "point": "the＋獨一無二／前文已提。",
+      "q": "Please close ____ door behind you.",
+      "choices": [
+        "the",
+        "a",
+        "an",
+        "any"
+      ],
+      "ans": "A",
+      "why": "雙方知道的那扇門。",
+      "level": 1,
+      "id": 122
+    },
+    {
+      "part": 5,
+      "skill": "主詞動詞一致",
+      "point": "each／every＋單數動詞。",
+      "q": "Each of the applicants ____ a writing sample.",
+      "choices": [
+        "submit",
+        "submits",
+        "submitting",
+        "have submitted wrongly as plural"
+      ],
+      "ans": "B",
+      "why": "each 當主詞用單數。",
+      "level": 1,
+      "id": 123
+    },
+    {
+      "part": 5,
+      "skill": "關係子句",
+      "point": "修飾人用 who／that。",
+      "q": "The engineer ____ designed the prototype joined us.",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "whom as subject wrongly"
+      ],
+      "ans": "A",
+      "why": "主格 who。",
+      "level": 2,
+      "id": 124
+    },
+    {
+      "part": 5,
+      "skill": "關係子句",
+      "point": "介系詞＋whom／which。",
+      "q": "The client with ____ we negotiated left early.",
+      "choices": [
+        "whom",
+        "who",
+        "which",
+        "whose"
+      ],
+      "ans": "A",
+      "why": "with whom。",
+      "level": 2,
+      "id": 125
+    },
+    {
+      "part": 5,
+      "skill": "語氣助動詞",
+      "point": "must＝義務；may＝可能／許可。",
+      "q": "Visitors ____ wear badges at all times.",
+      "choices": [
+        "must",
+        "might as weak",
+        "maybe",
+        "must to"
+      ],
+      "ans": "A",
+      "why": "規定義務 must。",
+      "level": 1,
+      "id": 126
+    },
+    {
+      "part": 5,
+      "skill": "語氣助動詞",
+      "point": "should have＋p.p. 過去該做未做。",
+      "q": "We ____ have notified the client earlier.",
+      "choices": [
+        "should",
+        "should to",
+        "must be",
+        "can"
+      ],
+      "ans": "A",
+      "why": "should have。",
+      "level": 2,
+      "id": 127
+    },
+    {
+      "part": 5,
+      "skill": "可數不可數",
+      "point": "advice 不可數。",
+      "q": "She gave me useful ____ on pricing.",
+      "choices": [
+        "advice",
+        "advices",
+        "advise",
+        "advising"
+      ],
+      "ans": "A",
+      "why": "advice 不可數。",
+      "level": 1,
+      "id": 128
+    },
+    {
+      "part": 5,
+      "skill": "平行結構",
+      "point": "and 連接同詞性。",
+      "q": "The role requires analyzing data and ____ reports.",
+      "choices": [
+        "writing",
+        "write",
+        "to write only mid",
+        "wrote"
+      ],
+      "ans": "A",
+      "why": "與 analyzing 平行。",
+      "level": 1,
+      "id": 129
+    },
+    {
+      "part": 6,
+      "skill": "句子銜接",
+      "point": "舉例銜接 for example。",
+      "q": "Several metrics improved. ____, response time fell by 20%.",
+      "choices": [
+        "For example",
+        "Nevertheless as contrast only",
+        "Otherwise",
+        "In spite of"
+      ],
+      "ans": "A",
+      "why": "舉例。",
+      "level": 1,
+      "id": 130
+    },
+    {
+      "part": 6,
+      "skill": "句子銜接",
+      "point": "對比 on the other hand。",
+      "q": "Costs rose. ____, customer satisfaction also rose.",
+      "choices": [
+        "On the other hand",
+        "Because",
+        "So that",
+        "During"
+      ],
+      "ans": "A",
+      "why": "另一面／對比。",
+      "level": 1,
+      "id": 131
+    },
+    {
+      "part": 6,
+      "skill": "句子銜接",
+      "point": "總結 in summary／overall。",
+      "q": "____, the pilot met all success criteria.",
+      "choices": [
+        "Overall",
+        "Unless",
+        "Despite of",
+        "Near"
+      ],
+      "ans": "A",
+      "why": "總結。",
+      "level": 2,
+      "id": 132
+    },
+    {
+      "part": 6,
+      "skill": "詞彙精準",
+      "point": "comply with 法規。",
+      "q": "All vendors must ____ with local regulations.",
+      "choices": [
+        "comply",
+        "complain",
+        "complete",
+        "compile"
+      ],
+      "ans": "A",
+      "why": "comply with。",
+      "level": 2,
+      "id": 133
+    },
+    {
+      "part": 6,
+      "skill": "詞彙精準",
+      "point": "revise＝修改。",
+      "q": "Please ____ the draft before Friday.",
+      "choices": [
+        "revise",
+        "reverse",
+        "revert only",
+        "reveal"
+      ],
+      "ans": "A",
+      "why": "revise。",
+      "level": 1,
+      "id": 134
+    },
+    {
+      "part": 7,
+      "skill": "文類辨識",
+      "point": "辨識公告 notice。",
+      "q": "Text posts building hours and closures. Genre?",
+      "choices": [
+        "Notice / announcement",
+        "Novel",
+        "Poem",
+        "Invoice only always"
+      ],
+      "ans": "A",
+      "why": "公告。",
+      "level": 1,
+      "id": 135
+    },
+    {
+      "part": 7,
+      "skill": "文類辨識",
+      "point": "辨識廣告。",
+      "q": "Text pushes discount codes and call-to-action. Genre?",
+      "choices": [
+        "Advertisement",
+        "Police report",
+        "Dictionary",
+        "Contract appendix only"
+      ],
+      "ans": "A",
+      "why": "廣告。",
+      "level": 1,
+      "id": 136
+    },
+    {
+      "part": 7,
+      "skill": "作者目的",
+      "point": "為何寫這封信。",
+      "q": "Email asks to reschedule a demo. Purpose?",
+      "choices": [
+        "Change the meeting time",
+        "Cancel the company",
+        "Order lunch",
+        "Hire staff only"
+      ],
+      "ans": "A",
+      "why": "改期。",
+      "level": 1,
+      "id": 137
+    },
+    {
+      "part": 7,
+      "skill": "排除題",
+      "point": "Which is NOT mentioned",
+      "q": "Benefits: gym, meals, transit. NOT mentioned?",
+      "choices": [
+        "Stock options",
+        "Gym",
+        "Meals",
+        "Transit"
+      ],
+      "ans": "A",
+      "why": "未提股票。",
+      "level": 1,
+      "id": 138
+    },
+    {
+      "part": 7,
+      "skill": "圖表題",
+      "point": "讀圖例 legend",
+      "q": "Dashed line = online sales. Solid = store. Q asks online in May.",
+      "choices": [
+        "Read the dashed May point",
+        "Ignore legend",
+        "Always pick solid",
+        "Average both blindly"
+      ],
+      "ans": "A",
+      "why": "對圖例。",
+      "level": 2,
+      "id": 139
+    },
+    {
+      "part": 7,
+      "skill": "多篇整合",
+      "point": "因果跨三篇",
+      "q": "A: storm warning. B: event moved indoors. C: new room map. Link?",
+      "choices": [
+        "Indoor move due to weather",
+        "Unrelated",
+        "Storm canceled forever",
+        "Map is a menu"
+      ],
+      "ans": "A",
+      "why": "天氣→改室內。",
+      "level": 2,
+      "id": 140
+    },
+    {
+      "part": 7,
+      "skill": "詞彙依語境",
+      "point": "outstanding＝未付清／傑出（依文）",
+      "q": "Invoice: outstanding balance due. Meaning?",
+      "choices": [
+        "Unpaid amount",
+        "Excellent quality",
+        "Canceled",
+        "Gift"
+      ],
+      "ans": "A",
+      "why": "帳單語境＝未付。",
+      "level": 2,
+      "id": 141
+    },
+    {
+      "part": 7,
+      "skill": "訊息對象",
+      "point": "誰是收件人",
+      "q": "Memo to warehouse supervisors… Who acts?",
+      "choices": [
+        "Warehouse supervisors",
+        "Customers",
+        "Competitors",
+        "Tourists"
+      ],
+      "ans": "A",
+      "why": "收件對象。",
+      "level": 1,
+      "id": 142
+    },
+    {
+      "part": 7,
+      "skill": "細節定位",
+      "point": "小字例外",
+      "q": "Free wifi except guest rooms on Floor 12. Floor 12?",
+      "choices": [
+        "Possibly no free wifi",
+        "Always free",
+        "Only paid wifi worldwide",
+        "No internet ever"
+      ],
+      "ans": "A",
+      "why": "例外樓層。",
+      "level": 2,
+      "id": 143
+    },
+    {
+      "part": 5,
+      "skill": "時態／語態",
+      "point": "過去完成早於過去。",
+      "q": "When we arrived, the meeting ____.",
+      "choices": [
+        "had started",
+        "starts",
+        "will start",
+        "starting"
+      ],
+      "ans": "A",
+      "why": "had started。",
+      "level": 1,
+      "id": 144
+    },
+    {
+      "part": 5,
+      "skill": "連接詞",
+      "point": "despite＋名詞；although＋子句。",
+      "q": "____ the rain, the tour continued.",
+      "choices": [
+        "Despite",
+        "Although",
+        "Because",
+        "So"
+      ],
+      "ans": "A",
+      "why": "despite＋N。",
+      "level": 1,
+      "id": 145
+    },
+    {
+      "part": 6,
+      "skill": "文意連貫",
+      "point": "therefore 因果。",
+      "q": "Inventory was low; ____ we reordered.",
+      "choices": [
+        "therefore",
+        "although",
+        "despite",
+        "unless"
+      ],
+      "ans": "A",
+      "why": "therefore。",
+      "level": 1,
+      "id": 146
+    },
+    {
+      "part": 7,
+      "skill": "推論",
+      "point": "下一步最合理",
+      "q": "Portal: upload ID by Monday. Reader should?",
+      "choices": [
+        "Upload before Monday",
+        "Wait until next year",
+        "Ignore",
+        "Call a rival firm"
+      ],
+      "ans": "A",
+      "why": "依指示行動。",
+      "level": 1,
+      "id": 147
+    },
+    {
+      "part": 7,
+      "skill": "雙篇對照",
+      "point": "找一致資訊",
+      "q": "A and B both list Gate 9. Shared fact?",
+      "choices": [
+        "Gate 9",
+        "Gate 6",
+        "No gate",
+        "Canceled flight only in one"
+      ],
+      "ans": "A",
+      "why": "共同 Gate 9。",
+      "level": 1,
+      "id": 148
+    },
+    {
+      "part": 5,
+      "skill": "介系詞",
+      "point": "responsible for。",
+      "q": "She is responsible ____ vendor onboarding.",
+      "choices": [
+        "for",
+        "of",
+        "to as only",
+        "at"
+      ],
+      "ans": "A",
+      "why": "responsible for。",
+      "level": 1,
+      "id": 149
+    },
+    {
+      "part": 6,
+      "skill": "指涉",
+      "point": "such 指前文類型。",
+      "q": "Delays hurt trust. ____ issues must be fixed.",
+      "choices": [
+        "Such",
+        "Them",
+        "It only singular wrong",
+        "Those people"
+      ],
+      "ans": "A",
+      "why": "such issues。",
+      "level": 2,
+      "id": 150
+    }
+  ],
+  "concepts": [
+    {
+      "id": "r5-pos",
+      "part": "5",
+      "title": "詞性：名／動／形／副",
+      "tip": "修飾誰決定詞性。",
+      "level": 1
+    },
+    {
+      "id": "r5-conj",
+      "part": "5",
+      "title": "連接詞與轉折",
+      "tip": "however／although／because。",
+      "level": 1
+    },
+    {
+      "id": "r5-prep",
+      "part": "5",
+      "title": "介系詞固定搭配",
+      "tip": "depend on／interested in。",
+      "level": 1
+    },
+    {
+      "id": "r5-pron",
+      "part": "5",
+      "title": "代名詞一致",
+      "tip": "they＝複數前文。",
+      "level": 1
+    },
+    {
+      "id": "r5-syn",
+      "part": "5",
+      "title": "同義詞替換",
+      "tip": "postpone＝delay。",
+      "level": 1
+    },
+    {
+      "id": "r5-time",
+      "part": "5",
+      "title": "時間數字用語",
+      "tip": "no later than＝by。",
+      "level": 1
+    },
+    {
+      "id": "r5-agree",
+      "part": "5",
+      "title": "主詞動詞一致",
+      "tip": "neither…nor 靠近原則；the number of。",
+      "level": 2
+    },
+    {
+      "id": "r5-tense",
+      "part": "5",
+      "title": "時態與語態",
+      "tip": "完成式、被動、未來完成。",
+      "level": 2
+    },
+    {
+      "id": "r5-virt",
+      "part": "5",
+      "title": "虛擬／It is essential that",
+      "tip": "原形動詞。",
+      "level": 2
+    },
+    {
+      "id": "r5-adv",
+      "part": "5",
+      "title": "易混副詞",
+      "tip": "hard／hardly；late／lately；near／nearly。",
+      "level": 2
+    },
+    {
+      "id": "r5-art",
+      "part": "5",
+      "title": "冠詞 a／an／the",
+      "tip": "首次提及／特指。",
+      "level": 1
+    },
+    {
+      "id": "r5-rel",
+      "part": "5",
+      "title": "關係子句填空",
+      "tip": "who／which／that／whose。",
+      "level": 2
+    },
+    {
+      "id": "r6-cohere",
+      "part": "6",
+      "title": "文意連貫轉折",
+      "tip": "However／As a result／For instance。",
+      "level": 1
+    },
+    {
+      "id": "r6-ref",
+      "part": "6",
+      "title": "段落指涉 this／these",
+      "tip": "指前文整件事。",
+      "level": 1
+    },
+    {
+      "id": "r6-vocab",
+      "part": "6",
+      "title": "語境選詞",
+      "tip": "allocate／mitigate。",
+      "level": 2
+    },
+    {
+      "id": "r6-parallel",
+      "part": "6",
+      "title": "平行結構",
+      "tip": "not only A but also B。",
+      "level": 2
+    },
+    {
+      "id": "r6-order",
+      "part": "6",
+      "title": "段落邏輯順序",
+      "tip": "問題→道歉→補救。",
+      "level": 2
+    },
+    {
+      "id": "r6-tone",
+      "part": "6",
+      "title": "正式語氣",
+      "tip": "Kindly／We look forward to…",
+      "level": 2
+    },
+    {
+      "id": "r6-insert",
+      "part": "6",
+      "title": "句子銜接功能",
+      "tip": "承上啟下、舉例、對比。",
+      "level": 2
+    },
+    {
+      "id": "r7-detail",
+      "part": "7",
+      "title": "細節定位",
+      "tip": "專有名詞、數字、小字例外。",
+      "level": 1
+    },
+    {
+      "id": "r7-infer",
+      "part": "7",
+      "title": "推論",
+      "tip": "言外之意與條件句。",
+      "level": 1
+    },
+    {
+      "id": "r7-syn",
+      "part": "7",
+      "title": "文中同義詞",
+      "tip": "allocated≈assigned。",
+      "level": 1
+    },
+    {
+      "id": "r7-main",
+      "part": "7",
+      "title": "主旨／目的",
+      "tip": "主旨≠單一細節。",
+      "level": 1
+    },
+    {
+      "id": "r7-dual",
+      "part": "7",
+      "title": "雙篇對照",
+      "tip": "共同主題與衝突資訊。",
+      "level": 1
+    },
+    {
+      "id": "r7-not",
+      "part": "7",
+      "title": "NOT／EXCEPT",
+      "tip": "找未被提及者。",
+      "level": 2
+    },
+    {
+      "id": "r7-chart",
+      "part": "7",
+      "title": "圖表單位與比較",
+      "tip": "thousands；哪月較高。",
+      "level": 2
+    },
+    {
+      "id": "r7-triple",
+      "part": "7",
+      "title": "多篇整合",
+      "tip": "三篇找共同截止日／因果。",
+      "level": 2
+    },
+    {
+      "id": "r7-audience",
+      "part": "7",
+      "title": "對象與下一步",
+      "tip": "誰該行動；RSVP。",
+      "level": 2
+    },
+    {
+      "id": "r7-genre",
+      "part": "7",
+      "title": "文類辨識",
+      "tip": "email／notice／ad／article。",
+      "level": 1
+    },
+    {
+      "id": "r7-vocabctx",
+      "part": "7",
+      "title": "詞彙依語境",
+      "tip": "forthcoming＝即將公布。",
+      "level": 2
+    },
+    {
+      "id": "r7-foot",
+      "part": "7",
+      "title": "註腳與附件",
+      "tip": "Attachment B；tax excluded。",
+      "level": 2
+    },
+    {
+      "id": "r5-modal",
+      "part": "5",
+      "title": "語氣助動詞 must/may/should",
+      "tip": "義務、許可、建議。",
+      "level": 1
+    },
+    {
+      "id": "r5-count",
+      "part": "5",
+      "title": "可數不可數與量詞",
+      "tip": "advice/equipment；few/little。",
+      "level": 1
+    },
+    {
+      "id": "r5-parallel",
+      "part": "5",
+      "title": "平行結構 and/or",
+      "tip": "連接同詞性。",
+      "level": 1
+    },
+    {
+      "id": "r5-voice",
+      "part": "5",
+      "title": "被動語態填空",
+      "tip": "be+p.p.；by+施事。",
+      "level": 1
+    },
+    {
+      "id": "r5-cond",
+      "part": "5",
+      "title": "條件與假設填空",
+      "tip": "If／provided／unless。",
+      "level": 2
+    },
+    {
+      "id": "r5-compare",
+      "part": "5",
+      "title": "比較結構 as…as／than",
+      "tip": "同等與優劣比較。",
+      "level": 1
+    },
+    {
+      "id": "r6-sum",
+      "part": "6",
+      "title": "總結銜接 overall/in short",
+      "tip": "段末收束。",
+      "level": 2
+    },
+    {
+      "id": "r6-comply",
+      "part": "6",
+      "title": "法規／合規用詞",
+      "tip": "comply with；in accordance with。",
+      "level": 2
+    },
+    {
+      "id": "r7-purpose",
+      "part": "7",
+      "title": "作者／信件目的",
+      "tip": "為何寫：通知、請求、推銷。",
+      "level": 1
+    },
+    {
+      "id": "r7-genre2",
+      "part": "7",
+      "title": "信件 vs 備忘 vs 報導",
+      "tip": "格式與語氣差異。",
+      "level": 1
+    },
+    {
+      "id": "r7-vocab2",
+      "part": "7",
+      "title": "多義字依語境",
+      "tip": "outstanding＝未付／傑出。",
+      "level": 2
+    },
+    {
+      "id": "r7-step",
+      "part": "7",
+      "title": "流程與步驟題",
+      "tip": "first/then/finally。",
+      "level": 1
+    },
+    {
+      "id": "r7-conflict",
+      "part": "7",
+      "title": "雙篇資訊衝突",
+      "tip": "找不一致的時間／地點。",
+      "level": 2
+    },
+    {
+      "id": "r7-imply",
+      "part": "7",
+      "title": "暗示與態度",
+      "tip": "cautious／enthusiastic。",
+      "level": 2
     }
   ]
 };

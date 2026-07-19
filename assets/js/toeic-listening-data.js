@@ -1,5 +1,5 @@
 window.WA_TOEIC_LISTENING = {
-  "focus": "Parts 1–4 陷阱速記：Level 1 基礎高頻、Level 2 金色證書進階。",
+  "focus": "考場完整概念＋Parts 1–4 陷阱：Level 1 基礎、Level 2 金色證書。練完可上戰場。",
   "items": [
     {
       "id": 1,
@@ -1199,6 +1199,697 @@ window.WA_TOEIC_LISTENING = {
       "wrong": "先憑記憶填。",
       "right": "預讀軸與圖例再聽。",
       "tip": "雙通道處理。",
+      "level": 2
+    },
+    {
+      "part": "Part 1",
+      "trap": "陰影與光線",
+      "ex": "圖：強光下物品有長影。",
+      "wrong": "It is completely dark inside.",
+      "right": "Objects cast long shadows in bright light.",
+      "tip": "光線線索輔助場景。",
+      "level": 1,
+      "id": 121
+    },
+    {
+      "part": "Part 1",
+      "trap": "坐姿 vs 站姿",
+      "ex": "圖：全員站立簡報。",
+      "wrong": "Everyone is seated at desks.",
+      "right": "People are standing during a presentation.",
+      "tip": "姿勢常考。",
+      "level": 1,
+      "id": 122
+    },
+    {
+      "part": "Part 1",
+      "trap": "書寫 vs 打字",
+      "ex": "圖：手寫簽名。",
+      "wrong": "She is typing on a keyboard.",
+      "right": "She is signing a document.",
+      "tip": "手部精細動作。",
+      "level": 1,
+      "id": 123
+    },
+    {
+      "part": "Part 1",
+      "trap": "指向圖表",
+      "ex": "圖：人指投影螢幕。",
+      "wrong": "He is looking out the window.",
+      "right": "He is pointing at the screen.",
+      "tip": "指示動作。",
+      "level": 1,
+      "id": 124
+    },
+    {
+      "part": "Part 1",
+      "trap": "清潔進行中",
+      "ex": "圖：拖地。",
+      "wrong": "The floor has already dried.",
+      "right": "Someone is mopping the floor.",
+      "tip": "清潔進行式。",
+      "level": 1,
+      "id": 125
+    },
+    {
+      "part": "Part 1",
+      "trap": "雨天室外裝備",
+      "ex": "圖：撐傘排隊。",
+      "wrong": "People are sunbathing.",
+      "right": "People are holding umbrellas in the rain.",
+      "tip": "天氣＋配件。",
+      "level": 2,
+      "id": 126
+    },
+    {
+      "part": "Part 1",
+      "trap": "堆疊高度",
+      "ex": "圖：箱子堆很高。",
+      "wrong": "Boxes are scattered flat.",
+      "right": "Boxes are stacked high.",
+      "tip": "stacked vs scattered。",
+      "level": 2,
+      "id": 127
+    },
+    {
+      "part": "Part 2",
+      "trap": "How about 建議",
+      "ex": "How about meeting after lunch?",
+      "wrong": "Lunch is a meal.",
+      "right": "Sure, around 1:30.",
+      "tip": "How about＝建議。",
+      "level": 1,
+      "id": 128
+    },
+    {
+      "part": "Part 2",
+      "trap": "What do you think",
+      "ex": "What do you think of the draft?",
+      "wrong": "Drafts are cold.",
+      "right": "It looks solid overall.",
+      "tip": "給評價。",
+      "level": 1,
+      "id": 129
+    },
+    {
+      "part": "Part 2",
+      "trap": "Would you mind",
+      "ex": "Would you mind closing the window?",
+      "wrong": "Windows are glass.",
+      "right": "Not at all.",
+      "tip": "mind＋V-ing；Not at all＝願意。",
+      "level": 1,
+      "id": 130
+    },
+    {
+      "part": "Part 2",
+      "trap": "嵌入問句 where",
+      "ex": "Do you know where the forms are?",
+      "wrong": "Forms are paperwork.",
+      "right": "In the top drawer.",
+      "tip": "答地點。",
+      "level": 2,
+      "id": 131
+    },
+    {
+      "part": "Part 2",
+      "trap": "How come",
+      "ex": "How come the lab is locked?",
+      "wrong": "Labs do research.",
+      "right": "There’s a safety drill.",
+      "tip": "How come＝為什麼。",
+      "level": 2,
+      "id": 132
+    },
+    {
+      "part": "Part 2",
+      "trap": "同意附和",
+      "ex": "This queue is endless.",
+      "wrong": "Queues are lines.",
+      "right": "Tell me about it.",
+      "tip": "附和用語。",
+      "level": 2,
+      "id": 133
+    },
+    {
+      "part": "Part 3",
+      "trap": "抱怨＋補償",
+      "ex": "延誤後給折扣。",
+      "wrong": "No compensation offered.",
+      "right": "They offer a discount for the delay.",
+      "tip": "complaint＋remedy。",
+      "level": 1,
+      "id": 134
+    },
+    {
+      "part": "Part 3",
+      "trap": "預約改期",
+      "ex": "原週二改週四。",
+      "wrong": "Tuesday.",
+      "right": "Thursday after rescheduling.",
+      "tip": "reschedule。",
+      "level": 1,
+      "id": 135
+    },
+    {
+      "part": "Part 3",
+      "trap": "設備故障回報",
+      "ex": "影印機卡紙。",
+      "wrong": "Everything works.",
+      "right": "The copier has a paper jam.",
+      "tip": "problem report。",
+      "level": 1,
+      "id": 136
+    },
+    {
+      "part": "Part 3",
+      "trap": "圖表最高點",
+      "ex": "問哪月營收最高。",
+      "wrong": "猜第一月。",
+      "right": "對照圖中最高長條。",
+      "tip": "讀圖再聽。",
+      "level": 2,
+      "id": 137
+    },
+    {
+      "part": "Part 3",
+      "trap": "隱藏截止",
+      "ex": "表面上寒暄，其實提醒 Friday due。",
+      "wrong": "No deadline mentioned.",
+      "right": "The due date is Friday.",
+      "tip": "細節藏在後段。",
+      "level": 2,
+      "id": 138
+    },
+    {
+      "part": "Part 3",
+      "trap": "跨部門協調",
+      "ex": "行銷需設計先交檔。",
+      "wrong": "Work in isolation.",
+      "right": "Design must deliver assets first.",
+      "tip": "dependency。",
+      "level": 2,
+      "id": 139
+    },
+    {
+      "part": "Part 4",
+      "trap": "會議議程宣佈",
+      "ex": "先財務後產品。",
+      "wrong": "Party agenda.",
+      "right": "Finance first, then product updates.",
+      "tip": "agenda order。",
+      "level": 1,
+      "id": 140
+    },
+    {
+      "part": "Part 4",
+      "trap": "開放時間異動",
+      "ex": "週日改休息。",
+      "wrong": "Open every day.",
+      "right": "Closed on Sundays now.",
+      "tip": "hours change。",
+      "level": 1,
+      "id": 141
+    },
+    {
+      "part": "Part 4",
+      "trap": "停車指引",
+      "ex": "訪客停 B2。",
+      "wrong": "Park anywhere.",
+      "right": "Visitor parking is on B2.",
+      "tip": "parking instruction。",
+      "level": 1,
+      "id": 142
+    },
+    {
+      "part": "Part 4",
+      "trap": "票種限制",
+      "ex": "學生票需證件。",
+      "wrong": "Any ticket works without ID.",
+      "right": "Student tickets require ID.",
+      "tip": "eligibility。",
+      "level": 2,
+      "id": 143
+    },
+    {
+      "part": "Part 4",
+      "trap": "緊急疏散",
+      "ex": "火災往東門。",
+      "wrong": "Stay at desks.",
+      "right": "Exit through the east doors.",
+      "tip": "evacuation。",
+      "level": 2,
+      "id": 144
+    },
+    {
+      "part": "Part 4",
+      "trap": "贊助感謝＋抽獎",
+      "ex": "聽完抽獎規則。",
+      "wrong": "Ignore the sponsor.",
+      "right": "Thanks sponsors; raffle rules follow.",
+      "tip": "closing segment。",
+      "level": 2,
+      "id": 145
+    },
+    {
+      "part": "口音",
+      "trap": "英式 holiday",
+      "ex": "on holiday",
+      "wrong": "一定是宗教節日。",
+      "right": "＝on vacation（休假）。",
+      "tip": "詞彙差異。",
+      "level": 1,
+      "id": 146
+    },
+    {
+      "part": "口音",
+      "trap": "美式 cell phone",
+      "ex": "call my cell",
+      "wrong": "監獄牢房。",
+      "right": "手機。",
+      "tip": "mobile＝cell。",
+      "level": 1,
+      "id": 147
+    },
+    {
+      "part": "綜合",
+      "trap": "先題後文預讀",
+      "ex": "Part 3／4 先看題",
+      "wrong": "閉眼等播完。",
+      "right": "預讀問句與選項關鍵。",
+      "tip": "預讀節奏。",
+      "level": 1,
+      "id": 148
+    },
+    {
+      "part": "綜合",
+      "trap": "同義選項掃描",
+      "ex": "選項用不同動詞",
+      "wrong": "只聽原字才選。",
+      "right": "對應同義替換。",
+      "tip": "synonym options。",
+      "level": 2,
+      "id": 149
+    }
+  ],
+  "concepts": [
+    {
+      "id": "l-p1-action",
+      "part": "Part 1",
+      "title": "進行中動作 vs 完成狀態",
+      "tip": "is V-ing ≠ has V-ed／is open。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-object",
+      "part": "Part 1",
+      "title": "物件辨識與相似物",
+      "tip": "先看清楚再聽同義描述。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-prep",
+      "part": "Part 1",
+      "title": "位置介系詞",
+      "tip": "behind／in front of／beside／between。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-count",
+      "part": "Part 1",
+      "title": "人數／數量",
+      "tip": "預讀先數，聽 three／several。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-lr",
+      "part": "Part 1",
+      "title": "左右與方位",
+      "tip": "left／right／near the window。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-indoor",
+      "part": "Part 1",
+      "title": "室內外與背景",
+      "tip": "meeting room ≠ park。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-tool",
+      "part": "Part 1",
+      "title": "工具／配件使用中",
+      "tip": "wearing headset／using drill。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-passive",
+      "part": "Part 1",
+      "title": "被動狀態敘述",
+      "tip": "The door is open. 無人推門。",
+      "level": 1
+    },
+    {
+      "id": "l-p1-partial",
+      "part": "Part 1",
+      "title": "遮擋／遠景細節",
+      "tip": "背景搬箱、前景遮擋常考。",
+      "level": 2
+    },
+    {
+      "id": "l-p1-reflect",
+      "part": "Part 1",
+      "title": "倒影／螢幕顯示",
+      "tip": "反射≠第二場景；讀螢幕字。",
+      "level": 2
+    },
+    {
+      "id": "l-p1-safety",
+      "part": "Part 1",
+      "title": "工安裝備",
+      "tip": "hard hat／vest／goggles。",
+      "level": 2
+    },
+    {
+      "id": "l-p1-load",
+      "part": "Part 1",
+      "title": "裝卸進行中",
+      "tip": "being unloaded ≠ already emptied。",
+      "level": 2
+    },
+    {
+      "id": "l-p2-wh",
+      "part": "Part 2",
+      "title": "疑問詞對應",
+      "tip": "who→人；where→地；when→時；why→因；how→方式。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-yn",
+      "part": "Part 2",
+      "title": "Yes/No 與補充",
+      "tip": "先答是否再補資訊。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-sound",
+      "part": "Part 2",
+      "title": "相似音陷阱",
+      "tip": "noon／moon；勿被諧音帶走。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-echo",
+      "part": "Part 2",
+      "title": "重複原字誘答",
+      "tip": "複誦原字常是錯的。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-neg",
+      "part": "Part 2",
+      "title": "否定語意一致",
+      "tip": "Has…? → No, not yet.／Yes, it has.",
+      "level": 1
+    },
+    {
+      "id": "l-p2-or",
+      "part": "Part 2",
+      "title": "選擇問 A or B",
+      "tip": "要選邊或 neither／both。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-offer",
+      "part": "Part 2",
+      "title": "建議／請求／邀請",
+      "tip": "Should we…?／Can you…? 給明確回應。",
+      "level": 1
+    },
+    {
+      "id": "l-p2-indirect",
+      "part": "Part 2",
+      "title": "間接拒絕與改約",
+      "tip": "I have another appointment.",
+      "level": 1
+    },
+    {
+      "id": "l-p2-tag",
+      "part": "Part 2",
+      "title": "附加問句",
+      "tip": "…, isn’t it? 先確認或否認。",
+      "level": 2
+    },
+    {
+      "id": "l-p2-embed",
+      "part": "Part 2",
+      "title": "間接／嵌入問句",
+      "tip": "Do you know where…? 答地點。",
+      "level": 2
+    },
+    {
+      "id": "l-p2-cond",
+      "part": "Part 2",
+      "title": "條件問 If…",
+      "tip": "條件達成後的行動。",
+      "level": 2
+    },
+    {
+      "id": "l-p2-tone",
+      "part": "Part 2",
+      "title": "語氣／反諷",
+      "tip": "抓真實態度非字面。",
+      "level": 2
+    },
+    {
+      "id": "l-p2-ty",
+      "part": "Part 2",
+      "title": "teen／ty 數字",
+      "tip": "thirteen／thirty 重音不同。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-purpose",
+      "part": "Part 3",
+      "title": "對話目的",
+      "tip": "why they called／met。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-who",
+      "part": "Part 3",
+      "title": "身份與關係",
+      "tip": "supplier／client／coworker。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-time",
+      "part": "Part 3",
+      "title": "時間變更",
+      "tip": "以最後確認為準。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-req",
+      "part": "Part 3",
+      "title": "請求與下一步",
+      "tip": "I’ll／Could you／next step。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-place",
+      "part": "Part 3",
+      "title": "地點與專有名詞",
+      "tip": "warehouse／Hall B。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-syn",
+      "part": "Part 3",
+      "title": "同義替換選項",
+      "tip": "cut costs＝reduce expenses。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-turn",
+      "part": "Part 3",
+      "title": "轉折 however／actually",
+      "tip": "轉折後常是答案。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-num",
+      "part": "Part 3",
+      "title": "數字與數量",
+      "tip": "40 vs 14。",
+      "level": 1
+    },
+    {
+      "id": "l-p3-graph",
+      "part": "Part 3",
+      "title": "圖表題",
+      "tip": "先讀軸與問句再聽。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-three",
+      "part": "Part 3",
+      "title": "三人對話",
+      "tip": "注意第三個聲音的方案。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-vm",
+      "part": "Part 3",
+      "title": "電話留言",
+      "tip": "回撥分機／截止時間。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-deal",
+      "part": "Part 3",
+      "title": "優惠條件與門檻",
+      "tip": "滿額免運／至月底。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-stance",
+      "part": "Part 3",
+      "title": "多方立場衝突",
+      "tip": "業務要折扣、財務要利潤。",
+      "level": 2
+    },
+    {
+      "id": "l-p3-correct",
+      "part": "Part 3",
+      "title": "錯誤假設被糾正",
+      "tip": "Room A→改 B。",
+      "level": 2
+    },
+    {
+      "id": "l-p4-purpose",
+      "part": "Part 4",
+      "title": "獨白目的",
+      "tip": "開頭常講目的。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-tour",
+      "part": "Part 4",
+      "title": "導覽／行程下一站",
+      "tip": "next stop／next。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-ad",
+      "part": "Part 4",
+      "title": "廣告優惠",
+      "tip": "折扣與期限。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-news",
+      "part": "Part 4",
+      "title": "新聞升跌",
+      "tip": "rose／fell。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-flight",
+      "part": "Part 4",
+      "title": "航班延誤",
+      "tip": "delayed＋時長。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-menu",
+      "part": "Part 4",
+      "title": "語音選單指示",
+      "tip": "Press 2。",
+      "level": 1
+    },
+    {
+      "id": "l-p4-policy",
+      "part": "Part 4",
+      "title": "政策變更",
+      "tip": "新舊對照（退貨天數）。",
+      "level": 2
+    },
+    {
+      "id": "l-p4-except",
+      "part": "Part 4",
+      "title": "規則例外",
+      "tip": "一般禁止，急件可申請。",
+      "level": 2
+    },
+    {
+      "id": "l-p4-phase",
+      "part": "Part 4",
+      "title": "分階段時程",
+      "tip": "pilot → full release。",
+      "level": 2
+    },
+    {
+      "id": "l-p4-maint",
+      "part": "Part 4",
+      "title": "維修／改道範圍",
+      "tip": "僅東翼／接駁巴士。",
+      "level": 2
+    },
+    {
+      "id": "l-p4-recall",
+      "part": "Part 4",
+      "title": "召回／批次",
+      "tip": "affected batch。",
+      "level": 2
+    },
+    {
+      "id": "l-acc-usuk",
+      "part": "口音",
+      "title": "美英澳加詞彙差異",
+      "tip": "elevator／lift；flat＝apartment。",
+      "level": 1
+    },
+    {
+      "id": "l-acc-sched",
+      "part": "口音",
+      "title": "schedule 等發音差異",
+      "tip": "辨義不辨腔。",
+      "level": 1
+    },
+    {
+      "id": "l-acc-link",
+      "part": "口音",
+      "title": "連音弱讀",
+      "tip": "抓實詞重音。",
+      "level": 2
+    },
+    {
+      "id": "l-acc-stress",
+      "part": "口音",
+      "title": "重音改變詞性",
+      "tip": "REcord／reCORD。",
+      "level": 2
+    },
+    {
+      "id": "l-all-preview",
+      "part": "綜合",
+      "title": "Directions 預讀",
+      "tip": "劃關鍵字＝送分時間。",
+      "level": 1
+    },
+    {
+      "id": "l-all-multi",
+      "part": "綜合",
+      "title": "一組多題對應",
+      "tip": "題號對時間軸分段聽。",
+      "level": 2
+    },
+    {
+      "id": "l-all-opt",
+      "part": "綜合",
+      "title": "選項反義對立",
+      "tip": "increase／decrease 先標。",
       "level": 2
     }
   ]
