@@ -5,33 +5,6 @@ window.WA_TOOLS_CATALOG = [
     "tagline": "線上學習多益：收藏單字、文法練題、聽讀技巧，分級複習好回訪。",
     "tools": [
       {
-        "slug": "toeic-intro",
-        "title": "多益測驗介紹",
-        "icon": "bi-info-circle",
-        "desc": "2.5 小時、聽力四題／閱讀三題結構與計分速覽。",
-        "seoTitle": "多益線上學習入門｜題型計分與單字文法路徑",
-        "seoDescription": "多益線上學習總覽：聽讀題型與計分一次看懂，並導引單字收藏、文法練題與聽力閱讀分級練習，方便反覆回訪複習。",
-        "seoKeywords": "多益線上學習,多益入門,TOEIC學習,多益單字,多益文法,免費多益"
-      },
-      {
-        "slug": "toeic-mock-tests",
-        "title": "免費模擬測驗",
-        "icon": "bi-clipboard2-check",
-        "desc": "官方與優質免費試題連結，方便自我檢測。",
-        "seoTitle": "多益免費模擬測驗｜線上試題資源 | KaWaTool",
-        "seoDescription": "整理多益免費模擬與考古資源連結，幫你用正式題感做實力檢測與時間配速練習。",
-        "seoKeywords": "多益模擬考,免費TOEIC,線上測驗"
-      },
-      {
-        "slug": "toeic-score-levels",
-        "title": "程度落點分析",
-        "icon": "bi-bar-chart-steps",
-        "desc": "600／750／860 分區間對照，看清目標差距。",
-        "seoTitle": "多益分數落點｜600 750 860 程度對照 | KaWaTool",
-        "seoDescription": "對照多益常見分數區間與能力描述，快速判斷目前落點與衝刺目標。",
-        "seoKeywords": "多益分數,TOEIC等級,860分"
-      },
-      {
         "slug": "toeic-vocab",
         "title": "多益單字記憶",
         "icon": "bi-card-text",
@@ -67,6 +40,33 @@ window.WA_TOOLS_CATALOG = [
         "seoTitle": "多益文法線上學習｜完整概念＋Part5／6收藏約150例",
         "seoDescription": "多益文法考場完整概念（詞性、假設、倒裝、易混字等）＋Level1／2約150例，可標記掌握與熟悉度收藏，練完即可上戰場。",
         "seoKeywords": "多益文法,多益文法學習,文法練習,完整概念,TOEIC grammar,收藏文法,線上學習"
+      },
+      {
+        "slug": "toeic-intro",
+        "title": "多益測驗介紹",
+        "icon": "bi-info-circle",
+        "desc": "2.5 小時、聽力四題／閱讀三題結構與計分速覽。",
+        "seoTitle": "多益線上學習入門｜題型計分與單字文法路徑",
+        "seoDescription": "多益線上學習總覽：聽讀題型與計分一次看懂，並導引單字收藏、文法練題與聽力閱讀分級練習，方便反覆回訪複習。",
+        "seoKeywords": "多益線上學習,多益入門,TOEIC學習,多益單字,多益文法,免費多益"
+      },
+      {
+        "slug": "toeic-mock-tests",
+        "title": "免費模擬測驗",
+        "icon": "bi-clipboard2-check",
+        "desc": "官方與優質免費試題連結，方便自我檢測。",
+        "seoTitle": "多益免費模擬測驗｜線上試題資源 | KaWaTool",
+        "seoDescription": "整理多益免費模擬與考古資源連結，幫你用正式題感做實力檢測與時間配速練習。",
+        "seoKeywords": "多益模擬考,免費TOEIC,線上測驗"
+      },
+      {
+        "slug": "toeic-score-levels",
+        "title": "程度落點分析",
+        "icon": "bi-bar-chart-steps",
+        "desc": "600／750／860 分區間對照，看清目標差距。",
+        "seoTitle": "多益分數落點｜600 750 860 程度對照 | KaWaTool",
+        "seoDescription": "對照多益常見分數區間與能力描述，快速判斷目前落點與衝刺目標。",
+        "seoKeywords": "多益分數,TOEIC等級,860分"
       },
       {
         "slug": "toeic-study-plan",
@@ -130,33 +130,6 @@ window.WA_TOOLS_CATALOG = [
     "tagline": "線上學習托福：收藏學術單字、文法練題與四科技巧，分級回訪。",
     "tools": [
       {
-        "slug": "toefl-intro",
-        "title": "托福測驗介紹",
-        "icon": "bi-info-circle",
-        "desc": "iBT 讀聽說寫結構、時間與 0–120 計分速覽。",
-        "seoTitle": "托福測驗介紹｜iBT 四科與計分 | KaWaTool",
-        "seoDescription": "精簡介紹托福 iBT：閱讀、聽力、口說、寫作題型與分數門檻，適合初次報考者建立全貌。",
-        "seoKeywords": "托福,TOEFL,iBT,題型,計分"
-      },
-      {
-        "slug": "toefl-mock-tests",
-        "title": "免費模擬測驗",
-        "icon": "bi-clipboard2-check",
-        "desc": "官方樣題與模擬資源，方便自我檢測。",
-        "seoTitle": "托福免費模擬｜ETS 樣題資源 | KaWaTool",
-        "seoDescription": "整理托福免費樣題與模擬入口，用正式題感做實力檢測與時間配速。",
-        "seoKeywords": "托福模擬考,TOEFL practice,免費樣題"
-      },
-      {
-        "slug": "toefl-score-levels",
-        "title": "程度落點分析",
-        "icon": "bi-bar-chart-steps",
-        "desc": "80／90／100／110 分區間對照目標差距。",
-        "seoTitle": "托福分數落點｜80 90 100 程度對照 | KaWaTool",
-        "seoDescription": "對照托福常見總分門檻與能力描述，快速判斷落點與衝刺方向。",
-        "seoKeywords": "托福分數,TOEFL 100,申請門檻"
-      },
-      {
         "slug": "toefl-vocab",
         "title": "托福單字記憶",
         "icon": "bi-card-text",
@@ -192,6 +165,33 @@ window.WA_TOOLS_CATALOG = [
         "seoTitle": "托福文法線上學習｜從句一致文法收藏練題約60例",
         "seoDescription": "托福文法線上學習：主詞動詞一致、關係子句與分詞等，約60例可標記熟悉度收藏，方便分頁瀏覽與反覆回訪複習讀寫基礎。",
         "seoKeywords": "托福文法,托福文法學習,TOEFL grammar,文法練習,收藏文法,線上學習"
+      },
+      {
+        "slug": "toefl-intro",
+        "title": "托福測驗介紹",
+        "icon": "bi-info-circle",
+        "desc": "iBT 讀聽說寫結構、時間與 0–120 計分速覽。",
+        "seoTitle": "托福測驗介紹｜iBT 四科與計分 | KaWaTool",
+        "seoDescription": "精簡介紹托福 iBT：閱讀、聽力、口說、寫作題型與分數門檻，適合初次報考者建立全貌。",
+        "seoKeywords": "托福,TOEFL,iBT,題型,計分"
+      },
+      {
+        "slug": "toefl-mock-tests",
+        "title": "免費模擬測驗",
+        "icon": "bi-clipboard2-check",
+        "desc": "官方樣題與模擬資源，方便自我檢測。",
+        "seoTitle": "托福免費模擬｜ETS 樣題資源 | KaWaTool",
+        "seoDescription": "整理托福免費樣題與模擬入口，用正式題感做實力檢測與時間配速。",
+        "seoKeywords": "托福模擬考,TOEFL practice,免費樣題"
+      },
+      {
+        "slug": "toefl-score-levels",
+        "title": "程度落點分析",
+        "icon": "bi-bar-chart-steps",
+        "desc": "80／90／100／110 分區間對照目標差距。",
+        "seoTitle": "托福分數落點｜80 90 100 程度對照 | KaWaTool",
+        "seoDescription": "對照托福常見總分門檻與能力描述，快速判斷落點與衝刺方向。",
+        "seoKeywords": "托福分數,TOEFL 100,申請門檻"
       },
       {
         "slug": "toefl-speaking",
