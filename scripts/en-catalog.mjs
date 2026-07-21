@@ -3,6 +3,7 @@
  * Used by build-en-pages.mjs → i18n-en.js + /en/** shells.
  */
 export const EN_CATEGORIES = {
+  live: 'Live Pulse',
   viral: 'Trending tools',
   creator: 'Creator toolkit',
   fun: 'Fun & quizzes',
@@ -23,6 +24,16 @@ export const EN_CATEGORIES = {
 
 /** @type {Record<string, { title: string, desc: string }>} */
 export const EN_TOOLS = {
+  'live-crypto': { title: 'Crypto live board', desc: 'BTC/ETH prices, 24h change and market cap.' },
+  'live-fx': { title: 'FX live board', desc: 'Major currency pairs and conversion calculator.' },
+  'live-earthquake': { title: 'Global earthquake feed', desc: 'Last 24h magnitude, epicenter and depth.' },
+  'live-tw-quake': { title: 'Taiwan earthquake lookup', desc: 'Recent quakes around Taiwan with filters.' },
+  'live-weather': { title: 'City weather now', desc: 'Search cities for temperature, rain and wind.' },
+  'live-flight': { title: 'Live airspace lookup', desc: 'Aircraft altitude and speed by region.' },
+  'live-football': { title: 'Football standings board', desc: 'Top league tables and recent fixtures.' },
+  'live-nba': { title: 'NBA scoreboard', desc: 'Today’s NBA schedule and score summary.' },
+  'live-gold': { title: 'Gold & metals board', desc: 'Gold/silver reference prices and change.' },
+  'live-trends': { title: 'Trending keywords wall', desc: 'Public hot topics wall (not Google Trends).' },
   'threads-persona-analyzer': { title: 'Threads persona analyzer', desc: 'Fun quiz for social persona and share-card export.' },
   'mortgage-calculator': { title: 'Mortgage / Youth loan calculator', desc: '2026 mortgage and New Youth loan rates with grace period.' },
   'llm-api-cost-calculator': { title: 'LLM API cost calculator', desc: 'Estimate GPT / Claude / Gemini monthly USD and TWD cost.' },

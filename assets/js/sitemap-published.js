@@ -1,6 +1,6 @@
 /** Auto-generated from sitemap.txt — do not edit by hand. */
 window.WA_PUBLISHED_SLUGS = {
-  "updated": "2026-07-17T15:46:33.660Z",
+  "updated": "2026-07-21T13:38:41.474Z",
   "slugs": [
     "aizome-kimono",
     "ama-shima",
@@ -54,6 +54,14 @@ window.WA_PUBLISHED_SLUGS = {
     "labor-retirement-calculator",
     "line-image-preview-cropper",
     "link-preview-card",
+    "live-crypto",
+    "live-earthquake",
+    "live-fx",
+    "live-gold",
+    "live-nba",
+    "live-trends",
+    "live-tw-quake",
+    "live-weather",
     "llm-api-cost-calculator",
     "lucky-draw",
     "lucky-number",

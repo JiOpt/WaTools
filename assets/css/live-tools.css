@@ -1,0 +1,309 @@
+/* Live Pulse — bright board UI (independent of purple AI defaults) */
+.tool-app.wa-live {
+  --live-accent: #0f766e;
+  --live-heading: #134e4a;
+  --live-text: #334155;
+  --live-muted: #64748b;
+  --live-surface: #ffffff;
+  --live-soft: #f0fdfa;
+  --live-border: rgba(15, 118, 110, 0.22);
+  --live-up: #059669;
+  --live-down: #dc2626;
+  --live-warn: #b45309;
+  color: var(--live-text);
+  background: transparent !important;
+  border-radius: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+html[data-theme="dark"] .tool-app.wa-live,
+html[data-theme="dark"] .wa-live .lv-card,
+html[data-theme="dark"] .wa-live .lv-input,
+html[data-theme="dark"] .wa-live .lv-select {
+  color-scheme: light;
+}
+
+.wa-live .lv-card {
+  background: #ffffff !important;
+  border: 1px solid var(--live-border) !important;
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem 1.35rem;
+  box-shadow: 0 4px 18px rgba(15, 118, 110, 0.07);
+  color: var(--live-text);
+}
+
+.wa-live .lv-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--live-accent);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.wa-live .lv-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.35rem;
+  color: var(--live-heading);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.wa-live .lv-lead {
+  margin: 0 0 0.65rem;
+  color: var(--live-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.wa-live .lv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  color: var(--live-muted);
+}
+
+.wa-live .lv-meta strong {
+  color: var(--live-heading);
+  font-weight: 600;
+}
+
+.wa-live .lv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.wa-live .lv-field {
+  flex: 1 1 140px;
+  min-width: 120px;
+}
+
+.wa-live .lv-field--grow {
+  flex: 2 1 200px;
+}
+
+.wa-live label.lv-label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--live-heading);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.wa-live .lv-input,
+.wa-live .lv-select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--live-accent), transparent 68%);
+  background: #fff;
+  color: var(--live-text);
+  padding: 0.55rem 0.8rem;
+  outline: none;
+  font-size: 0.92rem;
+}
+
+.wa-live .lv-input:focus,
+.wa-live .lv-select:focus {
+  border-color: var(--live-accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.wa-live .lv-btn {
+  background: var(--live-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.wa-live .lv-btn:hover {
+  filter: brightness(1.05);
+}
+
+.wa-live .lv-btn-ghost {
+  background: var(--live-soft) !important;
+  color: var(--live-accent) !important;
+  border: 1px solid var(--live-border) !important;
+}
+
+.wa-live .lv-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+  .wa-live .lv-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.wa-live .lv-kpi {
+  background: var(--live-soft);
+  border: 1px solid var(--live-border);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+}
+
+.wa-live .lv-kpi__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--live-muted);
+  margin-bottom: 0.25rem;
+}
+
+.wa-live .lv-kpi__value {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--live-heading);
+  word-break: break-word;
+}
+
+.wa-live .lv-kpi__value.is-up {
+  color: var(--live-up);
+}
+
+.wa-live .lv-kpi__value.is-down {
+  color: var(--live-down);
+}
+
+.wa-live .lv-board {
+  min-height: 8rem;
+}
+
+.wa-live .lv-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--live-border);
+  border-radius: 10px;
+}
+
+.wa-live table.lv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.wa-live .lv-table th,
+.wa-live .lv-table td {
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+  white-space: nowrap;
+}
+
+.wa-live .lv-table th {
+  background: var(--live-soft);
+  color: var(--live-heading);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wa-live .lv-table th:hover {
+  background: #ccfbf1;
+}
+
+.wa-live .lv-table tr:last-child td {
+  border-bottom: none;
+}
+
+.wa-live .lv-table td.is-up {
+  color: var(--live-up);
+  font-weight: 600;
+}
+
+.wa-live .lv-table td.is-down {
+  color: var(--live-down);
+  font-weight: 600;
+}
+
+.wa-live .lv-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.65rem;
+}
+
+.wa-live .lv-topic {
+  background: var(--live-soft);
+  border: 1px solid var(--live-border);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+}
+
+.wa-live .lv-topic__rank {
+  font-size: 0.72rem;
+  color: var(--live-accent);
+  font-weight: 700;
+}
+
+.wa-live .lv-topic__title {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: var(--live-heading);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.wa-live .lv-topic__meta {
+  font-size: 0.78rem;
+  color: var(--live-muted);
+}
+
+.wa-live .lv-empty,
+.wa-live .lv-error,
+.wa-live .lv-loading {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--live-muted);
+  font-size: 0.92rem;
+}
+
+.wa-live .lv-error {
+  color: var(--live-down);
+}
+
+.wa-live .lv-skel {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.wa-live .lv-skel span {
+  display: block;
+  height: 2.2rem;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0fdfa 25%, #ccfbf1 50%, #f0fdfa 75%);
+  background-size: 200% 100%;
+  animation: lv-shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes lv-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.wa-live .lv-disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  color: var(--live-muted);
+  line-height: 1.5;
+}
+
+.wa-live .lv-toast {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--live-accent);
+  min-height: 1.2em;
+}

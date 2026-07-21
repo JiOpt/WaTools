@@ -5508,4 +5508,28 @@
   R['toefl-registration'] = mountToeflTool('toefl-registration', '報名與考場須知');
   R['toefl-mindset'] = mountToeflTool('toefl-mindset', '心態與撞牆突破');
 
+  function mountLiveTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_LIVE && window.WA_MOUNT_LIVE[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '即時雷達模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['live-crypto'] = mountLiveTool('live-crypto', '加密貨幣即時看板');
+  R['live-fx'] = mountLiveTool('live-fx', '匯率即時看板');
+  R['live-earthquake'] = mountLiveTool('live-earthquake', '全球地震即時通報');
+  R['live-tw-quake'] = mountLiveTool('live-tw-quake', '台灣地震速報查詢');
+  R['live-weather'] = mountLiveTool('live-weather', '全球城市即時天氣');
+  R['live-flight'] = mountLiveTool('live-flight', '即時航班空域速查');
+  R['live-football'] = mountLiveTool('live-football', '足球賽事積分看板');
+  R['live-nba'] = mountLiveTool('live-nba', 'NBA 賽事速查');
+  R['live-gold'] = mountLiveTool('live-gold', '金價與貴金屬速查');
+  R['live-trends'] = mountLiveTool('live-trends', '熱門趨勢關鍵字牆');
+
 })();

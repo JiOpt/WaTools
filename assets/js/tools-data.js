@@ -259,6 +259,113 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
+    "id": "live",
+    "name": "即時雷達 Live Pulse",
+    "tagline": "熱門即時數據一查就懂：行情、賽事、航班、地震與趨勢看板。",
+    "tools": [
+      {
+        "slug": "live-crypto",
+        "title": "加密貨幣即時看板",
+        "icon": "bi-currency-bitcoin",
+        "desc": "BTC／ETH 等價格、24h 漲跌與市值，免費線上即時查詢。",
+        "seoTitle": "加密貨幣即時看板｜BTC ETH 價格漲跌免費查",
+        "seoDescription": "免費線上加密貨幣即時看板：查 BTC、ETH 等價格、24小時漲跌與市值，自動更新行情參考，適合快速掌握熱門幣走勢。",
+        "seoKeywords": "加密貨幣,比特幣,以太坊,即時行情,幣價查詢,BTC,ETH,免費線上",
+        "seoLead": "即時查詢熱門加密貨幣價格、24小時漲跌與市值，純前端串接公開行情，僅供參考。"
+      },
+      {
+        "slug": "live-fx",
+        "title": "匯率即時看板",
+        "icon": "bi-currency-exchange",
+        "desc": "主要貨幣對即時匯率與換算試算，免費線上查詢。",
+        "seoTitle": "匯率即時看板｜主要貨幣對換算免費查",
+        "seoDescription": "免費線上匯率即時看板：查 TWD、USD、JPY、EUR 等主要貨幣對，支援金額換算試算與自動更新，快速掌握參考匯率。",
+        "seoKeywords": "匯率查詢,即時匯率,貨幣換算,美金台幣,日幣匯率,免費線上",
+        "seoLead": "主要貨幣對即時匯率與換算試算，資料來自公開匯率 API，僅供參考。"
+      },
+      {
+        "slug": "live-earthquake",
+        "title": "全球地震即時通報",
+        "icon": "bi-activity",
+        "desc": "近24小時全球地震規模、震央與深度列表查詢。",
+        "seoTitle": "全球地震即時通報｜近24小時規模震央查詢",
+        "seoDescription": "免費線上全球地震即時通報：近24小時規模、震央、深度與時間列表，可篩選規模並自動更新，資料來源 USGS，僅供參考。",
+        "seoKeywords": "地震即時,全球地震,震央查詢,地震規模,USGS,免費線上",
+        "seoLead": "近24小時全球地震列表：規模、震央座標與深度，非正式警報系統。"
+      },
+      {
+        "slug": "live-tw-quake",
+        "title": "台灣地震速報查詢",
+        "icon": "bi-geo-alt",
+        "desc": "近期台灣周邊地震列表與規模篩選，免費線上查。",
+        "seoTitle": "台灣地震速報查詢｜近期規模震央免費查",
+        "seoDescription": "免費線上台灣地震速報查詢：近期台灣周邊地震規模、震央與深度列表，可篩選並自動更新；失敗時備援公開資料，僅供參考。",
+        "seoKeywords": "台灣地震,地震速報,震央,規模查詢,即時地震,免費線上",
+        "seoLead": "查詢近期台灣周邊地震列表與篩選，非正式警報；請以氣象署公告為準。"
+      },
+      {
+        "slug": "live-weather",
+        "title": "全球城市即時天氣",
+        "icon": "bi-cloud-sun",
+        "desc": "搜尋城市查溫度、降雨與風速，Open-Meteo 免金鑰。",
+        "seoTitle": "全球城市即時天氣｜溫度降雨風速免費查",
+        "seoDescription": "免費線上全球城市即時天氣：搜尋城市查目前溫度、降雨、濕度與風速，Open-Meteo 公開資料，適合旅行與日常快速查詢。",
+        "seoKeywords": "即時天氣,城市天氣,溫度查詢,降雨,風速,Open-Meteo,免費線上",
+        "seoLead": "搜尋全球城市，查看目前溫度、降雨與風速等即時天氣指標。"
+      },
+      {
+        "slug": "live-flight",
+        "title": "即時航班空域速查",
+        "icon": "bi-airplane",
+        "desc": "依區域查飛行器高度與速度，OpenSky 公開額度。",
+        "seoTitle": "即時航班空域速查｜飛行器高度速度免費查",
+        "seoDescription": "免費線上即時航班空域速查：依台灣或自訂區域查看飛行器呼號、高度與速度；OpenSky 匿名額度有限，失敗時顯示友善提示。",
+        "seoKeywords": "即時航班,空域查詢,飛行器,高度速度,OpenSky,免費線上",
+        "seoLead": "依區域查詢空域飛行器高度與速度；公開 API 額度有限，僅供參考。"
+      },
+      {
+        "slug": "live-football",
+        "title": "足球賽事積分看板",
+        "icon": "bi-trophy",
+        "desc": "熱門聯賽積分榜與近期賽程，免費線上速查。",
+        "seoTitle": "足球賽事積分看板｜熱門聯賽積分賽程查詢",
+        "seoDescription": "免費線上足球賽事積分看板：英超等熱門聯賽積分榜與近期賽程一覽，適合快速掌握戰況，資料來自公開賽事 API，僅供參考。",
+        "seoKeywords": "足球積分,聯賽積分榜,英超,賽程查詢,即時賽事,免費線上",
+        "seoLead": "熱門聯賽積分榜與近期賽程速查，非正式官方賽果系統。"
+      },
+      {
+        "slug": "live-nba",
+        "title": "NBA 賽事速查",
+        "icon": "bi-dribbble",
+        "desc": "今日／近期 NBA 賽程與比分摘要，免費線上查。",
+        "seoTitle": "NBA 賽事速查｜今日賽程比分摘要免費查",
+        "seoDescription": "免費線上 NBA 賽事速查：查看今日與近期賽程、對戰與比分摘要，自動更新看板，適合快速掌握戰況，僅供參考。",
+        "seoKeywords": "NBA賽程,NBA比分,籃球賽事,即時查詢,免費線上",
+        "seoLead": "今日與近期 NBA 賽程／比分摘要看板，非正式官方直播比分。"
+      },
+      {
+        "slug": "live-gold",
+        "title": "金價與貴金屬速查",
+        "icon": "bi-gem",
+        "desc": "黃金／白銀參考價與漲跌，免費線上即時查詢。",
+        "seoTitle": "金價與貴金屬速查｜黃金白銀參考價免費查",
+        "seoDescription": "免費線上金價與貴金屬速查：黃金、白銀等參考價與漲跌幅度，適合快速掌握貴金屬行情趨勢，非正式交易報價。",
+        "seoKeywords": "金價查詢,黃金價格,白銀價格,貴金屬,即時行情,免費線上",
+        "seoLead": "黃金／白銀等參考價與漲跌速查，非正式交易或銀行牌告。"
+      },
+      {
+        "slug": "live-trends",
+        "title": "熱門趨勢關鍵字牆",
+        "icon": "bi-fire",
+        "desc": "多區熱門話題卡與瀏覽趨勢，標註非 Google 官方。",
+        "seoTitle": "熱門趨勢關鍵字牆｜話題瀏覽趨勢免費查",
+        "seoDescription": "免費線上熱門趨勢關鍵字牆：彙整維基等公開熱門頁面與話題卡，快速掌握近期熱搜方向；非 Google Trends 官方資料。",
+        "seoKeywords": "熱門趨勢,熱搜關鍵字,話題牆,即時查詢,免費線上",
+        "seoLead": "公開熱門話題與瀏覽趨勢牆；非 Google 官方熱搜，僅供參考。"
+      }
+    ]
+  },
+  {
     "id": "viral",
     "name": "熱搜剛需",
     "tagline": "房貸試算、Threads 人格、API 成本與發票對獎，搜得到也用得上。",

@@ -31,7 +31,8 @@ const SKIP_JS = new Set([
 
 const CATEGORY_DIRS = [
   'utility', 'dev', 'editor', 'security', 'media', 'life', 'fun',
-  'culture', 'symbols', 'spiritual', 'creator', 'viral', 'world', 'japan', 'scripture',
+  'culture', 'symbols', 'spiritual', 'creator', 'viral', 'live', 'world', 'japan', 'scripture',
+  'toeic', 'toefl',
 ];
 
 /** Per-slug data / boot scripts not present in generated tool HTML. */
@@ -114,6 +115,43 @@ const SLUG_EXTRAS = {
   'audio-notes-summarizer': ['viral-tools.js'],
   'threads-persona-analyzer': ['viral-tools.js'],
   'link-preview-card': ['viral-tools.js'],
+  'live-crypto': ['live-tools.js'],
+  'live-fx': ['live-tools.js'],
+  'live-earthquake': ['live-tools.js'],
+  'live-tw-quake': ['live-tools.js'],
+  'live-weather': ['live-tools.js'],
+  'live-flight': ['live-tools.js'],
+  'live-football': ['live-tools.js'],
+  'live-nba': ['live-tools.js'],
+  'live-gold': ['live-tools.js'],
+  'live-trends': ['live-tools.js'],
+  'toeic-intro': ['toeic-tools.js'],
+  'toeic-mock-tests': ['toeic-tools.js'],
+  'toeic-score-levels': ['toeic-tools.js'],
+  'toeic-vocab': ['toeic-vocab-data.js', 'toeic-tools.js'],
+  'toeic-listening': ['toeic-listening-data.js', 'toeic-tools.js'],
+  'toeic-reading': ['toeic-reading-data.js', 'toeic-tools.js'],
+  'toeic-grammar': ['toeic-grammar-data.js', 'toeic-tools.js'],
+  'toeic-study-plan': ['toeic-tools.js'],
+  'toeic-error-review': ['toeic-tools.js'],
+  'toeic-resources': ['toeic-tools.js'],
+  'toeic-registration': ['toeic-tools.js'],
+  'toeic-speaking-writing': ['toeic-tools.js'],
+  'toeic-mindset': ['toeic-tools.js'],
+  'toefl-intro': ['toefl-tools.js'],
+  'toefl-mock-tests': ['toefl-tools.js'],
+  'toefl-score-levels': ['toefl-tools.js'],
+  'toefl-vocab': ['toefl-vocab-data.js', 'toefl-tools.js'],
+  'toefl-listening': ['toefl-listening-data.js', 'toefl-tools.js'],
+  'toefl-reading': ['toefl-reading-data.js', 'toefl-tools.js'],
+  'toefl-grammar': ['toefl-grammar-data.js', 'toefl-tools.js'],
+  'toefl-speaking': ['toefl-speaking-data.js', 'toefl-tools.js'],
+  'toefl-writing': ['toefl-writing-data.js', 'toefl-tools.js'],
+  'toefl-study-plan': ['toefl-tools.js'],
+  'toefl-error-review': ['toefl-tools.js'],
+  'toefl-resources': ['toefl-tools.js'],
+  'toefl-registration': ['toefl-tools.js'],
+  'toefl-mindset': ['toefl-tools.js'],
 };
 
 const SLUG_PART_OVERRIDES = {
