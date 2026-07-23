@@ -1,0 +1,163 @@
+{
+  "note": "Mapped by actual visual content (verified), not filename intent",
+  "byTheme": {
+    "cosmos-black-hole": [
+      "theme-blackhole.jpg",
+      "theme-galaxy.jpg",
+      "theme-cluster.jpg",
+      "theme-deepfield.jpg"
+    ],
+    "cosmos-jwst": [
+      "theme-jwst_carina.jpg",
+      "theme-nebula.jpg",
+      "theme-jwst_smacs.jpg",
+      "theme-deepfield.jpg"
+    ],
+    "cosmos-exoplanet": [
+      "theme-exoplanet_art.jpg",
+      "theme-earth.jpg",
+      "theme-saturn.jpg",
+      "theme-milkyway.jpg"
+    ],
+    "cosmos-mars": [
+      "theme-mars.jpg",
+      "theme-falcon.jpg",
+      "theme-mars_surface.jpg",
+      "theme-rocket.jpg"
+    ],
+    "cosmos-artemis": [
+      "theme-moon.jpg",
+      "theme-moon_surface.jpg",
+      "theme-astronaut.jpg",
+      "theme-iss.jpg"
+    ],
+    "cosmos-dark-matter": [
+      "theme-cluster.jpg",
+      "theme-galaxy.jpg",
+      "theme-deepfield.jpg",
+      "theme-milkyway.jpg"
+    ],
+    "cosmos-big-bang": [
+      "theme-cmb.jpg",
+      "theme-deepfield.jpg",
+      "theme-galaxy.jpg",
+      "theme-stars.jpg"
+    ],
+    "cosmos-neutron-star": [
+      "theme-nebula.jpg",
+      "theme-jwst_smacs.jpg",
+      "theme-radio.jpg",
+      "theme-colliding.jpg"
+    ],
+    "cosmos-supernova": [
+      "theme-nebula.jpg",
+      "theme-jwst_smacs.jpg",
+      "theme-colliding.jpg",
+      "theme-stars.jpg"
+    ],
+    "cosmos-asteroid": [
+      "theme-orion.jpg",
+      "theme-earth.jpg",
+      "theme-falcon.jpg",
+      "theme-telescope.jpg"
+    ],
+    "cosmos-gravitational-wave": [
+      "theme-blackhole.jpg",
+      "theme-colliding.jpg",
+      "theme-galaxy.jpg",
+      "theme-deepfield.jpg"
+    ],
+    "cosmos-solar-storm": [
+      "theme-sun.jpg",
+      "theme-cme.jpg",
+      "theme-ligo_art.jpg",
+      "theme-earth.jpg"
+    ],
+    "cosmos-andromeda": [
+      "theme-galaxy.jpg",
+      "theme-andromeda.jpg",
+      "theme-colliding.jpg",
+      "theme-milkyway.jpg"
+    ],
+    "cosmos-multiverse": [
+      "theme-deepfield.jpg",
+      "theme-stars.jpg",
+      "theme-galaxy.jpg",
+      "theme-milkyway.jpg"
+    ],
+    "cosmos-wormhole": [
+      "theme-blackhole.jpg",
+      "theme-galaxy.jpg",
+      "theme-deepfield.jpg",
+      "theme-stars.jpg"
+    ],
+    "cosmos-frb": [
+      "theme-radio.jpg",
+      "theme-nebula.jpg",
+      "theme-telescope.jpg",
+      "theme-stars.jpg"
+    ],
+    "cosmos-fate": [
+      "theme-stars.jpg",
+      "theme-deepfield.jpg",
+      "theme-galaxy.jpg",
+      "theme-cmb.jpg"
+    ],
+    "cosmos-interstellar": [
+      "theme-comet.jpg",
+      "theme-saturn.jpg",
+      "theme-milkyway.jpg",
+      "theme-telescope.jpg"
+    ],
+    "cosmos-mining": [
+      "theme-orion.jpg",
+      "theme-moon.jpg",
+      "theme-mars_surface.jpg",
+      "theme-iss.jpg"
+    ],
+    "cosmos-dyson": [
+      "theme-sun.jpg",
+      "theme-saturn.jpg",
+      "theme-ligo_art.jpg",
+      "theme-galaxy.jpg"
+    ]
+  },
+  "keys": {
+    "cosmos-black-hole": ["blackhole", "galaxy", "cluster", "deepfield"],
+    "cosmos-jwst": ["jwst_carina", "nebula", "jwst_smacs", "deepfield"],
+    "cosmos-exoplanet": ["exoplanet_art", "earth", "saturn", "milkyway"],
+    "cosmos-mars": ["mars", "falcon", "mars_surface", "rocket"],
+    "cosmos-artemis": ["moon", "moon_surface", "astronaut", "iss"],
+    "cosmos-dark-matter": ["cluster", "galaxy", "deepfield", "milkyway"],
+    "cosmos-big-bang": ["cmb", "deepfield", "galaxy", "stars"],
+    "cosmos-neutron-star": ["nebula", "jwst_smacs", "radio", "colliding"],
+    "cosmos-supernova": ["nebula", "jwst_smacs", "colliding", "stars"],
+    "cosmos-asteroid": ["orion", "earth", "falcon", "telescope"],
+    "cosmos-gravitational-wave": ["blackhole", "colliding", "galaxy", "deepfield"],
+    "cosmos-solar-storm": ["sun", "aurora", "ligo_art", "earth"],
+    "cosmos-andromeda": ["galaxy", "andromeda", "colliding", "milkyway"],
+    "cosmos-multiverse": ["deepfield", "stars", "galaxy", "milkyway"],
+    "cosmos-wormhole": ["blackhole", "galaxy", "deepfield", "stars"],
+    "cosmos-frb": ["radio", "nebula", "telescope", "stars"],
+    "cosmos-fate": ["stars", "deepfield", "galaxy", "cmb"],
+    "cosmos-interstellar": ["comet", "saturn", "milkyway", "telescope"],
+    "cosmos-mining": ["orion", "moon", "mars_surface", "iss"],
+    "cosmos-dyson": ["sun", "saturn", "ligo_art", "galaxy"]
+  },
+  "visualTruth": {
+    "theme-blackhole.jpg": "radio-galaxy / AGN jets (black-hole powered)",
+    "theme-galaxy.jpg": "spiral galaxy",
+    "theme-orion.jpg": "cratered rocky body (Mercury-like) — used for asteroid/mining",
+    "theme-ligo_art.jpg": "multiwavelength Sun — used for solar/dyson",
+    "theme-nebula.jpg": "star-forming nebula",
+    "theme-cmb.jpg": "CMB mission comparison",
+    "theme-jwst_carina.jpg": "JWST WR140 dust shells",
+    "theme-mars.jpg": "Mars globe",
+    "theme-sun.jpg": "Sun with prominences",
+    "theme-earth.jpg": "Blue Marble Earth",
+    "theme-falcon.jpg": "Falcon Heavy launch",
+    "theme-moon.jpg": "mineral Moon",
+    "theme-astronaut.jpg": "Apollo astronaut on Moon",
+    "theme-exoplanet_art.jpg": "hot star + exoplanet art"
+  }
+}

@@ -3,6 +3,7 @@
  * Used by build-en-pages.mjs → i18n-en.js + /en/** shells.
  */
 export const EN_CATEGORIES = {
+  cosmos: 'Cosmic Atlas',
   live: 'Live Pulse',
   viral: 'Trending tools',
   creator: 'Creator toolkit',
@@ -24,6 +25,26 @@ export const EN_CATEGORIES = {
 
 /** @type {Record<string, { title: string, desc: string }>} */
 export const EN_TOOLS = {
+  'cosmos-black-hole': { title: 'Black holes & event horizons', desc: 'Singularity, accretion disks and the EHT shadow.' },
+  'cosmos-jwst': { title: 'James Webb Space Telescope', desc: 'Deep-space views of the earliest galaxies.' },
+  'cosmos-exoplanet': { title: 'Exoplanets & biosignatures', desc: 'Habitable zones and the search for life.' },
+  'cosmos-mars': { title: 'Mars & Starship', desc: 'Colonization plans and heavy-lift rocketry.' },
+  'cosmos-artemis': { title: 'Artemis lunar program', desc: 'Return to the Moon and Gateway staging.' },
+  'cosmos-dark-matter': { title: 'Dark matter & dark energy', desc: 'The invisible majority of the cosmos.' },
+  'cosmos-big-bang': { title: 'Big Bang & inflation', desc: 'Origin story told by the CMB.' },
+  'cosmos-neutron-star': { title: 'Neutron stars & pulsars', desc: 'Extreme density and lighthouse beams.' },
+  'cosmos-supernova': { title: 'Supernovae & stardust', desc: 'How heavy elements are forged.' },
+  'cosmos-asteroid': { title: 'Asteroids & planetary defense', desc: 'DART-style impact deflection.' },
+  'cosmos-gravitational-wave': { title: 'Gravitational waves', desc: 'Spacetime ripples from mergers.' },
+  'cosmos-solar-storm': { title: 'Solar storms & aurora', desc: 'Space weather that lights and risks Earth.' },
+  'cosmos-andromeda': { title: 'Milky Way–Andromeda merger', desc: 'A future galactic collision.' },
+  'cosmos-multiverse': { title: 'Multiverse ideas', desc: 'Parallel-cosmos hypotheses.' },
+  'cosmos-wormhole': { title: 'Wormholes', desc: 'Einstein–Rosen bridges as shortcuts.' },
+  'cosmos-frb': { title: 'Fast radio bursts', desc: 'Millisecond flashes from deep space.' },
+  'cosmos-fate': { title: 'Fate of the universe', desc: 'Freeze, rip, or crunch scenarios.' },
+  'cosmos-interstellar': { title: 'Interstellar visitors', desc: 'Oumuamua-like objects from afar.' },
+  'cosmos-mining': { title: 'Space mining & ISRU', desc: 'Asteroid metals and lunar ice.' },
+  'cosmos-dyson': { title: 'Dyson spheres & Kardashev', desc: 'Civilizations that harvest stars.' },
   'live-crypto': { title: 'Crypto live board', desc: 'BTC/ETH prices, 24h change and market cap.' },
   'live-fx': { title: 'FX live board', desc: 'Major currency pairs and conversion calculator.' },
   'live-earthquake': { title: 'Global earthquake feed', desc: 'Last 24h magnitude, epicenter and depth.' },

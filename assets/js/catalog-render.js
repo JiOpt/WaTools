@@ -31,7 +31,7 @@
 
     // Prefer catalog array order (TOEIC first, then viral / rest).
     // Keep a light bump so published homepage still leads with exam + trending.
-    const preferred = ['toeic', 'toefl', 'viral', 'creator'];
+    const preferred = ['toeic', 'toefl', 'finance', 'viral', 'creator', 'live', 'life', 'utility', 'editor', 'dev'];
     visible = preferred
       .map((id) => visible.find((c) => c.id === id))
       .filter(Boolean)

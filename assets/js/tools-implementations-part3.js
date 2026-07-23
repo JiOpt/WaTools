@@ -5532,4 +5532,75 @@
   R['live-gold'] = mountLiveTool('live-gold', '金價與貴金屬速查');
   R['live-trends'] = mountLiveTool('live-trends', '熱門趨勢關鍵字牆');
 
+  function mountCosmosTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_COSMOS && window.WA_MOUNT_COSMOS[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '宇宙圖鑑模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['cosmos-black-hole'] = mountCosmosTool('cosmos-black-hole', '黑洞與事件視界');
+  R['cosmos-jwst'] = mountCosmosTool('cosmos-jwst', '詹姆斯·韋伯太空望遠鏡');
+  R['cosmos-exoplanet'] = mountCosmosTool('cosmos-exoplanet', '繫外行星與外星生命');
+  R['cosmos-mars'] = mountCosmosTool('cosmos-mars', '火星移民與星艦計畫');
+  R['cosmos-artemis'] = mountCosmosTool('cosmos-artemis', '阿提米絲登月計畫');
+  R['cosmos-dark-matter'] = mountCosmosTool('cosmos-dark-matter', '暗物質與暗能量');
+  R['cosmos-big-bang'] = mountCosmosTool('cosmos-big-bang', '大霹靂與宇宙膨脹');
+  R['cosmos-neutron-star'] = mountCosmosTool('cosmos-neutron-star', '中子星脈衝星磁星');
+  R['cosmos-supernova'] = mountCosmosTool('cosmos-supernova', '超新星與元素誕生');
+  R['cosmos-asteroid'] = mountCosmosTool('cosmos-asteroid', '小行星撞擊與行星防禦');
+  R['cosmos-gravitational-wave'] = mountCosmosTool('cosmos-gravitational-wave', '引力波與重力波天文');
+  R['cosmos-solar-storm'] = mountCosmosTool('cosmos-solar-storm', '太陽風暴與極光');
+  R['cosmos-andromeda'] = mountCosmosTool('cosmos-andromeda', '銀河仙女座大碰撞');
+  R['cosmos-multiverse'] = mountCosmosTool('cosmos-multiverse', '平行宇宙與多重宇宙');
+  R['cosmos-wormhole'] = mountCosmosTool('cosmos-wormhole', '蟲洞與時空捷徑');
+  R['cosmos-frb'] = mountCosmosTool('cosmos-frb', '快速射電暴 FRB');
+  R['cosmos-fate'] = mountCosmosTool('cosmos-fate', '宇宙終極命運');
+  R['cosmos-interstellar'] = mountCosmosTool('cosmos-interstellar', '星際天體與宇宙訪客');
+  R['cosmos-mining'] = mountCosmosTool('cosmos-mining', '太空採礦與資源利用');
+  R['cosmos-dyson'] = mountCosmosTool('cosmos-dyson', '戴森球與卡爾達肖夫指數');
+
+  function mountFinanceTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_FINANCE && window.WA_MOUNT_FINANCE[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '理財工具模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['stock-fee-calc'] = mountFinanceTool('stock-fee-calc', '台股手續費與證交稅試算');
+  R['dividend-yield'] = mountFinanceTool('dividend-yield', '殖利率與除權息計算');
+  R['margin-trading'] = mountFinanceTool('margin-trading', '融資融券維持率試算');
+  R['compound-interest'] = mountFinanceTool('compound-interest', '定期定額複利試算');
+
+  function mountTrafficTool(slug, title) {
+    return function (app) {
+      const fn = window.WA_MOUNT_TRAFFIC && window.WA_MOUNT_TRAFFIC[slug];
+      if (typeof fn === 'function') {
+        fn(app);
+        return;
+      }
+      mount(app, [
+        UI.panel(title, UI.el('p', { className: 'text-muted' }, '工具模組載入失敗，請重新整理頁面。')),
+      ]);
+    };
+  }
+
+  R['percentage-calculator'] = mountTrafficTool('percentage-calculator', '百分比／漲跌幅計算器');
+  R['line-break-remover'] = mountTrafficTool('line-break-remover', '去換行與多餘空白');
+  R['image-resizer'] = mountTrafficTool('image-resizer', '社群封面／證件照縮放裁切');
+  R['heic-to-jpg'] = mountTrafficTool('heic-to-jpg', 'HEIC 轉 JPG');
+  R['svg-to-png'] = mountTrafficTool('svg-to-png', 'SVG 轉 PNG');
+
 })();

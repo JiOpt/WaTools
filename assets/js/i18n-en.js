@@ -96,6 +96,8 @@ window.WA_I18N_EN = {
     note: 'Settings are stored in this browser and apply across KaWaTool.',
   },
   categories: {
+    finance: 'Finance Lab',
+    cosmos: 'Cosmic Atlas',
     live: 'Live Pulse',
     viral: 'Trending tools',
     creator: 'Creator toolkit',

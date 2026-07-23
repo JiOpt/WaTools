@@ -259,109 +259,49 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
-    "id": "live",
-    "name": "即時雷達 Live Pulse",
-    "tagline": "熱門即時數據一查就懂：行情、賽事、航班、地震與趨勢看板。",
+    "id": "finance",
+    "name": "理財計算機 Finance Lab",
+    "tagline": "台股手續費、殖利率、融資維持率與複利試算：高意圖搜尋一頁搞定。",
     "tools": [
       {
-        "slug": "live-crypto",
-        "title": "加密貨幣即時看板",
-        "icon": "bi-currency-bitcoin",
-        "desc": "BTC／ETH 等價格、24h 漲跌與市值，免費線上即時查詢。",
-        "seoTitle": "加密貨幣即時看板｜BTC ETH 價格漲跌免費查",
-        "seoDescription": "免費線上加密貨幣即時看板：查 BTC、ETH 等價格、24小時漲跌與市值，自動更新行情參考，適合快速掌握熱門幣走勢。",
-        "seoKeywords": "加密貨幣,比特幣,以太坊,即時行情,幣價查詢,BTC,ETH,免費線上",
-        "seoLead": "即時查詢熱門加密貨幣價格、24小時漲跌與市值，純前端串接公開行情，僅供參考。"
+        "slug": "stock-fee-calc",
+        "title": "台股手續費與證交稅試算",
+        "icon": "bi-cash-coin",
+        "desc": "支援券商折扣與最低手續費，秒算買進賣出與來回成本。",
+        "seoTitle": "台股手續費計算器｜買賣成本與券商折扣試算",
+        "seoDescription": "免費台股手續費與證交稅試算：輸入成交金額、券商折扣與最低手續費，立即計算買進／賣出成本與來回總費用百分比。",
+        "seoKeywords": "台股手續費,證交稅試算,券商折扣,當沖成本,股票手續費計算",
+        "seoLead": "台股買賣手續費與證交稅一頁試算，支援券商折扣，幫你先算成本再下單。"
       },
       {
-        "slug": "live-fx",
-        "title": "匯率即時看板",
-        "icon": "bi-currency-exchange",
-        "desc": "主要貨幣對即時匯率與換算試算，免費線上查詢。",
-        "seoTitle": "匯率即時看板｜主要貨幣對換算免費查",
-        "seoDescription": "免費線上匯率即時看板：查 TWD、USD、JPY、EUR 等主要貨幣對，支援金額換算試算與自動更新，快速掌握參考匯率。",
-        "seoKeywords": "匯率查詢,即時匯率,貨幣換算,美金台幣,日幣匯率,免費線上",
-        "seoLead": "主要貨幣對即時匯率與換算試算，資料來自公開匯率 API，僅供參考。"
+        "slug": "dividend-yield",
+        "title": "殖利率與除權息計算",
+        "icon": "bi-percent",
+        "desc": "股價＋股利秒算殖利率與填息目標價，存股族必備。",
+        "seoTitle": "殖利率計算器｜除權息與填息目標價試算",
+        "seoDescription": "免費殖利率與除權息計算器：輸入股價與現金股利，立即算出現金殖利率、除息參考價與填息目標價，並估算股利收入。",
+        "seoKeywords": "殖利率計算,除權息,填息,現金股利,存股",
+        "seoLead": "輸入股價與股利，秒懂殖利率與填息目標，存股評估更清楚。"
       },
       {
-        "slug": "live-earthquake",
-        "title": "全球地震即時通報",
-        "icon": "bi-activity",
-        "desc": "近24小時全球地震規模、震央與深度列表查詢。",
-        "seoTitle": "全球地震即時通報｜近24小時規模震央查詢",
-        "seoDescription": "免費線上全球地震即時通報：近24小時規模、震央、深度與時間列表，可篩選規模並自動更新，資料來源 USGS，僅供參考。",
-        "seoKeywords": "地震即時,全球地震,震央查詢,地震規模,USGS,免費線上",
-        "seoLead": "近24小時全球地震列表：規模、震央座標與深度，非正式警報系統。"
+        "slug": "margin-trading",
+        "title": "融資融券維持率試算",
+        "icon": "bi-graph-down-arrow",
+        "desc": "估算維持率與追繳緩衝，控管斷頭風險。",
+        "seoTitle": "融資維持率試算｜追繳與斷頭風險估算",
+        "seoDescription": "免費融資維持率試算工具：輸入擔保品市值與融資金額，估算目前維持率、追繳臨界市值與緩衝空間，投資風險控管必備。",
+        "seoKeywords": "融資維持率,融券,追繳,斷頭,保證金",
+        "seoLead": "融資維持率與追繳緩衝快速估算，協助你提高風險意識。"
       },
       {
-        "slug": "live-tw-quake",
-        "title": "台灣地震速報查詢",
-        "icon": "bi-geo-alt",
-        "desc": "近期台灣周邊地震列表與規模篩選，免費線上查。",
-        "seoTitle": "台灣地震速報查詢｜近期規模震央免費查",
-        "seoDescription": "免費線上台灣地震速報查詢：近期台灣周邊地震規模、震央與深度列表，可篩選並自動更新；失敗時備援公開資料，僅供參考。",
-        "seoKeywords": "台灣地震,地震速報,震央,規模查詢,即時地震,免費線上",
-        "seoLead": "查詢近期台灣周邊地震列表與篩選，非正式警報；請以氣象署公告為準。"
-      },
-      {
-        "slug": "live-weather",
-        "title": "全球城市即時天氣",
-        "icon": "bi-cloud-sun",
-        "desc": "搜尋城市查溫度、降雨與風速，Open-Meteo 免金鑰。",
-        "seoTitle": "全球城市即時天氣｜溫度降雨風速免費查",
-        "seoDescription": "免費線上全球城市即時天氣：搜尋城市查目前溫度、降雨、濕度與風速，Open-Meteo 公開資料，適合旅行與日常快速查詢。",
-        "seoKeywords": "即時天氣,城市天氣,溫度查詢,降雨,風速,Open-Meteo,免費線上",
-        "seoLead": "搜尋全球城市，查看目前溫度、降雨與風速等即時天氣指標。"
-      },
-      {
-        "slug": "live-flight",
-        "title": "即時航班空域速查",
-        "icon": "bi-airplane",
-        "desc": "依區域查飛行器高度與速度，OpenSky 公開額度。",
-        "seoTitle": "即時航班空域速查｜飛行器高度速度免費查",
-        "seoDescription": "免費線上即時航班空域速查：依台灣或自訂區域查看飛行器呼號、高度與速度；OpenSky 匿名額度有限，失敗時顯示友善提示。",
-        "seoKeywords": "即時航班,空域查詢,飛行器,高度速度,OpenSky,免費線上",
-        "seoLead": "依區域查詢空域飛行器高度與速度；公開 API 額度有限，僅供參考。"
-      },
-      {
-        "slug": "live-football",
-        "title": "足球賽事積分看板",
-        "icon": "bi-trophy",
-        "desc": "熱門聯賽積分榜與近期賽程，免費線上速查。",
-        "seoTitle": "足球賽事積分看板｜熱門聯賽積分賽程查詢",
-        "seoDescription": "免費線上足球賽事積分看板：英超等熱門聯賽積分榜與近期賽程一覽，適合快速掌握戰況，資料來自公開賽事 API，僅供參考。",
-        "seoKeywords": "足球積分,聯賽積分榜,英超,賽程查詢,即時賽事,免費線上",
-        "seoLead": "熱門聯賽積分榜與近期賽程速查，非正式官方賽果系統。"
-      },
-      {
-        "slug": "live-nba",
-        "title": "NBA 賽事速查",
-        "icon": "bi-dribbble",
-        "desc": "今日／近期 NBA 賽程與比分摘要，免費線上查。",
-        "seoTitle": "NBA 賽事速查｜今日賽程比分摘要免費查",
-        "seoDescription": "免費線上 NBA 賽事速查：查看今日與近期賽程、對戰與比分摘要，自動更新看板，適合快速掌握戰況，僅供參考。",
-        "seoKeywords": "NBA賽程,NBA比分,籃球賽事,即時查詢,免費線上",
-        "seoLead": "今日與近期 NBA 賽程／比分摘要看板，非正式官方直播比分。"
-      },
-      {
-        "slug": "live-gold",
-        "title": "金價與貴金屬速查",
-        "icon": "bi-gem",
-        "desc": "黃金／白銀參考價與漲跌，免費線上即時查詢。",
-        "seoTitle": "金價與貴金屬速查｜黃金白銀參考價免費查",
-        "seoDescription": "免費線上金價與貴金屬速查：黃金、白銀等參考價與漲跌幅度，適合快速掌握貴金屬行情趨勢，非正式交易報價。",
-        "seoKeywords": "金價查詢,黃金價格,白銀價格,貴金屬,即時行情,免費線上",
-        "seoLead": "黃金／白銀等參考價與漲跌速查，非正式交易或銀行牌告。"
-      },
-      {
-        "slug": "live-trends",
-        "title": "熱門趨勢關鍵字牆",
-        "icon": "bi-fire",
-        "desc": "多區熱門話題卡與瀏覽趨勢，標註非 Google 官方。",
-        "seoTitle": "熱門趨勢關鍵字牆｜話題瀏覽趨勢免費查",
-        "seoDescription": "免費線上熱門趨勢關鍵字牆：彙整維基等公開熱門頁面與話題卡，快速掌握近期熱搜方向；非 Google Trends 官方資料。",
-        "seoKeywords": "熱門趨勢,熱搜關鍵字,話題牆,即時查詢,免費線上",
-        "seoLead": "公開熱門話題與瀏覽趨勢牆；非 Google 官方熱搜，僅供參考。"
+        "slug": "compound-interest",
+        "title": "定期定額複利試算",
+        "icon": "bi-piggy-bank",
+        "desc": "每月投入＋年化報酬，估算期末本利與複利成長。",
+        "seoTitle": "複利計算器｜定期定額與ETF存股試算",
+        "seoDescription": "免費定期定額複利投資試算：設定每月投入、年化報酬與年數，估算總投入、期末資產與複利成長，適合小資與 ETF 存股規劃。",
+        "seoKeywords": "複利計算,定期定額,ETF存股,投資試算,複利公式",
+        "seoLead": "定期定額複利試算，把時間與報酬率變成看得見的期末資產。"
       }
     ]
   },
@@ -576,22 +516,52 @@ window.WA_TOOLS_CATALOG = [
     "tagline": "社群字體、圖片壓縮、迷因與 QR，輕量單頁工具一次備齊。",
     "tools": [
       {
+        "slug": "svg-to-png",
+        "title": "SVG 轉 PNG",
+        "icon": "bi-filetype-png",
+        "desc": "SVG 向量圖轉高解析 PNG，簡報社群可用。",
+        "seoTitle": "SVG轉PNG｜向量圖線上輸出高解析PNG",
+        "seoDescription": "免費 SVG 轉 PNG 工具：貼上或上傳 SVG，設定寬度輸出透明背景高解析 PNG，適合簡報、網站與社群素材。",
+        "seoKeywords": "SVG轉PNG,向量轉點陣,線上轉檔,透明PNG",
+        "seoLead": "SVG 轉高解析 PNG，貼上原始碼或上傳即可下載。"
+      },
+      {
+        "slug": "heic-to-jpg",
+        "title": "HEIC 轉 JPG",
+        "icon": "bi-phone",
+        "desc": "iPhone HEIC 轉通用 JPG，Windows 好開好傳。",
+        "seoTitle": "HEIC轉JPG｜iPhone照片線上轉換工具",
+        "seoDescription": "免費 HEIC 轉 JPG 線上工具：把 iPhone 照片轉成 Windows 與網站通用的 JPG，檔案只在瀏覽器處理不上傳。",
+        "seoKeywords": "HEIC轉JPG,iPhone照片,HEIF轉換,Windows開HEIC",
+        "seoLead": "iPhone HEIC 轉 JPG，解決 Windows 打不開的痛點。"
+      },
+      {
+        "slug": "image-resizer",
+        "title": "社群封面／證件照縮放裁切",
+        "icon": "bi-crop",
+        "desc": "IG、YouTube、FB、證件照預設尺寸一鍵裁切。",
+        "seoTitle": "圖片尺寸裁切｜IG YouTube 證件照線上工具",
+        "seoDescription": "免費線上圖片縮放裁切：預設 IG、YouTube、FB 封面與證件照尺寸，瀏覽器內完成置中裁切並下載，免 Photoshop。",
+        "seoKeywords": "圖片裁切,IG尺寸,YouTube封面,證件照尺寸,線上縮圖",
+        "seoLead": "社群封面與證件照尺寸，線上選預設、裁切下載即用。"
+      },
+      {
         "slug": "ig-font-generator",
         "title": "IG 特殊字體",
         "icon": "bi-type",
         "desc": "Unicode 藝術字一秒轉換，一鍵複製到 IG／Threads。",
-        "seoTitle": "IG／Threads 特殊字體產生器｜Unicode 藝術字轉換",
-        "seoDescription": "純前端 Unicode 藝術字轉換，一鍵複製 IG／Threads 特殊字體；不上傳、不呼叫後端，適合限動與貼文快速套用。",
-        "seoKeywords": "IG字體,特殊字體,Unicode,Threads,藝術字,KaWaTool"
+        "seoTitle": "IG特殊字體產生器｜Threads花體字轉換",
+        "seoDescription": "免費 IG／Threads 特殊字體轉換器：輸入文字一鍵變成花體與裝飾字，適合社群貼文吸睛擴散。",
+        "seoKeywords": "IG特殊字體,Threads字體,花體字,社群字體"
       },
       {
         "slug": "image-compressor",
         "title": "前端圖片壓縮",
         "icon": "bi-file-earmark-zip",
         "desc": "Canvas 本地壓縮 JPEG／WebP，不佔伺服器頻寬。",
-        "seoTitle": "純前端圖片壓縮工具｜Canvas JPEG／WebP 壓縮",
-        "seoDescription": "HTML5 Canvas 本地壓縮 JPEG／WebP，不上傳伺服器；可調品質與尺寸，省頻寬、護隱私，適合社群上傳前快速瘦身。",
-        "seoKeywords": "圖片壓縮,Canvas,WebP,JPEG,前端壓縮,KaWaTool"
+        "seoTitle": "線上圖片壓縮｜JPG PNG WebP瘦身",
+        "seoDescription": "免費線上圖片壓縮工具：在瀏覽器壓縮 JPG／PNG／WebP，縮小檔案加快上傳，不上傳伺服器更安心。",
+        "seoKeywords": "圖片壓縮,線上壓縮,WebP,JPG瘦身"
       },
       {
         "slug": "labor-retirement-calculator",
@@ -634,9 +604,9 @@ window.WA_TOOLS_CATALOG = [
         "title": "Markdown 轉 HTML",
         "icon": "bi-code-slash",
         "desc": "轉乾淨語意 HTML，無 inline CSS，方便貼網誌。",
-        "seoTitle": "乾淨 HTML 語意格式轉換｜Markdown 轉網誌",
-        "seoDescription": "Markdown 轉乾淨語意 HTML，無 inline CSS，適合網誌與 CMS 貼上；純前端轉換，輸出可直接複製使用。",
-        "seoKeywords": "Markdown,HTML,網誌,語意HTML,KaWaTool"
+        "seoTitle": "Markdown轉HTML｜即時預覽與清理",
+        "seoDescription": "免費 Markdown 轉 HTML 工具：即時轉換並清理輸出，方便貼到部落格、Medium 或 CMS。",
+        "seoKeywords": "Markdown轉HTML,MD轉HTML,Markdown預覽"
       },
       {
         "slug": "password-generator-pro",
@@ -668,75 +638,316 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
-    "id": "fun",
-    "name": "娛樂玩咖",
-    "tagline": "許願、占卜、測人品，認真你就輸了。",
+    "id": "live",
+    "name": "即時雷達 Live Pulse",
+    "tagline": "熱門即時數據一查就懂：行情、賽事、航班、地震與趨勢看板。",
     "tools": [
       {
-        "slug": "rp-test",
-        "title": "人品測試",
-        "icon": "bi-person-check",
-        "desc": "姓名測人品，結果娛樂為主。"
+        "slug": "live-crypto",
+        "title": "加密貨幣即時看板",
+        "icon": "bi-currency-bitcoin",
+        "desc": "BTC／ETH 等價格、24h 漲跌與市值，免費線上即時查詢。",
+        "seoTitle": "加密貨幣即時看板｜BTC ETH 價格漲跌免費查",
+        "seoDescription": "免費線上加密貨幣即時看板：查 BTC、ETH 等價格、24小時漲跌與市值，自動更新行情參考，適合快速掌握熱門幣走勢。",
+        "seoKeywords": "加密貨幣,比特幣,以太坊,即時行情,幣價查詢,BTC,ETH,免費線上",
+        "seoLead": "即時查詢熱門加密貨幣價格、24小時漲跌與市值，純前端串接公開行情，僅供參考。"
       },
       {
-        "slug": "fortune-stick",
-        "title": "線上抽籤",
-        "icon": "bi-shuffle",
-        "desc": "15/16 抽籤，上上籤自己解。"
+        "slug": "live-fx",
+        "title": "匯率即時看板",
+        "icon": "bi-currency-exchange",
+        "desc": "主要貨幣對即時匯率與換算試算，免費線上查詢。",
+        "seoTitle": "匯率即時看板｜主要貨幣對換算免費查",
+        "seoDescription": "免費線上匯率即時看板：查 TWD、USD、JPY、EUR 等主要貨幣對，支援金額換算試算與自動更新，快速掌握參考匯率。",
+        "seoKeywords": "匯率查詢,即時匯率,貨幣換算,美金台幣,日幣匯率,免費線上",
+        "seoLead": "主要貨幣對即時匯率與換算試算，資料來自公開匯率 API，僅供參考。"
       },
       {
-        "slug": "reaction-test",
-        "title": "反應速度測試",
-        "icon": "bi-lightning",
-        "desc": "看到就按，測毫秒反應，輸了別怪滑鼠。"
+        "slug": "live-earthquake",
+        "title": "全球地震即時通報",
+        "icon": "bi-activity",
+        "desc": "近24小時全球地震規模、震央與深度列表查詢。",
+        "seoTitle": "全球地震即時通報｜近24小時規模震央查詢",
+        "seoDescription": "免費線上全球地震即時通報：近24小時規模、震央、深度與時間列表，可篩選規模並自動更新，資料來源 USGS，僅供參考。",
+        "seoKeywords": "地震即時,全球地震,震央查詢,地震規模,USGS,免費線上",
+        "seoLead": "近24小時全球地震列表：規模、震央座標與深度，非正式警報系統。"
       },
       {
-        "slug": "lucky-draw",
-        "title": "幸運大抽獎",
-        "icon": "bi-gift",
-        "desc": "線上抽獎機，公平性由 RNG 保證。"
+        "slug": "live-tw-quake",
+        "title": "台灣地震速報查詢",
+        "icon": "bi-geo-alt",
+        "desc": "近期台灣周邊地震列表與規模篩選，免費線上查。",
+        "seoTitle": "台灣地震速報查詢｜近期規模震央免費查",
+        "seoDescription": "免費線上台灣地震速報查詢：近期台灣周邊地震規模、震央與深度列表，可篩選並自動更新；失敗時備援公開資料，僅供參考。",
+        "seoKeywords": "台灣地震,地震速報,震央,規模查詢,即時地震,免費線上",
+        "seoLead": "查詢近期台灣周邊地震列表與篩選，非正式警報；請以氣象署公告為準。"
       },
       {
-        "slug": "mind-reader",
-        "title": "讀心術",
-        "icon": "bi-eye",
-        "desc": "猜心術，邏輯漏洞也是樂趣。"
+        "slug": "live-weather",
+        "title": "全球城市即時天氣",
+        "icon": "bi-cloud-sun",
+        "desc": "搜尋城市查溫度、降雨與風速，Open-Meteo 免金鑰。",
+        "seoTitle": "全球城市即時天氣｜溫度降雨風速免費查",
+        "seoDescription": "免費線上全球城市即時天氣：搜尋城市查目前溫度、降雨、濕度與風速，Open-Meteo 公開資料，適合旅行與日常快速查詢。",
+        "seoKeywords": "即時天氣,城市天氣,溫度查詢,降雨,風速,Open-Meteo,免費線上",
+        "seoLead": "搜尋全球城市，查看目前溫度、降雨與風速等即時天氣指標。"
       },
       {
-        "slug": "zodiac",
-        "title": "生肖 & 星座",
-        "icon": "bi-stars",
-        "desc": "今日運勢，看了當參考就好。"
+        "slug": "live-flight",
+        "title": "即時航班空域速查",
+        "icon": "bi-airplane",
+        "desc": "依區域查飛行器高度與速度，OpenSky 公開額度。",
+        "seoTitle": "即時航班空域速查｜飛行器高度速度免費查",
+        "seoDescription": "免費線上即時航班空域速查：依台灣或自訂區域查看飛行器呼號、高度與速度；OpenSky 匿名額度有限，失敗時顯示友善提示。",
+        "seoKeywords": "即時航班,空域查詢,飛行器,高度速度,OpenSky,免費線上",
+        "seoLead": "依區域查詢空域飛行器高度與速度；公開 API 額度有限，僅供參考。"
       },
       {
-        "slug": "lucky-number",
-        "title": "幸運號碼",
-        "icon": "bi-dice-5",
-        "desc": "下一顆球幾號？彩券夢想製造機。"
+        "slug": "live-football",
+        "title": "足球賽事積分看板",
+        "icon": "bi-trophy",
+        "desc": "熱門聯賽積分榜與近期賽程，免費線上速查。",
+        "seoTitle": "足球賽事積分看板｜熱門聯賽積分賽程查詢",
+        "seoDescription": "免費線上足球賽事積分看板：英超等熱門聯賽積分榜與近期賽程一覽，適合快速掌握戰況，資料來自公開賽事 API，僅供參考。",
+        "seoKeywords": "足球積分,聯賽積分榜,英超,賽程查詢,即時賽事,免費線上",
+        "seoLead": "熱門聯賽積分榜與近期賽程速查，非正式官方賽果系統。"
       },
       {
-        "slug": "wishing-tree",
-        "title": "許願樹",
-        "icon": "bi-tree",
-        "desc": "許個願，信則靈，不信也無妨。"
+        "slug": "live-nba",
+        "title": "NBA 賽事速查",
+        "icon": "bi-dribbble",
+        "desc": "今日／近期 NBA 賽程與比分摘要，免費線上查。",
+        "seoTitle": "NBA 賽事速查｜今日賽程比分摘要免費查",
+        "seoDescription": "免費線上 NBA 賽事速查：查看今日與近期賽程、對戰與比分摘要，自動更新看板，適合快速掌握戰況，僅供參考。",
+        "seoKeywords": "NBA賽程,NBA比分,籃球賽事,即時查詢,免費線上",
+        "seoLead": "今日與近期 NBA 賽程／比分摘要看板，非正式官方直播比分。"
       },
       {
-        "slug": "jinyong",
-        "title": "金庸人物卜",
-        "icon": "bi-book-half",
-        "desc": "你是哪個武俠角色？江湖等你。"
+        "slug": "live-gold",
+        "title": "金價與貴金屬速查",
+        "icon": "bi-gem",
+        "desc": "黃金／白銀參考價與漲跌，免費線上即時查詢。",
+        "seoTitle": "金價與貴金屬速查｜黃金白銀參考價免費查",
+        "seoDescription": "免費線上金價與貴金屬速查：黃金、白銀等參考價與漲跌幅度，適合快速掌握貴金屬行情趨勢，非正式交易報價。",
+        "seoKeywords": "金價查詢,黃金價格,白銀價格,貴金屬,即時行情,免費線上",
+        "seoLead": "黃金／白銀等參考價與漲跌速查，非正式交易或銀行牌告。"
       },
       {
-        "slug": "alchemist",
-        "title": "人體鍊成陣",
-        "icon": "bi-circle-square",
-        "desc": "人體成分分析，FA 迷的儀式感。"
+        "slug": "live-trends",
+        "title": "熱門趨勢關鍵字牆",
+        "icon": "bi-fire",
+        "desc": "多區熱門話題卡與瀏覽趨勢，標註非 Google 官方。",
+        "seoTitle": "熱門趨勢關鍵字牆｜話題瀏覽趨勢免費查",
+        "seoDescription": "免費線上熱門趨勢關鍵字牆：彙整維基等公開熱門頁面與話題卡，快速掌握近期熱搜方向；非 Google Trends 官方資料。",
+        "seoKeywords": "熱門趨勢,熱搜關鍵字,話題牆,即時查詢,免費線上",
+        "seoLead": "公開熱門話題與瀏覽趨勢牆；非 Google 官方熱搜，僅供參考。"
+      }
+    ]
+  },
+  {
+    "id": "cosmos",
+    "name": "浩瀚宇宙 Cosmic Atlas",
+    "tagline": "二十大熱門宇宙主題：黑洞、韋伯、火星到戴森球，圖文深入淺出。",
+    "tools": [
+      {
+        "slug": "cosmos-black-hole",
+        "title": "黑洞與事件視界",
+        "icon": "bi-record-circle",
+        "desc": "奇點、事件視界與時空陷阱",
+        "seoTitle": "黑洞與事件視界｜奇點吸積盤宇宙圖鑑",
+        "seoDescription": "深入淺出認識黑洞、事件視界與奇點：從廣義相對論到 EHT 首張影像，理解時空扭曲、吸積盤與霍金輻射，探索宇宙最極端的引力現象與未解之謎。",
+        "seoKeywords": "黑洞,事件視界,奇點,EHT,吸積盤,霍金輻射,廣義相對論,時空扭曲",
+        "seoLead": "跨過事件視界，連光都無法回頭——這是宇宙給好奇心最震撼的一堂課。"
       },
       {
-        "slug": "ghost-story",
-        "title": "倩女幽魂",
+        "slug": "cosmos-jwst",
+        "title": "詹姆斯·韋伯太空望遠鏡",
+        "icon": "bi-camera-reels",
+        "desc": "紅外時光機與深空影像",
+        "seoTitle": "詹姆斯韋伯望遠鏡｜早期星系宇宙圖鑑",
+        "seoDescription": "認識 JWST 如何以紅外線窺探宇宙嬰兒期：從 L2 部署、金鏡分段到深空場影像，理解早期星系、恆星形成區與系外行星大氣的突破性發現。",
+        "seoKeywords": "JWST,韋伯望遠鏡,紅外線,早期宇宙,深空影像,系外行星,恆星形成",
+        "seoLead": "JWST 把百億年前的星光沖洗出來，讓我們第一次清晰看見宇宙學步的模樣。"
+      },
+      {
+        "slug": "cosmos-exoplanet",
+        "title": "繫外行星與外星生命",
+        "icon": "bi-globe2",
+        "desc": "宜居帶與生物痕跡搜尋",
+        "seoTitle": "繫外行星與外星生命｜宜居帶圖鑑",
+        "seoDescription": "從凌日法、徑向速度到直接成像，認識系外行星如何被發現；理解宜居帶、大氣光譜與生物痕跡，探索人類在宇宙中是否孤單的科學路徑。",
+        "seoKeywords": "系外行星,宜居帶,生物痕跡,凌日法,Tess,JWST,外星生命",
+        "seoLead": "在億萬顆恆星之間尋找第二個地球，是人類寫給宇宙的一封長信。"
+      },
+      {
+        "slug": "cosmos-mars",
+        "title": "火星移民與星艦計畫",
+        "icon": "bi-rocket-takeoff",
+        "desc": "星艦與火星殖民工程",
+        "seoTitle": "火星移民與星艦｜太空殖民宇宙圖鑑",
+        "seoDescription": "從星艦可重複使用火箭到火星 ISRU 水冰開採、輻射防護與密閉式生態，深入淺出理解火星殖民的技術路線、風險與人類多行星文明願景。",
+        "seoKeywords": "火星移民,Starship,SpaceX,ISRU,火星基地,太空殖民,可重複使用火箭",
+        "seoLead": "火星不是週末旅行，而是一場跨世代、跨星球的搬家與紮根。"
+      },
+      {
+        "slug": "cosmos-artemis",
+        "title": "阿提米絲登月計畫",
         "icon": "bi-moon-stars",
-        "desc": "經典故事專題，膽小者慎入。"
+        "desc": "重返月球與深空前哨",
+        "seoTitle": "阿提米絲登月｜月球基地宇宙圖鑑",
+        "seoDescription": "認識 Artemis 如何以 SLS、獵戶座與星際閘道重返月球：南極水冰、永晝區基地與國際合作，理解月球作為火星跳板的人類深空戰略。",
+        "seoKeywords": "Artemis,阿提米絲,登月,Gateway,月球基地,水冰,SLS,獵戶座",
+        "seoLead": "月球再次成為人類深空港口——這次我們要留下來，而不只是路過。"
+      },
+      {
+        "slug": "cosmos-dark-matter",
+        "title": "暗物質與暗能量",
+        "icon": "bi-eye-slash",
+        "desc": "隱形骨架與加速膨脹",
+        "seoTitle": "暗物質與暗能量｜隱形宇宙圖鑑",
+        "seoDescription": "從星系旋轉曲線、引力透鏡到超新星距離，理解暗物質如何支撐星系、暗能量如何推動宇宙加速膨脹，以及科學家正如何搜尋這 95% 的未知。",
+        "seoKeywords": "暗物質,暗能量,宇宙加速膨脹,引力透鏡,星系旋轉,宇宙常數,WIMP",
+        "seoLead": "宇宙大部分是真空的嗎？不——大部分是我們還不會讀的語言。"
+      },
+      {
+        "slug": "cosmos-big-bang",
+        "title": "大霹靂與宇宙膨脹",
+        "icon": "bi-broadcast",
+        "desc": "CMB餘溫與宇宙起源",
+        "seoTitle": "大霹靂與宇宙膨脹｜起源宇宙圖鑑",
+        "seoDescription": "從宇宙微波背景、原初核合成到暴脹理論，深入理解大霹靂如何從高溫奇點狀態膨脹冷卻，形成今日星系、元素與 138 億年宇宙歷史。",
+        "seoKeywords": "大霹靂,宇宙膨脹,CMB,暴脹,宇宙微波背景,宇宙年齡,原初核合成",
+        "seoLead": "全天空 2.7K 的微弱余響，是宇宙嬰兒時代的搖籃曲。"
+      },
+      {
+        "slug": "cosmos-neutron-star",
+        "title": "中子星脈衝星磁星",
+        "icon": "bi-lightning-charge",
+        "desc": "極密天體與宇宙燈塔",
+        "seoTitle": "中子星脈衝星磁星｜極端天體圖鑑",
+        "seoDescription": "認識中子星如何從超新星殘骸誕生，脈衝星為何像宇宙燈塔旋轉，磁星又如何以極端磁場與快速射電暴連結，探索核物理在星際尺度的極限。",
+        "seoKeywords": "中子星,脈衝星,磁星,快速射電暴,超新星殘骸,中子星合併,燈塔",
+        "seoLead": "方糖大小的山岳，每秒自轉數百圈——宇宙把密度與節奏寫到極致。"
+      },
+      {
+        "slug": "cosmos-supernova",
+        "title": "超新星與元素誕生",
+        "icon": "bi-stars",
+        "desc": "煉金熔爐與星塵起源",
+        "seoTitle": "超新星與星塵｜元素誕生宇宙圖鑑",
+        "seoDescription": "理解超新星 Type Ia 與核心坍縮型如何合成並拋射重元素，認識星塵如何形成下一代恆星、行星與生命，讀懂「我們都是星塵」的物理根據。",
+        "seoKeywords": "超新星,核合成,星塵,重元素,Type Ia,核心坍縮,金元素",
+        "seoLead": "你指環上的金、血液裡的鐵，都曾在某顆恆星的告別煙火中誕生。"
+      },
+      {
+        "slug": "cosmos-asteroid",
+        "title": "小行星撞擊與行星防禦",
+        "icon": "bi-shield-check",
+        "desc": "DART偏轉與地球安全",
+        "seoTitle": "小行星與行星防禦｜DART任務圖鑑",
+        "seoDescription": "從 Chicxulub 撞擊事件到 DART、Hera 任務，理解近地小行星威脅等級、動能偏轉策略與全球行星防禦協作，認識人類如何為地球裝上宇宙級安全帶。",
+        "seoKeywords": "小行星,DART,行星防禦,近地天體,動能偏轉,Hera,Chicxulub",
+        "seoLead": "太空中的撞球手已經投出第一球——行星防禦不再是假設，而是工程。"
+      },
+      {
+        "slug": "cosmos-gravitational-wave",
+        "title": "引力波與重力波天文",
+        "icon": "bi-water",
+        "desc": "時空漣漪與LIGO聆聽",
+        "seoTitle": "引力波天文書｜時空漣漪宇宙圖鑑",
+        "seoDescription": "從廣義相對論到 LIGO、Virgo、KAGRA 干涉儀，理解引力波如何由雙黑洞、中子星合併產生，以及多信使天文學如何改寫宇宙觀測方式。",
+        "seoKeywords": "引力波,LIGO,廣義相對論,雙黑洞,中子星合併,多信使天文,時空漣漪",
+        "seoLead": "宇宙不只用光說話——它也用時空的顫抖傳遞劇情。"
+      },
+      {
+        "slug": "cosmos-solar-storm",
+        "title": "太陽風暴與極光",
+        "icon": "bi-sun",
+        "desc": "CME、極光與太空天氣",
+        "seoTitle": "太陽風暴與極光｜太空天氣圖鑑",
+        "seoDescription": "理解太陽耀斑、日冕物質拋射如何觸發地磁暴與極光，認識太空天氣對電網、衛星、航運的威脅，以及 SOHO、DSCOVR 等預警衛星如何保護現代文明。",
+        "seoKeywords": "太陽風暴,CME,極光,地磁暴,太空天氣,日冕物質拋射,電網",
+        "seoLead": "太陽打個噴嚏，地球就可能斷網——極光只是風暴華麗的封面。"
+      },
+      {
+        "slug": "cosmos-andromeda",
+        "title": "銀河仙女座大碰撞",
+        "icon": "bi-hurricane",
+        "desc": "Milkdromeda與星系合併",
+        "seoTitle": "銀河仙女座碰撞｜星系合併圖鑑",
+        "seoDescription": "從本星系群動力學到四億年後銀河與 M31 合併模擬，理解星系合併如何重塑恆星軌道、觸發星暴，以及為何恆星幾乎不會直接相撞。",
+        "seoKeywords": "仙女座,銀河系,星系合併,Milkdromeda,M31,本星系群,星系演化",
+        "seoLead": "兩大星系即將優雅相撞——對恆星而言，那只是換條舞伴繼續旋轉。"
+      },
+      {
+        "slug": "cosmos-multiverse",
+        "title": "平行宇宙與多重宇宙",
+        "icon": "bi-layers",
+        "desc": "多重宇宙與平行時空",
+        "seoTitle": "平行宇宙假說｜多重宇宙圖鑑",
+        "seoDescription": "從永遠暴脹、量子多世界到弦論真空態 landscape，深入淺出理解多重宇宙假說的種類、證據限度與人類在無限可能性中的位置。",
+        "seoKeywords": "多重宇宙,平行宇宙,量子多世界,永遠暴脹,弦論,人擇原理,暴脹",
+        "seoLead": "若頻道無限多，我們這一臺節目為何剛好能播？"
+      },
+      {
+        "slug": "cosmos-wormhole",
+        "title": "蟲洞與時空捷徑",
+        "icon": "bi-signpost-split",
+        "desc": "ER橋與時空捷徑理論",
+        "seoTitle": "蟲洞與時空捷徑｜相對論圖鑑",
+        "seoDescription": "理解蟲洞在廣義相對論中的數學解、可穿越蟲洞為何需要 exotic 物質，以及與黑洞、量子糾纏、時空旅行假說的關聯與限制。",
+        "seoKeywords": "蟲洞,愛因斯坦羅森橋,時空旅行,負能量,ER=EPR,廣義相對論,時空捷徑",
+        "seoLead": "折紙可以縮短兩點距離——蟲洞是宇宙級的折紙，但還缺關鍵材料。"
+      },
+      {
+        "slug": "cosmos-frb",
+        "title": "快速射電暴 FRB",
+        "icon": "bi-broadcast-pin",
+        "desc": "毫秒閃光與宇宙謎訊",
+        "seoTitle": "快速射電暴 FRB｜毫秒閃光圖鑑",
+        "seoDescription": "理解 FRB 如何在毫秒內釋放巨大無線電能量，認識重複 FRB、磁星關聯與 CHIME、FAST 等望遠鏡的搜尋成果，探索宇宙深處最短暫也最亮的訊號。",
+        "seoKeywords": "FRB,快速射電暴,磁星,CHIME,FAST,重複FRB,射電天文",
+        "seoLead": "毫秒一閃，能量卻可匹敵太陽數月——宇宙在對誰發 Morse？"
+      },
+      {
+        "slug": "cosmos-fate",
+        "title": "宇宙終極命運",
+        "icon": "bi-snow",
+        "desc": "大凍結、熱寂與終局",
+        "seoTitle": "宇宙終極命運｜大凍結撕裂圖鑑",
+        "seoDescription": "從暗能量狀態方程到恆星燃盡、黑洞蒸發，理解大凍結、大撕裂、大坍縮等宇宙結局假說，以及當前觀測如何指向約 10¹⁰⁰ 年後的熱寂遠景。",
+        "seoKeywords": "宇宙命運,大凍結,大撕裂,熱寂,暗能量,霍金輻射,黑洞蒸發",
+        "seoLead": "當最後營火熄滅，宇宙仍會繼續——只是換成另一種沉默。"
+      },
+      {
+        "slug": "cosmos-interstellar",
+        "title": "星際天體與宇宙訪客",
+        "icon": "bi-box-arrow-in-right",
+        "desc": "系外訪客與物質指紋",
+        "seoTitle": "星際天體訪客｜奧陌陌宇宙圖鑑",
+        "seoDescription": "認識 Oumuamua、Borisov 等星際天體的軌道、成分與異常特性，理解它們如何成為系外行星形成與星際介質的現場樣本，無需飛出太陽系即可取證。",
+        "seoKeywords": "Oumuamua,星際天體,星際彗星,Borisov,系外訪客,星際介質,泛星計畫",
+        "seoLead": "有些訪客不必敲門——它們以軌道證明自己來自遠方。"
+      },
+      {
+        "slug": "cosmos-mining",
+        "title": "太空採礦與資源利用",
+        "icon": "bi-gem",
+        "desc": "ISRU 與軌道經濟",
+        "seoTitle": "太空採礦資源｜月球水冰圖鑑",
+        "seoDescription": "從小行星鉑族金屬、月球水冰到 ISRU 製氧製燃料，理解太空採礦的技術路線、法律框架與經濟前景，認識軌道補給如何改變火星與深空任務成本結構。",
+        "seoKeywords": "太空採礦,ISRU,小行星採礦,月球水冰,鉑族金屬,軌道經濟,原位資源",
+        "seoLead": "下一波淘金不在河流，而在軌道與灰色風化層之下。"
+      },
+      {
+        "slug": "cosmos-dyson",
+        "title": "戴森球與卡爾達肖夫指數",
+        "icon": "bi-brightness-high",
+        "desc": "II 型文明與恆星工程",
+        "seoTitle": "戴森球與文明等級｜卡爾達肖夫圖鑑",
+        "seoDescription": "理解戴森球、戴森 swarm 與卡爾達肖夫 I/II/III 型文明，認識恆星工程的可行性、觀測特徵與 SETI 如何搜尋技術文明的能量足跡。",
+        "seoKeywords": "戴森球,卡爾達肖夫,II型文明,SETI,恆星工程,Dyson swarm,卡爾達肖夫指數",
+        "seoLead": "若文明足夠成熟，整顆恆星的光都可能成為電源——我們該如何在天空中尋找這種簽名？"
       }
     ]
   },
@@ -745,6 +956,16 @@ window.WA_TOOLS_CATALOG = [
     "name": "生活百科",
     "tagline": "時間、曆法、親戚稱呼，生活疑難雜症百科。",
     "tools": [
+      {
+        "slug": "percentage-calculator",
+        "title": "百分比／漲跌幅計算器",
+        "icon": "bi-calculator",
+        "desc": "快速計算百分比、漲跌幅與相對比例。",
+        "seoTitle": "百分比計算器｜漲跌幅與比例快速試算",
+        "seoDescription": "免費百分比與漲跌幅計算器：輸入兩個數值，立即算出 A 佔 B 百分比與漲跌幅，適合比價、成績與投資估算。",
+        "seoKeywords": "百分比計算,漲跌幅,比例計算,折扣計算",
+        "seoLead": "百分比與漲跌幅一秒算完，日常比價與投資估算都適用。"
+      },
       {
         "slug": "time",
         "title": "世界時間",
@@ -1010,77 +1231,20 @@ window.WA_TOOLS_CATALOG = [
     ]
   },
   {
-    "id": "media",
-    "name": "媒體應用",
-    "tagline": "圖片、音樂、影片，瀏覽器裡假裝是創意工作者。",
-    "tools": [
-      {
-        "slug": "upload",
-        "title": "免費上傳空間",
-        "icon": "bi-cloud-upload",
-        "desc": "暫存檔案，別當永久備份。"
-      },
-      {
-        "slug": "meitu",
-        "title": "美圖秀秀網頁版",
-        "icon": "bi-magic",
-        "desc": "一鍵變美，P 到連媽媽都認不出。"
-      },
-      {
-        "slug": "photo",
-        "title": "照片編輯器",
-        "icon": "bi-image",
-        "desc": "裁切、調色，不用開 Photoshop 也能交差。"
-      },
-      {
-        "slug": "exif",
-        "title": "相片 Exif 資訊",
-        "icon": "bi-camera",
-        "desc": "照片藏了什麼 metadata，偵探模式 ON。"
-      },
-      {
-        "slug": "image-coordinate",
-        "title": "圖片座標",
-        "icon": "bi-crosshair",
-        "desc": "滑鼠指哪，像素座標就到哪。"
-      },
-      {
-        "slug": "music-player",
-        "title": "網頁音樂播放器",
-        "icon": "bi-music-note-beamed",
-        "desc": "本地音樂瀏覽器播放，版權自己負責。"
-      },
-      {
-        "slug": "media-player",
-        "title": "Web 影片播放器",
-        "icon": "bi-film",
-        "desc": "拖進來就能播，省得找播放器。"
-      },
-      {
-        "slug": "drawing",
-        "title": "塗鴉板",
-        "icon": "bi-brush",
-        "desc": "藝術家天賦 optional，塗鴉 mandatory。"
-      },
-      {
-        "slug": "barcode",
-        "title": "條碼產生器",
-        "icon": "bi-upc-scan",
-        "desc": "EAN、Code128 等條碼生成，包裝 mockup 用。"
-      },
-      {
-        "slug": "image-compress",
-        "title": "圖片壓縮",
-        "icon": "bi-file-earmark-zip",
-        "desc": "本地壓縮 JPG/PNG，不上傳伺服器。"
-      }
-    ]
-  },
-  {
     "id": "editor",
     "name": "線上編輯",
     "tagline": "文字處理小工具，寫作人的懶人包。",
     "tools": [
+      {
+        "slug": "line-break-remover",
+        "title": "去換行與多餘空白",
+        "icon": "bi-text-wrap",
+        "desc": "整理 PDF／網頁複製文字的斷行與空白。",
+        "seoTitle": "去換行工具｜PDF複製文字自動合併段落",
+        "seoDescription": "免費線上去換行工具：貼上 PDF 或網頁複製的斷行文字，一鍵合併段落並壓縮多餘空白，方便貼到文件與社群。",
+        "seoKeywords": "去換行,去除空白,PDF文字整理,合併段落",
+        "seoLead": "PDF 複製文字斷行？一鍵去換行、壓空白，貼上就能用。"
+      },
       {
         "slug": "editor",
         "title": "線上編輯器",
@@ -1109,7 +1273,10 @@ window.WA_TOOLS_CATALOG = [
         "slug": "wordcount",
         "title": "字數計算器",
         "icon": "bi-text-paragraph",
-        "desc": "字數、行數、段落，交稿前最後檢查。"
+        "desc": "字數、行數、段落，交稿前最後檢查。",
+        "seoTitle": "字數統計｜中英字數與閱讀時間估算",
+        "seoDescription": "免費線上字數統計：計算中英文字數、標點與行數，並估算閱讀時間，學生小編寫作必備。",
+        "seoKeywords": "字數統計,字數計算,閱讀時間,中英字數"
       },
       {
         "slug": "colorfont",
@@ -1176,67 +1343,6 @@ window.WA_TOOLS_CATALOG = [
         "title": "全形半形轉換",
         "icon": "bi-distribute-horizontal",
         "desc": "全形半形互轉，標點對齊不再靠肉眼。"
-      }
-    ]
-  },
-  {
-    "id": "security",
-    "name": "網絡安全",
-    "tagline": "密碼、加密、還原網址，隱私自己顧。",
-    "tools": [
-      {
-        "slug": "password",
-        "title": "密碼安全",
-        "icon": "bi-shield-lock",
-        "desc": "產生隨機強密碼、即時檢測強度，並了解帳號安全最佳實務。"
-      },
-      {
-        "slug": "email-icon",
-        "title": "電子郵件圖示",
-        "icon": "bi-envelope-at",
-        "desc": "Email 轉 PNG 圖片或文字混淆，降低公開網頁被爬蟲收集的風險。"
-      },
-      {
-        "slug": "textencrypt",
-        "title": "文字加密",
-        "icon": "bi-lock",
-        "desc": "本地 XOR 加密文字並輸出 Base64 密文，了解對稱加密概念（非工業級安全）。"
-      },
-      {
-        "slug": "longurl",
-        "title": "短網址還原",
-        "icon": "bi-link",
-        "desc": "還原 bit.ly、t.co、0rz.tw 等短網址的真實 URL，點擊前先確認目的地。"
-      },
-      {
-        "slug": "url-crypto",
-        "title": "網址加密",
-        "icon": "bi-key",
-        "desc": "URL 16 進制加密／解密，支援 encodeURI、escape、ASP URLDecode 等格式。"
-      },
-      {
-        "slug": "base64",
-        "title": "Base64 編解碼",
-        "icon": "bi-braces-asterisk",
-        "desc": "文字、圖片 Base64 互轉，API 除錯必備。"
-      },
-      {
-        "slug": "hash-tool",
-        "title": "MD5 / SHA 雜湊",
-        "icon": "bi-fingerprint",
-        "desc": "MD5、SHA-1、SHA-256 一次算，校對檔案用。"
-      },
-      {
-        "slug": "aes-crypto",
-        "title": "AES 加解密",
-        "icon": "bi-shield-fill-check",
-        "desc": "對稱加密試玩，密鑰自己記好。"
-      },
-      {
-        "slug": "morse-code",
-        "title": "摩斯電碼",
-        "icon": "bi-broadcast",
-        "desc": "文字與 ·− 互轉，業餘無線電入門儀式。"
       }
     ]
   },
@@ -1369,7 +1475,10 @@ window.WA_TOOLS_CATALOG = [
         "slug": "json-editor",
         "title": "JSON 編輯器",
         "icon": "bi-braces",
-        "desc": "格式化、驗證、摺疊 JSON，API 回應整理用。"
+        "desc": "格式化、驗證、摺疊 JSON，API 回應整理用。",
+        "seoTitle": "JSON格式化工具｜美化壓縮與驗證",
+        "seoDescription": "免費線上 JSON 格式化與美化／壓縮工具：貼上 JSON 立即排版、驗證錯誤，工程師每日剛需，資料留在瀏覽器。",
+        "seoKeywords": "JSON格式化,JSON美化,JSON壓縮,JSON驗證,線上JSON"
       },
       {
         "slug": "sql-formatter",
@@ -1381,13 +1490,19 @@ window.WA_TOOLS_CATALOG = [
         "slug": "regex-test",
         "title": "正則測試",
         "icon": "bi-slash-circle",
-        "desc": "即時匹配測試，regex 寫完先驗再說。"
+        "desc": "即時匹配測試，regex 寫完先驗再說。",
+        "seoTitle": "Regex正則測試｜常用正規表達式線上工具",
+        "seoDescription": "免費正則表達式 Regex 測試工具：即時比對、高亮結果，並提供常用範例，開發與文字處理必備。",
+        "seoKeywords": "Regex測試,正則表達式,正規表示式,線上regex"
       },
       {
         "slug": "crontab-calc",
         "title": "Crontab 計算",
         "icon": "bi-clock-history",
-        "desc": "Cron 表達式對照下次執行時間。"
+        "desc": "Cron 表達式對照下次執行時間。",
+        "seoTitle": "Cron表達式產生器｜排程語法產生與說明",
+        "seoDescription": "免費 Cron Job 排程表達式產生器：用選單組出正確 cron 語法並說明執行時間，解決記不住排程語法的痛點。",
+        "seoKeywords": "Cron產生器,crontab,排程表達式,Linux cron"
       },
       {
         "slug": "naming-converter",
@@ -1405,13 +1520,159 @@ window.WA_TOOLS_CATALOG = [
         "slug": "timestamp",
         "title": "時間戳轉換",
         "icon": "bi-hourglass-split",
-        "desc": "Unix 時間戳與日期時間互轉，時區自己對。"
+        "desc": "Unix 時間戳與日期時間互轉，時區自己對。",
+        "seoTitle": "Unix時間戳轉換｜Timestamp與日期互轉",
+        "seoDescription": "免費 Unix Timestamp 時間戳記轉換器：秒／毫秒與日期時間互轉，工程師與 PM 常用線上工具。",
+        "seoKeywords": "Timestamp,時間戳,Unix時間,日期轉換"
       },
       {
         "slug": "timestamp-batch",
         "title": "時間戳批量",
         "icon": "bi-hourglass-bottom",
         "desc": "多筆時間戳一次轉，日誌分析前處理。"
+      }
+    ]
+  },
+  {
+    "id": "media",
+    "name": "媒體應用",
+    "tagline": "圖片、音樂、影片，瀏覽器裡假裝是創意工作者。",
+    "tools": [
+      {
+        "slug": "upload",
+        "title": "免費上傳空間",
+        "icon": "bi-cloud-upload",
+        "desc": "暫存檔案，別當永久備份。"
+      },
+      {
+        "slug": "meitu",
+        "title": "美圖秀秀網頁版",
+        "icon": "bi-magic",
+        "desc": "一鍵變美，P 到連媽媽都認不出。"
+      },
+      {
+        "slug": "photo",
+        "title": "照片編輯器",
+        "icon": "bi-image",
+        "desc": "裁切、調色，不用開 Photoshop 也能交差。"
+      },
+      {
+        "slug": "exif",
+        "title": "相片 Exif 資訊",
+        "icon": "bi-camera",
+        "desc": "照片藏了什麼 metadata，偵探模式 ON。"
+      },
+      {
+        "slug": "image-coordinate",
+        "title": "圖片座標",
+        "icon": "bi-crosshair",
+        "desc": "滑鼠指哪，像素座標就到哪。"
+      },
+      {
+        "slug": "music-player",
+        "title": "網頁音樂播放器",
+        "icon": "bi-music-note-beamed",
+        "desc": "本地音樂瀏覽器播放，版權自己負責。"
+      },
+      {
+        "slug": "media-player",
+        "title": "Web 影片播放器",
+        "icon": "bi-film",
+        "desc": "拖進來就能播，省得找播放器。"
+      },
+      {
+        "slug": "drawing",
+        "title": "塗鴉板",
+        "icon": "bi-brush",
+        "desc": "藝術家天賦 optional，塗鴉 mandatory。"
+      },
+      {
+        "slug": "barcode",
+        "title": "條碼產生器",
+        "icon": "bi-upc-scan",
+        "desc": "EAN、Code128 等條碼生成，包裝 mockup 用。"
+      },
+      {
+        "slug": "image-compress",
+        "title": "圖片壓縮",
+        "icon": "bi-file-earmark-zip",
+        "desc": "本地壓縮 JPG/PNG，不上傳伺服器。"
+      }
+    ]
+  },
+  {
+    "id": "fun",
+    "name": "娛樂玩咖",
+    "tagline": "許願、占卜、測人品，認真你就輸了。",
+    "tools": [
+      {
+        "slug": "rp-test",
+        "title": "人品測試",
+        "icon": "bi-person-check",
+        "desc": "姓名測人品，結果娛樂為主。"
+      },
+      {
+        "slug": "fortune-stick",
+        "title": "線上抽籤",
+        "icon": "bi-shuffle",
+        "desc": "15/16 抽籤，上上籤自己解。"
+      },
+      {
+        "slug": "reaction-test",
+        "title": "反應速度測試",
+        "icon": "bi-lightning",
+        "desc": "看到就按，測毫秒反應，輸了別怪滑鼠。"
+      },
+      {
+        "slug": "lucky-draw",
+        "title": "幸運大抽獎",
+        "icon": "bi-gift",
+        "desc": "線上抽獎機，公平性由 RNG 保證。",
+        "seoTitle": "線上抽籤｜隨機抽獎與亂數產生",
+        "seoDescription": "免費線上抽籤與隨機亂數工具：適合活動抽獎、選餐點與分組，一鍵公平抽出結果。",
+        "seoKeywords": "線上抽籤,隨機抽獎,亂數產生器,抽獎工具"
+      },
+      {
+        "slug": "mind-reader",
+        "title": "讀心術",
+        "icon": "bi-eye",
+        "desc": "猜心術，邏輯漏洞也是樂趣。"
+      },
+      {
+        "slug": "zodiac",
+        "title": "生肖 & 星座",
+        "icon": "bi-stars",
+        "desc": "今日運勢，看了當參考就好。"
+      },
+      {
+        "slug": "lucky-number",
+        "title": "幸運號碼",
+        "icon": "bi-dice-5",
+        "desc": "下一顆球幾號？彩券夢想製造機。"
+      },
+      {
+        "slug": "wishing-tree",
+        "title": "許願樹",
+        "icon": "bi-tree",
+        "desc": "許個願，信則靈，不信也無妨。"
+      },
+      {
+        "slug": "jinyong",
+        "title": "金庸人物卜",
+        "icon": "bi-book-half",
+        "desc": "你是哪個武俠角色？江湖等你。"
+      },
+      {
+        "slug": "alchemist",
+        "title": "人體鍊成陣",
+        "icon": "bi-circle-square",
+        "desc": "人體成分分析，FA 迷的儀式感。"
+      },
+      {
+        "slug": "ghost-story",
+        "title": "倩女幽魂",
+        "icon": "bi-moon-stars",
+        "desc": "經典故事專題，膽小者慎入。"
       }
     ]
   },
@@ -1960,6 +2221,70 @@ window.WA_TOOLS_CATALOG = [
         "title": "霍金斯意識能量",
         "icon": "bi-activity",
         "desc": "意識能量層級，科學與靈性交界。"
+      }
+    ]
+  },
+  {
+    "id": "security",
+    "name": "網絡安全",
+    "tagline": "密碼、加密、還原網址，隱私自己顧。",
+    "tools": [
+      {
+        "slug": "password",
+        "title": "密碼安全",
+        "icon": "bi-shield-lock",
+        "desc": "產生隨機強密碼、即時檢測強度，並了解帳號安全最佳實務。"
+      },
+      {
+        "slug": "email-icon",
+        "title": "電子郵件圖示",
+        "icon": "bi-envelope-at",
+        "desc": "Email 轉 PNG 圖片或文字混淆，降低公開網頁被爬蟲收集的風險。"
+      },
+      {
+        "slug": "textencrypt",
+        "title": "文字加密",
+        "icon": "bi-lock",
+        "desc": "本地 XOR 加密文字並輸出 Base64 密文，了解對稱加密概念（非工業級安全）。"
+      },
+      {
+        "slug": "longurl",
+        "title": "短網址還原",
+        "icon": "bi-link",
+        "desc": "還原 bit.ly、t.co、0rz.tw 等短網址的真實 URL，點擊前先確認目的地。"
+      },
+      {
+        "slug": "url-crypto",
+        "title": "網址加密",
+        "icon": "bi-key",
+        "desc": "URL 16 進制加密／解密，支援 encodeURI、escape、ASP URLDecode 等格式。"
+      },
+      {
+        "slug": "base64",
+        "title": "Base64 編解碼",
+        "icon": "bi-braces-asterisk",
+        "desc": "文字、圖片 Base64 互轉，API 除錯必備。",
+        "seoTitle": "Base64編碼解碼｜文字與資料線上轉換",
+        "seoDescription": "免費 Base64 編碼／解碼工具：支援文字互轉，開發與傳輸資料常用，純前端處理更安心。",
+        "seoKeywords": "Base64,編碼,解碼,Base64轉換"
+      },
+      {
+        "slug": "hash-tool",
+        "title": "MD5 / SHA 雜湊",
+        "icon": "bi-fingerprint",
+        "desc": "MD5、SHA-1、SHA-256 一次算，校對檔案用。"
+      },
+      {
+        "slug": "aes-crypto",
+        "title": "AES 加解密",
+        "icon": "bi-shield-fill-check",
+        "desc": "對稱加密試玩，密鑰自己記好。"
+      },
+      {
+        "slug": "morse-code",
+        "title": "摩斯電碼",
+        "icon": "bi-broadcast",
+        "desc": "文字與 ·− 互轉，業餘無線電入門儀式。"
       }
     ]
   }

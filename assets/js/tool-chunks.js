@@ -164,6 +164,12 @@ window.WA_TOOL_CHUNKS = {
   "full-half": {
     "part": 4
   },
+  "line-break-remover": {
+    "part": 3,
+    "extra": [
+      "traffic-tools.js"
+    ]
+  },
   "line-number": {
     "part": 4
   },
@@ -287,6 +293,12 @@ window.WA_TOOL_CHUNKS = {
   },
   "parenting": {
     "part": 3
+  },
+  "percentage-calculator": {
+    "part": 3,
+    "extra": [
+      "traffic-tools.js"
+    ]
   },
   "postal": {
     "part": 3
@@ -493,6 +505,12 @@ window.WA_TOOL_CHUNKS = {
   "numerology": {
     "part": 3
   },
+  "heic-to-jpg": {
+    "part": 3,
+    "extra": [
+      "traffic-tools.js"
+    ]
+  },
   "ig-font-generator": {
     "part": 3,
     "extra": [
@@ -503,6 +521,12 @@ window.WA_TOOL_CHUNKS = {
     "part": 3,
     "extra": [
       "creator-tools.js"
+    ]
+  },
+  "image-resizer": {
+    "part": 3,
+    "extra": [
+      "traffic-tools.js"
     ]
   },
   "instagram-caption-formatter": {
@@ -551,6 +575,12 @@ window.WA_TOOL_CHUNKS = {
     "part": 3,
     "extra": [
       "creator-tools.js"
+    ]
+  },
+  "svg-to-png": {
+    "part": 3,
+    "extra": [
+      "traffic-tools.js"
     ]
   },
   "audio-notes-summarizer": {
@@ -743,6 +773,150 @@ window.WA_TOOL_CHUNKS = {
     "part": 3,
     "extra": [
       "live-tools.js"
+    ]
+  },
+  "cosmos-andromeda": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-artemis": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-asteroid": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-big-bang": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-black-hole": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-dark-matter": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-dyson": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-exoplanet": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-fate": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-frb": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-gravitational-wave": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-interstellar": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-jwst": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-mars": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-mining": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-multiverse": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-neutron-star": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-solar-storm": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-supernova": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "cosmos-wormhole": {
+    "part": 3,
+    "extra": [
+      "cosmos-theme.js"
+    ]
+  },
+  "compound-interest": {
+    "part": 3,
+    "extra": [
+      "finance-tools.js"
+    ]
+  },
+  "dividend-yield": {
+    "part": 3,
+    "extra": [
+      "finance-tools.js"
+    ]
+  },
+  "margin-trading": {
+    "part": 3,
+    "extra": [
+      "finance-tools.js"
+    ]
+  },
+  "stock-fee-calc": {
+    "part": 3,
+    "extra": [
+      "finance-tools.js"
     ]
   },
   "coat-of-arms": {

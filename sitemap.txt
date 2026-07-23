@@ -2,7 +2,6 @@
 # 在此檔案中的 slug 會出現在左側網站地圖與首頁工具目錄。
 # 以 # 開頭為註解；空行略過。一行一個 slug。
 # updated: 2026-07-21T13:38:41.474Z
-
 aizome-kimono
 ama-shima
 anime-hometown
@@ -17,9 +16,31 @@ chat-screenshot-maker
 coat-of-arms
 color
 color-blindness
+compound-interest
+cosmos-andromeda
+cosmos-artemis
+cosmos-asteroid
+cosmos-big-bang
+cosmos-black-hole
+cosmos-dark-matter
+cosmos-dyson
+cosmos-exoplanet
+cosmos-fate
+cosmos-frb
+cosmos-gravitational-wave
+cosmos-interstellar
+cosmos-jwst
+cosmos-mars
+cosmos-mining
+cosmos-multiverse
+cosmos-neutron-star
+cosmos-solar-storm
+cosmos-supernova
+cosmos-wormhole
 currency
 daily-fortune-card
 datetime-calc
+dividend-yield
 drawing
 emoji
 english-date
@@ -35,11 +56,13 @@ guid
 hanabi-guide
 hashtag-organizer
 hawkins
+heic-to-jpg
 ig-font-generator
 ig-grid-splitter
 image-compress
 image-compressor
 image-coordinate
+image-resizer
 inari-fox
 income-tax-estimator
 instagram-caption-formatter
@@ -53,6 +76,7 @@ keyboard-mouse
 keycode
 labor-health-insurance
 labor-retirement-calculator
+line-break-remover
 line-image-preview-cropper
 link-preview-card
 live-crypto
@@ -66,6 +90,7 @@ live-weather
 llm-api-cost-calculator
 lucky-draw
 lucky-number
+margin-trading
 markdown-to-html-cleaner
 matsuri-calendar
 meeting-cost-calculator
@@ -82,6 +107,7 @@ otaru-canal
 overtime-leave-calculator
 password-generator-pro
 pdf-page-reorder
+percentage-calculator
 phone
 photo
 population
@@ -107,7 +133,9 @@ solar-terms
 speech-time-estimator
 speech-to-text-notebook
 stay
+stock-fee-calc
 stopwatch
+svg-to-png
 symbols-generator
 threads-persona-analyzer
 timestamp

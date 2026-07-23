@@ -1,0 +1,163 @@
+/* Finance calculators — bright board */
+.tool-app.wa-fin {
+  --fin-accent: #0f766e;
+  --fin-heading: #134e4a;
+  --fin-text: #334155;
+  --fin-muted: #64748b;
+  --fin-soft: #f0fdfa;
+  --fin-border: rgba(15, 118, 110, 0.22);
+  --fin-up: #dc2626;
+  color: var(--fin-text);
+  background: transparent !important;
+  padding: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+.wa-fin .fn-card {
+  background: #fff !important;
+  border: 1px solid var(--fin-border) !important;
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem 1.35rem;
+  box-shadow: 0 4px 18px rgba(15, 118, 110, 0.07);
+}
+
+.wa-fin .fn-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fin-accent);
+  font-weight: 600;
+}
+
+.wa-fin .fn-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem;
+  color: var(--fin-heading);
+  font-weight: 700;
+}
+
+.wa-fin .fn-lead {
+  margin: 0 0 1rem;
+  color: var(--fin-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.wa-fin .fn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .wa-fin .fn-grid { grid-template-columns: 1fr; }
+}
+
+.wa-fin .fn-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--fin-heading);
+  font-weight: 500;
+}
+
+.wa-fin .fn-input,
+.wa-fin .fn-select {
+  width: 100%;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--fin-accent), transparent 68%);
+  padding: 0.55rem 0.8rem;
+  background: #fff;
+  color: var(--fin-text);
+}
+
+.wa-fin .fn-btn {
+  background: var(--fin-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wa-fin .fn-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.wa-fin .fn-kpi {
+  background: var(--fin-soft);
+  border: 1px solid var(--fin-border);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+}
+
+.wa-fin .fn-kpi span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--fin-muted);
+}
+
+.wa-fin .fn-kpi strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.1rem;
+  color: var(--fin-heading);
+}
+
+.wa-fin .fn-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--fin-muted);
+  line-height: 1.5;
+}
+
+.wa-fin .fn-seo {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--fin-border);
+}
+
+.wa-fin .fn-seo h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--fin-heading);
+}
+
+.wa-fin .fn-seo h3 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 0.95rem;
+  color: var(--fin-heading);
+}
+
+.wa-fin .fn-seo p,
+.wa-fin .fn-seo li {
+  font-size: 0.9rem;
+  color: var(--fin-muted);
+  line-height: 1.7;
+}
+
+.wa-fin .fn-seo ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.wa-fin .fn-faq details {
+  border: 1px solid var(--fin-border);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  margin: 0.45rem 0;
+  background: #fff;
+}
+
+.wa-fin .fn-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--fin-heading);
+  font-size: 0.9rem;
+}
